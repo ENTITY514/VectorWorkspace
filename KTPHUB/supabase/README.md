@@ -1,46 +1,8 @@
-# Supabase setup for KTPHUB
+# Supabase (shared platform DB)
 
-## 1. Apply SQL
+Canonical migrations for the whole VectorWorkspace live here:
 
-Open Supabase → SQL Editor → paste and run:
+- [`../../supabase/migrations`](../../supabase/migrations)
+- Setup docs: [`../../docs/supabase/setup.md`](../../docs/supabase/setup.md)
 
-- `supabase/migrations/001_init.sql`
-
-## 2. Env
-
-`.env.local` (already gitignored):
-
-```
-REACT_APP_SUPABASE_URL=https://YOUR_PROJECT.supabase.co
-REACT_APP_SUPABASE_ANON_KEY=your_anon_key
-```
-
-## 3. Auth URLs
-
-Authentication → URL configuration:
-
-- Site URL: `http://localhost:3000`
-- Redirect URLs: `http://localhost:3000/**`
-
-For local testing, disable **Confirm email** under Auth → Providers → Email.
-
-## 4. Make yourself admin
-
-Register in the app, then run:
-
-```sql
-update public.profiles set role = 'admin' where email = 'YOUR@EMAIL';
-```
-
-## 5. Start
-
-```bash
-npm start
-```
-
-Flows:
-
-- `/admin/tup` — upload TUP (admin)
-- `/tup-catalog` — pick TUP → create KTP
-- Editor / saved list — publish KTP
-- `/ktp-catalog` — browse published KTP
+Do not add app-specific secrets in this folder. Use root `.env.local`.
