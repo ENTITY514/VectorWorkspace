@@ -1,0 +1,2 @@
+-- After you register, promote yourself to admin (replace email):
+-- update public.profiles set role = 'admin' where email = 'your@email.com';

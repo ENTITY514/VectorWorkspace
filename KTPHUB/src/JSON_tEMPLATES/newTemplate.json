@@ -1,0 +1,80 @@
+{
+  "ktp_templates": [
+    {
+      "id": "uuid-ktp-1",
+      "name": "Алгебра 7 класс (2025-2026)",
+      "class": "7 'А'",
+      "subject": "Алгебра",
+      "source_filename": "typovoi_plan.xlsx",
+      "lessons": [
+        {
+          "lesson_number": 1,
+          "lesson_type": "regular",
+          "topic": "1. Степень и ее свойства. Одночлены и многочлены.",
+          "learning_objectives": ["7.1.2.1", "7.1.2.2"],
+          "homework": "Стр.6 №0.3",
+          "hours": 1,
+          "planned_date": "2025-09-02",
+          "teacher_notes": "Повторить свойства степеней из 6 класса."
+        },
+        {
+          "lesson_number": 20,
+          "lesson_type": "sor",
+          "topic": "СОР №1 по разделу 'Многочлены'",
+          "learning_objectives": ["7.1.2.1", "7.1.2.2", "7.2.1.1"],
+          "homework": "Повторить главу 1.",
+          "hours": 1,
+          "planned_date": "2025-10-15",
+          "teacher_notes": "Максимальный балл - 15."
+        }
+      ]
+    }
+  ],
+  "analysis_reports": [
+    {
+      "id": "uuid-report-1",
+      "report_name": "Анализ СОЧ за 1 четверть, 7 'А'",
+      "class": "7 'А'",
+      "subject": "Алгебра",
+      "period": "1 четверть 2025-2026",
+      "source_filename": "kundelik_export_7A_q1.xlsx",
+      "overall_metrics": {
+        "average_score": 18.5,
+        "quality_percent": 82.0,
+        "pass_rate_percent": 95.0
+      },
+      "student_performances": [
+        {
+          "student_name": "Акауов Ансар",
+          "daily_grades_average": 8.5,
+          "assessments": [
+            {
+              "type": "sor",
+              "title": "СОР №1",
+              "max_score": 15,
+              "student_score": 11,
+              "criteria": [
+                { "code": "7.1.2.1", "max_points": 5, "student_points": 4 },
+                { "code": "7.2.1.1", "max_points": 10, "student_points": 7 }
+              ]
+            },
+            {
+              "type": "soch",
+              "title": "СОЧ за 1 четверть",
+              "max_score": 25,
+              "student_score": 22,
+              "criteria": [
+                { "code": "7.1.2.1", "max_points": 8, "student_points": 8 },
+                { "code": "7.2.1.1", "max_points": 9, "student_points": 7 },
+                { "code": "7.3.1.1", "max_points": 8, "student_points": 7 }
+              ]
+            }
+          ]
+        },
+        {
+          "student_name": "Иванов Иван"
+        }
+      ]
+    }
+  ]
+}
