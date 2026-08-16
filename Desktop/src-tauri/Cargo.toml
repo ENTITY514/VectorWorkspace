@@ -1,0 +1,36 @@
+[package]
+name = "vector-workspace"
+version = "0.1.0"
+description = "VectorWorkspace - приложение учителя"
+authors = ["you"]
+edition = "2021"
+default-run = "vector-workspace"
+
+[lib]
+# The `_lib` suffix may seem redundant but it is necessary
+# to make the lib name unique and wouldn't conflict with the bin name.
+# This seems to be only an issue on Windows, see https://github.com/rust-lang/cargo/issues/8519
+name = "vector_workspace_lib"
+crate-type = ["staticlib", "cdylib", "rlib"]
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
+tauri-plugin-opener = "2"
+tauri-plugin-dialog = "2"
+tauri-plugin-fs = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+thiserror = "2"
+
+# Асинхронное ядро (Non-Blocking Actor Core)
+tokio = { version = "1", features = ["rt-multi-thread", "macros", "sync", "time"] }
+sqlx = { version = "0.8", features = ["runtime-tokio", "sqlite", "migrate"] }
+uuid = { version = "1", features = ["v4", "serde"] }
+regex = "1"
+scraper = "0.22"
+
+[dev-dependencies]
+tempfile = "3"
