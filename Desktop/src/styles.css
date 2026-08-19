@@ -971,3 +971,143 @@ button.btn-sm {
   font-size: 12px;
   margin-top: 2px;
 }
+
+/* ---------- Forms (Идентичность, Фаза 2) ---------- */
+.form-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.form-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  min-width: 140px;
+}
+
+.form-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.form-hint {
+  margin-top: 8px;
+  font-size: 12px;
+  color: var(--muted);
+}
+
+/* ---------- Settings (Фаза 2) ---------- */
+.settings {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 1100px;
+}
+
+.settings-section .panel-body {
+  padding: 16px 18px 18px;
+}
+
+/* ---------- Onboarding (Фаза 2) ---------- */
+.onboard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 24px;
+}
+
+.onboard-card {
+  width: 100%;
+  max-width: 640px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  padding: 26px 28px;
+}
+
+.onboard-card h2 {
+  margin: 0 0 6px;
+  font-size: 20px;
+}
+
+.onboard-sub {
+  margin: 0 0 18px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.onboard-steps {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.onboard-step {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  border-radius: 999px;
+  padding: 6px 12px;
+  font-size: 12.5px;
+  color: var(--muted);
+  cursor: default;
+}
+
+.onboard-step.active {
+  border-color: var(--accent);
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.onboard-step.done {
+  cursor: pointer;
+}
+
+.onboard-step-n {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--gray-soft);
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.onboard-step.active .onboard-step-n {
+  background: var(--accent);
+  color: #fff;
+}
+
+.onboard-step.done .onboard-step-n {
+  background: var(--green);
+  color: #fff;
+}
+
+.onboard-body {
+  min-height: 120px;
+}
+
+.onboard-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 22px;
+  gap: 10px;
+}

@@ -1,5 +1,5 @@
-import { useState } from "react";
-import type { View } from "./types";
+import { useEffect, useState } from "react";
+import type { SchoolState, View } from "./types";
 import "./styles.css";
 import { Today } from "./panels/Today";
 import { TupList } from "./panels/TupList";
@@ -10,6 +10,9 @@ import { Library } from "./panels/Library";
 import { Sor } from "./panels/Sor";
 import { Analytics } from "./panels/Analytics";
 import { Students } from "./panels/Students";
+import { Settings } from "./panels/Settings";
+import { Onboarding } from "./panels/Onboarding";
+import { api } from "./api";
 
 const nav: { id: View; icon: string; label: string }[] = [
   { id: "today", icon: "◧", label: "Сегодня" },
@@ -20,6 +23,7 @@ const nav: { id: View; icon: string; label: string }[] = [
   { id: "sor", icon: "✓", label: "СОР / СОЧ" },
   { id: "analytics", icon: "◔", label: "Аналитика" },
   { id: "students", icon: "☺", label: "Ученики" },
+  { id: "settings", icon: "⚙", label: "Настройки" },
 ];
 
 const titles: Record<View, string> = {
@@ -31,6 +35,7 @@ const titles: Record<View, string> = {
   sor: "СОР / СОЧ",
   analytics: "Аналитика",
   students: "Ученики",
+  settings: "Настройки школы",
 };
 
 const subtitles: Partial<Record<View, string>> = {
@@ -42,11 +47,28 @@ const subtitles: Partial<Record<View, string>> = {
   sor: "Суммативное оценивание и диагностика",
   analytics: "Анализ результатов и слабых ЦО",
   students: "Индивидуальные листы отработки",
+  settings: "Школа · штат · профиль · классы",
 };
 
 function App() {
   const [view, setView] = useState<View>("today");
   const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [onboarded, setOnboarded] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    api
+      .getSchoolState()
+      .then((s: SchoolState) => setOnboarded(s.onboarded))
+      .catch(() => setOnboarded(true));
+  }, []);
+
+  if (onboarded === null) {
+    return <div className="empty" style={{ margin: 40 }}>Проверка состояния учреждения...</div>;
+  }
+
+  if (!onboarded) {
+    return <Onboarding onDone={() => setOnboarded(true)} />;
+  }
 
   return (
     <div className="app">
@@ -92,6 +114,7 @@ function App() {
         {view === "sor" && <Sor />}
         {view === "analytics" && <Analytics />}
         {view === "students" && <Students />}
+        {view === "settings" && <Settings />}
       </main>
     </div>
   );

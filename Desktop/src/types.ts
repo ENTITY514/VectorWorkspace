@@ -6,7 +6,8 @@ export type View =
   | "library"
   | "sor"
   | "analytics"
-  | "students";
+  | "students"
+  | "settings";
 
 export interface HealthReport {
   status: string;
@@ -261,4 +262,73 @@ export interface KtpPlanCard {
   totalHours: number;
   status: string;
   daysOfWeek: string;
+}
+
+// ---- Идентичность (Фаза 2): школа, штат, профиль, классы ----
+
+export type StaffRole = "Director" | "DeputyDirector" | "MethodHead" | "Teacher";
+
+export interface School {
+  id: string;
+  name: string;
+  region: string | null;
+  createdAt: string;
+}
+
+export interface SchoolStaff {
+  id: string;
+  schoolId: string;
+  role: StaffRole;
+  roleLabel: string;
+  fullName: string;
+  isActive: boolean;
+  validFrom: string | null;
+  validTo: string | null;
+}
+
+export interface TeacherProfile {
+  id: string;
+  schoolId: string;
+  fullName: string;
+  category: string | null;
+}
+
+export interface ClassGroup {
+  id: string;
+  schoolId: string;
+  grade: number;
+  letter: string;
+  language: "RU" | "KK";
+}
+
+export interface SchoolState {
+  onboarded: boolean;
+  school: School | null;
+  staff: SchoolStaff[];
+  profile: TeacherProfile | null;
+  classes: ClassGroup[];
+}
+
+export interface OnboardSchoolInput {
+  schoolName: string;
+  region?: string | null;
+  teacherFullName: string;
+  teacherCategory?: string | null;
+  directorFullName: string;
+}
+
+export interface SaveStaffInput {
+  id?: string;
+  schoolId: string;
+  role: StaffRole;
+  fullName: string;
+  validFrom?: string | null;
+}
+
+export interface SaveClassInput {
+  id?: string;
+  schoolId: string;
+  grade: number;
+  letter: string;
+  language: "RU" | "KK";
 }

@@ -2,6 +2,7 @@
 //! Команды возвращают полностью собранные агрегаты, готовые к использованию.
 
 pub mod health;
+pub mod identity;
 pub mod ktp;
 pub mod tup;
 
@@ -32,6 +33,14 @@ pub fn register<R: tauri::Runtime>(
         })
         .invoke_handler(tauri::generate_handler![
             health::health,
+            identity::get_school_state,
+            identity::onboard_school,
+            identity::save_school,
+            identity::save_staff,
+            identity::deactivate_staff,
+            identity::save_profile,
+            identity::save_class,
+            identity::delete_class,
             tup::list_tup_documents,
             tup::list_objectives,
             tup::get_tup_document,

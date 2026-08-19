@@ -1,11 +1,19 @@
 import { invoke } from "@tauri-apps/api/core";
 import type {
+  ClassGroup,
   HealthReport,
   InvariantReport,
   KtpPlan,
   KtpPlanCard,
   LearningObjective,
+  OnboardSchoolInput,
   RkCalendar,
+  SaveClassInput,
+  SaveStaffInput,
+  School,
+  SchoolStaff,
+  SchoolState,
+  TeacherProfile,
   TupDocument,
   TupDocumentDetail,
   TupDocumentListItem,
@@ -122,5 +130,46 @@ export const api = {
   async saveKtpPlan(plan: KtpPlan): Promise<KtpPlan> {
     const { invariant: _inv, ...rest } = plan;
     return call<KtpPlan>("save_ktp_plan", { plan: rest });
+  },
+
+  // ---- Идентичность (Фаза 2) ----
+  /** Состояние учреждения: онбординг и экран «Настройки школы». */
+  async getSchoolState(): Promise<SchoolState> {
+    return call<SchoolState>("get_school_state");
+  },
+
+  /** Первый запуск: школа + профиль учителя + директор в одной транзакции. */
+  async onboardSchool(input: OnboardSchoolInput): Promise<SchoolState> {
+    return call<SchoolState>("onboard_school", { input });
+  },
+
+  /** Редактирование данных школы. */
+  async saveSchool(input: { id: string; name: string; region?: string | null }): Promise<School> {
+    return call<School>("save_school", { input });
+  },
+
+  /** Создание/обновление должности. Активация закрывает предыдущую ревизию роли. */
+  async saveStaff(input: SaveStaffInput): Promise<SchoolStaff> {
+    return call<SchoolStaff>("save_staff", { input });
+  },
+
+  /** Увольнение: должность помечается неактивной, valid_to = сегодня. */
+  async deactivateStaff(staffId: string): Promise<SchoolStaff> {
+    return call<SchoolStaff>("deactivate_staff", { staffId });
+  },
+
+  /** Профиль учителя (single-user, upsert). */
+  async saveProfile(input: { fullName: string; category?: string | null }): Promise<TeacherProfile> {
+    return call<TeacherProfile>("save_profile", { input });
+  },
+
+  /** Создание/обновление физического класса. */
+  async saveClass(input: SaveClassInput): Promise<ClassGroup> {
+    return call<ClassGroup>("save_class", { input });
+  },
+
+  /** Удаление физического класса. */
+  async deleteClass(classId: string): Promise<void> {
+    return call<void>("delete_class", { classId });
   },
 };

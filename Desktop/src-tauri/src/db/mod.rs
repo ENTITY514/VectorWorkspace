@@ -3,6 +3,7 @@
 
 pub mod error;
 pub mod repo;
+pub mod repo_identity;
 pub mod repo_ktp;
 pub mod repo_tup;
 
