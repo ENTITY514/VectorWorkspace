@@ -25,6 +25,17 @@ jest.mock('xlsx', () => ({
 
 const XLSX = require('xlsx');
 
+// react-scripts включает resetMocks: true, поэтому значения моков из фабрики
+// сбрасываются перед каждым тестом — восстанавливаем их в beforeEach.
+beforeEach(() => {
+  (XLSX.read as jest.Mock).mockReturnValue({
+    SheetNames: ['Sheet1'],
+    Sheets: {
+      'Sheet1': {},
+    },
+  });
+});
+
 describe('circulumPlanParser for .xls format', () => {
 
   it('should parse multiple objectives from a single cell (separated by newlines)', async () => {

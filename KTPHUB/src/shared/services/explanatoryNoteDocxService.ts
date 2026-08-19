@@ -13,6 +13,8 @@ import {
   VerticalAlign,
   BorderStyle,
 } from "docx";
+import { saveAs } from "file-saver";
+import { ExplanatoryNoteData } from "../../entities/explanatoryNote/model/types";
 
 const tableGridBorders = {
   top: { style: BorderStyle.SINGLE, size: 4, color: "000000" },
@@ -22,8 +24,6 @@ const tableGridBorders = {
   insideHorizontal: { style: BorderStyle.SINGLE, size: 4, color: "000000" },
   insideVertical: { style: BorderStyle.SINGLE, size: 4, color: "000000" },
 };
-import { saveAs } from "file-saver";
-import { ExplanatoryNoteData } from "../../entities/explanatoryNote/model/types";
 
 export const exportExplanatoryNoteToDocx = async (data: ExplanatoryNoteData) => {
   const children: any[] = [
