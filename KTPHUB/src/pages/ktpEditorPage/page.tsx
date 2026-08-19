@@ -31,6 +31,7 @@ import {
 } from "../../entities/ktp/model/slice";
 import { KtpEditor } from "../../features/KTPEditor";
 import { DayOfWeek } from "../../entities/ktp/model/types";
+import { validateKtpPlanInvariants } from "../../entities/ktp/model/invariants";
 import NotificationModal from "../../components/NotificationModal/NotificationModal";
 import { generateWordDocument } from "../../shared/lib/word-generator";
 import { generateXlsx, generateKundelikXlsx } from "../../shared/lib/xlsx-generator";
@@ -307,6 +308,52 @@ const KtpEditorPage: React.FC = () => {
     );
   };
 
+  const renderInvariantBanner = () => {
+    if (plan.length === 0) return null;
+
+    const hoursPerWeek = selectedDays.length;
+    const report = validateKtpPlanInvariants(plan, hoursPerWeek);
+
+    if (report.valid && hoursPerWeek > 0) {
+      return (
+        <Alert severity="success" sx={{ mt: 2 }}>
+          Инварианты КТП соблюдены: дистанция СОР → СОЧ и буфер недельной
+          нагрузки после СОЧ во всех четвертях.
+        </Alert>
+      );
+    }
+
+    const violations: string[] = [];
+    report.checks.forEach((c) => {
+      if (!c.fr22.ok) violations.push(`Четверть ${c.quarterNumber}: ${c.fr22.message}`);
+      if (!c.fr23.ok) violations.push(`Четверть ${c.quarterNumber}: ${c.fr23.message}`);
+    });
+
+    return (
+      <Box sx={{ mt: 2 }}>
+        <Typography variant="h6" gutterBottom>
+          Проверка инвариантов оценивания (Фаза 4)
+        </Typography>
+        {hoursPerWeek === 0 ? (
+          <Alert severity="info" sx={{ mt: 1 }}>
+            Выберите дни проведения уроков, чтобы проверить буфер недельной
+            нагрузки после СОЧ (FR-2.3).
+          </Alert>
+        ) : null}
+        {violations.map((v, i) => (
+          <Alert key={i} severity="error" sx={{ mt: 1 }}>
+            {v}
+          </Alert>
+        ))}
+        {violations.length === 0 && hoursPerWeek > 0 ? (
+          <Alert severity="success" sx={{ mt: 1 }}>
+            Все четверти соответствуют инвариантам оценивания.
+          </Alert>
+        ) : null}
+      </Box>
+    );
+  };
+
   let content;
 
   if (status === "loading") {
@@ -437,6 +484,7 @@ const KtpEditorPage: React.FC = () => {
           </Button>
         </Box>
         {renderPossibleLessonsInfo()}
+        {renderInvariantBanner()}
       </Paper>
 
       {content}
