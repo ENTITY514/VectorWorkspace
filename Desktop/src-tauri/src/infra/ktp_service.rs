@@ -5,9 +5,9 @@
 use chrono::NaiveDate;
 
 use crate::domain::invariants::LessonKind;
-use crate::domain::ktp::{KtpLesson, KtpPlan, KtpQuarter, KtpStatus};
+use crate::domain::ktp::{KtpLesson, KtpPlan, KtpQuarter, KtpStatus, LessonObjective};
 use crate::domain::rk_calendar::RkCalendar;
-use crate::domain::tup::FullTupDocument;
+use crate::domain::tup::{FullTupDocument, LearningObjective};
 
 /// Параметры генерации КТП.
 pub struct GenerateParams {
@@ -24,11 +24,11 @@ pub struct GenerateParams {
 /// цели подставляются из матрицы (П2) по коду. СОР — после каждого раздела,
 /// СОЧ — в конце четверти, за ним буфер повторений (FR-2.3).
 pub fn generate_from_tup(doc: &FullTupDocument, p: &GenerateParams) -> KtpPlan {
-    let objectives_by_code = doc
+    let objectives_by_code: std::collections::HashMap<String, &LearningObjective> = doc
         .objectives
         .iter()
-        .map(|o| (o.code.replace(char::is_whitespace, ""), o.code.clone()))
-        .collect::<std::collections::HashMap<_, _>>();
+        .map(|o| (o.code.replace(char::is_whitespace, ""), o))
+        .collect();
 
     let hours_per_week = doc
         .hours
@@ -42,6 +42,7 @@ pub fn generate_from_tup(doc: &FullTupDocument, p: &GenerateParams) -> KtpPlan {
         id: crate::domain::ids::KtpPlanId::new(),
         subject_id: p.subject_id.clone(),
         grade: p.grade,
+        language: doc.document.language.clone(),
         academic_year: p.academic_year.clone(),
         total_hours: 0,
         status: KtpStatus::Draft,
@@ -79,25 +80,50 @@ pub fn generate_from_tup(doc: &FullTupDocument, p: &GenerateParams) -> KtpPlan {
         if let Some(tq) = grade_quarters.iter().find(|q| q.quarter_number == qn as i64) {
             for section in &tq.sections {
                 for topic in &section.topics {
-                    global_index += 1;
-                    let mut lesson = KtpLesson::new(
-                        quarter.id,
-                        global_index,
-                        quarter.lessons.len() as i64 + 1,
-                        topic.name.clone(),
-                        LessonKind::Standard,
-                    );
-                    lesson.objective_codes = topic
+                    // На каждую цель обучения — отдельный урок (как в реальном КТП:
+                    // тема повторяется на продолжениях, одна цель может идти несколько уроков).
+                    let objectives: Vec<LessonObjective> = topic
                         .objective_codes
                         .iter()
                         .map(|c| {
-                            objectives_by_code
-                                .get(&c.replace(char::is_whitespace, ""))
-                                .cloned()
-                                .unwrap_or_else(|| c.clone())
+                            let norm = c.replace(char::is_whitespace, "");
+                            let found = objectives_by_code.get(&norm);
+                            LessonObjective {
+                                code: found
+                                    .map(|o| o.code.clone())
+                                    .unwrap_or_else(|| c.clone()),
+                                description: found
+                                    .map(|o| o.description.clone())
+                                    .unwrap_or_default(),
+                            }
                         })
                         .collect();
-                    quarter.lessons.push(lesson);
+                    if objectives.is_empty() {
+                        global_index += 1;
+                        let mut lesson = KtpLesson::new(
+                            quarter.id,
+                            global_index,
+                            quarter.lessons.len() as i64 + 1,
+                            topic.name.clone(),
+                            LessonKind::Standard,
+                        );
+                        lesson.section_name = section.name.clone();
+                        quarter.lessons.push(lesson);
+                    } else {
+                        for obj in objectives {
+                            global_index += 1;
+                            let mut lesson = KtpLesson::new(
+                                quarter.id,
+                                global_index,
+                                quarter.lessons.len() as i64 + 1,
+                                topic.name.clone(),
+                                LessonKind::Standard,
+                            );
+                            lesson.section_name = section.name.clone();
+                            lesson.objectives = vec![obj];
+                            quarter.lessons.push(lesson);
+                        }
+                    }
                 }
                 // СОР после каждого раздела (включая последний), чтобы
                 // последний СОР оказался ровно за 1 урок до СОЧ (FR-2.2).
@@ -413,5 +439,41 @@ mod tests {
         assert_eq!(plan.status, KtpStatus::Draft);
         assert!(plan.total_hours > 0);
         assert_eq!(plan.quarters[0].hours_per_week, 2);
+    }
+
+    #[test]
+    fn each_objective_becomes_its_own_lesson() {
+        let mut doc = stub_doc();
+        // Первой теме добавляем вторую цель: 5.1.1.1 и 5.1.1.2 — две цели.
+        doc.quarters[0].sections[0].topics[0].objective_codes.push("5.1.1.2".into());
+        doc.objectives.push(LearningObjective::new(
+            doc.document.id, 5, 1, 1, 2, "уметь сравнивать".into(), "5.1.1.2".into(),
+        ));
+
+        let plan = generate_from_tup(&doc, &params());
+        let q0 = &plan.quarters[0];
+
+        // Темы первой секции: тема1 (2 цели → 2 урока), тема2 (1 цель → 1 урок);
+        // вторая секция: тема3 (1 цель → 1 урок).
+        let standard: Vec<&KtpLesson> = q0
+            .lessons
+            .iter()
+            .filter(|l| l.lesson_type == LessonKind::Standard)
+            .collect();
+        assert_eq!(standard.len(), 4, "должно быть 4 урока на 4 цели");
+
+        let first = &standard[0];
+        let second = &standard[1];
+        assert_eq!(first.topic_title, "Тема 1");
+        assert_eq!(second.topic_title, "Тема 1", "тема повторяется на продолжении");
+        assert_eq!(first.objectives.len(), 1);
+        assert_eq!(second.objectives.len(), 1);
+        assert_eq!(first.objectives[0].code, "5.1.1.1");
+        assert_eq!(second.objectives[0].code, "5.1.1.2");
+        assert_eq!(second.objectives[0].description, "уметь сравнивать");
+
+        // Инварианты остаются в силе при новом раскладе.
+        let report = validate_invariants(&plan);
+        assert!(report.valid, "инварианты нарушены: {:?}", report.checks);
     }
 }

@@ -29,6 +29,16 @@ impl KtpStatus {
     }
 }
 
+/// Цель обучения урока: код + текст описания.
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct LessonObjective {
+    /// Код цели обучения (например "7.1.1.4").
+    pub code: String,
+    /// Текст цели (то, что видит учитель в редакторе).
+    pub description: String,
+}
+
 /// План КТП для одного предмета и класса.
 #[derive(Debug, Clone, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
@@ -36,6 +46,8 @@ pub struct KtpPlan {
     pub id: KtpPlanId,
     pub subject_id: String,
     pub grade: i64,
+    /// Язык документа ТУП, из которого сгенерирован план (RU/KK).
+    pub language: String,
     /// "2026-2027".
     pub academic_year: String,
     pub total_hours: i64,
@@ -69,12 +81,14 @@ pub struct KtpLesson {
     /// Индекс внутри четверти.
     pub quarter_index: i64,
     pub topic_title: String,
+    /// Раздел долгосрочного плана (для стандартных уроков — из ТУП).
+    pub section_name: String,
     pub lesson_type: LessonKind,
     /// Физическая дата (производственный календарь РК).
     pub planned_date: Option<NaiveDate>,
     pub is_cancelled: bool,
-    /// Коды целей обучения (привязка к `learning_objectives` по коду).
-    pub objective_codes: Vec<String>,
+    /// Цели обучения урока: код + описание (то, что видит учитель).
+    pub objectives: Vec<LessonObjective>,
 }
 
 impl KtpLesson {
@@ -91,11 +105,17 @@ impl KtpLesson {
             global_index,
             quarter_index,
             topic_title,
+            section_name: String::new(),
             lesson_type,
             planned_date: None,
             is_cancelled: false,
-            objective_codes: Vec::new(),
+            objectives: Vec::new(),
         }
+    }
+
+    /// Список кодов целей урока.
+    pub fn objective_codes(&self) -> impl Iterator<Item = &str> {
+        self.objectives.iter().map(|o| o.code.as_str())
     }
 }
 

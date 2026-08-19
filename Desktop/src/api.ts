@@ -47,10 +47,12 @@ export const api = {
     const docs = await call<TupDocument[]>("list_tup_documents");
     return docs.map((d) => ({
       id: d.id,
+      subjectId: d.subjectId,
       subjectName: SUBJECT_NAMES[d.subjectId] ?? d.subjectId,
       targetGrades: d.targetGrades,
       directionStr: d.direction === "emn" ? "ЕМН" : d.direction === "ogn" ? "ОГН" : "common",
       appendixNumber: d.appendixNumber,
+      orderNumber: d.orderNumber,
       orderDate: d.orderDate,
       objectiveCount: d.objectiveCount,
       hasDsp: false, // заполнится из детального запроса

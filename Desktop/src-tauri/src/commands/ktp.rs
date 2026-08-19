@@ -61,6 +61,14 @@ pub fn get_rk_calendar_defaults(start_year: i32) -> RkCalendarDto {
     }
 }
 
+/// Цель урока для UI: код + описание.
+#[derive(Debug, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct KtpLessonObjectiveDto {
+    pub code: String,
+    pub description: String,
+}
+
 /// Урок КТП для UI.
 #[derive(Debug, Serialize)]
 #[serde(rename_all = "camelCase")]
@@ -70,10 +78,11 @@ pub struct KtpLessonDto {
     pub global_index: i64,
     pub quarter_index: i64,
     pub topic_title: String,
+    pub section_name: String,
     pub lesson_type: String,
     pub planned_date: Option<String>,
     pub is_cancelled: bool,
-    pub objective_codes: Vec<String>,
+    pub objectives: Vec<KtpLessonObjectiveDto>,
 }
 
 impl From<&crate::domain::ktp::KtpLesson> for KtpLessonDto {
@@ -84,10 +93,18 @@ impl From<&crate::domain::ktp::KtpLesson> for KtpLessonDto {
             global_index: l.global_index,
             quarter_index: l.quarter_index,
             topic_title: l.topic_title.clone(),
+            section_name: l.section_name.clone(),
             lesson_type: l.lesson_type.as_str().to_string(),
             planned_date: l.planned_date.map(|d| d.to_string()),
             is_cancelled: l.is_cancelled,
-            objective_codes: l.objective_codes.clone(),
+            objectives: l
+                .objectives
+                .iter()
+                .map(|o| KtpLessonObjectiveDto {
+                    code: o.code.clone(),
+                    description: o.description.clone(),
+                })
+                .collect(),
         }
     }
 }
@@ -122,6 +139,7 @@ pub struct KtpPlanDto {
     pub id: String,
     pub subject_id: String,
     pub grade: i64,
+    pub language: String,
     pub academic_year: String,
     pub total_hours: i64,
     pub status: String,
@@ -138,6 +156,7 @@ impl From<&KtpPlan> for KtpPlanDto {
             id: p.id.to_string(),
             subject_id: p.subject_id.clone(),
             grade: p.grade,
+            language: p.language.clone(),
             academic_year: p.academic_year.clone(),
             total_hours: p.total_hours,
             status: p.status.as_str().to_string(),
@@ -157,6 +176,7 @@ pub struct KtpPlanCardDto {
     pub id: String,
     pub subject_id: String,
     pub grade: i64,
+    pub language: String,
     pub academic_year: String,
     pub total_hours: i64,
     pub status: String,
@@ -177,6 +197,7 @@ pub async fn list_ktp_plans(
             id: r.id,
             subject_id: r.subject_id,
             grade: r.grade,
+            language: r.language,
             academic_year: r.academic_year,
             total_hours: r.total_hours,
             status: r.status,
@@ -299,6 +320,7 @@ pub struct KtpPlanSaveIn {
     id: String,
     subject_id: String,
     grade: i64,
+    language: String,
     academic_year: String,
     total_hours: i64,
     status: String,
@@ -319,16 +341,24 @@ pub struct KtpQuarterSaveIn {
 
 #[derive(serde::Deserialize)]
 #[serde(rename_all = "camelCase")]
+pub struct KtpLessonObjectiveSaveIn {
+    code: String,
+    description: String,
+}
+
+#[derive(serde::Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub struct KtpLessonSaveIn {
     id: String,
     quarter_id: String,
     global_index: i64,
     quarter_index: i64,
     topic_title: String,
+    section_name: String,
     lesson_type: String,
     planned_date: Option<String>,
     is_cancelled: bool,
-    objective_codes: Vec<String>,
+    objectives: Vec<KtpLessonObjectiveSaveIn>,
 }
 
 /// Сохранение плана КТП после правок в редакторе (транзакционная перезапись).
@@ -349,6 +379,7 @@ pub async fn save_ktp_plan(
         id: pid,
         subject_id: plan.subject_id,
         grade: plan.grade,
+        language: plan.language,
         academic_year: plan.academic_year,
         total_hours: plan.total_hours,
         status,
@@ -378,6 +409,7 @@ pub async fn save_ktp_plan(
                             global_index: l.global_index,
                             quarter_index: l.quarter_index,
                             topic_title: l.topic_title,
+                            section_name: l.section_name,
                             lesson_type: match l.lesson_type.as_str() {
                                 "Sor" => crate::domain::invariants::LessonKind::Sor,
                                 "Soch" => crate::domain::invariants::LessonKind::Soch,
@@ -388,7 +420,14 @@ pub async fn save_ktp_plan(
                                 .planned_date
                                 .and_then(|d| NaiveDate::parse_from_str(&d, "%Y-%m-%d").ok()),
                             is_cancelled: l.is_cancelled,
-                            objective_codes: l.objective_codes,
+                            objectives: l
+                                .objectives
+                                .into_iter()
+                                .map(|o| crate::domain::ktp::LessonObjective {
+                                    code: o.code,
+                                    description: o.description,
+                                })
+                                .collect(),
                         })
                         .collect(),
                 }

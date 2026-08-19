@@ -103,7 +103,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     );
     let first = &loaded.quarters[0].lessons[0];
     println!("Первый урок: {} ({:?}) на {:?}", first.topic_title, first.lesson_type, first.planned_date);
-    println!("Цели первого урока: {:?}", first.objective_codes);
+    println!("Цели первого урока: {:?}", first.objectives);
 
     // Проверка перезаписи (редактор): меняем тему первого урока и сохраняем через replace_plan.
     let mut edited = loaded.clone();

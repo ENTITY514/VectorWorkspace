@@ -114,13 +114,18 @@ mod tests {
         let pool = connect(&db_path).await.unwrap();
 
         // Версия схемы совпадает с максимальной миграцией.
+        let migrations_count: i64 = std::fs::read_dir("./migrations")
+            .unwrap()
+            .filter_map(|e| e.ok())
+            .filter(|e| e.path().extension().map(|x| x == "sql").unwrap_or(false))
+            .count() as i64;
         let version_before: i64 = sqlx::query_scalar(
             "SELECT version FROM _sqlx_migrations ORDER BY version DESC LIMIT 1",
         )
         .fetch_one(&pool)
         .await
         .unwrap();
-        assert_eq!(version_before, 7);
+        assert_eq!(version_before, migrations_count);
 
         // Повторный накат не меняет версию (идемпотентность).
         sqlx::migrate!("./migrations").run(&pool).await.unwrap();
@@ -131,7 +136,7 @@ mod tests {
         .fetch_one(&pool)
         .await
         .unwrap();
-        assert_eq!(version_after, 7);
+        assert_eq!(version_after, migrations_count);
     }
 
     #[tokio::test]

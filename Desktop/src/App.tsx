@@ -5,6 +5,7 @@ import { Today } from "./panels/Today";
 import { TupList } from "./panels/TupList";
 import { TupDetail } from "./panels/TupDetail";
 import { KtpEditor } from "./panels/KtpEditor";
+import { KtpList } from "./panels/KtpList";
 import { Lessons } from "./panels/Lessons";
 import { Library } from "./panels/Library";
 import { Sor } from "./panels/Sor";
@@ -41,7 +42,6 @@ const titles: Record<View, string> = {
 const subtitles: Partial<Record<View, string>> = {
   today: "Рабочий стол учителя математики",
   tup: "Типовые учебные программы · документы и цели обучения",
-  ktp: "По приказу МОН РК № 130 · 8–10 классы",
   lessons: "Краткосрочные планы в форме 130 приказа",
   library: "Задания из учебников, связанные с ЦО",
   sor: "Суммативное оценивание и диагностика",
@@ -108,7 +108,13 @@ function App() {
             <TupList onSelect={(id) => setSelectedId(id)} />
           )
         )}
-        {view === "ktp" && <KtpEditor />}
+        {view === "ktp" && (
+          selectedId ? (
+            <KtpEditor planId={selectedId} onClose={() => setSelectedId(null)} />
+          ) : (
+            <KtpList onOpen={(id) => setSelectedId(id)} />
+          )
+        )}
         {view === "lessons" && <Lessons />}
         {view === "library" && <Library />}
         {view === "sor" && <Sor />}

@@ -1,19 +1,10 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
+import { openUrl } from "@tauri-apps/plugin-opener";
 import { api } from "../api";
 import type { TupDocumentListItem, TupSearchHit } from "../types";
 import { SUBJECT_NAMES } from "./SubjectNames";
-
-function parseGrades(targetGrades: string): number[] {
-  if (!targetGrades) return [];
-  if (targetGrades.includes("-")) {
-    const [lo, hi] = targetGrades.split("-").map((s) => Number(s.trim()));
-    if (!isNaN(lo) && !isNaN(hi)) {
-      return Array.from({ length: hi - lo + 1 }, (_, i) => lo + i);
-    }
-  }
-  const single = Number(targetGrades.trim());
-  return !isNaN(single) ? [single] : [];
-}
+import { parseGrades } from "../lib/grades";
+import { adiletAppendixUrl } from "../lib/adilet";
 
 export function TupList({ onSelect }: { onSelect: (id: string) => void }) {
   const [documents, setDocuments] = useState<TupDocumentListItem[]>([]);
@@ -369,9 +360,22 @@ function DocumentCard({ doc, onClick }: { doc: TupDocumentListItem; onClick: () 
         <div className="doc-meta">
           Прил. {doc.appendixNumber} · {doc.orderDate}
         </div>
+        <div className="doc-meta">
+          приказ МОН РК от {doc.orderDate} № {doc.orderNumber}
+        </div>
         <div className="doc-stats">
           <span>{doc.objectiveCount} целей</span>
           {doc.hasDsp && <span className="dsp-badge">ДСП</span>}
+          <a
+            className="doc-link"
+            title="Открыть приложение в adilet"
+            onClick={(e) => {
+              e.stopPropagation();
+              openUrl(adiletAppendixUrl(doc.language, doc.appendixNumber));
+            }}
+          >
+            оригинал ↗
+          </a>
         </div>
       </div>
     </button>

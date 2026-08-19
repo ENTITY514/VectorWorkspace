@@ -292,6 +292,22 @@ table.data tr:hover td {
   background: #fafbfe;
 }
 
+/* Таблица КТП: внутренние вертикальные границы */
+table.ktp-table th,
+table.ktp-table td {
+  border-right: 1px solid var(--border);
+}
+
+table.ktp-table th:last-child,
+table.ktp-table td:last-child {
+  border-right: none;
+}
+
+.ktp-date-cell {
+  min-width: 110px;
+  white-space: nowrap;
+}
+
 .cell-main {
   font-weight: 600;
 }
@@ -483,6 +499,18 @@ button.btn-sm {
   gap: 16px;
   align-items: center;
   margin-top: auto;
+}
+
+.doc-link {
+  margin-left: auto;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--accent);
+  cursor: pointer;
+}
+
+.doc-link:hover {
+  text-decoration: underline;
 }
 
 .dsp-badge {
@@ -739,23 +767,141 @@ button.btn-sm {
 .ktp-objectives {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 3px;
+  cursor: grab;
 }
 
 .ktp-objective {
-  display: inline-block;
-  padding: 0 6px;
-  margin: 1px 3px 1px 0;
-  background: var(--accent-soft, #eef0fb);
-  color: var(--accent);
-  border-radius: 9px;
-  font-size: 11.5px;
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  padding: 1px 0;
+  margin: 0;
+  background: transparent;
+  color: var(--text);
+  border-radius: 0;
+  font-size: 12.5px;
+  line-height: 1.35;
+  cursor: grab;
+}
+
+.ktp-objective:hover {
+  background: transparent;
+}
+
+.ktp-objective-code {
   font-family: var(--mono, Consolas, monospace);
+  font-weight: 700;
+  color: var(--accent);
   white-space: nowrap;
+}
+
+.ktp-section-header td {
+  padding: 5px 12px;
+  background: var(--accent-soft, #eef0fb);
+  border-top: 2px solid var(--accent);
+  border-bottom: 1px solid var(--accent);
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.3px;
+}
+
+.ktp-section-title {
+  color: var(--accent);
+  text-transform: uppercase;
+}
+
+.ktp-section-hours {
+  margin-left: 10px;
+  color: var(--muted);
+  font-weight: 500;
 }
 
 .ktp-actions {
   white-space: nowrap;
+}
+
+.ktp-drag-handle {
+  cursor: grab;
+  width: 26px;
+  text-align: center;
+  color: var(--muted);
+  user-select: none;
+}
+
+.ktp-source-link {
+  color: var(--accent);
+  font-size: 12.5px;
+  cursor: pointer;
+}
+
+.ktp-source-link:hover {
+  text-decoration: underline;
+}
+
+.ktp-source-note {
+  margin-top: 10px;
+  padding: 8px 14px;
+  background: var(--accent-soft, #eef0fb);
+  border: 1px solid #d5def6;
+  border-radius: 8px;
+  font-size: 12.5px;
+  color: var(--text);
+}
+
+.ktp-export-block {
+  margin-top: 16px;
+  padding: 14px 16px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: var(--shadow);
+}
+
+.ktp-export-head {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: var(--muted);
+  margin-bottom: 10px;
+}
+
+.ktp-export-buttons {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+button.btn-export {
+  padding: 10px 22px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.toast {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 120;
+  background: var(--accent);
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 10px;
+  font-size: 13.5px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+  animation: toast-in 0.2s ease;
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .btn-xs {

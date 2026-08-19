@@ -10,13 +10,14 @@ use uuid::Uuid;
 use crate::db::DbError;
 use crate::domain::ids::{KtpLessonId, KtpPlanId, KtpQuarterId};
 use crate::domain::invariants::LessonKind;
-use crate::domain::ktp::{KtpLesson, KtpPlan, KtpQuarter, KtpStatus};
+use crate::domain::ktp::{KtpLesson, KtpPlan, KtpQuarter, KtpStatus, LessonObjective};
 
 #[derive(sqlx::FromRow)]
 struct PlanRow {
     id: String,
     subject_id: String,
     grade: i64,
+    language: String,
     academic_year: String,
     total_hours: i64,
     status: String,
@@ -40,9 +41,11 @@ struct LessonRow {
     global_index: i64,
     quarter_index: i64,
     topic_title: String,
+    section_name: String,
     lesson_type: String,
     planned_date: Option<String>,
     is_cancelled: i64,
+    objectives_json: String,
 }
 
 fn kind_from_sql(s: &str) -> LessonKind {
@@ -64,12 +67,13 @@ pub async fn save_plan(pool: &SqlitePool, plan: &KtpPlan) -> Result<(), DbError>
 
     sqlx::query(
         "INSERT INTO ktp_plans
-            (id, subject_id, grade, academic_year, total_hours, status, created_at, updated_at, days_of_week)
-         VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9)",
+            (id, subject_id, grade, language, academic_year, total_hours, status, created_at, updated_at, days_of_week)
+         VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10)",
     )
     .bind(plan.id.to_string())
     .bind(&plan.subject_id)
     .bind(plan.grade)
+    .bind(&plan.language)
     .bind(&plan.academic_year)
     .bind(plan.total_hours)
     .bind(plan.status.as_str())
@@ -89,7 +93,7 @@ pub async fn save_plan(pool: &SqlitePool, plan: &KtpPlan) -> Result<(), DbError>
          LIMIT 1",
     )
     .bind(&plan.subject_id)
-    .bind("RU")
+    .bind(&plan.language)
     .bind(plan.grade)
     .fetch_optional(&mut *tx)
     .await?;
@@ -107,24 +111,28 @@ pub async fn save_plan(pool: &SqlitePool, plan: &KtpPlan) -> Result<(), DbError>
         .await?;
 
         for l in &q.lessons {
+            let objectives_json =
+                serde_json::to_string(&l.objectives).unwrap_or_else(|_| "[]".into());
             sqlx::query(
                 "INSERT INTO ktp_lessons
-                    (id, quarter_id, global_index, quarter_index, topic_title, lesson_type, planned_date, is_cancelled)
-                 VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8)",
+                    (id, quarter_id, global_index, quarter_index, topic_title, section_name, lesson_type, planned_date, is_cancelled, objectives_json)
+                 VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10)",
             )
             .bind(l.id.to_string())
             .bind(l.quarter_id.to_string())
             .bind(l.global_index)
             .bind(l.quarter_index)
             .bind(&l.topic_title)
+            .bind(&l.section_name)
             .bind(kind_to_sql(l.lesson_type))
             .bind(l.planned_date.map(|d| d.to_string()))
             .bind(l.is_cancelled as i64)
+            .bind(&objectives_json)
             .execute(&mut *tx)
             .await?;
 
             if let Some(doc) = &doc_id {
-                for code in &l.objective_codes {
+                for code in l.objective_codes() {
                     sqlx::query(
                         "INSERT OR IGNORE INTO ktp_lesson_objectives (lesson_id, objective_id)
                          SELECT ?1, id FROM learning_objectives WHERE document_id = ?2 AND code = ?3 LIMIT 1",
@@ -158,10 +166,10 @@ pub async fn replace_plan(pool: &SqlitePool, plan: &KtpPlan) -> Result<(), DbErr
     save_plan(pool, plan).await
 }
 
-/// Читает план со всеми четвертями и уроками (включая коды целей).
+/// Читает план со всеми четвертями и уроками (включая цели с описаниями).
 pub async fn load_plan(pool: &SqlitePool, plan_id: KtpPlanId) -> Result<Option<KtpPlan>, DbError> {
     let plan_row = sqlx::query_as::<_, PlanRow>(
-        "SELECT id, subject_id, grade, academic_year, total_hours, status, created_at, updated_at, days_of_week
+        "SELECT id, subject_id, grade, language, academic_year, total_hours, status, created_at, updated_at, days_of_week
          FROM ktp_plans WHERE id = ?1",
     )
     .bind(plan_id.to_string())
@@ -190,7 +198,7 @@ pub async fn load_plan(pool: &SqlitePool, plan_id: KtpPlanId) -> Result<Option<K
     let mut plan_quarters = Vec::new();
     for q in quarters {
         let lessons = sqlx::query_as::<_, LessonRow>(
-            "SELECT id, quarter_id, global_index, quarter_index, topic_title, lesson_type, planned_date, is_cancelled
+            "SELECT id, quarter_id, global_index, quarter_index, topic_title, section_name, lesson_type, planned_date, is_cancelled, objectives_json
              FROM ktp_lessons WHERE quarter_id = ?1 ORDER BY quarter_index",
         )
         .bind(&q.id)
@@ -199,14 +207,23 @@ pub async fn load_plan(pool: &SqlitePool, plan_id: KtpPlanId) -> Result<Option<K
 
         let mut plan_lessons = Vec::new();
         for l in lessons {
-            let codes: Vec<String> = sqlx::query_scalar(
-                "SELECT code FROM ktp_lesson_objectives ko
-                 JOIN learning_objectives lo ON lo.id = ko.objective_id
-                 WHERE ko.lesson_id = ?1 ORDER BY lo.code",
-            )
-            .bind(&l.id)
-            .fetch_all(pool)
-            .await?;
+            let mut objectives: Vec<LessonObjective> = serde_json::from_str(&l.objectives_json)
+                .unwrap_or_else(|_| Vec::new());
+            if objectives.is_empty() {
+                // Старые планы без objectives_json: зеркало из junction-таблицы.
+                let rows: Vec<(String, String)> = sqlx::query_as(
+                    "SELECT lo.code, lo.description FROM ktp_lesson_objectives ko
+                     JOIN learning_objectives lo ON lo.id = ko.objective_id
+                     WHERE ko.lesson_id = ?1 ORDER BY lo.code",
+                )
+                .bind(&l.id)
+                .fetch_all(pool)
+                .await?;
+                objectives = rows
+                    .into_iter()
+                    .map(|(code, description)| LessonObjective { code, description })
+                    .collect();
+            }
 
             plan_lessons.push(KtpLesson {
                 id: KtpLessonId::from(Uuid::from_str(&l.id).unwrap_or_default()),
@@ -214,10 +231,11 @@ pub async fn load_plan(pool: &SqlitePool, plan_id: KtpPlanId) -> Result<Option<K
                 global_index: l.global_index,
                 quarter_index: l.quarter_index,
                 topic_title: l.topic_title,
+                section_name: l.section_name,
                 lesson_type: kind_from_sql(&l.lesson_type),
                 planned_date: l.planned_date.as_deref().and_then(|s| NaiveDate::from_str(s).ok()),
                 is_cancelled: l.is_cancelled != 0,
-                objective_codes: codes,
+                objectives,
             });
         }
 
@@ -234,6 +252,7 @@ pub async fn load_plan(pool: &SqlitePool, plan_id: KtpPlanId) -> Result<Option<K
         id: plan_id,
         subject_id: pr.subject_id,
         grade: pr.grade,
+        language: pr.language,
         academic_year: pr.academic_year,
         total_hours: pr.total_hours,
         status,
@@ -277,6 +296,7 @@ pub struct KtpPlanRow {
     pub id: String,
     pub subject_id: String,
     pub grade: i64,
+    pub language: String,
     pub academic_year: String,
     pub total_hours: i64,
     pub status: String,
@@ -285,7 +305,7 @@ pub struct KtpPlanRow {
 
 pub async fn list_plans(pool: &SqlitePool) -> Result<Vec<KtpPlanRow>, DbError> {
     sqlx::query_as::<_, KtpPlanRow>(
-        "SELECT id, subject_id, grade, academic_year, total_hours, status, days_of_week
+        "SELECT id, subject_id, grade, language, academic_year, total_hours, status, days_of_week
          FROM ktp_plans ORDER BY created_at DESC",
     )
     .fetch_all(pool)
@@ -391,12 +411,23 @@ mod tests {
         let codes: Vec<String> = loaded.quarters[0]
             .lessons
             .iter()
-            .flat_map(|l| l.objective_codes.clone())
+            .flat_map(|l| l.objective_codes().map(String::from))
             .collect();
         assert!(
             codes.iter().any(|c| c == "5.1.1.1"),
             "код 5.1.1.1 должен быть привязан, получили {codes:?}"
         );
+        // Описание цели подтянуто из документа ТУП.
+        let descs: Vec<&str> = loaded.quarters[0]
+            .lessons
+            .iter()
+            .flat_map(|l| l.objectives.iter().map(|o| o.description.as_str()))
+            .collect();
+        assert!(
+            descs.iter().any(|d| *d == "уметь считать"),
+            "описание должно быть в плане, получили {descs:?}"
+        );
+        assert_eq!(loaded.language, "RU");
     }
 
     #[tokio::test]

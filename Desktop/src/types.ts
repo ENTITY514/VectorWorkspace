@@ -29,10 +29,12 @@ export interface TupDocument {
 
 export interface TupDocumentListItem {
   id: string;
+  subjectId: string;
   subjectName: string;
   targetGrades: string;
   directionStr: string;
   appendixNumber: number;
+  orderNumber: string;
   orderDate: string;
   objectiveCount: number;
   hasDsp: boolean;
@@ -207,16 +209,22 @@ export interface RkCalendar {
 
 export type LessonKind = "Standard" | "Sor" | "Soch" | "Revision";
 
+export interface LessonObjective {
+  code: string;
+  description: string;
+}
+
 export interface KtpLesson {
   id: string;
   quarterId: string;
   globalIndex: number;
   quarterIndex: number;
   topicTitle: string;
+  sectionName: string;
   lessonType: LessonKind;
   plannedDate: string | null;
   isCancelled: boolean;
-  objectiveCodes: string[];
+  objectives: LessonObjective[];
 }
 
 export interface KtpQuarter {
@@ -244,6 +252,7 @@ export interface KtpPlan {
   id: string;
   subjectId: string;
   grade: number;
+  language: string;
   academicYear: string;
   totalHours: number;
   status: string;
@@ -258,6 +267,7 @@ export interface KtpPlanCard {
   id: string;
   subjectId: string;
   grade: number;
+  language: string;
   academicYear: string;
   totalHours: number;
   status: string;

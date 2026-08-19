@@ -3,7 +3,7 @@
 // с плоской моделью, редактор тоже; БД — вложенная.
 
 import { v4 as uuidv4 } from "uuid";
-import { IKtpLesson, KtpPlan, LessonRowType } from "./model/types";
+import { IKtpLesson, ILessonObjective, KtpPlan, LessonRowType } from "./model/types";
 import type { KtpLesson as DbLesson, KtpPlan as DbPlan } from "../types";
 
 /** Плоская модель из вложенной (загрузка плана в редактор). */
@@ -11,6 +11,7 @@ export function flattenPlan(db: DbPlan): KtpPlan {
   const flat: KtpPlan = [];
 
   for (const q of db.quarters) {
+    const quarterHours = q.lessons.reduce((s) => s + 1, 0);
     flat.push({
       id: q.id,
       lessonNumber: 0,
@@ -18,7 +19,7 @@ export function flattenPlan(db: DbPlan): KtpPlan {
       sectionName: `${q.quarterNumber}-я четверть · ${q.hoursPerWeek} ч/нед`,
       lessonTopic: "",
       objectives: [],
-      hours: 0,
+      hours: quarterHours,
       date: "",
       notes: "",
       rowType: LessonRowType.QUARTER_HEADER,
@@ -29,9 +30,9 @@ export function flattenPlan(db: DbPlan): KtpPlan {
         id: l.id,
         lessonNumber: l.quarterIndex,
         hoursInSection: 1,
-        sectionName: quarterSectionLabel(l),
+        sectionName: l.sectionName || quarterSectionLabel(l),
         lessonTopic: l.topicTitle,
-        objectives: l.objectiveCodes.map((code) => ({ id: code, description: code })),
+        objectives: l.objectives.map((o) => ({ id: o.code, description: o.description })),
         hours: 1,
         date: l.plannedDate ?? "",
         notes: "",
@@ -96,10 +97,11 @@ export function unflattenPlan(db: DbPlan, flat: KtpPlan): DbPlan {
       globalIndex: global,
       quarterIndex: qIdx,
       topicTitle: row.lessonTopic,
+      sectionName: row.sectionName,
       lessonType: toDbType(row.rowType),
       plannedDate: row.date || null,
       isCancelled: false,
-      objectiveCodes: row.objectives.map((o) => o.id),
+      objectives: row.objectives.map((o) => ({ code: o.id, description: o.description })),
     });
   }
 
@@ -126,6 +128,47 @@ export function renumberPlan(plan: KtpPlan): KtpPlan {
     if (l.rowType === LessonRowType.QUARTER_HEADER) return l;
     return { ...l, lessonNumber: n++ };
   });
+}
+
+/** Переместить урок на позицию другого — как KTPHUB.slice.reorderPlan. */
+export function reorderPlan(plan: KtpPlan, activeId: string, overId: string): KtpPlan {
+  const oldIndex = plan.findIndex((l) => l.id === activeId);
+  const newIndex = plan.findIndex((l) => l.id === overId);
+  if (oldIndex === -1 || newIndex === -1 || oldIndex === newIndex) return plan;
+  const next = [...plan];
+  const [moved] = next.splice(oldIndex, 1);
+  next.splice(newIndex, 0, moved);
+  return renumberPlan(next);
+}
+
+/** Слить цели исходного урока в целевой и удалить исходный — как KTPHUB.slice.mergeObjectives. */
+export function mergeObjectivesIntoLesson(
+  plan: KtpPlan,
+  sourceLessonId: string,
+  targetLessonId: string,
+): KtpPlan {
+  if (sourceLessonId === targetLessonId) return plan;
+  const source = plan.find((l) => l.id === sourceLessonId);
+  const target = plan.find((l) => l.id === targetLessonId);
+  if (!source || !target) return plan;
+  const next = plan
+    .map((l) =>
+      l.id === targetLessonId
+        ? { ...l, objectives: [...l.objectives, ...source.objectives] }
+        : l,
+    )
+    .filter((l) => l.id !== sourceLessonId);
+  return renumberPlan(next);
+}
+
+/** Обновить одно поле урока (inline-правка) — как KTPHUB.slice.updateLesson. */
+export function updateLessonInPlan(
+  plan: KtpPlan,
+  lessonId: string,
+  field: keyof IKtpLesson,
+  value: string | number | ILessonObjective[],
+): KtpPlan {
+  return plan.map((l) => (l.id === lessonId ? { ...l, [field]: value } : l));
 }
 
 /** Добавить час (копия урока) — как в KTPHUB slice.addHour. */
