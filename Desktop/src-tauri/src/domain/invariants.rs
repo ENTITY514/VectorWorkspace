@@ -6,7 +6,8 @@
 use std::cmp::Ordering;
 
 /// Типы уроков КТП.
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, serde::Serialize, serde::Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub enum LessonKind {
     Standard,
     Sor,

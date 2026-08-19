@@ -26,6 +26,57 @@ export interface TupDocument {
   objectiveCount: number;
 }
 
+export interface TupDocumentListItem {
+  id: string;
+  subjectName: string;
+  targetGrades: string;
+  directionStr: string;
+  appendixNumber: number;
+  orderDate: string;
+  objectiveCount: number;
+  hasDsp: boolean;
+  language: string;
+}
+
+export interface TupDocumentDetail {
+  id: string;
+  orderNumber: string;
+  orderDate: string;
+  appendixNumber: number;
+  subjectId: string;
+  language: string;
+  targetGrades: string;
+  direction: "common" | "emn" | "ogn";
+  legalBasis: string;
+  goalText: string;
+  tasks: string[];
+  hours: TupHourDto[];
+  objectives: LearningObjective[];
+  quarters: TupQuarterDto[];
+}
+
+export interface TupHourDto {
+  grade: number;
+  hoursPerWeek: number;
+  hoursPerYear: number;
+}
+
+export interface TupTopicDto {
+  name: string;
+  objectiveCodes: string[];
+}
+
+export interface TupSectionDto {
+  name: string;
+  topics: TupTopicDto[];
+}
+
+export interface TupQuarterDto {
+  grade: number;
+  quarterNumber: number;
+  sections: TupSectionDto[];
+}
+
 export interface LearningObjective {
   id: string;
   documentId: string;
@@ -43,6 +94,18 @@ export interface TupImportResult {
   targetGrades: string;
   direction: "common" | "emn" | "ogn";
   objectivesImported: number;
+}
+
+export interface TupSearchHit {
+  text: string;
+  entityType: "objective" | "section" | "topic" | "task";
+  entityId: string;
+  documentId: string;
+  subjectId: string;
+  targetGrades: string;
+  language: string;
+  grade: number | null;
+  quarterNumber: number | null;
 }
 
 export interface Lesson {
@@ -124,4 +187,78 @@ export interface CalendarEvent {
   type: "lesson" | "sor" | "soch" | "holiday" | "worksheet";
   title: string;
   grade?: string;
+}
+
+// ---- КТП (Фаза 4): производственный календарь РК и редактор плана ----
+
+export interface CalendarPeriod {
+  name: string;
+  start: string;
+  end: string;
+}
+
+export interface RkCalendar {
+  startYear: number;
+  quarters: CalendarPeriod[];
+  vacations: CalendarPeriod[];
+  holidays: string[];
+}
+
+export type LessonKind = "Standard" | "Sor" | "Soch" | "Revision";
+
+export interface KtpLesson {
+  id: string;
+  quarterId: string;
+  globalIndex: number;
+  quarterIndex: number;
+  topicTitle: string;
+  lessonType: LessonKind;
+  plannedDate: string | null;
+  isCancelled: boolean;
+  objectiveCodes: string[];
+}
+
+export interface KtpQuarter {
+  id: string;
+  ktpId: string;
+  quarterNumber: number;
+  hoursPerWeek: number;
+  lessons: KtpLesson[];
+}
+
+export interface QuarterCheck {
+  quarterNumber: number;
+  fr22Ok: boolean;
+  fr22Message: string;
+  fr23Ok: boolean;
+  fr23Message: string;
+}
+
+export interface InvariantReport {
+  valid: boolean;
+  checks: QuarterCheck[];
+}
+
+export interface KtpPlan {
+  id: string;
+  subjectId: string;
+  grade: number;
+  academicYear: string;
+  totalHours: number;
+  status: string;
+  createdAt: string;
+  updatedAt: string;
+  daysOfWeek: string;
+  quarters: KtpQuarter[];
+  invariant: InvariantReport;
+}
+
+export interface KtpPlanCard {
+  id: string;
+  subjectId: string;
+  grade: number;
+  academicYear: string;
+  totalHours: number;
+  status: string;
+  daysOfWeek: string;
 }

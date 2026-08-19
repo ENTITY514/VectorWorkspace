@@ -67,57 +67,100 @@ pub(crate) fn subject_slug(title: &str) -> Option<&'static str> {
         "Ана тілі" => Some("ana_tili"),
         "Математика" => Some("mathematics"),
         "Цифровая грамотность" => Some("digital_literacy"),
+        "Цифрлық сауаттылық" => Some("digital_literacy"),
         "Естествознание" => Some("natural_science"),
+        "Жаратылыстану" => Some("natural_science"),
         "Познание мира" => Some("world_knowledge"),
+        "Дүниетану" => Some("world_knowledge"),
         "Изобразительное искусство" => Some("visual_art"),
+        "Бейнелеу өнері" => Some("visual_art"),
         "Трудовое обучение" => Some("labor_training"),
+        "Еңбекке баулу" => Some("labor_training"),
         "Художественный труд" => Some("art_work"),
+        "Көркем еңбек" => Some("art_work"),
         "Музыка" => Some("music"),
         "Физическая культура" => Some("physical_education"),
+        "Дене шынықтыру" => Some("physical_education"),
         "Литературное чтение" => Some("literary_reading"),
+        "Әдебиеттік оқу" => Some("literary_reading"),
         // Языки и литература.
         "Казахский язык" => Some("kazakh_language"),
+        "Казақ тілі" => Some("kazakh_tili"),
         "Қазақ тілі" => Some("kazakh_tili"),
         "Русский язык" => Some("russian_language"),
+        "Орыс тілі" => Some("russian_language"),
         "Уйгурский язык" => Some("uigur_language"),
+        "Ұйғыр тілі" => Some("uigur_language"),
         "Узбекский язык" => Some("uzbek_language"),
+        "Өзбек тілі" => Some("uzbek_language"),
         "Таджикский язык" => Some("tadzhik_language"),
+        "Тәжік тілі" => Some("tadzhik_language"),
         "Английский язык" => Some("english"),
+        "Ағылшын тілі" => Some("english"),
         "Немецкий язык" => Some("german"),
+        "Неміс тілі" => Some("german"),
         "Французский язык" => Some("french"),
+        "Француз тілі" => Some("french"),
         "Иностранный язык (второй). Английский язык" => Some("second_language_english"),
+        "Шет тілі (екінші). Ағылшын тілі" => Some("second_language_english"),
         "Иностранный язык (второй). Немецкий язык" => Some("second_language_german"),
+        "Шет тілі (екінші). Неміс тілі" => Some("second_language_german"),
         "Иностранный язык (второй). Французский язык" => Some("second_language_french"),
+        "Шет тілі (екінші). Француз тілі" => Some("second_language_french"),
         "Казахская литература" => Some("kazakh_literature"),
         "Қазақ әдебиеті" => Some("kazakh_adebieti"),
         "Русская литература" => Some("russian_literature"),
+        "Орыс әдебиеті" => Some("russian_literature"),
         "Уйгурская литература" => Some("uigur_literature"),
+        "Ұйғыр әдебиеті" => Some("uigur_literature"),
         "Узбекская литература" => Some("uzbek_literature"),
+        "Өзбек әдебиеті" => Some("uzbek_literature"),
         "Таджикская литература" => Some("tadzhik_literature"),
+        "Тәжік әдебиеті" => Some("tadzhik_literature"),
         "Казахский язык и литература" => Some("kazakh_language_literature"),
+        "Қазақ тілі және әдебиеті" => Some("kazakh_language_literature"),
+        "Қазақ тілі мен әдебиеті" => Some("kazakh_language_literature"),
         "Русский язык и литература" => Some("russian_language_literature"),
+        "Орыс тілі және әдебиеті" => Some("russian_language_literature"),
+        "Орыс тілі мен әдебиеті" => Some("russian_language_literature"),
         // Основная и старшая школа.
         "Алгебра" => Some("algebra"),
         "Геометрия" => Some("geometry"),
         "Алгебра и начала анализа" => Some("algebra_analysis"),
+        "Алгебра және анализ бастамалары" => Some("algebra_analysis"),
         "Физика" => Some("physics"),
         "Химия" => Some("chemistry"),
         "Биология" => Some("biology"),
         "Информатика" => Some("informatics"),
         "География" => Some("geography"),
         "История Казахстана" => Some("kazakhstan_history"),
+        "Қазақстан тарихы" => Some("kazakhstan_history"),
         "Всемирная история" => Some("world_history"),
+        "Дүниежүзі тарихы" => Some("world_history"),
         "Основы права" => Some("law_fundamentals"),
+        "Құқық негіздері" => Some("law_fundamentals"),
         "Абайтану" => Some("abaitanu"),
         "Краеведение" => Some("regional_studies"),
+        "Өлкетану" => Some("regional_studies"),
         "Графика и проектирование" => Some("graphics_design"),
+        "Графика және жобалау" => Some("graphics_design"),
         "Начальная военная и технологическая подготовка" => Some("military_training"),
+        "Алғашқы әскери және технологиялық дайындық" => Some("military_training"),
         "Основы предпринимательства и бизнеса" => Some("entrepreneurship"),
+        "Кәсіпкерлік және бизнес негіздері" => Some("entrepreneurship"),
+        "Жаһандық құзыреттер" => Some("global_competencies"),
+        "Жаһандық құзыреттілік" => Some("global_competencies"),
+        "Глобальные компетенции" => Some("global_competencies"),
+        "История становления межэтнических отношений" => Some("interethnic_relations"),
+        "Этносаралық қатынастардың қалыптасу тарихы" => Some("interethnic_relations"),
+        "Светскость и основы религиоведения" => Some("secularism_religiology"),
+        "Зайырлылық және дінтану негіздері" => Some("secularism_religiology"),
+        "Алаштану" => Some("alashtanu"),
         _ => None,
     }
 }
 
-/// Конвертация русского месяца в номер.
+/// Конвертация русского или казахского месяца в номер.
 pub(crate) fn month_number(name: &str) -> Option<&'static str> {
     match name {
         "января" => Some("01"),
@@ -132,14 +175,28 @@ pub(crate) fn month_number(name: &str) -> Option<&'static str> {
         "октября" => Some("10"),
         "ноября" => Some("11"),
         "декабря" => Some("12"),
+        // Казахские месяцы (в формате «қаңтар», «қаңтарда», «қаңтардағы»).
+        "қаңтар" | "қаңтарда" | "қаңтардағы" => Some("01"),
+        "ақпан" | "ақпанда" | "ақпандағы" => Some("02"),
+        "наурыз" | "наурызда" | "наурыздағы" => Some("03"),
+        "сәуір" | "сәуірде" | "сәуірдегі" => Some("04"),
+        "мамыр" | "мамырда" | "мамырдағы" => Some("05"),
+        "маусым" | "маусымда" | "маусымдағы" => Some("06"),
+        "шілде" | "шілдеде" | "шілдедегі" => Some("07"),
+        "тамыз" | "тамызда" | "тамыздағы" => Some("08"),
+        "қыркүйек" | "қыркүйекте" | "қыркүйектегі" => Some("09"),
+        "қазан" | "қазанда" | "қазандағы" => Some("10"),
+        "қараша" | "қарашада" | "қарашадағы" => Some("11"),
+        "желтоқсан" | "желтоқсанда" | "желтоқсандағы" => Some("12"),
         _ => None,
     }
 }
 
-/// Нормализация строки: ё, zero-width, схлопывание пробелов.
+/// Нормализация строки: zero-width, схлопывание пробелов.
+/// (Буква Ұ (U+04B0) больше не заменяется на «ё» — казахские названия
+/// предметов и тексты целей хранятся в оригинале.)
 pub(crate) fn normalize(s: &str) -> String {
-    s.replace('\u{04B0}', "ё")
-        .replace('\u{200B}', "")
+    s.replace('\u{200B}', "")
         .split_whitespace()
         .collect::<Vec<_>>()
         .join(" ")
@@ -907,7 +964,7 @@ mod tests {
 
     #[test]
     fn normalizes_yo_and_zero_width() {
-        assert_eq!(normalize("четвҰртое число"), "четвёртое число");
+        assert_eq!(normalize("четвертое\u{200B} число"), "четвертое число");
         assert_eq!(normalize("5.1.1.1 5.1.1.2"), "5.1.1.1 5.1.1.2");
     }
 

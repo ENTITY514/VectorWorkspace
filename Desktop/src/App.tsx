@@ -2,8 +2,9 @@ import { useState } from "react";
 import type { View } from "./types";
 import "./styles.css";
 import { Today } from "./panels/Today";
-import { Tup } from "./panels/Tup";
-import { Ktp } from "./panels/Ktp";
+import { TupList } from "./panels/TupList";
+import { TupDetail } from "./panels/TupDetail";
+import { KtpEditor } from "./panels/KtpEditor";
 import { Lessons } from "./panels/Lessons";
 import { Library } from "./panels/Library";
 import { Sor } from "./panels/Sor";
@@ -45,6 +46,7 @@ const subtitles: Partial<Record<View, string>> = {
 
 function App() {
   const [view, setView] = useState<View>("today");
+  const [selectedId, setSelectedId] = useState<string | null>(null);
 
   return (
     <div className="app">
@@ -58,7 +60,10 @@ function App() {
             <button
               key={n.id}
               className={`nav-item ${view === n.id ? "active" : ""}`}
-              onClick={() => setView(n.id)}
+              onClick={() => {
+                setView(n.id);
+                setSelectedId(null);
+              }}
             >
               <span className="nav-icon">{n.icon}</span>
               {n.label}
@@ -74,8 +79,14 @@ function App() {
           <p>{subtitles[view]}</p>
         </div>
         {view === "today" && <Today />}
-        {view === "tup" && <Tup />}
-        {view === "ktp" && <Ktp />}
+        {view === "tup" && (
+          selectedId ? (
+            <TupDetail id={selectedId} onClose={() => setSelectedId(null)} />
+          ) : (
+            <TupList onSelect={(id) => setSelectedId(id)} />
+          )
+        )}
+        {view === "ktp" && <KtpEditor />}
         {view === "lessons" && <Lessons />}
         {view === "library" && <Library />}
         {view === "sor" && <Sor />}

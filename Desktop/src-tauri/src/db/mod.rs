@@ -1,8 +1,9 @@
-//! Слой доступа к данным: асинхронный `sqlx::SqlitePool`.
+﻿//! Слой доступа к данным: асинхронный `sqlx::SqlitePool`.
 //! Репозитории — безжалостные исполнители воли домена.
 
 pub mod error;
 pub mod repo;
+pub mod repo_ktp;
 pub mod repo_tup;
 
 use sqlx::sqlite::{SqliteConnectOptions, SqliteJournalMode, SqlitePoolOptions};
@@ -65,6 +66,7 @@ mod tests {
         "textbook_tasks",
         "textbook_task_objectives",
         "textbook_tasks_fts",
+        "tup_fts",
     ];
 
     async fn list_tables(pool: &SqlitePool) -> Vec<String> {
@@ -117,7 +119,7 @@ mod tests {
         .fetch_one(&pool)
         .await
         .unwrap();
-        assert_eq!(version_before, 5);
+        assert_eq!(version_before, 7);
 
         // Повторный накат не меняет версию (идемпотентность).
         sqlx::migrate!("./migrations").run(&pool).await.unwrap();
@@ -128,7 +130,7 @@ mod tests {
         .fetch_one(&pool)
         .await
         .unwrap();
-        assert_eq!(version_after, 5);
+        assert_eq!(version_after, 7);
     }
 
     #[tokio::test]
@@ -203,3 +205,4 @@ mod tests {
         assert!(res.is_err(), "внешний ключ не сработал");
     }
 }
+

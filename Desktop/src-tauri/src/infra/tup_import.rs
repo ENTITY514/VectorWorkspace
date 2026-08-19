@@ -120,6 +120,7 @@ pub async fn import_from_json(
             &doc.target_grades,
             direction,
             doc.appendix_number,
+            &doc.language,
         )
         .await?
         .is_some()
@@ -138,6 +139,39 @@ pub async fn import_from_json(
             direction,
             objectives_imported: full.objectives.len(),
         });
+    }
+
+    Ok((imported, skipped))
+}
+
+/// Пакетный переимпорт: очищает все ТУП-таблицы и заливает заново оба файла
+/// (русская и казахская версии). Используется при обновлении нормативного
+/// базиса, когда старые данные нужно заменить целиком.
+pub async fn reimport_from_json(
+    pool: &SqlitePool,
+    json_texts: &[&str],
+) -> Result<(Vec<ImportReport>, usize), DbError> {
+    repo_tup::delete_all_documents(pool).await?;
+
+    let mut imported = Vec::new();
+    let mut skipped = 0usize;
+    for json_text in json_texts {
+        let export: ExportFileJson = serde_json::from_str(json_text).map_err(|e| {
+            DbError::Internal(format!("некорректный JSON ТУП: {e}"))
+        })?;
+
+        for doc in &export.documents {
+            let direction = parse_direction(&doc.direction);
+            let full = build_full_document(doc, direction);
+            repo_tup::save_full_document(pool, &full).await?;
+            imported.push(ImportReport {
+                document_id: full.document.id.to_string(),
+                subject_id: full.document.subject_id.clone(),
+                target_grades: full.document.target_grades.clone(),
+                direction,
+                objectives_imported: full.objectives.len(),
+            });
+        }
     }
 
     Ok((imported, skipped))

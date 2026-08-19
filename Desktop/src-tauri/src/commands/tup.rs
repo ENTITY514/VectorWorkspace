@@ -242,6 +242,7 @@ pub async fn import_tup(
             &doc.target_grades,
             doc.direction,
             doc.appendix_number,
+            &doc.language,
         )
         .await
         .map_err(|e| e.to_string())?
@@ -315,4 +316,97 @@ pub async fn import_tup_json(
             objectives_imported: r.objectives_imported as i64,
         })
         .collect())
+}
+
+/// Пакетный переимпорт нормативного базиса: очищает все ТУП-таблицы и
+/// заливает заново документы из обоих файлов (русская и казахская версии).
+/// Перед очисткой создаётся резервная копия БД рядом с оригиналом (*.bak).
+#[tauri::command]
+pub async fn reimport_tup(
+    state: tauri::State<'_, AppState>,
+    db_path: String,
+    ru_json_path: String,
+    kz_json_path: String,
+) -> Result<Vec<TupImportResult>, String> {
+    // Резервная копия текущей БД до очистки.
+    if !db_path.is_empty() {
+        let backup_path = format!("{db_path}.bak");
+        if std::path::Path::new(&db_path).exists() {
+            std::fs::copy(&db_path, &backup_path).map_err(|e| format!("Ошибка резервного копирования БД: {e}"))?;
+        }
+    }
+
+    let ru_text = std::fs::read_to_string(&ru_json_path).map_err(|e| e.to_string())?;
+    let kz_text = std::fs::read_to_string(&kz_json_path).map_err(|e| e.to_string())?;
+
+    let (imported, _skipped) =
+        crate::infra::tup_import::reimport_from_json(&state.pool, &[&ru_text, &kz_text])
+            .await
+            .map_err(|e| e.to_string())?;
+
+    Ok(imported
+        .into_iter()
+        .map(|r| TupImportResult {
+            document_id: r.document_id,
+            subject_id: r.subject_id,
+            target_grades: r.target_grades,
+            direction: match r.direction {
+                crate::domain::tup::TupDirection::Common => "common",
+                crate::domain::tup::TupDirection::Emn => "emn",
+                crate::domain::tup::TupDirection::Ogn => "ogn",
+            }
+            .to_string(),
+            objectives_imported: r.objectives_imported as i64,
+        })
+        .collect())
+}
+
+#[derive(Debug, Serialize)]
+#[serde(rename_all = "camelCase")]
+pub struct TupSearchHitDto {
+    pub text: String,
+    pub entity_type: String,
+    pub entity_id: String,
+    pub document_id: String,
+    pub subject_id: String,
+    pub target_grades: String,
+    pub language: String,
+    pub grade: Option<i64>,
+    pub quarter_number: Option<i64>,
+}
+
+impl From<db::repo_tup::TupSearchHit> for TupSearchHitDto {
+    fn from(h: db::repo_tup::TupSearchHit) -> Self {
+        Self {
+            text: h.text,
+            entity_type: h.entity_type,
+            entity_id: h.entity_id,
+            document_id: h.document_id,
+            subject_id: h.subject_id,
+            target_grades: h.target_grades,
+            language: h.language,
+            grade: h.grade,
+            quarter_number: h.quarter_number,
+        }
+    }
+}
+
+/// Полнотекстовый поиск по нормативному базису (цели, разделы, темы, задачи).
+#[tauri::command]
+pub async fn search_tup(
+    state: tauri::State<'_, AppState>,
+    query: String,
+    limit: Option<i64>,
+) -> Result<Vec<TupSearchHitDto>, String> {
+    let limit = limit.unwrap_or(50).clamp(1, 200);
+    let hits = db::repo_tup::search_tup(&state.pool, &query, limit)
+        .await
+        .map_err(|e| e.to_string())?;
+    Ok(hits.into_iter().map(TupSearchHitDto::from).collect())
+}
+
+/// Сохранение бинарного файла напрямую через Rust (обход ограничений scope плагина fs).
+#[tauri::command]
+pub async fn save_file(path: String, bytes: Vec<u8>) -> Result<(), String> {
+    std::fs::write(&path, bytes).map_err(|e| format!("Ошибка записи файла: {}", e))
 }

@@ -2,6 +2,7 @@
 //! Команды возвращают полностью собранные агрегаты, готовые к использованию.
 
 pub mod health;
+pub mod ktp;
 pub mod tup;
 
 use tauri::Manager;
@@ -35,6 +36,16 @@ pub fn register<R: tauri::Runtime>(
             tup::list_objectives,
             tup::get_tup_document,
             tup::import_tup,
-            tup::import_tup_json
+            tup::import_tup_json,
+            tup::reimport_tup,
+            tup::search_tup,
+            tup::save_file,
+            ktp::get_rk_calendar_defaults,
+            ktp::list_ktp_plans,
+            ktp::generate_ktp_from_tup,
+            ktp::update_ktp_schedule,
+            ktp::validate_ktp_invariants,
+            ktp::get_ktp_plan,
+            ktp::save_ktp_plan
         ])
 }

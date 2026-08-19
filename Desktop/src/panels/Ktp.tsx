@@ -1,147 +1,264 @@
-import { useState } from "react";
-import type { AcademicPlan } from "../tup/model/types";
+import { useCallback, useEffect, useMemo, useState } from "react";
+import { api } from "../api";
 import { Panel } from "../components/ui";
+import type { TupDocumentDetail, TupDocumentListItem } from "../types";
 import { generateWordDocument } from "../lib/word-generator";
 import { generateXlsx, generateKundelikXlsx } from "../lib/xlsx-generator";
-import { parseAcademicPlan } from "../tup/api/circulumPlanParser";
-import { transformTupToKtp } from "../ktp/lib";
+import { buildKtpFromTup, hoursPerWeekForGrade, totalHoursOf } from "../ktp/fromDb";
+import { LessonRowType } from "../ktp/model/types";
 
-const grades = ["8", "9", "10"];
+function parseGrades(targetGrades: string): number[] {
+  if (!targetGrades) return [];
+  if (targetGrades.includes("-")) {
+    const [lo, hi] = targetGrades.split("-").map((s) => Number(s.trim()));
+    if (!isNaN(lo) && !isNaN(hi)) return Array.from({ length: hi - lo + 1 }, (_, i) => lo + i);
+  }
+  const single = Number(targetGrades.trim());
+  return !isNaN(single) ? [single] : [];
+}
 
 interface KtpLessonView {
   number: number;
   section: string;
   topic: string;
+  objectives: string;
   hours: number;
-  type: "quarter" | "lesson";
+  type: LessonRowType;
 }
 
 export function Ktp() {
-  const [grade, setGrade] = useState("8");
-  const [tupStatus, setTupStatus] = useState<string>("");
-  const [tupError, setTupError] = useState<string>("");
-  const [lessons, setLessons] = useState<KtpLessonView[]>([]);
+  const [documents, setDocuments] = useState<TupDocumentListItem[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string>("");
 
-  const onTupFile = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-    setTupError("");
+  const [selectedSubject, setSelectedSubject] = useState<string>("");
+  const [selectedLanguage, setSelectedLanguage] = useState<string>("");
+  const [selectedGrade, setSelectedGrade] = useState<number | null>(null);
+  const [selectedDocId, setSelectedDocId] = useState<string>("");
+
+  const [detail, setDetail] = useState<TupDocumentDetail | null>(null);
+  const [lessons, setLessons] = useState<KtpLessonView[]>([]);
+  const [status, setStatus] = useState<string>("");
+
+  const loadDocuments = useCallback(async () => {
+    setLoading(true);
+    setError("");
     try {
-      const plan: AcademicPlan = await parseAcademicPlan(file);
-      const ktp = transformTupToKtp(plan);
+      const docs = await api.fetchTupDocuments();
+      setDocuments(docs);
+    } catch (e) {
+      setError(String(e));
+    } finally {
+      setLoading(false);
+    }
+  }, []);
+
+  useEffect(() => { loadDocuments(); }, [loadDocuments]);
+
+  const subjects = useMemo(() => {
+    const set = new Set<string>();
+    for (const d of documents) if (d.subjectName) set.add(d.subjectName);
+    return Array.from(set).sort();
+  }, [documents]);
+
+  const languages = useMemo(() => {
+    if (!selectedSubject) return [];
+    const set = new Set<string>();
+    for (const d of documents) if (d.subjectName === selectedSubject && d.language) set.add(d.language);
+    return Array.from(set).sort();
+  }, [documents, selectedSubject]);
+
+  const gradeOptions = useMemo(() => {
+    if (!selectedSubject || !selectedLanguage) return [];
+    const set = new Set<number>();
+    for (const d of documents) {
+      if (d.subjectName === selectedSubject && d.language === selectedLanguage) {
+        for (const g of parseGrades(d.targetGrades)) set.add(g);
+      }
+    }
+    return Array.from(set).sort((a, b) => a - b);
+  }, [documents, selectedSubject, selectedLanguage]);
+
+  const candidateDocs = useMemo(() => {
+    if (!selectedSubject || !selectedLanguage || selectedGrade == null) return [];
+    return documents.filter((d) => {
+      if (d.subjectName !== selectedSubject || d.language !== selectedLanguage) return false;
+      return parseGrades(d.targetGrades).includes(selectedGrade);
+    });
+  }, [documents, selectedSubject, selectedLanguage, selectedGrade]);
+
+  // Сброс зависимых фильтров при смене предмета.
+  const resetAfterSubject = () => {
+    setSelectedLanguage("");
+    setSelectedGrade(null);
+    setSelectedDocId("");
+    setDetail(null);
+    setLessons([]);
+    setStatus("");
+  };
+
+  const buildPlan = async (docId: string) => {
+    if (!docId || selectedGrade == null) return;
+    setStatus("Загрузка документа ТУП…");
+    setError("");
+    try {
+      const d = await api.fetchTupDocument(docId);
+      setDetail(d);
+      const plan = buildKtpFromTup(d, selectedGrade);
       setLessons(
-        ktp.map((row, i) => ({
-          number: i + 1,
+        plan.map((row) => ({
+          number: row.lessonNumber,
           section: row.sectionName,
           topic: row.lessonTopic,
+          objectives: row.objectives.map((o) => `${o.id}: ${o.description}`).join("\n"),
           hours: row.hours,
-          type: "lesson",
+          type: row.rowType,
         })),
       );
-      window.__lastTupPlan = plan;
-      setTupStatus(`ТУП «${file.name}» загружен: создано ${ktp.length} уроков.`);
-    } catch (err) {
-      setTupError(err instanceof Error ? err.message : String(err));
+      setStatus(`КТП построен: ${plan.length} строк, ${totalHoursOf(plan)} ч.`);
+    } catch (e) {
+      setError(String(e));
+      setStatus("");
     }
-    e.target.value = "";
   };
 
-  const exportFromTup = (kundelik: boolean) => {
-    const plan = window.__lastTupPlan;
-    if (!plan) {
-      setTupStatus("Сначала загрузите файл ТУП.");
-      return;
-    }
-    const ktp = transformTupToKtp(plan);
-    const fileName = "KTP_из_ТУП";
-    if (kundelik) generateKundelikXlsx(ktp, fileName);
-    else generateXlsx(ktp, fileName);
-    setTupStatus(`Экспортировано из ТУП (${ktp.length} уроков).`);
-  };
-
-  const exportWordFromTup = () => {
-    const plan = window.__lastTupPlan;
-    if (!plan) {
-      setTupStatus("Сначала загрузите файл ТУП.");
-      return;
-    }
-    const ktp = transformTupToKtp(plan);
-    const totalHours = ktp.reduce((s, r) => s + r.hours, 0);
+  const exportWord = () => {
+    if (!detail || !selectedSubject || selectedGrade == null) return;
+    const plan = buildKtpFromTup(detail, selectedGrade);
     generateWordDocument({
-      subjectName: grade,
-      className: `${grade} класс`,
-      hoursPerWeek: 4,
-      totalHours,
-      plan: ktp,
-      quarterWorkHours: { q1: totalHours / 4, q2: totalHours / 4, q3: totalHours / 4, q4: totalHours / 4 },
+      subjectName: selectedSubject,
+      className: `${selectedGrade} класс`,
+      hoursPerWeek: hoursPerWeekForGrade(detail, selectedGrade),
+      totalHours: totalHoursOf(plan),
+      plan,
+      quarterWorkHours: {
+        q1: Math.round(totalHoursOf(plan) / 4),
+        q2: Math.round(totalHoursOf(plan) / 4),
+        q3: Math.round(totalHoursOf(plan) / 4),
+        q4: totalHoursOf(plan) - 3 * Math.round(totalHoursOf(plan) / 4),
+      },
     });
-    setTupStatus(`Word сформирован из ТУП (${ktp.length} уроков).`);
+    setStatus(`Word сформирован: ${plan.length} строк.`);
+  };
+
+  const exportXlsx = (kundelik: boolean) => {
+    if (!detail || selectedGrade == null) return;
+    const plan = buildKtpFromTup(detail, selectedGrade);
+    const fileName = `KTP_${selectedSubject}_${selectedGrade}`;
+    if (kundelik) generateKundelikXlsx(plan, fileName);
+    else generateXlsx(plan, fileName);
+    setStatus(`Экспортировано (${plan.length} строк).`);
   };
 
   return (
-    <>
-      <Panel
-        title="Календарно-тематическое планирование"
-        subtitle="КТП по математике · Приказ МОН РК № 130"
-        actions={
-          <div style={{ display: "flex", gap: 8 }}>
-            {grades.map((g) => (
-              <button
-                key={g}
-                className={`btn btn-sm ${grade === g ? "btn-primary" : ""}`}
-                onClick={() => setGrade(g)}
-              >
-                {g} класс
-              </button>
-            ))}
-          </div>
-        }
-      >
-        <div className="panel-body">
-          <div className="panel-body" style={{ padding: "10px 0" }}>
-            <div className="flash-info" style={{ marginBottom: 12 }}>
-              ТУП:{" "}
-              <label className="btn btn-sm" style={{ display: "inline-block", cursor: "pointer" }}>
-                Загрузить ТУП (.xlsx/.xls)
-                <input type="file" accept=".xlsx,.xls" onChange={onTupFile} style={{ display: "none" }} />
-              </label>{" "}
-              <button className="btn btn-sm" onClick={() => exportFromTup(false)}>Экспорт XLSX из ТУП</button>{" "}
-              <button className="btn btn-sm" onClick={() => exportFromTup(true)}>Кунделик из ТУП</button>{" "}
-              <button className="btn btn-sm" onClick={exportWordFromTup}>Скачать Word</button>
-              {tupStatus && <div style={{ marginTop: 8 }}>{tupStatus}</div>}
-              {tupError && <div className="flash-error" style={{ marginTop: 8 }}>{tupError}</div>}
-            </div>
-          </div>
+    <Panel
+      title="Календарно-тематическое планирование"
+      subtitle="Генератор КТП из нормативного базиса (ТУП): предмет × класс × язык"
+    >
+      <div className="panel-body">
+        {error && <div className="flash-error" style={{ marginBottom: 12 }}>{error}</div>}
+        {loading && <div className="empty">Загрузка документов ТУП...</div>}
+        {!loading && (
+          <div className="filter-row" style={{ marginBottom: 16 }}>
+            <select
+              className="filter-select"
+              style={{ minWidth: 220 }}
+              value={selectedSubject}
+              onChange={(e) => { setSelectedSubject(e.target.value); resetAfterSubject(); }}
+            >
+              <option value="">Предмет…</option>
+              {subjects.map((s) => (
+                <option key={s} value={s}>{s}</option>
+              ))}
+            </select>
 
-          {lessons.length === 0 ? (
-            <div className="empty">
-              Загрузите файл ТУП (.xlsx) для построения календарно-тематического плана. Данные будут сохранены в
-              нормативный базис ядра.
-            </div>
-          ) : (
-            <table className="data">
-              <thead>
-                <tr>
-                  <th>№</th>
-                  <th>Раздел</th>
-                  <th>Тема урока</th>
-                  <th>Часы</th>
+            <select
+              className="filter-select"
+              style={{ minWidth: 120 }}
+              value={selectedLanguage}
+              onChange={(e) => { setSelectedLanguage(e.target.value); setSelectedGrade(null); setSelectedDocId(""); setDetail(null); setLessons([]); setStatus(""); }}
+            >
+              <option value="">Язык…</option>
+              {languages.map((l) => (
+                <option key={l} value={l}>{l.toUpperCase()}</option>
+              ))}
+            </select>
+
+            <select
+              className="filter-select"
+              style={{ minWidth: 120 }}
+              value={selectedGrade ?? ""}
+              onChange={(e) => {
+                const g = e.target.value ? Number(e.target.value) : null;
+                setSelectedGrade(g);
+                setSelectedDocId("");
+                setDetail(null);
+                setLessons([]);
+                setStatus("");
+              }}
+            >
+              <option value="">Класс…</option>
+              {gradeOptions.map((g) => (
+                <option key={g} value={g}>{g} класс</option>
+              ))}
+            </select>
+
+            <select
+              className="filter-select"
+              style={{ minWidth: 220 }}
+              value={selectedDocId}
+              onChange={(e) => { setSelectedDocId(e.target.value); buildPlan(e.target.value); }}
+            >
+              <option value="">Документ ТУП…</option>
+              {candidateDocs.map((d) => (
+                <option key={d.id} value={d.id}>
+                  Прил. {d.appendixNumber} · {d.targetGrades} · {d.language.toUpperCase()}
+                </option>
+              ))}
+            </select>
+          </div>
+        )}
+
+        {status && <div className="flash-info" style={{ marginBottom: 12 }}>{status}</div>}
+
+        {detail && lessons.length > 0 && (
+          <div style={{ marginBottom: 12 }}>
+            <button className="btn btn-sm" onClick={exportWord}>Скачать Word</button>{" "}
+            <button className="btn btn-sm" onClick={() => exportXlsx(false)}>Экспорт XLSX</button>{" "}
+            <button className="btn btn-sm" onClick={() => exportXlsx(true)}>Кунделик XLSX</button>
+          </div>
+        )}
+
+        {lessons.length === 0 && !loading ? (
+          <div className="empty">
+            Выберите предмет, язык обучения и класс, затем документ ТУП — КТП будет построен из
+            Долгосрочного плана (Параграф 3) с подстановкой целей обучения.
+          </div>
+        ) : (
+          <table className="data">
+            <thead>
+              <tr>
+                <th>№</th>
+                <th>Раздел</th>
+                <th>Тема урока</th>
+                <th>Цели обучения</th>
+                <th>Часы</th>
+              </tr>
+            </thead>
+            <tbody>
+              {lessons.map((l) => (
+                <tr key={l.number} className={l.type === LessonRowType.QUARTER_HEADER ? "row-quarter" : undefined}>
+                  <td>{l.number || ""}</td>
+                  <td className="cell-main">{l.section}</td>
+                  <td>{l.topic}</td>
+                  <td style={{ whiteSpace: "pre-line", fontSize: 12 }}>{l.objectives}</td>
+                  <td>{l.hours}</td>
                 </tr>
-              </thead>
-              <tbody>
-                {lessons.map((l, i) => (
-                  <tr key={i}>
-                    <td>{l.number}</td>
-                    <td className="cell-main">{l.section}</td>
-                    <td>{l.topic}</td>
-                    <td>{l.hours}</td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          )}
-        </div>
-      </Panel>
-    </>
+              ))}
+            </tbody>
+          </table>
+        )}
+      </div>
+    </Panel>
   );
 }

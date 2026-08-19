@@ -5,7 +5,7 @@ import { saveAs } from "file-saver";
 let inTauri = false;
 
 export function detectTauri(): boolean {
-  inTauri = "__TAURI_INTERNALS__" in window;
+  inTauri = "__TAURI_INTERNALS__" in window || "__TAURI_IPC__" in window || "__TAURI__" in window;
   return inTauri;
 }
 
@@ -16,16 +16,30 @@ export async function saveBinaryFile(
   detectTauri();
   if (inTauri) {
     try {
+      const { invoke } = await import("@tauri-apps/api/core");
       const { save } = await import("@tauri-apps/plugin-dialog");
-      const { writeFile } = await import("@tauri-apps/plugin-fs");
       const path = await save({ defaultPath: suggestedName });
       if (!path) return null;
-      let bytes = data instanceof Uint8Array ? data : new Uint8Array(await data.arrayBuffer());
-      await writeFile(path, bytes);
+      let bytes: Uint8Array;
+      if (data instanceof Uint8Array) {
+        bytes = data;
+      } else if (data instanceof Blob) {
+        bytes = new Uint8Array(await data.arrayBuffer());
+      } else if ((data as unknown) instanceof ArrayBuffer) {
+        bytes = new Uint8Array(data as unknown as ArrayBuffer);
+      } else if (typeof (data as any).arrayBuffer === "function") {
+        bytes = new Uint8Array(await (data as any).arrayBuffer());
+      } else {
+        bytes = new Uint8Array(data as any);
+      }
+      
+      await invoke("save_file", { path, bytes: Array.from(bytes) });
+      alert("Файл сохранен: " + path);
       return path;
     } catch (e) {
+      alert("Ошибка Tauri: " + String(e));
       // Фолбэк на браузерное сохранение
-      saveAs(data instanceof Uint8Array ? new Blob([data]) : data, suggestedName);
+      saveAs(data instanceof Uint8Array ? new Blob([data as any]) : (data as any), suggestedName);
       return suggestedName;
     }
   }

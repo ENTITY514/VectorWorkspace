@@ -414,3 +414,560 @@ button.btn-sm {
   padding: 10px 14px;
   font-size: 13px;
 }
+
+/* ---------- Document List (TupList) ---------- */
+.doc-card {
+  display: block;
+  width: 100%;
+  text-align: left;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  background: var(--panel);
+  cursor: pointer;
+  transition: all 0.15s;
+  box-shadow: var(--shadow);
+}
+
+.doc-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 4px 12px rgba(64, 89, 216, 0.15);
+  transform: translateY(-1px);
+}
+
+.doc-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.doc-subject {
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--text);
+}
+
+.doc-badge {
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.doc-badge-emn { background: var(--amber-soft); color: #8a6d2b; }
+.doc-badge-ogn { background: var(--green-soft); color: var(--green); }
+.doc-badge-kz { background: var(--blue-soft, #e3edfb); color: var(--blue, #1a73e8); }
+.doc-badge-ru { background: var(--red-soft, #fbe3e3); color: var(--red, #d93025); }
+
+.doc-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.doc-grades {
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--text);
+}
+
+.doc-meta {
+  color: var(--muted);
+  font-size: 12.5px;
+}
+
+.doc-stats {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-top: auto;
+}
+
+.dsp-badge {
+  background: var(--accent-soft);
+  color: var(--accent);
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 10.5px;
+  font-weight: 600;
+}
+
+/* ---------- Search & Filters ---------- */
+.search-row {
+  margin-bottom: 16px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 9px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-size: 13.5px;
+  background: var(--panel);
+  color: var(--text);
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.search-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(64, 89, 216, 0.1);
+}
+
+.search-hint {
+  margin-left: 10px;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* Полнотекстовый поиск (FTS5) */
+.fts-results {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 12px;
+  background: var(--panel-soft, #f8f9fb);
+}
+
+.fts-results-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.fts-hit {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--panel);
+  color: var(--text);
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.fts-hit:hover {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(64, 89, 216, 0.08);
+}
+
+.fts-text {
+  flex: 1;
+  font-size: 13px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fts-meta {
+  font-size: 11.5px;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.fts-badge-objective { background: var(--green-soft, #e6f4ea); color: var(--green, #188038); }
+.fts-badge-section { background: var(--blue-soft, #e3edfb); color: var(--blue, #1a73e8); }
+.fts-badge-topic { background: var(--amber-soft, #fdf2d8); color: #8a6d2b; }
+.fts-badge-task { background: var(--red-soft, #fbe3e3); color: var(--red, #d93025); }
+
+/* КТП: заголовок четверти в таблице */
+.row-quarter td {
+  background: var(--accent-soft, #eef0fb);
+  font-weight: 600;
+}
+
+.filter-row {
+  display: flex;
+  gap: 12px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.filter-select {
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 13px;
+  background: var(--panel);
+  color: var(--text);
+  cursor: pointer;
+  outline: none;
+}
+
+.filter-select:focus {
+  border-color: var(--accent);
+}
+
+/* ---------- Редактор КТП (Фаза 4) ---------- */
+.ktp-schedule {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+  padding: 10px 14px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.ktp-schedule-label {
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.ktp-day {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.ktp-day input {
+  cursor: pointer;
+}
+
+.ktp-meta {
+  margin-left: auto;
+  font-size: 12.5px;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.invariant {
+  margin-bottom: 12px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.invariant-ok {
+  background: var(--green-soft, #e6f4ea);
+  color: var(--green, #188038);
+  border: 1px solid #b7e0c3;
+}
+
+.invariant-bad {
+  background: var(--red-soft, #fbe3e3);
+  color: var(--red, #d93025);
+  border: 1px solid #f3b4b4;
+}
+
+.invariant-details {
+  margin-bottom: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 12.5px;
+}
+
+.row-holiday td {
+  background: var(--red-soft, #fbe3e3) !important;
+}
+
+.date-holiday {
+  color: var(--red, #d93025);
+  font-weight: 600;
+}
+
+.date-ok {
+  font-variant-numeric: tabular-nums;
+}
+
+.lesson-sor td {
+  background: var(--amber-soft, #fdf2d8) !important;
+}
+
+.lesson-soch td {
+  background: var(--blue-soft, #e3edfb) !important;
+  font-weight: 600;
+}
+
+.lesson-rev td {
+  background: var(--green-soft, #e6f4ea) !important;
+}
+
+.chip {
+  display: inline-block;
+  padding: 1px 8px;
+  margin: 1px 3px 1px 0;
+  background: var(--accent-soft, #eef0fb);
+  color: var(--accent);
+  border-radius: 10px;
+  font-size: 11.5px;
+  font-family: var(--mono, Consolas, monospace);
+}
+
+/* ---------- Редактор КТП: сохранённые планы и правка ---------- */
+.ktp-saved {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+  padding: 8px 14px;
+  background: var(--panel);
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+}
+
+.ktp-inline-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 2px 6px;
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: inherit;
+  background: #fff;
+  color: var(--text);
+}
+
+.ktp-objectives {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.ktp-objective {
+  display: inline-block;
+  padding: 0 6px;
+  margin: 1px 3px 1px 0;
+  background: var(--accent-soft, #eef0fb);
+  color: var(--accent);
+  border-radius: 9px;
+  font-size: 11.5px;
+  font-family: var(--mono, Consolas, monospace);
+  white-space: nowrap;
+}
+
+.ktp-actions {
+  white-space: nowrap;
+}
+
+.btn-xs {
+  padding: 2px 7px;
+  font-size: 12px;
+  line-height: 1.4;
+  min-width: 0;
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+
+.modal {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 20px;
+  min-width: 360px;
+  max-width: 480px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
+}
+
+.modal h3 {
+  margin: 0 0 8px;
+}
+
+.modal p {
+  margin: 0 0 8px;
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+/* ---------- Detail Page (TupDetail) ---------- */
+.tup-detail {
+  max-width: 1200px;
+}
+
+.doc-header {
+  margin-bottom: 24px;
+  padding-bottom: 18px;
+  border-bottom: 2px solid var(--accent);
+}
+
+.doc-header h2 {
+  margin: 0 0 12px;
+  font-size: 22px;
+  color: var(--text);
+}
+
+.doc-meta-row {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+
+.doc-meta-row span {
+  color: var(--muted);
+  font-size: 13.5px;
+}
+
+/* ---------- Sections (TupDetail) ---------- */
+.section {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 20px 24px;
+  margin-bottom: 20px;
+}
+
+.section h3 {
+  margin: 0 0 16px;
+  font-size: 17px;
+  color: var(--text);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 8px;
+}
+
+.section-block {
+  margin-bottom: 16px;
+}
+
+.section-block h4 {
+  margin: 0 0 8px;
+  font-size: 14.5px;
+  color: var(--text);
+}
+
+.section-block h5 {
+  margin: 12px 0 6px;
+  font-size: 13.5px;
+  color: var(--text);
+}
+
+.tasks-list {
+  padding-left: 24px;
+  line-height: 1.7;
+}
+
+.tasks-list li {
+  margin-bottom: 4px;
+}
+
+/* ---------- Objective Grade Blocks ---------- */
+.objective-grade-block {
+  margin-bottom: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px dashed var(--border);
+}
+
+.objective-grade-block h4 {
+  margin: 0 0 10px;
+  font-size: 15.5px;
+  color: var(--text);
+}
+
+/* ---------- Quarter Blocks ---------- */
+.quarter-block {
+  margin-bottom: 20px;
+  padding: 16px 20px;
+  background: #fafbfe;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+
+.quarter-block h4 {
+  margin: 0 0 12px;
+  font-size: 15.5px;
+  color: var(--text);
+}
+
+/* ---------- Codes ---------- */
+.codes {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.code-chip {
+  background: #eef1f6;
+  color: var(--accent);
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 11.5px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Строка «код + текст цели» в таблицах ДСП (Параграф 3). */
+.code-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 2px 0;
+}
+
+.code-row + .code-row {
+  border-top: 1px dashed var(--border);
+}
+
+.code-desc {
+  color: var(--text);
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+/* Заголовок блока с кнопкой действия (flex: заголовок + кнопка справа). */
+.block-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.block-header h3,
+.block-header h4,
+.block-header h5 {
+  margin: 0;
+  flex: 1;
+}
+
+/* ---------- Stats Row (TupDetail) ---------- */
+.stats-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.stat-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  flex: 1;
+  text-align: center;
+}
+
+.stat-value {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.stat-label {
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: 2px;
+}

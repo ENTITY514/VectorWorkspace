@@ -357,26 +357,30 @@ pub async fn get_full_document(
 }
 
 /// Заготовка для дедупликации: признаки существующего документа.
-/// Ключ включает номер приложения — один предмет (subject_id × target_grades ×
-/// direction) может иметь несколько документов для разных языков обучения
-/// (например «Обучение грамоте» для русского/уйгурского/узбекского/таджикского),
-/// которые различаются только appendix_number.
+/// Ключ включает язык и номер приложения — один предмет (subject_id ×
+/// target_grades × direction) может иметь несколько документов для разных
+/// языков обучения (например «Обучение грамоте» для русского/уйгурского/
+/// узбекского/таджикского), которые различаются только appendix_number.
+/// Без языка русская и казахская версии одного документа считались бы
+/// одинаковыми и одна из них пропускалась бы.
 pub async fn find_existing(
     pool: &SqlitePool,
     subject_id: &str,
     target_grades: &str,
     direction: TupDirection,
     appendix_number: i64,
+    language: &str,
 ) -> Result<Option<TupDocumentId>, DbError> {
     let row: Option<(String,)> = sqlx::query_as(
         "SELECT id FROM tup_documents
-         WHERE subject_id = ?1 AND target_grades = ?2 AND direction = ?3 AND appendix_number = ?4
+         WHERE subject_id = ?1 AND target_grades = ?2 AND direction = ?3 AND appendix_number = ?4 AND language = ?5
          LIMIT 1",
     )
     .bind(subject_id)
     .bind(target_grades)
     .bind(direction_to_sql(direction))
     .bind(appendix_number)
+    .bind(language)
     .fetch_optional(pool)
     .await?;
 
@@ -470,5 +474,83 @@ struct TopicRow {
     section_id: String,
     name: String,
     order_index: i64,
+}
+
+/// Удаляет все документы ТУП и связанные данные (цели, задачи, нагрузку,
+/// Долгосрочный план) единой транзакцией. Используется перед пакетным
+/// переимпортом RU+KZ версий.
+pub async fn delete_all_documents(pool: &SqlitePool) -> Result<(), DbError> {
+    let mut tx = pool.begin().await?;
+    // Дочерние таблицы ссылаются на tup_documents с ON DELETE CASCADE,
+    // поэтому достаточно удалить сами документы. Порядок безопасен.
+    sqlx::query("DELETE FROM tup_documents")
+        .execute(&mut *tx)
+        .await?;
+    tx.commit().await?;
+    Ok(())
+}
+
+/// Результат полнотекстового поиска по ТУП.
+#[derive(sqlx::FromRow)]
+pub struct TupSearchHit {
+    pub text: String,
+    pub entity_type: String,
+    pub entity_id: String,
+    pub document_id: String,
+    pub subject_id: String,
+    pub target_grades: String,
+    pub language: String,
+    pub grade: Option<i64>,
+    pub quarter_number: Option<i64>,
+}
+
+/// Полнотекстовый поиск по целям, разделам, темам и задачам ТУП (FTS5).
+/// Каждое слово запроса ищется как отдельная фраза; результат ранжируется FTS.
+pub async fn search_tup(
+    pool: &SqlitePool,
+    query: &str,
+    limit: i64,
+) -> Result<Vec<TupSearchHit>, DbError> {
+    let terms: Vec<String> = query
+        .split_whitespace()
+        .map(|t| format!("\"{}\"", t.replace('"', "")))
+        .collect();
+    if terms.is_empty() {
+        return Ok(Vec::new());
+    }
+    let match_expr = terms.join(" AND ");
+
+    sqlx::query_as::<_, TupSearchHit>(
+        "SELECT text, entity_type, entity_id, document_id, subject_id, target_grades, language, grade, quarter_number
+         FROM tup_fts WHERE tup_fts MATCH ?1 ORDER BY rank LIMIT ?2",
+    )
+    .bind(match_expr)
+    .bind(limit)
+    .fetch_all(pool)
+    .await
+    .map_err(DbError::from)
+}
+
+/// Обновляет язык документа (для пересоздания по казахскому приказу).
+pub async fn delete_document_by_language(
+    pool: &SqlitePool,
+    subject_id: &str,
+    target_grades: &str,
+    direction: TupDirection,
+    appendix_number: i64,
+    language: &str,
+) -> Result<(), DbError> {
+    sqlx::query(
+        "DELETE FROM tup_documents
+         WHERE subject_id = ?1 AND target_grades = ?2 AND direction = ?3 AND appendix_number = ?4 AND language = ?5",
+    )
+    .bind(subject_id)
+    .bind(target_grades)
+    .bind(direction_to_sql(direction))
+    .bind(appendix_number)
+    .bind(language)
+    .execute(pool)
+    .await?;
+    Ok(())
 }
 
