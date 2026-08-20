@@ -233,15 +233,24 @@ fn split_html_documents(html_text: &str) -> Vec<HtmlDocBlock> {
 /// Извлечение текста ячейки `Приложение N...` перед заголовком документа.
 /// Казахский вариант: «…бұйрығынаN-қосымша».
 fn extract_preceding_appendix(slice: &str) -> String {
-    if let Some(last_td_pos) = slice.rfind("<td") {
-        let td_slice = &slice[last_td_pos..];
-        if let Some(end_td) = td_slice.find("</td>") {
-            let inner = &td_slice[..end_td + 5];
-            let clean = clean_html_tags(inner);
-            if clean.contains("Приложение") || clean.contains("қосымша") {
-                return clean;
-            }
+    let split_point = slice.len().saturating_sub(1500);
+    let mut safe_split = split_point;
+    while safe_split < slice.len() && !slice.is_char_boundary(safe_split) {
+        safe_split += 1;
+    }
+    let lookback = &slice[safe_split..];
+    
+    if let Some(pos) = lookback.rfind("Приложение").or_else(|| lookback.rfind("қосымша")) {
+        let mut start = pos.saturating_sub(150);
+        while start > 0 && !lookback.is_char_boundary(start) {
+            start -= 1;
         }
+        let mut end = (pos + 300).min(lookback.len());
+        while end < lookback.len() && !lookback.is_char_boundary(end) {
+            end += 1;
+        }
+        let chunk = &lookback[start..end];
+        return clean_html_tags(chunk);
     }
     String::new()
 }
