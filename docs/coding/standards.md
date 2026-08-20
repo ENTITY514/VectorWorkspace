@@ -26,7 +26,7 @@
 ## Тесты
 
 - Парсеры и чистые преобразования — unit-тесты рядом (`*.test.tsx` / `*.test.ts`).
-- UI e2e — позже (Playwright), не блокирует текущий FSD.
+- UI e2e - Playwright.
 
 ## Git / PR
 
