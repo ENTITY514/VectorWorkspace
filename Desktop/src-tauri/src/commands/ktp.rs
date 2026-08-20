@@ -325,6 +325,7 @@ pub struct KtpPlanSaveIn {
     total_hours: i64,
     status: String,
     created_at: String,
+    #[allow(dead_code)]
     updated_at: String,
     days_of_week: String,
     quarters: Vec<KtpQuarterSaveIn>,
@@ -350,6 +351,7 @@ pub struct KtpLessonObjectiveSaveIn {
 #[serde(rename_all = "camelCase")]
 pub struct KtpLessonSaveIn {
     id: String,
+    #[allow(dead_code)]
     quarter_id: String,
     global_index: i64,
     quarter_index: i64,

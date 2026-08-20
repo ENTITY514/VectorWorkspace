@@ -3,6 +3,7 @@
 
 import * as XLSX from "xlsx";
 import { IKtpLesson, LessonRowType } from "../ktp/model/types";
+import { saveBinaryFile } from "./saver";
 
 const formatDate = (dateString: string) => {
   if (!dateString) return "";
@@ -10,7 +11,7 @@ const formatDate = (dateString: string) => {
   return `${day}.${month}.${year}`;
 };
 
-export const generateXlsx = (ktp: IKtpLesson[], fileName: string) => {
+export const generateXlsx = async (ktp: IKtpLesson[], fileName: string) => {
   const header = ["Дата", "Тема урока", "Домашнее задание к следующему уроку"];
   const data = [header];
   let currentQuarter = "";
@@ -77,10 +78,11 @@ export const generateXlsx = (ktp: IKtpLesson[], fileName: string) => {
   });
   worksheet["!cols"] = colWidths;
 
-  XLSX.writeFile(workbook, `${fileName}.xlsx`);
+  const out = XLSX.write(workbook, { bookType: "xlsx", type: "array" });
+  await saveBinaryFile(new Uint8Array(out), `${fileName}.xlsx`);
 };
 
-export const generateKundelikXlsx = (ktp: IKtpLesson[], fileName: string) => {
+export const generateKundelikXlsx = async (ktp: IKtpLesson[], fileName: string) => {
   const header = ["№ п/п", "Дата", "Тема урока", "Домашнее задание", "Цели обучения"];
   const data = [header];
   let currentQuarter = "";
@@ -137,5 +139,6 @@ export const generateKundelikXlsx = (ktp: IKtpLesson[], fileName: string) => {
   ];
   worksheet["!cols"] = colWidths;
 
-  XLSX.writeFile(workbook, `${fileName}_Kundelik.xlsx`);
+  const out = XLSX.write(workbook, { bookType: "xlsx", type: "array" });
+  await saveBinaryFile(new Uint8Array(out), `${fileName}_Kundelik.xlsx`);
 };

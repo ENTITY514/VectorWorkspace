@@ -879,6 +879,156 @@ button.btn-export {
   font-weight: 600;
 }
 
+/* ---------- КТП: рамка таблицы (A5), четверть (A6) ---------- */
+.ktp-table-wrap {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: auto;
+  max-height: 70vh;
+}
+
+.ktp-table-wrap table.data {
+  border: none;
+}
+
+/* A6: заголовок четверти — цвет, без hover */
+.row-quarter td {
+  background: var(--accent-soft, #eef0fb);
+  font-weight: 600;
+  cursor: default;
+}
+
+.row-quarter:hover td,
+table.data .row-quarter:hover td {
+  background: var(--accent-soft, #eef0fb) !important;
+}
+
+/* A8/A9: тема + цель в одну строку (СОЧ, повторения) */
+.ktp-topic-objective {
+  vertical-align: top;
+}
+
+.ktp-topic-inline {
+  font-weight: 600;
+  margin-right: 6px;
+}
+
+.ktp-source-missing {
+  color: var(--muted);
+  font-size: 12.5px;
+}
+
+/* A7: панель валидации часов */
+.ktp-hours {
+  margin: 0 0 12px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 12.5px;
+  border: 1px solid transparent;
+}
+
+.ktp-hours-ok {
+  background: var(--green-soft, #e6f4ea);
+  border-color: #b7e0c3;
+  color: var(--green, #188038);
+}
+
+.ktp-hours-warn {
+  background: var(--amber-soft, #fdf2d8);
+  border-color: #f0d9a8;
+  color: #8a6d2b;
+}
+
+.ktp-hours-title {
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.ktp-hours .ktp-hours-warn {
+  color: var(--red, #d93025);
+  font-weight: 600;
+}
+
+/* B4: прогресс готовности */
+.ktp-progress {
+  display: flex;
+  gap: 10px;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+  padding: 8px 14px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 12.5px;
+}
+
+.ktp-progress-total {
+  font-weight: 600;
+  min-width: 180px;
+}
+
+.ktp-progress-quarter {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 11.5px;
+  cursor: pointer;
+}
+
+.ktp-progress-bar {
+  width: 100%;
+  height: 6px;
+  min-width: 90px;
+  background: var(--border);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.ktp-progress-fill {
+  height: 100%;
+  background: var(--accent);
+  transition: width 0.2s ease;
+}
+
+/* B1: лента истории */
+.ktp-history {
+  margin-bottom: 12px;
+  padding: 8px 14px;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  max-height: 180px;
+  overflow: auto;
+  font-size: 12.5px;
+}
+
+.ktp-history-title {
+  font-weight: 700;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.ktp-history-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 2px 0;
+  border-bottom: 1px dashed var(--border);
+}
+
+.ktp-history-item:last-child {
+  border-bottom: none;
+}
+
 .toast {
   position: fixed;
   right: 20px;

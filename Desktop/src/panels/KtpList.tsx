@@ -6,6 +6,8 @@ import type { KtpPlanCard, TupDocumentListItem } from "../types";
 import { SUBJECT_NAMES } from "./SubjectNames";
 import { parseGrades } from "../lib/grades";
 import { adiletAppendixUrl, appendixLabel } from "../lib/adilet";
+import { clonePlanForGrade, listTemplates } from "../ktp/templateLib";
+import type { KtpTemplate } from "../ktp/templateLib";
 
 const WEEKDAYS = [
   { num: 1, label: "Пн" },
@@ -51,6 +53,12 @@ export function KtpList({ onOpen }: { onOpen: (id: string) => void }) {
   const [daysOfWeek, setDaysOfWeek] = useState<number[]>([2, 4]);
   const [pendingDoc, setPendingDoc] = useState<TupDocumentListItem | null>(null);
 
+  // B2: шаблоны КТП (клонирование на параллельный класс).
+  const [templates, setTemplates] = useState<KtpTemplate[]>([]);
+  const [selectedTemplateId, setSelectedTemplateId] = useState<string>("");
+  const [cloneGrade, setCloneGrade] = useState<number | null>(null);
+  const [cloneBusy, setCloneBusy] = useState(false);
+
   const loadAll = useCallback(async () => {
     setLoading(true);
     setError("");
@@ -66,6 +74,29 @@ export function KtpList({ onOpen }: { onOpen: (id: string) => void }) {
   }, []);
 
   useEffect(() => { loadAll(); }, [loadAll]);
+
+  useEffect(() => {
+    setTemplates(listTemplates());
+  }, []);
+
+  const cloneFromTemplate = async () => {
+    const tpl = templates.find((t) => t.id === selectedTemplateId);
+    if (!tpl || cloneGrade == null) return;
+    setCloneBusy(true);
+    setError("");
+    setStatus("Создание КТП из шаблона…");
+    try {
+      const plan = clonePlanForGrade(tpl, cloneGrade, "2026-2027");
+      const saved = await api.saveKtpPlan(plan);
+      setStatus(`Клон создан: ${saved.totalHours} уроков.`);
+      onOpen(saved.id);
+    } catch (e) {
+      setError(String(e));
+      setStatus("");
+    } finally {
+      setCloneBusy(false);
+    }
+  };
 
   const subjects = useMemo(() => {
     const set = new Set<string>();
@@ -241,6 +272,49 @@ export function KtpList({ onOpen }: { onOpen: (id: string) => void }) {
                 )}
               </div>
             </div>
+
+            {templates.length > 0 && (
+              <div className="panel" style={{ marginBottom: 16 }}>
+                <div className="panel-head">
+                  <h3 style={{ margin: 0 }}>Создать из шаблона (на параллельный класс)</h3>
+                </div>
+                <div className="panel-body">
+                  <div className="filter-row">
+                    <select
+                      className="filter-select"
+                      style={{ minWidth: 260 }}
+                      value={selectedTemplateId}
+                      onChange={(e) => setSelectedTemplateId(e.target.value)}
+                    >
+                      <option value="">Шаблон…</option>
+                      {templates.map((t) => (
+                        <option key={t.id} value={t.id}>
+                          {t.name} · {SUBJECT_NAMES[t.subjectId] ?? t.subjectId} · {t.grade} класс · {t.language}
+                        </option>
+                      ))}
+                    </select>
+                    <select
+                      className="filter-select"
+                      style={{ minWidth: 110 }}
+                      value={cloneGrade ?? ""}
+                      onChange={(e) => setCloneGrade(e.target.value ? Number(e.target.value) : null)}
+                    >
+                      <option value="">Класс…</option>
+                      {Array.from({ length: 11 }, (_, i) => i + 2).map((g) => (
+                        <option key={g} value={g}>{g} класс</option>
+                      ))}
+                    </select>
+                    <button
+                      className="btn btn-primary btn-sm"
+                      disabled={cloneBusy || !selectedTemplateId || cloneGrade == null}
+                      onClick={cloneFromTemplate}
+                    >
+                      {cloneBusy ? "…" : "Создать и открыть"}
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
 
             <div className="panel">
               <div className="panel-head">

@@ -130,15 +130,55 @@ export function renumberPlan(plan: KtpPlan): KtpPlan {
   });
 }
 
-/** Переместить урок на позицию другого — как KTPHUB.slice.reorderPlan. */
-export function reorderPlan(plan: KtpPlan, activeId: string, overId: string): KtpPlan {
+/** Номер четверти строки плоского плана (по заголовкам QUARTER_HEADER). */
+export function quarterIndexOf(plan: KtpPlan, lessonId: string): number {
+  let q = 0;
+  for (const l of plan) {
+    if (l.rowType === LessonRowType.QUARTER_HEADER) q += 1;
+    if (l.id === lessonId) return q;
+  }
+  return 0;
+}
+
+/**
+ * Переместить урок на позицию другого — как KTPHUB.slice.reorderPlan.
+ * Ограничения (A2): перенос разрешён только внутри одной четверти и внутри
+ * одного раздела. Спец-строки (SOR/SOCH/REPETITION) не участвуют в проверке
+ * «раздел совпадает», но не могут покинуть свою четверть.
+ */
+export function reorderPlan(
+  plan: KtpPlan,
+  activeId: string,
+  overId: string,
+): { plan: KtpPlan; error?: string } {
   const oldIndex = plan.findIndex((l) => l.id === activeId);
   const newIndex = plan.findIndex((l) => l.id === overId);
-  if (oldIndex === -1 || newIndex === -1 || oldIndex === newIndex) return plan;
+  if (oldIndex === -1 || newIndex === -1 || oldIndex === newIndex) return { plan };
+  const active = plan[oldIndex];
+  const over = plan[newIndex];
+  if (active.rowType === LessonRowType.QUARTER_HEADER || over.rowType === LessonRowType.QUARTER_HEADER) {
+    return { plan };
+  }
+
+  const activeQuarter = quarterIndexOf(plan, activeId);
+  const overQuarter = quarterIndexOf(plan, overId);
+  if (activeQuarter !== overQuarter) {
+    return { plan, error: "Нельзя переносить урок в другую четверть — редактирование только внутри одной четверти." };
+  }
+
+  const special = new Set<LessonRowType>([
+    LessonRowType.SOR,
+    LessonRowType.SOCH,
+    LessonRowType.REPETITION,
+  ]);
+  if (!special.has(active.rowType) && !special.has(over.rowType) && active.sectionName !== over.sectionName) {
+    return { plan, error: "Нельзя переносить урок в другой раздел — уроки живут внутри своего раздела." };
+  }
+
   const next = [...plan];
   const [moved] = next.splice(oldIndex, 1);
   next.splice(newIndex, 0, moved);
-  return renumberPlan(next);
+  return { plan: renumberPlan(next) };
 }
 
 /** Слить цели исходного урока в целевой и удалить исходный — как KTPHUB.slice.mergeObjectives. */
@@ -234,17 +274,19 @@ export function splitObjectivesInPlan(plan: KtpPlan, lessonId: string): KtpPlan 
   return renumberPlan(next);
 }
 
-/** Добавить СОР после раздела — как KTPHUB.slice.addSor. */
+/** Добавить СОР после раздела — как KTPHUB.slice.addSor.
+ * A4: тема/цель СОР повторяют последний обычный урок раздела (без «СОР №N…»).
+ * A10: сразу после СОР вставляется дубликат этого же урока (тип STANDARD).
+ */
 export function addSorToPlan(plan: KtpPlan, lessonId: string): KtpPlan {
   const idx = plan.findIndex((l) => l.id === lessonId);
   if (idx === -1) return plan;
   const sectionLast = plan[idx];
-  const totalSorCount = plan.filter((l) => l.rowType === LessonRowType.SOR).length;
 
   const sor: IKtpLesson = {
     ...sectionLast,
     id: uuidv4(),
-    lessonTopic: `СОР №${totalSorCount + 1} по разделу "${sectionLast.sectionName}"`,
+    lessonTopic: sectionLast.lessonTopic,
     objectives: sectionLast.objectives,
     hours: 1,
     date: "",
@@ -271,4 +313,24 @@ export function mergeLessonWithNext(
   updated[idx] = { ...cur, notes: reason };
   updated[idx + 1] = { ...next, date: cur.date, notes: reason };
   return updated;
+}
+
+/** Объединить цели следующего обычного урока этой же темы в текущий (A11).
+ * Цели переносятся в текущий урок, следующий урок удаляется, нумерация
+ * пересчитывается.
+ */
+export function mergeObjectivesWithNext(plan: KtpPlan, lessonId: string): KtpPlan {
+  const idx = plan.findIndex((l) => l.id === lessonId);
+  if (idx === -1 || idx + 1 >= plan.length) return plan;
+  const cur = plan[idx];
+  const next = plan[idx + 1];
+  if (next.rowType !== LessonRowType.STANDARD) return plan;
+  const merged: IKtpLesson = {
+    ...cur,
+    objectives: [...cur.objectives, ...next.objectives],
+  };
+  const updated = [...plan];
+  updated[idx] = merged;
+  updated.splice(idx + 1, 1);
+  return renumberPlan(updated);
 }

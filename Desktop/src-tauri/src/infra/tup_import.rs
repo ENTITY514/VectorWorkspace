@@ -154,7 +154,7 @@ pub async fn reimport_from_json(
     repo_tup::delete_all_documents(pool).await?;
 
     let mut imported = Vec::new();
-    let mut skipped = 0usize;
+    let skipped = 0usize;
     for json_text in json_texts {
         let export: ExportFileJson = serde_json::from_str(json_text).map_err(|e| {
             DbError::Internal(format!("некорректный JSON ТУП: {e}"))

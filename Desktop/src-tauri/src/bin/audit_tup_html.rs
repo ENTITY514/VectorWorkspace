@@ -8,9 +8,7 @@
 
 use std::collections::HashSet;
 use std::path::PathBuf;
-use vector_workspace_lib::infra::tup_html_parser::{
-    parse_html_full_extended, ParsedFullDocument,
-};
+use vector_workspace_lib::infra::tup_html_parser::parse_html_full_extended;
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     let args: Vec<String> = std::env::args().collect();

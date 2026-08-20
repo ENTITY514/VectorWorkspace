@@ -14,6 +14,7 @@ use crate::domain::ktp::{KtpLesson, KtpPlan, KtpQuarter, KtpStatus, LessonObject
 
 #[derive(sqlx::FromRow)]
 struct PlanRow {
+    #[allow(dead_code)]
     id: String,
     subject_id: String,
     grade: i64,
@@ -28,7 +29,9 @@ struct PlanRow {
 
 #[derive(sqlx::FromRow)]
 struct QuarterRow {
+    #[allow(dead_code)]
     id: String,
+    #[allow(dead_code)]
     ktp_id: String,
     quarter_number: i64,
     hours_per_week: i64,

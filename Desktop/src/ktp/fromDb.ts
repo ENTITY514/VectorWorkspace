@@ -12,7 +12,9 @@ const formatCode = (code: string): string => code.replace(/\s+/g, "");
  * Строит КТП для одного класса из полного документа ТУП.
  * ДСП (Параграф 3): четверти -> разделы -> темы. Для каждой темы берутся
  * коды целей, их описания подставляются из матрицы целей (П2) по коду.
- * Повторения и СОЧ добавляются как в существующей логике KTPHUB.
+ * A10: после каждого СОР — дубликат последнего обычного урока раздела,
+ * между СОР и СОЧ нет «повторения». A9: СОЧ с полным наименованием.
+ * A8: хвостовые повторения по названиям разделов (max(2, sections.length)).
  */
 export function buildKtpFromTup(detail: TupDocumentDetail, grade: number): KtpPlan {
   const ktp: KtpPlan = [];
@@ -45,6 +47,7 @@ export function buildKtpFromTup(detail: TupDocumentDetail, grade: number): KtpPl
     });
 
     for (const section of quarter.sections) {
+      let lastStandard: (typeof ktp)[number] | null = null;
       for (const topic of section.topics) {
         const objectives: ILessonObjective[] = topic.objectiveCodes
           .map((code) => ({
@@ -53,7 +56,7 @@ export function buildKtpFromTup(detail: TupDocumentDetail, grade: number): KtpPl
           }))
           .filter((o) => o.description !== "");
 
-        ktp.push({
+        const lesson = {
           id: uuidv4(),
           lessonNumber: lessonNumber++,
           hoursInSection: 1,
@@ -64,16 +67,38 @@ export function buildKtpFromTup(detail: TupDocumentDetail, grade: number): KtpPl
           date: "",
           notes: "",
           rowType: LessonRowType.STANDARD,
-        });
+        };
+        lastStandard = lesson;
+        ktp.push(lesson);
+      }
+
+      // A4: СОР дублирует тему/цель последнего обычного урока раздела.
+      ktp.push({
+        id: uuidv4(),
+        lessonNumber: lessonNumber++,
+        hoursInSection: 1,
+        sectionName: "Суммативное оценивание за раздел",
+        lessonTopic: lastStandard?.lessonTopic ?? "",
+        objectives: lastStandard?.objectives ?? [],
+        hours: 1,
+        date: "",
+        notes: "",
+        rowType: LessonRowType.SOR,
+      });
+
+      // A10: сразу после СОР — дубликат последнего обычного урока раздела.
+      if (lastStandard) {
+        ktp.push({ ...lastStandard, id: uuidv4(), lessonNumber: lessonNumber++, date: "", notes: "" });
       }
     }
 
+    // A9: полное наименование контрольной работы.
     ktp.push({
       id: uuidv4(),
       lessonNumber: lessonNumber++,
       hoursInSection: 1,
       sectionName: "Суммативное оценивание за четверть",
-      lessonTopic: "СОЧ",
+      lessonTopic: `Суммативное оценивание за ${quarter.quarterNumber} четверть`,
       objectives: [],
       hours: 1,
       date: "",
@@ -81,13 +106,16 @@ export function buildKtpFromTup(detail: TupDocumentDetail, grade: number): KtpPl
       rowType: LessonRowType.SOCH,
     });
 
-    for (let i = 0; i < 2; i++) {
+    // A8: хвостовые повторения — по названиям разделов (при одном — дубль).
+    const sectionNames = quarter.sections.map((s) => s.name);
+    const repetitionCount = Math.max(2, sectionNames.length);
+    for (let i = 0; i < repetitionCount; i++) {
       ktp.push({
         id: uuidv4(),
         lessonNumber: lessonNumber++,
         hoursInSection: 1,
         sectionName: "Повторение",
-        lessonTopic: `Повторение #${i + 1}`,
+        lessonTopic: sectionNames.length ? sectionNames[i % sectionNames.length] : `Повторение #${i + 1}`,
         objectives: [],
         hours: 1,
         date: "",

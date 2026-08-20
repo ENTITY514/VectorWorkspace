@@ -79,6 +79,7 @@ pub fn generate_from_tup(doc: &FullTupDocument, p: &GenerateParams) -> KtpPlan {
 
         if let Some(tq) = grade_quarters.iter().find(|q| q.quarter_number == qn as i64) {
             for section in &tq.sections {
+                let mut last_standard: Option<KtpLesson> = None;
                 for topic in &section.topics {
                     // На каждую цель обучения — отдельный урок (как в реальном КТП:
                     // тема повторяется на продолжениях, одна цель может идти несколько уроков).
@@ -108,6 +109,7 @@ pub fn generate_from_tup(doc: &FullTupDocument, p: &GenerateParams) -> KtpPlan {
                             LessonKind::Standard,
                         );
                         lesson.section_name = section.name.clone();
+                        last_standard = Some(lesson.clone());
                         quarter.lessons.push(lesson);
                     } else {
                         for obj in objectives {
@@ -121,6 +123,7 @@ pub fn generate_from_tup(doc: &FullTupDocument, p: &GenerateParams) -> KtpPlan {
                             );
                             lesson.section_name = section.name.clone();
                             lesson.objectives = vec![obj];
+                            last_standard = Some(lesson.clone());
                             quarter.lessons.push(lesson);
                         }
                     }
@@ -135,36 +138,46 @@ pub fn generate_from_tup(doc: &FullTupDocument, p: &GenerateParams) -> KtpPlan {
                     format!("СОР по разделу «{}»", section.name),
                     LessonKind::Sor,
                 ));
+
+                // A10: сразу после СОР — дубликат последнего обычного урока
+                // раздела (та же тема/цель, тип STANDARD).
+                if let Some(mut dup) = last_standard {
+                    global_index += 1;
+                    dup.id = crate::domain::ids::KtpLessonId::new();
+                    dup.global_index = global_index;
+                    dup.quarter_index = quarter.lessons.len() as i64 + 1;
+                    quarter.lessons.push(dup);
+                }
             }
 
-            // Буфер ровно в 1 урок между последним СОР и СОЧ (FR-2.2).
+            // СОЧ в конце четверти (A9: полное наименование).
             global_index += 1;
             quarter.lessons.push(KtpLesson::new(
                 quarter.id,
                 global_index,
                 quarter.lessons.len() as i64 + 1,
-                "Повторение по разделу".into(),
-                LessonKind::Revision,
-            ));
-
-            // СОЧ в конце четверти.
-            global_index += 1;
-            quarter.lessons.push(KtpLesson::new(
-                quarter.id,
-                global_index,
-                quarter.lessons.len() as i64 + 1,
-                format!("СОЧ за {} четверть", qn),
+                format!("Суммативное оценивание за {} четверть", qn),
                 LessonKind::Soch,
             ));
 
-            // Буфер повторений после СОЧ: не менее недельной нагрузки (FR-2.3).
-            for i in 0..hours_per_week {
+            // Хвостовые повторения после СОЧ (FR-2.3). A8: вместо «Повторение #N»
+            // подставляются названия разделов четверти: max(2, sections.length),
+            // при одном разделе — дублировать. «Повторение» между СОР и СОЧ
+            // не создаётся (A10).
+            let section_names: Vec<String> = tq.sections.iter().map(|s| s.name.clone()).collect();
+            let repetition_count = section_names.len().max(2);
+            for i in 0..repetition_count {
                 global_index += 1;
+                let topic = if section_names.is_empty() {
+                    format!("Повторение #{}", i + 1)
+                } else {
+                    section_names[i % section_names.len()].clone()
+                };
                 quarter.lessons.push(KtpLesson::new(
                     quarter.id,
                     global_index,
                     quarter.lessons.len() as i64 + 1,
-                    format!("Повторение #{}", i + 1),
+                    topic,
                     LessonKind::Revision,
                 ));
             }
@@ -378,9 +391,10 @@ mod tests {
         let doc = stub_doc();
         let plan = generate_from_tup(&doc, &params());
         assert_eq!(plan.quarters.len(), 4);
-        // В каждой четверти: 3 темы + 2 СОР + 1 буфер + СОЧ + 2 повторения = 9 уроков.
+        // В каждой четверти: 3 темы + 2 СОР + 2 дубликата после СОР (A10) +
+        // СОЧ + 2 повторения по разделам = 10 уроков.
         for q in &plan.quarters {
-            assert_eq!(q.lessons.len(), 9);
+            assert_eq!(q.lessons.len(), 10);
         }
         // Первая четверть: глобальные индексы возрастают.
         let g: Vec<i64> = plan.quarters[0].lessons.iter().map(|l| l.global_index).collect();
@@ -454,13 +468,13 @@ mod tests {
         let q0 = &plan.quarters[0];
 
         // Темы первой секции: тема1 (2 цели → 2 урока), тема2 (1 цель → 1 урок);
-        // вторая секция: тема3 (1 цель → 1 урок).
+        // вторая секция: тема3 (1 цель → 1 урок). Плюс 2 дубликата после СОР (A10).
         let standard: Vec<&KtpLesson> = q0
             .lessons
             .iter()
             .filter(|l| l.lesson_type == LessonKind::Standard)
             .collect();
-        assert_eq!(standard.len(), 4, "должно быть 4 урока на 4 цели");
+        assert_eq!(standard.len(), 6, "4 обычных урока + 2 дубликата после СОР");
 
         let first = &standard[0];
         let second = &standard[1];
@@ -475,5 +489,90 @@ mod tests {
         // Инварианты остаются в силе при новом раскладе.
         let report = validate_invariants(&plan);
         assert!(report.valid, "инварианты нарушены: {:?}", report.checks);
+    }
+
+    #[test]
+    fn sor_is_followed_by_duplicate_of_last_lesson_and_no_revision_before_soch() {
+        let doc = stub_doc();
+        let plan = generate_from_tup(&doc, &params());
+
+        for q in &plan.quarters {
+            for (i, lesson) in q.lessons.iter().enumerate() {
+                if lesson.lesson_type == LessonKind::Sor {
+                    let next = q.lessons.get(i + 1).expect("СОР должен иметь следующий урок");
+                    let prev_standard = q.lessons[..i]
+                        .iter()
+                        .rev()
+                        .find(|l| l.lesson_type == LessonKind::Standard)
+                        .expect("перед СОР должен быть обычный урок");
+                    // A10: сразу после СОР — дубликат последнего обычного урока раздела.
+                    assert_eq!(next.lesson_type, LessonKind::Standard);
+                    assert_eq!(next.topic_title, prev_standard.topic_title);
+                    assert_eq!(next.objectives.len(), prev_standard.objectives.len());
+                }
+            }
+            // Между последним СОР и СОЧ нет повторений (A10).
+            let sor_positions: Vec<usize> = q
+                .lessons
+                .iter()
+                .enumerate()
+                .filter(|(_, l)| l.lesson_type == LessonKind::Sor)
+                .map(|(i, _)| i)
+                .collect();
+            let soch_pos = q.lessons.iter().position(|l| l.lesson_type == LessonKind::Soch);
+            if let (Some(&last_sor), Some(soch)) = (sor_positions.last(), soch_pos) {
+                for lesson in &q.lessons[last_sor + 1..soch] {
+                    assert_ne!(lesson.lesson_type, LessonKind::Revision, "между СОР и СОЧ нет повторений");
+                }
+                // FR-2.2: дистанция ровно 2 (СОР → дубликат → СОЧ).
+                assert_eq!(soch - last_sor, 2);
+            }
+        }
+    }
+
+    #[test]
+    fn tail_repetitions_use_section_names() {
+        let doc = stub_doc();
+        let plan = generate_from_tup(&doc, &params());
+        // В stub-четверти 2 раздела → 2 хвостовых повторения с их названиями.
+        let q0 = &plan.quarters[0];
+        let revisions: Vec<&KtpLesson> = q0
+            .lessons
+            .iter()
+            .filter(|l| l.lesson_type == LessonKind::Revision)
+            .collect();
+        assert_eq!(revisions.len(), 2);
+        assert_eq!(revisions[0].topic_title, "Раздел 1");
+        assert_eq!(revisions[1].topic_title, "Раздел 2");
+    }
+
+    #[test]
+    fn single_section_quarter_duplicates_tail_repetition() {
+        let mut doc = stub_doc();
+        // Сводим первую четверть к одному разделу.
+        doc.quarters[0].sections.truncate(1);
+        let plan = generate_from_tup(&doc, &params());
+        let q0 = &plan.quarters[0];
+        let revisions: Vec<&KtpLesson> = q0
+            .lessons
+            .iter()
+            .filter(|l| l.lesson_type == LessonKind::Revision)
+            .collect();
+        // max(2, 1) = 2 повторения с названием единственного раздела (дубль).
+        assert_eq!(revisions.len(), 2);
+        assert_eq!(revisions[0].topic_title, "Раздел 1");
+        assert_eq!(revisions[1].topic_title, "Раздел 1");
+    }
+
+    #[test]
+    fn soch_has_full_name() {
+        let doc = stub_doc();
+        let plan = generate_from_tup(&doc, &params());
+        let soch = plan.quarters[0]
+            .lessons
+            .iter()
+            .find(|l| l.lesson_type == LessonKind::Soch)
+            .expect("СОЧ должен быть в четверти");
+        assert_eq!(soch.topic_title, "Суммативное оценивание за 1 четверть");
     }
 }

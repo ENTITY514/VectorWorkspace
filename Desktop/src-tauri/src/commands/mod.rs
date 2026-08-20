@@ -49,6 +49,7 @@ pub fn register<R: tauri::Runtime>(
             tup::reimport_tup,
             tup::search_tup,
             tup::save_file,
+            tup::read_file_text,
             ktp::get_rk_calendar_defaults,
             ktp::list_ktp_plans,
             ktp::generate_ktp_from_tup,

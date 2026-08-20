@@ -410,3 +410,10 @@ pub async fn search_tup(
 pub async fn save_file(path: String, bytes: Vec<u8>) -> Result<(), String> {
     std::fs::write(&path, bytes).map_err(|e| format!("Ошибка записи файла: {}", e))
 }
+
+/// Чтение текстового файла (JSON-импорт) — путь из диалога пользователя,
+/// поэтому читаем напрямую через Rust, без scope плагина fs.
+#[tauri::command]
+pub async fn read_file_text(path: String) -> Result<String, String> {
+    std::fs::read_to_string(&path).map_err(|e| format!("Ошибка чтения файла: {}", e))
+}
