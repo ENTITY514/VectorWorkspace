@@ -11,6 +11,7 @@ export class HistoryMachine<T> {
   present: T;
   future: T[] = [];
   labels: HistoryEntry[] = [];
+  private futureLabels: HistoryEntry[] = [];
   private cap: number;
 
   constructor(initial: T, cap = 100) {
@@ -31,6 +32,7 @@ export class HistoryMachine<T> {
     if (this.past.length > this.cap) this.past.shift();
     this.present = next;
     this.future = [];
+    this.futureLabels = [];
     this.labels.push({ label, ts: Date.now() });
     if (this.labels.length > this.cap) this.labels.shift();
   }
@@ -39,6 +41,7 @@ export class HistoryMachine<T> {
     this.past = [];
     this.future = [];
     this.labels = [];
+    this.futureLabels = [];
     this.present = next;
   }
 
@@ -46,8 +49,10 @@ export class HistoryMachine<T> {
     if (!this.canUndo) return null;
     const prev = this.past.pop() as T;
     this.future.unshift(this.present);
+    if (this.future.length > this.cap) this.future.pop();
     this.present = prev;
-    this.labels.pop();
+    const poppedLabel = this.labels.pop();
+    if (poppedLabel) this.futureLabels.unshift(poppedLabel);
     return prev;
   }
 
@@ -57,7 +62,8 @@ export class HistoryMachine<T> {
     this.past.push(this.present);
     if (this.past.length > this.cap) this.past.shift();
     this.present = next;
-    this.labels.push({ label: "Повторить", ts: Date.now() });
+    const restoredLabel = this.futureLabels.shift() ?? { label: "Повторить", ts: Date.now() };
+    this.labels.push(restoredLabel);
     return next;
   }
 }

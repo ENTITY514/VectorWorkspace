@@ -5,7 +5,6 @@
 // Импорт: валидация схемы, детект конфликтных id и merge-стратегия
 // «создать копию» для планов (перегенерация id) и «пропустить» для шаблонов.
 
-import { v4 as uuidv4 } from "uuid";
 import type { KtpPlan, TupDocumentListItem } from "../types";
 import type { KtpTemplate } from "./templateLib";
 
@@ -64,7 +63,7 @@ export function resolveImport(manifest: BackupManifest): {
   plans: KtpPlan[];
   templates: KtpTemplate[];
 } {
-  const plans = manifest.plans.map((p) => ({ ...p, id: uuidv4(), status: "Draft" }));
+  const plans = manifest.plans.map((p) => ({ ...p, id: crypto.randomUUID(), status: "Draft" }));
   const templates = manifest.templates.map((t) => ({ ...t }));
   return { plans, templates };
 }

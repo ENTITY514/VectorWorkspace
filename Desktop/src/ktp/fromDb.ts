@@ -2,7 +2,6 @@
 // Использует существующую модель KtpPlan (см. ktp/model/types.ts) — ту же,
 // что принимают word-generator и xlsx-generator.
 
-import { v4 as uuidv4 } from "uuid";
 import { KtpPlan, LessonRowType, ILessonObjective } from "./model/types";
 import type { TupDocumentDetail } from "../types";
 
@@ -34,7 +33,7 @@ export function buildKtpFromTup(detail: TupDocumentDetail, grade: number): KtpPl
 
   for (const quarter of gradeQuarters) {
     ktp.push({
-      id: uuidv4(),
+      id: crypto.randomUUID(),
       lessonNumber: 0,
       hoursInSection: 0,
       sectionName: `${quarter.quarterNumber}-я четверть`,
@@ -57,7 +56,7 @@ export function buildKtpFromTup(detail: TupDocumentDetail, grade: number): KtpPl
           .filter((o) => o.description !== "");
 
         const lesson = {
-          id: uuidv4(),
+          id: crypto.randomUUID(),
           lessonNumber: lessonNumber++,
           hoursInSection: 1,
           sectionName: section.name,
@@ -74,7 +73,7 @@ export function buildKtpFromTup(detail: TupDocumentDetail, grade: number): KtpPl
 
       // A4: СОР дублирует тему/цель последнего обычного урока раздела.
       ktp.push({
-        id: uuidv4(),
+        id: crypto.randomUUID(),
         lessonNumber: lessonNumber++,
         hoursInSection: 1,
         sectionName: "Суммативное оценивание за раздел",
@@ -88,13 +87,13 @@ export function buildKtpFromTup(detail: TupDocumentDetail, grade: number): KtpPl
 
       // A10: сразу после СОР — дубликат последнего обычного урока раздела.
       if (lastStandard) {
-        ktp.push({ ...lastStandard, id: uuidv4(), lessonNumber: lessonNumber++, date: "", notes: "" });
+        ktp.push({ ...lastStandard, id: crypto.randomUUID(), lessonNumber: lessonNumber++, date: "", notes: "" });
       }
     }
 
     // A9: полное наименование контрольной работы.
     ktp.push({
-      id: uuidv4(),
+      id: crypto.randomUUID(),
       lessonNumber: lessonNumber++,
       hoursInSection: 1,
       sectionName: "Суммативное оценивание за четверть",
@@ -111,7 +110,7 @@ export function buildKtpFromTup(detail: TupDocumentDetail, grade: number): KtpPl
     const repetitionCount = Math.max(2, sectionNames.length);
     for (let i = 0; i < repetitionCount; i++) {
       ktp.push({
-        id: uuidv4(),
+        id: crypto.randomUUID(),
         lessonNumber: lessonNumber++,
         hoursInSection: 1,
         sectionName: "Повторение",

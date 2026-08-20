@@ -2,7 +2,6 @@
 // вложенной моделью БД (quarters → lessons). Экспортные генераторы работают
 // с плоской моделью, редактор тоже; БД — вложенная.
 
-import { v4 as uuidv4 } from "uuid";
 import { IKtpLesson, ILessonObjective, KtpPlan, LessonRowType } from "./model/types";
 import type { KtpLesson as DbLesson, KtpPlan as DbPlan } from "../types";
 
@@ -216,7 +215,7 @@ export function addHourToPlan(plan: KtpPlan, lessonId: string): KtpPlan {
   const idx = plan.findIndex((l) => l.id === lessonId);
   if (idx === -1) return plan;
   const src = plan[idx];
-  const copy: IKtpLesson = { ...src, id: uuidv4(), date: "", notes: "", lessonNumber: src.lessonNumber + 1 };
+  const copy: IKtpLesson = { ...src, id: crypto.randomUUID(), date: "", notes: "", lessonNumber: src.lessonNumber + 1 };
   const next = [...plan];
   next.splice(idx + 1, 0, copy);
   return renumberPlan(next);
@@ -264,7 +263,7 @@ export function splitObjectivesInPlan(plan: KtpPlan, lessonId: string): KtpPlan 
   const head = { ...src, objectives: [src.objectives[0]] };
   const rest = src.objectives.slice(1).map((o) => ({
     ...src,
-    id: uuidv4(),
+    id: crypto.randomUUID(),
     objectives: [o],
     date: "",
     notes: "",
@@ -285,7 +284,7 @@ export function addSorToPlan(plan: KtpPlan, lessonId: string): KtpPlan {
 
   const sor: IKtpLesson = {
     ...sectionLast,
-    id: uuidv4(),
+    id: crypto.randomUUID(),
     lessonTopic: sectionLast.lessonTopic,
     objectives: sectionLast.objectives,
     hours: 1,
@@ -293,7 +292,7 @@ export function addSorToPlan(plan: KtpPlan, lessonId: string): KtpPlan {
     notes: "",
     rowType: LessonRowType.SOR,
   };
-  const hour: IKtpLesson = { ...sectionLast, id: uuidv4(), date: "", notes: "" };
+  const hour: IKtpLesson = { ...sectionLast, id: crypto.randomUUID(), date: "", notes: "" };
   const next = [...plan];
   next.splice(idx + 1, 0, sor, hour);
   return renumberPlan(next);

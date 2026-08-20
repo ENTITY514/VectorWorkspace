@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { api } from "../api";
+import { api } from "../services/api";
 import type { SchoolState } from "../types";
 
 const GRADES = Array.from({ length: 12 }, (_, i) => i + 1);

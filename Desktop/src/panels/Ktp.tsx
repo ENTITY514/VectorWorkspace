@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
-import { api } from "../api";
+import { api } from "../services/api";
 import { Panel } from "../components/ui";
 import type { TupDocumentDetail, TupDocumentListItem } from "../types";
 import { generateWordDocument } from "../lib/word-generator";

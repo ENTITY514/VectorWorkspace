@@ -4,7 +4,6 @@
 // Шаблон хранит вложенную модель (KtpPlan из types.ts) — при клонировании
 // пересоздаются id, очищаются даты, меняется класс.
 
-import { v4 as uuidv4 } from "uuid";
 import type { KtpPlan } from "../types";
 
 const STORAGE_KEY = "ktp_templates_v1";
@@ -47,16 +46,16 @@ export function deleteTemplate(id: string): KtpTemplate[] {
 /** Клон шаблона для другого класса: новые id, пустые даты, черновик. */
 export function clonePlanForGrade(template: KtpTemplate, newGrade: number, academicYear: string): KtpPlan {
   const src = template.plan;
-  const id = uuidv4();
+  const id = crypto.randomUUID();
   const quarters = src.quarters.map((q) => {
-    const quarterId = uuidv4();
+    const quarterId = crypto.randomUUID();
     return {
       ...q,
       id: quarterId,
       ktpId: id,
       lessons: q.lessons.map((l) => ({
         ...l,
-        id: uuidv4(),
+        id: crypto.randomUUID(),
         quarterId,
         plannedDate: null,
         isCancelled: false,

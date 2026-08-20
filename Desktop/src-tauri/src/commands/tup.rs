@@ -405,11 +405,7 @@ pub async fn search_tup(
     Ok(hits.into_iter().map(TupSearchHitDto::from).collect())
 }
 
-/// Сохранение бинарного файла напрямую через Rust (обход ограничений scope плагина fs).
-#[tauri::command]
-pub async fn save_file(path: String, bytes: Vec<u8>) -> Result<(), String> {
-    std::fs::write(&path, bytes).map_err(|e| format!("Ошибка записи файла: {}", e))
-}
+
 
 /// Чтение текстового файла (JSON-импорт) — путь из диалога пользователя,
 /// поэтому читаем напрямую через Rust, без scope плагина fs.

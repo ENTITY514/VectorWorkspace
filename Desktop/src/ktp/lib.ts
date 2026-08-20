@@ -1,7 +1,6 @@
 // Портировано из KTPHUB: src/entities/ktp/model/lib.ts
 // Преобразование ТУП -> КТП и перенумерация плана.
 
-import { v4 as uuidv4 } from "uuid";
 import { AcademicPlan } from "../tup/model/types";
 import { KtpPlan, LessonRowType } from "./model/types";
 
@@ -11,7 +10,7 @@ export const transformTupToKtp = (tup: AcademicPlan): KtpPlan => {
 
   tup.forEach((quarter) => {
     ktp.push({
-      id: uuidv4(),
+      id: crypto.randomUUID(),
       lessonNumber: 0,
       hoursInSection: 0,
       sectionName: quarter.name,
@@ -25,7 +24,7 @@ export const transformTupToKtp = (tup: AcademicPlan): KtpPlan => {
 
     quarter.repetitionInfo.forEach((repetitionTopic) => {
       ktp.push({
-        id: uuidv4(),
+        id: crypto.randomUUID(),
         lessonNumber: lessonNumber++,
         hoursInSection: 1,
         sectionName: "Повторение",
@@ -42,7 +41,7 @@ export const transformTupToKtp = (tup: AcademicPlan): KtpPlan => {
       section.topics.forEach((topic) => {
         topic.objectives.forEach((objective) => {
           ktp.push({
-            id: uuidv4(),
+            id: crypto.randomUUID(),
             lessonNumber: lessonNumber++,
             hoursInSection: 1,
             sectionName: section.name,
@@ -63,7 +62,7 @@ export const transformTupToKtp = (tup: AcademicPlan): KtpPlan => {
     });
 
     ktp.push({
-      id: uuidv4(),
+      id: crypto.randomUUID(),
       lessonNumber: lessonNumber++,
       hoursInSection: 1,
       sectionName: "Суммативное оценивание за четверть",
@@ -77,7 +76,7 @@ export const transformTupToKtp = (tup: AcademicPlan): KtpPlan => {
 
     for (let i = 0; i < 2; i++) {
       ktp.push({
-        id: uuidv4(),
+        id: crypto.randomUUID(),
         lessonNumber: lessonNumber++,
         hoursInSection: 1,
         sectionName: "Повторение",

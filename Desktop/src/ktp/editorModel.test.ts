@@ -1,5 +1,4 @@
 import { describe, expect, it } from "vitest";
-import { v4 as uuidv4 } from "uuid";
 import { addSorToPlan, mergeObjectivesWithNext, reorderPlan } from "./editorModel";
 import { HistoryMachine } from "./history";
 import type { IKtpLesson, KtpPlan } from "./model/types";
@@ -7,7 +6,7 @@ import { LessonRowType } from "./model/types";
 
 function lesson(partial: Partial<IKtpLesson> & { sectionName: string; lessonTopic: string }): IKtpLesson {
   return {
-    id: partial.id ?? uuidv4(),
+    id: partial.id ?? crypto.randomUUID(),
     lessonNumber: 0,
     hoursInSection: 1,
     objectives: partial.objectives ?? [],
