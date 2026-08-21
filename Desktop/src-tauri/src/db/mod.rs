@@ -9,14 +9,74 @@ pub mod repo_tup;
 
 use sqlx::sqlite::{SqliteConnectOptions, SqliteJournalMode, SqlitePoolOptions};
 use sqlx::SqlitePool;
+use std::fs;
 use std::path::Path;
 use std::str::FromStr;
+use std::time::{SystemTime, UNIX_EPOCH};
 
 pub use error::DbError;
+
+/// Сколько точек возврата хранить. Старые сверх лимита уничтожаются.
+const BACKUP_KEEP: usize = 5;
+
+/// Снимает точку возврата перед любой мутацией БД.
+///
+/// Сбрасывает WAL в основной файл (`wal_checkpoint(TRUNCATE)`), копирует базу
+/// в `vector.db.bak.<unix_ts>` рядом с оригиналом и оставляет не более
+/// `BACKUP_KEEP` последних копий. Если файла ещё нет — ничего не делает.
+pub async fn backup_database(path: &Path) -> Result<(), DbError> {
+    if !path.exists() {
+        return Ok(());
+    }
+
+    // Flush WAL в основной файл, чтобы копия была консистентной.
+    let opts = SqliteConnectOptions::from_str(&format!("sqlite://{}", path.display()))?
+        .journal_mode(SqliteJournalMode::Wal)
+        .foreign_keys(true);
+    let pool = SqlitePoolOptions::new()
+        .max_connections(1)
+        .connect_with(opts)
+        .await?;
+    let _ = sqlx::query("PRAGMA wal_checkpoint(TRUNCATE)").execute(&pool).await;
+    pool.close().await;
+
+    let ts = SystemTime::now()
+        .duration_since(UNIX_EPOCH)
+        .map(|d| d.as_secs())
+        .unwrap_or(0);
+    let backup_path = path.with_extension(format!("db.bak.{}", ts));
+    fs::copy(path, &backup_path)?;
+
+    if let Some(parent) = path.parent() {
+        if let Ok(entries) = fs::read_dir(parent) {
+            let mut backups: Vec<_> = entries
+                .filter_map(|e| e.ok())
+                .map(|e| e.path())
+                .filter(|p| {
+                    p.file_name()
+                        .and_then(|n| n.to_str())
+                        .map(|n| n.starts_with("vector.db.bak."))
+                        .unwrap_or(false)
+                })
+                .collect();
+            backups.sort();
+            while backups.len() > BACKUP_KEEP {
+                if let Some(old) = backups.first() {
+                    let _ = fs::remove_file(old);
+                    backups.remove(0);
+                }
+            }
+        }
+    }
+    Ok(())
+}
 
 /// Открывает (или создаёт) базу и накатывает миграции.
 /// WAL и `foreign_keys` включаются на уровне соединения.
 pub async fn connect(path: &Path) -> Result<SqlitePool, DbError> {
+    // Точка возврата ДО любой модификации (миграций, импорта, правок).
+    backup_database(path).await?;
+
     let options = SqliteConnectOptions::from_str(&format!("sqlite://{}", path.display()))?
         .create_if_missing(true)
         .journal_mode(SqliteJournalMode::Wal)

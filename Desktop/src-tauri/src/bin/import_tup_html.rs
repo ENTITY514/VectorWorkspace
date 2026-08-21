@@ -43,12 +43,9 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             .as_u64()
             .unwrap_or(0);
 
-        // Резервная копия БД перед очисткой.
-        if db_path.exists() {
-            let backup = format!("{}.bak", db_path.display());
-            std::fs::copy(&db_path, &backup)?;
-            println!("Резервная копия БД: {}", backup);
-        }
+        // Точка возврата перед очисткой ТУП-таблиц.
+        db::backup_database(&db_path).await?;
+        println!("Резервная копия БД создана перед переимпортом.");
 
         if let Some(parent) = db_path.parent() {
             std::fs::create_dir_all(parent)?;

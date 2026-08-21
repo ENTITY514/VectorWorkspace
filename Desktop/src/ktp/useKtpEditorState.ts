@@ -19,11 +19,14 @@ import {
   updateLessonInPlan,
 } from "./editorModel";
 import { generateXlsx, generateKundelikXlsx } from "../lib/xlsx-generator";
+import { generateWordDocument } from "../lib/word-generator";
 import { totalHoursOf } from "./fromDb";
 import { sourceDocLabel, matchSourceDoc } from "../lib/sourceDoc";
 import { validateHours } from "./hoursValidation";
 import { useHistory } from "./useHistory";
 import { saveTemplate, KtpTemplate } from "./templateLib";
+
+type EditableField = "sectionName" | "lessonTopic" | "date" | "notes";
 
 export function useKtpEditorState(planId: string) {
   const [dbPlan, setDbPlan] = useState<KtpPlan | null>(null);
@@ -88,7 +91,7 @@ export function useKtpEditorState(planId: string) {
     };
   }, [dbPlan]);
 
-  const [editing, setEditing] = useState<{ id: string; field: keyof IKtpLesson } | null>(null);
+  const [editing, setEditing] = useState<{ id: string; field: EditableField } | null>(null);
   const [draft, setDraft] = useState("");
   const [mergeFor, setMergeFor] = useState<string | null>(null);
   const [mergeReason, setMergeReason] = useState("");
@@ -140,7 +143,7 @@ export function useKtpEditorState(planId: string) {
     setEditing(null);
   };
 
-  const beginEdit = (lesson: IKtpLesson, field: keyof IKtpLesson) => {
+  const beginEdit = (lesson: IKtpLesson, field: EditableField) => {
     setEditing({ id: lesson.id, field });
     setDraft(String(lesson[field] ?? ""));
   };

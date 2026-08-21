@@ -1,0 +1,56 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  frontend:
+    name: Frontend (tsc + test)
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: Desktop
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: Desktop/package-lock.json
+      - run: npm ci
+      - name: Typecheck & build
+        run: npm run build
+      - name: Unit tests
+        run: npm test
+
+  rust:
+    name: Rust (cargo test)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install system dependencies (Tauri)
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y \
+            libwebkit2gtk-4.1-dev build-essential curl wget file \
+            libxdo-dev libssl-dev libayatana-appindicator3-dev librsvg2-dev
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: Desktop/src-tauri
+      - name: cargo test
+        working-directory: Desktop/src-tauri
+        run: cargo test
+
+  db-scripts:
+    name: Audit DB-mutating scripts
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify every DB-mutating script proves key uniqueness
+        run: python scripts/audit_db_scripts.py

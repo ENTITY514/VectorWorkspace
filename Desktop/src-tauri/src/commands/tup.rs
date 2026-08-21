@@ -328,12 +328,11 @@ pub async fn reimport_tup(
     ru_json_path: String,
     kz_json_path: String,
 ) -> Result<Vec<TupImportResult>, String> {
-    // Резервная копия текущей БД до очистки.
+    // Точка возврата перед очисткой ТУП-таблиц.
     if !db_path.is_empty() {
-        let backup_path = format!("{db_path}.bak");
-        if std::path::Path::new(&db_path).exists() {
-            std::fs::copy(&db_path, &backup_path).map_err(|e| format!("Ошибка резервного копирования БД: {e}"))?;
-        }
+        crate::db::backup_database(std::path::Path::new(&db_path))
+            .await
+            .map_err(|e| format!("Ошибка резервного копирования БД: {e}"))?;
     }
 
     let ru_text = std::fs::read_to_string(&ru_json_path).map_err(|e| e.to_string())?;
