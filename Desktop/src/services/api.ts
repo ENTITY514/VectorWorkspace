@@ -21,6 +21,7 @@ import type {
   TupSearchHit,
 } from "../types";
 import { SUBJECT_NAMES } from "../panels/SubjectNames";
+import { directionLabel } from "../domains/tup/labels";
 
 const isTauri = "__TAURI_INTERNALS__" in window;
 
@@ -50,7 +51,7 @@ export const api = {
       subjectId: d.subjectId,
       subjectName: SUBJECT_NAMES[d.subjectId] ?? d.subjectId,
       targetGrades: d.targetGrades,
-      directionStr: d.direction === "emn" ? "ЕМН" : d.direction === "ogn" ? "ОГН" : "common",
+      directionStr: directionLabel(d.direction),
       appendixNumber: d.appendixNumber,
       orderNumber: d.orderNumber,
       orderDate: d.orderDate,

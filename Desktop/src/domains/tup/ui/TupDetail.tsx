@@ -4,6 +4,7 @@ import { TupParagraph1 } from "./TupParagraph1";
 import { TupParagraph2 } from "./TupParagraph2";
 import { TupParagraph3 } from "./TupParagraph3";
 import { TupHours } from "./TupHours";
+import { directionLabel, directionFull, languageLabel } from "../labels";
 
 export function TupDetail({ id, onClose }: { id: string; onClose: () => void }) {
   const {
@@ -32,12 +33,12 @@ export function TupDetail({ id, onClose }: { id: string; onClose: () => void }) 
         </div>
         <div className="doc-meta-row">
           <span><b>{t.grades}:</b> {detail.targetGrades}</span>
-          <span><b>{t.direction}:</b> {detail.direction === "emn" ? "ЕМН" : detail.direction === "ogn" ? "ОГН" : lang === "kz" ? "Жалпы" : "Общее"}</span>
+          <span><b>{t.direction}:</b> <span title={directionFull(detail.direction)}>{directionLabel(detail.direction)}</span></span>
           <span><b>{t.appendix}:</b> {detail.appendixNumber}</span>
         </div>
         <div className="doc-meta-row">
           <span><b>{t.orderDate}:</b> {detail.orderDate}</span>
-          <span><b>{t.lang}:</b> {detail.language}</span>
+          <span><b>{t.lang}:</b> {languageLabel(detail.language)}</span>
         </div>
       </div>
 

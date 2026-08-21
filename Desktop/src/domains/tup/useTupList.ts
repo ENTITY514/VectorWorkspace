@@ -75,7 +75,7 @@ export function useTupList(onSelect: (id: string) => void) {
   const directions = useMemo(() => {
     const set = new Set<string>();
     for (const d of documents) {
-      if (d.directionStr && d.directionStr !== "common") set.add(d.directionStr);
+      if (d.directionStr) set.add(d.directionStr);
     }
     return ["all", ...Array.from(set)];
   }, [documents]);

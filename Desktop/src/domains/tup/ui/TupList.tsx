@@ -3,6 +3,7 @@ import { Stat } from "../../../shared/ui/Stat";
 import { SUBJECT_NAMES } from "../../../panels/SubjectNames";
 import { useTupList } from "../useTupList";
 import { TupDocumentCard } from "./TupDocumentCard";
+import { directionLabel, languageLabel, entityTypeLabel } from "../labels";
 
 export function TupList({ onSelect }: { onSelect: (id: string) => void }) {
   const hook = useTupList(onSelect);
@@ -43,7 +44,7 @@ export function TupList({ onSelect }: { onSelect: (id: string) => void }) {
           <div className="search-row" style={{ marginBottom: 12 }}>
             <input
               type="text"
-              placeholder="Полнотекстовый поиск: цель, тема, раздел (FTS5)..."
+              placeholder="Полнотекстовый поиск: цель, тема, раздел..."
               value={ftsQuery}
               onChange={(e) => setFtsQuery(e.target.value)}
               className="search-input"
@@ -62,10 +63,10 @@ export function TupList({ onSelect }: { onSelect: (id: string) => void }) {
                   className="fts-hit"
                   onClick={() => onSelect(h.documentId)}
                 >
-                  <span className={`doc-badge fts-badge-${h.entityType}`}>{h.entityType}</span>
+                  <span className={`doc-badge fts-badge-${h.entityType}`}>{entityTypeLabel(h.entityType)}</span>
                   <span className="fts-text">{h.text}</span>
                   <span className="fts-meta">
-                    {SUBJECT_NAMES[h.subjectId] ?? h.subjectId} · {h.targetGrades} · {h.language.toUpperCase()}
+                    {SUBJECT_NAMES[h.subjectId] ?? h.subjectId} · {h.targetGrades} · {languageLabel(h.language)}
                   </span>
                 </button>
               ))}
@@ -78,11 +79,11 @@ export function TupList({ onSelect }: { onSelect: (id: string) => void }) {
             </select>
 
             <select value={selectedDirection} onChange={(e) => setSelectedDirection(e.target.value)} className="filter-select" style={{ minWidth: 120 }}>
-              {directions.map((d) => <option key={d} value={d}>{d === "all" ? "Все направления" : d}</option>)}
+              {directions.map((d) => <option key={d} value={d}>{d === "all" ? "Все направления" : directionLabel(d)}</option>)}
             </select>
 
             <select value={selectedLanguage} onChange={(e) => setSelectedLanguage(e.target.value)} className="filter-select" style={{ minWidth: 120 }}>
-              {languages.map((l) => <option key={l} value={l}>{l === "all" ? "Все языки" : l.toUpperCase()}</option>)}
+              {languages.map((l) => <option key={l} value={l}>{l === "all" ? "Все языки" : languageLabel(l)}</option>)}
             </select>
 
             <div style={{ display: "flex", gap: 4, flexWrap: "wrap", minWidth: 200 }}>
