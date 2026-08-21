@@ -32,3 +32,8 @@
 
 - [x] 6.1 `npx tsc --noEmit` — без ошибок типов.
 - [x] 6.2 `npx vite build` — сборка успешна.
+
+## 7. Анимация смены темы
+
+- [x] 7.1 В `styles.css` добавить глобальный `transition` по цветовым свойствам (`background-color`, `color`, `border-color`, `box-shadow`, 0.25s) для плавного кросс-фейда Light ↔ Dark.
+- [x] 7.2 В `index.html` до отрисовки прочитать `localStorage["vw-theme"]` и поставить `data-theme` на `<html>`, чтобы не было вспышки (FOUC) при загрузке у пользователей с тёмной темой.
