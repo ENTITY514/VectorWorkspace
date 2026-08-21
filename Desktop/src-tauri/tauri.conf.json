@@ -14,7 +14,8 @@
       {
         "title": "VectorWorkspace",
         "width": 1280,
-        "height": 800
+        "height": 800,
+        "decorations": false
       }
     ],
     "security": {

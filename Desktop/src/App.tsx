@@ -14,7 +14,9 @@ import { Students } from "./panels/Students";
 import { Settings } from "./panels/Settings";
 import { Onboarding } from "./panels/Onboarding";
 import { api } from "./services/api";
+import { DesignSandbox } from "./DesignSandbox";
 import { MainLayout } from "./shared/ui/layout/MainLayout";
+import { Titlebar } from "./shared/ui/layout/Titlebar";
 
 function App() {
   const [view, setView] = useState<View>("today");
@@ -33,7 +35,12 @@ function App() {
   }
 
   if (!onboarded) {
-    return <Onboarding onDone={() => setOnboarded(true)} />;
+    return (
+      <div className="app-shell">
+        <Titlebar />
+        <Onboarding onDone={() => setOnboarded(true)} />
+      </div>
+    );
   }
 
   const handleViewChange = (v: View) => {
@@ -42,29 +49,33 @@ function App() {
   };
 
   return (
-    <MainLayout view={view} onViewChange={handleViewChange}>
-      {view === "today" && <Today />}
-      {view === "tup" && (
-        selectedId ? (
-          <TupDetail id={selectedId} onClose={() => setSelectedId(null)} />
-        ) : (
-          <TupList onSelect={(id) => setSelectedId(id)} />
-        )
-      )}
-      {view === "ktp" && (
-        selectedId ? (
-          <KtpEditor planId={selectedId} onClose={() => setSelectedId(null)} />
-        ) : (
-          <KtpList onOpen={(id) => setSelectedId(id)} />
-        )
-      )}
-      {view === "lessons" && <Lessons />}
-      {view === "library" && <Library />}
-      {view === "sor" && <Sor />}
-      {view === "analytics" && <Analytics />}
-      {view === "students" && <Students />}
-      {view === "settings" && <Settings />}
-    </MainLayout>
+    <div className="app-shell">
+      <Titlebar />
+      <MainLayout view={view} onViewChange={handleViewChange}>
+        {view === "today" && <Today />}
+        {view === "tup" && (
+          selectedId ? (
+            <TupDetail id={selectedId} onClose={() => setSelectedId(null)} />
+          ) : (
+            <TupList onSelect={(id) => setSelectedId(id)} />
+          )
+        )}
+        {view === "ktp" && (
+          selectedId ? (
+            <KtpEditor planId={selectedId} onClose={() => setSelectedId(null)} />
+          ) : (
+            <KtpList onOpen={(id) => setSelectedId(id)} />
+          )
+        )}
+        {view === "lessons" && <Lessons />}
+        {view === "library" && <Library />}
+        {view === "sor" && <Sor />}
+        {view === "analytics" && <Analytics />}
+        {view === "students" && <Students />}
+        {view === "settings" && <Settings />}
+        {view === "ds" && <DesignSandbox />}
+      </MainLayout>
+    </div>
   );
 }
 

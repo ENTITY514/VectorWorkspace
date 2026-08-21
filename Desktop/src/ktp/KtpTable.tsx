@@ -5,27 +5,29 @@ import { SortableContext, useSortable, verticalListSortingStrategy } from "@dnd-
 import { CSS } from "@dnd-kit/utilities";
 import { IKtpLesson, ILessonObjective, LessonRowType, KtpPlan as FlatPlan } from "./model/types";
 
+type EditableField = "sectionName" | "lessonTopic" | "date" | "notes";
+
 const rowBackground = (rt: LessonRowType, isOddSection: boolean, isMerged: boolean): string => {
-  if (isMerged) return "#e1bee7";
+  if (isMerged) return "var(--accent-subtle)";
   switch (rt) {
     case LessonRowType.QUARTER_HEADER:
-      return "var(--accent-soft, #eef0fb)";
+      return "var(--accent-subtle)";
     case LessonRowType.SOCH:
     case LessonRowType.REPETITION:
-      return "var(--blue-soft, #e3edfb)";
+      return "var(--accent-subtle)";
     case LessonRowType.SOR:
-      return "var(--amber-soft, #fdf2d8)";
+      return "var(--status-warning-bg)";
     default:
-      return isOddSection ? "#f5f5f5" : "var(--panel)";
+      return isOddSection ? "var(--bg-subtle)" : "var(--bg-surface)";
   }
 };
 
 export interface KtpTableProps {
   flat: FlatPlan;
-  editing: { id: string; field: keyof IKtpLesson } | null;
+  editing: { id: string; field: EditableField } | null;
   draft: string;
   setDraft: (v: string) => void;
-  beginEdit: (l: IKtpLesson, f: keyof IKtpLesson) => void;
+  beginEdit: (l: IKtpLesson, f: EditableField) => void;
   applyEdit: () => void;
   onUpdate: (id: string, field: keyof IKtpLesson, value: string | number | ILessonObjective[]) => void;
   onAddHour: (id: string) => void;
@@ -197,7 +199,7 @@ export function KtpTable(props: KtpTableProps) {
                         <span>Часы (план): {q?.planned ?? 0}</span>
                         <span>Часы (факт): {q?.actual ?? 0}</span>
                         {mismatch !== 0 && (
-                          <span style={{ color: "var(--red, #d93025)" }}>
+                          <span style={{ color: "var(--status-error-text)" }}>
                             {mismatch > 0
                               ? `Запланировано на ${mismatch} ч. больше`
                               : `Фактических на ${-mismatch} ч. больше`}
@@ -261,7 +263,7 @@ export function KtpTable(props: KtpTableProps) {
                     ).length
                   : l.hoursInSection;
 
-              const editableCell = (field: keyof IKtpLesson, display: string, isNew: boolean, className?: string) => {
+              const editableCell = (field: EditableField, display: string, isNew: boolean, className?: string) => {
                 const isEditing = editing?.id === l.id && editing.field === field;
                 return (
                   <td

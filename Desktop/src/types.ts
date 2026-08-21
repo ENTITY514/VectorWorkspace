@@ -7,7 +7,8 @@ export type View =
   | "sor"
   | "analytics"
   | "students"
-  | "settings";
+  | "settings"
+  | "ds";
 
 export interface HealthReport {
   status: string;

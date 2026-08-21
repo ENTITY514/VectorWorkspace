@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import type { View } from "../../../types";
 import { Sidebar } from "./Sidebar";
+import { AppHeader } from "./AppHeader";
 
 const titles: Record<View, string> = {
   today: "Сегодня",
@@ -12,6 +13,7 @@ const titles: Record<View, string> = {
   analytics: "Аналитика",
   students: "Ученики",
   settings: "Настройки школы",
+  ds: "Дизайн (тест)",
 };
 
 const subtitles: Partial<Record<View, string>> = {
@@ -23,6 +25,7 @@ const subtitles: Partial<Record<View, string>> = {
   analytics: "Анализ результатов и слабых ЦО",
   students: "Индивидуальные листы отработки",
   settings: "Школа · штат · профиль · классы",
+  ds: "Песочница Design System — оценка токенов и компонентов",
 };
 
 export function MainLayout({
@@ -34,15 +37,29 @@ export function MainLayout({
   onViewChange: (v: View) => void;
   children: React.ReactNode;
 }) {
+  const [collapsed, setCollapsed] = useState<boolean>(
+    () => localStorage.getItem("vw-sidebar-collapsed") === "1",
+  );
+
+  useEffect(() => {
+    localStorage.setItem("vw-sidebar-collapsed", collapsed ? "1" : "0");
+  }, [collapsed]);
+
   return (
     <div className="app">
-      <Sidebar view={view} onSelect={onViewChange} />
+      <Sidebar
+        view={view}
+        onSelect={onViewChange}
+        collapsed={collapsed}
+        onToggle={() => setCollapsed((c) => !c)}
+      />
       <main className="main">
-        <div className="page-head">
-          <h1>{titles[view]}</h1>
-          <p>{subtitles[view]}</p>
-        </div>
-        {children}
+        <AppHeader
+          title={titles[view]}
+          subtitle={subtitles[view]}
+          onNavigate={onViewChange}
+        />
+        <div className="main-content">{children}</div>
       </main>
     </div>
   );
