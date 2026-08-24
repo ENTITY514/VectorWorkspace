@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import type { ScheduleState, ScheduleSlot, Shift } from "../../../types";
-import { SHIFT_LABELS } from "../../../types";
+import { SHIFT_LABELS, ROOM_TYPE_LABELS } from "../../../types";
 
 interface FilterState {
   days: number[];
@@ -224,7 +224,14 @@ export function GridTab({ state }: { state: ScheduleState }) {
             {Array.from({ length: 7 }, (_, p) => (
               <tr key={p}><th>{p + 1} урок</th>{DAY_NAMES.map((_, d) => {
                 const cell = filteredSlots.filter(s => s.day === d && s.period === p);
-                return <td key={d}>{cell.map(c => <span key={c.id} className="chip" title={`${c.class_id} ${c.subject_id} ${c.teacher_id} ${c.room_id}`}>{c.subject_id}{c.subgroup_label ? `(${c.subgroup_label})` : ""}<br />{c.teacher_id.slice(0, 6)} · {c.room_id.slice(0, 6)}</span>).reduce((a, b) => <>{a}{b}</>, <></>)}</td>;
+                return <td key={d}>{cell.map(c => {
+                  const cls = state.classes.find(cl => cl.id === c.class_id);
+                  const subject = state.subjects.find(s => s.id === c.subject_id);
+                  const teacher = state.teachers.find(t => t.id === c.teacher_id);
+                  const room = state.rooms.find(r => r.id === c.room_id);
+                  const tooltip = `Класс: ${c.class_id}${cls ? ` (${cls.grade}${cls.letter})` : ""}\nПредмет: ${subject?.name || c.subject_id}\nУчитель: ${teacher?.full_name || c.teacher_id}\nКабинет: ${room?.name || c.room_id}${room ? ` (${ROOM_TYPE_LABELS[room.room_type]})` : ""}${c.subgroup_label ? `\nПодгруппа: ${c.subgroup_label}` : ""}`;
+                  return <span key={c.id} className="chip" title={tooltip}>{c.subject_id}{c.subgroup_label ? `(${c.subgroup_label})` : ""}<br />{c.teacher_id.slice(0, 6)} · {c.room_id.slice(0, 6)}</span>;
+                }).reduce((a, b) => <>{a}{b}</>, <></>)}</td>;
               })}</tr>
             ))}
           </tbody>
