@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { scheduleApi } from "./api";
-import type { ScheduleState } from "../../types";
+import type { ScheduleState, ScheduleGenerateResult } from "../../types";
 import { STATUS_LABELS, INFEASIBLE_REASON_LABELS, ENTITY_TYPE_LABELS } from "../../types";
 import { ScheduleDashboard } from "./ui/ScheduleDashboard";
 import { TeachersTab } from "./ui/TeachersTab";
@@ -21,6 +21,7 @@ export function SchedulePage() {
   const [loading, setLoading] = useState(true);
   const [genStatus, setGenStatus] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [lastResult, setLastResult] = useState<ScheduleGenerateResult | null>(null);
 
   const load = async () => {
     setLoading(true);
@@ -42,6 +43,7 @@ export function SchedulePage() {
     try {
       const res = await scheduleApi.generate({ time_limit_sec: 60, num_workers: 8, seed: 42 });
       setGenStatus(`Статус: ${STATUS_LABELS[res.status]} (штраф ${res.penalties.total}, ${res.solver_stats.wall_ms}мс)`);
+      setLastResult(res);
       if (res.diagnostics.infeasible_core) {
         const core = res.diagnostics.infeasible_core;
         const reasonLabel = INFEASIBLE_REASON_LABELS[core.reason] || core.reason;
@@ -76,7 +78,7 @@ export function SchedulePage() {
       {genStatus && <div className="notice">{genStatus}</div>}
       {error && <div className="error notice">{error}</div>}
 
-      {tab==="dashboard" && <ScheduleDashboard state={state!} onGenerate={handleGenerate} onRefresh={load} />}
+      {tab==="dashboard" && <ScheduleDashboard state={state!} onGenerate={handleGenerate} onRefresh={load} lastResult={lastResult} />}
       {tab==="teachers" && <TeachersTab />}
       {tab==="classes" && <ClassesTab />}
       {tab==="rooms" && <RoomsTab />}
