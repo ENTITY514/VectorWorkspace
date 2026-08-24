@@ -4,9 +4,14 @@ from collections import defaultdict
 
 from ortools.sat.python import cp_model
 
-from schema import InputModel
-from constraints.hard import add_hard_constraints
-from constraints.soft import add_soft_constraints
+try:
+    from solver.schema import InputModel
+    from solver.constraints.hard import add_hard_constraints
+    from solver.constraints.soft import add_soft_constraints
+except ImportError:
+    from schema import InputModel
+    from constraints.hard import add_hard_constraints
+    from constraints.soft import add_soft_constraints
 
 
 def create_variables(model, m):

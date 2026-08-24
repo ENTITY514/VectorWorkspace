@@ -1,0 +1,44 @@
+{
+  "quarters": [
+    {
+      "quarter": 1,
+      "legacy_weighted": 209790,
+      "our_weighted": 182610,
+      "delta": -27180,
+      "wall_ms": 15580,
+      "status": "FEASIBLE"
+    },
+    {
+      "quarter": 2,
+      "legacy_weighted": 276040,
+      "our_weighted": 275400,
+      "delta": -640,
+      "wall_ms": 16024,
+      "status": "FEASIBLE"
+    },
+    {
+      "quarter": 3,
+      "legacy_weighted": 111920,
+      "our_weighted": 34460,
+      "delta": -77460,
+      "wall_ms": 15418,
+      "status": "FEASIBLE"
+    },
+    {
+      "quarter": 4,
+      "legacy_weighted": 258560,
+      "our_weighted": 252700,
+      "delta": -5860,
+      "wall_ms": 15795,
+      "status": "FEASIBLE"
+    }
+  ],
+  "weights": {
+    "window": 200,
+    "room_displacement": 50,
+    "sanpin_parabola": 100,
+    "alternation": 80,
+    "movement": 20,
+    "load_balance": 30
+  }
+}

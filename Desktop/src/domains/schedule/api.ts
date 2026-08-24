@@ -62,4 +62,13 @@ export const scheduleApi = {
   generate(input?: { time_limit_sec?: number; num_workers?: number; seed?: number }): Promise<ScheduleGenerateResult> {
     return call<ScheduleGenerateResult>("schedule_generate", { input });
   },
+  importLegacy(quarter?: number): Promise<unknown> {
+    return call("schedule_import_legacy", { quarter });
+  },
+  getLegacy(quarter: number): Promise<ScheduleSlot[]> {
+    return call<ScheduleSlot[]>("schedule_get_legacy", { quarter });
+  },
+  exportSchedule(format?: string): Promise<string> {
+    return call<string>("schedule_export", { format });
+  },
 };

@@ -1,0 +1,28 @@
+{
+  "total_files": 115,
+  "unique_class_quarter": 102,
+  "catalog_counts": {
+    "teachers": 39,
+    "classes": 27,
+    "rooms": 58,
+    "subjects": 52
+  },
+  "per_quarter": {
+    "1": {
+      "legacy_slots": 500,
+      "curriculum": 273
+    },
+    "2": {
+      "legacy_slots": 652,
+      "curriculum": 299
+    },
+    "3": {
+      "legacy_slots": 244,
+      "curriculum": 205
+    },
+    "4": {
+      "legacy_slots": 610,
+      "curriculum": 280
+    }
+  }
+}

@@ -1,0 +1,1532 @@
+{
+  "teachers": [
+    {
+      "id": "жекеева_на",
+      "display_name": "Жекеева Н.А.",
+      "full_name": "Жекеева Н.А.",
+      "base_room_id": null,
+      "max_daily_lessons": 0,
+      "availability_json": "[[true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true]]"
+    },
+    {
+      "id": "актаева_ае",
+      "display_name": "Актаева А.Е.",
+      "full_name": "Актаева А.Е.",
+      "base_room_id": null,
+      "max_daily_lessons": 0,
+      "availability_json": "[[true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true]]"
+    },
+    {
+      "id": "кашиков_ее",
+      "display_name": "Кашиков Е.Е.",
+      "full_name": "Кашиков Е.Е.",
+      "base_room_id": null,
+      "max_daily_lessons": 0,
+      "availability_json": "[[true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true]]"
+    },
+    {
+      "id": "акауова_ин",
+      "display_name": "Акауова И.Н.",
+      "full_name": "Акауова И.Н.",
+      "base_room_id": null,
+      "max_daily_lessons": 0,
+      "availability_json": "[[true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true]]"
+    },
+    {
+      "id": "балгабаева_нк",
+      "display_name": "Балгабаева Н.К.",
+      "full_name": "Балгабаева Н.К.",
+      "base_room_id": null,
+      "max_daily_lessons": 0,
+      "availability_json": "[[true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true]]"
+    },
+    {
+      "id": "досаева_мх",
+      "display_name": "Досаева М.Х.",
+      "full_name": "Досаева М.Х.",
+      "base_room_id": null,
+      "max_daily_lessons": 0,
+      "availability_json": "[[true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true]]"
+    },
+    {
+      "id": "ильясова_аб",
+      "display_name": "Ильясова А.Б.",
+      "full_name": "Ильясова А.Б.",
+      "base_room_id": null,
+      "max_daily_lessons": 0,
+      "availability_json": "[[true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true]]"
+    },
+    {
+      "id": "ізбасты_мж",
+      "display_name": "Ізбасты М.Ж.",
+      "full_name": "Ізбасты М.Ж.",
+      "base_room_id": null,
+      "max_daily_lessons": 0,
+      "availability_json": "[[true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true]]"
+    },
+    {
+      "id": "сапаргалиева_гс",
+      "display_name": "Сапаргалиева Г.С.",
+      "full_name": "Сапаргалиева Г.С.",
+      "base_room_id": null,
+      "max_daily_lessons": 0,
+      "availability_json": "[[true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true]]"
+    },
+    {
+      "id": "жолдаспаев_ак",
+      "display_name": "Жолдаспаев А.К.",
+      "full_name": "Жолдаспаев А.К.",
+      "base_room_id": null,
+      "max_daily_lessons": 0,
+      "availability_json": "[[true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true]]"
+    },
+    {
+      "id": "балташева_зт",
+      "display_name": "Балташева З.Т.",
+      "full_name": "Балташева З.Т.",
+      "base_room_id": null,
+      "max_daily_lessons": 0,
+      "availability_json": "[[true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true]]"
+    },
+    {
+      "id": "жантемиров_эа",
+      "display_name": "Жантемиров Э.А.",
+      "full_name": "Жантемиров Э.А.",
+      "base_room_id": null,
+      "max_daily_lessons": 0,
+      "availability_json": "[[true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true]]"
+    },
+    {
+      "id": "радионова_на",
+      "display_name": "Радионова Н.А.",
+      "full_name": "Радионова Н.А.",
+      "base_room_id": null,
+      "max_daily_lessons": 0,
+      "availability_json": "[[true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true]]"
+    },
+    {
+      "id": "асаева_жх",
+      "display_name": "Асаева Ж.Х.",
+      "full_name": "Асаева Ж.Х.",
+      "base_room_id": null,
+      "max_daily_lessons": 0,
+      "availability_json": "[[true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true]]"
+    },
+    {
+      "id": "шкиря_юн",
+      "display_name": "Шкиря Ю.Н.",
+      "full_name": "Шкиря Ю.Н.",
+      "base_room_id": null,
+      "max_daily_lessons": 0,
+      "availability_json": "[[true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true]]"
+    },
+    {
+      "id": "чифин_дн",
+      "display_name": "Чифин Д.Н.",
+      "full_name": "Чифин Д.Н.",
+      "base_room_id": null,
+      "max_daily_lessons": 0,
+      "availability_json": "[[true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true]]"
+    },
+    {
+      "id": "бедрина_мн",
+      "display_name": "Бедрина М.Н.",
+      "full_name": "Бедрина М.Н.",
+      "base_room_id": null,
+      "max_daily_lessons": 0,
+      "availability_json": "[[true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true]]"
+    },
+    {
+      "id": "квашнина_ев",
+      "display_name": "Квашнина Е.В.",
+      "full_name": "Квашнина Е.В.",
+      "base_room_id": null,
+      "max_daily_lessons": 0,
+      "availability_json": "[[true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true]]"
+    },
+    {
+      "id": "ольков_гв",
+      "display_name": "Ольков Г.В.",
+      "full_name": "Ольков Г.В.",
+      "base_room_id": null,
+      "max_daily_lessons": 0,
+      "availability_json": "[[true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true]]"
+    },
+    {
+      "id": "ажикенова_ма",
+      "display_name": "Ажикенова М.А.",
+      "full_name": "Ажикенова М.А.",
+      "base_room_id": null,
+      "max_daily_lessons": 0,
+      "availability_json": "[[true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true]]"
+    },
+    {
+      "id": "алекпарова_аж",
+      "display_name": "Алекпарова А.Ж.",
+      "full_name": "Алекпарова А.Ж.",
+      "base_room_id": null,
+      "max_daily_lessons": 0,
+      "availability_json": "[[true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true]]"
+    },
+    {
+      "id": "кашикова_гх",
+      "display_name": "Кашикова Г.Х.",
+      "full_name": "Кашикова Г.Х.",
+      "base_room_id": null,
+      "max_daily_lessons": 0,
+      "availability_json": "[[true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true]]"
+    },
+    {
+      "id": "жантемиров_ак",
+      "display_name": "Жантемиров А.К.",
+      "full_name": "Жантемиров А.К.",
+      "base_room_id": null,
+      "max_daily_lessons": 0,
+      "availability_json": "[[true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true]]"
+    },
+    {
+      "id": "дмитриев_ев",
+      "display_name": "Дмитриев Е.В.",
+      "full_name": "Дмитриев Е.В.",
+      "base_room_id": null,
+      "max_daily_lessons": 0,
+      "availability_json": "[[true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true]]"
+    },
+    {
+      "id": "пащенко_на",
+      "display_name": "Пащенко Н.А.",
+      "full_name": "Пащенко Н.А.",
+      "base_room_id": null,
+      "max_daily_lessons": 0,
+      "availability_json": "[[true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true]]"
+    },
+    {
+      "id": "романишина_им",
+      "display_name": "Романишина И.М.",
+      "full_name": "Романишина И.М.",
+      "base_room_id": null,
+      "max_daily_lessons": 0,
+      "availability_json": "[[true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true]]"
+    },
+    {
+      "id": "иващенко_во",
+      "display_name": "Иващенко В.О.",
+      "full_name": "Иващенко В.О.",
+      "base_room_id": null,
+      "max_daily_lessons": 0,
+      "availability_json": "[[true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true]]"
+    },
+    {
+      "id": "мельникова_лр",
+      "display_name": "Мельникова Л.Р.",
+      "full_name": "Мельникова Л.Р.",
+      "base_room_id": null,
+      "max_daily_lessons": 0,
+      "availability_json": "[[true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true]]"
+    },
+    {
+      "id": "темерканова_ов",
+      "display_name": "Темерканова О.В.",
+      "full_name": "Темерканова О.В.",
+      "base_room_id": null,
+      "max_daily_lessons": 0,
+      "availability_json": "[[true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true]]"
+    },
+    {
+      "id": "давранова_к",
+      "display_name": "Давранова К.",
+      "full_name": "Давранова К.",
+      "base_room_id": null,
+      "max_daily_lessons": 0,
+      "availability_json": "[[true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true]]"
+    },
+    {
+      "id": "жолдан_аб",
+      "display_name": "Жолдан А.Б.",
+      "full_name": "Жолдан А.Б.",
+      "base_room_id": null,
+      "max_daily_lessons": 0,
+      "availability_json": "[[true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true]]"
+    },
+    {
+      "id": "дукач_та",
+      "display_name": "Дукач Т.А.",
+      "full_name": "Дукач Т.А.",
+      "base_room_id": null,
+      "max_daily_lessons": 0,
+      "availability_json": "[[true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true]]"
+    },
+    {
+      "id": "бабич_ид",
+      "display_name": "Бабич И.Д.",
+      "full_name": "Бабич И.Д.",
+      "base_room_id": null,
+      "max_daily_lessons": 0,
+      "availability_json": "[[true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true]]"
+    },
+    {
+      "id": "бучкова_ио",
+      "display_name": "Бучкова И.О.",
+      "full_name": "Бучкова И.О.",
+      "base_room_id": null,
+      "max_daily_lessons": 0,
+      "availability_json": "[[true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true]]"
+    },
+    {
+      "id": "красноперова_ов",
+      "display_name": "Красноперова О.В.",
+      "full_name": "Красноперова О.В.",
+      "base_room_id": null,
+      "max_daily_lessons": 0,
+      "availability_json": "[[true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true]]"
+    },
+    {
+      "id": "власова_ак",
+      "display_name": "Власова А.К.",
+      "full_name": "Власова А.К.",
+      "base_room_id": null,
+      "max_daily_lessons": 0,
+      "availability_json": "[[true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true]]"
+    },
+    {
+      "id": "сидоров_вб",
+      "display_name": "Сидоров В.Б.",
+      "full_name": "Сидоров В.Б.",
+      "base_room_id": null,
+      "max_daily_lessons": 0,
+      "availability_json": "[[true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true]]"
+    },
+    {
+      "id": "русина_нв",
+      "display_name": "Русина Н.В.",
+      "full_name": "Русина Н.В.",
+      "base_room_id": null,
+      "max_daily_lessons": 0,
+      "availability_json": "[[true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true]]"
+    },
+    {
+      "id": "мельников_пв",
+      "display_name": "Мельников П.В.",
+      "full_name": "Мельников П.В.",
+      "base_room_id": null,
+      "max_daily_lessons": 0,
+      "availability_json": "[[true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true], [true, true, true, true, true, true, true, true]]"
+    }
+  ],
+  "classes": [
+    {
+      "id": "1а",
+      "grade": 1,
+      "letter": "а",
+      "type": "normal",
+      "display": "1-а",
+      "headcount": 25,
+      "shift": "First"
+    },
+    {
+      "id": "3а",
+      "grade": 3,
+      "letter": "а",
+      "type": "normal",
+      "display": "3-а",
+      "headcount": 25,
+      "shift": "First"
+    },
+    {
+      "id": "10а",
+      "grade": 10,
+      "letter": "а",
+      "type": "normal",
+      "display": "10-а",
+      "headcount": 25,
+      "shift": "First"
+    },
+    {
+      "id": "3б",
+      "grade": 3,
+      "letter": "б",
+      "type": "normal",
+      "display": "3-б",
+      "headcount": 25,
+      "shift": "First"
+    },
+    {
+      "id": "33_luo",
+      "grade": 3,
+      "letter": "3",
+      "type": "luo",
+      "display": "3",
+      "headcount": 25,
+      "shift": "First"
+    },
+    {
+      "id": "4а",
+      "grade": 4,
+      "letter": "а",
+      "type": "normal",
+      "display": "4-а",
+      "headcount": 25,
+      "shift": "First"
+    },
+    {
+      "id": "1б",
+      "grade": 1,
+      "letter": "б",
+      "type": "normal",
+      "display": "1-б",
+      "headcount": 25,
+      "shift": "First"
+    },
+    {
+      "id": "4б",
+      "grade": 4,
+      "letter": "б",
+      "type": "normal",
+      "display": "4-б",
+      "headcount": 25,
+      "shift": "First"
+    },
+    {
+      "id": "44_do",
+      "grade": 4,
+      "letter": "4",
+      "type": "do",
+      "display": "4",
+      "headcount": 25,
+      "shift": "First"
+    },
+    {
+      "id": "5а",
+      "grade": 5,
+      "letter": "а",
+      "type": "normal",
+      "display": "5-а",
+      "headcount": 25,
+      "shift": "First"
+    },
+    {
+      "id": "5б",
+      "grade": 5,
+      "letter": "б",
+      "type": "normal",
+      "display": "5-б",
+      "headcount": 25,
+      "shift": "First"
+    },
+    {
+      "id": "22",
+      "grade": 2,
+      "letter": "2",
+      "type": "normal",
+      "display": "2",
+      "headcount": 25,
+      "shift": "First"
+    },
+    {
+      "id": "55_luo",
+      "grade": 5,
+      "letter": "5",
+      "type": "luo",
+      "display": "5",
+      "headcount": 25,
+      "shift": "First"
+    },
+    {
+      "id": "66",
+      "grade": 6,
+      "letter": "6",
+      "type": "normal",
+      "display": "6",
+      "headcount": 25,
+      "shift": "First"
+    },
+    {
+      "id": "66_luo",
+      "grade": 6,
+      "letter": "6",
+      "type": "luo",
+      "display": "6",
+      "headcount": 25,
+      "shift": "First"
+    },
+    {
+      "id": "66_do",
+      "grade": 6,
+      "letter": "6-",
+      "type": "do",
+      "display": "6-",
+      "headcount": 25,
+      "shift": "First"
+    },
+    {
+      "id": "7а",
+      "grade": 7,
+      "letter": "а",
+      "type": "normal",
+      "display": "7-а",
+      "headcount": 25,
+      "shift": "First"
+    },
+    {
+      "id": "77ә",
+      "grade": 7,
+      "letter": "7-ә",
+      "type": "normal",
+      "display": "7-ә",
+      "headcount": 25,
+      "shift": "First"
+    },
+    {
+      "id": "77б",
+      "grade": 7,
+      "letter": "7 б",
+      "type": "normal",
+      "display": "7 б",
+      "headcount": 25,
+      "shift": "First"
+    },
+    {
+      "id": "7б_luo",
+      "grade": 7,
+      "letter": "Б",
+      "type": "luo",
+      "display": "7-Б",
+      "headcount": 25,
+      "shift": "First"
+    },
+    {
+      "id": "88",
+      "grade": 8,
+      "letter": "8",
+      "type": "normal",
+      "display": "8",
+      "headcount": 25,
+      "shift": "First"
+    },
+    {
+      "id": "88д.о.",
+      "grade": 8,
+      "letter": "8Д.О.",
+      "type": "normal",
+      "display": "8Д.О.",
+      "headcount": 25,
+      "shift": "First"
+    },
+    {
+      "id": "99",
+      "grade": 9,
+      "letter": "9",
+      "type": "normal",
+      "display": "9",
+      "headcount": 25,
+      "shift": "First"
+    },
+    {
+      "id": "99д.о.",
+      "grade": 9,
+      "letter": "9 Д.О.",
+      "type": "normal",
+      "display": "9 Д.О.",
+      "headcount": 25,
+      "shift": "First"
+    },
+    {
+      "id": "99_luo",
+      "grade": 9,
+      "letter": "9",
+      "type": "luo",
+      "display": "9",
+      "headcount": 25,
+      "shift": "First"
+    },
+    {
+      "id": "10б",
+      "grade": 10,
+      "letter": "б",
+      "type": "normal",
+      "display": "10-б",
+      "headcount": 25,
+      "shift": "First"
+    },
+    {
+      "id": "1111",
+      "grade": 11,
+      "letter": "11",
+      "type": "normal",
+      "display": "11",
+      "headcount": 25,
+      "shift": "First"
+    }
+  ],
+  "rooms": [
+    {
+      "id": "r_1_general",
+      "name": "начальные класс...",
+      "room_type": "General",
+      "capacity": 30,
+      "base_teacher_id": null,
+      "floor": null
+    },
+    {
+      "id": "r_2_gym",
+      "name": "спортивный зал",
+      "room_type": "Gym",
+      "capacity": 40,
+      "base_teacher_id": null,
+      "floor": null
+    },
+    {
+      "id": "r_3_general",
+      "name": "история",
+      "room_type": "General",
+      "capacity": 30,
+      "base_teacher_id": null,
+      "floor": null
+    },
+    {
+      "id": "r_4_general",
+      "name": "ағылшын тілі",
+      "room_type": "General",
+      "capacity": 30,
+      "base_teacher_id": null,
+      "floor": null
+    },
+    {
+      "id": "r_5_general",
+      "name": "мультимедиа каб...",
+      "room_type": "General",
+      "capacity": 30,
+      "base_teacher_id": null,
+      "floor": null
+    },
+    {
+      "id": "r_6_general",
+      "name": "казахская литер...",
+      "room_type": "General",
+      "capacity": 30,
+      "base_teacher_id": null,
+      "floor": null
+    },
+    {
+      "id": "r_7_general",
+      "name": "физика",
+      "room_type": "General",
+      "capacity": 30,
+      "base_teacher_id": null,
+      "floor": null
+    },
+    {
+      "id": "r_8_chemistrylab",
+      "name": "химия",
+      "room_type": "ChemistryLab",
+      "capacity": 25,
+      "base_teacher_id": null,
+      "floor": null
+    },
+    {
+      "id": "r_9_general",
+      "name": "НВП",
+      "room_type": "General",
+      "capacity": 30,
+      "base_teacher_id": null,
+      "floor": null
+    },
+    {
+      "id": "r_10_informatics",
+      "name": "информатика",
+      "room_type": "Informatics",
+      "capacity": 25,
+      "base_teacher_id": null,
+      "floor": null
+    },
+    {
+      "id": "r_11_general",
+      "name": "мультимедийный",
+      "room_type": "General",
+      "capacity": 30,
+      "base_teacher_id": null,
+      "floor": null
+    },
+    {
+      "id": "r_12_languagelab",
+      "name": "казахский язык",
+      "room_type": "LanguageLab",
+      "capacity": 30,
+      "base_teacher_id": null,
+      "floor": null
+    },
+    {
+      "id": "r_13_languagelab",
+      "name": "немецкий язык",
+      "room_type": "LanguageLab",
+      "capacity": 30,
+      "base_teacher_id": null,
+      "floor": null
+    },
+    {
+      "id": "r_14_general",
+      "name": "бастауыш сынып",
+      "room_type": "General",
+      "capacity": 30,
+      "base_teacher_id": null,
+      "floor": null
+    },
+    {
+      "id": "r_15_general",
+      "name": "Каб. General-15",
+      "room_type": "General",
+      "capacity": 30,
+      "base_teacher_id": null,
+      "floor": null
+    },
+    {
+      "id": "r_16_general",
+      "name": "математика",
+      "room_type": "General",
+      "capacity": 30,
+      "base_teacher_id": null,
+      "floor": null
+    },
+    {
+      "id": "r_17_languagelab",
+      "name": "русский язык",
+      "room_type": "LanguageLab",
+      "capacity": 30,
+      "base_teacher_id": null,
+      "floor": null
+    },
+    {
+      "id": "r_18_general",
+      "name": "география",
+      "room_type": "General",
+      "capacity": 30,
+      "base_teacher_id": null,
+      "floor": null
+    },
+    {
+      "id": "r_19_workshop",
+      "name": "технология",
+      "room_type": "Workshop",
+      "capacity": 30,
+      "base_teacher_id": null,
+      "floor": null
+    },
+    {
+      "id": "r_20_general",
+      "name": "Нет кабинета",
+      "room_type": "General",
+      "capacity": 30,
+      "base_teacher_id": null,
+      "floor": null
+    },
+    {
+      "id": "r_21_workshop",
+      "name": "технология (мал...",
+      "room_type": "Workshop",
+      "capacity": 30,
+      "base_teacher_id": null,
+      "floor": null
+    },
+    {
+      "id": "r_22_languagelab",
+      "name": "английский язык",
+      "room_type": "LanguageLab",
+      "capacity": 30,
+      "base_teacher_id": null,
+      "floor": null
+    },
+    {
+      "id": "r_23_biologylab",
+      "name": "биология",
+      "room_type": "BiologyLab",
+      "capacity": 25,
+      "base_teacher_id": null,
+      "floor": null
+    },
+    {
+      "id": "r_synth_general_14",
+      "name": "Каб. General 14 (синт.)",
+      "room_type": "General",
+      "capacity": 30,
+      "base_teacher_id": null,
+      "floor": 1,
+      "synthetic": true
+    },
+    {
+      "id": "r_synth_general_15",
+      "name": "Каб. General 15 (синт.)",
+      "room_type": "General",
+      "capacity": 30,
+      "base_teacher_id": null,
+      "floor": 1,
+      "synthetic": true
+    },
+    {
+      "id": "r_synth_general_16",
+      "name": "Каб. General 16 (синт.)",
+      "room_type": "General",
+      "capacity": 30,
+      "base_teacher_id": null,
+      "floor": 1,
+      "synthetic": true
+    },
+    {
+      "id": "r_synth_general_17",
+      "name": "Каб. General 17 (синт.)",
+      "room_type": "General",
+      "capacity": 30,
+      "base_teacher_id": null,
+      "floor": 1,
+      "synthetic": true
+    },
+    {
+      "id": "r_synth_general_18",
+      "name": "Каб. General 18 (синт.)",
+      "room_type": "General",
+      "capacity": 30,
+      "base_teacher_id": null,
+      "floor": 1,
+      "synthetic": true
+    },
+    {
+      "id": "r_synth_general_19",
+      "name": "Каб. General 19 (синт.)",
+      "room_type": "General",
+      "capacity": 30,
+      "base_teacher_id": null,
+      "floor": 1,
+      "synthetic": true
+    },
+    {
+      "id": "r_synth_general_20",
+      "name": "Каб. General 20 (синт.)",
+      "room_type": "General",
+      "capacity": 30,
+      "base_teacher_id": null,
+      "floor": 1,
+      "synthetic": true
+    },
+    {
+      "id": "r_synth_general_21",
+      "name": "Каб. General 21 (синт.)",
+      "room_type": "General",
+      "capacity": 30,
+      "base_teacher_id": null,
+      "floor": 1,
+      "synthetic": true
+    },
+    {
+      "id": "r_synth_general_22",
+      "name": "Каб. General 22 (синт.)",
+      "room_type": "General",
+      "capacity": 30,
+      "base_teacher_id": null,
+      "floor": 1,
+      "synthetic": true
+    },
+    {
+      "id": "r_synth_general_23",
+      "name": "Каб. General 23 (синт.)",
+      "room_type": "General",
+      "capacity": 30,
+      "base_teacher_id": null,
+      "floor": 1,
+      "synthetic": true
+    },
+    {
+      "id": "r_synth_general_24",
+      "name": "Каб. General 24 (синт.)",
+      "room_type": "General",
+      "capacity": 30,
+      "base_teacher_id": null,
+      "floor": 1,
+      "synthetic": true
+    },
+    {
+      "id": "r_synth_general_25",
+      "name": "Каб. General 25 (синт.)",
+      "room_type": "General",
+      "capacity": 30,
+      "base_teacher_id": null,
+      "floor": 1,
+      "synthetic": true
+    },
+    {
+      "id": "r_synth_biologylab_2",
+      "name": "Каб. BiologyLab 2 (синт.)",
+      "room_type": "BiologyLab",
+      "capacity": 25,
+      "base_teacher_id": null,
+      "floor": 1,
+      "synthetic": true
+    },
+    {
+      "id": "r_synth_biologylab_3",
+      "name": "Каб. BiologyLab 3 (синт.)",
+      "room_type": "BiologyLab",
+      "capacity": 25,
+      "base_teacher_id": null,
+      "floor": 1,
+      "synthetic": true
+    },
+    {
+      "id": "r_synth_biologylab_4",
+      "name": "Каб. BiologyLab 4 (синт.)",
+      "room_type": "BiologyLab",
+      "capacity": 25,
+      "base_teacher_id": null,
+      "floor": 1,
+      "synthetic": true
+    },
+    {
+      "id": "r_synth_gym_2",
+      "name": "Каб. Gym 2 (синт.)",
+      "room_type": "Gym",
+      "capacity": 40,
+      "base_teacher_id": null,
+      "floor": 1,
+      "synthetic": true
+    },
+    {
+      "id": "r_synth_gym_3",
+      "name": "Каб. Gym 3 (синт.)",
+      "room_type": "Gym",
+      "capacity": 40,
+      "base_teacher_id": null,
+      "floor": 1,
+      "synthetic": true
+    },
+    {
+      "id": "r_synth_gym_4",
+      "name": "Каб. Gym 4 (синт.)",
+      "room_type": "Gym",
+      "capacity": 40,
+      "base_teacher_id": null,
+      "floor": 1,
+      "synthetic": true
+    },
+    {
+      "id": "r_synth_gym_5",
+      "name": "Каб. Gym 5 (синт.)",
+      "room_type": "Gym",
+      "capacity": 40,
+      "base_teacher_id": null,
+      "floor": 1,
+      "synthetic": true
+    },
+    {
+      "id": "r_synth_gym_6",
+      "name": "Каб. Gym 6 (синт.)",
+      "room_type": "Gym",
+      "capacity": 40,
+      "base_teacher_id": null,
+      "floor": 1,
+      "synthetic": true
+    },
+    {
+      "id": "r_synth_gym_7",
+      "name": "Каб. Gym 7 (синт.)",
+      "room_type": "Gym",
+      "capacity": 40,
+      "base_teacher_id": null,
+      "floor": 1,
+      "synthetic": true
+    },
+    {
+      "id": "r_synth_informatics_2",
+      "name": "Каб. Informatics 2 (синт.)",
+      "room_type": "Informatics",
+      "capacity": 25,
+      "base_teacher_id": null,
+      "floor": 1,
+      "synthetic": true
+    },
+    {
+      "id": "r_synth_informatics_3",
+      "name": "Каб. Informatics 3 (синт.)",
+      "room_type": "Informatics",
+      "capacity": 25,
+      "base_teacher_id": null,
+      "floor": 1,
+      "synthetic": true
+    },
+    {
+      "id": "r_synth_informatics_4",
+      "name": "Каб. Informatics 4 (синт.)",
+      "room_type": "Informatics",
+      "capacity": 25,
+      "base_teacher_id": null,
+      "floor": 1,
+      "synthetic": true
+    },
+    {
+      "id": "r_synth_chemistrylab_2",
+      "name": "Каб. ChemistryLab 2 (синт.)",
+      "room_type": "ChemistryLab",
+      "capacity": 25,
+      "base_teacher_id": null,
+      "floor": 1,
+      "synthetic": true
+    },
+    {
+      "id": "r_synth_chemistrylab_3",
+      "name": "Каб. ChemistryLab 3 (синт.)",
+      "room_type": "ChemistryLab",
+      "capacity": 25,
+      "base_teacher_id": null,
+      "floor": 1,
+      "synthetic": true
+    },
+    {
+      "id": "r_synth_chemistrylab_4",
+      "name": "Каб. ChemistryLab 4 (синт.)",
+      "room_type": "ChemistryLab",
+      "capacity": 25,
+      "base_teacher_id": null,
+      "floor": 1,
+      "synthetic": true
+    },
+    {
+      "id": "r_synth_physicslab_1",
+      "name": "Каб. PhysicsLab 1 (синт.)",
+      "room_type": "PhysicsLab",
+      "capacity": 25,
+      "base_teacher_id": null,
+      "floor": 1,
+      "synthetic": true
+    },
+    {
+      "id": "r_synth_physicslab_2",
+      "name": "Каб. PhysicsLab 2 (синт.)",
+      "room_type": "PhysicsLab",
+      "capacity": 25,
+      "base_teacher_id": null,
+      "floor": 1,
+      "synthetic": true
+    },
+    {
+      "id": "r_synth_physicslab_3",
+      "name": "Каб. PhysicsLab 3 (синт.)",
+      "room_type": "PhysicsLab",
+      "capacity": 25,
+      "base_teacher_id": null,
+      "floor": 1,
+      "synthetic": true
+    },
+    {
+      "id": "r_synth_physicslab_4",
+      "name": "Каб. PhysicsLab 4 (синт.)",
+      "room_type": "PhysicsLab",
+      "capacity": 25,
+      "base_teacher_id": null,
+      "floor": 1,
+      "synthetic": true
+    },
+    {
+      "id": "r_synth_workshop_3",
+      "name": "Каб. Workshop 3 (синт.)",
+      "room_type": "Workshop",
+      "capacity": 30,
+      "base_teacher_id": null,
+      "floor": 1,
+      "synthetic": true
+    },
+    {
+      "id": "r_synth_workshop_4",
+      "name": "Каб. Workshop 4 (синт.)",
+      "room_type": "Workshop",
+      "capacity": 30,
+      "base_teacher_id": null,
+      "floor": 1,
+      "synthetic": true
+    },
+    {
+      "id": "r_synth_workshop_5",
+      "name": "Каб. Workshop 5 (синт.)",
+      "room_type": "Workshop",
+      "capacity": 30,
+      "base_teacher_id": null,
+      "floor": 1,
+      "synthetic": true
+    },
+    {
+      "id": "r_synth_workshop_6",
+      "name": "Каб. Workshop 6 (синт.)",
+      "room_type": "Workshop",
+      "capacity": 30,
+      "base_teacher_id": null,
+      "floor": 1,
+      "synthetic": true
+    }
+  ],
+  "subjects": [
+    {
+      "id": "л_ппе_ана_т_л",
+      "name": "Әліппе, Ана Тілі",
+      "sanitary_weight": 5,
+      "required_room_type": null,
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
+    },
+    {
+      "id": "music",
+      "name": "Музыка",
+      "sanitary_weight": 3,
+      "required_room_type": null,
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
+    },
+    {
+      "id": "math",
+      "name": "Математика",
+      "sanitary_weight": 9,
+      "required_room_type": null,
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
+    },
+    {
+      "id": "estestvoznanie",
+      "name": "Естествознание",
+      "sanitary_weight": 7,
+      "required_room_type": null,
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
+    },
+    {
+      "id": "izo",
+      "name": "ИЗО",
+      "sanitary_weight": 3,
+      "required_room_type": null,
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
+    },
+    {
+      "id": "pe",
+      "name": "Физкультура",
+      "sanitary_weight": 2,
+      "required_room_type": "Gym",
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
+    },
+    {
+      "id": "trud",
+      "name": "Труд",
+      "sanitary_weight": 4,
+      "required_room_type": "Workshop",
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
+    },
+    {
+      "id": "д_ниетану",
+      "name": "Дүниетану",
+      "sanitary_weight": 5,
+      "required_room_type": null,
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
+    },
+    {
+      "id": "дебиетт_к_о_у",
+      "name": "Әдебиеттік Оқу.",
+      "sanitary_weight": 5,
+      "required_room_type": null,
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
+    },
+    {
+      "id": "а_ылшын_т_л",
+      "name": "Ағылшын Тілі",
+      "sanitary_weight": 5,
+      "required_room_type": null,
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
+    },
+    {
+      "id": "аза_т_л",
+      "name": "Қазақ Тілі",
+      "sanitary_weight": 5,
+      "required_room_type": null,
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
+    },
+    {
+      "id": "орыс_т_л",
+      "name": "Орыс Тілі",
+      "sanitary_weight": 5,
+      "required_room_type": null,
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
+    },
+    {
+      "id": "аза_стан_тарихы",
+      "name": "Қазақстан Тарихы",
+      "sanitary_weight": 5,
+      "required_room_type": null,
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
+    },
+    {
+      "id": "аза_дебиет",
+      "name": "Қазақ Әдебиет",
+      "sanitary_weight": 5,
+      "required_room_type": null,
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
+    },
+    {
+      "id": "орыс_т_л_ж_е_деб",
+      "name": "Орыс Тілі Ж/Е Әдеб.",
+      "sanitary_weight": 5,
+      "required_room_type": null,
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
+    },
+    {
+      "id": "geometry",
+      "name": "Геометрия",
+      "sanitary_weight": 9,
+      "required_room_type": null,
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
+    },
+    {
+      "id": "algebra",
+      "name": "Алгебра",
+      "sanitary_weight": 9,
+      "required_room_type": null,
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
+    },
+    {
+      "id": "д_ниеж_з_тарихы",
+      "name": "Дүниежүзі Тарихы",
+      "sanitary_weight": 5,
+      "required_room_type": null,
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
+    },
+    {
+      "id": "geography",
+      "name": "География",
+      "sanitary_weight": 6,
+      "required_room_type": null,
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
+    },
+    {
+      "id": "а_жтд",
+      "name": "Аәжтд",
+      "sanitary_weight": 5,
+      "required_room_type": null,
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
+    },
+    {
+      "id": "ы_нег_здер",
+      "name": "Құқық Негіздері",
+      "sanitary_weight": 5,
+      "required_room_type": null,
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
+    },
+    {
+      "id": "physics",
+      "name": "Физика",
+      "sanitary_weight": 9,
+      "required_room_type": "PhysicsLab",
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
+    },
+    {
+      "id": "biology",
+      "name": "Биология",
+      "sanitary_weight": 7,
+      "required_room_type": "BiologyLab",
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
+    },
+    {
+      "id": "informatics",
+      "name": "Информатика",
+      "sanitary_weight": 7,
+      "required_room_type": "Informatics",
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
+    },
+    {
+      "id": "chemistry",
+      "name": "Химия",
+      "sanitary_weight": 9,
+      "required_room_type": "ChemistryLab",
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
+    },
+    {
+      "id": "цс",
+      "name": "Цс",
+      "sanitary_weight": 5,
+      "required_room_type": null,
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
+    },
+    {
+      "id": "russian",
+      "name": "Русский язык",
+      "sanitary_weight": 7,
+      "required_room_type": null,
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
+    },
+    {
+      "id": "kazakh_language",
+      "name": "Казахский язык",
+      "sanitary_weight": 7,
+      "required_room_type": null,
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
+    },
+    {
+      "id": "literature",
+      "name": "Литература",
+      "sanitary_weight": 6,
+      "required_room_type": null,
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
+    },
+    {
+      "id": "english",
+      "name": "Английский язык",
+      "sanitary_weight": 6,
+      "required_room_type": "LanguageLab",
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
+    },
+    {
+      "id": "цг",
+      "name": "Цг",
+      "sanitary_weight": 5,
+      "required_room_type": null,
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
+    },
+    {
+      "id": "poznanie",
+      "name": "Познание мира",
+      "sanitary_weight": 6,
+      "required_room_type": null,
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
+    },
+    {
+      "id": "ч_и_рр",
+      "name": "Ч И Рр",
+      "sanitary_weight": 5,
+      "required_room_type": null,
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
+    },
+    {
+      "id": "мир_вокруг",
+      "name": "Мир Вокруг.",
+      "sanitary_weight": 5,
+      "required_room_type": null,
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
+    },
+    {
+      "id": "афк",
+      "name": "Афк",
+      "sanitary_weight": 5,
+      "required_room_type": null,
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
+    },
+    {
+      "id": "bukvar",
+      "name": "Букварь",
+      "sanitary_weight": 8,
+      "required_room_type": null,
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
+    },
+    {
+      "id": "к_ркем_е_бек",
+      "name": "Көркем Еңбек.",
+      "sanitary_weight": 5,
+      "required_room_type": null,
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
+    },
+    {
+      "id": "history",
+      "name": "История",
+      "sanitary_weight": 6,
+      "required_room_type": null,
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
+    },
+    {
+      "id": "оп_девочки",
+      "name": "Оп (Девочки)",
+      "sanitary_weight": 5,
+      "required_room_type": null,
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
+    },
+    {
+      "id": "оп_мальчики",
+      "name": "Оп (Мальчики)",
+      "sanitary_weight": 5,
+      "required_room_type": null,
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
+    },
+    {
+      "id": "samopoznanie",
+      "name": "Самопознание",
+      "sanitary_weight": 3,
+      "required_room_type": null,
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
+    },
+    {
+      "id": "оп_худтрдев",
+      "name": "Оп (Худ.Тр.Дев)",
+      "sanitary_weight": 5,
+      "required_room_type": null,
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
+    },
+    {
+      "id": "счет",
+      "name": "Счет.",
+      "sanitary_weight": 5,
+      "required_room_type": null,
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
+    },
+    {
+      "id": "сбо",
+      "name": "Сбо.",
+      "sanitary_weight": 5,
+      "required_room_type": null,
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
+    },
+    {
+      "id": "человек_и_мир",
+      "name": "Человек И Мир.",
+      "sanitary_weight": 5,
+      "required_room_type": null,
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
+    },
+    {
+      "id": "пр",
+      "name": "Пр",
+      "sanitary_weight": 5,
+      "required_room_type": null,
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
+    },
+    {
+      "id": "ррик",
+      "name": "Ррик",
+      "sanitary_weight": 5,
+      "required_room_type": null,
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
+    },
+    {
+      "id": "пто",
+      "name": "Пто",
+      "sanitary_weight": 5,
+      "required_room_type": null,
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
+    },
+    {
+      "id": "основы_права",
+      "name": "Основы Права",
+      "sanitary_weight": 5,
+      "required_room_type": null,
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
+    },
+    {
+      "id": "общество_и_право",
+      "name": "Общество И Право",
+      "sanitary_weight": 5,
+      "required_room_type": null,
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
+    },
+    {
+      "id": "опиб",
+      "name": "Опиб",
+      "sanitary_weight": 5,
+      "required_room_type": null,
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
+    },
+    {
+      "id": "нвитп",
+      "name": "Нвитп",
+      "sanitary_weight": 5,
+      "required_room_type": null,
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
+    }
+  ]
+}

@@ -73,6 +73,8 @@ pub fn register<R: tauri::Runtime>(
             schedule::schedule_clear_slots,
             schedule::schedule_get_slots,
             schedule::schedule_generate,
-            schedule::schedule_export
+            schedule::schedule_export,
+            schedule::schedule_import_legacy,
+            schedule::schedule_get_legacy
         ])
 }

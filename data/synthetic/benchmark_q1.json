@@ -1,0 +1,43 @@
+{
+  "quarter": 1,
+  "legacy": {
+    "penalties": {
+      "window": 73,
+      "room_displacement": 0,
+      "sanpin_parabola": 1942,
+      "alternation": 3,
+      "movement": 0,
+      "load_balance": 25,
+      "total": 2043
+    },
+    "weighted_total": 209790,
+    "slots": 500
+  },
+  "our": {
+    "status": "FEASIBLE",
+    "penalties": {
+      "window": 54,
+      "room_displacement": 0,
+      "sanpin_parabola": 1698,
+      "alternation": 0,
+      "movement": 0,
+      "load_balance": 67,
+      "total": 182610
+    },
+    "weighted_total": 182610,
+    "wall_ms": 15580,
+    "slots": 500
+  },
+  "delta": {
+    "weighted_total": -27180,
+    "per_metric": {
+      "window": -3800,
+      "room_displacement": 0,
+      "sanpin_parabola": -24400,
+      "alternation": -240,
+      "movement": 0,
+      "load_balance": 1260
+    }
+  },
+  "infeasible_core": null
+}

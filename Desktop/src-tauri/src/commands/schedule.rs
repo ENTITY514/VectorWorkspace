@@ -449,3 +449,119 @@ pub async fn schedule_export(state: State<'_, AppState>, format: Option<String>)
     }
     Ok(out)
 }
+
+#[tauri::command]
+pub async fn schedule_import_legacy(state: State<'_, AppState>, quarter: Option<i64>) -> Result<serde_json::Value, String> {
+    let q = quarter.unwrap_or(1);
+    if !(1..=4).contains(&q) {
+        return Err("quarter must be 1..4".to_string());
+    }
+    let base = std::path::PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../../data/synthetic");
+    let catalog_path = base.join("catalog.json");
+    let curriculum_path = base.join(format!("curriculum_q{}.json", q));
+    let catalog_str = std::fs::read_to_string(&catalog_path).map_err(|e| format!("read catalog.json: {}", e))?;
+    let curriculum_str = std::fs::read_to_string(&curriculum_path).map_err(|e| format!("read curriculum_q{}.json: {}", q, e))?;
+    let catalog: serde_json::Value = serde_json::from_str(&catalog_str).map_err(|e| e.to_string())?;
+    let curriculum: Vec<serde_json::Value> = serde_json::from_str(&curriculum_str).map_err(|e| e.to_string())?;
+
+    let pool = &state.pool;
+    // teachers
+    if let Some(teachers) = catalog.get("teachers").and_then(|v| v.as_array()) {
+        for t in teachers {
+            let id = t.get("id").and_then(|v| v.as_str()).unwrap_or("").to_string();
+            let full_name = t.get("display_name").or_else(|| t.get("full_name")).and_then(|v| v.as_str()).unwrap_or(&id).to_string();
+            let avail = t.get("availability_json").and_then(|v| v.as_str()).unwrap_or("[[true,true,true,true,true,true,true,true],[true,true,true,true,true,true,true,true],[true,true,true,true,true,true,true,true],[true,true,true,true,true,true,true,true],[true,true,true,true,true,true,true,true],[true,true,true,true,true,true,true,true]]").to_string();
+            // check if availability is JSON array already?
+            let avail_str = if avail.starts_with('[') { avail } else { format!("\"{}\"", avail) };
+            // ensure valid json: if avail is already json array string, keep; otherwise default
+            let avail_json = if serde_json::from_str::<serde_json::Value>(&avail_str).is_ok() { avail_str } else { "[[true,true,true,true,true,true,true,true],[true,true,true,true,true,true,true,true],[true,true,true,true,true,true,true,true],[true,true,true,true,true,true,true,true],[true,true,true,true,true,true,true,true],[true,true,true,true,true,true,true,true]]".to_string() };
+            let _ = teachers::upsert_teacher(pool, Some(id), full_name, None, 0, avail_json).await.map_err(|e| e.to_string())?;
+        }
+    }
+    // rooms
+    if let Some(rooms) = catalog.get("rooms").and_then(|v| v.as_array()) {
+        for r in rooms {
+            let id = r.get("id").and_then(|v| v.as_str()).unwrap_or("").to_string();
+            let name = r.get("name").and_then(|v| v.as_str()).unwrap_or(&id).to_string();
+            let room_type = r.get("room_type").and_then(|v| v.as_str()).unwrap_or("General").to_string();
+            let capacity = r.get("capacity").and_then(|v| v.as_i64()).unwrap_or(30);
+            let _ = rooms::upsert_room(pool, Some(id), name, room_type, capacity, None, None).await.map_err(|e| e.to_string())?;
+        }
+    }
+    // classes
+    if let Some(classes) = catalog.get("classes").and_then(|v| v.as_array()) {
+        for c in classes {
+            let id = c.get("id").and_then(|v| v.as_str()).unwrap_or("").to_string();
+            let grade = c.get("grade").and_then(|v| v.as_i64()).unwrap_or(1);
+            let letter = c.get("letter").and_then(|v| v.as_str()).unwrap_or("А").to_string();
+            let headcount = c.get("headcount").and_then(|v| v.as_i64()).unwrap_or(25);
+            let shift = c.get("shift").and_then(|v| v.as_str()).unwrap_or("First").to_string();
+            let _ = sqlx::query("INSERT INTO schedule_classes (id, grade, letter, headcount, shift) VALUES (?1,?2,?3,?4,?5) ON CONFLICT(id) DO UPDATE SET grade=?2, letter=?3, headcount=?4, shift=?5")
+                .bind(&id).bind(grade).bind(&letter).bind(headcount).bind(&shift)
+                .execute(pool).await.map_err(|e| e.to_string())?;
+        }
+    }
+    // subjects
+    if let Some(subjects) = catalog.get("subjects").and_then(|v| v.as_array()) {
+        for s in subjects {
+            let id = s.get("id").and_then(|v| v.as_str()).unwrap_or("").to_string();
+            let name = s.get("name").and_then(|v| v.as_str()).unwrap_or(&id).to_string();
+            let weight = s.get("sanitary_weight").and_then(|v| v.as_i64()).unwrap_or(5);
+            let room_type = s.get("required_room_type").and_then(|v| v.as_str().map(|s| s.to_string()));
+            // ensure room_type is valid or None
+            let rt = match room_type.as_deref() {
+                Some("General") | Some("ChemistryLab") | Some("PhysicsLab") | Some("BiologyLab") | Some("Informatics") | Some("LanguageLab") | Some("Gym") | Some("Workshop") => room_type,
+                _ => None,
+            };
+            let _ = subjects::upsert_subject(pool, id, name, weight, rt, false, false, "[]".to_string()).await.map_err(|e| e.to_string())?;
+        }
+    }
+    // curriculum
+    let mut entries: Vec<(String,String,String,Option<String>,i64)> = Vec::new();
+    for e in curriculum {
+        let class_id = e.get("class_id").and_then(|v| v.as_str()).unwrap_or("").to_string();
+        let subject_id = e.get("subject_id").and_then(|v| v.as_str()).unwrap_or("").to_string();
+        let teacher_id = e.get("teacher_id").and_then(|v| v.as_str()).unwrap_or("").to_string();
+        let split2 = e.get("split_teacher2_id").and_then(|v| v.as_str().map(|s| s.to_string()));
+        let hours = e.get("hours_per_week").and_then(|v| v.as_i64()).unwrap_or(1);
+        if class_id.is_empty() || subject_id.is_empty() || teacher_id.is_empty() { continue; }
+        entries.push((class_id, subject_id, teacher_id, split2, hours));
+    }
+    curriculum::set_curriculum_entries(pool, entries).await.map_err(|e| e.to_string())?;
+
+    Ok(serde_json::json!({"quarter": q, "imported": true, "catalog_counts": {"teachers": catalog.get("teachers").and_then(|v| v.as_array()).map(|a| a.len()).unwrap_or(0)}}))
+}
+
+#[tauri::command]
+pub async fn schedule_get_legacy(state: State<'_, AppState>, quarter: i64) -> Result<Vec<crate::domain::schedule::model::ScheduleSlot>, String> {
+    if !(1..=4).contains(&quarter) {
+        return Err("quarter must be 1..4".to_string());
+    }
+    let base = std::path::PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../../data/synthetic");
+    let path = base.join(format!("schedule_legacy_q{}.json", quarter));
+    let s = std::fs::read_to_string(&path).map_err(|e| format!("read legacy_q{}.json: {}", quarter, e))?;
+    let arr: Vec<serde_json::Value> = serde_json::from_str(&s).map_err(|e| e.to_string())?;
+    let mut out = Vec::new();
+    for v in arr {
+        let class_id = v.get("class_id").and_then(|x| x.as_str()).unwrap_or("").to_string();
+        let subject_id = v.get("subject_id").and_then(|x| x.as_str()).unwrap_or("").to_string();
+        let teacher_id = v.get("teacher_id").and_then(|x| x.as_str()).unwrap_or("").to_string();
+        let room_id = v.get("room_id").and_then(|x| x.as_str()).unwrap_or("").to_string();
+        let day = v.get("day").and_then(|x| x.as_i64()).unwrap_or(0);
+        let period = v.get("period").and_then(|x| x.as_i64()).unwrap_or(0);
+        out.push(crate::domain::schedule::model::ScheduleSlot{
+            id: format!("legacy_{}_{}_{}", class_id, day, period),
+            class_id,
+            subject_id,
+            teacher_id,
+            room_id,
+            subgroup_label: None,
+            day,
+            period,
+            is_double: false,
+        });
+    }
+    // filter by type if needed? For now return all
+    let _ = &state; // unused
+    Ok(out)
+}
