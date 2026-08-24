@@ -8,11 +8,11 @@
 
 ## 2. Python-ядро и JSON-контракт
 
-- [ ] 2.1 `solver/schema.py` — `pydantic v2` `InputModel/OutputModel` (`schema_version=1`, `Teachers/Classes/Rooms/Subjects/Curriculum/Weights/TimeGrid` → `slots+penalties+solver_stats+diagnostics`), валидация, `requirements.txt` (`ortools==9.10.*`, `pydantic==2.*`).
-- [ ] 2.2 `solver/engine.py` + `solver/constraints/hard.py` — переменные `x[i,d,p] + y[i,room]` (декомпозиция), Hard H1..H10 (`AddExactlyOne`/`AddAtMostOne`/`Add(x==0)`, split-синхронность `Add(x1==x2)`, спецкабинеты, смены, availability предфильтр).
-- [ ] 2.3 `solver/__main__.py` — протокол stdin/stdout (JSON), `INVALID_INPUT → exit 2`, логи в stderr, `OutputModel` валидация.
-- [ ] 2.4 Rust `src/infra/solver_host.rs` — `SolverHost::run` (`tokio::process::Command`, stdin JSON, stdout JSON, stderr → `schedule:log` event, таймаут `time_limit+5s`, `SolverCrashed`/`InvalidContract` ошибки) + `commit_slots` транзакция с `validate_hard()` (Zero-Trust).
-- [ ] 2.5 Интеграционные тесты `test_solver_host_*` (success/infeasible/crash/timeout) + Python `test_hard_*` (singularity/availability/room_type).
+- [x] 2.1 `solver/schema.py` — `pydantic v2` `InputModel/OutputModel` (`schema_version=1`, `Teachers/Classes/Rooms/Subjects/Curriculum/Weights/TimeGrid` → `slots+penalties+solver_stats+diagnostics`), валидация, `requirements.txt` (`ortools==9.10.*`, `pydantic==2.*`).
+- [x] 2.2 `solver/engine.py` + `solver/constraints/hard.py` — переменные `x[i,d,p] + y[i,room]` (декомпозиция), Hard H1..H10 (`AddExactlyOne`/`AddAtMostOne`/`Add(x==0)`, split-синхронность `Add(x1==x2)`, спецкабинеты, смены, availability предфильтр).
+- [x] 2.3 `solver/__main__.py` — протокол stdin/stdout (JSON), `INVALID_INPUT → exit 2`, логи в stderr, `OutputModel` валидация.
+- [x] 2.4 Rust `src/infra/solver_host.rs` — `SolverHost::run` (`tokio::process::Command`, stdin JSON, stdout JSON, stderr → `schedule:log` event, таймаут `time_limit+5s`, `SolverCrashed`/`InvalidContract` ошибки) + `commit_slots` транзакция с `validate_hard()` (Zero-Trust).
+- [x] 2.5 Интеграционные тесты `test_solver_host_*` (success/infeasible/crash/timeout) + Python `test_hard_*` (singularity/availability/room_type).
 
 ## 3. Soft-ограничения и целевая функция
 
