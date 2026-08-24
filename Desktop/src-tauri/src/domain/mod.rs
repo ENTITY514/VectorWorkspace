@@ -6,4 +6,5 @@ pub mod identity;
 pub mod invariants;
 pub mod ktp;
 pub mod rk_calendar;
+pub mod schedule;
 pub mod tup;

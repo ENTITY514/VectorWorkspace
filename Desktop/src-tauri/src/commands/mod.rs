@@ -4,6 +4,7 @@
 pub mod health;
 pub mod identity;
 pub mod ktp;
+pub mod schedule;
 pub mod tup;
 
 use tauri::Manager;
@@ -56,6 +57,20 @@ pub fn register<R: tauri::Runtime>(
             ktp::update_ktp_schedule,
             ktp::validate_ktp_invariants,
             ktp::get_ktp_plan,
-            ktp::save_ktp_plan
+            ktp::save_ktp_plan,
+            schedule::schedule_get_state,
+            schedule::schedule_upsert_teacher,
+            schedule::schedule_delete_teacher,
+            schedule::schedule_upsert_room,
+            schedule::schedule_delete_room,
+            schedule::schedule_upsert_class,
+            schedule::schedule_delete_class,
+            schedule::schedule_upsert_subject,
+            schedule::schedule_delete_subject,
+            schedule::schedule_upsert_subgroup_rule,
+            schedule::schedule_set_curriculum,
+            schedule::schedule_set_weights,
+            schedule::schedule_clear_slots,
+            schedule::schedule_get_slots
         ])
 }

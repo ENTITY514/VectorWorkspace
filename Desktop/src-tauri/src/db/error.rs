@@ -15,6 +15,8 @@ pub enum DbError {
     Io(#[from] io::Error),
     #[error("внутренняя ошибка: {0}")]
     Internal(String),
+    #[error("валидация: {0}")]
+    Validation(String),
 }
 
 impl From<sqlx::migrate::MigrateError> for DbError {

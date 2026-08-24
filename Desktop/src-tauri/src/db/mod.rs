@@ -6,6 +6,7 @@ pub mod repo;
 pub mod repo_identity;
 pub mod repo_ktp;
 pub mod repo_tup;
+pub mod schedule;
 
 use sqlx::sqlite::{SqliteConnectOptions, SqliteJournalMode, SqlitePoolOptions};
 use sqlx::SqlitePool;
@@ -128,6 +129,14 @@ mod tests {
         "textbook_task_objectives",
         "textbook_tasks_fts",
         "tup_fts",
+        "schedule_teachers",
+        "schedule_rooms",
+        "schedule_classes",
+        "schedule_subgroup_rules",
+        "schedule_subjects",
+        "schedule_curriculum",
+        "schedule_weights",
+        "schedule_slots",
     ];
 
     async fn list_tables(pool: &SqlitePool) -> Vec<String> {
