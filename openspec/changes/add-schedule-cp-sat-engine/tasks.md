@@ -16,10 +16,10 @@
 
 ## 3. Soft-ограничения и целевая функция
 
-- [ ] 3.1 `solver/constraints/soft.py` — S1 окна (`first/last/windows`), S2 изгнание (`base_room`), S3 СанПиН-парабола (`daily_weight vs ideal+tolerance`), S4 чередование (`related`), S5 миграция (`floor`), S6 баланс (`variance`), `model.Minimize(Σ w·penalty)`, `w=0` ветка удалена.
-- [ ] 3.2 Поиск: `CpSolver` (`num_search_workers=8`, `max_time_in_seconds`, `random_seed`, `SolutionCallback`), `AddDecisionStrategy` для split-instances.
-- [ ] 3.3 Тесты Soft: `test_soft_windows_*` (minimized + weight 0 disables), `test_soft_sanpin_*` (parabola + weight 0), `test_soft_alternation`, `test_soft_room_displacement`.
-- [ ] 3.4 INFEASIBLE-диагностика — эвристика `requested > available` (учителя/кабинеты/смены) + `diagnostics.infeasible_core` (`reason`, `conflicting_entities`, `suggestion`) + тесты `test_boundary_infeasible_*` + `test_infeasible_does_not_crash`.
+- [x] 3.1 `solver/constraints/soft.py` — S1 окна (`first/last/windows`), S2 изгнание (`base_room`), S3 СанПиН-парабола (`daily_weight vs ideal+tolerance`), S4 чередование (`related`), S5 миграция (`floor`), S6 баланс (`variance`), `model.Minimize(Σ w·penalty)`, `w=0` ветка удалена.
+- [x] 3.2 Поиск: `CpSolver` (`num_search_workers=8`, `max_time_in_seconds`, `random_seed`, `SolutionCallback`), `AddDecisionStrategy` для split-instances.
+- [x] 3.3 Тесты Soft: `test_soft_windows_*` (minimized + weight 0 disables), `test_soft_sanpin_*` (parabola + weight 0), `test_soft_alternation`, `test_soft_room_displacement`.
+- [x] 3.4 INFEASIBLE-диагностика — эвристика `requested > available` (учителя/кабинеты/смены) + `diagnostics.infeasible_core` (`reason`, `conflicting_entities`, `suggestion`) + тесты `test_boundary_infeasible_*` + `test_infeasible_does_not_crash`.
 
 ## 4. UI — изолированная вкладка «Расписание»
 

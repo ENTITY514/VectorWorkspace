@@ -201,13 +201,17 @@ def solve(input_model: InputModel) -> dict:
             }
 
     add_hard_constraints(model, x, y, input_model, instances, room_by_id, subject_by_id)
-    penalties = add_soft_constraints(model, x, y, input_model, instances)
+    penalties = add_soft_constraints(model, x, y, input_model, instances, room_by_id)
     if penalties:
-        # сумма взвешенных штрафов — будет в Phase 3
-        pass
-    else:
-        # MVP: без objective solver быстрее находит любое FEASIBLE
-        pass
+        # взвешенная сумма, вес 0 уже исключён в soft.py (ключ отсутствует), но для безопасности фильтруем
+        weights = input_model.weights
+        obj_terms = []
+        for name, var in penalties.items():
+            w = getattr(weights, name, 0)
+            if w and w != 0:
+                obj_terms.append(w * var)
+        if obj_terms:
+            model.Minimize(sum(obj_terms))
 
     solver = cp_model.CpSolver()
     solver.parameters.max_time_in_seconds = float(input_model.meta.time_limit_sec)
@@ -238,7 +242,6 @@ def solve(input_model: InputModel) -> dict:
                     if key not in x:
                         continue
                     if solver.Value(x[key]) == 1:
-                        # найти комнату где y=1
                         room_id = None
                         for rid in room_by_id:
                             yk = (inst["idx"], rid)
@@ -246,7 +249,6 @@ def solve(input_model: InputModel) -> dict:
                                 room_id = rid
                                 break
                         if room_id is None:
-                            # fallback: первая доступная
                             room_id = next(iter(room_by_id), "unknown")
                         slots.append({
                             "class_id": inst["class_id"],
@@ -258,6 +260,22 @@ def solve(input_model: InputModel) -> dict:
                             "period": p,
                         })
                         break
+        # собрать реальные штрафы
+        pen_vals = {"window": 0, "room_displacement": 0, "sanpin_parabola": 0, "alternation": 0, "movement": 0, "load_balance": 0}
+        total = 0
+        for name, var in penalties.items():
+            try:
+                v = int(solver.Value(var))
+            except Exception:
+                v = 0
+            # map internal names: soft.py uses same names as weights
+            if name in pen_vals:
+                pen_vals[name] = v
+                w = getattr(input_model.weights, name, 0)
+                total += v * (w if w else 0)
+            else:
+                pen_vals[name] = v
+        pen_vals["total"] = total
         return {
             "schema_version": 1,
             "status": out_status,
@@ -266,9 +284,9 @@ def solve(input_model: InputModel) -> dict:
                 "branches": int(solver.NumBranches()),
                 "conflicts": int(solver.NumConflicts()),
                 "gap_percent": 0.0,
-                "objective_value": int(solver.ObjectiveValue()) if out_status in ("OPTIMAL","FEASIBLE") and penalties else 0,
+                "objective_value": int(solver.ObjectiveValue()) if penalties else 0,
             },
-            "penalties": {"window": 0, "room_displacement": 0, "sanpin_parabola": 0, "alternation": 0, "movement": 0, "load_balance": 0, "total": 0},
+            "penalties": pen_vals,
             "slots": slots,
             "diagnostics": {"infeasible_core": None, "warnings": []},
         }
