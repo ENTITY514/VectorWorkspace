@@ -8,6 +8,7 @@ export type View =
   | "analytics"
   | "students"
   | "settings"
+  | "schedule"
   | "ds";
 
 export interface HealthReport {
@@ -342,4 +343,101 @@ export interface SaveClassInput {
   grade: number;
   letter: string;
   language: "RU" | "KK";
+}
+
+// ---- Расписание (schedule) — изолированный домен ----
+export type RoomType = "General" | "ChemistryLab" | "PhysicsLab" | "BiologyLab" | "Informatics" | "LanguageLab" | "Gym" | "Workshop";
+export type Shift = "First" | "Second";
+
+export interface ScheduleTeacher {
+  id: string;
+  full_name: string;
+  base_room_id: string | null;
+  max_daily_lessons: number;
+  availability_json: string;
+}
+
+export interface ScheduleRoom {
+  id: string;
+  name: string;
+  room_type: RoomType;
+  capacity: number;
+  base_teacher_id: string | null;
+  floor: number | null;
+}
+
+export interface ScheduleClass {
+  id: string;
+  grade: number;
+  letter: string;
+  headcount: number;
+  shift: Shift;
+}
+
+export interface ScheduleSubject {
+  id: string;
+  name: string;
+  sanitary_weight: number;
+  required_room_type: RoomType | null;
+  requires_split: boolean;
+  is_double_allowed: boolean;
+  related_subjects_json: string;
+}
+
+export interface ScheduleSubgroupRule {
+  id: string;
+  class_id: string;
+  subject_id: string;
+  group_count: number;
+}
+
+export interface ScheduleCurriculum {
+  id: string;
+  class_id: string;
+  subject_id: string;
+  teacher_id: string;
+  split_teacher2_id: string | null;
+  hours_per_week: number;
+}
+
+export interface ScheduleWeights {
+  id: string;
+  window: number;
+  room_displacement: number;
+  sanpin_parabola: number;
+  alternation: number;
+  movement: number;
+  load_balance: number;
+}
+
+export interface ScheduleSlot {
+  id: string;
+  class_id: string;
+  subject_id: string;
+  teacher_id: string;
+  room_id: string;
+  subgroup_label: string | null;
+  day: number;
+  period: number;
+  is_double: boolean;
+}
+
+export interface ScheduleState {
+  teachers: ScheduleTeacher[];
+  rooms: ScheduleRoom[];
+  classes: ScheduleClass[];
+  subgroup_rules: ScheduleSubgroupRule[];
+  subjects: ScheduleSubject[];
+  curriculum: ScheduleCurriculum[];
+  weights: ScheduleWeights;
+  slots: ScheduleSlot[];
+}
+
+export interface ScheduleGenerateResult {
+  schema_version: number;
+  status: "OPTIMAL" | "FEASIBLE" | "INFEASIBLE" | "TIME_LIMIT" | "INVALID_INPUT";
+  solver_stats: { wall_ms: number; branches: number; conflicts: number; gap_percent: number; objective_value: number };
+  penalties: { window: number; room_displacement: number; sanpin_parabola: number; alternation: number; movement: number; load_balance: number; total: number };
+  slots: ScheduleSlot[];
+  diagnostics: { infeasible_core: { reason: string; conflicting_entities: string[]; suggestion: string } | null; warnings: string[] };
 }

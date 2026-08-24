@@ -11,6 +11,7 @@ export const nav: { id: View; icon: string; label: string }[] = [
   { id: "analytics", icon: "◔", label: "Аналитика" },
   { id: "students", icon: "☺", label: "Ученики" },
   { id: "settings", icon: "⚙", label: "Настройки" },
+  { id: "schedule", icon: "▦", label: "Расписание" },
   { id: "ds", icon: "◈", label: "Дизайн (тест)" },
 ];
 

@@ -17,6 +17,7 @@ import { api } from "./services/api";
 import { DesignSandbox } from "./DesignSandbox";
 import { MainLayout } from "./shared/ui/layout/MainLayout";
 import { Titlebar } from "./shared/ui/layout/Titlebar";
+import { SchedulePage } from "./domains/schedule/SchedulePage";
 
 function App() {
   const [view, setView] = useState<View>("today");
@@ -73,6 +74,7 @@ function App() {
         {view === "analytics" && <Analytics />}
         {view === "students" && <Students />}
         {view === "settings" && <Settings />}
+        {view === "schedule" && <SchedulePage />}
         {view === "ds" && <DesignSandbox />}
       </MainLayout>
     </div>

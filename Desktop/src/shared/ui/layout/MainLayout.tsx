@@ -13,6 +13,7 @@ const titles: Record<View, string> = {
   analytics: "Аналитика",
   students: "Ученики",
   settings: "Настройки школы",
+  schedule: "Расписание",
   ds: "Дизайн (тест)",
 };
 

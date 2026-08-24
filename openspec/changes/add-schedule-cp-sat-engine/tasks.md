@@ -23,14 +23,14 @@
 
 ## 4. UI — изолированная вкладка «Расписание»
 
-- [ ] 4.1 `Desktop/src/domains/schedule/types.ts` + `api/scheduleApi.ts` (invoke обёртки) + `hooks/useScheduleState|useScheduleProgress` (Tauri Event `schedule:progress`).
-- [ ] 4.2 `Desktop/src/domains/schedule/SchedulePage.tsx` — роутер вкладки (5 под-вкладок), `lazy` import, расширение `View="schedule"` в `App.tsx` + `MainLayout` пункт «Расписание» + линтер `no-restricted-imports` (запрет `tup/ktp`).
-- [ ] 4.3 `components/Dashboard.tsx` — readiness-бар, статус `OPTIMAL/FEASIBLE/INFEASIBLE/TIME_LIMIT`, `solver_stats`, INFEASIBLE-карточка с кликабельными `conflicting_entities`, кнопки Generate/Export/Clear/Demo.
-- [ ] 4.4 `components/DataManagement.tsx` (4 таба: `TeachersTab` с 6×8 availability-грид, `ClassesTab` с subgroup_rules, `RoomsTab` с room_type фильтр, `SubjectsTab` с sanitary_weight слайдер) — CRUD диалоги, валидация, виртуализация.
-- [ ] 4.5 `components/CurriculumMatrix.tsx` — таблица `Класс×Предмет → Учитель×Часы` (чипы, поповер `CurriculumCellEditor`, split-два селекта, часы 1..6, валидация против ТУП, «Заполнить из ТУП»).
-- [ ] 4.6 `components/ConstraintsConfigurator.tsx` — 6 ползунков 0..1000 (window/room/sanpin/alternation/movement/balance) + «Сбросить» + «Сохранить» (`schedule_set_weights`) + бейдж «Отключено» при 0.
-- [ ] 4.7 `components/TimetableGrid.tsx` — режимы `По классам/учителям/кабинетам` (строки периоды, столбцы дни), фильтры, цвета по `subject_id`, split-диагональ, окна-штриховка, парабола-график (Recharts), `empty/loading/infeasible/done` состояния, `React.memo` на ячейку.
-- [ ] 4.8 Стили `Desktop/src/styles.css` — `.schedule-grid`, `.availability-matrix`, `.weight-slider` (токены `--bg-*`, `--accent`).
+- [x] 4.1 `Desktop/src/domains/schedule/types.ts` + `api/scheduleApi.ts` (invoke обёртки) + `hooks/useScheduleState|useScheduleProgress` (Tauri Event `schedule:progress`).
+- [x] 4.2 `Desktop/src/domains/schedule/SchedulePage.tsx` — роутер вкладки (5 под-вкладок), `lazy` import, расширение `View="schedule"` в `App.tsx` + `MainLayout` пункт «Расписание» + линтер `no-restricted-imports` (запрет `tup/ktp`).
+- [x] 4.3 `components/Dashboard.tsx` — readiness-бар, статус `OPTIMAL/FEASIBLE/INFEASIBLE/TIME_LIMIT`, `solver_stats`, INFEASIBLE-карточка с кликабельными `conflicting_entities`, кнопки Generate/Export/Clear/Demo.
+- [x] 4.4 `components/DataManagement.tsx` (4 таба: `TeachersTab` с 6×8 availability-грид, `ClassesTab` с subgroup_rules, `RoomsTab` с room_type фильтр, `SubjectsTab` с sanitary_weight слайдер) — CRUD диалоги, валидация, виртуализация.
+- [x] 4.5 `components/CurriculumMatrix.tsx` — таблица `Класс×Предмет → Учитель×Часы` (чипы, поповер `CurriculumCellEditor`, split-два селекта, часы 1..6, валидация против ТУП, «Заполнить из ТУП»).
+- [x] 4.6 `components/ConstraintsConfigurator.tsx` — 6 ползунков 0..1000 (window/room/sanpin/alternation/movement/balance) + «Сбросить» + «Сохранить» (`schedule_set_weights`) + бейдж «Отключено» при 0.
+- [x] 4.7 `components/TimetableGrid.tsx` — режимы `По классам/учителям/кабинетам` (строки периоды, столбцы дни), фильтры, цвета по `subject_id`, split-диагональ, окна-штриховка, парабола-график (Recharts), `empty/loading/infeasible/done` состояния, `React.memo` на ячейку.
+- [x] 4.8 Стили `Desktop/src/styles.css` — `.schedule-grid`, `.availability-matrix`, `.weight-slider` (токены `--bg-*`, `--accent`).
 
 ## 5. Тестирование, нагрузка, полировка
 
