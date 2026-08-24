@@ -12,8 +12,9 @@ import { WeightsTab } from "./ui/WeightsTab";
 import { GridTab } from "./ui/GridTab";
 import { LegacyTab } from "./ui/LegacyTab";
 import { ComparisonTab } from "./ui/ComparisonTab";
+import { AnalyticsCharts } from "./ui/AnalyticsCharts";
 
-type Tab = "dashboard" | "teachers" | "classes" | "rooms" | "subjects" | "curriculum" | "weights" | "grid" | "legacy" | "benchmark";
+type Tab = "dashboard" | "teachers" | "classes" | "rooms" | "subjects" | "curriculum" | "weights" | "grid" | "legacy" | "benchmark" | "charts";
 
 export function SchedulePage() {
   const [tab, setTab] = useState<Tab>("dashboard");
@@ -68,7 +69,7 @@ export function SchedulePage() {
       </div>
 
       <div className="tabs" role="tablist">
-        {(["dashboard","teachers","classes","rooms","subjects","curriculum","weights","grid","legacy","benchmark"] as Tab[]).map(t => (
+        {(["dashboard","teachers","classes","rooms","subjects","curriculum","weights","grid","legacy","benchmark","charts"] as Tab[]).map(t => (
           <button key={t} role="tab" aria-selected={tab===t} className={tab===t?"tab active":"tab"} onClick={()=>setTab(t)}>
             {labelForTab(t)}
           </button>
@@ -88,6 +89,7 @@ export function SchedulePage() {
       {tab==="grid" && <GridTab state={state!} />}
       {tab==="legacy" && <LegacyTab />}
       {tab==="benchmark" && <ComparisonTab />}
+      {tab==="charts" && <AnalyticsCharts state={state!} />}
     </div>
   );
 }
@@ -104,6 +106,7 @@ function labelForTab(t: Tab): string {
     grid: "Матрица",
     legacy: "Импортированное",
     benchmark: "Сравнение",
+    charts: "Графики",
   };
   return m[t];
 }

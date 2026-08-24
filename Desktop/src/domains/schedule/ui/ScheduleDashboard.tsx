@@ -2,6 +2,7 @@ import { useMemo } from "react";
 import { scheduleApi } from "../api";
 import type { ScheduleState, ScheduleGenerateResult } from "../../../types";
 import { STATUS_LABELS } from "../../../types";
+import { showToast } from "../../../components/Toast";
 
 interface DashboardProps {
   state: ScheduleState;
@@ -64,8 +65,8 @@ export function ScheduleDashboard({ state, onGenerate, onRefresh, lastResult }: 
     try {
       await scheduleApi.importLegacy(q);
       await onRefresh();
-      alert(`Импорт Q${q} выполнен`);
-    } catch (e) { alert(String(e)); }
+      showToast(`Импорт Q${q} выполнен`, "success");
+    } catch (e) { showToast(String(e), "error"); }
   };
 
   const handleExport = async (format: string) => {
@@ -78,7 +79,8 @@ export function ScheduleDashboard({ state, onGenerate, onRefresh, lastResult }: 
       a.download = `schedule.${format}`;
       a.click();
       URL.revokeObjectURL(url);
-    } catch (e) { alert(String(e)); }
+      showToast(`Экспорт ${format.toUpperCase()} выполнен`, "success");
+    } catch (e) { showToast(String(e), "error"); }
   };
 
   return (

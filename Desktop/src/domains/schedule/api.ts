@@ -50,6 +50,9 @@ export const scheduleApi = {
   setCurriculum(entries: Array<{ class_id: string; subject_id: string; teacher_id: string; split_teacher2_id?: string | null; hours_per_week: number }>): Promise<ScheduleCurriculum[]> {
     return call<ScheduleCurriculum[]>("schedule_set_curriculum", { entries });
   },
+  deleteCurriculum(id: string): Promise<void> {
+    return call<void>("schedule_delete_curriculum", { id });
+  },
   setWeights(input: { window: number; room_displacement: number; sanpin_parabola: number; alternation: number; movement: number; load_balance: number }): Promise<ScheduleWeights> {
     return call<ScheduleWeights>("schedule_set_weights", { input });
   },

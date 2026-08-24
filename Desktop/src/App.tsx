@@ -18,6 +18,7 @@ import { DesignSandbox } from "./DesignSandbox";
 import { MainLayout } from "./shared/ui/layout/MainLayout";
 import { Titlebar } from "./shared/ui/layout/Titlebar";
 import { SchedulePage } from "./domains/schedule/SchedulePage";
+import { ToastContainer } from "./components/Toast";
 
 function App() {
   const [view, setView] = useState<View>("today");
@@ -52,6 +53,7 @@ function App() {
   return (
     <div className="app-shell">
       <Titlebar />
+      <ToastContainer />
       <MainLayout view={view} onViewChange={handleViewChange}>
         {view === "today" && <Today />}
         {view === "tup" && (
