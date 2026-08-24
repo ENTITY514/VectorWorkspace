@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { api } from "../services/api";
 import type { HealthReport } from "../types";
-import { Panel, Stat } from "../components/ui";
+import { Panel } from "../components/ui";
+import { Stat } from "../shared/ui/Stat";
 
 function todayStr(): string {
   return new Date().toISOString().slice(0, 10);

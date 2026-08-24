@@ -1879,3 +1879,356 @@ table.data .row-quarter:hover td {
   display: inline-flex;
   color: var(--text-secondary);
 }
+
+/* =========================================================================
+ * Модуль «Расписание» — CSS-классы
+ * ========================================================================= */
+
+/* Страница расписания */
+.schedule-page {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Панели */
+.panel {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+}
+
+.panel-header {
+  margin-bottom: 8px;
+}
+
+.panel-header h1 {
+  margin: 0 0 4px 0;
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.panel-header .muted {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* Вкладки */
+.tabs {
+  display: flex;
+  gap: 2px;
+  border-bottom: 1px solid var(--border-subtle);
+  padding-bottom: 0;
+  overflow-x: auto;
+}
+
+.tab {
+  padding: 10px 16px;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  transition: color 0.15s, border-color 0.15s;
+  white-space: nowrap;
+}
+
+.tab:hover {
+  color: var(--text-primary);
+}
+
+.tab.active {
+  color: var(--accent-primary);
+  border-bottom-color: var(--accent-primary);
+}
+
+/* Карточки */
+.card {
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+/* Строки данных */
+.row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* Кнопки действий */
+.actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+/* Уведомления */
+.notice {
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  background: var(--accent-subtle);
+  color: var(--accent-primary);
+  font-size: 14px;
+}
+
+.error.notice,
+.notice.error {
+  background: var(--status-error-bg);
+  color: var(--status-error-text);
+  border: 1px solid var(--status-error-border);
+}
+
+.error {
+  color: var(--status-error-text);
+}
+
+/* Приглушённый текст */
+.muted {
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+/* Кнопки */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 16px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface);
+  color: var(--text-primary);
+  font-size: 14px;
+  font-weight: 500;
+  font-family: inherit;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+  white-space: nowrap;
+}
+
+.btn:hover {
+  background: var(--bg-subtle);
+  border-color: var(--accent-primary);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: var(--accent-primary);
+  color: var(--text-inverse);
+  border-color: var(--accent-primary);
+}
+
+.btn-primary:hover {
+  background: var(--accent-hover);
+  border-color: var(--accent-hover);
+}
+
+.btn-small {
+  padding: 4px 10px;
+  font-size: 13px;
+}
+
+/* Бейджи */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  border-radius: var(--radius-xs);
+  font-size: 12px;
+  font-weight: 500;
+  background: var(--bg-subtle);
+  color: var(--text-secondary);
+  border: 1px solid var(--border-subtle);
+}
+
+.badge-green {
+  background: var(--status-success-bg);
+  color: var(--status-success-text);
+  border-color: var(--status-success-border);
+}
+
+.badge-red {
+  background: var(--status-error-bg);
+  color: var(--status-error-text);
+  border-color: var(--status-error-border);
+}
+
+/* Ползунки весов */
+.slider-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+}
+
+.slider-row label {
+  min-width: 180px;
+  font-size: 14px;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.slider-row input[type="range"] {
+  flex: 1;
+  height: 6px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: var(--bg-subtle);
+  border-radius: 3px;
+  outline: none;
+}
+
+.slider-row input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--accent-primary);
+  cursor: pointer;
+  border: 2px solid var(--bg-surface);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.2);
+}
+
+.slider-row .value {
+  min-width: 48px;
+  text-align: right;
+  font-size: 14px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+  color: var(--text-primary);
+}
+
+/* Таблица расписания */
+.timetable-grid {
+  overflow-x: auto;
+}
+
+.timetable-grid table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.timetable-grid th,
+.timetable-grid td {
+  padding: 8px;
+  border: 1px solid var(--border-subtle);
+  text-align: left;
+  vertical-align: top;
+  font-size: 13px;
+}
+
+.timetable-grid th {
+  background: var(--bg-subtle);
+  font-weight: 600;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.timetable-grid td {
+  background: var(--bg-surface);
+  min-height: 60px;
+}
+
+/* Чипсы в ячейках */
+.chip {
+  display: inline-flex;
+  flex-direction: column;
+  padding: 4px 8px;
+  border-radius: var(--radius-xs);
+  background: var(--accent-subtle);
+  color: var(--accent-primary);
+  font-size: 12px;
+  line-height: 1.4;
+  margin: 2px;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Readiness-бар */
+.readiness {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Dashboard */
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Матрица нагрузки */
+.curriculum-matrix {
+  width: 100%;
+}
+
+.curriculum-matrix th {
+  background: var(--bg-subtle);
+  font-weight: 600;
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 2px solid var(--border-strong);
+}
+
+.curriculum-matrix td {
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+/* Таблицы общие */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table th {
+  background: var(--bg-subtle);
+  font-weight: 600;
+  text-align: left;
+  padding: 8px 12px;
+  border-bottom: 2px solid var(--border-strong);
+  font-size: 13px;
+  color: var(--text-primary);
+}
+
+.table td {
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border-subtle);
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+.table tr:hover td {
+  background: var(--bg-subtle);
+}

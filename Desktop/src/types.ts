@@ -441,3 +441,57 @@ export interface ScheduleGenerateResult {
   slots: ScheduleSlot[];
   diagnostics: { infeasible_core: { reason: string; conflicting_entities: string[]; suggestion: string } | null; warnings: string[] };
 }
+
+// ---- Локализация модуля «Расписание» ----
+
+export const ROOM_TYPE_LABELS: Record<RoomType, string> = {
+  General: "Общий",
+  ChemistryLab: "Хим. лаборатория",
+  PhysicsLab: "Физ. лаборатория",
+  BiologyLab: "Биол. лаборатория",
+  Informatics: "Информатика",
+  LanguageLab: "Языковой кабинет",
+  Gym: "Спортзал",
+  Workshop: "Мастерская",
+};
+
+export const SHIFT_LABELS: Record<Shift, string> = {
+  First: "Первая",
+  Second: "Вторая",
+};
+
+export const STATUS_LABELS: Record<ScheduleGenerateResult["status"], string> = {
+  OPTIMAL: "Оптимально",
+  FEASIBLE: "Решаемо",
+  INFEASIBLE: "Невозможно",
+  TIME_LIMIT: "Превышено время",
+  INVALID_INPUT: "Ошибка данных",
+};
+
+export const INFEASIBLE_REASON_LABELS: Record<string, string> = {
+  teacher_unavailable: "Учитель недоступен в это время",
+  room_unavailable: "Кабинет недоступен",
+  no_suitable_room: "Нет подходящего кабинета",
+  teacher_conflict: "Конфликт учителя",
+  class_conflict: "Конфликт класса",
+  room_conflict: "Конфликт кабинета",
+  too_many_lessons: "Слишком много уроков",
+  availability_violation: "Нарушение доступности",
+};
+
+export const ENTITY_TYPE_LABELS: Record<string, string> = {
+  teacher: "Учитель",
+  room: "Кабинет",
+  class: "Класс",
+  subject: "Предмет",
+};
+
+export const WEIGHT_LABELS: Record<keyof ScheduleWeights, string> = {
+  id: "",
+  window: "Окна учителей",
+  room_displacement: "Изгнание из кабинета",
+  sanpin_parabola: "СанПиН-парабола",
+  alternation: "Чередование",
+  movement: "Миграция",
+  load_balance: "Баланс нагрузки",
+};
