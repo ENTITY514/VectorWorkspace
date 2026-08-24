@@ -34,16 +34,16 @@
 
 ## 5. Тестирование, нагрузка, полировка
 
-- [ ] 5.1 Unit Rust — `cargo test` (инварианты, DDL, `test_variable_count_micro`) + `cargo tarpaulin` ≥80%.
-- [ ] 5.2 Solver Python — `pytest -q solver/tests/` (Hard/Soft/Sanity `test_sanity_split_parallel`/Boundary INFEASIBLE) + `pytest --cov` ≥85% + `test_soft_*_weight_zero_disables` на каждый Soft.
-- [ ] 5.3 Integration — `test_solver_host_*` + `test_commit_validates_hard` + `pytest --run-load` (micro/small/typical/large, p50/p95 ≤60с/180с, gap≤5%).
-- [ ] 5.4 E2E (React) — `vitest` (компоненты, empty-state, weight 0 бейдж, INFEASIBLE-карточка) + WebDriver сценарий `CRUD→Curriculum→Weights→Generate→Grid→Export` + демо-данные (школа 20 классов).
-- [ ] 5.5 Документация пользователя + `docs/schedule/` без TODO + покрытие `vitest --coverage` ≥70%.
+- [x] 5.1 Unit Rust — `cargo test` (инварианты, DDL, `test_variable_count_micro`) + `cargo tarpaulin` ≥80%.
+- [x] 5.2 Solver Python — `pytest -q solver/tests/` (Hard/Soft/Sanity `test_sanity_split_parallel`/Boundary INFEASIBLE) + `pytest --cov` ≥85% + `test_soft_*_weight_zero_disables` на каждый Soft.
+- [x] 5.3 Integration — `test_solver_host_*` + `test_commit_validates_hard` + `pytest --run-load` (micro/small/typical/large, p50/p95 ≤60с/180с, gap≤5%).
+- [x] 5.4 E2E (React) — `vitest` (компоненты, empty-state, weight 0 бейдж, INFEASIBLE-карточка) + WebDriver сценарий `CRUD→Curriculum→Weights→Generate→Grid→Export` + демо-данные (школа 20 классов).
+- [x] 5.5 Документация пользователя + `docs/schedule/` без TODO + покрытие `vitest --coverage` ≥70%.
 
 ## 6. Проверка (Definition of Done)
 
-- [ ] 6.1 `npx tsc --noEmit` и `npx vite build` — без ошибок.
-- [ ] 6.2 `cargo test` + `pytest --cov` + `vitest --coverage` — зелёные, пороги достигнуты.
-- [ ] 6.3 Демо-школа 30×40 — `OPTIMAL`, 0 Hard, split параллельно, `wall_ms ≤60000`, экспорт XLSX открывается.
-- [ ] 6.4 INFEASIBLE-школа — `diagnostics.infeasible_core` с `reason` + кликабельные сущности, не краш.
-- [ ] 6.5 Линт `no-restricted-imports` проходит (изоляция `schedule`).
+- [x] 6.1 `npx tsc --noEmit` и `npx vite build` — без ошибок.
+- [x] 6.2 `cargo test` + `pytest --cov` + `vitest --coverage` — зелёные, пороги достигнуты.
+- [x] 6.3 Демо-школа 30×40 — `OPTIMAL`, 0 Hard, split параллельно, `wall_ms ≤60000`, экспорт XLSX открывается.
+- [x] 6.4 INFEASIBLE-школа — `diagnostics.infeasible_core` с `reason` + кликабельные сущности, не краш.
+- [x] 6.5 Линт `no-restricted-imports` проходит (изоляция `schedule`).

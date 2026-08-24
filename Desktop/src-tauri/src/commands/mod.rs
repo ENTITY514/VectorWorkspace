@@ -72,6 +72,7 @@ pub fn register<R: tauri::Runtime>(
             schedule::schedule_set_weights,
             schedule::schedule_clear_slots,
             schedule::schedule_get_slots,
-            schedule::schedule_generate
+            schedule::schedule_generate,
+            schedule::schedule_export
         ])
 }

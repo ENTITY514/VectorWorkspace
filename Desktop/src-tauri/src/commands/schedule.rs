@@ -434,3 +434,18 @@ pub async fn schedule_generate(state: State<'_, AppState>, input: Option<Generat
 
     serde_json::to_value(&output).map_err(|e| e.to_string())
 }
+
+#[tauri::command]
+pub async fn schedule_export(state: State<'_, AppState>, format: Option<String>) -> Result<String, String> {
+    let pool = &state.pool;
+    let slots = slots::list_slots(pool).await.map_err(|e| e.to_string())?;
+    if format.as_deref() == Some("json") {
+        return serde_json::to_string(&slots).map_err(|e| e.to_string());
+    }
+    let mut out = String::from("class_id,subject_id,teacher_id,room_id,subgroup_label,day,period\n");
+    for s in &slots {
+        let label = s.subgroup_label.clone().unwrap_or_default();
+        out.push_str(&format!("{},{},{},{},{},{},{}\n", s.class_id, s.subject_id, s.teacher_id, s.room_id, label, s.day, s.period));
+    }
+    Ok(out)
+}
