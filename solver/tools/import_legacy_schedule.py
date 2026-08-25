@@ -16,39 +16,57 @@ from solver.tools.room_inference import infer_room_type, room_capacity_for_type
 
 
 def parse_class_cell(raw: str):
-    # raw like 'Класс: 1-а' or 'Класс: 5-б ДО' or 'Класс: 1-6' (range -> treat as group)
     s = raw.strip()
     m = re.search(r'Класс:\s*(.+)', s, re.IGNORECASE)
     if not m:
         return None
     val = m.group(1).strip()
-    # detect type suffix
+    original_display = val  # для отображения
+    # detect type suffix — учитываем Д.О. с точками и пробелами
     type_ = "normal"
-    if "ДО" in val.upper():
+    upper_nospace = re.sub(r'[\.\s]+', '', val.upper())  # "8Д.О." -> "8ДО", "7-бЛУО" -> "7-БЛУО"
+    if re.search(r'Д\s*\.?\s*О', val, re.IGNORECASE):
         type_ = "do"
-        val = val.upper().replace("ДО", "").strip()
-    elif "ЛУО" in val.upper():
+        # удалить вхождение ДО/Д.О. из val
+        val = re.sub(r'Д\s*\.?\s*О\.?', '', val, flags=re.IGNORECASE).strip()
+        # убрать оставшийся дефис/тире в конце если остался (напр. "6-" из "6-ДО")
+        val = re.sub(r'[-–\s]+$', '', val).strip()
+    elif re.search(r'Л\s*У\s*О', val, re.IGNORECASE):
         type_ = "luo"
-        val = val.upper().replace("ЛУО", "").strip()
-    # val может быть '1-а' или '1-6' (диапазон) — для диапазона берём как есть, но grade будет 1, letter "1-6"? Для простоты считаем grade=1, letter=val
-    # попробуем распарсить grade и letter
-    # формат обычно '1-а', '5-б', '10-а'
-    m2 = re.match(r'(\d+)\s*[-–]\s*([A-Za-zА-Яа-я]+)', val)
+        val = re.sub(r'Л\s*У\s*О', '', val, flags=re.IGNORECASE).strip()
+        val = re.sub(r'[-–\s]+$', '', val).strip()
+    # теперь val — чистый класс без типа, напр. "1-а", "7 б", "3", "11", "6-"
+    # парсим grade и letter (буква опциональна, включая казахские әғқңөұүһі)
+    grade = 1
+    letter = ""
+    m2 = re.match(r'(\d+)\s*[-–\s]?\s*([^\d\s]+)?', val)
     if m2:
-        grade = int(m2.group(1))
-        letter = m2.group(2).strip()
+        try:
+            grade = int(m2.group(1))
+        except:
+            grade = 1
+        if m2.group(2):
+            letter = m2.group(2).strip()
+        else:
+            letter = ""
     else:
-        # fallback: если просто '1-6' — считаем grade 1, letter "1-6"
-        grade = 1
-        letter = val
-        # попробовать извлечь число
         m3 = re.search(r'(\d+)', val)
         if m3:
             grade = int(m3.group(1))
-    class_id = f"{grade}{letter}".lower().replace(" ", "").replace("-", "")
+    # class_id: grade + letter (нижний регистр, без пробелов/дефисов) + _type если не normal
+    # для "3" без буквы -> "3", для "7 б" -> "7б", для "1-а" -> "1а"
+    base_id = f"{grade}{letter}".lower().replace(" ", "").replace("-", "").replace("–", "")
+    if not base_id or base_id == str(grade):
+        # если буквы нет, id = grade как строка
+        base_id = str(grade)
+        # но чтобы различить "3" normal vs "3 ЛУО", добавим тип позже
+    class_id = base_id
     if type_ != "normal":
         class_id += f"_{type_}"
-    display = val.strip()
+    # display — исходное без "Класс:" но с буквой, для normal показываем val, для do/luo — original_display
+    display = original_display.strip()
+    # если type не normal, но display уже содержит тип, оставляем как есть, иначе добавляем?
+    # Уже original_display содержит тип, так что оставляем его
     return {"class_id": class_id, "grade": grade, "letter": letter, "type": type_, "display": display, "raw": raw}
 
 def parse_quarter_cell(raw: str):

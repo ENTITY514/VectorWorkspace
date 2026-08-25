@@ -27,20 +27,21 @@ pub async fn schedule_get_state(state: State<'_, AppState>) -> Result<ScheduleSt
     let sl = slots::list_slots(pool).await.map_err(|e| e.to_string())?;
 
     // classes
-    let classes_rows = sqlx::query_as::<_, (String, i64, String, i64, String)>(
-        "SELECT id, grade, letter, headcount, shift FROM schedule_classes ORDER BY grade, letter",
+    let classes_rows = sqlx::query_as::<_, (String, i64, String, i64, String, String)>(
+        "SELECT id, grade, letter, headcount, shift, class_type FROM schedule_classes ORDER BY grade, letter",
     )
     .fetch_all(pool)
     .await
     .map_err(|e| e.to_string())?;
     let classes = classes_rows
         .into_iter()
-        .map(|(id, grade, letter, headcount, shift)| crate::domain::schedule::model::ScheduleClass {
+        .map(|(id, grade, letter, headcount, shift, class_type)| crate::domain::schedule::model::ScheduleClass {
             id,
             grade,
             letter,
             headcount,
             shift,
+            class_type,
         })
         .collect();
 
@@ -121,6 +122,7 @@ pub struct UpsertClassInput {
     pub letter: String,
     pub headcount: i64,
     pub shift: String,
+    pub class_type: Option<String>,
 }
 
 #[tauri::command]
@@ -132,15 +134,20 @@ pub async fn schedule_upsert_class(state: State<'_, AppState>, input: UpsertClas
         return Err(format!("unknown shift: {}", input.shift));
     }
     let cid = input.id.unwrap_or_else(|| uuid::Uuid::new_v4().to_string());
+    let class_type = input.class_type.unwrap_or_else(|| "normal".to_string());
+    if !["normal","do","luo"].contains(&class_type.as_str()) {
+        return Err(format!("unknown class_type: {}", class_type));
+    }
     sqlx::query(
-        "INSERT INTO schedule_classes (id, grade, letter, headcount, shift) VALUES (?1, ?2, ?3, ?4, ?5)
-         ON CONFLICT(id) DO UPDATE SET grade=?2, letter=?3, headcount=?4, shift=?5",
+        "INSERT INTO schedule_classes (id, grade, letter, headcount, shift, class_type) VALUES (?1, ?2, ?3, ?4, ?5, ?6)
+         ON CONFLICT(id) DO UPDATE SET grade=?2, letter=?3, headcount=?4, shift=?5, class_type=?6",
     )
     .bind(&cid)
     .bind(input.grade)
     .bind(&input.letter)
     .bind(input.headcount)
     .bind(&input.shift)
+    .bind(&class_type)
     .execute(&state.pool)
     .await
     .map_err(|e| e.to_string())?;
@@ -150,6 +157,7 @@ pub async fn schedule_upsert_class(state: State<'_, AppState>, input: UpsertClas
         letter: input.letter,
         headcount: input.headcount,
         shift: input.shift,
+        class_type,
     })
 }
 
@@ -496,8 +504,10 @@ pub async fn schedule_import_legacy(state: State<'_, AppState>, quarter: Option<
             let letter = c.get("letter").and_then(|v| v.as_str()).unwrap_or("А").to_string();
             let headcount = c.get("headcount").and_then(|v| v.as_i64()).unwrap_or(25);
             let shift = c.get("shift").and_then(|v| v.as_str()).unwrap_or("First").to_string();
-            let _ = sqlx::query("INSERT INTO schedule_classes (id, grade, letter, headcount, shift) VALUES (?1,?2,?3,?4,?5) ON CONFLICT(id) DO UPDATE SET grade=?2, letter=?3, headcount=?4, shift=?5")
-                .bind(&id).bind(grade).bind(&letter).bind(headcount).bind(&shift)
+            let class_type = c.get("type").or_else(|| c.get("class_type")).and_then(|v| v.as_str()).unwrap_or("normal").to_string();
+            let ct = if ["normal","do","luo"].contains(&class_type.as_str()) { class_type } else { "normal".to_string() };
+            let _ = sqlx::query("INSERT INTO schedule_classes (id, grade, letter, headcount, shift, class_type) VALUES (?1,?2,?3,?4,?5,?6) ON CONFLICT(id) DO UPDATE SET grade=?2, letter=?3, headcount=?4, shift=?5, class_type=?6")
+                .bind(&id).bind(grade).bind(&letter).bind(headcount).bind(&shift).bind(&ct)
                 .execute(pool).await.map_err(|e| e.to_string())?;
         }
     }

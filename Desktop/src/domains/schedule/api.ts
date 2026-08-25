@@ -32,7 +32,7 @@ export const scheduleApi = {
   deleteRoom(id: string): Promise<void> {
     return call<void>("schedule_delete_room", { id });
   },
-  upsertClass(input: { id?: string; grade: number; letter: string; headcount: number; shift: string }): Promise<unknown> {
+  upsertClass(input: { id?: string; grade: number; letter: string; headcount: number; shift: string; class_type?: string }): Promise<unknown> {
     return call("schedule_upsert_class", { input });
   },
   deleteClass(id: string): Promise<void> {

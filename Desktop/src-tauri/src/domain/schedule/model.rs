@@ -161,6 +161,7 @@ pub struct ScheduleClass {
     pub letter: String,
     pub headcount: i64,
     pub shift: String,
+    pub class_type: String,
 }
 
 /// DTO предмета.

@@ -372,6 +372,7 @@ export interface ScheduleClass {
   letter: string;
   headcount: number;
   shift: Shift;
+  class_type: string;
 }
 
 export interface ScheduleSubject {

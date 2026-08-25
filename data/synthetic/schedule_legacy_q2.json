@@ -750,7 +750,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "33_luo",
+    "class_id": "3_luo",
     "subject_id": "russian",
     "teacher_id": "радионова_на",
     "room_id": "r_1_general",
@@ -760,7 +760,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "33_luo",
+    "class_id": "3_luo",
     "subject_id": "russian",
     "teacher_id": "радионова_на",
     "room_id": "r_1_general",
@@ -770,7 +770,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "33_luo",
+    "class_id": "3_luo",
     "subject_id": "kazakh_language",
     "teacher_id": "асаева_жх",
     "room_id": "r_12_languagelab",
@@ -780,7 +780,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "33_luo",
+    "class_id": "3_luo",
     "subject_id": "math",
     "teacher_id": "радионова_на",
     "room_id": "r_1_general",
@@ -790,7 +790,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "33_luo",
+    "class_id": "3_luo",
     "subject_id": "russian",
     "teacher_id": "радионова_на",
     "room_id": "r_1_general",
@@ -800,7 +800,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "33_luo",
+    "class_id": "3_luo",
     "subject_id": "kazakh_language",
     "teacher_id": "асаева_жх",
     "room_id": "r_12_languagelab",
@@ -810,7 +810,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "33_luo",
+    "class_id": "3_luo",
     "subject_id": "math",
     "teacher_id": "радионова_на",
     "room_id": "r_1_general",
@@ -820,7 +820,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "33_luo",
+    "class_id": "3_luo",
     "subject_id": "music",
     "teacher_id": "шкиря_юн",
     "room_id": "r_1_general",
@@ -830,7 +830,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "33_luo",
+    "class_id": "3_luo",
     "subject_id": "ч_и_рр",
     "teacher_id": "радионова_на",
     "room_id": "r_1_general",
@@ -840,7 +840,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "33_luo",
+    "class_id": "3_luo",
     "subject_id": "math",
     "teacher_id": "радионова_на",
     "room_id": "r_1_general",
@@ -850,7 +850,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "33_luo",
+    "class_id": "3_luo",
     "subject_id": "math",
     "teacher_id": "радионова_на",
     "room_id": "r_1_general",
@@ -860,7 +860,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "33_luo",
+    "class_id": "3_luo",
     "subject_id": "ч_и_рр",
     "teacher_id": "радионова_на",
     "room_id": "r_1_general",
@@ -870,7 +870,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "33_luo",
+    "class_id": "3_luo",
     "subject_id": "мир_вокруг",
     "teacher_id": "радионова_на",
     "room_id": "r_1_general",
@@ -880,7 +880,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "33_luo",
+    "class_id": "3_luo",
     "subject_id": "афк",
     "teacher_id": "чифин_дн",
     "room_id": "r_2_gym",
@@ -890,7 +890,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "33_luo",
+    "class_id": "3_luo",
     "subject_id": "афк",
     "teacher_id": "чифин_дн",
     "room_id": "r_2_gym",
@@ -900,7 +900,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "33_luo",
+    "class_id": "3_luo",
     "subject_id": "афк",
     "teacher_id": "чифин_дн",
     "room_id": "r_2_gym",
@@ -910,7 +910,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "33_luo",
+    "class_id": "3_luo",
     "subject_id": "math",
     "teacher_id": "радионова_на",
     "room_id": "r_1_general",
@@ -920,7 +920,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "33_luo",
+    "class_id": "3_luo",
     "subject_id": "trud",
     "teacher_id": "радионова_на",
     "room_id": "r_1_general",
@@ -930,7 +930,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "33_luo",
+    "class_id": "3_luo",
     "subject_id": "ч_и_рр",
     "teacher_id": "радионова_на",
     "room_id": "r_1_general",
@@ -940,7 +940,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "33_luo",
+    "class_id": "3_luo",
     "subject_id": "мир_вокруг",
     "teacher_id": "радионова_на",
     "room_id": "r_1_general",
@@ -950,7 +950,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "33_luo",
+    "class_id": "3_luo",
     "subject_id": "trud",
     "teacher_id": "радионова_на",
     "room_id": "r_1_general",
@@ -960,7 +960,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "33_luo",
+    "class_id": "3_luo",
     "subject_id": "izo",
     "teacher_id": "радионова_на",
     "room_id": "r_1_general",
@@ -1490,7 +1490,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "44_do",
+    "class_id": "4_do",
     "subject_id": "russian",
     "teacher_id": "ажикенова_ма",
     "room_id": "r_15_general",
@@ -1500,7 +1500,7 @@
     "class_type": "do"
   },
   {
-    "class_id": "44_do",
+    "class_id": "4_do",
     "subject_id": "цг",
     "teacher_id": "бедрина_мн",
     "room_id": "r_15_general",
@@ -1510,7 +1510,7 @@
     "class_type": "do"
   },
   {
-    "class_id": "44_do",
+    "class_id": "4_do",
     "subject_id": "english",
     "teacher_id": "алекпарова_аж",
     "room_id": "r_15_general",
@@ -1520,7 +1520,7 @@
     "class_type": "do"
   },
   {
-    "class_id": "44_do",
+    "class_id": "4_do",
     "subject_id": "kazakh_language",
     "teacher_id": "ильясова_аб",
     "room_id": "r_15_general",
@@ -1530,7 +1530,7 @@
     "class_type": "do"
   },
   {
-    "class_id": "44_do",
+    "class_id": "4_do",
     "subject_id": "russian",
     "teacher_id": "ажикенова_ма",
     "room_id": "r_15_general",
@@ -1540,7 +1540,7 @@
     "class_type": "do"
   },
   {
-    "class_id": "44_do",
+    "class_id": "4_do",
     "subject_id": "literature",
     "teacher_id": "ажикенова_ма",
     "room_id": "r_15_general",
@@ -1550,7 +1550,7 @@
     "class_type": "do"
   },
   {
-    "class_id": "44_do",
+    "class_id": "4_do",
     "subject_id": "poznanie",
     "teacher_id": "ажикенова_ма",
     "room_id": "r_15_general",
@@ -1560,7 +1560,7 @@
     "class_type": "do"
   },
   {
-    "class_id": "44_do",
+    "class_id": "4_do",
     "subject_id": "math",
     "teacher_id": "радионова_на",
     "room_id": "r_15_general",
@@ -1570,7 +1570,7 @@
     "class_type": "do"
   },
   {
-    "class_id": "44_do",
+    "class_id": "4_do",
     "subject_id": "math",
     "teacher_id": "радионова_на",
     "room_id": "r_15_general",
@@ -1580,7 +1580,7 @@
     "class_type": "do"
   },
   {
-    "class_id": "44_do",
+    "class_id": "4_do",
     "subject_id": "kazakh_language",
     "teacher_id": "ильясова_аб",
     "room_id": "r_15_general",
@@ -1590,7 +1590,7 @@
     "class_type": "do"
   },
   {
-    "class_id": "44_do",
+    "class_id": "4_do",
     "subject_id": "math",
     "teacher_id": "радионова_на",
     "room_id": "r_15_general",
@@ -1600,7 +1600,7 @@
     "class_type": "do"
   },
   {
-    "class_id": "44_do",
+    "class_id": "4_do",
     "subject_id": "english",
     "teacher_id": "алекпарова_аж",
     "room_id": "r_15_general",
@@ -1610,7 +1610,7 @@
     "class_type": "do"
   },
   {
-    "class_id": "44_do",
+    "class_id": "4_do",
     "subject_id": "literature",
     "teacher_id": "ажикенова_ма",
     "room_id": "r_15_general",
@@ -2390,7 +2390,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "55_luo",
+    "class_id": "5_luo",
     "subject_id": "kazakh_language",
     "teacher_id": "балгабаева_нк",
     "room_id": "r_12_languagelab",
@@ -2400,7 +2400,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "55_luo",
+    "class_id": "5_luo",
     "subject_id": "math",
     "teacher_id": "пащенко_на",
     "room_id": "r_16_general",
@@ -2410,7 +2410,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "55_luo",
+    "class_id": "5_luo",
     "subject_id": "math",
     "teacher_id": "пащенко_на",
     "room_id": "r_16_general",
@@ -2420,7 +2420,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "55_luo",
+    "class_id": "5_luo",
     "subject_id": "math",
     "teacher_id": "пащенко_на",
     "room_id": "r_16_general",
@@ -2430,7 +2430,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "55_luo",
+    "class_id": "5_luo",
     "subject_id": "russian",
     "teacher_id": "дмитриев_ев",
     "room_id": "r_17_languagelab",
@@ -2440,7 +2440,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "55_luo",
+    "class_id": "5_luo",
     "subject_id": "мир_вокруг",
     "teacher_id": "иващенко_во",
     "room_id": "r_18_general",
@@ -2450,7 +2450,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "55_luo",
+    "class_id": "5_luo",
     "subject_id": "ч_и_рр",
     "teacher_id": "дмитриев_ев",
     "room_id": "r_17_languagelab",
@@ -2460,7 +2460,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "55_luo",
+    "class_id": "5_luo",
     "subject_id": "афк",
     "teacher_id": "ольков_гв",
     "room_id": "r_2_gym",
@@ -2470,7 +2470,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "55_luo",
+    "class_id": "5_luo",
     "subject_id": "kazakh_language",
     "teacher_id": "балгабаева_нк",
     "room_id": "r_12_languagelab",
@@ -2480,7 +2480,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "55_luo",
+    "class_id": "5_luo",
     "subject_id": "афк",
     "teacher_id": "ольков_гв",
     "room_id": "r_2_gym",
@@ -2490,7 +2490,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "55_luo",
+    "class_id": "5_luo",
     "subject_id": "math",
     "teacher_id": "пащенко_на",
     "room_id": "r_16_general",
@@ -2500,7 +2500,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "55_luo",
+    "class_id": "5_luo",
     "subject_id": "афк",
     "teacher_id": "ольков_гв",
     "room_id": "r_2_gym",
@@ -2510,7 +2510,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "55_luo",
+    "class_id": "5_luo",
     "subject_id": "music",
     "teacher_id": "шкиря_юн",
     "room_id": "r_1_general",
@@ -2520,7 +2520,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "55_luo",
+    "class_id": "5_luo",
     "subject_id": "samopoznanie",
     "teacher_id": "романишина_им",
     "room_id": "r_19_workshop",
@@ -2530,7 +2530,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "55_luo",
+    "class_id": "5_luo",
     "subject_id": "math",
     "teacher_id": "пащенко_на",
     "room_id": "r_16_general",
@@ -2540,7 +2540,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "55_luo",
+    "class_id": "5_luo",
     "subject_id": "russian",
     "teacher_id": "дмитриев_ев",
     "room_id": "r_17_languagelab",
@@ -2550,7 +2550,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "55_luo",
+    "class_id": "5_luo",
     "subject_id": "samopoznanie",
     "teacher_id": "романишина_им",
     "room_id": "r_19_workshop",
@@ -2560,7 +2560,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "55_luo",
+    "class_id": "5_luo",
     "subject_id": "russian",
     "teacher_id": "дмитриев_ев",
     "room_id": "r_17_languagelab",
@@ -2570,7 +2570,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "55_luo",
+    "class_id": "5_luo",
     "subject_id": "ч_и_рр",
     "teacher_id": "дмитриев_ев",
     "room_id": "r_17_languagelab",
@@ -2580,7 +2580,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "55_luo",
+    "class_id": "5_luo",
     "subject_id": "мир_вокруг",
     "teacher_id": "иващенко_во",
     "room_id": "r_18_general",
@@ -2590,7 +2590,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "22",
+    "class_id": "2",
     "subject_id": "math",
     "teacher_id": "темерканова_ов",
     "room_id": "r_1_general",
@@ -2600,7 +2600,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "22",
+    "class_id": "2",
     "subject_id": "russian",
     "teacher_id": "темерканова_ов",
     "room_id": "r_1_general",
@@ -2610,7 +2610,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "22",
+    "class_id": "2",
     "subject_id": "russian",
     "teacher_id": "темерканова_ов",
     "room_id": "r_1_general",
@@ -2620,7 +2620,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "22",
+    "class_id": "2",
     "subject_id": "russian",
     "teacher_id": "темерканова_ов",
     "room_id": "r_1_general",
@@ -2630,7 +2630,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "22",
+    "class_id": "2",
     "subject_id": "literature",
     "teacher_id": "темерканова_ов",
     "room_id": "r_1_general",
@@ -2640,7 +2640,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "22",
+    "class_id": "2",
     "subject_id": "russian",
     "teacher_id": "темерканова_ов",
     "room_id": "r_1_general",
@@ -2650,7 +2650,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "22",
+    "class_id": "2",
     "subject_id": "pe",
     "teacher_id": "чифин_дн",
     "room_id": "r_2_gym",
@@ -2660,7 +2660,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "22",
+    "class_id": "2",
     "subject_id": "math",
     "teacher_id": "темерканова_ов",
     "room_id": "r_1_general",
@@ -2670,7 +2670,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "22",
+    "class_id": "2",
     "subject_id": "pe",
     "teacher_id": "чифин_дн",
     "room_id": "r_2_gym",
@@ -2680,7 +2680,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "22",
+    "class_id": "2",
     "subject_id": "music",
     "teacher_id": "шкиря_юн",
     "room_id": "r_1_general",
@@ -2690,7 +2690,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "22",
+    "class_id": "2",
     "subject_id": "kazakh_language",
     "teacher_id": "асаева_жх",
     "room_id": "r_1_general",
@@ -2700,7 +2700,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "22",
+    "class_id": "2",
     "subject_id": "math",
     "teacher_id": "темерканова_ов",
     "room_id": "r_1_general",
@@ -2710,7 +2710,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "22",
+    "class_id": "2",
     "subject_id": "kazakh_language",
     "teacher_id": "асаева_жх",
     "room_id": "r_1_general",
@@ -2720,7 +2720,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "22",
+    "class_id": "2",
     "subject_id": "math",
     "teacher_id": "темерканова_ов",
     "room_id": "r_1_general",
@@ -2730,7 +2730,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "22",
+    "class_id": "2",
     "subject_id": "kazakh_language",
     "teacher_id": "асаева_жх",
     "room_id": "r_1_general",
@@ -2740,7 +2740,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "22",
+    "class_id": "2",
     "subject_id": "цг",
     "teacher_id": "бедрина_мн",
     "room_id": "r_1_general",
@@ -2750,7 +2750,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "22",
+    "class_id": "2",
     "subject_id": "literature",
     "teacher_id": "темерканова_ов",
     "room_id": "r_1_general",
@@ -2760,7 +2760,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "22",
+    "class_id": "2",
     "subject_id": "izo",
     "teacher_id": "темерканова_ов",
     "room_id": "r_1_general",
@@ -2770,7 +2770,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "22",
+    "class_id": "2",
     "subject_id": "literature",
     "teacher_id": "темерканова_ов",
     "room_id": "r_1_general",
@@ -2780,7 +2780,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "22",
+    "class_id": "2",
     "subject_id": "trud",
     "teacher_id": "темерканова_ов",
     "room_id": "r_1_general",
@@ -2790,7 +2790,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "22",
+    "class_id": "2",
     "subject_id": "pe",
     "teacher_id": "чифин_дн",
     "room_id": "r_2_gym",
@@ -2800,7 +2800,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "22",
+    "class_id": "2",
     "subject_id": "poznanie",
     "teacher_id": "темерканова_ов",
     "room_id": "r_1_general",
@@ -2810,7 +2810,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "22",
+    "class_id": "2",
     "subject_id": "estestvoznanie",
     "teacher_id": "темерканова_ов",
     "room_id": "r_1_general",
@@ -2820,7 +2820,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "66",
+    "class_id": "6",
     "subject_id": "math",
     "teacher_id": "бедрина_мн",
     "room_id": "r_10_informatics",
@@ -2830,7 +2830,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "66",
+    "class_id": "6",
     "subject_id": "literature",
     "teacher_id": "давранова_к",
     "room_id": "r_17_languagelab",
@@ -2840,7 +2840,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "66",
+    "class_id": "6",
     "subject_id": "pe",
     "teacher_id": "кашиков_ее",
     "room_id": "r_2_gym",
@@ -2850,7 +2850,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "66",
+    "class_id": "6",
     "subject_id": "literature",
     "teacher_id": "давранова_к",
     "room_id": "r_17_languagelab",
@@ -2860,7 +2860,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "66",
+    "class_id": "6",
     "subject_id": "estestvoznanie",
     "teacher_id": "иващенко_во",
     "room_id": "r_18_general",
@@ -2870,7 +2870,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "66",
+    "class_id": "6",
     "subject_id": "russian",
     "teacher_id": "давранова_к",
     "room_id": "r_20_general",
@@ -2880,7 +2880,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "66",
+    "class_id": "6",
     "subject_id": "math",
     "teacher_id": "бедрина_мн",
     "room_id": "r_10_informatics",
@@ -2890,7 +2890,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "66",
+    "class_id": "6",
     "subject_id": "russian",
     "teacher_id": "давранова_к",
     "room_id": "r_20_general",
@@ -2900,7 +2900,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "66",
+    "class_id": "6",
     "subject_id": "math",
     "teacher_id": "бедрина_мн",
     "room_id": "r_10_informatics",
@@ -2910,7 +2910,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "66",
+    "class_id": "6",
     "subject_id": "english",
     "teacher_id": "алекпарова_аж",
     "room_id": "r_22_languagelab",
@@ -2920,7 +2920,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "66",
+    "class_id": "6",
     "subject_id": "estestvoznanie",
     "teacher_id": "иващенко_во",
     "room_id": "r_18_general",
@@ -2930,7 +2930,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "66",
+    "class_id": "6",
     "subject_id": "trud",
     "teacher_id": "романишина_им",
     "room_id": "r_19_workshop",
@@ -2940,7 +2940,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "66",
+    "class_id": "6",
     "subject_id": "math",
     "teacher_id": "бедрина_мн",
     "room_id": "r_10_informatics",
@@ -2950,7 +2950,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "66",
+    "class_id": "6",
     "subject_id": "informatics",
     "teacher_id": "бедрина_мн",
     "room_id": "r_11_general",
@@ -2960,7 +2960,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "66",
+    "class_id": "6",
     "subject_id": "math",
     "teacher_id": "бедрина_мн",
     "room_id": "r_10_informatics",
@@ -2970,7 +2970,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "66",
+    "class_id": "6",
     "subject_id": "trud",
     "teacher_id": "романишина_им",
     "room_id": "r_19_workshop",
@@ -2980,7 +2980,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "66",
+    "class_id": "6",
     "subject_id": "english",
     "teacher_id": "алекпарова_аж",
     "room_id": "r_22_languagelab",
@@ -2990,7 +2990,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "66",
+    "class_id": "6",
     "subject_id": "kazakh_language",
     "teacher_id": "балгабаева_нк",
     "room_id": "r_6_general",
@@ -3000,7 +3000,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "66",
+    "class_id": "6",
     "subject_id": "kazakh_language",
     "teacher_id": "балгабаева_нк",
     "room_id": "r_6_general",
@@ -3010,7 +3010,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "66",
+    "class_id": "6",
     "subject_id": "music",
     "teacher_id": "шкиря_юн",
     "room_id": "r_20_general",
@@ -3020,7 +3020,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "66",
+    "class_id": "6",
     "subject_id": "kazakh_language",
     "teacher_id": "балгабаева_нк",
     "room_id": "r_6_general",
@@ -3030,7 +3030,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "66",
+    "class_id": "6",
     "subject_id": "kazakh_language",
     "teacher_id": "балгабаева_нк",
     "room_id": "r_6_general",
@@ -3040,7 +3040,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "66",
+    "class_id": "6",
     "subject_id": "history",
     "teacher_id": "досаева_мх",
     "room_id": "r_3_general",
@@ -3050,7 +3050,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "66",
+    "class_id": "6",
     "subject_id": "english",
     "teacher_id": "алекпарова_аж",
     "room_id": "r_22_languagelab",
@@ -3060,7 +3060,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "66",
+    "class_id": "6",
     "subject_id": "pe",
     "teacher_id": "кашиков_ее",
     "room_id": "r_2_gym",
@@ -3070,7 +3070,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "66",
+    "class_id": "6",
     "subject_id": "pe",
     "teacher_id": "кашиков_ее",
     "room_id": "r_2_gym",
@@ -3080,7 +3080,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "66",
+    "class_id": "6",
     "subject_id": "history",
     "teacher_id": "досаева_мх",
     "room_id": "r_3_general",
@@ -3090,7 +3090,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "66",
+    "class_id": "6",
     "subject_id": "history",
     "teacher_id": "досаева_мх",
     "room_id": "r_3_general",
@@ -3100,7 +3100,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "66",
+    "class_id": "6",
     "subject_id": "russian",
     "teacher_id": "давранова_к",
     "room_id": "r_20_general",
@@ -3110,7 +3110,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "66_luo",
+    "class_id": "6_luo",
     "subject_id": "math",
     "teacher_id": "бедрина_мн",
     "room_id": "r_16_general",
@@ -3120,7 +3120,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "66_luo",
+    "class_id": "6_luo",
     "subject_id": "ч_и_рр",
     "teacher_id": "давранова_к",
     "room_id": "r_17_languagelab",
@@ -3130,7 +3130,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "66_luo",
+    "class_id": "6_luo",
     "subject_id": "афк",
     "teacher_id": "кашиков_ее",
     "room_id": "r_2_gym",
@@ -3140,7 +3140,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "66_luo",
+    "class_id": "6_luo",
     "subject_id": "ч_и_рр",
     "teacher_id": "давранова_к",
     "room_id": "r_17_languagelab",
@@ -3150,7 +3150,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "66_luo",
+    "class_id": "6_luo",
     "subject_id": "estestvoznanie",
     "teacher_id": "иващенко_во",
     "room_id": "r_18_general",
@@ -3160,7 +3160,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "66_luo",
+    "class_id": "6_luo",
     "subject_id": "russian",
     "teacher_id": "давранова_к",
     "room_id": "r_17_languagelab",
@@ -3170,7 +3170,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "66_luo",
+    "class_id": "6_luo",
     "subject_id": "math",
     "teacher_id": "бедрина_мн",
     "room_id": "r_16_general",
@@ -3180,7 +3180,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "66_luo",
+    "class_id": "6_luo",
     "subject_id": "russian",
     "teacher_id": "давранова_к",
     "room_id": "r_17_languagelab",
@@ -3190,7 +3190,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "66_luo",
+    "class_id": "6_luo",
     "subject_id": "math",
     "teacher_id": "бедрина_мн",
     "room_id": "r_16_general",
@@ -3200,7 +3200,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "66_luo",
+    "class_id": "6_luo",
     "subject_id": "estestvoznanie",
     "teacher_id": "иващенко_во",
     "room_id": "r_18_general",
@@ -3210,7 +3210,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "66_luo",
+    "class_id": "6_luo",
     "subject_id": "оп_худтрдев",
     "teacher_id": "романишина_им",
     "room_id": "r_19_workshop",
@@ -3220,7 +3220,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "66_luo",
+    "class_id": "6_luo",
     "subject_id": "math",
     "teacher_id": "бедрина_мн",
     "room_id": "r_16_general",
@@ -3230,7 +3230,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "66_luo",
+    "class_id": "6_luo",
     "subject_id": "math",
     "teacher_id": "бедрина_мн",
     "room_id": "r_16_general",
@@ -3240,7 +3240,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "66_luo",
+    "class_id": "6_luo",
     "subject_id": "оп_худтрдев",
     "teacher_id": "романишина_им",
     "room_id": "r_19_workshop",
@@ -3250,7 +3250,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "66_luo",
+    "class_id": "6_luo",
     "subject_id": "аза_т_л",
     "teacher_id": "балгабаева_нк",
     "room_id": "r_12_languagelab",
@@ -3260,7 +3260,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "66_luo",
+    "class_id": "6_luo",
     "subject_id": "music",
     "teacher_id": "шкиря_юн",
     "room_id": "r_14_general",
@@ -3270,7 +3270,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "66_luo",
+    "class_id": "6_luo",
     "subject_id": "аза_т_л",
     "teacher_id": "балгабаева_нк",
     "room_id": "r_12_languagelab",
@@ -3280,7 +3280,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "66_luo",
+    "class_id": "6_luo",
     "subject_id": "афк",
     "teacher_id": "кашиков_ее",
     "room_id": "r_2_gym",
@@ -3290,7 +3290,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "66_luo",
+    "class_id": "6_luo",
     "subject_id": "афк",
     "teacher_id": "кашиков_ее",
     "room_id": "r_2_gym",
@@ -3300,7 +3300,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "66_luo",
+    "class_id": "6_luo",
     "subject_id": "russian",
     "teacher_id": "давранова_к",
     "room_id": "r_17_languagelab",
@@ -3310,7 +3310,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "66_do",
+    "class_id": "6_do",
     "subject_id": "ррик",
     "teacher_id": "давранова_к",
     "room_id": "r_15_general",
@@ -3320,7 +3320,7 @@
     "class_type": "do"
   },
   {
-    "class_id": "66_do",
+    "class_id": "6_do",
     "subject_id": "izo",
     "teacher_id": "романишина_им",
     "room_id": "r_15_general",
@@ -3330,7 +3330,7 @@
     "class_type": "do"
   },
   {
-    "class_id": "66_do",
+    "class_id": "6_do",
     "subject_id": "счет",
     "teacher_id": "ажикенова_ма",
     "room_id": "r_15_general",
@@ -3340,7 +3340,7 @@
     "class_type": "do"
   },
   {
-    "class_id": "66_do",
+    "class_id": "6_do",
     "subject_id": "сбо",
     "teacher_id": "романишина_им",
     "room_id": "r_15_general",
@@ -3350,7 +3350,7 @@
     "class_type": "do"
   },
   {
-    "class_id": "66_do",
+    "class_id": "6_do",
     "subject_id": "счет",
     "teacher_id": "ажикенова_ма",
     "room_id": "r_15_general",
@@ -3360,7 +3360,7 @@
     "class_type": "do"
   },
   {
-    "class_id": "66_do",
+    "class_id": "6_do",
     "subject_id": "trud",
     "teacher_id": "романишина_им",
     "room_id": "r_15_general",
@@ -3370,7 +3370,7 @@
     "class_type": "do"
   },
   {
-    "class_id": "66_do",
+    "class_id": "6_do",
     "subject_id": "человек_и_мир",
     "teacher_id": "давранова_к",
     "room_id": "r_15_general",
@@ -3380,7 +3380,7 @@
     "class_type": "do"
   },
   {
-    "class_id": "66_do",
+    "class_id": "6_do",
     "subject_id": "пр",
     "teacher_id": "давранова_к",
     "room_id": "r_15_general",
@@ -3390,7 +3390,7 @@
     "class_type": "do"
   },
   {
-    "class_id": "66_do",
+    "class_id": "6_do",
     "subject_id": "ррик",
     "teacher_id": "давранова_к",
     "room_id": "r_15_general",
@@ -3400,7 +3400,7 @@
     "class_type": "do"
   },
   {
-    "class_id": "66_do",
+    "class_id": "6_do",
     "subject_id": "человек_и_мир",
     "teacher_id": "давранова_к",
     "room_id": "r_15_general",
@@ -3730,7 +3730,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "77ә",
+    "class_id": "7ә",
     "subject_id": "algebra",
     "teacher_id": "ізбасты_мж",
     "room_id": "r_7_general",
@@ -3740,7 +3740,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "77ә",
+    "class_id": "7ә",
     "subject_id": "аза_стан_тарихы",
     "teacher_id": "досаева_мх",
     "room_id": "r_3_general",
@@ -3750,7 +3750,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "77ә",
+    "class_id": "7ә",
     "subject_id": "орыс_т_л_ж_е_деб",
     "teacher_id": "балгабаева_нк",
     "room_id": "r_17_languagelab",
@@ -3760,7 +3760,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "77ә",
+    "class_id": "7ә",
     "subject_id": "geometry",
     "teacher_id": "ізбасты_мж",
     "room_id": "r_10_informatics",
@@ -3770,7 +3770,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "77ә",
+    "class_id": "7ә",
     "subject_id": "algebra",
     "teacher_id": "ізбасты_мж",
     "room_id": "r_7_general",
@@ -3780,7 +3780,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "77ә",
+    "class_id": "7ә",
     "subject_id": "pe",
     "teacher_id": "кашиков_ее",
     "room_id": "r_2_gym",
@@ -3790,7 +3790,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "77ә",
+    "class_id": "7ә",
     "subject_id": "аза_дебиет",
     "teacher_id": "ильясова_аб",
     "room_id": "r_12_languagelab",
@@ -3800,7 +3800,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "77ә",
+    "class_id": "7ә",
     "subject_id": "pe",
     "teacher_id": "кашиков_ее",
     "room_id": "r_2_gym",
@@ -3810,7 +3810,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "77ә",
+    "class_id": "7ә",
     "subject_id": "а_ылшын_т_л",
     "teacher_id": "алекпарова_аж",
     "room_id": "r_4_general",
@@ -3820,7 +3820,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "77ә",
+    "class_id": "7ә",
     "subject_id": "аза_т_л",
     "teacher_id": "ильясова_аб",
     "room_id": "r_12_languagelab",
@@ -3830,7 +3830,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "77ә",
+    "class_id": "7ә",
     "subject_id": "а_ылшын_т_л",
     "teacher_id": "алекпарова_аж",
     "room_id": "r_4_general",
@@ -3840,7 +3840,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "77ә",
+    "class_id": "7ә",
     "subject_id": "informatics",
     "teacher_id": "жантемиров_эа",
     "room_id": "r_11_general",
@@ -3850,7 +3850,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "77ә",
+    "class_id": "7ә",
     "subject_id": "algebra",
     "teacher_id": "ізбасты_мж",
     "room_id": "r_7_general",
@@ -3860,7 +3860,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "77ә",
+    "class_id": "7ә",
     "subject_id": "д_ниеж_з_тарихы",
     "teacher_id": "досаева_мх",
     "room_id": "r_3_general",
@@ -3870,7 +3870,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "77ә",
+    "class_id": "7ә",
     "subject_id": "pe",
     "teacher_id": "кашиков_ее",
     "room_id": "r_2_gym",
@@ -3880,7 +3880,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "77ә",
+    "class_id": "7ә",
     "subject_id": "орыс_т_л_ж_е_деб",
     "teacher_id": "балгабаева_нк",
     "room_id": "r_17_languagelab",
@@ -3890,7 +3890,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "77ә",
+    "class_id": "7ә",
     "subject_id": "орыс_т_л_ж_е_деб",
     "teacher_id": "балгабаева_нк",
     "room_id": "r_17_languagelab",
@@ -3900,7 +3900,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "77ә",
+    "class_id": "7ә",
     "subject_id": "аза_т_л",
     "teacher_id": "ильясова_аб",
     "room_id": "r_12_languagelab",
@@ -3910,7 +3910,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "77ә",
+    "class_id": "7ә",
     "subject_id": "physics",
     "teacher_id": "ізбасты_мж",
     "room_id": "r_7_general",
@@ -3920,7 +3920,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "77ә",
+    "class_id": "7ә",
     "subject_id": "biology",
     "teacher_id": "балташева_зт",
     "room_id": "r_23_biologylab",
@@ -3930,7 +3930,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "77ә",
+    "class_id": "7ә",
     "subject_id": "аза_т_л",
     "teacher_id": "ильясова_аб",
     "room_id": "r_12_languagelab",
@@ -3940,7 +3940,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "77ә",
+    "class_id": "7ә",
     "subject_id": "geometry",
     "teacher_id": "ізбасты_мж",
     "room_id": "r_10_informatics",
@@ -3950,7 +3950,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "77ә",
+    "class_id": "7ә",
     "subject_id": "biology",
     "teacher_id": "балташева_зт",
     "room_id": "r_23_biologylab",
@@ -3960,7 +3960,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "77ә",
+    "class_id": "7ә",
     "subject_id": "аза_дебиет",
     "teacher_id": "ильясова_аб",
     "room_id": "r_12_languagelab",
@@ -3970,7 +3970,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "77ә",
+    "class_id": "7ә",
     "subject_id": "geography",
     "teacher_id": "сапаргалиева_гс",
     "room_id": "r_18_general",
@@ -3980,7 +3980,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "77ә",
+    "class_id": "7ә",
     "subject_id": "к_ркем_е_бек",
     "teacher_id": "жантемиров_ак",
     "room_id": "r_19_workshop",
@@ -3990,7 +3990,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "77ә",
+    "class_id": "7ә",
     "subject_id": "а_ылшын_т_л",
     "teacher_id": "алекпарова_аж",
     "room_id": "r_4_general",
@@ -4000,7 +4000,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "77ә",
+    "class_id": "7ә",
     "subject_id": "chemistry",
     "teacher_id": "балташева_зт",
     "room_id": "r_23_biologylab",
@@ -4010,7 +4010,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "77ә",
+    "class_id": "7ә",
     "subject_id": "geography",
     "teacher_id": "сапаргалиева_гс",
     "room_id": "r_18_general",
@@ -4020,7 +4020,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "77ә",
+    "class_id": "7ә",
     "subject_id": "аза_стан_тарихы",
     "teacher_id": "досаева_мх",
     "room_id": "r_3_general",
@@ -4030,7 +4030,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "77ә",
+    "class_id": "7ә",
     "subject_id": "physics",
     "teacher_id": "ізбасты_мж",
     "room_id": "r_7_general",
@@ -4040,7 +4040,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "77б",
+    "class_id": "7б",
     "subject_id": "algebra",
     "teacher_id": "бабич_ид",
     "room_id": "r_16_general",
@@ -4050,7 +4050,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "77б",
+    "class_id": "7б",
     "subject_id": "biology",
     "teacher_id": "красноперова_ов",
     "room_id": "r_23_biologylab",
@@ -4060,7 +4060,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "77б",
+    "class_id": "7б",
     "subject_id": "pe",
     "teacher_id": "ольков_гв",
     "room_id": "r_2_gym",
@@ -4070,7 +4070,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "77б",
+    "class_id": "7б",
     "subject_id": "pe",
     "teacher_id": "ольков_гв",
     "room_id": "r_2_gym",
@@ -4080,7 +4080,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "77б",
+    "class_id": "7б",
     "subject_id": "algebra",
     "teacher_id": "бабич_ид",
     "room_id": "r_16_general",
@@ -4090,7 +4090,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "77б",
+    "class_id": "7б",
     "subject_id": "history",
     "teacher_id": "досаева_мх",
     "room_id": "r_3_general",
@@ -4100,7 +4100,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "77б",
+    "class_id": "7б",
     "subject_id": "english",
     "teacher_id": "алекпарова_аж",
     "room_id": "r_22_languagelab",
@@ -4110,7 +4110,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "77б",
+    "class_id": "7б",
     "subject_id": "geography",
     "teacher_id": "сидоров_вб",
     "room_id": "r_18_general",
@@ -4120,7 +4120,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "77б",
+    "class_id": "7б",
     "subject_id": "kazakh_language",
     "teacher_id": "асаева_жх",
     "room_id": "r_12_languagelab",
@@ -4130,7 +4130,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "77б",
+    "class_id": "7б",
     "subject_id": "biology",
     "teacher_id": "красноперова_ов",
     "room_id": "r_23_biologylab",
@@ -4140,7 +4140,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "77б",
+    "class_id": "7б",
     "subject_id": "russian",
     "teacher_id": "давранова_к",
     "room_id": "r_17_languagelab",
@@ -4150,7 +4150,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "77б",
+    "class_id": "7б",
     "subject_id": "literature",
     "teacher_id": "давранова_к",
     "room_id": "r_17_languagelab",
@@ -4160,7 +4160,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "77б",
+    "class_id": "7б",
     "subject_id": "algebra",
     "teacher_id": "бабич_ид",
     "room_id": "r_16_general",
@@ -4170,7 +4170,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "77б",
+    "class_id": "7б",
     "subject_id": "literature",
     "teacher_id": "давранова_к",
     "room_id": "r_17_languagelab",
@@ -4180,7 +4180,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "77б",
+    "class_id": "7б",
     "subject_id": "russian",
     "teacher_id": "давранова_к",
     "room_id": "r_17_languagelab",
@@ -4190,7 +4190,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "77б",
+    "class_id": "7б",
     "subject_id": "pe",
     "teacher_id": "ольков_гв",
     "room_id": "r_2_gym",
@@ -4200,7 +4200,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "77б",
+    "class_id": "7б",
     "subject_id": "kazakh_language",
     "teacher_id": "асаева_жх",
     "room_id": "r_12_languagelab",
@@ -4210,7 +4210,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "77б",
+    "class_id": "7б",
     "subject_id": "russian",
     "teacher_id": "давранова_к",
     "room_id": "r_17_languagelab",
@@ -4220,7 +4220,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "77б",
+    "class_id": "7б",
     "subject_id": "geometry",
     "teacher_id": "бабич_ид",
     "room_id": "r_16_general",
@@ -4230,7 +4230,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "77б",
+    "class_id": "7б",
     "subject_id": "kazakh_language",
     "teacher_id": "асаева_жх",
     "room_id": "r_12_languagelab",
@@ -4240,7 +4240,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "77б",
+    "class_id": "7б",
     "subject_id": "kazakh_language",
     "teacher_id": "асаева_жх",
     "room_id": "r_12_languagelab",
@@ -4250,7 +4250,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "77б",
+    "class_id": "7б",
     "subject_id": "history",
     "teacher_id": "досаева_мх",
     "room_id": "r_3_general",
@@ -4260,7 +4260,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "77б",
+    "class_id": "7б",
     "subject_id": "trud",
     "teacher_id": "романишина_им",
     "room_id": "r_19_workshop",
@@ -4270,7 +4270,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "77б",
+    "class_id": "7б",
     "subject_id": "history",
     "teacher_id": "досаева_мх",
     "room_id": "r_3_general",
@@ -4280,7 +4280,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "77б",
+    "class_id": "7б",
     "subject_id": "geography",
     "teacher_id": "сидоров_вб",
     "room_id": "r_18_general",
@@ -4290,7 +4290,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "77б",
+    "class_id": "7б",
     "subject_id": "physics",
     "teacher_id": "русина_нв",
     "room_id": "r_7_general",
@@ -4300,7 +4300,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "77б",
+    "class_id": "7б",
     "subject_id": "geometry",
     "teacher_id": "бабич_ид",
     "room_id": "r_16_general",
@@ -4310,7 +4310,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "77б",
+    "class_id": "7б",
     "subject_id": "chemistry",
     "teacher_id": "красноперова_ов",
     "room_id": "r_8_chemistrylab",
@@ -4320,7 +4320,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "77б",
+    "class_id": "7б",
     "subject_id": "informatics",
     "teacher_id": "бедрина_мн",
     "room_id": "r_11_general",
@@ -4330,7 +4330,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "77б",
+    "class_id": "7б",
     "subject_id": "physics",
     "teacher_id": "русина_нв",
     "room_id": "r_7_general",
@@ -4340,7 +4340,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "77б",
+    "class_id": "7б",
     "subject_id": "english",
     "teacher_id": "алекпарова_аж",
     "room_id": "r_22_languagelab",
@@ -4350,7 +4350,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "77б",
+    "class_id": "7б",
     "subject_id": "english",
     "teacher_id": "алекпарова_аж",
     "room_id": "r_22_languagelab",
@@ -4580,7 +4580,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "88",
+    "class_id": "8",
     "subject_id": "biology",
     "teacher_id": "красноперова_ов",
     "room_id": "r_23_biologylab",
@@ -4590,7 +4590,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "88",
+    "class_id": "8",
     "subject_id": "kazakh_language",
     "teacher_id": "асаева_жх",
     "room_id": "r_12_languagelab",
@@ -4600,7 +4600,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "88",
+    "class_id": "8",
     "subject_id": "literature",
     "teacher_id": "дмитриев_ев",
     "room_id": "r_17_languagelab",
@@ -4610,7 +4610,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "88",
+    "class_id": "8",
     "subject_id": "history",
     "teacher_id": "досаева_мх",
     "room_id": "r_3_general",
@@ -4620,7 +4620,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "88",
+    "class_id": "8",
     "subject_id": "kazakh_language",
     "teacher_id": "асаева_жх",
     "room_id": "r_12_languagelab",
@@ -4630,7 +4630,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "88",
+    "class_id": "8",
     "subject_id": "informatics",
     "teacher_id": "бедрина_мн",
     "room_id": "r_11_general",
@@ -4640,7 +4640,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "88",
+    "class_id": "8",
     "subject_id": "history",
     "teacher_id": "досаева_мх",
     "room_id": "r_3_general",
@@ -4650,7 +4650,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "88",
+    "class_id": "8",
     "subject_id": "chemistry",
     "teacher_id": "красноперова_ов",
     "room_id": "r_7_general",
@@ -4660,7 +4660,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "88",
+    "class_id": "8",
     "subject_id": "russian",
     "teacher_id": "дмитриев_ев",
     "room_id": "r_17_languagelab",
@@ -4670,7 +4670,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "88",
+    "class_id": "8",
     "subject_id": "physics",
     "teacher_id": "русина_нв",
     "room_id": "r_7_general",
@@ -4680,7 +4680,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "88",
+    "class_id": "8",
     "subject_id": "informatics",
     "teacher_id": "бедрина_мн",
     "room_id": "r_5_general",
@@ -4690,7 +4690,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "88",
+    "class_id": "8",
     "subject_id": "chemistry",
     "teacher_id": "красноперова_ов",
     "room_id": "r_23_biologylab",
@@ -4700,7 +4700,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "88",
+    "class_id": "8",
     "subject_id": "english",
     "teacher_id": "алекпарова_аж",
     "room_id": "r_22_languagelab",
@@ -4710,7 +4710,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "88",
+    "class_id": "8",
     "subject_id": "geometry",
     "teacher_id": "бабич_ид",
     "room_id": "r_7_general",
@@ -4720,7 +4720,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "88",
+    "class_id": "8",
     "subject_id": "algebra",
     "teacher_id": "бабич_ид",
     "room_id": "r_7_general",
@@ -4730,7 +4730,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "88",
+    "class_id": "8",
     "subject_id": "kazakh_language",
     "teacher_id": "асаева_жх",
     "room_id": "r_12_languagelab",
@@ -4740,7 +4740,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "88",
+    "class_id": "8",
     "subject_id": "russian",
     "teacher_id": "дмитриев_ев",
     "room_id": "r_17_languagelab",
@@ -4750,7 +4750,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "88",
+    "class_id": "8",
     "subject_id": "algebra",
     "teacher_id": "бабич_ид",
     "room_id": "r_7_general",
@@ -4760,7 +4760,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "88",
+    "class_id": "8",
     "subject_id": "kazakh_language",
     "teacher_id": "асаева_жх",
     "room_id": "r_12_languagelab",
@@ -4770,7 +4770,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "88",
+    "class_id": "8",
     "subject_id": "english",
     "teacher_id": "алекпарова_аж",
     "room_id": "r_22_languagelab",
@@ -4780,7 +4780,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "88",
+    "class_id": "8",
     "subject_id": "algebra",
     "teacher_id": "бабич_ид",
     "room_id": "r_7_general",
@@ -4790,7 +4790,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "88",
+    "class_id": "8",
     "subject_id": "geometry",
     "teacher_id": "бабич_ид",
     "room_id": "r_7_general",
@@ -4800,7 +4800,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "88",
+    "class_id": "8",
     "subject_id": "geography",
     "teacher_id": "сидоров_вб",
     "room_id": "r_23_biologylab",
@@ -4810,7 +4810,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "88",
+    "class_id": "8",
     "subject_id": "biology",
     "teacher_id": "красноперова_ов",
     "room_id": "r_23_biologylab",
@@ -4820,7 +4820,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "88",
+    "class_id": "8",
     "subject_id": "history",
     "teacher_id": "бучкова_ио",
     "room_id": "r_3_general",
@@ -4830,7 +4830,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "88",
+    "class_id": "8",
     "subject_id": "literature",
     "teacher_id": "дмитриев_ев",
     "room_id": "r_17_languagelab",
@@ -4840,7 +4840,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "88",
+    "class_id": "8",
     "subject_id": "pe",
     "teacher_id": "ольков_гв",
     "room_id": "r_2_gym",
@@ -4850,7 +4850,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "88",
+    "class_id": "8",
     "subject_id": "physics",
     "teacher_id": "русина_нв",
     "room_id": "r_7_general",
@@ -4860,7 +4860,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "88",
+    "class_id": "8",
     "subject_id": "literature",
     "teacher_id": "дмитриев_ев",
     "room_id": "r_17_languagelab",
@@ -4870,7 +4870,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "88",
+    "class_id": "8",
     "subject_id": "pe",
     "teacher_id": "ольков_гв",
     "room_id": "r_2_gym",
@@ -4880,7 +4880,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "88",
+    "class_id": "8",
     "subject_id": "pe",
     "teacher_id": "ольков_гв",
     "room_id": "r_2_gym",
@@ -4890,7 +4890,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "88",
+    "class_id": "8",
     "subject_id": "trud",
     "teacher_id": "романишина_им",
     "room_id": "r_19_workshop",
@@ -4900,7 +4900,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "88",
+    "class_id": "8",
     "subject_id": "geography",
     "teacher_id": "сидоров_вб",
     "room_id": "r_23_biologylab",
@@ -4910,107 +4910,107 @@
     "class_type": "normal"
   },
   {
-    "class_id": "88д.о.",
+    "class_id": "8_do",
     "subject_id": "ррик",
     "teacher_id": "дукач_та",
     "room_id": "r_15_general",
     "day": 0,
     "period": 2,
     "quarter": 2,
-    "class_type": "normal"
+    "class_type": "do"
   },
   {
-    "class_id": "88д.о.",
+    "class_id": "8_do",
     "subject_id": "счет",
     "teacher_id": "дукач_та",
     "room_id": "r_15_general",
     "day": 1,
     "period": 2,
     "quarter": 2,
-    "class_type": "normal"
+    "class_type": "do"
   },
   {
-    "class_id": "88д.о.",
+    "class_id": "8_do",
     "subject_id": "izo",
     "teacher_id": "романишина_им",
     "room_id": "r_15_general",
     "day": 2,
     "period": 2,
     "quarter": 2,
-    "class_type": "normal"
+    "class_type": "do"
   },
   {
-    "class_id": "88д.о.",
+    "class_id": "8_do",
     "subject_id": "ррик",
     "teacher_id": "дукач_та",
     "room_id": "r_15_general",
     "day": 3,
     "period": 2,
     "quarter": 2,
-    "class_type": "normal"
+    "class_type": "do"
   },
   {
-    "class_id": "88д.о.",
+    "class_id": "8_do",
     "subject_id": "человек_и_мир",
     "teacher_id": "дукач_та",
     "room_id": "r_15_general",
     "day": 0,
     "period": 3,
     "quarter": 2,
-    "class_type": "normal"
+    "class_type": "do"
   },
   {
-    "class_id": "88д.о.",
+    "class_id": "8_do",
     "subject_id": "пр",
     "teacher_id": "дукач_та",
     "room_id": "r_15_general",
     "day": 1,
     "period": 3,
     "quarter": 2,
-    "class_type": "normal"
+    "class_type": "do"
   },
   {
-    "class_id": "88д.о.",
+    "class_id": "8_do",
     "subject_id": "trud",
     "teacher_id": "романишина_им",
     "room_id": "r_15_general",
     "day": 2,
     "period": 3,
     "quarter": 2,
-    "class_type": "normal"
+    "class_type": "do"
   },
   {
-    "class_id": "88д.о.",
+    "class_id": "8_do",
     "subject_id": "счет",
     "teacher_id": "дукач_та",
     "room_id": "r_15_general",
     "day": 3,
     "period": 3,
     "quarter": 2,
-    "class_type": "normal"
+    "class_type": "do"
   },
   {
-    "class_id": "88д.о.",
+    "class_id": "8_do",
     "subject_id": "сбо",
     "teacher_id": "дукач_та",
     "room_id": "r_15_general",
     "day": 1,
     "period": 4,
     "quarter": 2,
-    "class_type": "normal"
+    "class_type": "do"
   },
   {
-    "class_id": "88д.о.",
+    "class_id": "8_do",
     "subject_id": "человек_и_мир",
     "teacher_id": "дукач_та",
     "room_id": "r_15_general",
     "day": 3,
     "period": 4,
     "quarter": 2,
-    "class_type": "normal"
+    "class_type": "do"
   },
   {
-    "class_id": "99",
+    "class_id": "9",
     "subject_id": "english",
     "teacher_id": "алекпарова_аж",
     "room_id": "r_22_languagelab",
@@ -5020,7 +5020,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "99",
+    "class_id": "9",
     "subject_id": "pe",
     "teacher_id": "мельников_пв",
     "room_id": "r_2_gym",
@@ -5030,7 +5030,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "99",
+    "class_id": "9",
     "subject_id": "history",
     "teacher_id": "бучкова_ио",
     "room_id": "r_18_general",
@@ -5040,7 +5040,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "99",
+    "class_id": "9",
     "subject_id": "russian",
     "teacher_id": "дмитриев_ев",
     "room_id": "r_17_languagelab",
@@ -5050,7 +5050,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "99",
+    "class_id": "9",
     "subject_id": "pe",
     "teacher_id": "мельников_пв",
     "room_id": "r_2_gym",
@@ -5060,7 +5060,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "99",
+    "class_id": "9",
     "subject_id": "literature",
     "teacher_id": "дмитриев_ев",
     "room_id": "r_17_languagelab",
@@ -5070,7 +5070,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "99",
+    "class_id": "9",
     "subject_id": "history",
     "teacher_id": "бучкова_ио",
     "room_id": "r_18_general",
@@ -5080,7 +5080,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "99",
+    "class_id": "9",
     "subject_id": "algebra",
     "teacher_id": "бабич_ид",
     "room_id": "r_7_general",
@@ -5090,7 +5090,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "99",
+    "class_id": "9",
     "subject_id": "geometry",
     "teacher_id": "бабич_ид",
     "room_id": "r_7_general",
@@ -5100,7 +5100,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "99",
+    "class_id": "9",
     "subject_id": "literature",
     "teacher_id": "дмитриев_ев",
     "room_id": "r_17_languagelab",
@@ -5110,7 +5110,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "99",
+    "class_id": "9",
     "subject_id": "biology",
     "teacher_id": "красноперова_ов",
     "room_id": "r_7_general",
@@ -5120,7 +5120,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "99",
+    "class_id": "9",
     "subject_id": "kazakh_language",
     "teacher_id": "ильясова_аб",
     "room_id": "r_6_general",
@@ -5130,7 +5130,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "99",
+    "class_id": "9",
     "subject_id": "literature",
     "teacher_id": "дмитриев_ев",
     "room_id": "r_17_languagelab",
@@ -5140,7 +5140,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "99",
+    "class_id": "9",
     "subject_id": "biology",
     "teacher_id": "красноперова_ов",
     "room_id": "r_7_general",
@@ -5150,7 +5150,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "99",
+    "class_id": "9",
     "subject_id": "english",
     "teacher_id": "алекпарова_аж",
     "room_id": "r_22_languagelab",
@@ -5160,7 +5160,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "99",
+    "class_id": "9",
     "subject_id": "algebra",
     "teacher_id": "бабич_ид",
     "room_id": "r_7_general",
@@ -5170,7 +5170,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "99",
+    "class_id": "9",
     "subject_id": "geometry",
     "teacher_id": "бабич_ид",
     "room_id": "r_7_general",
@@ -5180,7 +5180,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "99",
+    "class_id": "9",
     "subject_id": "physics",
     "teacher_id": "русина_нв",
     "room_id": "r_7_general",
@@ -5190,7 +5190,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "99",
+    "class_id": "9",
     "subject_id": "pe",
     "teacher_id": "мельников_пв",
     "room_id": "r_2_gym",
@@ -5200,7 +5200,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "99",
+    "class_id": "9",
     "subject_id": "kazakh_language",
     "teacher_id": "ильясова_аб",
     "room_id": "r_6_general",
@@ -5210,7 +5210,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "99",
+    "class_id": "9",
     "subject_id": "physics",
     "teacher_id": "русина_нв",
     "room_id": "r_7_general",
@@ -5220,7 +5220,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "99",
+    "class_id": "9",
     "subject_id": "russian",
     "teacher_id": "дмитриев_ев",
     "room_id": "r_17_languagelab",
@@ -5230,7 +5230,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "99",
+    "class_id": "9",
     "subject_id": "kazakh_language",
     "teacher_id": "ильясова_аб",
     "room_id": "r_6_general",
@@ -5240,7 +5240,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "99",
+    "class_id": "9",
     "subject_id": "history",
     "teacher_id": "бучкова_ио",
     "room_id": "r_18_general",
@@ -5250,7 +5250,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "99",
+    "class_id": "9",
     "subject_id": "algebra",
     "teacher_id": "бабич_ид",
     "room_id": "r_7_general",
@@ -5260,7 +5260,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "99",
+    "class_id": "9",
     "subject_id": "kazakh_language",
     "teacher_id": "ильясова_аб",
     "room_id": "r_6_general",
@@ -5270,7 +5270,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "99",
+    "class_id": "9",
     "subject_id": "основы_права",
     "teacher_id": "бучкова_ио",
     "room_id": "r_3_general",
@@ -5280,7 +5280,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "99",
+    "class_id": "9",
     "subject_id": "english",
     "teacher_id": "алекпарова_аж",
     "room_id": "r_22_languagelab",
@@ -5290,7 +5290,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "99",
+    "class_id": "9",
     "subject_id": "trud",
     "teacher_id": "романишина_им",
     "room_id": "r_19_workshop",
@@ -5300,7 +5300,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "99",
+    "class_id": "9",
     "subject_id": "geography",
     "teacher_id": "сидоров_вб",
     "room_id": "r_7_general",
@@ -5310,7 +5310,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "99",
+    "class_id": "9",
     "subject_id": "chemistry",
     "teacher_id": "красноперова_ов",
     "room_id": "r_7_general",
@@ -5320,7 +5320,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "99",
+    "class_id": "9",
     "subject_id": "geography",
     "teacher_id": "сидоров_вб",
     "room_id": "r_7_general",
@@ -5330,7 +5330,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "99",
+    "class_id": "9",
     "subject_id": "informatics",
     "teacher_id": "бедрина_мн",
     "room_id": "r_11_general",
@@ -5340,7 +5340,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "99",
+    "class_id": "9",
     "subject_id": "chemistry",
     "teacher_id": "красноперова_ов",
     "room_id": "r_7_general",
@@ -5600,107 +5600,107 @@
     "class_type": "normal"
   },
   {
-    "class_id": "99д.о.",
+    "class_id": "9_do",
     "subject_id": "ррик",
     "teacher_id": "дукач_та",
     "room_id": "r_15_general",
     "day": 0,
     "period": 0,
     "quarter": 2,
-    "class_type": "normal"
+    "class_type": "do"
   },
   {
-    "class_id": "99д.о.",
+    "class_id": "9_do",
     "subject_id": "счет",
     "teacher_id": "дукач_та",
     "room_id": "r_15_general",
     "day": 1,
     "period": 0,
     "quarter": 2,
-    "class_type": "normal"
+    "class_type": "do"
   },
   {
-    "class_id": "99д.о.",
+    "class_id": "9_do",
     "subject_id": "сбо",
     "teacher_id": "романишина_им",
     "room_id": "r_15_general",
     "day": 2,
     "period": 0,
     "quarter": 2,
-    "class_type": "normal"
+    "class_type": "do"
   },
   {
-    "class_id": "99д.о.",
+    "class_id": "9_do",
     "subject_id": "ррик",
     "teacher_id": "дукач_та",
     "room_id": "r_15_general",
     "day": 3,
     "period": 0,
     "quarter": 2,
-    "class_type": "normal"
+    "class_type": "do"
   },
   {
-    "class_id": "99д.о.",
+    "class_id": "9_do",
     "subject_id": "счет",
     "teacher_id": "дукач_та",
     "room_id": "r_15_general",
     "day": 4,
     "period": 0,
     "quarter": 2,
-    "class_type": "normal"
+    "class_type": "do"
   },
   {
-    "class_id": "99д.о.",
+    "class_id": "9_do",
     "subject_id": "человек_и_мир",
     "teacher_id": "дукач_та",
     "room_id": "r_15_general",
     "day": 0,
     "period": 1,
     "quarter": 2,
-    "class_type": "normal"
+    "class_type": "do"
   },
   {
-    "class_id": "99д.о.",
+    "class_id": "9_do",
     "subject_id": "пр",
     "teacher_id": "дукач_та",
     "room_id": "r_15_general",
     "day": 1,
     "period": 1,
     "quarter": 2,
-    "class_type": "normal"
+    "class_type": "do"
   },
   {
-    "class_id": "99д.о.",
+    "class_id": "9_do",
     "subject_id": "izo",
     "teacher_id": "романишина_им",
     "room_id": "r_15_general",
     "day": 2,
     "period": 1,
     "quarter": 2,
-    "class_type": "normal"
+    "class_type": "do"
   },
   {
-    "class_id": "99д.о.",
+    "class_id": "9_do",
     "subject_id": "человек_и_мир",
     "teacher_id": "дукач_та",
     "room_id": "r_15_general",
     "day": 3,
     "period": 1,
     "quarter": 2,
-    "class_type": "normal"
+    "class_type": "do"
   },
   {
-    "class_id": "99д.о.",
+    "class_id": "9_do",
     "subject_id": "trud",
     "teacher_id": "романишина_им",
     "room_id": "r_15_general",
     "day": 4,
     "period": 1,
     "quarter": 2,
-    "class_type": "normal"
+    "class_type": "do"
   },
   {
-    "class_id": "99_luo",
+    "class_id": "9_luo",
     "subject_id": "афк",
     "teacher_id": "мельников_пв",
     "room_id": "r_2_gym",
@@ -5710,7 +5710,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "99_luo",
+    "class_id": "9_luo",
     "subject_id": "russian",
     "teacher_id": "дмитриев_ев",
     "room_id": "r_17_languagelab",
@@ -5720,7 +5720,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "99_luo",
+    "class_id": "9_luo",
     "subject_id": "афк",
     "teacher_id": "мельников_пв",
     "room_id": "r_2_gym",
@@ -5730,7 +5730,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "99_luo",
+    "class_id": "9_luo",
     "subject_id": "ч_и_рр",
     "teacher_id": "дмитриев_ев",
     "room_id": "r_17_languagelab",
@@ -5740,7 +5740,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "99_luo",
+    "class_id": "9_luo",
     "subject_id": "history",
     "teacher_id": "бучкова_ио",
     "room_id": "r_3_general",
@@ -5750,7 +5750,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "99_luo",
+    "class_id": "9_luo",
     "subject_id": "math",
     "teacher_id": "бабич_ид",
     "room_id": "r_16_general",
@@ -5760,7 +5760,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "99_luo",
+    "class_id": "9_luo",
     "subject_id": "math",
     "teacher_id": "бабич_ид",
     "room_id": "r_16_general",
@@ -5770,7 +5770,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "99_luo",
+    "class_id": "9_luo",
     "subject_id": "russian",
     "teacher_id": "дмитриев_ев",
     "room_id": "r_17_languagelab",
@@ -5780,7 +5780,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "99_luo",
+    "class_id": "9_luo",
     "subject_id": "estestvoznanie",
     "teacher_id": "красноперова_ов",
     "room_id": "r_23_biologylab",
@@ -5790,7 +5790,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "99_luo",
+    "class_id": "9_luo",
     "subject_id": "kazakh_language",
     "teacher_id": "ильясова_аб",
     "room_id": "r_11_general",
@@ -5800,7 +5800,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "99_luo",
+    "class_id": "9_luo",
     "subject_id": "ч_и_рр",
     "teacher_id": "дмитриев_ев",
     "room_id": "r_17_languagelab",
@@ -5810,7 +5810,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "99_luo",
+    "class_id": "9_luo",
     "subject_id": "estestvoznanie",
     "teacher_id": "красноперова_ов",
     "room_id": "r_23_biologylab",
@@ -5820,7 +5820,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "99_luo",
+    "class_id": "9_luo",
     "subject_id": "math",
     "teacher_id": "бабич_ид",
     "room_id": "r_16_general",
@@ -5830,7 +5830,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "99_luo",
+    "class_id": "9_luo",
     "subject_id": "math",
     "teacher_id": "бабич_ид",
     "room_id": "r_16_general",
@@ -5840,7 +5840,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "99_luo",
+    "class_id": "9_luo",
     "subject_id": "афк",
     "teacher_id": "мельников_пв",
     "room_id": "r_2_gym",
@@ -5850,7 +5850,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "99_luo",
+    "class_id": "9_luo",
     "subject_id": "kazakh_language",
     "teacher_id": "ильясова_аб",
     "room_id": "r_11_general",
@@ -5860,7 +5860,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "99_luo",
+    "class_id": "9_luo",
     "subject_id": "russian",
     "teacher_id": "дмитриев_ев",
     "room_id": "r_17_languagelab",
@@ -5870,7 +5870,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "99_luo",
+    "class_id": "9_luo",
     "subject_id": "history",
     "teacher_id": "бучкова_ио",
     "room_id": "r_3_general",
@@ -5880,7 +5880,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "99_luo",
+    "class_id": "9_luo",
     "subject_id": "math",
     "teacher_id": "бабич_ид",
     "room_id": "r_16_general",
@@ -5890,7 +5890,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "99_luo",
+    "class_id": "9_luo",
     "subject_id": "общество_и_право",
     "teacher_id": "бучкова_ио",
     "room_id": "r_3_general",
@@ -5900,7 +5900,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "99_luo",
+    "class_id": "9_luo",
     "subject_id": "пто",
     "teacher_id": "романишина_им",
     "room_id": "r_21_workshop",
@@ -5910,7 +5910,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "99_luo",
+    "class_id": "9_luo",
     "subject_id": "geography",
     "teacher_id": "сидоров_вб",
     "room_id": "r_18_general",
@@ -5920,7 +5920,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "99_luo",
+    "class_id": "9_luo",
     "subject_id": "geography",
     "teacher_id": "сидоров_вб",
     "room_id": "r_18_general",
@@ -5930,7 +5930,7 @@
     "class_type": "luo"
   },
   {
-    "class_id": "99_luo",
+    "class_id": "9_luo",
     "subject_id": "informatics",
     "teacher_id": "бедрина_мн",
     "room_id": "r_5_general",
@@ -6230,7 +6230,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "1111",
+    "class_id": "11",
     "subject_id": "physics",
     "teacher_id": "русина_нв",
     "room_id": "r_7_general",
@@ -6240,7 +6240,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "1111",
+    "class_id": "11",
     "subject_id": "kazakh_language",
     "teacher_id": "балгабаева_нк",
     "room_id": "r_6_general",
@@ -6250,7 +6250,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "1111",
+    "class_id": "11",
     "subject_id": "english",
     "teacher_id": "алекпарова_аж",
     "room_id": "r_22_languagelab",
@@ -6260,7 +6260,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "1111",
+    "class_id": "11",
     "subject_id": "kazakh_language",
     "teacher_id": "балгабаева_нк",
     "room_id": "r_6_general",
@@ -6270,7 +6270,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "1111",
+    "class_id": "11",
     "subject_id": "biology",
     "teacher_id": "красноперова_ов",
     "room_id": "r_23_biologylab",
@@ -6280,7 +6280,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "1111",
+    "class_id": "11",
     "subject_id": "algebra",
     "teacher_id": "пащенко_на",
     "room_id": "r_16_general",
@@ -6290,7 +6290,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "1111",
+    "class_id": "11",
     "subject_id": "geometry",
     "teacher_id": "пащенко_на",
     "room_id": "r_16_general",
@@ -6300,7 +6300,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "1111",
+    "class_id": "11",
     "subject_id": "informatics",
     "teacher_id": "бедрина_мн",
     "room_id": "r_10_informatics",
@@ -6310,7 +6310,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "1111",
+    "class_id": "11",
     "subject_id": "geometry",
     "teacher_id": "пащенко_на",
     "room_id": "r_16_general",
@@ -6320,7 +6320,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "1111",
+    "class_id": "11",
     "subject_id": "kazakh_language",
     "teacher_id": "балгабаева_нк",
     "room_id": "r_6_general",
@@ -6330,7 +6330,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "1111",
+    "class_id": "11",
     "subject_id": "russian",
     "teacher_id": "дмитриев_ев",
     "room_id": "r_17_languagelab",
@@ -6340,7 +6340,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "1111",
+    "class_id": "11",
     "subject_id": "english",
     "teacher_id": "алекпарова_аж",
     "room_id": "r_22_languagelab",
@@ -6350,7 +6350,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "1111",
+    "class_id": "11",
     "subject_id": "algebra",
     "teacher_id": "пащенко_на",
     "room_id": "r_16_general",
@@ -6360,7 +6360,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "1111",
+    "class_id": "11",
     "subject_id": "pe",
     "teacher_id": "мельников_пв",
     "room_id": "r_2_gym",
@@ -6370,7 +6370,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "1111",
+    "class_id": "11",
     "subject_id": "history",
     "teacher_id": "досаева_мх",
     "room_id": "r_3_general",
@@ -6380,7 +6380,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "1111",
+    "class_id": "11",
     "subject_id": "biology",
     "teacher_id": "красноперова_ов",
     "room_id": "r_23_biologylab",
@@ -6390,7 +6390,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "1111",
+    "class_id": "11",
     "subject_id": "algebra",
     "teacher_id": "пащенко_на",
     "room_id": "r_16_general",
@@ -6400,7 +6400,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "1111",
+    "class_id": "11",
     "subject_id": "опиб",
     "teacher_id": "досаева_мх",
     "room_id": "r_3_general",
@@ -6410,7 +6410,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "1111",
+    "class_id": "11",
     "subject_id": "biology",
     "teacher_id": "красноперова_ов",
     "room_id": "r_23_biologylab",
@@ -6420,7 +6420,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "1111",
+    "class_id": "11",
     "subject_id": "algebra",
     "teacher_id": "пащенко_на",
     "room_id": "r_16_general",
@@ -6430,7 +6430,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "1111",
+    "class_id": "11",
     "subject_id": "нвитп",
     "teacher_id": "ольков_гв",
     "room_id": "r_9_general",
@@ -6440,7 +6440,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "1111",
+    "class_id": "11",
     "subject_id": "pe",
     "teacher_id": "мельников_пв",
     "room_id": "r_2_gym",
@@ -6450,7 +6450,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "1111",
+    "class_id": "11",
     "subject_id": "physics",
     "teacher_id": "русина_нв",
     "room_id": "r_7_general",
@@ -6460,7 +6460,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "1111",
+    "class_id": "11",
     "subject_id": "literature",
     "teacher_id": "дмитриев_ев",
     "room_id": "r_17_languagelab",
@@ -6470,7 +6470,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "1111",
+    "class_id": "11",
     "subject_id": "informatics",
     "teacher_id": "бедрина_мн",
     "room_id": "r_10_informatics",
@@ -6480,7 +6480,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "1111",
+    "class_id": "11",
     "subject_id": "history",
     "teacher_id": "досаева_мх",
     "room_id": "r_3_general",
@@ -6490,7 +6490,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "1111",
+    "class_id": "11",
     "subject_id": "literature",
     "teacher_id": "дмитриев_ев",
     "room_id": "r_17_languagelab",
@@ -6500,7 +6500,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "1111",
+    "class_id": "11",
     "subject_id": "physics",
     "teacher_id": "русина_нв",
     "room_id": "r_7_general",
@@ -6510,7 +6510,7 @@
     "class_type": "normal"
   },
   {
-    "class_id": "1111",
+    "class_id": "11",
     "subject_id": "english",
     "teacher_id": "алекпарова_аж",
     "room_id": "r_22_languagelab",
