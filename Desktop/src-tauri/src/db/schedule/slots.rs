@@ -66,6 +66,11 @@ pub async fn list_slots(pool: &SqlitePool) -> Result<Vec<ScheduleSlot>, DbError>
             day,
             period,
             is_double: is_double != 0,
+            week: None,
+            source_subject: None,
+            source_teacher: None,
+            source_time: None,
+            source_note: None,
         })
         .collect())
 }

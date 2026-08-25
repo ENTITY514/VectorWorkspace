@@ -220,6 +220,16 @@ pub struct ScheduleSlot {
     pub day: i64,
     pub period: i64,
     pub is_double: bool,
+    #[serde(default)]
+    pub week: Option<i64>,
+    #[serde(default)]
+    pub source_subject: Option<String>,
+    #[serde(default)]
+    pub source_teacher: Option<String>,
+    #[serde(default)]
+    pub source_time: Option<String>,
+    #[serde(default)]
+    pub source_note: Option<String>,
 }
 
 /// Агрегат состояния вкладки «Расписание».

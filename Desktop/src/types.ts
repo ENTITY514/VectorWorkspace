@@ -421,6 +421,11 @@ export interface ScheduleSlot {
   day: number;
   period: number;
   is_double: boolean;
+  week?: number | null;
+  source_subject?: string | null;
+  source_teacher?: string | null;
+  source_time?: string | null;
+  source_note?: string | null;
 }
 
 export interface ScheduleState {

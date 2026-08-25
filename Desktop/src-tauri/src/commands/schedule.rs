@@ -560,7 +560,7 @@ pub async fn schedule_get_legacy(state: State<'_, AppState>, quarter: i64) -> Re
         let day = v.get("day").and_then(|x| x.as_i64()).unwrap_or(0);
         let period = v.get("period").and_then(|x| x.as_i64()).unwrap_or(0);
         out.push(crate::domain::schedule::model::ScheduleSlot{
-            id: format!("legacy_{}_{}_{}", class_id, day, period),
+            id: format!("legacy_{}_{}_{}_{}", class_id, v.get("week").and_then(|x| x.as_i64()).unwrap_or(1), day, period),
             class_id,
             subject_id,
             teacher_id,
@@ -569,6 +569,11 @@ pub async fn schedule_get_legacy(state: State<'_, AppState>, quarter: i64) -> Re
             day,
             period,
             is_double: false,
+            week: v.get("week").and_then(|x| x.as_i64()),
+            source_subject: v.get("source_subject").and_then(|x| x.as_str()).map(str::to_string),
+            source_teacher: v.get("source_teacher").and_then(|x| x.as_str()).map(str::to_string),
+            source_time: v.get("source_time").and_then(|x| x.as_str()).map(str::to_string),
+            source_note: v.get("source_note").and_then(|x| x.as_str()).map(str::to_string),
         });
     }
     // filter by type if needed? For now return all

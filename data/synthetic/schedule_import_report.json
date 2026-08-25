@@ -1,0 +1,2645 @@
+{
+  "generatedAt": "2026-08-25T06:11:17.392Z",
+  "source": "materials/Таблицы расписаний",
+  "totals": {
+    "sourceLessons": 2551,
+    "importedLessons": 2326,
+    "duplicateLessons": 225,
+    "createdSubjects": 0,
+    "mappings": 2551
+  },
+  "byQuarter": {
+    "1": {
+      "lessons": 778,
+      "classes": 25,
+      "teachers": 36,
+      "subjects": 59
+    },
+    "2": {
+      "lessons": 670,
+      "classes": 27,
+      "teachers": 37,
+      "subjects": 61
+    },
+    "3": {
+      "lessons": 251,
+      "classes": 25,
+      "teachers": 33,
+      "subjects": 44
+    },
+    "4": {
+      "lessons": 627,
+      "classes": 25,
+      "teachers": 36,
+      "subjects": 59
+    }
+  },
+  "byType": {
+    "normal": {
+      "lessons": 1873,
+      "classes": 18
+    },
+    "luo": {
+      "lessons": 330,
+      "classes": 5
+    },
+    "do": {
+      "lessons": 123,
+      "classes": 4
+    }
+  },
+  "subjectMappings": [
+    {
+      "source": "АӘжТД",
+      "subject_id": "а_жтд",
+      "subject_name": "Аәжтд",
+      "method": "exact-normalized"
+    },
+    {
+      "source": "Ағылшын тілі",
+      "subject_id": "а_ылшын_т_л",
+      "subject_name": "Ағылшын Тілі",
+      "method": "exact-normalized"
+    },
+    {
+      "source": "Алгебра",
+      "subject_id": "algebra",
+      "subject_name": "Алгебра",
+      "method": "exact-normalized"
+    },
+    {
+      "source": "Алгебра ж. анализ б,",
+      "subject_id": "algebra",
+      "subject_name": "Алгебра",
+      "method": "alias"
+    },
+    {
+      "source": "Алгебра и нач. ан.",
+      "subject_id": "algebra",
+      "subject_name": "Алгебра",
+      "method": "alias"
+    },
+    {
+      "source": "Английский язык",
+      "subject_id": "english",
+      "subject_name": "Английский язык",
+      "method": "alias"
+    },
+    {
+      "source": "Английский язык (1гр.анг.яз)",
+      "subject_id": "english",
+      "subject_name": "Английский язык",
+      "method": "alias"
+    },
+    {
+      "source": "Английский язык (2гр.анг.яз)",
+      "subject_id": "english",
+      "subject_name": "Английский язык",
+      "method": "alias"
+    },
+    {
+      "source": "АФК",
+      "subject_id": "афк",
+      "subject_name": "Афк",
+      "method": "alias"
+    },
+    {
+      "source": "Әдебиеттік оқу.",
+      "subject_id": "дебиетт_к_о_у",
+      "subject_name": "Әдебиеттік Оқу.",
+      "method": "exact-normalized"
+    },
+    {
+      "source": "Әліппе, Ана тілі",
+      "subject_id": "л_ппе_ана_т_л",
+      "subject_name": "Әліппе, Ана Тілі",
+      "method": "exact-normalized"
+    },
+    {
+      "source": "бейнелеу өнері",
+      "subject_id": "izo",
+      "subject_name": "ИЗО",
+      "method": "alias"
+    },
+    {
+      "source": "Биология",
+      "subject_id": "biology",
+      "subject_name": "Биология",
+      "method": "exact-normalized"
+    },
+    {
+      "source": "Букварь, Обучение гр",
+      "subject_id": "bukvar",
+      "subject_name": "Букварь",
+      "method": "alias"
+    },
+    {
+      "source": "Всемирная история",
+      "subject_id": "д_ниеж_з_тарихы",
+      "subject_name": "Дүниежүзі Тарихы",
+      "method": "alias"
+    },
+    {
+      "source": "География",
+      "subject_id": "geography",
+      "subject_name": "География",
+      "method": "exact-normalized"
+    },
+    {
+      "source": "Геометрия",
+      "subject_id": "geometry",
+      "subject_name": "Геометрия",
+      "method": "exact-normalized"
+    },
+    {
+      "source": "Дене шынықтыру.",
+      "subject_id": "pe",
+      "subject_name": "Физкультура",
+      "method": "alias"
+    },
+    {
+      "source": "Дүниежүзі тарихы",
+      "subject_id": "д_ниеж_з_тарихы",
+      "subject_name": "Дүниежүзі Тарихы",
+      "method": "alias"
+    },
+    {
+      "source": "Дүниетану",
+      "subject_id": "д_ниетану",
+      "subject_name": "Дүниетану",
+      "method": "exact-normalized"
+    },
+    {
+      "source": "Еңбекке баулу",
+      "subject_id": "к_ркем_е_бек",
+      "subject_name": "Көркем Еңбек.",
+      "method": "alias"
+    },
+    {
+      "source": "Естествознание",
+      "subject_id": "estestvoznanie",
+      "subject_name": "Естествознание",
+      "method": "exact-normalized"
+    },
+    {
+      "source": "Жаратылыстану",
+      "subject_id": "xls_01e060767411",
+      "subject_name": "Жаратылыстану",
+      "method": "exact-normalized"
+    },
+    {
+      "source": "ИЗО.",
+      "subject_id": "izo",
+      "subject_name": "ИЗО",
+      "method": "alias"
+    },
+    {
+      "source": "Информатика",
+      "subject_id": "informatics",
+      "subject_name": "Информатика",
+      "method": "alias"
+    },
+    {
+      "source": "Информатика (1 гр.инф)",
+      "subject_id": "xls_3ddf4665346c",
+      "subject_name": "Информатика (1 гр.инф)",
+      "method": "exact-normalized"
+    },
+    {
+      "source": "Информатика (1гр.информ)",
+      "subject_id": "xls_f58f86a22be9",
+      "subject_name": "Информатика (1гр.информ)",
+      "method": "exact-normalized"
+    },
+    {
+      "source": "Информатика (2 гр.инф)",
+      "subject_id": "xls_a72082eac40e",
+      "subject_name": "Информатика (2 гр.инф)",
+      "method": "exact-normalized"
+    },
+    {
+      "source": "Информатика (2гр.информ)",
+      "subject_id": "xls_3dc86e3f8429",
+      "subject_name": "Информатика (2гр.информ)",
+      "method": "exact-normalized"
+    },
+    {
+      "source": "История Каз-на",
+      "subject_id": "аза_стан_тарихы",
+      "subject_name": "Қазақстан Тарихы",
+      "method": "alias"
+    },
+    {
+      "source": "Казахский язык",
+      "subject_id": "kazakh_language",
+      "subject_name": "Казахский язык",
+      "method": "exact-normalized"
+    },
+    {
+      "source": "Казахский язык и лит",
+      "subject_id": "xls_2599b3cde3c4",
+      "subject_name": "Казахский язык и лит",
+      "method": "exact-normalized"
+    },
+    {
+      "source": "Казахский язык и лит (1гр.каз.яз)",
+      "subject_id": "xls_27fd1b2f1ffd",
+      "subject_name": "Казахский язык и лит (1гр.каз.яз)",
+      "method": "exact-normalized"
+    },
+    {
+      "source": "Казахский язык и лит (2гр.каз.яз)",
+      "subject_id": "xls_caad79222c19",
+      "subject_name": "Казахский язык и лит (2гр.каз.яз)",
+      "method": "exact-normalized"
+    },
+    {
+      "source": "Көркем еңбек.",
+      "subject_id": "к_ркем_е_бек",
+      "subject_name": "Көркем Еңбек.",
+      "method": "alias"
+    },
+    {
+      "source": "Қазақ әдебиет",
+      "subject_id": "аза_дебиет",
+      "subject_name": "Қазақ Әдебиет",
+      "method": "alias"
+    },
+    {
+      "source": "Қазақ тілі",
+      "subject_id": "аза_т_л",
+      "subject_name": "Қазақ Тілі",
+      "method": "alias"
+    },
+    {
+      "source": "Қазақстан тарихы",
+      "subject_id": "аза_стан_тарихы",
+      "subject_name": "Қазақстан Тарихы",
+      "method": "alias"
+    },
+    {
+      "source": "Құқық негіздері",
+      "subject_id": "ы_нег_здер",
+      "subject_name": "Құқық Негіздері",
+      "method": "alias"
+    },
+    {
+      "source": "Лит. чтение",
+      "subject_id": "xls_be32892d5985",
+      "subject_name": "Лит. чтение",
+      "method": "exact-normalized"
+    },
+    {
+      "source": "Литературное чтение",
+      "subject_id": "xls_ee02542adfa7",
+      "subject_name": "Литературное чтение",
+      "method": "exact-normalized"
+    },
+    {
+      "source": "Математика",
+      "subject_id": "math",
+      "subject_name": "Математика",
+      "method": "exact-normalized"
+    },
+    {
+      "source": "Мир вокруг.",
+      "subject_id": "мир_вокруг",
+      "subject_name": "Мир Вокруг.",
+      "method": "exact-normalized"
+    },
+    {
+      "source": "Музыка и пение",
+      "subject_id": "music",
+      "subject_name": "Музыка",
+      "method": "alias"
+    },
+    {
+      "source": "Музыка.",
+      "subject_id": "music",
+      "subject_name": "Музыка",
+      "method": "alias"
+    },
+    {
+      "source": "НВиТП",
+      "subject_id": "нвитп",
+      "subject_name": "Нвитп",
+      "method": "alias"
+    },
+    {
+      "source": "Общество и право",
+      "subject_id": "общество_и_право",
+      "subject_name": "Общество И Право",
+      "method": "alias"
+    },
+    {
+      "source": "ОП",
+      "subject_id": "xls_2a28fa2a1521",
+      "subject_name": "ОП",
+      "method": "exact-normalized"
+    },
+    {
+      "source": "ОП (девочки)",
+      "subject_id": "оп_девочки",
+      "subject_name": "Оп (Девочки)",
+      "method": "exact-normalized"
+    },
+    {
+      "source": "ОП (мальчики)",
+      "subject_id": "оп_мальчики",
+      "subject_name": "Оп (Мальчики)",
+      "method": "exact-normalized"
+    },
+    {
+      "source": "ОП (Худ.тр.дев)",
+      "subject_id": "оп_худтрдев",
+      "subject_name": "Оп (Худ.Тр.Дев)",
+      "method": "exact-normalized"
+    },
+    {
+      "source": "ОПиБ",
+      "subject_id": "опиб",
+      "subject_name": "Опиб",
+      "method": "exact-normalized"
+    },
+    {
+      "source": "Орыс тілі",
+      "subject_id": "орыс_т_л",
+      "subject_name": "Орыс Тілі",
+      "method": "alias"
+    },
+    {
+      "source": "Орыс тілі ж/е әдеб.",
+      "subject_id": "орыс_т_л_ж_е_деб",
+      "subject_name": "Орыс Тілі Ж/Е Әдеб.",
+      "method": "alias"
+    },
+    {
+      "source": "Основы права",
+      "subject_id": "основы_права",
+      "subject_name": "Основы Права",
+      "method": "alias"
+    },
+    {
+      "source": "Познание мира",
+      "subject_id": "poznanie",
+      "subject_name": "Познание мира",
+      "method": "alias"
+    },
+    {
+      "source": "ПР",
+      "subject_id": "пр",
+      "subject_name": "Пр",
+      "method": "alias"
+    },
+    {
+      "source": "ПТО",
+      "subject_id": "пто",
+      "subject_name": "Пто",
+      "method": "alias"
+    },
+    {
+      "source": "РРиК",
+      "subject_id": "ррик",
+      "subject_name": "Ррик",
+      "method": "alias"
+    },
+    {
+      "source": "Рус. литература",
+      "subject_id": "literature",
+      "subject_name": "Литература",
+      "method": "alias"
+    },
+    {
+      "source": "Русский язык",
+      "subject_id": "russian",
+      "subject_name": "Русский язык",
+      "method": "exact-normalized"
+    },
+    {
+      "source": "Ручной труд.",
+      "subject_id": "trud",
+      "subject_name": "Труд",
+      "method": "alias"
+    },
+    {
+      "source": "СБО.",
+      "subject_id": "сбо",
+      "subject_name": "Сбо.",
+      "method": "alias"
+    },
+    {
+      "source": "Счет.",
+      "subject_id": "счет",
+      "subject_name": "Счет.",
+      "method": "alias"
+    },
+    {
+      "source": "Труд. об.",
+      "subject_id": "trud",
+      "subject_name": "Труд",
+      "method": "alias"
+    },
+    {
+      "source": "Физика",
+      "subject_id": "physics",
+      "subject_name": "Физика",
+      "method": "exact-normalized"
+    },
+    {
+      "source": "Физкультура.",
+      "subject_id": "pe",
+      "subject_name": "Физкультура",
+      "method": "alias"
+    },
+    {
+      "source": "Химия",
+      "subject_id": "chemistry",
+      "subject_name": "Химия",
+      "method": "exact-normalized"
+    },
+    {
+      "source": "Хоз. труд.",
+      "subject_id": "xls_5ff4105a8083",
+      "subject_name": "Хоз. труд.",
+      "method": "exact-normalized"
+    },
+    {
+      "source": "Худ. труд",
+      "subject_id": "xls_89eeb6bf7feb",
+      "subject_name": "Худ. труд",
+      "method": "exact-normalized"
+    },
+    {
+      "source": "Худ. труд (Девочки)",
+      "subject_id": "xls_fe606f83c672",
+      "subject_name": "Худ. труд (Девочки)",
+      "method": "exact-normalized"
+    },
+    {
+      "source": "Худ. труд (Мальчики)",
+      "subject_id": "xls_d360e125c054",
+      "subject_name": "Худ. труд (Мальчики)",
+      "method": "exact-normalized"
+    },
+    {
+      "source": "Худ. труд (Худ.тр дев)",
+      "subject_id": "xls_d3df4745527a",
+      "subject_name": "Худ. труд (Худ.тр.дев)",
+      "method": "exact-normalized"
+    },
+    {
+      "source": "Худ. труд (Худ.тр мал)",
+      "subject_id": "xls_5f355fea8f85",
+      "subject_name": "Худ. труд (Худ.тр.мал)",
+      "method": "exact-normalized"
+    },
+    {
+      "source": "Худ. труд (Худ.тр.дев)",
+      "subject_id": "xls_d3df4745527a",
+      "subject_name": "Худ. труд (Худ.тр.дев)",
+      "method": "exact-normalized"
+    },
+    {
+      "source": "Худ. труд (Худ.тр.мал)",
+      "subject_id": "xls_5f355fea8f85",
+      "subject_name": "Худ. труд (Худ.тр.мал)",
+      "method": "exact-normalized"
+    },
+    {
+      "source": "ЦГ",
+      "subject_id": "цг",
+      "subject_name": "Цг",
+      "method": "alias"
+    },
+    {
+      "source": "ЦС",
+      "subject_id": "цс",
+      "subject_name": "Цс",
+      "method": "alias"
+    },
+    {
+      "source": "Ч и РР",
+      "subject_id": "ч_и_рр",
+      "subject_name": "Ч И Рр",
+      "method": "alias"
+    },
+    {
+      "source": "Человек и мир.",
+      "subject_id": "человек_и_мир",
+      "subject_name": "Человек И Мир.",
+      "method": "alias"
+    }
+  ],
+  "issues": {
+    "unknownClasses": [],
+    "unknownTeachers": [],
+    "invalidLessons": [],
+    "roomFallbacks": [
+      {
+        "class": "4(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "4(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "4(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "4(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "4(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "4(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "4(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "4(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "4(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "4(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "4(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "4(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "4(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "4(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "4(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "4(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "4(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "4(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "4(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "4(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "4(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "4(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "4(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "4(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "4(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "4(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "4(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "4(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "4(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "6(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "6(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "6(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "6(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "6(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "6(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "6(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "6(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "6(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "6(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "6(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "6(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "6(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "6(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "6(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "6(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "6(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "6(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "6(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "6(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "6(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "6(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "6(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "6(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "6(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "6(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "6(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "6(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "6(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "6(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "6(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "6(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "6(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "6(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "6(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "6(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "6(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "6(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "6(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "8(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "8(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "8(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "8(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "8(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "8(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "8(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "8(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "8(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "8(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "8(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "8(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "8(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "8(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "8(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "8(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "8(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "8(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "8(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "8(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "8(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "8(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "8(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "8(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "8(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "8(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "8(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "8(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "8(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "8(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "8(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "9(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "9(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "9(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "9(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "9(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "9(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "9(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "9(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "9(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "9(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "9(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "9(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "9(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "9(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "9(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "9(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "9(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "9(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "9(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "9(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "9(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "9(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "9(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "9(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "9(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "9(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "9(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "9(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "9(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "9(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "9(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "9(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "9(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "9(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "9(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "9(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "9(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "9(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "9(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "9(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "9(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "9(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "9(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "9(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "9(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "9(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "9(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "9(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "9(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "9(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "9(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "9(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "9(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "9(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "9(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "9(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "9(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "9(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "9(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "9(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "9(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "9(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "9(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      },
+      {
+        "class": "9(do)",
+        "note": "",
+        "room_id": "r_1_general",
+        "method": "empty-note"
+      }
+    ],
+    "duplicates": [
+      {
+        "key": "1|5б|1|1|1|math|пащенко_на|r_16_general",
+        "first_file": "schedule (34).xls",
+        "duplicate_file": "schedule (38).xls"
+      },
+      {
+        "key": "1|5б|1|2|1|math|пащенко_на|r_16_general",
+        "first_file": "schedule (34).xls",
+        "duplicate_file": "schedule (38).xls"
+      },
+      {
+        "key": "1|5б|1|3|1|math|пащенко_на|r_16_general",
+        "first_file": "schedule (34).xls",
+        "duplicate_file": "schedule (38).xls"
+      },
+      {
+        "key": "1|5б|1|4|1|russian|дмитриев_ев|r_17_languagelab",
+        "first_file": "schedule (34).xls",
+        "duplicate_file": "schedule (38).xls"
+      },
+      {
+        "key": "1|5б|1|1|2|literature|дмитриев_ев|r_17_languagelab",
+        "first_file": "schedule (34).xls",
+        "duplicate_file": "schedule (38).xls"
+      },
+      {
+        "key": "1|5б|1|2|2|pe|ольков_гв|r_2_gym",
+        "first_file": "schedule (34).xls",
+        "duplicate_file": "schedule (38).xls"
+      },
+      {
+        "key": "1|5б|1|3|2|xls_27fd1b2f1ffd|балгабаева_нк|r_6_general",
+        "first_file": "schedule (34).xls",
+        "duplicate_file": "schedule (38).xls"
+      },
+      {
+        "key": "1|5б|1|4|2|pe|ольков_гв|r_2_gym",
+        "first_file": "schedule (34).xls",
+        "duplicate_file": "schedule (38).xls"
+      },
+      {
+        "key": "1|5б|1|3|2|xls_caad79222c19|ильясова_аб|r_12_languagelab",
+        "first_file": "schedule (34).xls",
+        "duplicate_file": "schedule (38).xls"
+      },
+      {
+        "key": "1|5б|1|1|3|pe|ольков_гв|r_2_gym",
+        "first_file": "schedule (34).xls",
+        "duplicate_file": "schedule (38).xls"
+      },
+      {
+        "key": "1|5б|1|2|3|music|шкиря_юн|r_20_general",
+        "first_file": "schedule (34).xls",
+        "duplicate_file": "schedule (38).xls"
+      },
+      {
+        "key": "1|5б|1|3|3|xls_fe606f83c672|романишина_им|r_19_workshop",
+        "first_file": "schedule (34).xls",
+        "duplicate_file": "schedule (38).xls"
+      },
+      {
+        "key": "1|5б|1|4|3|math|пащенко_на|r_16_general",
+        "first_file": "schedule (34).xls",
+        "duplicate_file": "schedule (38).xls"
+      },
+      {
+        "key": "1|5б|1|3|3|xls_d360e125c054|кашикова_гх|r_21_workshop",
+        "first_file": "schedule (34).xls",
+        "duplicate_file": "schedule (38).xls"
+      },
+      {
+        "key": "1|5б|1|1|4|xls_d360e125c054|кашикова_гх|r_21_workshop",
+        "first_file": "schedule (34).xls",
+        "duplicate_file": "schedule (38).xls"
+      },
+      {
+        "key": "1|5б|1|2|4|russian|дмитриев_ев|r_17_languagelab",
+        "first_file": "schedule (34).xls",
+        "duplicate_file": "schedule (38).xls"
+      },
+      {
+        "key": "1|5б|1|3|4|literature|дмитриев_ев|r_17_languagelab",
+        "first_file": "schedule (34).xls",
+        "duplicate_file": "schedule (38).xls"
+      },
+      {
+        "key": "1|5б|1|4|4|estestvoznanie|иващенко_во|r_18_general",
+        "first_file": "schedule (34).xls",
+        "duplicate_file": "schedule (38).xls"
+      },
+      {
+        "key": "1|5б|1|1|4|xls_fe606f83c672|романишина_им|r_19_workshop",
+        "first_file": "schedule (34).xls",
+        "duplicate_file": "schedule (38).xls"
+      },
+      {
+        "key": "1|5б|1|1|5|аза_стан_тарихы|мельникова_лр|r_3_general",
+        "first_file": "schedule (34).xls",
+        "duplicate_file": "schedule (38).xls"
+      },
+      {
+        "key": "1|5б|1|2|5|english|акауова_ин|r_4_general",
+        "first_file": "schedule (34).xls",
+        "duplicate_file": "schedule (38).xls"
+      },
+      {
+        "key": "1|5б|1|3|5|д_ниеж_з_тарихы|мельникова_лр|r_3_general",
+        "first_file": "schedule (34).xls",
+        "duplicate_file": "schedule (38).xls"
+      },
+      {
+        "key": "1|5б|1|4|5|xls_27fd1b2f1ffd|балгабаева_нк|r_6_general",
+        "first_file": "schedule (34).xls",
+        "duplicate_file": "schedule (38).xls"
+      },
+      {
+        "key": "1|5б|1|2|5|english|алекпарова_аж|r_22_languagelab",
+        "first_file": "schedule (34).xls",
+        "duplicate_file": "schedule (38).xls"
+      },
+      {
+        "key": "1|5б|1|4|5|xls_caad79222c19|ильясова_аб|r_12_languagelab",
+        "first_file": "schedule (34).xls",
+        "duplicate_file": "schedule (38).xls"
+      },
+      {
+        "key": "1|5б|1|1|6|xls_27fd1b2f1ffd|балгабаева_нк|r_6_general",
+        "first_file": "schedule (34).xls",
+        "duplicate_file": "schedule (38).xls"
+      },
+      {
+        "key": "1|5б|1|3|6|english|алекпарова_аж|r_22_languagelab",
+        "first_file": "schedule (34).xls",
+        "duplicate_file": "schedule (38).xls"
+      },
+      {
+        "key": "1|5б|1|4|6|аза_стан_тарихы|мельникова_лр|r_3_general",
+        "first_file": "schedule (34).xls",
+        "duplicate_file": "schedule (38).xls"
+      },
+      {
+        "key": "1|5б|1|1|6|xls_caad79222c19|ильясова_аб|r_12_languagelab",
+        "first_file": "schedule (34).xls",
+        "duplicate_file": "schedule (38).xls"
+      },
+      {
+        "key": "1|5б|1|3|6|english|акауова_ин|r_4_general",
+        "first_file": "schedule (34).xls",
+        "duplicate_file": "schedule (38).xls"
+      },
+      {
+        "key": "2|5б|1|0|1|xls_27fd1b2f1ffd|балгабаева_нк|r_6_general",
+        "first_file": "schedule (35).xls",
+        "duplicate_file": "schedule (39).xls"
+      },
+      {
+        "key": "2|5б|1|1|1|math|пащенко_на|r_16_general",
+        "first_file": "schedule (35).xls",
+        "duplicate_file": "schedule (39).xls"
+      },
+      {
+        "key": "2|5б|1|2|1|math|пащенко_на|r_16_general",
+        "first_file": "schedule (35).xls",
+        "duplicate_file": "schedule (39).xls"
+      },
+      {
+        "key": "2|5б|1|3|1|math|пащенко_на|r_16_general",
+        "first_file": "schedule (35).xls",
+        "duplicate_file": "schedule (39).xls"
+      },
+      {
+        "key": "2|5б|1|4|1|russian|дмитриев_ев|r_17_languagelab",
+        "first_file": "schedule (35).xls",
+        "duplicate_file": "schedule (39).xls"
+      },
+      {
+        "key": "2|5б|1|0|1|xls_caad79222c19|ильясова_аб|r_12_languagelab",
+        "first_file": "schedule (35).xls",
+        "duplicate_file": "schedule (39).xls"
+      },
+      {
+        "key": "2|5б|1|0|2|estestvoznanie|иващенко_во|r_18_general",
+        "first_file": "schedule (35).xls",
+        "duplicate_file": "schedule (39).xls"
+      },
+      {
+        "key": "2|5б|1|1|2|literature|дмитриев_ев|r_17_languagelab",
+        "first_file": "schedule (35).xls",
+        "duplicate_file": "schedule (39).xls"
+      },
+      {
+        "key": "2|5б|1|2|2|pe|ольков_гв|r_2_gym",
+        "first_file": "schedule (35).xls",
+        "duplicate_file": "schedule (39).xls"
+      },
+      {
+        "key": "2|5б|1|3|2|xls_27fd1b2f1ffd|балгабаева_нк|r_6_general",
+        "first_file": "schedule (35).xls",
+        "duplicate_file": "schedule (39).xls"
+      },
+      {
+        "key": "2|5б|1|4|2|pe|ольков_гв|r_2_gym",
+        "first_file": "schedule (35).xls",
+        "duplicate_file": "schedule (39).xls"
+      },
+      {
+        "key": "2|5б|1|3|2|xls_caad79222c19|ильясова_аб|r_12_languagelab",
+        "first_file": "schedule (35).xls",
+        "duplicate_file": "schedule (39).xls"
+      },
+      {
+        "key": "2|5б|1|0|3|math|пащенко_на|r_16_general",
+        "first_file": "schedule (35).xls",
+        "duplicate_file": "schedule (39).xls"
+      },
+      {
+        "key": "2|5б|1|1|3|pe|ольков_гв|r_2_gym",
+        "first_file": "schedule (35).xls",
+        "duplicate_file": "schedule (39).xls"
+      },
+      {
+        "key": "2|5б|1|2|3|music|шкиря_юн|r_20_general",
+        "first_file": "schedule (35).xls",
+        "duplicate_file": "schedule (39).xls"
+      },
+      {
+        "key": "2|5б|1|3|3|xls_89eeb6bf7feb|романишина_им|r_19_workshop",
+        "first_file": "schedule (35).xls",
+        "duplicate_file": "schedule (39).xls"
+      },
+      {
+        "key": "2|5б|1|4|3|math|пащенко_на|r_16_general",
+        "first_file": "schedule (35).xls",
+        "duplicate_file": "schedule (39).xls"
+      },
+      {
+        "key": "2|5б|1|0|4|russian|дмитриев_ев|r_17_languagelab",
+        "first_file": "schedule (35).xls",
+        "duplicate_file": "schedule (39).xls"
+      },
+      {
+        "key": "2|5б|1|1|4|xls_89eeb6bf7feb|романишина_им|r_19_workshop",
+        "first_file": "schedule (35).xls",
+        "duplicate_file": "schedule (39).xls"
+      },
+      {
+        "key": "2|5б|1|2|4|russian|дмитриев_ев|r_17_languagelab",
+        "first_file": "schedule (35).xls",
+        "duplicate_file": "schedule (39).xls"
+      },
+      {
+        "key": "2|5б|1|3|4|literature|дмитриев_ев|r_17_languagelab",
+        "first_file": "schedule (35).xls",
+        "duplicate_file": "schedule (39).xls"
+      },
+      {
+        "key": "2|5б|1|4|4|estestvoznanie|иващенко_во|r_18_general",
+        "first_file": "schedule (35).xls",
+        "duplicate_file": "schedule (39).xls"
+      },
+      {
+        "key": "2|5б|1|0|5|xls_3dc86e3f8429|бедрина_мн|r_11_general",
+        "first_file": "schedule (35).xls",
+        "duplicate_file": "schedule (39).xls"
+      },
+      {
+        "key": "2|5б|1|1|5|аза_стан_тарихы|мельникова_лр|r_3_general",
+        "first_file": "schedule (35).xls",
+        "duplicate_file": "schedule (39).xls"
+      },
+      {
+        "key": "2|5б|1|2|5|english|акауова_ин|r_4_general",
+        "first_file": "schedule (35).xls",
+        "duplicate_file": "schedule (39).xls"
+      },
+      {
+        "key": "2|5б|1|3|5|д_ниеж_з_тарихы|мельникова_лр|r_3_general",
+        "first_file": "schedule (35).xls",
+        "duplicate_file": "schedule (39).xls"
+      },
+      {
+        "key": "2|5б|1|4|5|xls_27fd1b2f1ffd|балгабаева_нк|r_6_general",
+        "first_file": "schedule (35).xls",
+        "duplicate_file": "schedule (39).xls"
+      },
+      {
+        "key": "2|5б|1|0|5|english|алекпарова_аж|r_22_languagelab",
+        "first_file": "schedule (35).xls",
+        "duplicate_file": "schedule (39).xls"
+      },
+      {
+        "key": "2|5б|1|2|5|english|алекпарова_аж|r_22_languagelab",
+        "first_file": "schedule (35).xls",
+        "duplicate_file": "schedule (39).xls"
+      },
+      {
+        "key": "2|5б|1|4|5|xls_caad79222c19|ильясова_аб|r_12_languagelab",
+        "first_file": "schedule (35).xls",
+        "duplicate_file": "schedule (39).xls"
+      },
+      {
+        "key": "2|5б|1|0|6|xls_f58f86a22be9|бедрина_мн|r_11_general",
+        "first_file": "schedule (35).xls",
+        "duplicate_file": "schedule (39).xls"
+      },
+      {
+        "key": "2|5б|1|1|6|xls_27fd1b2f1ffd|балгабаева_нк|r_6_general",
+        "first_file": "schedule (35).xls",
+        "duplicate_file": "schedule (39).xls"
+      },
+      {
+        "key": "2|5б|1|3|6|english|алекпарова_аж|r_22_languagelab",
+        "first_file": "schedule (35).xls",
+        "duplicate_file": "schedule (39).xls"
+      },
+      {
+        "key": "2|5б|1|4|6|аза_стан_тарихы|мельникова_лр|r_3_general",
+        "first_file": "schedule (35).xls",
+        "duplicate_file": "schedule (39).xls"
+      },
+      {
+        "key": "2|5б|1|0|6|english|акауова_ин|r_22_languagelab",
+        "first_file": "schedule (35).xls",
+        "duplicate_file": "schedule (39).xls"
+      },
+      {
+        "key": "2|5б|1|1|6|xls_caad79222c19|ильясова_аб|r_12_languagelab",
+        "first_file": "schedule (35).xls",
+        "duplicate_file": "schedule (39).xls"
+      },
+      {
+        "key": "2|5б|1|3|6|english|акауова_ин|r_4_general",
+        "first_file": "schedule (35).xls",
+        "duplicate_file": "schedule (39).xls"
+      },
+      {
+        "key": "3|5б|1|3|1|math|пащенко_на|r_16_general",
+        "first_file": "schedule (36).xls",
+        "duplicate_file": "schedule (40).xls"
+      },
+      {
+        "key": "3|5б|1|4|1|russian|дмитриев_ев|r_17_languagelab",
+        "first_file": "schedule (36).xls",
+        "duplicate_file": "schedule (40).xls"
+      },
+      {
+        "key": "3|5б|1|3|2|xls_27fd1b2f1ffd|балгабаева_нк|r_6_general",
+        "first_file": "schedule (36).xls",
+        "duplicate_file": "schedule (40).xls"
+      },
+      {
+        "key": "3|5б|1|4|2|pe|ольков_гв|r_2_gym",
+        "first_file": "schedule (36).xls",
+        "duplicate_file": "schedule (40).xls"
+      },
+      {
+        "key": "3|5б|1|3|2|xls_caad79222c19|ильясова_аб|r_12_languagelab",
+        "first_file": "schedule (36).xls",
+        "duplicate_file": "schedule (40).xls"
+      },
+      {
+        "key": "3|5б|1|3|3|xls_89eeb6bf7feb|романишина_им|r_19_workshop",
+        "first_file": "schedule (36).xls",
+        "duplicate_file": "schedule (40).xls"
+      },
+      {
+        "key": "3|5б|1|4|3|math|пащенко_на|r_16_general",
+        "first_file": "schedule (36).xls",
+        "duplicate_file": "schedule (40).xls"
+      },
+      {
+        "key": "3|5б|1|3|4|literature|дмитриев_ев|r_17_languagelab",
+        "first_file": "schedule (36).xls",
+        "duplicate_file": "schedule (40).xls"
+      },
+      {
+        "key": "3|5б|1|4|4|estestvoznanie|иващенко_во|r_18_general",
+        "first_file": "schedule (36).xls",
+        "duplicate_file": "schedule (40).xls"
+      },
+      {
+        "key": "3|5б|1|3|5|д_ниеж_з_тарихы|мельникова_лр|r_3_general",
+        "first_file": "schedule (36).xls",
+        "duplicate_file": "schedule (40).xls"
+      },
+      {
+        "key": "3|5б|1|4|5|xls_caad79222c19|ильясова_аб|r_12_languagelab",
+        "first_file": "schedule (36).xls",
+        "duplicate_file": "schedule (40).xls"
+      },
+      {
+        "key": "3|5б|1|4|5|xls_27fd1b2f1ffd|балгабаева_нк|r_6_general",
+        "first_file": "schedule (36).xls",
+        "duplicate_file": "schedule (40).xls"
+      },
+      {
+        "key": "3|5б|1|3|6|english|алекпарова_аж|r_22_languagelab",
+        "first_file": "schedule (36).xls",
+        "duplicate_file": "schedule (40).xls"
+      },
+      {
+        "key": "3|5б|1|4|6|аза_стан_тарихы|мельникова_лр|r_3_general",
+        "first_file": "schedule (36).xls",
+        "duplicate_file": "schedule (40).xls"
+      },
+      {
+        "key": "3|5б|1|3|6|english|акауова_ин|r_4_general",
+        "first_file": "schedule (36).xls",
+        "duplicate_file": "schedule (40).xls"
+      },
+      {
+        "key": "4|5б|1|0|1|xls_27fd1b2f1ffd|асаева_жх|r_6_general",
+        "first_file": "schedule (37).xls",
+        "duplicate_file": "schedule (41).xls"
+      },
+      {
+        "key": "4|5б|1|1|1|math|пащенко_на|r_16_general",
+        "first_file": "schedule (37).xls",
+        "duplicate_file": "schedule (41).xls"
+      },
+      {
+        "key": "4|5б|1|2|1|math|пащенко_на|r_16_general",
+        "first_file": "schedule (37).xls",
+        "duplicate_file": "schedule (41).xls"
+      },
+      {
+        "key": "4|5б|1|3|1|math|пащенко_на|r_16_general",
+        "first_file": "schedule (37).xls",
+        "duplicate_file": "schedule (41).xls"
+      },
+      {
+        "key": "4|5б|1|4|1|russian|дмитриев_ев|r_17_languagelab",
+        "first_file": "schedule (37).xls",
+        "duplicate_file": "schedule (41).xls"
+      },
+      {
+        "key": "4|5б|1|0|1|xls_caad79222c19|ильясова_аб|r_12_languagelab",
+        "first_file": "schedule (37).xls",
+        "duplicate_file": "schedule (41).xls"
+      },
+      {
+        "key": "4|5б|1|0|2|estestvoznanie|иващенко_во|r_18_general",
+        "first_file": "schedule (37).xls",
+        "duplicate_file": "schedule (41).xls"
+      },
+      {
+        "key": "4|5б|1|1|2|literature|дмитриев_ев|r_17_languagelab",
+        "first_file": "schedule (37).xls",
+        "duplicate_file": "schedule (41).xls"
+      },
+      {
+        "key": "4|5б|1|2|2|xls_27fd1b2f1ffd|асаева_жх|r_6_general",
+        "first_file": "schedule (37).xls",
+        "duplicate_file": "schedule (41).xls"
+      },
+      {
+        "key": "4|5б|1|3|2|xls_27fd1b2f1ffd|асаева_жх|r_6_general",
+        "first_file": "schedule (37).xls",
+        "duplicate_file": "schedule (41).xls"
+      },
+      {
+        "key": "4|5б|1|4|2|pe|ольков_гв|r_2_gym",
+        "first_file": "schedule (37).xls",
+        "duplicate_file": "schedule (41).xls"
+      },
+      {
+        "key": "4|5б|1|2|2|xls_caad79222c19|ильясова_аб|r_12_languagelab",
+        "first_file": "schedule (37).xls",
+        "duplicate_file": "schedule (41).xls"
+      },
+      {
+        "key": "4|5б|1|3|2|xls_caad79222c19|ильясова_аб|r_12_languagelab",
+        "first_file": "schedule (37).xls",
+        "duplicate_file": "schedule (41).xls"
+      },
+      {
+        "key": "4|5б|1|0|3|math|пащенко_на|r_16_general",
+        "first_file": "schedule (37).xls",
+        "duplicate_file": "schedule (41).xls"
+      },
+      {
+        "key": "4|5б|1|1|3|pe|ольков_гв|r_2_gym",
+        "first_file": "schedule (37).xls",
+        "duplicate_file": "schedule (41).xls"
+      },
+      {
+        "key": "4|5б|1|2|3|music|шкиря_юн|r_20_general",
+        "first_file": "schedule (37).xls",
+        "duplicate_file": "schedule (41).xls"
+      },
+      {
+        "key": "4|5б|1|3|3|xls_89eeb6bf7feb|романишина_им|r_19_workshop",
+        "first_file": "schedule (37).xls",
+        "duplicate_file": "schedule (41).xls"
+      },
+      {
+        "key": "4|5б|1|4|3|math|пащенко_на|r_16_general",
+        "first_file": "schedule (37).xls",
+        "duplicate_file": "schedule (41).xls"
+      },
+      {
+        "key": "4|5б|1|0|4|russian|дмитриев_ев|r_17_languagelab",
+        "first_file": "schedule (37).xls",
+        "duplicate_file": "schedule (41).xls"
+      },
+      {
+        "key": "4|5б|1|1|4|xls_89eeb6bf7feb|романишина_им|r_19_workshop",
+        "first_file": "schedule (37).xls",
+        "duplicate_file": "schedule (41).xls"
+      },
+      {
+        "key": "4|5б|1|2|4|english|алекпарова_аж|r_22_languagelab",
+        "first_file": "schedule (37).xls",
+        "duplicate_file": "schedule (41).xls"
+      },
+      {
+        "key": "4|5б|1|3|4|literature|дмитриев_ев|r_17_languagelab",
+        "first_file": "schedule (37).xls",
+        "duplicate_file": "schedule (41).xls"
+      },
+      {
+        "key": "4|5б|1|4|4|estestvoznanie|иващенко_во|r_18_general",
+        "first_file": "schedule (37).xls",
+        "duplicate_file": "schedule (41).xls"
+      },
+      {
+        "key": "4|5б|1|2|4|english|акауова_ин|r_4_general",
+        "first_file": "schedule (37).xls",
+        "duplicate_file": "schedule (41).xls"
+      },
+      {
+        "key": "4|5б|1|0|5|xls_3dc86e3f8429|бедрина_мн|r_11_general",
+        "first_file": "schedule (37).xls",
+        "duplicate_file": "schedule (41).xls"
+      },
+      {
+        "key": "4|5б|1|1|5|аза_стан_тарихы|мельникова_лр|r_3_general",
+        "first_file": "schedule (37).xls",
+        "duplicate_file": "schedule (41).xls"
+      },
+      {
+        "key": "4|5б|1|2|5|russian|дмитриев_ев|r_17_languagelab",
+        "first_file": "schedule (37).xls",
+        "duplicate_file": "schedule (41).xls"
+      },
+      {
+        "key": "4|5б|1|3|5|д_ниеж_з_тарихы|мельникова_лр|r_3_general",
+        "first_file": "schedule (37).xls",
+        "duplicate_file": "schedule (41).xls"
+      },
+      {
+        "key": "4|5б|1|4|5|xls_27fd1b2f1ffd|асаева_жх|r_6_general",
+        "first_file": "schedule (37).xls",
+        "duplicate_file": "schedule (41).xls"
+      },
+      {
+        "key": "4|5б|1|0|5|english|алекпарова_аж|r_22_languagelab",
+        "first_file": "schedule (37).xls",
+        "duplicate_file": "schedule (41).xls"
+      },
+      {
+        "key": "4|5б|1|4|5|xls_caad79222c19|ильясова_аб|r_12_languagelab",
+        "first_file": "schedule (37).xls",
+        "duplicate_file": "schedule (41).xls"
+      },
+      {
+        "key": "4|5б|1|0|6|xls_f58f86a22be9|бедрина_мн|r_11_general",
+        "first_file": "schedule (37).xls",
+        "duplicate_file": "schedule (41).xls"
+      },
+      {
+        "key": "4|5б|1|2|6|pe|ольков_гв|r_2_gym",
+        "first_file": "schedule (37).xls",
+        "duplicate_file": "schedule (41).xls"
+      },
+      {
+        "key": "4|5б|1|3|6|english|алекпарова_аж|r_22_languagelab",
+        "first_file": "schedule (37).xls",
+        "duplicate_file": "schedule (41).xls"
+      },
+      {
+        "key": "4|5б|1|4|6|аза_стан_тарихы|мельникова_лр|r_3_general",
+        "first_file": "schedule (37).xls",
+        "duplicate_file": "schedule (41).xls"
+      },
+      {
+        "key": "4|5б|1|0|6|english|акауова_ин|r_22_languagelab",
+        "first_file": "schedule (37).xls",
+        "duplicate_file": "schedule (41).xls"
+      },
+      {
+        "key": "4|5б|1|3|6|english|акауова_ин|r_4_general",
+        "first_file": "schedule (37).xls",
+        "duplicate_file": "schedule (41).xls"
+      },
+      {
+        "key": "1|5_luo|1|1|1|math|пащенко_на|r_16_general",
+        "first_file": "schedule (42).xls",
+        "duplicate_file": "schedule (46).xls"
+      },
+      {
+        "key": "1|5_luo|1|2|1|math|пащенко_на|r_16_general",
+        "first_file": "schedule (42).xls",
+        "duplicate_file": "schedule (46).xls"
+      },
+      {
+        "key": "1|5_luo|1|3|1|math|пащенко_на|r_16_general",
+        "first_file": "schedule (42).xls",
+        "duplicate_file": "schedule (46).xls"
+      },
+      {
+        "key": "1|5_luo|1|4|1|russian|дмитриев_ев|r_17_languagelab",
+        "first_file": "schedule (42).xls",
+        "duplicate_file": "schedule (46).xls"
+      },
+      {
+        "key": "1|5_luo|1|1|2|ч_и_рр|дмитриев_ев|r_17_languagelab",
+        "first_file": "schedule (42).xls",
+        "duplicate_file": "schedule (46).xls"
+      },
+      {
+        "key": "1|5_luo|1|2|2|афк|ольков_гв|r_2_gym",
+        "first_file": "schedule (42).xls",
+        "duplicate_file": "schedule (46).xls"
+      },
+      {
+        "key": "1|5_luo|1|3|2|kazakh_language|балгабаева_нк|r_12_languagelab",
+        "first_file": "schedule (42).xls",
+        "duplicate_file": "schedule (46).xls"
+      },
+      {
+        "key": "1|5_luo|1|4|2|афк|ольков_гв|r_2_gym",
+        "first_file": "schedule (42).xls",
+        "duplicate_file": "schedule (46).xls"
+      },
+      {
+        "key": "1|5_luo|1|1|3|афк|ольков_гв|r_2_gym",
+        "first_file": "schedule (42).xls",
+        "duplicate_file": "schedule (46).xls"
+      },
+      {
+        "key": "1|5_luo|1|2|3|music|шкиря_юн|r_1_general",
+        "first_file": "schedule (42).xls",
+        "duplicate_file": "schedule (46).xls"
+      },
+      {
+        "key": "1|5_luo|1|3|3|оп_девочки|романишина_им|r_19_workshop",
+        "first_file": "schedule (42).xls",
+        "duplicate_file": "schedule (46).xls"
+      },
+      {
+        "key": "1|5_luo|1|4|3|math|пащенко_на|r_16_general",
+        "first_file": "schedule (42).xls",
+        "duplicate_file": "schedule (46).xls"
+      },
+      {
+        "key": "1|5_luo|1|3|3|оп_мальчики|кашикова_гх|r_19_workshop",
+        "first_file": "schedule (42).xls",
+        "duplicate_file": "schedule (46).xls"
+      },
+      {
+        "key": "1|5_luo|1|1|4|оп_мальчики|кашикова_гх|r_21_workshop",
+        "first_file": "schedule (42).xls",
+        "duplicate_file": "schedule (46).xls"
+      },
+      {
+        "key": "1|5_luo|1|2|4|russian|дмитриев_ев|r_17_languagelab",
+        "first_file": "schedule (42).xls",
+        "duplicate_file": "schedule (46).xls"
+      },
+      {
+        "key": "1|5_luo|1|3|4|ч_и_рр|дмитриев_ев|r_17_languagelab",
+        "first_file": "schedule (42).xls",
+        "duplicate_file": "schedule (46).xls"
+      },
+      {
+        "key": "1|5_luo|1|4|4|мир_вокруг|иващенко_во|r_18_general",
+        "first_file": "schedule (42).xls",
+        "duplicate_file": "schedule (46).xls"
+      },
+      {
+        "key": "1|5_luo|1|1|4|оп_девочки|романишина_им|r_19_workshop",
+        "first_file": "schedule (42).xls",
+        "duplicate_file": "schedule (46).xls"
+      },
+      {
+        "key": "2|5_luo|1|0|1|kazakh_language|балгабаева_нк|r_12_languagelab",
+        "first_file": "schedule (43).xls",
+        "duplicate_file": "schedule (47).xls"
+      },
+      {
+        "key": "2|5_luo|1|1|1|math|пащенко_на|r_16_general",
+        "first_file": "schedule (43).xls",
+        "duplicate_file": "schedule (47).xls"
+      },
+      {
+        "key": "2|5_luo|1|2|1|math|пащенко_на|r_16_general",
+        "first_file": "schedule (43).xls",
+        "duplicate_file": "schedule (47).xls"
+      },
+      {
+        "key": "2|5_luo|1|3|1|math|пащенко_на|r_16_general",
+        "first_file": "schedule (43).xls",
+        "duplicate_file": "schedule (47).xls"
+      },
+      {
+        "key": "2|5_luo|1|4|1|russian|дмитриев_ев|r_17_languagelab",
+        "first_file": "schedule (43).xls",
+        "duplicate_file": "schedule (47).xls"
+      },
+      {
+        "key": "2|5_luo|1|0|2|мир_вокруг|иващенко_во|r_18_general",
+        "first_file": "schedule (43).xls",
+        "duplicate_file": "schedule (47).xls"
+      },
+      {
+        "key": "2|5_luo|1|1|2|ч_и_рр|дмитриев_ев|r_17_languagelab",
+        "first_file": "schedule (43).xls",
+        "duplicate_file": "schedule (47).xls"
+      },
+      {
+        "key": "2|5_luo|1|2|2|афк|ольков_гв|r_2_gym",
+        "first_file": "schedule (43).xls",
+        "duplicate_file": "schedule (47).xls"
+      },
+      {
+        "key": "2|5_luo|1|3|2|kazakh_language|балгабаева_нк|r_12_languagelab",
+        "first_file": "schedule (43).xls",
+        "duplicate_file": "schedule (47).xls"
+      },
+      {
+        "key": "2|5_luo|1|4|2|афк|ольков_гв|r_2_gym",
+        "first_file": "schedule (43).xls",
+        "duplicate_file": "schedule (47).xls"
+      },
+      {
+        "key": "2|5_luo|1|0|3|math|пащенко_на|r_16_general",
+        "first_file": "schedule (43).xls",
+        "duplicate_file": "schedule (47).xls"
+      },
+      {
+        "key": "2|5_luo|1|1|3|афк|ольков_гв|r_2_gym",
+        "first_file": "schedule (43).xls",
+        "duplicate_file": "schedule (47).xls"
+      },
+      {
+        "key": "2|5_luo|1|2|3|music|шкиря_юн|r_1_general",
+        "first_file": "schedule (43).xls",
+        "duplicate_file": "schedule (47).xls"
+      },
+      {
+        "key": "2|5_luo|1|3|3|xls_2a28fa2a1521|романишина_им|r_19_workshop",
+        "first_file": "schedule (43).xls",
+        "duplicate_file": "schedule (47).xls"
+      },
+      {
+        "key": "2|5_luo|1|4|3|math|пащенко_на|r_16_general",
+        "first_file": "schedule (43).xls",
+        "duplicate_file": "schedule (47).xls"
+      },
+      {
+        "key": "2|5_luo|1|0|4|russian|дмитриев_ев|r_17_languagelab",
+        "first_file": "schedule (43).xls",
+        "duplicate_file": "schedule (47).xls"
+      },
+      {
+        "key": "2|5_luo|1|1|4|xls_2a28fa2a1521|романишина_им|r_19_workshop",
+        "first_file": "schedule (43).xls",
+        "duplicate_file": "schedule (47).xls"
+      },
+      {
+        "key": "2|5_luo|1|2|4|russian|дмитриев_ев|r_17_languagelab",
+        "first_file": "schedule (43).xls",
+        "duplicate_file": "schedule (47).xls"
+      },
+      {
+        "key": "2|5_luo|1|3|4|ч_и_рр|дмитриев_ев|r_17_languagelab",
+        "first_file": "schedule (43).xls",
+        "duplicate_file": "schedule (47).xls"
+      },
+      {
+        "key": "2|5_luo|1|4|4|мир_вокруг|иващенко_во|r_18_general",
+        "first_file": "schedule (43).xls",
+        "duplicate_file": "schedule (47).xls"
+      },
+      {
+        "key": "3|5_luo|1|3|1|math|пащенко_на|r_16_general",
+        "first_file": "schedule (44).xls",
+        "duplicate_file": "schedule (48).xls"
+      },
+      {
+        "key": "3|5_luo|1|4|1|russian|дмитриев_ев|r_17_languagelab",
+        "first_file": "schedule (44).xls",
+        "duplicate_file": "schedule (48).xls"
+      },
+      {
+        "key": "3|5_luo|1|3|2|kazakh_language|балгабаева_нк|r_12_languagelab",
+        "first_file": "schedule (44).xls",
+        "duplicate_file": "schedule (48).xls"
+      },
+      {
+        "key": "3|5_luo|1|4|2|афк|ольков_гв|r_2_gym",
+        "first_file": "schedule (44).xls",
+        "duplicate_file": "schedule (48).xls"
+      },
+      {
+        "key": "3|5_luo|1|3|3|xls_2a28fa2a1521|романишина_им|r_19_workshop",
+        "first_file": "schedule (44).xls",
+        "duplicate_file": "schedule (48).xls"
+      },
+      {
+        "key": "3|5_luo|1|4|3|math|пащенко_на|r_16_general",
+        "first_file": "schedule (44).xls",
+        "duplicate_file": "schedule (48).xls"
+      },
+      {
+        "key": "3|5_luo|1|3|4|ч_и_рр|дмитриев_ев|r_17_languagelab",
+        "first_file": "schedule (44).xls",
+        "duplicate_file": "schedule (48).xls"
+      },
+      {
+        "key": "3|5_luo|1|4|4|мир_вокруг|иващенко_во|r_18_general",
+        "first_file": "schedule (44).xls",
+        "duplicate_file": "schedule (48).xls"
+      },
+      {
+        "key": "4|5_luo|1|1|1|math|пащенко_на|r_16_general",
+        "first_file": "schedule (45).xls",
+        "duplicate_file": "schedule (49).xls"
+      },
+      {
+        "key": "4|5_luo|1|2|1|math|пащенко_на|r_16_general",
+        "first_file": "schedule (45).xls",
+        "duplicate_file": "schedule (49).xls"
+      },
+      {
+        "key": "4|5_luo|1|3|1|math|пащенко_на|r_16_general",
+        "first_file": "schedule (45).xls",
+        "duplicate_file": "schedule (49).xls"
+      },
+      {
+        "key": "4|5_luo|1|4|1|russian|дмитриев_ев|r_17_languagelab",
+        "first_file": "schedule (45).xls",
+        "duplicate_file": "schedule (49).xls"
+      },
+      {
+        "key": "4|5_luo|1|0|2|мир_вокруг|иващенко_во|r_18_general",
+        "first_file": "schedule (45).xls",
+        "duplicate_file": "schedule (49).xls"
+      },
+      {
+        "key": "4|5_luo|1|1|2|ч_и_рр|дмитриев_ев|r_17_languagelab",
+        "first_file": "schedule (45).xls",
+        "duplicate_file": "schedule (49).xls"
+      },
+      {
+        "key": "4|5_luo|1|2|2|kazakh_language|асаева_жх|r_12_languagelab",
+        "first_file": "schedule (45).xls",
+        "duplicate_file": "schedule (49).xls"
+      },
+      {
+        "key": "4|5_luo|1|3|2|kazakh_language|асаева_жх|r_12_languagelab",
+        "first_file": "schedule (45).xls",
+        "duplicate_file": "schedule (49).xls"
+      },
+      {
+        "key": "4|5_luo|1|4|2|афк|ольков_гв|r_2_gym",
+        "first_file": "schedule (45).xls",
+        "duplicate_file": "schedule (49).xls"
+      },
+      {
+        "key": "4|5_luo|1|0|3|math|пащенко_на|r_16_general",
+        "first_file": "schedule (45).xls",
+        "duplicate_file": "schedule (49).xls"
+      },
+      {
+        "key": "4|5_luo|1|1|3|афк|ольков_гв|r_2_gym",
+        "first_file": "schedule (45).xls",
+        "duplicate_file": "schedule (49).xls"
+      },
+      {
+        "key": "4|5_luo|1|2|3|music|шкиря_юн|r_1_general",
+        "first_file": "schedule (45).xls",
+        "duplicate_file": "schedule (49).xls"
+      },
+      {
+        "key": "4|5_luo|1|3|3|xls_2a28fa2a1521|романишина_им|r_19_workshop",
+        "first_file": "schedule (45).xls",
+        "duplicate_file": "schedule (49).xls"
+      },
+      {
+        "key": "4|5_luo|1|4|3|math|пащенко_на|r_16_general",
+        "first_file": "schedule (45).xls",
+        "duplicate_file": "schedule (49).xls"
+      },
+      {
+        "key": "4|5_luo|1|0|4|russian|дмитриев_ев|r_17_languagelab",
+        "first_file": "schedule (45).xls",
+        "duplicate_file": "schedule (49).xls"
+      },
+      {
+        "key": "4|5_luo|1|1|4|xls_2a28fa2a1521|романишина_им|r_19_workshop",
+        "first_file": "schedule (45).xls",
+        "duplicate_file": "schedule (49).xls"
+      },
+      {
+        "key": "4|5_luo|1|3|4|ч_и_рр|дмитриев_ев|r_17_languagelab",
+        "first_file": "schedule (45).xls",
+        "duplicate_file": "schedule (49).xls"
+      },
+      {
+        "key": "4|5_luo|1|4|4|мир_вокруг|иващенко_во|r_18_general",
+        "first_file": "schedule (45).xls",
+        "duplicate_file": "schedule (49).xls"
+      },
+      {
+        "key": "4|5_luo|1|2|5|russian|дмитриев_ев|r_17_languagelab",
+        "first_file": "schedule (45).xls",
+        "duplicate_file": "schedule (49).xls"
+      },
+      {
+        "key": "4|5_luo|1|2|6|афк|ольков_гв|r_2_gym",
+        "first_file": "schedule (45).xls",
+        "duplicate_file": "schedule (49).xls"
+      },
+      {
+        "key": "1|6_do|1|1|1|izo|романишина_им|r_1_general",
+        "first_file": "schedule (58).xls",
+        "duplicate_file": "schedule (59).xls"
+      },
+      {
+        "key": "1|6_do|1|2|1|счет|ажикенова_ма|r_1_general",
+        "first_file": "schedule (58).xls",
+        "duplicate_file": "schedule (59).xls"
+      },
+      {
+        "key": "1|6_do|1|3|1|сбо|романишина_им|r_1_general",
+        "first_file": "schedule (58).xls",
+        "duplicate_file": "schedule (59).xls"
+      },
+      {
+        "key": "1|6_do|1|4|1|счет|ажикенова_ма|r_1_general",
+        "first_file": "schedule (58).xls",
+        "duplicate_file": "schedule (59).xls"
+      },
+      {
+        "key": "1|6_do|1|1|2|человек_и_мир|давранова_к|r_1_general",
+        "first_file": "schedule (58).xls",
+        "duplicate_file": "schedule (59).xls"
+      },
+      {
+        "key": "1|6_do|1|2|2|пр|давранова_к|r_1_general",
+        "first_file": "schedule (58).xls",
+        "duplicate_file": "schedule (59).xls"
+      },
+      {
+        "key": "1|6_do|1|3|2|ррик|давранова_к|r_1_general",
+        "first_file": "schedule (58).xls",
+        "duplicate_file": "schedule (59).xls"
+      },
+      {
+        "key": "1|6_do|1|4|2|человек_и_мир|давранова_к|r_1_general",
+        "first_file": "schedule (58).xls",
+        "duplicate_file": "schedule (59).xls"
+      },
+      {
+        "key": "1|9_do|1|1|1|счет|дукач_та|r_1_general",
+        "first_file": "schedule (91).xls",
+        "duplicate_file": "schedule - 2026-08-24T101006.673.xls"
+      },
+      {
+        "key": "1|9_do|1|2|1|сбо|романишина_им|r_1_general",
+        "first_file": "schedule (91).xls",
+        "duplicate_file": "schedule - 2026-08-24T101006.673.xls"
+      },
+      {
+        "key": "1|9_do|1|3|1|ррик|дукач_та|r_1_general",
+        "first_file": "schedule (91).xls",
+        "duplicate_file": "schedule - 2026-08-24T101006.673.xls"
+      },
+      {
+        "key": "1|9_do|1|4|1|счет|дукач_та|r_1_general",
+        "first_file": "schedule (91).xls",
+        "duplicate_file": "schedule - 2026-08-24T101006.673.xls"
+      },
+      {
+        "key": "1|9_do|1|1|2|пр|дукач_та|r_1_general",
+        "first_file": "schedule (91).xls",
+        "duplicate_file": "schedule - 2026-08-24T101006.673.xls"
+      },
+      {
+        "key": "1|9_do|1|2|2|izo|романишина_им|r_1_general",
+        "first_file": "schedule (91).xls",
+        "duplicate_file": "schedule - 2026-08-24T101006.673.xls"
+      },
+      {
+        "key": "1|9_do|1|3|2|человек_и_мир|дукач_та|r_1_general",
+        "first_file": "schedule (91).xls",
+        "duplicate_file": "schedule - 2026-08-24T101006.673.xls"
+      },
+      {
+        "key": "1|9_do|1|4|2|xls_5ff4105a8083|романишина_им|r_1_general",
+        "first_file": "schedule (91).xls",
+        "duplicate_file": "schedule - 2026-08-24T101006.673.xls"
+      },
+      {
+        "key": "2|9_do|1|0|1|ррик|дукач_та|r_1_general",
+        "first_file": "schedule (92).xls",
+        "duplicate_file": "schedule - 2026-08-24T101010.414.xls"
+      },
+      {
+        "key": "2|9_do|1|1|1|счет|дукач_та|r_1_general",
+        "first_file": "schedule (92).xls",
+        "duplicate_file": "schedule - 2026-08-24T101010.414.xls"
+      },
+      {
+        "key": "2|9_do|1|2|1|сбо|романишина_им|r_1_general",
+        "first_file": "schedule (92).xls",
+        "duplicate_file": "schedule - 2026-08-24T101010.414.xls"
+      },
+      {
+        "key": "2|9_do|1|3|1|ррик|дукач_та|r_1_general",
+        "first_file": "schedule (92).xls",
+        "duplicate_file": "schedule - 2026-08-24T101010.414.xls"
+      },
+      {
+        "key": "2|9_do|1|4|1|счет|дукач_та|r_1_general",
+        "first_file": "schedule (92).xls",
+        "duplicate_file": "schedule - 2026-08-24T101010.414.xls"
+      },
+      {
+        "key": "2|9_do|1|0|2|человек_и_мир|дукач_та|r_1_general",
+        "first_file": "schedule (92).xls",
+        "duplicate_file": "schedule - 2026-08-24T101010.414.xls"
+      },
+      {
+        "key": "2|9_do|1|1|2|пр|дукач_та|r_1_general",
+        "first_file": "schedule (92).xls",
+        "duplicate_file": "schedule - 2026-08-24T101010.414.xls"
+      },
+      {
+        "key": "2|9_do|1|2|2|izo|романишина_им|r_1_general",
+        "first_file": "schedule (92).xls",
+        "duplicate_file": "schedule - 2026-08-24T101010.414.xls"
+      },
+      {
+        "key": "2|9_do|1|3|2|человек_и_мир|дукач_та|r_1_general",
+        "first_file": "schedule (92).xls",
+        "duplicate_file": "schedule - 2026-08-24T101010.414.xls"
+      },
+      {
+        "key": "2|9_do|1|4|2|xls_5ff4105a8083|романишина_им|r_1_general",
+        "first_file": "schedule (92).xls",
+        "duplicate_file": "schedule - 2026-08-24T101010.414.xls"
+      },
+      {
+        "key": "3|9_do|1|3|1|ррик|дукач_та|r_1_general",
+        "first_file": "schedule (93).xls",
+        "duplicate_file": "schedule - 2026-08-24T101015.450.xls"
+      },
+      {
+        "key": "3|9_do|1|4|1|счет|дукач_та|r_1_general",
+        "first_file": "schedule (93).xls",
+        "duplicate_file": "schedule - 2026-08-24T101015.450.xls"
+      },
+      {
+        "key": "3|9_do|1|3|2|человек_и_мир|дукач_та|r_1_general",
+        "first_file": "schedule (93).xls",
+        "duplicate_file": "schedule - 2026-08-24T101015.450.xls"
+      },
+      {
+        "key": "3|9_do|1|4|2|xls_5ff4105a8083|романишина_им|r_1_general",
+        "first_file": "schedule (93).xls",
+        "duplicate_file": "schedule - 2026-08-24T101015.450.xls"
+      },
+      {
+        "key": "4|9_do|1|0|1|ррик|дукач_та|r_1_general",
+        "first_file": "schedule (94).xls",
+        "duplicate_file": "schedule - 2026-08-24T101019.718.xls"
+      },
+      {
+        "key": "4|9_do|1|1|1|счет|дукач_та|r_1_general",
+        "first_file": "schedule (94).xls",
+        "duplicate_file": "schedule - 2026-08-24T101019.718.xls"
+      },
+      {
+        "key": "4|9_do|1|2|1|сбо|романишина_им|r_1_general",
+        "first_file": "schedule (94).xls",
+        "duplicate_file": "schedule - 2026-08-24T101019.718.xls"
+      },
+      {
+        "key": "4|9_do|1|3|1|ррик|дукач_та|r_1_general",
+        "first_file": "schedule (94).xls",
+        "duplicate_file": "schedule - 2026-08-24T101019.718.xls"
+      },
+      {
+        "key": "4|9_do|1|4|1|счет|дукач_та|r_1_general",
+        "first_file": "schedule (94).xls",
+        "duplicate_file": "schedule - 2026-08-24T101019.718.xls"
+      },
+      {
+        "key": "4|9_do|1|0|2|человек_и_мир|дукач_та|r_1_general",
+        "first_file": "schedule (94).xls",
+        "duplicate_file": "schedule - 2026-08-24T101019.718.xls"
+      },
+      {
+        "key": "4|9_do|1|1|2|пр|дукач_та|r_1_general",
+        "first_file": "schedule (94).xls",
+        "duplicate_file": "schedule - 2026-08-24T101019.718.xls"
+      },
+      {
+        "key": "4|9_do|1|2|2|izo|романишина_им|r_1_general",
+        "first_file": "schedule (94).xls",
+        "duplicate_file": "schedule - 2026-08-24T101019.718.xls"
+      },
+      {
+        "key": "4|9_do|1|3|2|человек_и_мир|дукач_та|r_1_general",
+        "first_file": "schedule (94).xls",
+        "duplicate_file": "schedule - 2026-08-24T101019.718.xls"
+      },
+      {
+        "key": "4|9_do|1|4|2|xls_5ff4105a8083|романишина_им|r_1_general",
+        "first_file": "schedule (94).xls",
+        "duplicate_file": "schedule - 2026-08-24T101019.718.xls"
+      }
+    ]
+  }
+}

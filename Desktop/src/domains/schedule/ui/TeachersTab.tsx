@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState, Fragment } from "react";
 import { scheduleApi } from "../api";
 import type { ScheduleState } from "../../../types";
 import { showToast } from "../../../components/Toast";
@@ -20,17 +20,31 @@ function availabilityToJson(matrix: boolean[][]): string {
   return JSON.stringify(matrix);
 }
 
+function availCount(json: string): number {
+  const m = parseAvailability(json);
+  return m.reduce((acc, row) => acc + row.filter(Boolean).length, 0);
+}
+
 export function TeachersTab() {
   const [list, setList] = useState<ScheduleState["teachers"]>([]);
+  const [rooms, setRooms] = useState<ScheduleState["rooms"]>([]);
   const [name, setName] = useState("");
   const [search, setSearch] = useState("");
-  const [editingId, setEditingId] = useState<string | null>(null);
-  const [editName, setEditName] = useState("");
-  const [editMax, setEditMax] = useState(0);
-  const [editAvail, setEditAvail] = useState<boolean[][]>([]);
+  const [filterRoom, setFilterRoom] = useState("all");
   const [errors, setErrors] = useState<Record<string, string>>({});
 
-  const load = async () => setList((await scheduleApi.getState()).teachers);
+  // modal (settings) state
+  const [modalTeacher, setModalTeacher] = useState<ScheduleState["teachers"][0] | null>(null);
+  const [editName, setEditName] = useState("");
+  const [editMax, setEditMax] = useState(0);
+  const [editRoom, setEditRoom] = useState("");
+  const [editAvail, setEditAvail] = useState<boolean[][]>([]);
+
+  const load = async () => {
+    const data = await scheduleApi.getState();
+    setList(data.teachers);
+    setRooms(data.rooms);
+  };
   useEffect(() => { load(); }, []);
 
   const add = async () => {
@@ -43,19 +57,21 @@ export function TeachersTab() {
     showToast("Учитель добавлен", "success");
   };
 
-  const startEdit = (t: ScheduleState["teachers"][0]) => {
-    setEditingId(t.id);
+  const openModal = (t: ScheduleState["teachers"][0]) => {
+    setModalTeacher(t);
     setEditName(t.full_name);
     setEditMax(t.max_daily_lessons);
+    setEditRoom(t.base_room_id || "");
     setEditAvail(parseAvailability(t.availability_json));
     setErrors({});
   };
+
+  const closeModal = () => setModalTeacher(null);
 
   const saveEdit = async (id: string) => {
     const newErrors: Record<string, string> = {};
     if (!editName.trim()) newErrors.editName = "ФИО обязателен";
     if (editMax < 0 || editMax > 10) newErrors.editMax = "Макс. 0..10";
-    // Check at least one true in availability
     const hasAnyTrue = editAvail.some(row => row.some(v => v));
     if (!hasAnyTrue) newErrors.editAvail = "Хотя бы один слот должен быть доступен";
     if (Object.keys(newErrors).length > 0) { setErrors(newErrors); return; }
@@ -63,16 +79,18 @@ export function TeachersTab() {
     await scheduleApi.upsertTeacher({
       id,
       full_name: editName,
+      base_room_id: editRoom || null,
       max_daily_lessons: editMax,
       availability_json: availabilityToJson(editAvail),
     });
-    setEditingId(null); setErrors({}); load();
+    setErrors({}); closeModal(); load();
     showToast("Учитель обновлён", "success");
   };
 
   const deleteTeacher = (id: string, label: string) => {
     if (window.confirm(`Удалить учителя «${label}»?`)) {
       scheduleApi.deleteTeacher(id).then(() => {
+        setModalTeacher(null);
         load();
         showToast("Учитель удалён", "success");
       });
@@ -87,11 +105,33 @@ export function TeachersTab() {
     });
   };
 
+  const setAll = (value: boolean) =>
+    setEditAvail(prev => prev.map(row => row.map(() => value)));
+
+  const clearPeriod = (period: number) =>
+    setEditAvail(prev => prev.map(row => {
+      const next = [...row];
+      next[period] = false;
+      return next;
+    }));
+
+  const clearDay = (day: number) =>
+    setEditAvail(prev => {
+      const next = prev.map(row => [...row]);
+      next[day] = next[day].map(() => false);
+      return next;
+    });
+
+  const roomName = (id?: string | null) => rooms.find(r => r.id === id)?.name || "—";
+
   const filtered = useMemo(() => {
-    if (!search.trim()) return list;
-    const q = search.toLowerCase();
-    return list.filter(t => t.full_name.toLowerCase().includes(q));
-  }, [list, search]);
+    const q = search.trim().toLowerCase();
+    return list.filter(t => {
+      if (filterRoom !== "all" && (t.base_room_id || "") !== filterRoom) return false;
+      if (q && !t.full_name.toLowerCase().includes(q)) return false;
+      return true;
+    });
+  }, [list, search, filterRoom]);
 
   return (
     <div className="card">
@@ -101,61 +141,130 @@ export function TeachersTab() {
         <button className="btn" onClick={add}>Добавить</button>
       </div>
       {errors.name && <p className="field-error">{errors.name}</p>}
-      {list.length > 5 && (
-        <div className="row">
-          <input placeholder="Поиск по ФИО..." value={search} onChange={e => setSearch(e.target.value)} style={{ minWidth: 200 }} />
+
+      {list.length > 0 && (
+        <div className="filter-selects">
+          <select className="filter-select" value={filterRoom} onChange={e => setFilterRoom(e.target.value)}>
+            <option value="all">Все кабинеты</option>
+            {rooms.map(r => <option key={r.id} value={r.id}>{r.name}</option>)}
+          </select>
+          <input className="search-input" placeholder="Поиск по ФИО..." value={search} onChange={e => setSearch(e.target.value)} />
         </div>
       )}
-      <ul>
-        {filtered.map(t => (
-          <li key={t.id}>
-            {editingId === t.id ? (
-              <div className="inline-edit-form">
-                <div className="row">
-                  <input value={editName} onChange={e => { setEditName(e.target.value); setErrors({}); }} style={{ minWidth: 150 }} />
-                  <label>Макс. ур./день: <input type="number" value={editMax} onChange={e => setEditMax(Number(e.target.value))} style={{ width: 60 }} /></label>
-                  <button className="btn btn-small btn-primary" onClick={() => saveEdit(t.id)}>Сохранить</button>
-                  <button className="btn btn-small" onClick={() => setEditingId(null)}>Отмена</button>
-                </div>
-                {errors.editName && <p className="field-error">{errors.editName}</p>}
-                {errors.editMax && <p className="field-error">{errors.editMax}</p>}
-                {errors.editAvail && <p className="field-error">{errors.editAvail}</p>}
 
-                <div className="availability-matrix">
-                  <h4>Матрица доступности (отметьте доступные слоты)</h4>
-                  <div className="availability-grid">
-                    <div className="header"></div>
-                    {PERIODS.map(p => <div key={p} className="header">{p}</div>)}
-                    {DAYS.map((day, d) => (
-                      <React.Fragment key={d}>
-                        <div className="day-label">{day}</div>
-                        {PERIODS.map((_, p) => (
-                          <div key={p} className="cell">
-                            <input
-                              type="checkbox"
-                              checked={editAvail[d]?.[p] ?? true}
-                              onChange={() => toggleAvail(d, p)}
-                            />
-                          </div>
-                        ))}
-                      </React.Fragment>
-                    ))}
-                  </div>
+      {filtered.length === 0 ? (
+        <p className="muted">Нет учителей по выбранному фильтру.</p>
+      ) : (
+        <table className="table centered">
+          <thead>
+            <tr>
+              <th>ФИО</th>
+              <th>Кабинет</th>
+              <th>Макс. ур./день</th>
+              <th>Доступность</th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody>
+            {filtered.map(t => (
+              <tr key={t.id} className="clickable" onClick={() => openModal(t)}>
+                <td className="cell-main">{t.full_name}</td>
+                <td>{roomName(t.base_room_id)}</td>
+                <td>{t.max_daily_lessons}</td>
+                <td>{availCount(t.availability_json)}/48</td>
+                <td>
+                  <button
+                    className="btn btn-small"
+                    onClick={(e) => { e.stopPropagation(); deleteTeacher(t.id, t.full_name); }}
+                  >Удалить</button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
+
+      {modalTeacher && (
+        <div className="modal-overlay" onClick={closeModal}>
+          <div className="modal teacher-modal" onClick={e => e.stopPropagation()}>
+            <h3>Настройки учителя · {editName || ""}</h3>
+            <div className="form-grid">
+              <div className="form-row">
+                <div className="form-field" style={{ minWidth: 220 }}>
+                  <label className="form-label">ФИО</label>
+                  <input className="search-input" value={editName} onChange={e => { setEditName(e.target.value); setErrors({}); }} />
+                </div>
+                <div className="form-field">
+                  <label className="form-label">Макс. ур./день</label>
+                  <input type="number" className="search-input" value={editMax} onChange={e => { setEditMax(Number(e.target.value)); setErrors({}); }} />
+                </div>
+                <div className="form-field">
+                  <label className="form-label">Базовый кабинет</label>
+                  <select className="filter-select" value={editRoom} onChange={e => setEditRoom(e.target.value)}>
+                    <option value="">— нет —</option>
+                    {rooms.map(r => <option key={r.id} value={r.id}>{r.name}</option>)}
+                  </select>
                 </div>
               </div>
-            ) : (
-              <>
-                <span className="clickable" onClick={() => startEdit(t)}>{t.full_name} · макс. {t.max_daily_lessons} ур./день</span>
-                <button className="btn btn-small" onClick={() => deleteTeacher(t.id, t.full_name)}>Удалить</button>
-              </>
-            )}
-          </li>
-        ))}
-      </ul>
-      <p className="muted">Нажмите на учителя для редактирования. Матрица доступности — 6×8 чекбоксов.</p>
+            </div>
+
+            <div className="availability-matrix">
+              <div className="matrix-head">
+                <h4>Матрица доступности (отметьте доступные слоты)</h4>
+                <div className="row" style={{ gap: 8 }}>
+                  <button type="button" className="btn btn-small" onClick={() => setAll(true)}>Выделить всё</button>
+                  <button type="button" className="btn btn-small" onClick={() => setAll(false)}>Очистить всё</button>
+                </div>
+              </div>
+              <div className="availability-grid">
+                <div className="header"></div>
+                {PERIODS.map((p, idx) => (
+                  <div key={p} className="header matrix-period-head">
+                    <span>{p}</span>
+                    <button
+                      type="button"
+                      className="matrix-clear"
+                      title={`Очистить урок ${p}`}
+                      onClick={() => clearPeriod(idx)}
+                    >×</button>
+                  </div>
+                ))}
+                {DAYS.map((day, d) => (
+                  <Fragment key={d}>
+                    <div className="day-label matrix-day-head">
+                      <span>{day}</span>
+                      <button
+                        type="button"
+                        className="matrix-clear"
+                        title={`Очистить ${day}`}
+                        onClick={() => clearDay(d)}
+                      >×</button>
+                    </div>
+                    {PERIODS.map((_, p) => (
+                      <div key={p} className="cell">
+                        <input
+                          type="checkbox"
+                          checked={editAvail[d]?.[p] ?? true}
+                          onChange={() => toggleAvail(d, p)}
+                        />
+                      </div>
+                    ))}
+                  </Fragment>
+                ))}
+              </div>
+            </div>
+
+            {errors.editName && <p className="field-error">{errors.editName}</p>}
+            {errors.editMax && <p className="field-error">{errors.editMax}</p>}
+            {errors.editAvail && <p className="field-error">{errors.editAvail}</p>}
+            <div className="row" style={{ marginTop: 16, justifyContent: "flex-end" }}>
+              <button className="btn btn-small" onClick={() => deleteTeacher(modalTeacher.id, editName)}>Удалить</button>
+              <button className="btn" onClick={closeModal}>Отмена</button>
+              <button className="btn btn-primary" onClick={() => saveEdit(modalTeacher.id)}>Сохранить</button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
-
-// Need to import React for React.Fragment
-import React from "react";

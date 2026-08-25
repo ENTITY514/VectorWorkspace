@@ -1321,6 +1321,30 @@ table.data .row-quarter:hover td {
   font-size: 13px;
 }
 
+/* Центрирование содержимого модалки настроек класса */
+.classes-modal {
+  text-align: center;
+}
+
+.classes-modal .form-field {
+  align-items: center;
+}
+
+.classes-modal .search-input,
+.classes-modal .filter-select {
+  text-align: center;
+}
+
+.classes-modal .row {
+  justify-content: center;
+}
+
+/* Модалка учителя шире (матрица доступности 6×8) */
+.teacher-modal {
+  max-width: 760px;
+  width: 100%;
+}
+
 /* ---------- Detail Page (TupDetail) ---------- */
 .tup-detail {
   max-width: 1200px;
@@ -2079,6 +2103,12 @@ table.data .row-quarter:hover td {
   border-color: var(--status-error-border);
 }
 
+.badge-amber {
+  background: var(--status-warning-bg);
+  color: var(--status-warning-text);
+  border-color: var(--status-warning-border);
+}
+
 /* Ползунки весов */
 .slider-row {
   display: flex;
@@ -2231,6 +2261,11 @@ table.data .row-quarter:hover td {
 
 .table tr:hover td {
   background: var(--bg-subtle);
+}
+
+.table.centered th,
+.table.centered td {
+  text-align: center;
 }
 
 /* =========================================================================
@@ -2592,6 +2627,49 @@ table.data .row-quarter:hover td {
   font-size: 14px;
   font-weight: 600;
   color: var(--text-primary);
+}
+
+.matrix-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.matrix-head h4 {
+  margin: 0;
+}
+
+.matrix-period-head,
+.matrix-day-head {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+.matrix-clear {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 12px;
+  line-height: 1;
+  border-radius: 50%;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.15s, color 0.15s;
+}
+
+.matrix-clear:hover {
+  background: var(--status-error-bg);
+  color: var(--status-error-text);
 }
 
 .availability-grid {

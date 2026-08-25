@@ -1527,6 +1527,159 @@
       "requires_split": false,
       "is_double_allowed": false,
       "related_subjects_json": "[]"
+    },
+    {
+      "id": "xls_be32892d5985",
+      "name": "Лит. чтение",
+      "sanitary_weight": 5,
+      "required_room_type": null,
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
+    },
+    {
+      "id": "xls_5f355fea8f85",
+      "name": "Худ. труд (Худ.тр.мал)",
+      "sanitary_weight": 5,
+      "required_room_type": null,
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
+    },
+    {
+      "id": "xls_d3df4745527a",
+      "name": "Худ. труд (Худ.тр.дев)",
+      "sanitary_weight": 5,
+      "required_room_type": null,
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
+    },
+    {
+      "id": "xls_2599b3cde3c4",
+      "name": "Казахский язык и лит",
+      "sanitary_weight": 5,
+      "required_room_type": null,
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
+    },
+    {
+      "id": "xls_89eeb6bf7feb",
+      "name": "Худ. труд",
+      "sanitary_weight": 5,
+      "required_room_type": null,
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
+    },
+    {
+      "id": "xls_27fd1b2f1ffd",
+      "name": "Казахский язык и лит (1гр.каз.яз)",
+      "sanitary_weight": 5,
+      "required_room_type": null,
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
+    },
+    {
+      "id": "xls_caad79222c19",
+      "name": "Казахский язык и лит (2гр.каз.яз)",
+      "sanitary_weight": 5,
+      "required_room_type": null,
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
+    },
+    {
+      "id": "xls_a72082eac40e",
+      "name": "Информатика (2 гр.инф)",
+      "sanitary_weight": 5,
+      "required_room_type": null,
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
+    },
+    {
+      "id": "xls_3ddf4665346c",
+      "name": "Информатика (1 гр.инф)",
+      "sanitary_weight": 5,
+      "required_room_type": null,
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
+    },
+    {
+      "id": "xls_01e060767411",
+      "name": "Жаратылыстану",
+      "sanitary_weight": 5,
+      "required_room_type": null,
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
+    },
+    {
+      "id": "xls_ee02542adfa7",
+      "name": "Литературное чтение",
+      "sanitary_weight": 5,
+      "required_room_type": null,
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
+    },
+    {
+      "id": "xls_fe606f83c672",
+      "name": "Худ. труд (Девочки)",
+      "sanitary_weight": 5,
+      "required_room_type": null,
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
+    },
+    {
+      "id": "xls_d360e125c054",
+      "name": "Худ. труд (Мальчики)",
+      "sanitary_weight": 5,
+      "required_room_type": null,
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
+    },
+    {
+      "id": "xls_3dc86e3f8429",
+      "name": "Информатика (2гр.информ)",
+      "sanitary_weight": 5,
+      "required_room_type": null,
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
+    },
+    {
+      "id": "xls_f58f86a22be9",
+      "name": "Информатика (1гр.информ)",
+      "sanitary_weight": 5,
+      "required_room_type": null,
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
+    },
+    {
+      "id": "xls_2a28fa2a1521",
+      "name": "ОП",
+      "sanitary_weight": 5,
+      "required_room_type": null,
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
+    },
+    {
+      "id": "xls_5ff4105a8083",
+      "name": "Хоз. труд.",
+      "sanitary_weight": 5,
+      "required_room_type": null,
+      "requires_split": false,
+      "is_double_allowed": false,
+      "related_subjects_json": "[]"
     }
   ]
 }
