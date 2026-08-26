@@ -1940,6 +1940,25 @@ table.data .row-quarter:hover td {
   color: var(--text-muted);
 }
 
+/* ===== Variant navigation: Year → Quarter → Variant ===== */
+.variant-nav { display: flex; flex-direction: column; gap: 10px; }
+.variant-nav-row { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+.variant-nav-label { font-size: 13px; font-weight: 600; color: var(--text-secondary); min-width: 70px; }
+.variant-chip {
+  display: inline-flex; align-items: center; gap: 4px;
+  padding: 4px 12px; border-radius: 999px; cursor: pointer;
+  border: 1px solid var(--border-subtle); background: var(--bg-surface);
+  font-size: 13px; font-weight: 500; transition: all .15s;
+}
+.variant-chip:hover { border-color: var(--accent-primary); }
+.variant-chip.active { background: var(--accent-primary); color: #fff; border-color: var(--accent-primary); }
+.variant-chip.active .variant-delete { color: rgba(255,255,255,.6); }
+.variant-chip.active .variant-delete:hover { color: #fff; }
+.variant-delete { font-size: 15px; margin-left: 4px; color: var(--text-muted); cursor: pointer; line-height: 1; }
+.variant-delete:hover { color: var(--status-error-text); }
+.variant-nav-active { font-size: 13px; color: var(--text-secondary); border-top: 1px solid var(--border-subtle); padding-top: 8px; }
+.variant-year-display { font-size: 15px; font-weight: 600; min-width: 100px; text-align: center; }
+
 /* Вкладки */
 .tabs {
   display: flex;

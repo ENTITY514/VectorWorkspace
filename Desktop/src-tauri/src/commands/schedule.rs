@@ -13,6 +13,7 @@ pub struct ScheduleStateDto {
     pub curriculum: Vec<crate::domain::schedule::model::ScheduleCurriculum>,
     pub weights: crate::domain::schedule::model::ScheduleWeights,
     pub slots: Vec<crate::domain::schedule::model::ScheduleSlot>,
+    pub variants: Vec<crate::domain::schedule::model::ScheduleVariant>,
 }
 
 #[tauri::command]
@@ -24,7 +25,8 @@ pub async fn schedule_get_state(state: State<'_, AppState>) -> Result<ScheduleSt
     let curr = curriculum::list_curriculum(pool).await.map_err(|e| e.to_string())?;
     let sr = curriculum::list_subgroup_rules(pool).await.map_err(|e| e.to_string())?;
     let w = slots::get_weights(pool).await.map_err(|e| e.to_string())?;
-    let sl = slots::list_slots(pool).await.map_err(|e| e.to_string())?;
+    let active_vid = slots::get_active_variant_id(pool).await.map_err(|e| e.to_string())?;
+    let sl = slots::list_slots_for_variant(pool, &active_vid).await.map_err(|e| e.to_string())?;
 
     // classes
     let classes_rows = sqlx::query_as::<_, (String, i64, String, i64, String, String)>(
@@ -45,6 +47,20 @@ pub async fn schedule_get_state(state: State<'_, AppState>) -> Result<ScheduleSt
         })
         .collect();
 
+    // variants
+    let variant_rows = sqlx::query_as::<_, (String, String, String, i64, i64, bool, String, Option<String>)>(
+        "SELECT id, name, academic_year, quarter_number, variant_number, is_active, created_at, parent_variant_id FROM schedule_variants ORDER BY academic_year DESC, quarter_number DESC, variant_number ASC",
+    )
+    .fetch_all(pool)
+    .await
+    .map_err(|e| e.to_string())?;
+    let variants = variant_rows
+        .into_iter()
+        .map(|(id, name, academic_year, quarter_number, variant_number, is_active, created_at, parent_variant_id)| crate::domain::schedule::model::ScheduleVariant {
+            id, name, academic_year, quarter_number, variant_number, is_active, created_at, parent_variant_id,
+        })
+        .collect();
+
     Ok(ScheduleStateDto {
         teachers: t,
         rooms: r,
@@ -54,6 +70,7 @@ pub async fn schedule_get_state(state: State<'_, AppState>) -> Result<ScheduleSt
         curriculum: curr,
         weights: w,
         slots: sl,
+        variants,
     })
 }
 
@@ -64,6 +81,8 @@ pub struct UpsertTeacherInput {
     pub base_room_id: Option<String>,
     pub max_daily_lessons: i64,
     pub availability_json: String,
+    pub subject_ids: Option<String>,
+    pub is_combined: Option<bool>,
 }
 
 #[tauri::command]
@@ -75,6 +94,8 @@ pub async fn schedule_upsert_teacher(state: State<'_, AppState>, input: UpsertTe
         input.base_room_id,
         input.max_daily_lessons,
         input.availability_json,
+        input.subject_ids.unwrap_or_else(|| "[]".to_string()),
+        input.is_combined.unwrap_or(false),
     )
     .await
     .map_err(|e| e.to_string())
@@ -264,13 +285,18 @@ pub async fn schedule_set_weights(state: State<'_, AppState>, input: SetWeightsI
 }
 
 #[tauri::command]
-pub async fn schedule_clear_slots(state: State<'_, AppState>) -> Result<(), String> {
-    slots::clear_slots(&state.pool).await.map_err(|e| e.to_string())
+pub async fn schedule_clear_slots(state: State<'_, AppState>, variant_id: Option<String>) -> Result<(), String> {
+    let vid = match variant_id {
+        Some(v) => v,
+        None => slots::get_active_variant_id(&state.pool).await.map_err(|e| e.to_string())?,
+    };
+    slots::clear_slots(&state.pool, &vid).await.map_err(|e| e.to_string())
 }
 
 #[tauri::command]
 pub async fn schedule_get_slots(state: State<'_, AppState>) -> Result<Vec<crate::domain::schedule::model::ScheduleSlot>, String> {
-    slots::list_slots(&state.pool).await.map_err(|e| e.to_string())
+    let vid = slots::get_active_variant_id(&state.pool).await.map_err(|e| e.to_string())?;
+    slots::list_slots_for_variant(&state.pool, &vid).await.map_err(|e| e.to_string())
 }
 
 #[derive(Debug, Deserialize)]
@@ -302,6 +328,33 @@ pub async fn schedule_generate(state: State<'_, AppState>, input: Option<Generat
     let nw = input.as_ref().and_then(|i| i.num_workers).unwrap_or(8);
     let seed = input.as_ref().and_then(|i| i.seed).unwrap_or(42);
 
+    // ─── Pre-Solver Shield: математическая проверка до вызова Python ───
+    let pre_result = crate::domain::schedule::pre_validate::pre_validate_all(
+        &teachers_db,
+        &subjects_db,
+        &rooms_db,
+        &curriculum_db,
+        6,  // days
+        7,  // periods_per_day
+    );
+    if !pre_result.is_ok() {
+        return Ok(serde_json::json!({
+            "schema_version": 1,
+            "status": "INFEASIBLE",
+            "solver_stats": { "wall_ms": 0, "branches": 0, "conflicts": 0, "gap_percent": 0.0, "objective_value": 0 },
+            "penalties": { "window": 0, "room_displacement": 0, "sanpin_parabola": 0, "alternation": 0, "movement": 0, "load_balance": 0, "total": 0 },
+            "slots": [],
+            "diagnostics": {
+                "infeasible_core": {
+                    "reason": pre_result.errors.join("; "),
+                    "conflicting_entities": [],
+                    "suggestion": "Измените расписание учителя, добавьте кабинеты или скорректируйте нагрузку"
+                },
+                "warnings": []
+            }
+        }));
+    }
+
     // build InputModel JSON (camelCase по схеме pydantic)
     let teachers_json: Vec<serde_json::Value> = teachers_db
         .into_iter()
@@ -310,12 +363,15 @@ pub async fn schedule_generate(state: State<'_, AppState>, input: Option<Generat
                 let row = serde_json::json!([true,true,true,true,true,true,true,true]);
                 serde_json::json!([row.clone(), row.clone(), row.clone(), row.clone(), row.clone(), row.clone()])
             });
+            let subject_ids: Vec<String> = serde_json::from_str(&t.subject_ids).unwrap_or_default();
             serde_json::json!({
                 "id": t.id,
                 "full_name": t.full_name,
                 "base_room_id": t.base_room_id,
                 "max_daily_lessons": t.max_daily_lessons,
-                "availability": avail
+                "availability": avail,
+                "subject_ids": subject_ids,
+                "is_combined": t.is_combined
             })
         })
         .collect();
@@ -411,12 +467,24 @@ pub async fn schedule_generate(state: State<'_, AppState>, input: Option<Generat
     let host = crate::infra::solver_host::SolverHost::new(python_bin, solver_script);
     let output = host.run(input_json).await.map_err(|e| e.to_string())?;
 
-    // при OPTIMAL/FEASIBLE — валидировать и коммитить
+    // при OPTIMAL/FEASIBLE — валидировать и коммитить в активный вариант
     if output.status == "OPTIMAL" || output.status == "FEASIBLE" {
         crate::infra::solver_host::SolverHost::validate_hard(&output.slots).map_err(|e| e.to_string())?;
-        // транзакция
+        // Определяем активный вариант (или default)
+        let active_variant: Option<String> = sqlx::query_scalar(
+            "SELECT id FROM schedule_variants WHERE is_active = 1 LIMIT 1",
+        )
+        .fetch_optional(pool)
+        .await
+        .map_err(|e| e.to_string())?;
+        let variant_id = active_variant.unwrap_or_else(|| "default".to_string());
+        // транзакция: чистим только слоты активного варианта
         let mut tx = pool.begin().await.map_err(|e| e.to_string())?;
-        sqlx::query("DELETE FROM schedule_slots").execute(&mut *tx).await.map_err(|e| e.to_string())?;
+        sqlx::query("DELETE FROM schedule_slots WHERE variant_id = ?1")
+            .bind(&variant_id)
+            .execute(&mut *tx)
+            .await
+            .map_err(|e| e.to_string())?;
         for slot in &output.slots {
             let id = uuid::Uuid::new_v4().to_string();
             let class_id = slot.get("class_id").and_then(|v| v.as_str()).unwrap_or("");
@@ -426,7 +494,7 @@ pub async fn schedule_generate(state: State<'_, AppState>, input: Option<Generat
             let subgroup = slot.get("subgroup_label").and_then(|v| v.as_str()).unwrap_or("");
             let day = slot.get("day").and_then(|v| v.as_i64()).unwrap_or(0);
             let period = slot.get("period").and_then(|v| v.as_i64()).unwrap_or(0);
-            sqlx::query("INSERT INTO schedule_slots (id, class_id, subject_id, teacher_id, room_id, subgroup_label, day, period) VALUES (?1,?2,?3,?4,?5,?6,?7,?8)")
+            sqlx::query("INSERT INTO schedule_slots (id, class_id, subject_id, teacher_id, room_id, subgroup_label, day, period, variant_id) VALUES (?1,?2,?3,?4,?5,?6,?7,?8,?9)")
                 .bind(&id)
                 .bind(class_id)
                 .bind(subject_id)
@@ -435,6 +503,7 @@ pub async fn schedule_generate(state: State<'_, AppState>, input: Option<Generat
                 .bind(subgroup)
                 .bind(day)
                 .bind(period)
+                .bind(&variant_id)
                 .execute(&mut *tx).await.map_err(|e| e.to_string())?;
         }
         tx.commit().await.map_err(|e| e.to_string())?;
@@ -446,7 +515,8 @@ pub async fn schedule_generate(state: State<'_, AppState>, input: Option<Generat
 #[tauri::command]
 pub async fn schedule_export(state: State<'_, AppState>, format: Option<String>) -> Result<String, String> {
     let pool = &state.pool;
-    let slots = slots::list_slots(pool).await.map_err(|e| e.to_string())?;
+    let vid = slots::get_active_variant_id(pool).await.map_err(|e| e.to_string())?;
+    let slots = slots::list_slots_for_variant(pool, &vid).await.map_err(|e| e.to_string())?;
     if format.as_deref() == Some("json") {
         return serde_json::to_string(&slots).map_err(|e| e.to_string());
     }
@@ -460,7 +530,7 @@ pub async fn schedule_export(state: State<'_, AppState>, format: Option<String>)
 
 #[tauri::command]
 pub async fn schedule_import_legacy(state: State<'_, AppState>, quarter: Option<i64>) -> Result<serde_json::Value, String> {
-    let q = quarter.unwrap_or(1);
+    let q = quarter.unwrap_or(4);
     if !(1..=4).contains(&q) {
         return Err("quarter must be 1..4".to_string());
     }
@@ -473,30 +543,87 @@ pub async fn schedule_import_legacy(state: State<'_, AppState>, quarter: Option<
     let curriculum: Vec<serde_json::Value> = serde_json::from_str(&curriculum_str).map_err(|e| e.to_string())?;
 
     let pool = &state.pool;
-    // teachers
+
+    // 1) Создаём/получаем вариант 2025-2026 / Q{q} / V1 (деактивируем остальные)
+    let variant_id = {
+        let existing: Option<String> = sqlx::query_scalar(
+            "SELECT id FROM schedule_variants WHERE academic_year='2025-2026' AND quarter_number=?1 AND variant_number=1",
+        )
+        .bind(q)
+        .fetch_optional(pool)
+        .await
+        .map_err(|e| e.to_string())?;
+        match existing {
+            Some(vid) => {
+                sqlx::query("UPDATE schedule_variants SET is_active=0 WHERE id != ?1")
+                    .bind(&vid).execute(pool).await.map_err(|e| e.to_string())?;
+                sqlx::query("UPDATE schedule_variants SET is_active=1 WHERE id=?1")
+                    .bind(&vid).execute(pool).await.map_err(|e| e.to_string())?;
+                vid
+            }
+            None => {
+                let vid = uuid::Uuid::new_v4().to_string();
+                sqlx::query("UPDATE schedule_variants SET is_active=0").execute(pool).await.map_err(|e| e.to_string())?;
+                sqlx::query(
+                    "INSERT INTO schedule_variants (id, name, academic_year, quarter_number, variant_number, is_active, created_at)
+                     VALUES (?1, ?2, '2025-2026', ?3, 1, 1, datetime('now'))",
+                )
+                .bind(&vid)
+                .bind(format!("{} четверть, Вариант 1", q))
+                .bind(q)
+                .execute(pool)
+                .await
+                .map_err(|e| e.to_string())?;
+                vid
+            }
+        }
+    };
+
+    // Собираем mapping teacher -> subjects из curriculum
+    let mut teacher_subjects: std::collections::HashMap<String, Vec<String>> = std::collections::HashMap::new();
+    for e in &curriculum {
+        let teacher_id = e.get("teacher_id").and_then(|v| v.as_str()).unwrap_or("").to_string();
+        let subject_id = e.get("subject_id").and_then(|v| v.as_str()).unwrap_or("").to_string();
+        if !teacher_id.is_empty() && !subject_id.is_empty() {
+            teacher_subjects.entry(teacher_id).or_default().push(subject_id);
+        }
+    }
+    for subjects in teacher_subjects.values_mut() {
+        subjects.sort();
+        subjects.dedup();
+    }
+
+    // 2) Учителя
     if let Some(teachers) = catalog.get("teachers").and_then(|v| v.as_array()) {
         for t in teachers {
             let id = t.get("id").and_then(|v| v.as_str()).unwrap_or("").to_string();
             let full_name = t.get("display_name").or_else(|| t.get("full_name")).and_then(|v| v.as_str()).unwrap_or(&id).to_string();
             let avail = t.get("availability_json").and_then(|v| v.as_str()).unwrap_or("[[true,true,true,true,true,true,true,true],[true,true,true,true,true,true,true,true],[true,true,true,true,true,true,true,true],[true,true,true,true,true,true,true,true],[true,true,true,true,true,true,true,true],[true,true,true,true,true,true,true,true]]").to_string();
-            // check if availability is JSON array already?
             let avail_str = if avail.starts_with('[') { avail } else { format!("\"{}\"", avail) };
-            // ensure valid json: if avail is already json array string, keep; otherwise default
             let avail_json = if serde_json::from_str::<serde_json::Value>(&avail_str).is_ok() { avail_str } else { "[[true,true,true,true,true,true,true,true],[true,true,true,true,true,true,true,true],[true,true,true,true,true,true,true,true],[true,true,true,true,true,true,true,true],[true,true,true,true,true,true,true,true],[true,true,true,true,true,true,true,true]]".to_string() };
-            let _ = teachers::upsert_teacher(pool, Some(id), full_name, None, 0, avail_json).await.map_err(|e| e.to_string())?;
+            let subject_ids = teacher_subjects.get(&id)
+                .map(|s| serde_json::to_string(s).unwrap_or_else(|_| "[]".to_string()))
+                .unwrap_or_else(|| "[]".to_string());
+            let _ = teachers::upsert_teacher(pool, Some(id), full_name, None, 0, avail_json, subject_ids, false).await.map_err(|e| e.to_string())?;
         }
     }
-    // rooms
+
+    // 3) Кабинеты — INSERT OR IGNORE чтобы не падать на дубликате имени
     if let Some(rooms) = catalog.get("rooms").and_then(|v| v.as_array()) {
         for r in rooms {
             let id = r.get("id").and_then(|v| v.as_str()).unwrap_or("").to_string();
             let name = r.get("name").and_then(|v| v.as_str()).unwrap_or(&id).to_string();
             let room_type = r.get("room_type").and_then(|v| v.as_str()).unwrap_or("General").to_string();
             let capacity = r.get("capacity").and_then(|v| v.as_i64()).unwrap_or(30);
-            let _ = rooms::upsert_room(pool, Some(id), name, room_type, capacity, None, None).await.map_err(|e| e.to_string())?;
+            let _ = sqlx::query(
+                "INSERT OR IGNORE INTO schedule_rooms (id, name, room_type, capacity) VALUES (?1, ?2, ?3, ?4)",
+            )
+            .bind(&id).bind(&name).bind(&room_type).bind(capacity)
+            .execute(pool).await.map_err(|e| e.to_string())?;
         }
     }
-    // classes
+
+    // 4) Классы
     if let Some(classes) = catalog.get("classes").and_then(|v| v.as_array()) {
         for c in classes {
             let id = c.get("id").and_then(|v| v.as_str()).unwrap_or("").to_string();
@@ -511,14 +638,14 @@ pub async fn schedule_import_legacy(state: State<'_, AppState>, quarter: Option<
                 .execute(pool).await.map_err(|e| e.to_string())?;
         }
     }
-    // subjects
+
+    // 5) Предметы
     if let Some(subjects) = catalog.get("subjects").and_then(|v| v.as_array()) {
         for s in subjects {
             let id = s.get("id").and_then(|v| v.as_str()).unwrap_or("").to_string();
             let name = s.get("name").and_then(|v| v.as_str()).unwrap_or(&id).to_string();
             let weight = s.get("sanitary_weight").and_then(|v| v.as_i64()).unwrap_or(5);
             let room_type = s.get("required_room_type").and_then(|v| v.as_str().map(|s| s.to_string()));
-            // ensure room_type is valid or None
             let rt = match room_type.as_deref() {
                 Some("General") | Some("ChemistryLab") | Some("PhysicsLab") | Some("BiologyLab") | Some("Informatics") | Some("LanguageLab") | Some("Gym") | Some("Workshop") => room_type,
                 _ => None,
@@ -526,9 +653,10 @@ pub async fn schedule_import_legacy(state: State<'_, AppState>, quarter: Option<
             let _ = subjects::upsert_subject(pool, id, name, weight, rt, false, false, "[]".to_string()).await.map_err(|e| e.to_string())?;
         }
     }
-    // curriculum
+
+    // 6) Нагрузка
     let mut entries: Vec<(String,String,String,Option<String>,i64)> = Vec::new();
-    for e in curriculum {
+    for e in &curriculum {
         let class_id = e.get("class_id").and_then(|v| v.as_str()).unwrap_or("").to_string();
         let subject_id = e.get("subject_id").and_then(|v| v.as_str()).unwrap_or("").to_string();
         let teacher_id = e.get("teacher_id").and_then(|v| v.as_str()).unwrap_or("").to_string();
@@ -539,7 +667,50 @@ pub async fn schedule_import_legacy(state: State<'_, AppState>, quarter: Option<
     }
     curriculum::set_curriculum_entries(pool, entries).await.map_err(|e| e.to_string())?;
 
-    Ok(serde_json::json!({"quarter": q, "imported": true, "catalog_counts": {"teachers": catalog.get("teachers").and_then(|v| v.as_array()).map(|a| a.len()).unwrap_or(0)}}))
+    // 7) Слоты расписания — в выбранный вариант
+    let legacy_path = base.join(format!("schedule_legacy_q{}.json", q));
+    if legacy_path.exists() {
+        let legacy_str = std::fs::read_to_string(&legacy_path).map_err(|e| format!("read legacy: {}", e))?;
+        let legacy: Vec<serde_json::Value> = serde_json::from_str(&legacy_str).map_err(|e| e.to_string())?;
+        // Чистим старые legacy слоты этого варианта
+        sqlx::query("DELETE FROM schedule_slots WHERE variant_id = ?1 AND id LIKE 'legacy_%'")
+            .bind(&variant_id)
+            .execute(pool).await.map_err(|e| e.to_string())?;
+        for v in &legacy {
+            let class_id = v.get("class_id").and_then(|x| x.as_str()).unwrap_or("").to_string();
+            let subject_id = v.get("subject_id").and_then(|x| x.as_str()).unwrap_or("").to_string();
+            let teacher_id = v.get("teacher_id").and_then(|x| x.as_str()).unwrap_or("").to_string();
+            let room_id = v.get("room_id").and_then(|x| x.as_str()).unwrap_or("").to_string();
+            let day = v.get("day").and_then(|x| x.as_i64()).unwrap_or(0);
+            let period = v.get("period").and_then(|x| x.as_i64()).unwrap_or(0);
+            let slot_id = format!("legacy_{}_{}_{}_{}_{}", class_id, v.get("week").and_then(|x| x.as_i64()).unwrap_or(1), day, period, teacher_id);
+            let _ = sqlx::query(
+                "INSERT OR IGNORE INTO schedule_slots (id, class_id, subject_id, teacher_id, room_id, subgroup_label, day, period, is_double, variant_id)
+                 VALUES (?1, ?2, ?3, ?4, ?5, '', ?6, ?7, 0, ?8)",
+            )
+            .bind(&slot_id)
+            .bind(&class_id)
+            .bind(&subject_id)
+            .bind(&teacher_id)
+            .bind(&room_id)
+            .bind(day)
+            .bind(period)
+            .bind(&variant_id)
+            .execute(pool).await;
+        }
+    }
+
+    Ok(serde_json::json!({
+        "quarter": q,
+        "variant_id": variant_id,
+        "imported": true,
+        "catalog_counts": {
+            "teachers": catalog.get("teachers").and_then(|v| v.as_array()).map(|a| a.len()).unwrap_or(0),
+            "subjects": catalog.get("subjects").and_then(|v| v.as_array()).map(|a| a.len()).unwrap_or(0),
+            "rooms": catalog.get("rooms").and_then(|v| v.as_array()).map(|a| a.len()).unwrap_or(0),
+            "classes": catalog.get("classes").and_then(|v| v.as_array()).map(|a| a.len()).unwrap_or(0),
+        }
+    }))
 }
 
 #[tauri::command]
@@ -574,9 +745,140 @@ pub async fn schedule_get_legacy(state: State<'_, AppState>, quarter: i64) -> Re
             source_teacher: v.get("source_teacher").and_then(|x| x.as_str()).map(str::to_string),
             source_time: v.get("source_time").and_then(|x| x.as_str()).map(str::to_string),
             source_note: v.get("source_note").and_then(|x| x.as_str()).map(str::to_string),
+            variant_id: Some("default".to_string()),
         });
     }
-    // filter by type if needed? For now return all
-    let _ = &state; // unused
+    let _ = &state;
     Ok(out)
+}
+
+// ============================================================
+// Варианты расписания
+// ============================================================
+
+#[tauri::command]
+pub async fn schedule_list_variants(state: State<'_, AppState>) -> Result<Vec<crate::domain::schedule::model::ScheduleVariant>, String> {
+    let rows = sqlx::query_as::<_, (String, String, String, i64, i64, bool, String, Option<String>)>(
+        "SELECT id, name, academic_year, quarter_number, variant_number, is_active, created_at, parent_variant_id FROM schedule_variants ORDER BY academic_year DESC, quarter_number DESC, variant_number ASC",
+    )
+    .fetch_all(&state.pool)
+    .await
+    .map_err(|e| e.to_string())?;
+    Ok(rows.into_iter().map(|(id, name, academic_year, quarter_number, variant_number, is_active, created_at, parent_variant_id)| {
+        crate::domain::schedule::model::ScheduleVariant { id, name, academic_year, quarter_number, variant_number, is_active, created_at, parent_variant_id }
+    }).collect())
+}
+
+#[derive(Debug, Deserialize)]
+pub struct CreateVariantInput {
+    pub name: String,
+    pub academic_year: String,
+    pub quarter_number: Option<i64>,
+    pub variant_number: Option<i64>,
+    pub copy_from_variant_id: Option<String>,
+}
+
+#[tauri::command]
+pub async fn schedule_create_variant(state: State<'_, AppState>, input: CreateVariantInput) -> Result<crate::domain::schedule::model::ScheduleVariant, String> {
+    let vid = uuid::Uuid::new_v4().to_string();
+    let now = chrono::Utc::now().format("%Y-%m-%dT%H:%M:%SZ").to_string();
+    let qn = input.quarter_number.unwrap_or(0);
+    let vn = input.variant_number.unwrap_or(1);
+
+    // Если указан copy_from — копируем слоты из этого варианта
+    if let Some(ref copy_id) = input.copy_from_variant_id {
+        sqlx::query(
+            "INSERT INTO schedule_slots (id, class_id, subject_id, teacher_id, room_id, subgroup_label, day, period, is_double, variant_id)
+             SELECT ?1 || '_' || id, class_id, subject_id, teacher_id, room_id, subgroup_label, day, period, is_double, ?2
+             FROM schedule_slots WHERE variant_id = ?3",
+        )
+        .bind(&vid)
+        .bind(&vid)
+        .bind(copy_id)
+        .execute(&state.pool)
+        .await
+        .map_err(|e| e.to_string())?;
+    }
+
+    sqlx::query(
+        "INSERT INTO schedule_variants (id, name, academic_year, quarter_number, variant_number, is_active, created_at) VALUES (?1, ?2, ?3, ?4, ?5, 0, ?6)",
+    )
+    .bind(&vid)
+    .bind(&input.name)
+    .bind(&input.academic_year)
+    .bind(qn)
+    .bind(vn)
+    .bind(&now)
+    .execute(&state.pool)
+    .await
+    .map_err(|e| e.to_string())?;
+
+    Ok(crate::domain::schedule::model::ScheduleVariant {
+        id: vid,
+        name: input.name,
+        academic_year: input.academic_year,
+        quarter_number: qn,
+        variant_number: vn,
+        is_active: false,
+        created_at: now,
+        parent_variant_id: input.copy_from_variant_id,
+    })
+}
+
+#[tauri::command]
+pub async fn schedule_set_active_variant(state: State<'_, AppState>, variant_id: String) -> Result<(), String> {
+    sqlx::query("UPDATE schedule_variants SET is_active = CASE WHEN id = ?1 THEN 1 ELSE 0 END")
+        .bind(&variant_id)
+        .execute(&state.pool)
+        .await
+        .map_err(|e| e.to_string())?;
+    Ok(())
+}
+
+#[tauri::command]
+pub async fn schedule_delete_variant(state: State<'_, AppState>, variant_id: String) -> Result<(), String> {
+    if variant_id == "default" {
+        return Err("Нельзя удалить основной вариант".to_string());
+    }
+    let pool = &state.pool;
+    let mut tx = pool.begin().await.map_err(|e| e.to_string())?;
+    // Дочерние варианты разрываем (parent_variant_id -> NULL)
+    sqlx::query("UPDATE schedule_variants SET parent_variant_id = NULL WHERE parent_variant_id = ?1")
+        .bind(&variant_id)
+        .execute(&mut *tx)
+        .await
+        .map_err(|e| e.to_string())?;
+    // Удаляем слоты варианта, затем сам вариант
+    sqlx::query("DELETE FROM schedule_slots WHERE variant_id = ?1")
+        .bind(&variant_id)
+        .execute(&mut *tx)
+        .await
+        .map_err(|e| e.to_string())?;
+    sqlx::query("DELETE FROM schedule_variants WHERE id = ?1")
+        .bind(&variant_id)
+        .execute(&mut *tx)
+        .await
+        .map_err(|e| e.to_string())?;
+    tx.commit().await.map_err(|e| e.to_string())?;
+    Ok(())
+}
+
+#[tauri::command]
+pub async fn schedule_get_slots_for_variant(state: State<'_, AppState>, variant_id: String) -> Result<Vec<crate::domain::schedule::model::ScheduleSlot>, String> {
+    let rows = sqlx::query_as::<_, (String, String, String, String, String, String, i64, i64, bool, Option<String>)>(
+        "SELECT id, class_id, subject_id, teacher_id, room_id, subgroup_label, day, period, is_double, variant_id FROM schedule_slots WHERE variant_id = ?1 ORDER BY day, period",
+    )
+    .bind(&variant_id)
+    .fetch_all(&state.pool)
+    .await
+    .map_err(|e| e.to_string())?;
+    Ok(rows.into_iter().map(|(id, class_id, subject_id, teacher_id, room_id, subgroup_label, day, period, is_double, variant_id)| {
+        crate::domain::schedule::model::ScheduleSlot {
+            id, class_id, subject_id, teacher_id, room_id,
+            subgroup_label: if subgroup_label.is_empty() { None } else { Some(subgroup_label) },
+            day, period, is_double, week: None,
+            source_subject: None, source_teacher: None, source_time: None, source_note: None,
+            variant_id,
+        }
+    }).collect())
 }

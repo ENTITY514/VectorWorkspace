@@ -428,6 +428,17 @@ export interface ScheduleSlot {
   source_note?: string | null;
 }
 
+export interface ScheduleVariant {
+  id: string;
+  name: string;
+  academic_year: string;
+  quarter_number: number;
+  variant_number: number;
+  is_active: boolean;
+  created_at: string;
+  parent_variant_id: string | null;
+}
+
 export interface ScheduleState {
   teachers: ScheduleTeacher[];
   rooms: ScheduleRoom[];
@@ -437,6 +448,7 @@ export interface ScheduleState {
   curriculum: ScheduleCurriculum[];
   weights: ScheduleWeights;
   slots: ScheduleSlot[];
+  variants: ScheduleVariant[];
 }
 
 export interface ScheduleGenerateResult {

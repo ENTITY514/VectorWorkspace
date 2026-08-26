@@ -61,14 +61,6 @@ export function ScheduleDashboard({ state, onGenerate, onRefresh, lastResult }: 
     return { totalWindows, maxClassLoad, maxTeacherLoad, doubleLessons };
   }, [slots, state.teachers, state.classes]);
 
-  const importLegacy = async (q: number) => {
-    try {
-      await scheduleApi.importLegacy(q);
-      await onRefresh();
-      showToast(`Импорт Q${q} выполнен`, "success");
-    } catch (e) { showToast(String(e), "error"); }
-  };
-
   const handleExport = async (format: string) => {
     try {
       const data = await scheduleApi.exportSchedule(format);
@@ -153,14 +145,6 @@ export function ScheduleDashboard({ state, onGenerate, onRefresh, lastResult }: 
           </div>
         </div>
       )}
-
-      <div className="card">
-        <h3>Импорт данных прошлого года</h3>
-        <p className="muted">Загрузить недельный шаблон прошлого года (27 классов, 39 учителей) по четвертям — 1 неделя достаточно.</p>
-        <div className="row">
-          {[1, 2, 3, 4].map(q => <button key={q} className="btn" onClick={() => importLegacy(q)}>Импорт Q{q}</button>)}
-        </div>
-      </div>
 
       <div className="card">
         <h3>Результат</h3>

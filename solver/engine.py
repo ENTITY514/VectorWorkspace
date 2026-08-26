@@ -106,18 +106,25 @@ def create_variables(model, m):
 
 
 def build_infeasible_core(m):
-    """Эвристика для diagnostics.infeasible_core."""
+    """Эвристика для diagnostics.infeasible_core — возвращает IIS с конкретными причинами."""
     reasons = []
     entities = []
 
-    # учитель: requested > available
-    avail_by_teacher = {}
+    teacher_by_id = {t.id: t for t in m.teachers}
+    subj_by_id = {s.id: s for s in m.subjects}
+
+    # ─── 1. Учитель: requested > available (с учётом max_daily_lessons) ───
+    avail_by_teacher: dict[str, int] = {}
     for t in m.teachers:
-        avail = sum(1 for row in t.availability for v in row if v)
-        # ограничим по time_grid
-        max_avail = m.time_grid.days * m.time_grid.periods_per_day
-        avail = min(avail, max_avail)
-        avail_by_teacher[t.id] = avail
+        max_daily = t.max_daily_lessons
+        total = 0
+        for day in t.availability:
+            day_slots = sum(1 for v in day[:m.time_grid.periods_per_day] if v)
+            if max_daily > 0:
+                total += min(day_slots, max_daily)
+            else:
+                total += day_slots
+        avail_by_teacher[t.id] = total
 
     requested_by_teacher: dict[str, int] = defaultdict(int)
     for e in m.curriculum:
@@ -128,40 +135,86 @@ def build_infeasible_core(m):
     for tid, req in requested_by_teacher.items():
         av = avail_by_teacher.get(tid, 0)
         if req > av:
-            reasons.append(f"Teacher {tid}: {req} hours requested but only {av} available slots")
+            t = teacher_by_id.get(tid)
+            name = t.full_name if t else tid
+            reasons.append(
+                f"Учитель «{name}»: {req} ч/нед нагрузки, но доступно лишь {av} слотов"
+            )
             entities.append(tid)
 
-    # кабинеты спецтипа: если часы предмета с required_room_type превышают слоты * кол-во кабинетов
+    # ─── 2. Split: пересечение availability ───
+    split_pairs_checked: set[tuple[str, str]] = set()
+    for e in m.curriculum:
+        if e.split_teacher2_id:
+            pair = tuple(sorted([e.teacher_id, e.split_teacher2_id]))
+            if pair in split_pairs_checked:
+                continue
+            split_pairs_checked.add(pair)
+
+            t1 = teacher_by_id.get(e.teacher_id)
+            t2 = teacher_by_id.get(e.split_teacher2_id)
+            if t1 and t2:
+                overlap = False
+                for d in range(m.time_grid.days):
+                    for p in range(m.time_grid.periods_per_day):
+                        if (d < len(t1.availability) and p < len(t1.availability[d])
+                                and d < len(t2.availability) and p < len(t2.availability[d])):
+                            if t1.availability[d][p] and t2.availability[d][p]:
+                                overlap = True
+                                break
+                    if overlap:
+                        break
+                if not overlap:
+                    subj = subj_by_id.get(e.subject_id)
+                    sname = subj.name if subj else e.subject_id
+                    reasons.append(
+                        f"Split-конфликт: «{t1.full_name}» и «{t2.full_name}» не имеют общих окон для «{sname}»"
+                    )
+                    entities.extend([e.teacher_id, e.split_teacher2_id])
+
+    # ─── 3. Кабинеты спецтипа ───
     room_count_by_type: dict[str, int] = defaultdict(int)
     for r in m.rooms:
         room_count_by_type[r.room_type] += 1
-    from collections import Counter
-    needed_by_type: dict[str, int] = Counter()
-    subj_by_id = {s.id: s for s in m.subjects}
+
+    needed_by_type: dict[str, int] = defaultdict(int)
     for e in m.curriculum:
         s = subj_by_id.get(e.subject_id)
         if s and s.required_room_type:
-            needed_by_type[s.required_room_type] += e.hours_per_week
-            if e.split_teacher2_id:
-                # split уже удвоен? curriculum hours уже на instance, но needed считает hours, а не instances
-                # для split нужно *1 (hours уже на каждую подгруппу) — в нашей модели hours уже раздвоен
-                pass
+            # split: обе подгруппы занимают кабинет типа одновременно → ×2
+            multiplier = 2 if s.requires_split else 1
+            needed_by_type[s.required_room_type] += e.hours_per_week * multiplier
 
     total_slots = m.time_grid.days * m.time_grid.periods_per_day
     for rt, need in needed_by_type.items():
         have = room_count_by_type.get(rt, 0) * total_slots
         if need > have:
-            reasons.append(f"Room type {rt}: {need} hours needed but only {have} room-slots ({room_count_by_type.get(rt,0)} rooms × {total_slots} slots)")
+            reasons.append(
+                f"Кабинеты «{rt}»: нужно {need} ч/нед, но только {have} слотов "
+                f"({room_count_by_type.get(rt, 0)} каб. × {total_slots})"
+            )
             entities.append(f"room_type:{rt}")
 
+    # ─── 4. Класс: суммарная нагрузка > слотов ───
+    hours_by_class: dict[str, int] = defaultdict(int)
+    for e in m.curriculum:
+        hours_by_class[e.class_id] += e.hours_per_week
+
+    for cid, hours in hours_by_class.items():
+        if hours > total_slots:
+            reasons.append(
+                f"Класс {cid}: {hours} ч/нед, но.max {total_slots} слотов ({m.time_grid.days} × {m.time_grid.periods_per_day})"
+            )
+            entities.append(cid)
+
     if not reasons:
-        reasons.append("Hard constraints are contradictory (availability, room pools, or shift limits)")
+        reasons.append("Hard-ограничения противоречивы (availability, кабинеты или смены)")
         entities.append("unknown")
 
     return {
         "reason": "; ".join(reasons),
         "conflicting_entities": entities,
-        "suggestion": "Расширьте availability учителей, добавьте кабинеты спецтипа или снизьте часы/ограничьте смены",
+        "suggestion": "Расширьте availability, добавьте кабинеты спецтипа, снизьте часы или скорректируйте смены",
     }
 
 
@@ -184,18 +237,29 @@ def solve(input_model: InputModel) -> dict:
     # Если для какого-то instance нет доступных слотов или нет подходящих кабинетов -> сразу INFEASIBLE
     room_by_id_tmp = {r.id: r for r in input_model.rooms}
     subj_by_id_tmp = {s.id: s for s in input_model.subjects}
+    teacher_by_id_tmp = {t.id: t for t in input_model.teachers}
     for inst in instances:
         has_x = any((inst["idx"], d, p) in x for d in range(input_model.time_grid.days) for p in range(input_model.time_grid.periods_per_day))
         has_y = any((inst["idx"], rid) in y for rid in room_by_id_tmp)
-        # если у предмета есть required_room_type, но has_y == False => нет подходящих кабинетов
         subj = subj_by_id_tmp.get(inst["subject_id"])
         needs_room = subj is not None and subj.required_room_type is not None
         if not has_x or (needs_room and not has_y):
             core = build_infeasible_core(input_model)
-            # уточняем причину для отсутствия кабинета
+            teacher = teacher_by_id_tmp.get(inst["teacher_id"])
+            tname = teacher.full_name if teacher else inst["teacher_id"]
+            sname = subj.name if subj else inst["subject_id"]
             if needs_room and not has_y:
-                core["reason"] = f"Room type {subj.required_room_type}: no rooms available for subject {subj.id} (class {inst['class_id']})"
-                core["conflicting_entities"] = [f"room_type:{subj.required_room_type}", f"subject:{subj.id}"]
+                core["reason"] = (
+                    f"Нет кабинета типа «{subj.required_room_type}» для предмета «{sname}» "
+                    f"(класс {inst['class_id']}, учитель {tname})"
+                )
+                core["conflicting_entities"] = [f"room_type:{subj.required_room_type}", f"subject:{inst['subject_id']}"]
+            elif not has_x:
+                core["reason"] = (
+                    f"Нет доступных слотов для «{sname}» — учитель «{tname}» не имеет окон "
+                    f"(класс {inst['class_id']})"
+                )
+                core["conflicting_entities"] = [inst["teacher_id"], inst["class_id"]]
             return {
                 "schema_version": 1,
                 "status": "INFEASIBLE",
@@ -207,6 +271,20 @@ def solve(input_model: InputModel) -> dict:
 
     add_hard_constraints(model, x, y, input_model, instances, room_by_id, subject_by_id)
     penalties = add_soft_constraints(model, x, y, input_model, instances, room_by_id)
+
+    # Предупреждения: mismatches subject_ids учителя с curriculum
+    warnings = []
+    teacher_by_id = {t.id: t for t in input_model.teachers}
+    for entry in input_model.curriculum:
+        teacher = teacher_by_id.get(entry.teacher_id)
+        if teacher and teacher.subject_ids:
+            if entry.subject_id not in teacher.subject_ids:
+                subj = subject_by_id.get(entry.subject_id)
+                sname = subj.name if subj else entry.subject_id
+                warnings.append(
+                    f"Учитель «{teacher.full_name}» назначен на предмет «{sname}», "
+                    f"но его нет в списке предметов учителя: {teacher.subject_ids}"
+                )
     if penalties:
         # взвешенная сумма, вес 0 уже исключён в soft.py (ключ отсутствует), но для безопасности фильтруем
         weights = input_model.weights
@@ -293,7 +371,7 @@ def solve(input_model: InputModel) -> dict:
             },
             "penalties": pen_vals,
             "slots": slots,
-            "diagnostics": {"infeasible_core": None, "warnings": []},
+            "diagnostics": {"infeasible_core": None, "warnings": warnings},
         }
     else:
         core = build_infeasible_core(input_model)
@@ -304,5 +382,5 @@ def solve(input_model: InputModel) -> dict:
             "solver_stats": {"wall_ms": wall_ms, "branches": int(solver.NumBranches()), "conflicts": int(solver.NumConflicts()), "gap_percent": 0.0, "objective_value": 0},
             "penalties": {"window": 0, "room_displacement": 0, "sanpin_parabola": 0, "alternation": 0, "movement": 0, "load_balance": 0, "total": 0},
             "slots": [],
-            "diagnostics": {"infeasible_core": core, "warnings": []},
+            "diagnostics": {"infeasible_core": core, "warnings": warnings},
         }

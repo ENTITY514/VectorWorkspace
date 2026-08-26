@@ -17,7 +17,7 @@ mod schedule_tests {
     async fn availability_must_have_at_least_one() {
         let dir = tempfile::tempdir().unwrap();
         let pool = connect(&dir.path().join("test.db")).await.unwrap();
-        let res = teachers::upsert_teacher(&pool, None, "Иванов".into(), None, 0, avail_none()).await;
+        let res = teachers::upsert_teacher(&pool, None, "Иванов".into(), None, 0, avail_none(), "[]".to_string(), false).await;
         assert!(res.is_err(), "expected NoAvailability, got {:?}", res);
     }
 
@@ -25,7 +25,7 @@ mod schedule_tests {
     async fn teacher_crud_roundtrip() {
         let dir = tempfile::tempdir().unwrap();
         let pool = connect(&dir.path().join("test.db")).await.unwrap();
-        let t = teachers::upsert_teacher(&pool, None, "Петрова".into(), None, 5, avail_all()).await.unwrap();
+        let t = teachers::upsert_teacher(&pool, None, "Петрова".into(), None, 5, avail_all(), "[]".to_string(), false).await.unwrap();
         let list = teachers::list_teachers(&pool).await.unwrap();
         assert_eq!(list.len(), 1);
         assert_eq!(list[0].id, t.id);
@@ -55,7 +55,7 @@ mod schedule_tests {
         let dir = tempfile::tempdir().unwrap();
         let pool = connect(&dir.path().join("test.db")).await.unwrap();
         // prerequisites
-        let t1 = teachers::upsert_teacher(&pool, None, "Учитель1".into(), None, 0, avail_all()).await.unwrap();
+        let t1 = teachers::upsert_teacher(&pool, None, "Учитель1".into(), None, 0, avail_all(), "[]".to_string(), false).await.unwrap();
         rooms::upsert_room(&pool, None, "Каб. 10".into(), "General".into(), 30, None, None).await.unwrap();
         sqlx::query("INSERT INTO schedule_classes (id, grade, letter, headcount, shift) VALUES ('c1', 8, 'А', 25, 'First')")
             .execute(&pool).await.unwrap();
@@ -64,7 +64,7 @@ mod schedule_tests {
         let res = curriculum::set_curriculum_entries(&pool, vec![("c1".into(), "eng".into(), t1.id.clone(), None, 2)]).await;
         assert!(res.is_err(), "split without second teacher should fail: {:?}", res);
         // с двумя — ок
-        let t2 = teachers::upsert_teacher(&pool, None, "Учитель2".into(), None, 0, avail_all()).await.unwrap();
+        let t2 = teachers::upsert_teacher(&pool, None, "Учитель2".into(), None, 0, avail_all(), "[]".to_string(), false).await.unwrap();
         let ok = curriculum::set_curriculum_entries(&pool, vec![("c1".into(), "eng".into(), t1.id.clone(), Some(t2.id.clone()), 2)]).await;
         assert!(ok.is_ok(), "split with two teachers should succeed: {:?}", ok);
     }
@@ -73,7 +73,7 @@ mod schedule_tests {
     async fn same_split_teachers_rejected() {
         let dir = tempfile::tempdir().unwrap();
         let pool = connect(&dir.path().join("test.db")).await.unwrap();
-        let t1 = teachers::upsert_teacher(&pool, None, "Учитель1".into(), None, 0, avail_all()).await.unwrap();
+        let t1 = teachers::upsert_teacher(&pool, None, "Учитель1".into(), None, 0, avail_all(), "[]".to_string(), false).await.unwrap();
         sqlx::query("INSERT INTO schedule_classes (id, grade, letter, headcount, shift) VALUES ('c1', 8, 'А', 25, 'First')")
             .execute(&pool).await.unwrap();
         subjects::upsert_subject(&pool, "eng".into(), "Английский".into(), 5, None, true, false, "[]".into()).await.unwrap();
@@ -85,8 +85,8 @@ mod schedule_tests {
     async fn slots_unique_constraints() {
         let dir = tempfile::tempdir().unwrap();
         let pool = connect(&dir.path().join("test.db")).await.unwrap();
-        let t1 = teachers::upsert_teacher(&pool, None, "Учитель1".into(), None, 0, avail_all()).await.unwrap();
-        let t2 = teachers::upsert_teacher(&pool, None, "Учитель2".into(), None, 0, avail_all()).await.unwrap();
+        let t1 = teachers::upsert_teacher(&pool, None, "Учитель1".into(), None, 0, avail_all(), "[]".to_string(), false).await.unwrap();
+        let t2 = teachers::upsert_teacher(&pool, None, "Учитель2".into(), None, 0, avail_all(), "[]".to_string(), false).await.unwrap();
         let r1 = rooms::upsert_room(&pool, None, "Каб. 1".into(), "General".into(), 30, None, None).await.unwrap();
         let r2 = rooms::upsert_room(&pool, None, "Каб. 2".into(), "General".into(), 30, None, None).await.unwrap();
         sqlx::query("INSERT INTO schedule_classes (id, grade, letter, headcount, shift) VALUES ('c1', 8, 'А', 25, 'First'), ('c2', 8, 'Б', 25, 'First')")
@@ -136,7 +136,7 @@ mod schedule_tests {
     async fn cascade_delete_class_removes_subgroup_and_curriculum() {
         let dir = tempfile::tempdir().unwrap();
         let pool = connect(&dir.path().join("test.db")).await.unwrap();
-        let t1 = teachers::upsert_teacher(&pool, None, "Учитель1".into(), None, 0, avail_all()).await.unwrap();
+        let t1 = teachers::upsert_teacher(&pool, None, "Учитель1".into(), None, 0, avail_all(), "[]".to_string(), false).await.unwrap();
         sqlx::query("INSERT INTO schedule_classes (id, grade, letter, headcount, shift) VALUES ('c1', 8, 'А', 25, 'First')")
             .execute(&pool).await.unwrap();
         subjects::upsert_subject(&pool, "eng".into(), "Английский".into(), 5, None, true, false, "[]".into()).await.unwrap();
@@ -144,7 +144,7 @@ mod schedule_tests {
             .execute(&pool).await.unwrap();
         curriculum::set_curriculum_entries(&pool, vec![("c1".into(), "eng".into(), t1.id.clone(), Some(t1.id.clone() + "x"), 2)]).await.unwrap_err(); // expect fail due to FK on second teacher (fake id)
         // use real t2
-        let t2 = teachers::upsert_teacher(&pool, None, "Учитель2".into(), None, 0, avail_all()).await.unwrap();
+        let t2 = teachers::upsert_teacher(&pool, None, "Учитель2".into(), None, 0, avail_all(), "[]".to_string(), false).await.unwrap();
         curriculum::set_curriculum_entries(&pool, vec![("c1".into(), "eng".into(), t1.id.clone(), Some(t2.id.clone()), 2)]).await.unwrap();
         // delete class
         sqlx::query("DELETE FROM schedule_classes WHERE id='c1'").execute(&pool).await.unwrap();

@@ -140,6 +140,10 @@ pub struct ScheduleTeacher {
     pub base_room_id: Option<String>,
     pub max_daily_lessons: i64,
     pub availability_json: String,
+    /// JSON-массив ID предметов, которые ведёт учитель: ["math","algebra","geometry"]
+    pub subject_ids: String,
+    /// Совмещённый учитель (приезжает из другой школы)
+    pub is_combined: bool,
 }
 
 /// DTO кабинета.
@@ -230,6 +234,23 @@ pub struct ScheduleSlot {
     pub source_time: Option<String>,
     #[serde(default)]
     pub source_note: Option<String>,
+    #[serde(default)]
+    pub variant_id: Option<String>,
+}
+
+/// DTO варианта расписания.
+/// Навигация: Год (academic_year) → Четверть (quarter_number) → Вариант (variant_number).
+/// quarter_number=0 означает «общий» (без привязки к четверти).
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct ScheduleVariant {
+    pub id: String,
+    pub name: String,
+    pub academic_year: String,
+    pub quarter_number: i64,
+    pub variant_number: i64,
+    pub is_active: bool,
+    pub created_at: String,
+    pub parent_variant_id: Option<String>,
 }
 
 /// Агрегат состояния вкладки «Расписание».
@@ -243,4 +264,5 @@ pub struct ScheduleState {
     pub curriculum: Vec<ScheduleCurriculum>,
     pub weights: ScheduleWeights,
     pub slots: Vec<ScheduleSlot>,
+    pub variants: Vec<ScheduleVariant>,
 }

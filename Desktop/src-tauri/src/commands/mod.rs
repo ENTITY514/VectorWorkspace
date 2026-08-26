@@ -75,6 +75,11 @@ pub fn register<R: tauri::Runtime>(
             schedule::schedule_generate,
             schedule::schedule_export,
             schedule::schedule_import_legacy,
-            schedule::schedule_get_legacy
+            schedule::schedule_get_legacy,
+            schedule::schedule_list_variants,
+            schedule::schedule_create_variant,
+            schedule::schedule_set_active_variant,
+            schedule::schedule_delete_variant,
+            schedule::schedule_get_slots_for_variant
         ])
 }

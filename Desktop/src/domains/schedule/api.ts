@@ -8,6 +8,7 @@ import type {
   ScheduleWeights,
   ScheduleSlot,
   ScheduleGenerateResult,
+  ScheduleVariant,
 } from "../../types";
 
 const isTauri = "__TAURI_INTERNALS__" in window;
@@ -68,10 +69,19 @@ export const scheduleApi = {
   importLegacy(quarter?: number): Promise<unknown> {
     return call("schedule_import_legacy", { quarter });
   },
-  getLegacy(quarter: number): Promise<ScheduleSlot[]> {
-    return call<ScheduleSlot[]>("schedule_get_legacy", { quarter });
-  },
   exportSchedule(format?: string): Promise<string> {
     return call<string>("schedule_export", { format });
+  },
+  listVariants(): Promise<ScheduleVariant[]> {
+    return call<ScheduleVariant[]>("schedule_list_variants");
+  },
+  createVariant(input: { name: string; academic_year: string; quarter_number?: number; variant_number?: number; copy_from_variant_id?: string }): Promise<ScheduleVariant> {
+    return call<ScheduleVariant>("schedule_create_variant", { input });
+  },
+  setActiveVariant(variant_id: string): Promise<void> {
+    return call<void>("schedule_set_active_variant", { variant_id });
+  },
+  deleteVariant(variant_id: string): Promise<void> {
+    return call<void>("schedule_delete_variant", { variant_id });
   },
 };

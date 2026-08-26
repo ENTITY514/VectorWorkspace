@@ -26,6 +26,8 @@ class TeacherInput(BaseModel):
     base_room_id: Optional[str] = None
     max_daily_lessons: int = Field(ge=0, le=10)
     availability: list[list[bool]]  # [day][period]
+    subject_ids: list[str] = Field(default_factory=list)
+    is_combined: bool = False
 
     @field_validator("availability")
     @classmethod
