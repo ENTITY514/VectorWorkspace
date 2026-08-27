@@ -8,7 +8,7 @@
     "random_seed": 42
   },
   "time_grid": {
-    "days": 6,
+    "days": 5,
     "periods_per_day": 7
   },
   "teachers": [
@@ -4033,7 +4033,7 @@
     {
       "class_id": "1б",
       "subject_id": "estestvoznanie",
-      "teacher_id": "радионова_на",
+      "teacher_id": "иващенко_во",
       "split_teacher2_id": null,
       "hours_per_week": 1
     },
@@ -4054,14 +4054,14 @@
     {
       "class_id": "1б",
       "subject_id": "kazakh_language",
-      "teacher_id": "асаева_жх",
+      "teacher_id": "ильясова_аб",
       "split_teacher2_id": null,
-      "hours_per_week": 2
+      "hours_per_week": 1
     },
     {
       "class_id": "1б",
       "subject_id": "poznanie",
-      "teacher_id": "радионова_на",
+      "teacher_id": "темерканова_ов",
       "split_teacher2_id": null,
       "hours_per_week": 1
     },
@@ -4074,7 +4074,7 @@
     },
     {
       "class_id": "5б",
-      "subject_id": "xls_27fd1b2f1ffd",
+      "subject_id": "xls_2599b3cde3c4",
       "teacher_id": "асаева_жх",
       "split_teacher2_id": null,
       "hours_per_week": 4
@@ -4089,16 +4089,9 @@
     {
       "class_id": "5б",
       "subject_id": "russian",
-      "teacher_id": "дмитриев_ев",
+      "teacher_id": "жолдан_аб",
       "split_teacher2_id": null,
       "hours_per_week": 3
-    },
-    {
-      "class_id": "5б",
-      "subject_id": "xls_caad79222c19",
-      "teacher_id": "ильясова_аб",
-      "split_teacher2_id": null,
-      "hours_per_week": 4
     },
     {
       "class_id": "5б",
@@ -4112,7 +4105,7 @@
       "subject_id": "literature",
       "teacher_id": "дмитриев_ев",
       "split_teacher2_id": null,
-      "hours_per_week": 2
+      "hours_per_week": 1
     },
     {
       "class_id": "5б",
@@ -4140,21 +4133,14 @@
       "subject_id": "english",
       "teacher_id": "алекпарова_аж",
       "split_teacher2_id": null,
-      "hours_per_week": 3
+      "hours_per_week": 2
     },
     {
       "class_id": "5б",
-      "subject_id": "english",
-      "teacher_id": "акауова_ин",
-      "split_teacher2_id": null,
-      "hours_per_week": 3
-    },
-    {
-      "class_id": "5б",
-      "subject_id": "xls_3dc86e3f8429",
+      "subject_id": "informatics",
       "teacher_id": "бедрина_мн",
       "split_teacher2_id": null,
-      "hours_per_week": 1
+      "hours_per_week": 2
     },
     {
       "class_id": "5б",
@@ -4167,13 +4153,6 @@
       "class_id": "5б",
       "subject_id": "history_world",
       "teacher_id": "мельникова_лр",
-      "split_teacher2_id": null,
-      "hours_per_week": 1
-    },
-    {
-      "class_id": "5б",
-      "subject_id": "xls_f58f86a22be9",
-      "teacher_id": "бедрина_мн",
       "split_teacher2_id": null,
       "hours_per_week": 1
     },
@@ -4389,7 +4368,7 @@
     },
     {
       "class_id": "6_luo",
-      "subject_id": "kazakh_language",
+      "subject_id": "қазақтілі",
       "teacher_id": "балгабаева_нк",
       "split_teacher2_id": null,
       "hours_per_week": 2
@@ -4536,7 +4515,7 @@
     },
     {
       "class_id": "7ә",
-      "subject_id": "history_kz",
+      "subject_id": "қазақстантарихы",
       "teacher_id": "досаева_мх",
       "split_teacher2_id": null,
       "hours_per_week": 2
@@ -4564,14 +4543,14 @@
     },
     {
       "class_id": "7ә",
-      "subject_id": "kazakh_literature",
+      "subject_id": "қазақәдебиет",
       "teacher_id": "ильясова_аб",
       "split_teacher2_id": null,
       "hours_per_week": 2
     },
     {
       "class_id": "7ә",
-      "subject_id": "pe",
+      "subject_id": "денешынықтыру",
       "teacher_id": "кашиков_ее",
       "split_teacher2_id": null,
       "hours_per_week": 3
@@ -4585,7 +4564,7 @@
     },
     {
       "class_id": "7ә",
-      "subject_id": "kazakh_language",
+      "subject_id": "қазақтілі",
       "teacher_id": "ильясова_аб",
       "split_teacher2_id": null,
       "hours_per_week": 3
@@ -4886,7 +4865,7 @@
     },
     {
       "class_id": "8",
-      "subject_id": "xls_27fd1b2f1ffd",
+      "subject_id": "xls_2599b3cde3c4",
       "teacher_id": "асаева_жх",
       "split_teacher2_id": null,
       "hours_per_week": 4
@@ -4907,17 +4886,10 @@
     },
     {
       "class_id": "8",
-      "subject_id": "xls_caad79222c19",
-      "teacher_id": "ильясова_аб",
-      "split_teacher2_id": null,
-      "hours_per_week": 4
-    },
-    {
-      "class_id": "8",
-      "subject_id": "xls_a72082eac40e",
+      "subject_id": "informatics",
       "teacher_id": "бедрина_мн",
       "split_teacher2_id": null,
-      "hours_per_week": 1
+      "hours_per_week": 2
     },
     {
       "class_id": "8",
@@ -4945,14 +4917,7 @@
       "subject_id": "english",
       "teacher_id": "алекпарова_аж",
       "split_teacher2_id": null,
-      "hours_per_week": 3
-    },
-    {
-      "class_id": "8",
-      "subject_id": "xls_3ddf4665346c",
-      "teacher_id": "бедрина_мн",
-      "split_teacher2_id": null,
-      "hours_per_week": 1
+      "hours_per_week": 2
     },
     {
       "class_id": "8",
@@ -4965,13 +4930,6 @@
       "class_id": "8",
       "subject_id": "algebra",
       "teacher_id": "бабич_ид",
-      "split_teacher2_id": null,
-      "hours_per_week": 3
-    },
-    {
-      "class_id": "8",
-      "subject_id": "english",
-      "teacher_id": "акауова_ин",
       "split_teacher2_id": null,
       "hours_per_week": 3
     },
@@ -5292,7 +5250,7 @@
     },
     {
       "class_id": "10а",
-      "subject_id": "history_kz",
+      "subject_id": "қазақстантарихы",
       "teacher_id": "досаева_мх",
       "split_teacher2_id": null,
       "hours_per_week": 2
@@ -5306,7 +5264,7 @@
     },
     {
       "class_id": "10а",
-      "subject_id": "kazakh_literature",
+      "subject_id": "қазақәдебиет",
       "teacher_id": "ильясова_аб",
       "split_teacher2_id": null,
       "hours_per_week": 2
@@ -5320,7 +5278,7 @@
     },
     {
       "class_id": "10а",
-      "subject_id": "algebra",
+      "subject_id": "алгебражанализб",
       "teacher_id": "ізбасты_мж",
       "split_teacher2_id": null,
       "hours_per_week": 4
@@ -5334,7 +5292,7 @@
     },
     {
       "class_id": "10а",
-      "subject_id": "kazakh_language",
+      "subject_id": "қазақтілі",
       "teacher_id": "ильясова_аб",
       "split_teacher2_id": null,
       "hours_per_week": 1
@@ -5355,7 +5313,7 @@
     },
     {
       "class_id": "10а",
-      "subject_id": "law",
+      "subject_id": "құқықнегіздері",
       "teacher_id": "досаева_мх",
       "split_teacher2_id": null,
       "hours_per_week": 1
@@ -5369,7 +5327,7 @@
     },
     {
       "class_id": "10а",
-      "subject_id": "pe",
+      "subject_id": "денешынықтыру",
       "teacher_id": "кашиков_ее",
       "split_teacher2_id": null,
       "hours_per_week": 3
@@ -5425,7 +5383,7 @@
     },
     {
       "class_id": "10б",
-      "subject_id": "algebra",
+      "subject_id": "алгебраиначан",
       "teacher_id": "пащенко_на",
       "split_teacher2_id": null,
       "hours_per_week": 4
@@ -5496,7 +5454,7 @@
     {
       "class_id": "10б",
       "subject_id": "russian",
-      "teacher_id": "дмитриев_ев",
+      "teacher_id": "жолдан_аб",
       "split_teacher2_id": null,
       "hours_per_week": 1
     },
@@ -5530,7 +5488,7 @@
     },
     {
       "class_id": "11",
-      "subject_id": "algebra",
+      "subject_id": "алгебраиначан",
       "teacher_id": "пащенко_на",
       "split_teacher2_id": null,
       "hours_per_week": 4
@@ -5559,7 +5517,7 @@
     {
       "class_id": "11",
       "subject_id": "russian",
-      "teacher_id": "дмитриев_ев",
+      "teacher_id": "жолдан_аб",
       "split_teacher2_id": null,
       "hours_per_week": 1
     },
@@ -5600,7 +5558,7 @@
     },
     {
       "class_id": "3а",
-      "subject_id": "kazakh_language",
+      "subject_id": "қазақтілі",
       "teacher_id": "актаева_ае",
       "split_teacher2_id": null,
       "hours_per_week": 4
@@ -5643,20 +5601,20 @@
     {
       "class_id": "3а",
       "subject_id": "music",
-      "teacher_id": "актаева_ае",
+      "teacher_id": "шкиря_юн",
       "split_teacher2_id": null,
       "hours_per_week": 1
     },
     {
       "class_id": "3а",
-      "subject_id": "izo",
+      "subject_id": "бейнелеуөнері",
       "teacher_id": "жекеева_на",
       "split_teacher2_id": null,
       "hours_per_week": 1
     },
     {
       "class_id": "3а",
-      "subject_id": "pe",
+      "subject_id": "денешынықтыру",
       "teacher_id": "кашиков_ее",
       "split_teacher2_id": null,
       "hours_per_week": 3
@@ -5671,7 +5629,7 @@
     {
       "class_id": "3а",
       "subject_id": "xls_01e060767411",
-      "teacher_id": "актаева_ае",
+      "teacher_id": "сапаргалиева_гс",
       "split_teacher2_id": null,
       "hours_per_week": 1
     },
@@ -5803,7 +5761,7 @@
     },
     {
       "class_id": "3_luo",
-      "subject_id": "music",
+      "subject_id": "музыкаипение",
       "teacher_id": "шкиря_юн",
       "split_teacher2_id": null,
       "hours_per_week": 1
@@ -5817,7 +5775,7 @@
     },
     {
       "class_id": "3_luo",
-      "subject_id": "trud",
+      "subject_id": "ручнойтруд",
       "teacher_id": "радионова_на",
       "split_teacher2_id": null,
       "hours_per_week": 2
@@ -5846,7 +5804,7 @@
     {
       "class_id": "4а",
       "subject_id": "music",
-      "teacher_id": "актаева_ае",
+      "teacher_id": "шкиря_юн",
       "split_teacher2_id": null,
       "hours_per_week": 1
     },
@@ -5859,14 +5817,14 @@
     },
     {
       "class_id": "4а",
-      "subject_id": "izo",
+      "subject_id": "бейнелеуөнері",
       "teacher_id": "жекеева_на",
       "split_teacher2_id": null,
       "hours_per_week": 1
     },
     {
       "class_id": "4а",
-      "subject_id": "pe",
+      "subject_id": "денешынықтыру",
       "teacher_id": "кашиков_ее",
       "split_teacher2_id": null,
       "hours_per_week": 3
@@ -5887,7 +5845,7 @@
     },
     {
       "class_id": "4а",
-      "subject_id": "kazakh_language",
+      "subject_id": "қазақтілі",
       "teacher_id": "жекеева_на",
       "split_teacher2_id": null,
       "hours_per_week": 4
@@ -5909,7 +5867,7 @@
     {
       "class_id": "4а",
       "subject_id": "xls_01e060767411",
-      "teacher_id": "актаева_ае",
+      "teacher_id": "сапаргалиева_гс",
       "split_teacher2_id": null,
       "hours_per_week": 1
     },
@@ -6062,21 +6020,21 @@
     },
     {
       "class_id": "5а",
-      "subject_id": "kazakh_literature",
+      "subject_id": "қазақәдебиет",
       "teacher_id": "асаева_жх",
       "split_teacher2_id": null,
       "hours_per_week": 2
     },
     {
       "class_id": "5а",
-      "subject_id": "history_kz",
+      "subject_id": "қазақстантарихы",
       "teacher_id": "досаева_мх",
       "split_teacher2_id": null,
       "hours_per_week": 2
     },
     {
       "class_id": "5а",
-      "subject_id": "pe",
+      "subject_id": "денешынықтыру",
       "teacher_id": "кашиков_ее",
       "split_teacher2_id": null,
       "hours_per_week": 3
@@ -6097,7 +6055,7 @@
     },
     {
       "class_id": "5а",
-      "subject_id": "kazakh_language",
+      "subject_id": "қазақтілі",
       "teacher_id": "асаева_жх",
       "split_teacher2_id": null,
       "hours_per_week": 3
@@ -6140,7 +6098,7 @@
     {
       "class_id": "1а",
       "subject_id": "music",
-      "teacher_id": "актаева_ае",
+      "teacher_id": "шкиря_юн",
       "split_teacher2_id": null,
       "hours_per_week": 1
     },
@@ -6153,14 +6111,14 @@
     },
     {
       "class_id": "1а",
-      "subject_id": "izo",
+      "subject_id": "бейнелеуөнері",
       "teacher_id": "романишина_им",
       "split_teacher2_id": null,
       "hours_per_week": 1
     },
     {
       "class_id": "1а",
-      "subject_id": "pe",
+      "subject_id": "денешынықтыру",
       "teacher_id": "кашиков_ее",
       "split_teacher2_id": null,
       "hours_per_week": 3
@@ -6183,6 +6141,20 @@
       "class_id": "1а",
       "subject_id": "xls_52128dd96fda",
       "teacher_id": "жантемиров_эа",
+      "split_teacher2_id": null,
+      "hours_per_week": 1
+    },
+    {
+      "class_id": "1б",
+      "subject_id": "kazakh_language",
+      "teacher_id": "ильясова_аб",
+      "split_teacher2_id": null,
+      "hours_per_week": 1
+    },
+    {
+      "class_id": "5б",
+      "subject_id": "literature",
+      "teacher_id": "темерканова_ов",
       "split_teacher2_id": null,
       "hours_per_week": 1
     }

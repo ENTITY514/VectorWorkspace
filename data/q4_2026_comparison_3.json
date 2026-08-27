@@ -22,36 +22,36 @@
       "class": 0
     },
     "soft": {
-      "win": 126,
-      "sanpin": 2051,
-      "bal": 101,
-      "classWin": 130,
-      "total": 263580
+      "win": 232,
+      "sanpin": 2604,
+      "bal": 95,
+      "classWin": 205,
+      "total": 360800
     }
   },
   "v3": {
     "hard": {
       "teacher": 0,
-      "room": 504,
-      "roomF": 30,
+      "room": 442,
+      "roomF": 19,
       "class": 0
     },
     "soft": {
-      "win": 1,
-      "sanpin": 2160,
-      "bal": 60,
-      "classWin": 101,
-      "total": 221200
+      "win": 0,
+      "sanpin": 2197,
+      "bal": 35,
+      "classWin": 124,
+      "total": 222500
     },
     "solver": {
-      "window": 1,
+      "window": 0,
       "room_displacement": 0,
-      "sanpin_parabola": 2470,
+      "sanpin_parabola": 2197,
       "alternation": 0,
       "movement": 0,
-      "load_balance": 68,
+      "load_balance": 35,
       "change_slot": 0,
-      "total": 252840
+      "total": 222500
     }
   }
 }

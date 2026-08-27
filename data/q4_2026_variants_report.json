@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-27T09:41:13.747Z",
+  "generatedAt": "2026-08-27T10:46:18.804Z",
   "variant1": {
     "slots": 667,
     "classes": 27,
@@ -7,12 +7,12 @@
     "subjects": 62
   },
   "variant2": {
-    "slots": 667,
+    "slots": 637,
     "classes": 27,
     "teachers": 37,
-    "subjects": 62
+    "subjects": 64
   },
-  "curriculumEntries": 312,
+  "curriculumEntries": 306,
   "createdSubjects": 0,
   "issues": {
     "unknownClasses": [],

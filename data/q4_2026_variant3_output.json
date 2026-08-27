@@ -2,21 +2,21 @@
   "schema_version": 1,
   "status": "FEASIBLE",
   "solver_stats": {
-    "wall_ms": 182389,
-    "branches": 64189,
-    "conflicts": 1,
+    "wall_ms": 181067,
+    "branches": 84046,
+    "conflicts": 52,
     "gap_percent": 0.0,
-    "objective_value": 252840
+    "objective_value": 222500
   },
   "penalties": {
-    "window": 1,
+    "window": 0,
     "room_displacement": 0,
-    "sanpin_parabola": 2470,
+    "sanpin_parabola": 2197,
     "alternation": 0,
     "movement": 0,
-    "load_balance": 68,
+    "load_balance": 35,
     "change_slot": 0,
-    "total": 252840
+    "total": 222500
   },
   "slots": [
     {
@@ -25,16 +25,7 @@
       "teacher_id": "ольков_гв",
       "room_id": "r_2_gym",
       "subgroup_label": null,
-      "day": 5,
-      "period": 2
-    },
-    {
-      "class_id": "1б",
-      "subject_id": "pe",
-      "teacher_id": "ольков_гв",
-      "room_id": "r_2_gym",
-      "subgroup_label": null,
-      "day": 0,
+      "day": 2,
       "period": 3
     },
     {
@@ -43,8 +34,17 @@
       "teacher_id": "ольков_гв",
       "room_id": "r_2_gym",
       "subgroup_label": null,
-      "day": 2,
-      "period": 5
+      "day": 3,
+      "period": 3
+    },
+    {
+      "class_id": "1б",
+      "subject_id": "pe",
+      "teacher_id": "ольков_гв",
+      "room_id": "r_2_gym",
+      "subgroup_label": null,
+      "day": 0,
+      "period": 6
     },
     {
       "class_id": "1б",
@@ -61,8 +61,26 @@
       "teacher_id": "квашнина_ев",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 5,
-      "period": 1
+      "day": 4,
+      "period": 5
+    },
+    {
+      "class_id": "1б",
+      "subject_id": "bukvar",
+      "teacher_id": "квашнина_ев",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 0,
+      "period": 3
+    },
+    {
+      "class_id": "1б",
+      "subject_id": "bukvar",
+      "teacher_id": "квашнина_ев",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 2,
+      "period": 6
     },
     {
       "class_id": "1б",
@@ -79,26 +97,8 @@
       "teacher_id": "квашнина_ев",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 2,
-      "period": 2
-    },
-    {
-      "class_id": "1б",
-      "subject_id": "bukvar",
-      "teacher_id": "квашнина_ев",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 1,
-      "period": 6
-    },
-    {
-      "class_id": "1б",
-      "subject_id": "bukvar",
-      "teacher_id": "квашнина_ев",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
       "day": 3,
-      "period": 6
+      "period": 5
     },
     {
       "class_id": "1б",
@@ -107,7 +107,16 @@
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 1,
-      "period": 2
+      "period": 0
+    },
+    {
+      "class_id": "1б",
+      "subject_id": "math",
+      "teacher_id": "квашнина_ев",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 4,
+      "period": 4
     },
     {
       "class_id": "1б",
@@ -116,7 +125,16 @@
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 0,
-      "period": 1
+      "period": 4
+    },
+    {
+      "class_id": "1б",
+      "subject_id": "math",
+      "teacher_id": "квашнина_ев",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 4,
+      "period": 3
     },
     {
       "class_id": "1б",
@@ -125,34 +143,16 @@
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 3,
-      "period": 5
-    },
-    {
-      "class_id": "1б",
-      "subject_id": "math",
-      "teacher_id": "квашнина_ев",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 2,
-      "period": 1
-    },
-    {
-      "class_id": "1б",
-      "subject_id": "math",
-      "teacher_id": "квашнина_ев",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 0,
-      "period": 2
+      "period": 4
     },
     {
       "class_id": "1б",
       "subject_id": "estestvoznanie",
-      "teacher_id": "радионова_на",
+      "teacher_id": "иващенко_во",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 2,
-      "period": 4
+      "day": 0,
+      "period": 5
     },
     {
       "class_id": "1б",
@@ -160,8 +160,8 @@
       "teacher_id": "квашнина_ев",
       "room_id": "r_19_workshop",
       "subgroup_label": null,
-      "day": 1,
-      "period": 3
+      "day": 2,
+      "period": 5
     },
     {
       "class_id": "1б",
@@ -169,35 +169,26 @@
       "teacher_id": "квашнина_ев",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 0,
-      "period": 0
-    },
-    {
-      "class_id": "1б",
-      "subject_id": "kazakh_language",
-      "teacher_id": "асаева_жх",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 0,
-      "period": 5
-    },
-    {
-      "class_id": "1б",
-      "subject_id": "kazakh_language",
-      "teacher_id": "асаева_жх",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
       "day": 2,
-      "period": 3
+      "period": 4
+    },
+    {
+      "class_id": "1б",
+      "subject_id": "kazakh_language",
+      "teacher_id": "ильясова_аб",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 1,
+      "period": 1
     },
     {
       "class_id": "1б",
       "subject_id": "poznanie",
-      "teacher_id": "радионова_на",
+      "teacher_id": "темерканова_ов",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 4,
-      "period": 4
+      "day": 3,
+      "period": 2
     },
     {
       "class_id": "1б",
@@ -210,38 +201,74 @@
     },
     {
       "class_id": "5б",
-      "subject_id": "xls_27fd1b2f1ffd",
+      "subject_id": "xls_2599b3cde3c4",
       "teacher_id": "асаева_жх",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 3,
-      "period": 3
+      "day": 4,
+      "period": 1
     },
     {
       "class_id": "5б",
-      "subject_id": "xls_27fd1b2f1ffd",
+      "subject_id": "xls_2599b3cde3c4",
       "teacher_id": "асаева_жх",
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 0,
-      "period": 3
+      "period": 5
     },
     {
       "class_id": "5б",
-      "subject_id": "xls_27fd1b2f1ffd",
+      "subject_id": "xls_2599b3cde3c4",
+      "teacher_id": "асаева_жх",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 2,
+      "period": 5
+    },
+    {
+      "class_id": "5б",
+      "subject_id": "xls_2599b3cde3c4",
       "teacher_id": "асаева_жх",
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 1,
+      "period": 1
+    },
+    {
+      "class_id": "5б",
+      "subject_id": "math",
+      "teacher_id": "пащенко_на",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 2,
       "period": 3
     },
     {
       "class_id": "5б",
-      "subject_id": "xls_27fd1b2f1ffd",
-      "teacher_id": "асаева_жх",
+      "subject_id": "math",
+      "teacher_id": "пащенко_на",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 5,
+      "day": 0,
+      "period": 1
+    },
+    {
+      "class_id": "5б",
+      "subject_id": "math",
+      "teacher_id": "пащенко_на",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 1,
+      "period": 0
+    },
+    {
+      "class_id": "5б",
+      "subject_id": "math",
+      "teacher_id": "пащенко_на",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 0,
       "period": 0
     },
     {
@@ -251,123 +278,51 @@
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 3,
+      "period": 2
+    },
+    {
+      "class_id": "5б",
+      "subject_id": "russian",
+      "teacher_id": "жолдан_аб",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 3,
+      "period": 5
+    },
+    {
+      "class_id": "5б",
+      "subject_id": "russian",
+      "teacher_id": "жолдан_аб",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 1,
+      "period": 5
+    },
+    {
+      "class_id": "5б",
+      "subject_id": "russian",
+      "teacher_id": "жолдан_аб",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 2,
+      "period": 2
+    },
+    {
+      "class_id": "5б",
+      "subject_id": "estestvoznanie",
+      "teacher_id": "иващенко_во",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 4,
       "period": 6
     },
     {
       "class_id": "5б",
-      "subject_id": "math",
-      "teacher_id": "пащенко_на",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 1,
-      "period": 5
-    },
-    {
-      "class_id": "5б",
-      "subject_id": "math",
-      "teacher_id": "пащенко_на",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 3,
-      "period": 2
-    },
-    {
-      "class_id": "5б",
-      "subject_id": "math",
-      "teacher_id": "пащенко_на",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 3,
-      "period": 5
-    },
-    {
-      "class_id": "5б",
-      "subject_id": "math",
-      "teacher_id": "пащенко_на",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 0,
-      "period": 2
-    },
-    {
-      "class_id": "5б",
-      "subject_id": "russian",
-      "teacher_id": "дмитриев_ев",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 5,
-      "period": 4
-    },
-    {
-      "class_id": "5б",
-      "subject_id": "russian",
-      "teacher_id": "дмитриев_ев",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 5,
-      "period": 2
-    },
-    {
-      "class_id": "5б",
-      "subject_id": "russian",
-      "teacher_id": "дмитриев_ев",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 1,
-      "period": 2
-    },
-    {
-      "class_id": "5б",
-      "subject_id": "xls_caad79222c19",
-      "teacher_id": "ильясова_аб",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 2,
-      "period": 2
-    },
-    {
-      "class_id": "5б",
-      "subject_id": "xls_caad79222c19",
-      "teacher_id": "ильясова_аб",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 0,
-      "period": 1
-    },
-    {
-      "class_id": "5б",
-      "subject_id": "xls_caad79222c19",
-      "teacher_id": "ильясова_аб",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 2,
-      "period": 4
-    },
-    {
-      "class_id": "5б",
-      "subject_id": "xls_caad79222c19",
-      "teacher_id": "ильясова_аб",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 2,
-      "period": 1
-    },
-    {
-      "class_id": "5б",
       "subject_id": "estestvoznanie",
       "teacher_id": "иващенко_во",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 2,
-      "period": 5
-    },
-    {
-      "class_id": "5б",
-      "subject_id": "estestvoznanie",
-      "teacher_id": "иващенко_во",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 1,
+      "day": 0,
       "period": 4
     },
     {
@@ -377,16 +332,7 @@
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 0,
-      "period": 6
-    },
-    {
-      "class_id": "5б",
-      "subject_id": "literature",
-      "teacher_id": "дмитриев_ев",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 0,
-      "period": 4
+      "period": 3
     },
     {
       "class_id": "5б",
@@ -403,7 +349,7 @@
       "teacher_id": "ольков_гв",
       "room_id": "r_2_gym",
       "subgroup_label": null,
-      "day": 5,
+      "day": 2,
       "period": 1
     },
     {
@@ -412,8 +358,8 @@
       "teacher_id": "ольков_гв",
       "room_id": "r_2_gym",
       "subgroup_label": null,
-      "day": 0,
-      "period": 5
+      "day": 1,
+      "period": 3
     },
     {
       "class_id": "5б",
@@ -422,7 +368,16 @@
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 3,
-      "period": 1
+      "period": 3
+    },
+    {
+      "class_id": "5б",
+      "subject_id": "xls_89eeb6bf7feb",
+      "teacher_id": "романишина_им",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 3,
+      "period": 4
     },
     {
       "class_id": "5б",
@@ -431,16 +386,7 @@
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 4,
-      "period": 0
-    },
-    {
-      "class_id": "5б",
-      "subject_id": "xls_89eeb6bf7feb",
-      "teacher_id": "романишина_им",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 2,
-      "period": 3
+      "period": 4
     },
     {
       "class_id": "5б",
@@ -457,62 +403,35 @@
       "teacher_id": "алекпарова_аж",
       "room_id": "r_12_languagelab",
       "subgroup_label": null,
-      "day": 1,
-      "period": 1
-    },
-    {
-      "class_id": "5б",
-      "subject_id": "english",
-      "teacher_id": "алекпарова_аж",
-      "room_id": "r_12_languagelab",
-      "subgroup_label": null,
-      "day": 0,
-      "period": 0
-    },
-    {
-      "class_id": "5б",
-      "subject_id": "english",
-      "teacher_id": "акауова_ин",
-      "room_id": "r_12_languagelab",
-      "subgroup_label": null,
-      "day": 3,
+      "day": 2,
       "period": 4
     },
     {
       "class_id": "5б",
-      "subject_id": "english",
-      "teacher_id": "акауова_ин",
-      "room_id": "r_12_languagelab",
+      "subject_id": "informatics",
+      "teacher_id": "бедрина_мн",
+      "room_id": "r_10_informatics",
       "subgroup_label": null,
-      "day": 1,
-      "period": 6
+      "day": 4,
+      "period": 3
     },
     {
       "class_id": "5б",
-      "subject_id": "english",
-      "teacher_id": "акауова_ин",
-      "room_id": "r_12_languagelab",
+      "subject_id": "informatics",
+      "teacher_id": "бедрина_мн",
+      "room_id": "r_10_informatics",
       "subgroup_label": null,
-      "day": 4,
+      "day": 3,
       "period": 1
     },
     {
       "class_id": "5б",
-      "subject_id": "xls_3dc86e3f8429",
-      "teacher_id": "бедрина_мн",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 4,
-      "period": 3
-    },
-    {
-      "class_id": "5б",
       "subject_id": "history_kz",
       "teacher_id": "мельникова_лр",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 5,
-      "period": 3
+      "day": 3,
+      "period": 0
     },
     {
       "class_id": "5б",
@@ -521,7 +440,7 @@
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 4,
-      "period": 6
+      "period": 2
     },
     {
       "class_id": "5б",
@@ -529,17 +448,8 @@
       "teacher_id": "мельникова_лр",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 2,
-      "period": 0
-    },
-    {
-      "class_id": "5б",
-      "subject_id": "xls_f58f86a22be9",
-      "teacher_id": "бедрина_мн",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 3,
-      "period": 0
+      "day": 1,
+      "period": 6
     },
     {
       "class_id": "5_luo",
@@ -548,16 +458,7 @@
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 0,
-      "period": 4
-    },
-    {
-      "class_id": "5_luo",
-      "subject_id": "math",
-      "teacher_id": "пащенко_на",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 2,
-      "period": 2
+      "period": 5
     },
     {
       "class_id": "5_luo",
@@ -566,7 +467,7 @@
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 1,
-      "period": 3
+      "period": 2
     },
     {
       "class_id": "5_luo",
@@ -575,7 +476,7 @@
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 4,
-      "period": 3
+      "period": 6
     },
     {
       "class_id": "5_luo",
@@ -584,7 +485,16 @@
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 0,
-      "period": 3
+      "period": 2
+    },
+    {
+      "class_id": "5_luo",
+      "subject_id": "math",
+      "teacher_id": "пащенко_на",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 0,
+      "period": 4
     },
     {
       "class_id": "5_luo",
@@ -592,17 +502,8 @@
       "teacher_id": "дмитриев_ев",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 2,
-      "period": 6
-    },
-    {
-      "class_id": "5_luo",
-      "subject_id": "russian",
-      "teacher_id": "дмитриев_ев",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 5,
-      "period": 6
+      "day": 1,
+      "period": 5
     },
     {
       "class_id": "5_luo",
@@ -611,15 +512,15 @@
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 4,
-      "period": 4
+      "period": 1
     },
     {
       "class_id": "5_luo",
-      "subject_id": "xls_2e044454979d",
-      "teacher_id": "иващенко_во",
+      "subject_id": "russian",
+      "teacher_id": "дмитриев_ев",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 5,
+      "day": 1,
       "period": 3
     },
     {
@@ -628,8 +529,26 @@
       "teacher_id": "иващенко_во",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 1,
-      "period": 1
+      "day": 0,
+      "period": 3
+    },
+    {
+      "class_id": "5_luo",
+      "subject_id": "xls_2e044454979d",
+      "teacher_id": "иващенко_во",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 3,
+      "period": 5
+    },
+    {
+      "class_id": "5_luo",
+      "subject_id": "xls_6bff7fd8e0e9",
+      "teacher_id": "дмитриев_ев",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 4,
+      "period": 3
     },
     {
       "class_id": "5_luo",
@@ -638,16 +557,7 @@
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 1,
-      "period": 4
-    },
-    {
-      "class_id": "5_luo",
-      "subject_id": "xls_6bff7fd8e0e9",
-      "teacher_id": "дмитриев_ев",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 3,
-      "period": 3
+      "period": 1
     },
     {
       "class_id": "5_luo",
@@ -655,35 +565,17 @@
       "teacher_id": "асаева_жх",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 3,
-      "period": 0
-    },
-    {
-      "class_id": "5_luo",
-      "subject_id": "kazakh_language",
-      "teacher_id": "асаева_жх",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 3,
-      "period": 4
-    },
-    {
-      "class_id": "5_luo",
-      "subject_id": "xls_c8eeb4eac5ee",
-      "teacher_id": "ольков_гв",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 1,
+      "day": 4,
       "period": 2
     },
     {
       "class_id": "5_luo",
-      "subject_id": "xls_c8eeb4eac5ee",
-      "teacher_id": "ольков_гв",
+      "subject_id": "kazakh_language",
+      "teacher_id": "асаева_жх",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 3,
-      "period": 1
+      "day": 0,
+      "period": 6
     },
     {
       "class_id": "5_luo",
@@ -692,7 +584,25 @@
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 0,
-      "period": 6
+      "period": 0
+    },
+    {
+      "class_id": "5_luo",
+      "subject_id": "xls_c8eeb4eac5ee",
+      "teacher_id": "ольков_гв",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 2,
+      "period": 4
+    },
+    {
+      "class_id": "5_luo",
+      "subject_id": "xls_c8eeb4eac5ee",
+      "teacher_id": "ольков_гв",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 2,
+      "period": 0
     },
     {
       "class_id": "5_luo",
@@ -701,6 +611,15 @@
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 2,
+      "period": 2
+    },
+    {
+      "class_id": "5_luo",
+      "subject_id": "xls_2a28fa2a1521",
+      "teacher_id": "романишина_им",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 3,
       "period": 3
     },
     {
@@ -709,26 +628,8 @@
       "teacher_id": "романишина_им",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 4,
-      "period": 1
-    },
-    {
-      "class_id": "5_luo",
-      "subject_id": "xls_2a28fa2a1521",
-      "teacher_id": "романишина_им",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 5,
-      "period": 2
-    },
-    {
-      "class_id": "6",
-      "subject_id": "estestvoznanie",
-      "teacher_id": "иващенко_во",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 5,
-      "period": 4
+      "day": 3,
+      "period": 6
     },
     {
       "class_id": "6",
@@ -737,24 +638,15 @@
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 1,
-      "period": 3
+      "period": 6
     },
     {
       "class_id": "6",
-      "subject_id": "russian",
-      "teacher_id": "жолдан_аб",
+      "subject_id": "estestvoznanie",
+      "teacher_id": "иващенко_во",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 5,
-      "period": 5
-    },
-    {
-      "class_id": "6",
-      "subject_id": "russian",
-      "teacher_id": "жолдан_аб",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 0,
+      "day": 3,
       "period": 6
     },
     {
@@ -763,8 +655,26 @@
       "teacher_id": "жолдан_аб",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 0,
+      "day": 2,
       "period": 3
+    },
+    {
+      "class_id": "6",
+      "subject_id": "russian",
+      "teacher_id": "жолдан_аб",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 2,
+      "period": 4
+    },
+    {
+      "class_id": "6",
+      "subject_id": "russian",
+      "teacher_id": "жолдан_аб",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 2,
+      "period": 1
     },
     {
       "class_id": "6",
@@ -773,7 +683,7 @@
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 4,
-      "period": 4
+      "period": 0
     },
     {
       "class_id": "6",
@@ -781,34 +691,7 @@
       "teacher_id": "досаева_мх",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 3,
-      "period": 5
-    },
-    {
-      "class_id": "6",
-      "subject_id": "math",
-      "teacher_id": "бедрина_мн",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
       "day": 2,
-      "period": 4
-    },
-    {
-      "class_id": "6",
-      "subject_id": "math",
-      "teacher_id": "бедрина_мн",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 0,
-      "period": 2
-    },
-    {
-      "class_id": "6",
-      "subject_id": "math",
-      "teacher_id": "бедрина_мн",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 5,
       "period": 6
     },
     {
@@ -817,7 +700,7 @@
       "teacher_id": "бедрина_мн",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 0,
+      "day": 1,
       "period": 1
     },
     {
@@ -827,25 +710,34 @@
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 1,
-      "period": 6
+      "period": 5
     },
     {
       "class_id": "6",
-      "subject_id": "english",
-      "teacher_id": "алекпарова_аж",
-      "room_id": "r_12_languagelab",
+      "subject_id": "math",
+      "teacher_id": "бедрина_мн",
+      "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 1,
+      "day": 4,
       "period": 4
     },
     {
       "class_id": "6",
-      "subject_id": "english",
-      "teacher_id": "алекпарова_аж",
-      "room_id": "r_12_languagelab",
+      "subject_id": "math",
+      "teacher_id": "бедрина_мн",
+      "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 0,
-      "period": 5
+      "day": 1,
+      "period": 2
+    },
+    {
+      "class_id": "6",
+      "subject_id": "math",
+      "teacher_id": "бедрина_мн",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 3,
+      "period": 0
     },
     {
       "class_id": "6",
@@ -854,6 +746,33 @@
       "room_id": "r_12_languagelab",
       "subgroup_label": null,
       "day": 3,
+      "period": 1
+    },
+    {
+      "class_id": "6",
+      "subject_id": "english",
+      "teacher_id": "алекпарова_аж",
+      "room_id": "r_12_languagelab",
+      "subgroup_label": null,
+      "day": 2,
+      "period": 5
+    },
+    {
+      "class_id": "6",
+      "subject_id": "english",
+      "teacher_id": "алекпарова_аж",
+      "room_id": "r_12_languagelab",
+      "subgroup_label": null,
+      "day": 0,
+      "period": 4
+    },
+    {
+      "class_id": "6",
+      "subject_id": "xls_2599b3cde3c4",
+      "teacher_id": "ильясова_аб",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 0,
       "period": 2
     },
     {
@@ -862,71 +781,62 @@
       "teacher_id": "ильясова_аб",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 3,
-      "period": 4
-    },
-    {
-      "class_id": "6",
-      "subject_id": "xls_2599b3cde3c4",
-      "teacher_id": "ильясова_аб",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 2,
-      "period": 5
-    },
-    {
-      "class_id": "6",
-      "subject_id": "xls_2599b3cde3c4",
-      "teacher_id": "ильясова_аб",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
       "day": 1,
-      "period": 1
-    },
-    {
-      "class_id": "6",
-      "subject_id": "xls_2599b3cde3c4",
-      "teacher_id": "ильясова_аб",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 0,
-      "period": 4
-    },
-    {
-      "class_id": "6",
-      "subject_id": "xls_89eeb6bf7feb",
-      "teacher_id": "романишина_им",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 2,
-      "period": 1
-    },
-    {
-      "class_id": "6",
-      "subject_id": "xls_89eeb6bf7feb",
-      "teacher_id": "романишина_им",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 2,
-      "period": 0
-    },
-    {
-      "class_id": "6",
-      "subject_id": "literature",
-      "teacher_id": "актаева_ае",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 0,
-      "period": 0
-    },
-    {
-      "class_id": "6",
-      "subject_id": "literature",
-      "teacher_id": "актаева_ае",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 5,
       "period": 3
+    },
+    {
+      "class_id": "6",
+      "subject_id": "xls_2599b3cde3c4",
+      "teacher_id": "ильясова_аб",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 3,
+      "period": 4
+    },
+    {
+      "class_id": "6",
+      "subject_id": "xls_2599b3cde3c4",
+      "teacher_id": "ильясова_аб",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 4,
+      "period": 3
+    },
+    {
+      "class_id": "6",
+      "subject_id": "xls_89eeb6bf7feb",
+      "teacher_id": "романишина_им",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 4,
+      "period": 6
+    },
+    {
+      "class_id": "6",
+      "subject_id": "xls_89eeb6bf7feb",
+      "teacher_id": "романишина_им",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 1,
+      "period": 4
+    },
+    {
+      "class_id": "6",
+      "subject_id": "literature",
+      "teacher_id": "актаева_ае",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 4,
+      "period": 2
+    },
+    {
+      "class_id": "6",
+      "subject_id": "literature",
+      "teacher_id": "актаева_ае",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 4,
+      "period": 1
     },
     {
       "class_id": "6",
@@ -934,16 +844,25 @@
       "teacher_id": "шкиря_юн",
       "room_id": "r_1_general",
       "subgroup_label": null,
+      "day": 0,
+      "period": 5
+    },
+    {
+      "class_id": "6",
+      "subject_id": "pe",
+      "teacher_id": "кашиков_ее",
+      "room_id": "r_2_gym",
+      "subgroup_label": null,
+      "day": 0,
+      "period": 3
+    },
+    {
+      "class_id": "6",
+      "subject_id": "pe",
+      "teacher_id": "кашиков_ее",
+      "room_id": "r_2_gym",
+      "subgroup_label": null,
       "day": 3,
-      "period": 0
-    },
-    {
-      "class_id": "6",
-      "subject_id": "pe",
-      "teacher_id": "кашиков_ее",
-      "room_id": "r_2_gym",
-      "subgroup_label": null,
-      "day": 2,
       "period": 3
     },
     {
@@ -952,17 +871,8 @@
       "teacher_id": "кашиков_ее",
       "room_id": "r_2_gym",
       "subgroup_label": null,
-      "day": 4,
-      "period": 1
-    },
-    {
-      "class_id": "6",
-      "subject_id": "pe",
-      "teacher_id": "кашиков_ее",
-      "room_id": "r_2_gym",
-      "subgroup_label": null,
-      "day": 4,
-      "period": 3
+      "day": 3,
+      "period": 2
     },
     {
       "class_id": "6",
@@ -971,7 +881,7 @@
       "room_id": "r_10_informatics",
       "subgroup_label": null,
       "day": 1,
-      "period": 5
+      "period": 0
     },
     {
       "class_id": "6",
@@ -980,7 +890,7 @@
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 3,
-      "period": 1
+      "period": 5
     },
     {
       "class_id": "6_do",
@@ -997,8 +907,8 @@
       "teacher_id": "ажикенова_ма",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 3,
-      "period": 1
+      "day": 4,
+      "period": 3
     },
     {
       "class_id": "6_do",
@@ -1006,26 +916,26 @@
       "teacher_id": "ажикенова_ма",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 1,
-      "period": 1
-    },
-    {
-      "class_id": "6_do",
-      "subject_id": "xls_ed09f5486772",
-      "teacher_id": "дукач_та",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 2,
-      "period": 6
-    },
-    {
-      "class_id": "6_do",
-      "subject_id": "xls_ed09f5486772",
-      "teacher_id": "дукач_та",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
       "day": 4,
+      "period": 0
+    },
+    {
+      "class_id": "6_do",
+      "subject_id": "xls_ed09f5486772",
+      "teacher_id": "дукач_та",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 3,
       "period": 5
+    },
+    {
+      "class_id": "6_do",
+      "subject_id": "xls_ed09f5486772",
+      "teacher_id": "дукач_та",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 0,
+      "period": 2
     },
     {
       "class_id": "6_do",
@@ -1033,8 +943,8 @@
       "teacher_id": "романишина_им",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 0,
-      "period": 3
+      "day": 3,
+      "period": 2
     },
     {
       "class_id": "6_do",
@@ -1042,8 +952,8 @@
       "teacher_id": "дукач_та",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 5,
-      "period": 6
+      "day": 1,
+      "period": 5
     },
     {
       "class_id": "6_do",
@@ -1060,8 +970,8 @@
       "teacher_id": "дукач_та",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 3,
-      "period": 5
+      "day": 2,
+      "period": 1
     },
     {
       "class_id": "6_do",
@@ -1070,7 +980,16 @@
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 0,
-      "period": 1
+      "period": 5
+    },
+    {
+      "class_id": "6_luo",
+      "subject_id": "estestvoznanie",
+      "teacher_id": "иващенко_во",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 4,
+      "period": 5
     },
     {
       "class_id": "6_luo",
@@ -1079,16 +998,7 @@
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 3,
-      "period": 2
-    },
-    {
-      "class_id": "6_luo",
-      "subject_id": "estestvoznanie",
-      "teacher_id": "иващенко_во",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 1,
-      "period": 2
+      "period": 4
     },
     {
       "class_id": "6_luo",
@@ -1097,7 +1007,7 @@
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 4,
-      "period": 5
+      "period": 3
     },
     {
       "class_id": "6_luo",
@@ -1105,17 +1015,17 @@
       "teacher_id": "жолдан_аб",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 0,
-      "period": 2
-    },
-    {
-      "class_id": "6_luo",
-      "subject_id": "russian",
-      "teacher_id": "жолдан_аб",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 0,
+      "day": 3,
       "period": 1
+    },
+    {
+      "class_id": "6_luo",
+      "subject_id": "russian",
+      "teacher_id": "жолдан_аб",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 2,
+      "period": 0
     },
     {
       "class_id": "6_luo",
@@ -1123,7 +1033,7 @@
       "teacher_id": "бедрина_мн",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 2,
+      "day": 3,
       "period": 3
     },
     {
@@ -1132,17 +1042,8 @@
       "teacher_id": "бедрина_мн",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 5,
-      "period": 5
-    },
-    {
-      "class_id": "6_luo",
-      "subject_id": "math",
-      "teacher_id": "бедрина_мн",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
       "day": 2,
-      "period": 5
+      "period": 2
     },
     {
       "class_id": "6_luo",
@@ -1151,7 +1052,7 @@
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 0,
-      "period": 5
+      "period": 1
     },
     {
       "class_id": "6_luo",
@@ -1164,29 +1065,11 @@
     },
     {
       "class_id": "6_luo",
-      "subject_id": "kazakh_language",
-      "teacher_id": "балгабаева_нк",
+      "subject_id": "math",
+      "teacher_id": "бедрина_мн",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 3,
-      "period": 1
-    },
-    {
-      "class_id": "6_luo",
-      "subject_id": "kazakh_language",
-      "teacher_id": "балгабаева_нк",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 4,
-      "period": 2
-    },
-    {
-      "class_id": "6_luo",
-      "subject_id": "xls_6cc46dfbced3",
-      "teacher_id": "романишина_им",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 5,
+      "day": 0,
       "period": 3
     },
     {
@@ -1195,8 +1078,17 @@
       "teacher_id": "романишина_им",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 0,
-      "period": 4
+      "day": 2,
+      "period": 3
+    },
+    {
+      "class_id": "6_luo",
+      "subject_id": "xls_6cc46dfbced3",
+      "teacher_id": "романишина_им",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 1,
+      "period": 5
     },
     {
       "class_id": "6_luo",
@@ -1204,7 +1096,7 @@
       "teacher_id": "актаева_ае",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 2,
+      "day": 1,
       "period": 0
     },
     {
@@ -1213,7 +1105,7 @@
       "teacher_id": "актаева_ае",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 4,
+      "day": 2,
       "period": 6
     },
     {
@@ -1222,8 +1114,8 @@
       "teacher_id": "шкиря_юн",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 1,
-      "period": 3
+      "day": 3,
+      "period": 2
     },
     {
       "class_id": "6_luo",
@@ -1231,7 +1123,16 @@
       "teacher_id": "кашиков_ее",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 3,
+      "day": 4,
+      "period": 0
+    },
+    {
+      "class_id": "6_luo",
+      "subject_id": "xls_c8eeb4eac5ee",
+      "teacher_id": "кашиков_ее",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 0,
       "period": 4
     },
     {
@@ -1241,33 +1142,6 @@
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 4,
-      "period": 4
-    },
-    {
-      "class_id": "6_luo",
-      "subject_id": "xls_c8eeb4eac5ee",
-      "teacher_id": "кашиков_ее",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 0,
-      "period": 6
-    },
-    {
-      "class_id": "7а",
-      "subject_id": "russian",
-      "teacher_id": "дмитриев_ев",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 1,
-      "period": 0
-    },
-    {
-      "class_id": "7а",
-      "subject_id": "russian",
-      "teacher_id": "дмитриев_ев",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 1,
       "period": 1
     },
     {
@@ -1276,44 +1150,44 @@
       "teacher_id": "дмитриев_ев",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 2,
-      "period": 5
-    },
-    {
-      "class_id": "7а",
-      "subject_id": "geometry",
-      "teacher_id": "бабич_ид",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
       "day": 3,
       "period": 4
     },
     {
       "class_id": "7а",
+      "subject_id": "russian",
+      "teacher_id": "дмитриев_ев",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 2,
+      "period": 0
+    },
+    {
+      "class_id": "7а",
+      "subject_id": "russian",
+      "teacher_id": "дмитриев_ев",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 0,
+      "period": 2
+    },
+    {
+      "class_id": "7а",
+      "subject_id": "geometry",
+      "teacher_id": "бабич_ид",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 0,
+      "period": 3
+    },
+    {
+      "class_id": "7а",
       "subject_id": "geometry",
       "teacher_id": "бабич_ид",
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 3,
-      "period": 2
-    },
-    {
-      "class_id": "7а",
-      "subject_id": "algebra",
-      "teacher_id": "бабич_ид",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 0,
-      "period": 6
-    },
-    {
-      "class_id": "7а",
-      "subject_id": "algebra",
-      "teacher_id": "бабич_ид",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 1,
-      "period": 6
+      "period": 0
     },
     {
       "class_id": "7а",
@@ -1322,7 +1196,34 @@
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 3,
-      "period": 5
+      "period": 1
+    },
+    {
+      "class_id": "7а",
+      "subject_id": "algebra",
+      "teacher_id": "бабич_ид",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 2,
+      "period": 1
+    },
+    {
+      "class_id": "7а",
+      "subject_id": "algebra",
+      "teacher_id": "бабич_ид",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 3,
+      "period": 3
+    },
+    {
+      "class_id": "7а",
+      "subject_id": "history_kz",
+      "teacher_id": "бучкова_ио",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 4,
+      "period": 0
     },
     {
       "class_id": "7а",
@@ -1331,33 +1232,6 @@
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 1,
-      "period": 3
-    },
-    {
-      "class_id": "7а",
-      "subject_id": "history_kz",
-      "teacher_id": "бучкова_ио",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 0,
-      "period": 0
-    },
-    {
-      "class_id": "7а",
-      "subject_id": "english",
-      "teacher_id": "акауова_ин",
-      "room_id": "r_12_languagelab",
-      "subgroup_label": null,
-      "day": 0,
-      "period": 3
-    },
-    {
-      "class_id": "7а",
-      "subject_id": "english",
-      "teacher_id": "акауова_ин",
-      "room_id": "r_12_languagelab",
-      "subgroup_label": null,
-      "day": 0,
       "period": 2
     },
     {
@@ -1367,7 +1241,25 @@
       "room_id": "r_12_languagelab",
       "subgroup_label": null,
       "day": 2,
-      "period": 6
+      "period": 2
+    },
+    {
+      "class_id": "7а",
+      "subject_id": "english",
+      "teacher_id": "акауова_ин",
+      "room_id": "r_12_languagelab",
+      "subgroup_label": null,
+      "day": 4,
+      "period": 5
+    },
+    {
+      "class_id": "7а",
+      "subject_id": "english",
+      "teacher_id": "акауова_ин",
+      "room_id": "r_12_languagelab",
+      "subgroup_label": null,
+      "day": 1,
+      "period": 3
     },
     {
       "class_id": "7а",
@@ -1375,8 +1267,8 @@
       "teacher_id": "ольков_гв",
       "room_id": "r_2_gym",
       "subgroup_label": null,
-      "day": 4,
-      "period": 1
+      "day": 3,
+      "period": 2
     },
     {
       "class_id": "7а",
@@ -1385,7 +1277,7 @@
       "room_id": "r_2_gym",
       "subgroup_label": null,
       "day": 2,
-      "period": 4
+      "period": 5
     },
     {
       "class_id": "7а",
@@ -1393,8 +1285,8 @@
       "teacher_id": "ольков_гв",
       "room_id": "r_2_gym",
       "subgroup_label": null,
-      "day": 4,
-      "period": 0
+      "day": 0,
+      "period": 1
     },
     {
       "class_id": "7а",
@@ -1402,8 +1294,8 @@
       "teacher_id": "романишина_им",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 1,
-      "period": 4
+      "day": 0,
+      "period": 6
     },
     {
       "class_id": "7а",
@@ -1411,7 +1303,7 @@
       "teacher_id": "темерканова_ов",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 2,
+      "day": 1,
       "period": 1
     },
     {
@@ -1420,8 +1312,8 @@
       "teacher_id": "темерканова_ов",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 3,
-      "period": 6
+      "day": 1,
+      "period": 5
     },
     {
       "class_id": "7а",
@@ -1438,16 +1330,7 @@
       "teacher_id": "власова_ак",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 0,
-      "period": 5
-    },
-    {
-      "class_id": "7а",
-      "subject_id": "xls_2599b3cde3c4",
-      "teacher_id": "власова_ак",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 2,
+      "day": 4,
       "period": 2
     },
     {
@@ -1456,7 +1339,16 @@
       "teacher_id": "власова_ак",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 4,
+      "day": 0,
+      "period": 4
+    },
+    {
+      "class_id": "7а",
+      "subject_id": "xls_2599b3cde3c4",
+      "teacher_id": "власова_ак",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 1,
       "period": 6
     },
     {
@@ -1465,7 +1357,7 @@
       "teacher_id": "сидоров_вб",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 0,
+      "day": 4,
       "period": 4
     },
     {
@@ -1474,17 +1366,8 @@
       "teacher_id": "сидоров_вб",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 1,
-      "period": 5
-    },
-    {
-      "class_id": "7а",
-      "subject_id": "biology",
-      "teacher_id": "красноперова_ов",
-      "room_id": "r_23_biologylab",
-      "subgroup_label": null,
-      "day": 0,
-      "period": 1
+      "day": 2,
+      "period": 6
     },
     {
       "class_id": "7а",
@@ -1493,6 +1376,24 @@
       "room_id": "r_23_biologylab",
       "subgroup_label": null,
       "day": 4,
+      "period": 6
+    },
+    {
+      "class_id": "7а",
+      "subject_id": "biology",
+      "teacher_id": "красноперова_ов",
+      "room_id": "r_23_biologylab",
+      "subgroup_label": null,
+      "day": 4,
+      "period": 3
+    },
+    {
+      "class_id": "7а",
+      "subject_id": "physics",
+      "teacher_id": "русина_нв",
+      "room_id": "r_synth_physicslab_1",
+      "subgroup_label": null,
+      "day": 1,
       "period": 4
     },
     {
@@ -1501,17 +1402,8 @@
       "teacher_id": "русина_нв",
       "room_id": "r_synth_physicslab_1",
       "subgroup_label": null,
-      "day": 3,
-      "period": 1
-    },
-    {
-      "class_id": "7а",
-      "subject_id": "physics",
-      "teacher_id": "русина_нв",
-      "room_id": "r_synth_physicslab_1",
-      "subgroup_label": null,
-      "day": 3,
-      "period": 0
+      "day": 0,
+      "period": 5
     },
     {
       "class_id": "7а",
@@ -1519,8 +1411,8 @@
       "teacher_id": "бучкова_ио",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 1,
-      "period": 2
+      "day": 3,
+      "period": 5
     },
     {
       "class_id": "7а",
@@ -1528,8 +1420,8 @@
       "teacher_id": "красноперова_ов",
       "room_id": "r_8_chemistrylab",
       "subgroup_label": null,
-      "day": 4,
-      "period": 2
+      "day": 2,
+      "period": 4
     },
     {
       "class_id": "7а",
@@ -1537,16 +1429,7 @@
       "teacher_id": "бедрина_мн",
       "room_id": "r_10_informatics",
       "subgroup_label": null,
-      "day": 5,
-      "period": 4
-    },
-    {
-      "class_id": "7ә",
-      "subject_id": "algebra",
-      "teacher_id": "ізбасты_мж",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 2,
+      "day": 4,
       "period": 1
     },
     {
@@ -1555,8 +1438,8 @@
       "teacher_id": "ізбасты_мж",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 5,
-      "period": 0
+      "day": 4,
+      "period": 3
     },
     {
       "class_id": "7ә",
@@ -1564,22 +1447,31 @@
       "teacher_id": "ізбасты_мж",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 2,
-      "period": 5
-    },
-    {
-      "class_id": "7ә",
-      "subject_id": "history_kz",
-      "teacher_id": "досаева_мх",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
       "day": 1,
       "period": 2
     },
     {
       "class_id": "7ә",
-      "subject_id": "history_kz",
-      "teacher_id": "досаева_мх",
+      "subject_id": "algebra",
+      "teacher_id": "ізбасты_мж",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 4,
+      "period": 5
+    },
+    {
+      "class_id": "7ә",
+      "subject_id": "xls_17ab223c6c34",
+      "teacher_id": "ажикенова_ма",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 2,
+      "period": 4
+    },
+    {
+      "class_id": "7ә",
+      "subject_id": "xls_17ab223c6c34",
+      "teacher_id": "ажикенова_ма",
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 2,
@@ -1591,25 +1483,7 @@
       "teacher_id": "ажикенова_ма",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 4,
-      "period": 3
-    },
-    {
-      "class_id": "7ә",
-      "subject_id": "xls_17ab223c6c34",
-      "teacher_id": "ажикенова_ма",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 1,
-      "period": 3
-    },
-    {
-      "class_id": "7ә",
-      "subject_id": "xls_17ab223c6c34",
-      "teacher_id": "ажикенова_ма",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 0,
+      "day": 3,
       "period": 3
     },
     {
@@ -1618,7 +1492,7 @@
       "teacher_id": "ізбасты_мж",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 2,
+      "day": 0,
       "period": 4
     },
     {
@@ -1627,8 +1501,8 @@
       "teacher_id": "ізбасты_мж",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 0,
-      "period": 2
+      "day": 4,
+      "period": 1
     },
     {
       "class_id": "7ә",
@@ -1636,70 +1510,7 @@
       "teacher_id": "жантемиров_ак",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 5,
-      "period": 6
-    },
-    {
-      "class_id": "7ә",
-      "subject_id": "kazakh_literature",
-      "teacher_id": "ильясова_аб",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 3,
-      "period": 6
-    },
-    {
-      "class_id": "7ә",
-      "subject_id": "kazakh_literature",
-      "teacher_id": "ильясова_аб",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 4,
-      "period": 1
-    },
-    {
-      "class_id": "7ә",
-      "subject_id": "pe",
-      "teacher_id": "кашиков_ее",
-      "room_id": "r_2_gym",
-      "subgroup_label": null,
-      "day": 3,
-      "period": 5
-    },
-    {
-      "class_id": "7ә",
-      "subject_id": "pe",
-      "teacher_id": "кашиков_ее",
-      "room_id": "r_2_gym",
-      "subgroup_label": null,
-      "day": 5,
-      "period": 3
-    },
-    {
-      "class_id": "7ә",
-      "subject_id": "pe",
-      "teacher_id": "кашиков_ее",
-      "room_id": "r_2_gym",
-      "subgroup_label": null,
-      "day": 3,
-      "period": 3
-    },
-    {
-      "class_id": "7ә",
-      "subject_id": "xls_868929b024c4",
-      "teacher_id": "алекпарова_аж",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 1,
-      "period": 5
-    },
-    {
-      "class_id": "7ә",
-      "subject_id": "xls_868929b024c4",
-      "teacher_id": "алекпарова_аж",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 2,
+      "day": 0,
       "period": 0
     },
     {
@@ -1708,35 +1519,26 @@
       "teacher_id": "алекпарова_аж",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 0,
-      "period": 4
+      "day": 1,
+      "period": 3
     },
     {
       "class_id": "7ә",
-      "subject_id": "kazakh_language",
-      "teacher_id": "ильясова_аб",
+      "subject_id": "xls_868929b024c4",
+      "teacher_id": "алекпарова_аж",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 0,
+      "period": 3
+    },
+    {
+      "class_id": "7ә",
+      "subject_id": "xls_868929b024c4",
+      "teacher_id": "алекпарова_аж",
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 2,
-      "period": 6
-    },
-    {
-      "class_id": "7ә",
-      "subject_id": "kazakh_language",
-      "teacher_id": "ильясова_аб",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 1,
-      "period": 4
-    },
-    {
-      "class_id": "7ә",
-      "subject_id": "kazakh_language",
-      "teacher_id": "ильясова_аб",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 0,
-      "period": 5
+      "period": 2
     },
     {
       "class_id": "7ә",
@@ -1744,8 +1546,8 @@
       "teacher_id": "жантемиров_эа",
       "room_id": "r_10_informatics",
       "subgroup_label": null,
-      "day": 3,
-      "period": 4
+      "day": 1,
+      "period": 5
     },
     {
       "class_id": "7ә",
@@ -1753,35 +1555,35 @@
       "teacher_id": "досаева_мх",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 3,
-      "period": 2
-    },
-    {
-      "class_id": "7ә",
-      "subject_id": "physics",
-      "teacher_id": "ізбасты_мж",
-      "room_id": "r_synth_physicslab_1",
-      "subgroup_label": null,
-      "day": 2,
-      "period": 2
-    },
-    {
-      "class_id": "7ә",
-      "subject_id": "physics",
-      "teacher_id": "ізбасты_мж",
-      "room_id": "r_synth_physicslab_1",
-      "subgroup_label": null,
       "day": 1,
       "period": 1
     },
     {
       "class_id": "7ә",
+      "subject_id": "physics",
+      "teacher_id": "ізбасты_мж",
+      "room_id": "r_synth_physicslab_1",
+      "subgroup_label": null,
+      "day": 0,
+      "period": 6
+    },
+    {
+      "class_id": "7ә",
+      "subject_id": "physics",
+      "teacher_id": "ізбасты_мж",
+      "room_id": "r_synth_physicslab_1",
+      "subgroup_label": null,
+      "day": 3,
+      "period": 4
+    },
+    {
+      "class_id": "7ә",
       "subject_id": "biology",
       "teacher_id": "балташева_зт",
       "room_id": "r_23_biologylab",
       "subgroup_label": null,
-      "day": 5,
-      "period": 5
+      "day": 1,
+      "period": 0
     },
     {
       "class_id": "7ә",
@@ -1790,7 +1592,7 @@
       "room_id": "r_23_biologylab",
       "subgroup_label": null,
       "day": 3,
-      "period": 1
+      "period": 6
     },
     {
       "class_id": "7ә",
@@ -1799,7 +1601,7 @@
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 4,
-      "period": 0
+      "period": 4
     },
     {
       "class_id": "7ә",
@@ -1807,8 +1609,8 @@
       "teacher_id": "сапаргалиева_гс",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 1,
-      "period": 0
+      "day": 2,
+      "period": 6
     },
     {
       "class_id": "7ә",
@@ -1816,8 +1618,8 @@
       "teacher_id": "балташева_зт",
       "room_id": "r_8_chemistrylab",
       "subgroup_label": null,
-      "day": 4,
-      "period": 4
+      "day": 3,
+      "period": 5
     },
     {
       "class_id": "7б",
@@ -1834,7 +1636,7 @@
       "teacher_id": "бабич_ид",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 4,
+      "day": 0,
       "period": 1
     },
     {
@@ -1844,7 +1646,7 @@
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 0,
-      "period": 1
+      "period": 6
     },
     {
       "class_id": "7б",
@@ -1852,7 +1654,7 @@
       "teacher_id": "красноперова_ов",
       "room_id": "r_23_biologylab",
       "subgroup_label": null,
-      "day": 3,
+      "day": 4,
       "period": 2
     },
     {
@@ -1861,7 +1663,25 @@
       "teacher_id": "красноперова_ов",
       "room_id": "r_23_biologylab",
       "subgroup_label": null,
-      "day": 5,
+      "day": 4,
+      "period": 5
+    },
+    {
+      "class_id": "7б",
+      "subject_id": "russian",
+      "teacher_id": "жолдан_аб",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 3,
+      "period": 6
+    },
+    {
+      "class_id": "7б",
+      "subject_id": "russian",
+      "teacher_id": "жолдан_аб",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 4,
       "period": 6
     },
     {
@@ -1871,24 +1691,15 @@
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 1,
-      "period": 5
+      "period": 6
     },
     {
       "class_id": "7б",
-      "subject_id": "russian",
-      "teacher_id": "жолдан_аб",
-      "room_id": "r_1_general",
+      "subject_id": "english",
+      "teacher_id": "алекпарова_аж",
+      "room_id": "r_12_languagelab",
       "subgroup_label": null,
-      "day": 0,
-      "period": 5
-    },
-    {
-      "class_id": "7б",
-      "subject_id": "russian",
-      "teacher_id": "жолдан_аб",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 3,
+      "day": 2,
       "period": 1
     },
     {
@@ -1907,15 +1718,15 @@
       "room_id": "r_12_languagelab",
       "subgroup_label": null,
       "day": 2,
-      "period": 4
+      "period": 6
     },
     {
       "class_id": "7б",
-      "subject_id": "english",
-      "teacher_id": "алекпарова_аж",
-      "room_id": "r_12_languagelab",
+      "subject_id": "xls_2599b3cde3c4",
+      "teacher_id": "асаева_жх",
+      "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 0,
+      "day": 3,
       "period": 3
     },
     {
@@ -1924,8 +1735,8 @@
       "teacher_id": "асаева_жх",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 4,
-      "period": 5
+      "day": 2,
+      "period": 3
     },
     {
       "class_id": "7б",
@@ -1942,40 +1753,13 @@
       "teacher_id": "асаева_жх",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 2,
-      "period": 1
-    },
-    {
-      "class_id": "7б",
-      "subject_id": "xls_2599b3cde3c4",
-      "teacher_id": "асаева_жх",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
       "day": 1,
-      "period": 6
+      "period": 2
     },
     {
       "class_id": "7б",
       "subject_id": "literature",
       "teacher_id": "темерканова_ов",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 2,
-      "period": 3
-    },
-    {
-      "class_id": "7б",
-      "subject_id": "literature",
-      "teacher_id": "темерканова_ов",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 5,
-      "period": 5
-    },
-    {
-      "class_id": "7б",
-      "subject_id": "geography",
-      "teacher_id": "сидоров_вб",
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 2,
@@ -1983,11 +1767,29 @@
     },
     {
       "class_id": "7б",
+      "subject_id": "literature",
+      "teacher_id": "темерканова_ов",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 2,
+      "period": 4
+    },
+    {
+      "class_id": "7б",
       "subject_id": "geography",
       "teacher_id": "сидоров_вб",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 2,
+      "day": 3,
+      "period": 1
+    },
+    {
+      "class_id": "7б",
+      "subject_id": "geography",
+      "teacher_id": "сидоров_вб",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 3,
       "period": 0
     },
     {
@@ -1996,35 +1798,35 @@
       "teacher_id": "романишина_им",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 3,
-      "period": 5
-    },
-    {
-      "class_id": "7б",
-      "subject_id": "pe",
-      "teacher_id": "ольков_гв",
-      "room_id": "r_2_gym",
-      "subgroup_label": null,
-      "day": 5,
-      "period": 0
-    },
-    {
-      "class_id": "7б",
-      "subject_id": "pe",
-      "teacher_id": "ольков_гв",
-      "room_id": "r_2_gym",
-      "subgroup_label": null,
-      "day": 3,
-      "period": 3
-    },
-    {
-      "class_id": "7б",
-      "subject_id": "pe",
-      "teacher_id": "ольков_гв",
-      "room_id": "r_2_gym",
-      "subgroup_label": null,
       "day": 1,
+      "period": 1
+    },
+    {
+      "class_id": "7б",
+      "subject_id": "pe",
+      "teacher_id": "ольков_гв",
+      "room_id": "r_2_gym",
+      "subgroup_label": null,
+      "day": 4,
+      "period": 4
+    },
+    {
+      "class_id": "7б",
+      "subject_id": "pe",
+      "teacher_id": "ольков_гв",
+      "room_id": "r_2_gym",
+      "subgroup_label": null,
+      "day": 0,
       "period": 3
+    },
+    {
+      "class_id": "7б",
+      "subject_id": "pe",
+      "teacher_id": "ольков_гв",
+      "room_id": "r_2_gym",
+      "subgroup_label": null,
+      "day": 3,
+      "period": 4
     },
     {
       "class_id": "7б",
@@ -2032,7 +1834,7 @@
       "teacher_id": "бабич_ид",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 4,
+      "day": 1,
       "period": 4
     },
     {
@@ -2042,7 +1844,16 @@
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 4,
-      "period": 2
+      "period": 3
+    },
+    {
+      "class_id": "7б",
+      "subject_id": "physics",
+      "teacher_id": "русина_нв",
+      "room_id": "r_synth_physicslab_1",
+      "subgroup_label": null,
+      "day": 0,
+      "period": 4
     },
     {
       "class_id": "7б",
@@ -2051,34 +1862,25 @@
       "room_id": "r_synth_physicslab_1",
       "subgroup_label": null,
       "day": 1,
-      "period": 2
-    },
-    {
-      "class_id": "7б",
-      "subject_id": "physics",
-      "teacher_id": "русина_нв",
-      "room_id": "r_synth_physicslab_1",
-      "subgroup_label": null,
-      "day": 5,
-      "period": 2
-    },
-    {
-      "class_id": "7б",
-      "subject_id": "history_kz",
-      "teacher_id": "досаева_мх",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 0,
-      "period": 6
-    },
-    {
-      "class_id": "7б",
-      "subject_id": "history_kz",
-      "teacher_id": "досаева_мх",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 2,
       "period": 5
+    },
+    {
+      "class_id": "7б",
+      "subject_id": "history_kz",
+      "teacher_id": "досаева_мх",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 4,
+      "period": 1
+    },
+    {
+      "class_id": "7б",
+      "subject_id": "history_kz",
+      "teacher_id": "досаева_мх",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 1,
+      "period": 0
     },
     {
       "class_id": "7б",
@@ -2086,8 +1888,8 @@
       "teacher_id": "досаева_мх",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 4,
-      "period": 3
+      "day": 2,
+      "period": 5
     },
     {
       "class_id": "7б",
@@ -2095,8 +1897,8 @@
       "teacher_id": "красноперова_ов",
       "room_id": "r_8_chemistrylab",
       "subgroup_label": null,
-      "day": 1,
-      "period": 4
+      "day": 0,
+      "period": 5
     },
     {
       "class_id": "7б",
@@ -2104,8 +1906,8 @@
       "teacher_id": "бедрина_мн",
       "room_id": "r_10_informatics",
       "subgroup_label": null,
-      "day": 2,
-      "period": 6
+      "day": 3,
+      "period": 2
     },
     {
       "class_id": "7б_luo",
@@ -2113,8 +1915,17 @@
       "teacher_id": "бабич_ид",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 4,
-      "period": 3
+      "day": 2,
+      "period": 2
+    },
+    {
+      "class_id": "7б_luo",
+      "subject_id": "math",
+      "teacher_id": "бабич_ид",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 2,
+      "period": 5
     },
     {
       "class_id": "7б_luo",
@@ -2123,12 +1934,102 @@
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 0,
-      "period": 2
+      "period": 5
     },
     {
       "class_id": "7б_luo",
       "subject_id": "math",
       "teacher_id": "бабич_ид",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 2,
+      "period": 3
+    },
+    {
+      "class_id": "7б_luo",
+      "subject_id": "math",
+      "teacher_id": "бабич_ид",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 2,
+      "period": 4
+    },
+    {
+      "class_id": "7б_luo",
+      "subject_id": "estestvoznanie",
+      "teacher_id": "красноперова_ов",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 1,
+      "period": 4
+    },
+    {
+      "class_id": "7б_luo",
+      "subject_id": "estestvoznanie",
+      "teacher_id": "красноперова_ов",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 3,
+      "period": 0
+    },
+    {
+      "class_id": "7б_luo",
+      "subject_id": "russian",
+      "teacher_id": "жолдан_аб",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 3,
+      "period": 2
+    },
+    {
+      "class_id": "7б_luo",
+      "subject_id": "russian",
+      "teacher_id": "жолдан_аб",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 4,
+      "period": 4
+    },
+    {
+      "class_id": "7б_luo",
+      "subject_id": "russian",
+      "teacher_id": "жолдан_аб",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 3,
+      "period": 4
+    },
+    {
+      "class_id": "7б_luo",
+      "subject_id": "kazakh_language",
+      "teacher_id": "асаева_жх",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 1,
+      "period": 5
+    },
+    {
+      "class_id": "7б_luo",
+      "subject_id": "kazakh_language",
+      "teacher_id": "асаева_жх",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 0,
+      "period": 4
+    },
+    {
+      "class_id": "7б_luo",
+      "subject_id": "xls_6bff7fd8e0e9",
+      "teacher_id": "темерканова_ов",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 4,
+      "period": 6
+    },
+    {
+      "class_id": "7б_luo",
+      "subject_id": "xls_6bff7fd8e0e9",
+      "teacher_id": "темерканова_ов",
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 2,
@@ -2136,101 +2037,11 @@
     },
     {
       "class_id": "7б_luo",
-      "subject_id": "math",
-      "teacher_id": "бабич_ид",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 1,
-      "period": 2
-    },
-    {
-      "class_id": "7б_luo",
-      "subject_id": "math",
-      "teacher_id": "бабич_ид",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 0,
-      "period": 3
-    },
-    {
-      "class_id": "7б_luo",
-      "subject_id": "estestvoznanie",
-      "teacher_id": "красноперова_ов",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 3,
-      "period": 4
-    },
-    {
-      "class_id": "7б_luo",
-      "subject_id": "estestvoznanie",
-      "teacher_id": "красноперова_ов",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 3,
-      "period": 3
-    },
-    {
-      "class_id": "7б_luo",
-      "subject_id": "russian",
-      "teacher_id": "жолдан_аб",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 2,
-      "period": 2
-    },
-    {
-      "class_id": "7б_luo",
-      "subject_id": "russian",
-      "teacher_id": "жолдан_аб",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 1,
-      "period": 4
-    },
-    {
-      "class_id": "7б_luo",
-      "subject_id": "russian",
-      "teacher_id": "жолдан_аб",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 0,
-      "period": 4
-    },
-    {
-      "class_id": "7б_luo",
-      "subject_id": "kazakh_language",
-      "teacher_id": "асаева_жх",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 2,
-      "period": 5
-    },
-    {
-      "class_id": "7б_luo",
-      "subject_id": "kazakh_language",
-      "teacher_id": "асаева_жх",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 1,
-      "period": 5
-    },
-    {
-      "class_id": "7б_luo",
-      "subject_id": "xls_6bff7fd8e0e9",
-      "teacher_id": "темерканова_ов",
+      "subject_id": "geography",
+      "teacher_id": "сидоров_вб",
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 4,
-      "period": 2
-    },
-    {
-      "class_id": "7б_luo",
-      "subject_id": "xls_6bff7fd8e0e9",
-      "teacher_id": "темерканова_ов",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 0,
       "period": 5
     },
     {
@@ -2239,17 +2050,8 @@
       "teacher_id": "сидоров_вб",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 2,
+      "day": 0,
       "period": 3
-    },
-    {
-      "class_id": "7б_luo",
-      "subject_id": "geography",
-      "teacher_id": "сидоров_вб",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 1,
-      "period": 6
     },
     {
       "class_id": "7б_luo",
@@ -2257,35 +2059,35 @@
       "teacher_id": "романишина_им",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 3,
-      "period": 1
-    },
-    {
-      "class_id": "7б_luo",
-      "subject_id": "xls_c8eeb4eac5ee",
-      "teacher_id": "ольков_гв",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 3,
-      "period": 0
-    },
-    {
-      "class_id": "7б_luo",
-      "subject_id": "xls_c8eeb4eac5ee",
-      "teacher_id": "ольков_гв",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 5,
-      "period": 4
-    },
-    {
-      "class_id": "7б_luo",
-      "subject_id": "xls_c8eeb4eac5ee",
-      "teacher_id": "ольков_гв",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
       "day": 1,
-      "period": 1
+      "period": 2
+    },
+    {
+      "class_id": "7б_luo",
+      "subject_id": "xls_c8eeb4eac5ee",
+      "teacher_id": "ольков_гв",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 4,
+      "period": 2
+    },
+    {
+      "class_id": "7б_luo",
+      "subject_id": "xls_c8eeb4eac5ee",
+      "teacher_id": "ольков_гв",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 3,
+      "period": 5
+    },
+    {
+      "class_id": "7б_luo",
+      "subject_id": "xls_c8eeb4eac5ee",
+      "teacher_id": "ольков_гв",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 0,
+      "period": 2
     },
     {
       "class_id": "7б_luo",
@@ -2293,7 +2095,7 @@
       "teacher_id": "досаева_мх",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 2,
+      "day": 0,
       "period": 6
     },
     {
@@ -2302,7 +2104,25 @@
       "teacher_id": "досаева_мх",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 5,
+      "day": 1,
+      "period": 3
+    },
+    {
+      "class_id": "2",
+      "subject_id": "math",
+      "teacher_id": "темерканова_ов",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 1,
+      "period": 3
+    },
+    {
+      "class_id": "2",
+      "subject_id": "math",
+      "teacher_id": "темерканова_ов",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 0,
       "period": 5
     },
     {
@@ -2311,71 +2131,71 @@
       "teacher_id": "темерканова_ов",
       "room_id": "r_1_general",
       "subgroup_label": null,
+      "day": 3,
+      "period": 3
+    },
+    {
+      "class_id": "2",
+      "subject_id": "math",
+      "teacher_id": "темерканова_ов",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 3,
+      "period": 1
+    },
+    {
+      "class_id": "2",
+      "subject_id": "russian",
+      "teacher_id": "темерканова_ов",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 4,
+      "period": 5
+    },
+    {
+      "class_id": "2",
+      "subject_id": "russian",
+      "teacher_id": "темерканова_ов",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
       "day": 0,
       "period": 6
     },
     {
       "class_id": "2",
-      "subject_id": "math",
+      "subject_id": "russian",
       "teacher_id": "темерканова_ов",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 5,
-      "period": 1
+      "day": 1,
+      "period": 4
     },
     {
       "class_id": "2",
-      "subject_id": "math",
+      "subject_id": "russian",
+      "teacher_id": "темерканова_ов",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 0,
+      "period": 3
+    },
+    {
+      "class_id": "2",
+      "subject_id": "xls_be32892d5985",
       "teacher_id": "темерканова_ов",
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 2,
-      "period": 4
-    },
-    {
-      "class_id": "2",
-      "subject_id": "math",
-      "teacher_id": "темерканова_ов",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 1,
-      "period": 4
-    },
-    {
-      "class_id": "2",
-      "subject_id": "russian",
-      "teacher_id": "темерканова_ов",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 5,
-      "period": 3
-    },
-    {
-      "class_id": "2",
-      "subject_id": "russian",
-      "teacher_id": "темерканова_ов",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 5,
       "period": 0
     },
     {
       "class_id": "2",
-      "subject_id": "russian",
+      "subject_id": "xls_be32892d5985",
       "teacher_id": "темерканова_ов",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 5,
-      "period": 2
-    },
-    {
-      "class_id": "2",
-      "subject_id": "russian",
-      "teacher_id": "темерканова_ов",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 5,
-      "period": 4
+      "day": 2,
+      "period": 5
     },
     {
       "class_id": "2",
@@ -2383,26 +2203,8 @@
       "teacher_id": "темерканова_ов",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 1,
+      "day": 2,
       "period": 3
-    },
-    {
-      "class_id": "2",
-      "subject_id": "xls_be32892d5985",
-      "teacher_id": "темерканова_ов",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 1,
-      "period": 2
-    },
-    {
-      "class_id": "2",
-      "subject_id": "xls_be32892d5985",
-      "teacher_id": "темерканова_ов",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 1,
-      "period": 0
     },
     {
       "class_id": "2",
@@ -2411,7 +2213,7 @@
       "room_id": "r_2_gym",
       "subgroup_label": null,
       "day": 4,
-      "period": 1
+      "period": 4
     },
     {
       "class_id": "2",
@@ -2419,8 +2221,8 @@
       "teacher_id": "чифин_дн",
       "room_id": "r_2_gym",
       "subgroup_label": null,
-      "day": 2,
-      "period": 3
+      "day": 1,
+      "period": 6
     },
     {
       "class_id": "2",
@@ -2428,7 +2230,7 @@
       "teacher_id": "чифин_дн",
       "room_id": "r_2_gym",
       "subgroup_label": null,
-      "day": 0,
+      "day": 1,
       "period": 5
     },
     {
@@ -2437,8 +2239,8 @@
       "teacher_id": "шкиря_юн",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 5,
-      "period": 6
+      "day": 4,
+      "period": 2
     },
     {
       "class_id": "2",
@@ -2447,6 +2249,15 @@
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 4,
+      "period": 6
+    },
+    {
+      "class_id": "2",
+      "subject_id": "kazakh_language",
+      "teacher_id": "асаева_жх",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 2,
       "period": 4
     },
     {
@@ -2457,15 +2268,6 @@
       "subgroup_label": null,
       "day": 3,
       "period": 5
-    },
-    {
-      "class_id": "2",
-      "subject_id": "kazakh_language",
-      "teacher_id": "асаева_жх",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 0,
-      "period": 1
     },
     {
       "class_id": "2",
@@ -2473,8 +2275,8 @@
       "teacher_id": "темерканова_ов",
       "room_id": "r_19_workshop",
       "subgroup_label": null,
-      "day": 1,
-      "period": 5
+      "day": 0,
+      "period": 1
     },
     {
       "class_id": "2",
@@ -2482,8 +2284,8 @@
       "teacher_id": "бедрина_мн",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 3,
-      "period": 1
+      "day": 2,
+      "period": 6
     },
     {
       "class_id": "2",
@@ -2491,8 +2293,8 @@
       "teacher_id": "темерканова_ов",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 1,
-      "period": 1
+      "day": 3,
+      "period": 4
     },
     {
       "class_id": "2",
@@ -2500,8 +2302,8 @@
       "teacher_id": "темерканова_ов",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 2,
-      "period": 5
+      "day": 1,
+      "period": 2
     },
     {
       "class_id": "2",
@@ -2509,89 +2311,89 @@
       "teacher_id": "темерканова_ов",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 2,
-      "period": 2
-    },
-    {
-      "class_id": "8",
-      "subject_id": "biology",
-      "teacher_id": "красноперова_ов",
-      "room_id": "r_23_biologylab",
-      "subgroup_label": null,
       "day": 0,
-      "period": 3
-    },
-    {
-      "class_id": "8",
-      "subject_id": "biology",
-      "teacher_id": "красноперова_ов",
-      "room_id": "r_23_biologylab",
-      "subgroup_label": null,
-      "day": 0,
-      "period": 2
-    },
-    {
-      "class_id": "8",
-      "subject_id": "xls_27fd1b2f1ffd",
-      "teacher_id": "асаева_жх",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 5,
       "period": 4
     },
     {
       "class_id": "8",
-      "subject_id": "xls_27fd1b2f1ffd",
-      "teacher_id": "асаева_жх",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 4,
-      "period": 1
-    },
-    {
-      "class_id": "8",
-      "subject_id": "xls_27fd1b2f1ffd",
-      "teacher_id": "асаева_жх",
-      "room_id": "r_1_general",
+      "subject_id": "biology",
+      "teacher_id": "красноперова_ов",
+      "room_id": "r_23_biologylab",
       "subgroup_label": null,
       "day": 2,
       "period": 6
     },
     {
       "class_id": "8",
-      "subject_id": "xls_27fd1b2f1ffd",
-      "teacher_id": "асаева_жх",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 3,
-      "period": 2
-    },
-    {
-      "class_id": "8",
-      "subject_id": "literature",
-      "teacher_id": "дмитриев_ев",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 5,
-      "period": 5
-    },
-    {
-      "class_id": "8",
-      "subject_id": "literature",
-      "teacher_id": "дмитриев_ев",
-      "room_id": "r_1_general",
+      "subject_id": "biology",
+      "teacher_id": "красноперова_ов",
+      "room_id": "r_23_biologylab",
       "subgroup_label": null,
       "day": 1,
       "period": 6
     },
     {
       "class_id": "8",
+      "subject_id": "xls_2599b3cde3c4",
+      "teacher_id": "асаева_жх",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 4,
+      "period": 3
+    },
+    {
+      "class_id": "8",
+      "subject_id": "xls_2599b3cde3c4",
+      "teacher_id": "асаева_жх",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 0,
+      "period": 3
+    },
+    {
+      "class_id": "8",
+      "subject_id": "xls_2599b3cde3c4",
+      "teacher_id": "асаева_жх",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 2,
+      "period": 1
+    },
+    {
+      "class_id": "8",
+      "subject_id": "xls_2599b3cde3c4",
+      "teacher_id": "асаева_жх",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 3,
+      "period": 4
+    },
+    {
+      "class_id": "8",
+      "subject_id": "literature",
+      "teacher_id": "дмитриев_ев",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 3,
+      "period": 3
+    },
+    {
+      "class_id": "8",
       "subject_id": "literature",
       "teacher_id": "дмитриев_ев",
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 4,
-      "period": 0
+      "period": 4
+    },
+    {
+      "class_id": "8",
+      "subject_id": "literature",
+      "teacher_id": "дмитриев_ев",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 2,
+      "period": 5
     },
     {
       "class_id": "8",
@@ -2599,22 +2401,13 @@
       "teacher_id": "досаева_мх",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 2,
-      "period": 2
+      "day": 4,
+      "period": 6
     },
     {
       "class_id": "8",
       "subject_id": "history_kz",
       "teacher_id": "досаева_мх",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 2,
-      "period": 0
-    },
-    {
-      "class_id": "8",
-      "subject_id": "xls_caad79222c19",
-      "teacher_id": "ильясова_аб",
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 4,
@@ -2622,39 +2415,21 @@
     },
     {
       "class_id": "8",
-      "subject_id": "xls_caad79222c19",
-      "teacher_id": "ильясова_аб",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 3,
-      "period": 5
-    },
-    {
-      "class_id": "8",
-      "subject_id": "xls_caad79222c19",
-      "teacher_id": "ильясова_аб",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 5,
-      "period": 2
-    },
-    {
-      "class_id": "8",
-      "subject_id": "xls_caad79222c19",
-      "teacher_id": "ильясова_аб",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 0,
-      "period": 6
-    },
-    {
-      "class_id": "8",
-      "subject_id": "xls_a72082eac40e",
+      "subject_id": "informatics",
       "teacher_id": "бедрина_мн",
-      "room_id": "r_1_general",
+      "room_id": "r_10_informatics",
+      "subgroup_label": null,
+      "day": 1,
+      "period": 3
+    },
+    {
+      "class_id": "8",
+      "subject_id": "informatics",
+      "teacher_id": "бедрина_мн",
+      "room_id": "r_10_informatics",
       "subgroup_label": null,
       "day": 4,
-      "period": 6
+      "period": 2
     },
     {
       "class_id": "8",
@@ -2662,8 +2437,8 @@
       "teacher_id": "красноперова_ов",
       "room_id": "r_8_chemistrylab",
       "subgroup_label": null,
-      "day": 3,
-      "period": 0
+      "day": 4,
+      "period": 1
     },
     {
       "class_id": "8",
@@ -2672,7 +2447,7 @@
       "room_id": "r_8_chemistrylab",
       "subgroup_label": null,
       "day": 0,
-      "period": 5
+      "period": 6
     },
     {
       "class_id": "8",
@@ -2689,7 +2464,7 @@
       "teacher_id": "дмитриев_ев",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 2,
+      "day": 0,
       "period": 1
     },
     {
@@ -2699,7 +2474,7 @@
       "room_id": "r_synth_physicslab_1",
       "subgroup_label": null,
       "day": 3,
-      "period": 6
+      "period": 1
     },
     {
       "class_id": "8",
@@ -2708,7 +2483,7 @@
       "room_id": "r_synth_physicslab_1",
       "subgroup_label": null,
       "day": 3,
-      "period": 4
+      "period": 0
     },
     {
       "class_id": "8",
@@ -2716,8 +2491,8 @@
       "teacher_id": "алекпарова_аж",
       "room_id": "r_12_languagelab",
       "subgroup_label": null,
-      "day": 1,
-      "period": 2
+      "day": 2,
+      "period": 3
     },
     {
       "class_id": "8",
@@ -2730,30 +2505,12 @@
     },
     {
       "class_id": "8",
-      "subject_id": "english",
-      "teacher_id": "алекпарова_аж",
-      "room_id": "r_12_languagelab",
-      "subgroup_label": null,
-      "day": 0,
-      "period": 1
-    },
-    {
-      "class_id": "8",
-      "subject_id": "xls_3ddf4665346c",
-      "teacher_id": "бедрина_мн",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 1,
-      "period": 1
-    },
-    {
-      "class_id": "8",
       "subject_id": "geometry",
       "teacher_id": "бабич_ид",
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 1,
-      "period": 5
+      "period": 2
     },
     {
       "class_id": "8",
@@ -2762,7 +2519,7 @@
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 2,
-      "period": 5
+      "period": 0
     },
     {
       "class_id": "8",
@@ -2770,17 +2527,8 @@
       "teacher_id": "бабич_ид",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 2,
-      "period": 3
-    },
-    {
-      "class_id": "8",
-      "subject_id": "algebra",
-      "teacher_id": "бабич_ид",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 1,
-      "period": 4
+      "day": 4,
+      "period": 0
     },
     {
       "class_id": "8",
@@ -2789,31 +2537,22 @@
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 3,
+      "period": 2
+    },
+    {
+      "class_id": "8",
+      "subject_id": "algebra",
+      "teacher_id": "бабич_ид",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 1,
       "period": 1
     },
     {
       "class_id": "8",
-      "subject_id": "english",
-      "teacher_id": "акауова_ин",
-      "room_id": "r_12_languagelab",
-      "subgroup_label": null,
-      "day": 4,
-      "period": 4
-    },
-    {
-      "class_id": "8",
-      "subject_id": "english",
-      "teacher_id": "акауова_ин",
-      "room_id": "r_12_languagelab",
-      "subgroup_label": null,
-      "day": 4,
-      "period": 3
-    },
-    {
-      "class_id": "8",
-      "subject_id": "english",
-      "teacher_id": "акауова_ин",
-      "room_id": "r_12_languagelab",
+      "subject_id": "geography",
+      "teacher_id": "сидоров_вб",
+      "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 2,
       "period": 4
@@ -2824,17 +2563,8 @@
       "teacher_id": "сидоров_вб",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 5,
-      "period": 1
-    },
-    {
-      "class_id": "8",
-      "subject_id": "geography",
-      "teacher_id": "сидоров_вб",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
       "day": 1,
-      "period": 3
+      "period": 4
     },
     {
       "class_id": "8",
@@ -2842,26 +2572,8 @@
       "teacher_id": "бучкова_ио",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 5,
-      "period": 0
-    },
-    {
-      "class_id": "8",
-      "subject_id": "pe",
-      "teacher_id": "ольков_гв",
-      "room_id": "r_2_gym",
-      "subgroup_label": null,
-      "day": 5,
-      "period": 6
-    },
-    {
-      "class_id": "8",
-      "subject_id": "pe",
-      "teacher_id": "ольков_гв",
-      "room_id": "r_2_gym",
-      "subgroup_label": null,
-      "day": 5,
-      "period": 3
+      "day": 0,
+      "period": 2
     },
     {
       "class_id": "8",
@@ -2871,6 +2583,24 @@
       "subgroup_label": null,
       "day": 0,
       "period": 4
+    },
+    {
+      "class_id": "8",
+      "subject_id": "pe",
+      "teacher_id": "ольков_гв",
+      "room_id": "r_2_gym",
+      "subgroup_label": null,
+      "day": 2,
+      "period": 2
+    },
+    {
+      "class_id": "8",
+      "subject_id": "pe",
+      "teacher_id": "ольков_гв",
+      "room_id": "r_2_gym",
+      "subgroup_label": null,
+      "day": 3,
+      "period": 6
     },
     {
       "class_id": "8",
@@ -2879,7 +2609,7 @@
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 3,
-      "period": 3
+      "period": 5
     },
     {
       "class_id": "8_do",
@@ -2888,7 +2618,7 @@
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 1,
-      "period": 4
+      "period": 3
     },
     {
       "class_id": "8_do",
@@ -2896,17 +2626,8 @@
       "teacher_id": "дукач_та",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 2,
-      "period": 3
-    },
-    {
-      "class_id": "8_do",
-      "subject_id": "xls_77bb76388bb6",
-      "teacher_id": "дукач_та",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 5,
-      "period": 4
+      "day": 0,
+      "period": 0
     },
     {
       "class_id": "8_do",
@@ -2919,12 +2640,12 @@
     },
     {
       "class_id": "8_do",
-      "subject_id": "xls_7add460b7c80",
+      "subject_id": "xls_77bb76388bb6",
       "teacher_id": "дукач_та",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 4,
-      "period": 6
+      "day": 3,
+      "period": 2
     },
     {
       "class_id": "8_do",
@@ -2933,7 +2654,16 @@
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 2,
-      "period": 1
+      "period": 0
+    },
+    {
+      "class_id": "8_do",
+      "subject_id": "xls_7add460b7c80",
+      "teacher_id": "дукач_та",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 2,
+      "period": 5
     },
     {
       "class_id": "8_do",
@@ -2941,8 +2671,8 @@
       "teacher_id": "дукач_та",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 0,
-      "period": 3
+      "day": 4,
+      "period": 4
     },
     {
       "class_id": "8_do",
@@ -2950,8 +2680,8 @@
       "teacher_id": "романишина_им",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 3,
-      "period": 4
+      "day": 2,
+      "period": 2
     },
     {
       "class_id": "8_do",
@@ -2959,8 +2689,8 @@
       "teacher_id": "дукач_та",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 0,
-      "period": 1
+      "day": 1,
+      "period": 6
     },
     {
       "class_id": "8_do",
@@ -2968,35 +2698,53 @@
       "teacher_id": "романишина_им",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 1,
-      "period": 5
+      "day": 4,
+      "period": 3
     },
     {
       "class_id": "9",
       "subject_id": "english",
       "teacher_id": "алекпарова_аж",
       "room_id": "r_12_languagelab",
+      "subgroup_label": null,
+      "day": 4,
+      "period": 6
+    },
+    {
+      "class_id": "9",
+      "subject_id": "english",
+      "teacher_id": "алекпарова_аж",
+      "room_id": "r_12_languagelab",
+      "subgroup_label": null,
+      "day": 1,
+      "period": 2
+    },
+    {
+      "class_id": "9",
+      "subject_id": "english",
+      "teacher_id": "алекпарова_аж",
+      "room_id": "r_12_languagelab",
+      "subgroup_label": null,
+      "day": 1,
+      "period": 1
+    },
+    {
+      "class_id": "9",
+      "subject_id": "pe",
+      "teacher_id": "мельников_пв",
+      "room_id": "r_2_gym",
+      "subgroup_label": null,
+      "day": 4,
+      "period": 3
+    },
+    {
+      "class_id": "9",
+      "subject_id": "pe",
+      "teacher_id": "мельников_пв",
+      "room_id": "r_2_gym",
       "subgroup_label": null,
       "day": 3,
-      "period": 3
-    },
-    {
-      "class_id": "9",
-      "subject_id": "english",
-      "teacher_id": "алекпарова_аж",
-      "room_id": "r_12_languagelab",
-      "subgroup_label": null,
-      "day": 2,
-      "period": 3
-    },
-    {
-      "class_id": "9",
-      "subject_id": "english",
-      "teacher_id": "алекпарова_аж",
-      "room_id": "r_12_languagelab",
-      "subgroup_label": null,
-      "day": 0,
-      "period": 6
+      "period": 5
     },
     {
       "class_id": "9",
@@ -3006,24 +2754,6 @@
       "subgroup_label": null,
       "day": 3,
       "period": 4
-    },
-    {
-      "class_id": "9",
-      "subject_id": "pe",
-      "teacher_id": "мельников_пв",
-      "room_id": "r_2_gym",
-      "subgroup_label": null,
-      "day": 5,
-      "period": 2
-    },
-    {
-      "class_id": "9",
-      "subject_id": "pe",
-      "teacher_id": "мельников_пв",
-      "room_id": "r_2_gym",
-      "subgroup_label": null,
-      "day": 0,
-      "period": 5
     },
     {
       "class_id": "9",
@@ -3031,148 +2761,13 @@
       "teacher_id": "бучкова_ио",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 1,
-      "period": 6
-    },
-    {
-      "class_id": "9",
-      "subject_id": "russian",
-      "teacher_id": "дмитриев_ев",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 4,
-      "period": 5
-    },
-    {
-      "class_id": "9",
-      "subject_id": "russian",
-      "teacher_id": "дмитриев_ев",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 3,
-      "period": 1
-    },
-    {
-      "class_id": "9",
-      "subject_id": "literature",
-      "teacher_id": "дмитриев_ев",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 4,
-      "period": 1
-    },
-    {
-      "class_id": "9",
-      "subject_id": "literature",
-      "teacher_id": "дмитриев_ев",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 5,
-      "period": 1
-    },
-    {
-      "class_id": "9",
-      "subject_id": "literature",
-      "teacher_id": "дмитриев_ев",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 4,
-      "period": 3
-    },
-    {
-      "class_id": "9",
-      "subject_id": "history_kz",
-      "teacher_id": "бучкова_ио",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 0,
-      "period": 2
-    },
-    {
-      "class_id": "9",
-      "subject_id": "history_kz",
-      "teacher_id": "бучкова_ио",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 1,
-      "period": 4
-    },
-    {
-      "class_id": "9",
-      "subject_id": "algebra",
-      "teacher_id": "бабич_ид",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
       "day": 2,
       "period": 4
     },
     {
       "class_id": "9",
-      "subject_id": "algebra",
-      "teacher_id": "бабич_ид",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 0,
-      "period": 4
-    },
-    {
-      "class_id": "9",
-      "subject_id": "algebra",
-      "teacher_id": "бабич_ид",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 2,
-      "period": 2
-    },
-    {
-      "class_id": "9",
-      "subject_id": "geometry",
-      "teacher_id": "бабич_ид",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 5,
-      "period": 6
-    },
-    {
-      "class_id": "9",
-      "subject_id": "geometry",
-      "teacher_id": "бабич_ид",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 1,
-      "period": 3
-    },
-    {
-      "class_id": "9",
-      "subject_id": "biology",
-      "teacher_id": "красноперова_ов",
-      "room_id": "r_23_biologylab",
-      "subgroup_label": null,
-      "day": 5,
-      "period": 5
-    },
-    {
-      "class_id": "9",
-      "subject_id": "biology",
-      "teacher_id": "красноперова_ов",
-      "room_id": "r_23_biologylab",
-      "subgroup_label": null,
-      "day": 1,
-      "period": 5
-    },
-    {
-      "class_id": "9",
-      "subject_id": "xls_2599b3cde3c4",
-      "teacher_id": "ильясова_аб",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 4,
-      "period": 2
-    },
-    {
-      "class_id": "9",
-      "subject_id": "xls_2599b3cde3c4",
-      "teacher_id": "ильясова_аб",
+      "subject_id": "russian",
+      "teacher_id": "дмитриев_ев",
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 4,
@@ -3180,11 +2775,119 @@
     },
     {
       "class_id": "9",
-      "subject_id": "xls_2599b3cde3c4",
-      "teacher_id": "ильясова_аб",
+      "subject_id": "russian",
+      "teacher_id": "дмитриев_ев",
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 3,
+      "period": 6
+    },
+    {
+      "class_id": "9",
+      "subject_id": "literature",
+      "teacher_id": "дмитриев_ев",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 3,
+      "period": 2
+    },
+    {
+      "class_id": "9",
+      "subject_id": "literature",
+      "teacher_id": "дмитриев_ев",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 1,
+      "period": 6
+    },
+    {
+      "class_id": "9",
+      "subject_id": "literature",
+      "teacher_id": "дмитриев_ев",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 3,
+      "period": 0
+    },
+    {
+      "class_id": "9",
+      "subject_id": "history_kz",
+      "teacher_id": "бучкова_ио",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 4,
+      "period": 1
+    },
+    {
+      "class_id": "9",
+      "subject_id": "history_kz",
+      "teacher_id": "бучкова_ио",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 0,
+      "period": 1
+    },
+    {
+      "class_id": "9",
+      "subject_id": "algebra",
+      "teacher_id": "бабич_ид",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 1,
+      "period": 0
+    },
+    {
+      "class_id": "9",
+      "subject_id": "algebra",
+      "teacher_id": "бабич_ид",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 0,
+      "period": 4
+    },
+    {
+      "class_id": "9",
+      "subject_id": "algebra",
+      "teacher_id": "бабич_ид",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 2,
+      "period": 6
+    },
+    {
+      "class_id": "9",
+      "subject_id": "geometry",
+      "teacher_id": "бабич_ид",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 1,
+      "period": 5
+    },
+    {
+      "class_id": "9",
+      "subject_id": "geometry",
+      "teacher_id": "бабич_ид",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 1,
+      "period": 3
+    },
+    {
+      "class_id": "9",
+      "subject_id": "biology",
+      "teacher_id": "красноперова_ов",
+      "room_id": "r_23_biologylab",
+      "subgroup_label": null,
+      "day": 2,
+      "period": 2
+    },
+    {
+      "class_id": "9",
+      "subject_id": "biology",
+      "teacher_id": "красноперова_ов",
+      "room_id": "r_23_biologylab",
+      "subgroup_label": null,
+      "day": 0,
       "period": 2
     },
     {
@@ -3193,35 +2896,53 @@
       "teacher_id": "ильясова_аб",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 0,
+      "day": 4,
+      "period": 4
+    },
+    {
+      "class_id": "9",
+      "subject_id": "xls_2599b3cde3c4",
+      "teacher_id": "ильясова_аб",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 3,
       "period": 3
     },
     {
       "class_id": "9",
-      "subject_id": "geography",
-      "teacher_id": "сидоров_вб",
+      "subject_id": "xls_2599b3cde3c4",
+      "teacher_id": "ильясова_аб",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 4,
-      "period": 6
-    },
-    {
-      "class_id": "9",
-      "subject_id": "geography",
-      "teacher_id": "сидоров_вб",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 2,
+      "day": 3,
       "period": 1
     },
     {
       "class_id": "9",
-      "subject_id": "physics",
-      "teacher_id": "русина_нв",
-      "room_id": "r_synth_physicslab_1",
+      "subject_id": "xls_2599b3cde3c4",
+      "teacher_id": "ильясова_аб",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 1,
+      "period": 4
+    },
+    {
+      "class_id": "9",
+      "subject_id": "geography",
+      "teacher_id": "сидоров_вб",
+      "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 2,
       "period": 5
+    },
+    {
+      "class_id": "9",
+      "subject_id": "geography",
+      "teacher_id": "сидоров_вб",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 2,
+      "period": 3
     },
     {
       "class_id": "9",
@@ -3229,8 +2950,17 @@
       "teacher_id": "русина_нв",
       "room_id": "r_synth_physicslab_1",
       "subgroup_label": null,
-      "day": 3,
-      "period": 5
+      "day": 0,
+      "period": 6
+    },
+    {
+      "class_id": "9",
+      "subject_id": "physics",
+      "teacher_id": "русина_нв",
+      "room_id": "r_synth_physicslab_1",
+      "subgroup_label": null,
+      "day": 0,
+      "period": 3
     },
     {
       "class_id": "9",
@@ -3238,8 +2968,8 @@
       "teacher_id": "бучкова_ио",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 3,
-      "period": 6
+      "day": 0,
+      "period": 0
     },
     {
       "class_id": "9",
@@ -3247,7 +2977,7 @@
       "teacher_id": "романишина_им",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 1,
+      "day": 4,
       "period": 2
     },
     {
@@ -3256,7 +2986,7 @@
       "teacher_id": "красноперова_ов",
       "room_id": "r_8_chemistrylab",
       "subgroup_label": null,
-      "day": 1,
+      "day": 2,
       "period": 1
     },
     {
@@ -3274,35 +3004,26 @@
       "teacher_id": "бедрина_мн",
       "room_id": "r_10_informatics",
       "subgroup_label": null,
-      "day": 5,
-      "period": 3
-    },
-    {
-      "class_id": "9_do",
-      "subject_id": "xls_ed09f5486772",
-      "teacher_id": "дукач_та",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 0,
-      "period": 2
-    },
-    {
-      "class_id": "9_do",
-      "subject_id": "xls_ed09f5486772",
-      "teacher_id": "дукач_та",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 5,
+      "day": 4,
       "period": 5
     },
     {
       "class_id": "9_do",
-      "subject_id": "xls_77bb76388bb6",
+      "subject_id": "xls_ed09f5486772",
       "teacher_id": "дукач_та",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 2,
-      "period": 2
+      "day": 3,
+      "period": 4
+    },
+    {
+      "class_id": "9_do",
+      "subject_id": "xls_ed09f5486772",
+      "teacher_id": "дукач_та",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 4,
+      "period": 3
     },
     {
       "class_id": "9_do",
@@ -3310,8 +3031,17 @@
       "teacher_id": "дукач_та",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 5,
+      "day": 3,
       "period": 3
+    },
+    {
+      "class_id": "9_do",
+      "subject_id": "xls_77bb76388bb6",
+      "teacher_id": "дукач_та",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 1,
+      "period": 4
     },
     {
       "class_id": "9_do",
@@ -3319,17 +3049,8 @@
       "teacher_id": "романишина_им",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 1,
-      "period": 6
-    },
-    {
-      "class_id": "9_do",
-      "subject_id": "xls_7add460b7c80",
-      "teacher_id": "дукач_та",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 1,
-      "period": 3
+      "day": 4,
+      "period": 1
     },
     {
       "class_id": "9_do",
@@ -3338,7 +3059,16 @@
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 2,
-      "period": 5
+      "period": 2
+    },
+    {
+      "class_id": "9_do",
+      "subject_id": "xls_7add460b7c80",
+      "teacher_id": "дукач_та",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 2,
+      "period": 3
     },
     {
       "class_id": "9_do",
@@ -3346,8 +3076,8 @@
       "teacher_id": "дукач_та",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 3,
-      "period": 4
+      "day": 0,
+      "period": 1
     },
     {
       "class_id": "9_do",
@@ -3355,8 +3085,8 @@
       "teacher_id": "романишина_им",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 3,
-      "period": 2
+      "day": 0,
+      "period": 4
     },
     {
       "class_id": "9_do",
@@ -3364,8 +3094,8 @@
       "teacher_id": "романишина_им",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 4,
-      "period": 2
+      "day": 1,
+      "period": 6
     },
     {
       "class_id": "9_luo",
@@ -3373,8 +3103,17 @@
       "teacher_id": "мельников_пв",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 4,
-      "period": 4
+      "day": 1,
+      "period": 3
+    },
+    {
+      "class_id": "9_luo",
+      "subject_id": "xls_c8eeb4eac5ee",
+      "teacher_id": "мельников_пв",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 2,
+      "period": 6
     },
     {
       "class_id": "9_luo",
@@ -3383,12 +3122,39 @@
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 3,
+      "period": 3
+    },
+    {
+      "class_id": "9_luo",
+      "subject_id": "russian",
+      "teacher_id": "дмитриев_ев",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 3,
       "period": 5
     },
     {
       "class_id": "9_luo",
-      "subject_id": "xls_c8eeb4eac5ee",
-      "teacher_id": "мельников_пв",
+      "subject_id": "russian",
+      "teacher_id": "дмитриев_ев",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 0,
+      "period": 5
+    },
+    {
+      "class_id": "9_luo",
+      "subject_id": "xls_6bff7fd8e0e9",
+      "teacher_id": "дмитриев_ев",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 4,
+      "period": 5
+    },
+    {
+      "class_id": "9_luo",
+      "subject_id": "xls_6bff7fd8e0e9",
+      "teacher_id": "дмитриев_ев",
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 0,
@@ -3396,80 +3162,26 @@
     },
     {
       "class_id": "9_luo",
-      "subject_id": "russian",
-      "teacher_id": "дмитриев_ев",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 4,
-      "period": 2
-    },
-    {
-      "class_id": "9_luo",
-      "subject_id": "russian",
-      "teacher_id": "дмитриев_ев",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 5,
-      "period": 3
-    },
-    {
-      "class_id": "9_luo",
       "subject_id": "xls_6bff7fd8e0e9",
       "teacher_id": "дмитриев_ев",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 2,
+      "day": 1,
       "period": 4
     },
     {
       "class_id": "9_luo",
-      "subject_id": "xls_6bff7fd8e0e9",
-      "teacher_id": "дмитриев_ев",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 3,
-      "period": 2
-    },
-    {
-      "class_id": "9_luo",
-      "subject_id": "xls_6bff7fd8e0e9",
-      "teacher_id": "дмитриев_ев",
+      "subject_id": "history_kz",
+      "teacher_id": "бучкова_ио",
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 2,
-      "period": 2
+      "period": 5
     },
     {
       "class_id": "9_luo",
       "subject_id": "history_kz",
       "teacher_id": "бучкова_ио",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 4,
-      "period": 6
-    },
-    {
-      "class_id": "9_luo",
-      "subject_id": "history_kz",
-      "teacher_id": "бучкова_ио",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 1,
-      "period": 5
-    },
-    {
-      "class_id": "9_luo",
-      "subject_id": "math",
-      "teacher_id": "бабич_ид",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 5,
-      "period": 5
-    },
-    {
-      "class_id": "9_luo",
-      "subject_id": "math",
-      "teacher_id": "бабич_ид",
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 1,
@@ -3481,8 +3193,8 @@
       "teacher_id": "бабич_ид",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 3,
-      "period": 3
+      "day": 4,
+      "period": 1
     },
     {
       "class_id": "9_luo",
@@ -3491,7 +3203,16 @@
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 1,
-      "period": 0
+      "period": 6
+    },
+    {
+      "class_id": "9_luo",
+      "subject_id": "math",
+      "teacher_id": "бабич_ид",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 4,
+      "period": 2
     },
     {
       "class_id": "9_luo",
@@ -3500,15 +3221,15 @@
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 0,
-      "period": 5
+      "period": 2
     },
     {
       "class_id": "9_luo",
-      "subject_id": "estestvoznanie",
-      "teacher_id": "красноперова_ов",
+      "subject_id": "math",
+      "teacher_id": "бабич_ид",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 5,
+      "day": 3,
       "period": 4
     },
     {
@@ -3517,7 +3238,25 @@
       "teacher_id": "красноперова_ов",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 1,
+      "day": 4,
+      "period": 4
+    },
+    {
+      "class_id": "9_luo",
+      "subject_id": "estestvoznanie",
+      "teacher_id": "красноперова_ов",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 3,
+      "period": 1
+    },
+    {
+      "class_id": "9_luo",
+      "subject_id": "kazakh_language",
+      "teacher_id": "ильясова_аб",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 3,
       "period": 2
     },
     {
@@ -3526,35 +3265,26 @@
       "teacher_id": "ильясова_аб",
       "room_id": "r_1_general",
       "subgroup_label": null,
+      "day": 0,
+      "period": 1
+    },
+    {
+      "class_id": "9_luo",
+      "subject_id": "geography",
+      "teacher_id": "сидоров_вб",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 1,
+      "period": 5
+    },
+    {
+      "class_id": "9_luo",
+      "subject_id": "geography",
+      "teacher_id": "сидоров_вб",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
       "day": 2,
-      "period": 3
-    },
-    {
-      "class_id": "9_luo",
-      "subject_id": "kazakh_language",
-      "teacher_id": "ильясова_аб",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 1,
-      "period": 3
-    },
-    {
-      "class_id": "9_luo",
-      "subject_id": "geography",
-      "teacher_id": "сидоров_вб",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 3,
-      "period": 6
-    },
-    {
-      "class_id": "9_luo",
-      "subject_id": "geography",
-      "teacher_id": "сидоров_вб",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 1,
-      "period": 4
+      "period": 2
     },
     {
       "class_id": "9_luo",
@@ -3562,8 +3292,8 @@
       "teacher_id": "бучкова_ио",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 0,
-      "period": 1
+      "day": 3,
+      "period": 6
     },
     {
       "class_id": "9_luo",
@@ -3571,7 +3301,7 @@
       "teacher_id": "романишина_им",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 3,
+      "day": 1,
       "period": 0
     },
     {
@@ -3580,25 +3310,16 @@
       "teacher_id": "бедрина_мн",
       "room_id": "r_10_informatics",
       "subgroup_label": null,
-      "day": 4,
-      "period": 5
-    },
-    {
-      "class_id": "10а",
-      "subject_id": "history_kz",
-      "teacher_id": "досаева_мх",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 3,
+      "day": 2,
       "period": 4
     },
     {
       "class_id": "10а",
-      "subject_id": "history_kz",
-      "teacher_id": "досаева_мх",
+      "subject_id": "xls_868929b024c4",
+      "teacher_id": "акауова_ин",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 5,
+      "day": 0,
       "period": 3
     },
     {
@@ -3607,7 +3328,7 @@
       "teacher_id": "акауова_ин",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 5,
+      "day": 4,
       "period": 4
     },
     {
@@ -3616,88 +3337,25 @@
       "teacher_id": "акауова_ин",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 2,
-      "period": 5
-    },
-    {
-      "class_id": "10а",
-      "subject_id": "xls_868929b024c4",
-      "teacher_id": "акауова_ин",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
       "day": 4,
-      "period": 2
-    },
-    {
-      "class_id": "10а",
-      "subject_id": "kazakh_literature",
-      "teacher_id": "ильясова_аб",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 1,
       "period": 0
     },
     {
       "class_id": "10а",
-      "subject_id": "kazakh_literature",
-      "teacher_id": "ильясова_аб",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 4,
-      "period": 4
-    },
-    {
-      "class_id": "10а",
       "subject_id": "geometry",
-      "teacher_id": "ізбасты_мж",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 1,
-      "period": 5
-    },
-    {
-      "class_id": "10а",
-      "subject_id": "geometry",
-      "teacher_id": "ізбасты_мж",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 1,
-      "period": 3
-    },
-    {
-      "class_id": "10а",
-      "subject_id": "algebra",
-      "teacher_id": "ізбасты_мж",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 1,
-      "period": 2
-    },
-    {
-      "class_id": "10а",
-      "subject_id": "algebra",
-      "teacher_id": "ізбасты_мж",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 0,
-      "period": 4
-    },
-    {
-      "class_id": "10а",
-      "subject_id": "algebra",
-      "teacher_id": "ізбасты_мж",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 2,
-      "period": 6
-    },
-    {
-      "class_id": "10а",
-      "subject_id": "algebra",
       "teacher_id": "ізбасты_мж",
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 3,
+      "period": 6
+    },
+    {
+      "class_id": "10а",
+      "subject_id": "geometry",
+      "teacher_id": "ізбасты_мж",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 1,
       "period": 5
     },
     {
@@ -3707,16 +3365,7 @@
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 2,
-      "period": 1
-    },
-    {
-      "class_id": "10а",
-      "subject_id": "kazakh_language",
-      "teacher_id": "ильясова_аб",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 0,
-      "period": 2
+      "period": 3
     },
     {
       "class_id": "10а",
@@ -3725,7 +3374,7 @@
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 4,
-      "period": 1
+      "period": 3
     },
     {
       "class_id": "10а",
@@ -3733,8 +3382,8 @@
       "teacher_id": "сапаргалиева_гс",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 5,
-      "period": 2
+      "day": 3,
+      "period": 0
     },
     {
       "class_id": "10а",
@@ -3742,16 +3391,16 @@
       "teacher_id": "жолдаспаев_ак",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 0,
+      "day": 4,
       "period": 6
     },
     {
       "class_id": "10а",
-      "subject_id": "law",
-      "teacher_id": "досаева_мх",
-      "room_id": "r_1_general",
+      "subject_id": "physics",
+      "teacher_id": "ізбасты_мж",
+      "room_id": "r_synth_physicslab_1",
       "subgroup_label": null,
-      "day": 2,
+      "day": 1,
       "period": 4
     },
     {
@@ -3760,43 +3409,16 @@
       "teacher_id": "ізбасты_мж",
       "room_id": "r_synth_physicslab_1",
       "subgroup_label": null,
-      "day": 4,
-      "period": 0
-    },
-    {
-      "class_id": "10а",
-      "subject_id": "physics",
-      "teacher_id": "ізбасты_мж",
-      "room_id": "r_synth_physicslab_1",
-      "subgroup_label": null,
-      "day": 0,
+      "day": 1,
       "period": 3
     },
     {
       "class_id": "10а",
-      "subject_id": "pe",
-      "teacher_id": "кашиков_ее",
-      "room_id": "r_2_gym",
+      "subject_id": "biology",
+      "teacher_id": "балташева_зт",
+      "room_id": "r_23_biologylab",
       "subgroup_label": null,
-      "day": 3,
-      "period": 2
-    },
-    {
-      "class_id": "10а",
-      "subject_id": "pe",
-      "teacher_id": "кашиков_ее",
-      "room_id": "r_2_gym",
-      "subgroup_label": null,
-      "day": 1,
-      "period": 6
-    },
-    {
-      "class_id": "10а",
-      "subject_id": "pe",
-      "teacher_id": "кашиков_ее",
-      "room_id": "r_2_gym",
-      "subgroup_label": null,
-      "day": 1,
+      "day": 0,
       "period": 4
     },
     {
@@ -3804,24 +3426,6 @@
       "subject_id": "biology",
       "teacher_id": "балташева_зт",
       "room_id": "r_23_biologylab",
-      "subgroup_label": null,
-      "day": 2,
-      "period": 3
-    },
-    {
-      "class_id": "10а",
-      "subject_id": "biology",
-      "teacher_id": "балташева_зт",
-      "room_id": "r_23_biologylab",
-      "subgroup_label": null,
-      "day": 4,
-      "period": 5
-    },
-    {
-      "class_id": "10а",
-      "subject_id": "xls_17ab223c6c34",
-      "teacher_id": "дмитриев_ев",
-      "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 0,
       "period": 5
@@ -3832,7 +3436,25 @@
       "teacher_id": "дмитриев_ев",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 0,
+      "day": 2,
+      "period": 4
+    },
+    {
+      "class_id": "10а",
+      "subject_id": "xls_17ab223c6c34",
+      "teacher_id": "дмитриев_ев",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 2,
+      "period": 6
+    },
+    {
+      "class_id": "10а",
+      "subject_id": "informatics",
+      "teacher_id": "жантемиров_эа",
+      "room_id": "r_10_informatics",
+      "subgroup_label": null,
+      "day": 3,
       "period": 1
     },
     {
@@ -3842,42 +3464,24 @@
       "room_id": "r_10_informatics",
       "subgroup_label": null,
       "day": 3,
-      "period": 3
-    },
-    {
-      "class_id": "10а",
-      "subject_id": "informatics",
-      "teacher_id": "жантемиров_эа",
-      "room_id": "r_10_informatics",
-      "subgroup_label": null,
-      "day": 1,
-      "period": 1
-    },
-    {
-      "class_id": "10а",
-      "subject_id": "chemistry",
-      "teacher_id": "балташева_зт",
-      "room_id": "r_8_chemistrylab",
-      "subgroup_label": null,
-      "day": 5,
-      "period": 6
-    },
-    {
-      "class_id": "10а",
-      "subject_id": "chemistry",
-      "teacher_id": "балташева_зт",
-      "room_id": "r_8_chemistrylab",
-      "subgroup_label": null,
-      "day": 2,
       "period": 2
     },
     {
-      "class_id": "10б",
-      "subject_id": "english",
-      "teacher_id": "акауова_ин",
-      "room_id": "r_12_languagelab",
+      "class_id": "10а",
+      "subject_id": "chemistry",
+      "teacher_id": "балташева_зт",
+      "room_id": "r_8_chemistrylab",
       "subgroup_label": null,
-      "day": 5,
+      "day": 1,
+      "period": 2
+    },
+    {
+      "class_id": "10а",
+      "subject_id": "chemistry",
+      "teacher_id": "балташева_зт",
+      "room_id": "r_8_chemistrylab",
+      "subgroup_label": null,
+      "day": 1,
       "period": 1
     },
     {
@@ -3887,6 +3491,15 @@
       "room_id": "r_12_languagelab",
       "subgroup_label": null,
       "day": 4,
+      "period": 6
+    },
+    {
+      "class_id": "10б",
+      "subject_id": "english",
+      "teacher_id": "акауова_ин",
+      "room_id": "r_12_languagelab",
+      "subgroup_label": null,
+      "day": 3,
       "period": 0
     },
     {
@@ -3896,7 +3509,7 @@
       "room_id": "r_12_languagelab",
       "subgroup_label": null,
       "day": 3,
-      "period": 5
+      "period": 2
     },
     {
       "class_id": "10б",
@@ -3904,7 +3517,7 @@
       "teacher_id": "бедрина_мн",
       "room_id": "r_10_informatics",
       "subgroup_label": null,
-      "day": 4,
+      "day": 3,
       "period": 4
     },
     {
@@ -3913,8 +3526,8 @@
       "teacher_id": "бедрина_мн",
       "room_id": "r_10_informatics",
       "subgroup_label": null,
-      "day": 4,
-      "period": 1
+      "day": 2,
+      "period": 5
     },
     {
       "class_id": "10б",
@@ -3922,60 +3535,6 @@
       "teacher_id": "досаева_мх",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 3,
-      "period": 0
-    },
-    {
-      "class_id": "10б",
-      "subject_id": "algebra",
-      "teacher_id": "пащенко_на",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 1,
-      "period": 2
-    },
-    {
-      "class_id": "10б",
-      "subject_id": "algebra",
-      "teacher_id": "пащенко_на",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 1,
-      "period": 4
-    },
-    {
-      "class_id": "10б",
-      "subject_id": "algebra",
-      "teacher_id": "пащенко_на",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 1,
-      "period": 6
-    },
-    {
-      "class_id": "10б",
-      "subject_id": "algebra",
-      "teacher_id": "пащенко_на",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 0,
-      "period": 5
-    },
-    {
-      "class_id": "10б",
-      "subject_id": "biology",
-      "teacher_id": "красноперова_ов",
-      "room_id": "r_23_biologylab",
-      "subgroup_label": null,
-      "day": 1,
-      "period": 0
-    },
-    {
-      "class_id": "10б",
-      "subject_id": "biology",
-      "teacher_id": "красноперова_ов",
-      "room_id": "r_23_biologylab",
-      "subgroup_label": null,
       "day": 4,
       "period": 3
     },
@@ -3985,52 +3544,61 @@
       "teacher_id": "красноперова_ов",
       "room_id": "r_23_biologylab",
       "subgroup_label": null,
-      "day": 0,
-      "period": 4
-    },
-    {
-      "class_id": "10б",
-      "subject_id": "physics",
-      "teacher_id": "русина_нв",
-      "room_id": "r_synth_physicslab_1",
-      "subgroup_label": null,
-      "day": 1,
-      "period": 1
-    },
-    {
-      "class_id": "10б",
-      "subject_id": "physics",
-      "teacher_id": "русина_нв",
-      "room_id": "r_synth_physicslab_1",
-      "subgroup_label": null,
-      "day": 3,
+      "day": 2,
       "period": 3
     },
     {
       "class_id": "10б",
-      "subject_id": "physics",
-      "teacher_id": "русина_нв",
-      "room_id": "r_synth_physicslab_1",
+      "subject_id": "biology",
+      "teacher_id": "красноперова_ов",
+      "room_id": "r_23_biologylab",
       "subgroup_label": null,
       "day": 1,
-      "period": 3
-    },
-    {
-      "class_id": "10б",
-      "subject_id": "xls_2599b3cde3c4",
-      "teacher_id": "асаева_жх",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 5,
       "period": 5
     },
     {
       "class_id": "10б",
+      "subject_id": "biology",
+      "teacher_id": "красноперова_ов",
+      "room_id": "r_23_biologylab",
+      "subgroup_label": null,
+      "day": 4,
+      "period": 0
+    },
+    {
+      "class_id": "10б",
+      "subject_id": "physics",
+      "teacher_id": "русина_нв",
+      "room_id": "r_synth_physicslab_1",
+      "subgroup_label": null,
+      "day": 2,
+      "period": 4
+    },
+    {
+      "class_id": "10б",
+      "subject_id": "physics",
+      "teacher_id": "русина_нв",
+      "room_id": "r_synth_physicslab_1",
+      "subgroup_label": null,
+      "day": 2,
+      "period": 2
+    },
+    {
+      "class_id": "10б",
+      "subject_id": "physics",
+      "teacher_id": "русина_нв",
+      "room_id": "r_synth_physicslab_1",
+      "subgroup_label": null,
+      "day": 1,
+      "period": 6
+    },
+    {
+      "class_id": "10б",
       "subject_id": "xls_2599b3cde3c4",
       "teacher_id": "асаева_жх",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 2,
+      "day": 1,
       "period": 4
     },
     {
@@ -4039,16 +3607,16 @@
       "teacher_id": "асаева_жх",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 3,
-      "period": 6
+      "day": 1,
+      "period": 3
     },
     {
       "class_id": "10б",
-      "subject_id": "geometry",
-      "teacher_id": "пащенко_на",
+      "subject_id": "xls_2599b3cde3c4",
+      "teacher_id": "асаева_жх",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 0,
+      "day": 3,
       "period": 1
     },
     {
@@ -4057,8 +3625,17 @@
       "teacher_id": "пащенко_на",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 2,
-      "period": 6
+      "day": 0,
+      "period": 3
+    },
+    {
+      "class_id": "10б",
+      "subject_id": "geometry",
+      "teacher_id": "пащенко_на",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 1,
+      "period": 1
     },
     {
       "class_id": "10б",
@@ -4066,7 +3643,16 @@
       "teacher_id": "ольков_гв",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 3,
+      "day": 0,
+      "period": 5
+    },
+    {
+      "class_id": "10б",
+      "subject_id": "literature",
+      "teacher_id": "дмитриев_ев",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 4,
       "period": 2
     },
     {
@@ -4076,16 +3662,7 @@
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 2,
-      "period": 3
-    },
-    {
-      "class_id": "10б",
-      "subject_id": "literature",
-      "teacher_id": "дмитриев_ев",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 0,
-      "period": 3
+      "period": 1
     },
     {
       "class_id": "10б",
@@ -4093,7 +3670,16 @@
       "teacher_id": "досаева_мх",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 0,
+      "day": 3,
+      "period": 6
+    },
+    {
+      "class_id": "10б",
+      "subject_id": "pe",
+      "teacher_id": "мельников_пв",
+      "room_id": "r_2_gym",
+      "subgroup_label": null,
+      "day": 1,
       "period": 2
     },
     {
@@ -4104,15 +3690,6 @@
       "subgroup_label": null,
       "day": 0,
       "period": 6
-    },
-    {
-      "class_id": "10б",
-      "subject_id": "pe",
-      "teacher_id": "мельников_пв",
-      "room_id": "r_2_gym",
-      "subgroup_label": null,
-      "day": 5,
-      "period": 4
     },
     {
       "class_id": "10б",
@@ -4121,15 +3698,33 @@
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 4,
-      "period": 2
+      "period": 4
     },
     {
       "class_id": "10б",
       "subject_id": "russian",
-      "teacher_id": "дмитриев_ев",
+      "teacher_id": "жолдан_аб",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 3,
+      "day": 4,
+      "period": 5
+    },
+    {
+      "class_id": "11",
+      "subject_id": "physics",
+      "teacher_id": "русина_нв",
+      "room_id": "r_synth_physicslab_1",
+      "subgroup_label": null,
+      "day": 2,
+      "period": 3
+    },
+    {
+      "class_id": "11",
+      "subject_id": "physics",
+      "teacher_id": "русина_нв",
+      "room_id": "r_synth_physicslab_1",
+      "subgroup_label": null,
+      "day": 4,
       "period": 4
     },
     {
@@ -4138,34 +3733,7 @@
       "teacher_id": "русина_нв",
       "room_id": "r_synth_physicslab_1",
       "subgroup_label": null,
-      "day": 2,
-      "period": 6
-    },
-    {
-      "class_id": "11",
-      "subject_id": "physics",
-      "teacher_id": "русина_нв",
-      "room_id": "r_synth_physicslab_1",
-      "subgroup_label": null,
       "day": 4,
-      "period": 0
-    },
-    {
-      "class_id": "11",
-      "subject_id": "physics",
-      "teacher_id": "русина_нв",
-      "room_id": "r_synth_physicslab_1",
-      "subgroup_label": null,
-      "day": 3,
-      "period": 2
-    },
-    {
-      "class_id": "11",
-      "subject_id": "literature",
-      "teacher_id": "дмитриев_ев",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 1,
       "period": 5
     },
     {
@@ -4174,23 +3742,14 @@
       "teacher_id": "дмитриев_ев",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 5,
-      "period": 0
-    },
-    {
-      "class_id": "11",
-      "subject_id": "english",
-      "teacher_id": "алекпарова_аж",
-      "room_id": "r_12_languagelab",
-      "subgroup_label": null,
       "day": 4,
       "period": 6
     },
     {
       "class_id": "11",
-      "subject_id": "english",
-      "teacher_id": "алекпарова_аж",
-      "room_id": "r_12_languagelab",
+      "subject_id": "literature",
+      "teacher_id": "дмитриев_ев",
+      "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 2,
       "period": 2
@@ -4201,17 +3760,26 @@
       "teacher_id": "алекпарова_аж",
       "room_id": "r_12_languagelab",
       "subgroup_label": null,
-      "day": 2,
-      "period": 1
+      "day": 3,
+      "period": 4
     },
     {
       "class_id": "11",
-      "subject_id": "biology",
-      "teacher_id": "красноперова_ов",
-      "room_id": "r_23_biologylab",
+      "subject_id": "english",
+      "teacher_id": "алекпарова_аж",
+      "room_id": "r_12_languagelab",
       "subgroup_label": null,
       "day": 3,
-      "period": 1
+      "period": 2
+    },
+    {
+      "class_id": "11",
+      "subject_id": "english",
+      "teacher_id": "алекпарова_аж",
+      "room_id": "r_12_languagelab",
+      "subgroup_label": null,
+      "day": 0,
+      "period": 6
     },
     {
       "class_id": "11",
@@ -4219,7 +3787,16 @@
       "teacher_id": "красноперова_ов",
       "room_id": "r_23_biologylab",
       "subgroup_label": null,
-      "day": 1,
+      "day": 2,
+      "period": 5
+    },
+    {
+      "class_id": "11",
+      "subject_id": "biology",
+      "teacher_id": "красноперова_ов",
+      "room_id": "r_23_biologylab",
+      "subgroup_label": null,
+      "day": 0,
       "period": 3
     },
     {
@@ -4229,61 +3806,34 @@
       "room_id": "r_23_biologylab",
       "subgroup_label": null,
       "day": 0,
-      "period": 6
+      "period": 4
     },
     {
       "class_id": "11",
-      "subject_id": "algebra",
+      "subject_id": "geometry",
       "teacher_id": "пащенко_на",
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 3,
-      "period": 3
-    },
-    {
-      "class_id": "11",
-      "subject_id": "algebra",
-      "teacher_id": "пащенко_на",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 2,
-      "period": 3
-    },
-    {
-      "class_id": "11",
-      "subject_id": "algebra",
-      "teacher_id": "пащенко_на",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 1,
       "period": 1
     },
     {
       "class_id": "11",
-      "subject_id": "algebra",
-      "teacher_id": "пащенко_на",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 3,
-      "period": 4
-    },
-    {
-      "class_id": "11",
       "subject_id": "geometry",
       "teacher_id": "пащенко_на",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 2,
-      "period": 5
+      "day": 1,
+      "period": 3
     },
     {
       "class_id": "11",
-      "subject_id": "geometry",
-      "teacher_id": "пащенко_на",
-      "room_id": "r_1_general",
+      "subject_id": "informatics",
+      "teacher_id": "бедрина_мн",
+      "room_id": "r_10_informatics",
       "subgroup_label": null,
       "day": 2,
-      "period": 4
+      "period": 1
     },
     {
       "class_id": "11",
@@ -4292,16 +3842,7 @@
       "room_id": "r_10_informatics",
       "subgroup_label": null,
       "day": 0,
-      "period": 4
-    },
-    {
-      "class_id": "11",
-      "subject_id": "informatics",
-      "teacher_id": "бедрина_мн",
-      "room_id": "r_10_informatics",
-      "subgroup_label": null,
-      "day": 1,
-      "period": 2
+      "period": 5
     },
     {
       "class_id": "11",
@@ -4309,13 +3850,22 @@
       "teacher_id": "досаева_мх",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 4,
-      "period": 1
+      "day": 1,
+      "period": 2
     },
     {
       "class_id": "11",
       "subject_id": "russian",
-      "teacher_id": "дмитриев_ев",
+      "teacher_id": "жолдан_аб",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 3,
+      "period": 3
+    },
+    {
+      "class_id": "11",
+      "subject_id": "xls_2599b3cde3c4",
+      "teacher_id": "асаева_жх",
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 3,
@@ -4328,16 +3878,7 @@
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 1,
-      "period": 4
-    },
-    {
-      "class_id": "11",
-      "subject_id": "xls_2599b3cde3c4",
-      "teacher_id": "асаева_жх",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 4,
-      "period": 2
+      "period": 6
     },
     {
       "class_id": "11",
@@ -4354,8 +3895,8 @@
       "teacher_id": "мельников_пв",
       "room_id": "r_2_gym",
       "subgroup_label": null,
-      "day": 0,
-      "period": 3
+      "day": 1,
+      "period": 1
     },
     {
       "class_id": "11",
@@ -4363,8 +3904,8 @@
       "teacher_id": "мельников_пв",
       "room_id": "r_2_gym",
       "subgroup_label": null,
-      "day": 5,
-      "period": 3
+      "day": 1,
+      "period": 0
     },
     {
       "class_id": "11",
@@ -4372,8 +3913,8 @@
       "teacher_id": "досаева_мх",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 0,
-      "period": 5
+      "day": 2,
+      "period": 4
     },
     {
       "class_id": "11",
@@ -4381,49 +3922,13 @@
       "teacher_id": "ольков_гв",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 5,
-      "period": 5
+      "day": 4,
+      "period": 3
     },
     {
       "class_id": "11",
       "subject_id": "history_kz",
       "teacher_id": "досаева_мх",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 5,
-      "period": 6
-    },
-    {
-      "class_id": "3а",
-      "subject_id": "kazakh_language",
-      "teacher_id": "актаева_ае",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 1,
-      "period": 3
-    },
-    {
-      "class_id": "3а",
-      "subject_id": "kazakh_language",
-      "teacher_id": "актаева_ае",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 5,
-      "period": 5
-    },
-    {
-      "class_id": "3а",
-      "subject_id": "kazakh_language",
-      "teacher_id": "актаева_ае",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 5,
-      "period": 1
-    },
-    {
-      "class_id": "3а",
-      "subject_id": "kazakh_language",
-      "teacher_id": "актаева_ае",
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 4,
@@ -4435,79 +3940,70 @@
       "teacher_id": "актаева_ае",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 1,
-      "period": 5
-    },
-    {
-      "class_id": "3а",
-      "subject_id": "xls_d7a11dfa2765",
-      "teacher_id": "актаева_ае",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 2,
-      "period": 5
-    },
-    {
-      "class_id": "3а",
-      "subject_id": "xls_d7a11dfa2765",
-      "teacher_id": "актаева_ае",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 1,
-      "period": 6
-    },
-    {
-      "class_id": "3а",
-      "subject_id": "math",
-      "teacher_id": "актаева_ае",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 0,
-      "period": 4
-    },
-    {
-      "class_id": "3а",
-      "subject_id": "math",
-      "teacher_id": "актаева_ае",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 2,
-      "period": 4
-    },
-    {
-      "class_id": "3а",
-      "subject_id": "math",
-      "teacher_id": "актаева_ае",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 0,
-      "period": 6
-    },
-    {
-      "class_id": "3а",
-      "subject_id": "math",
-      "teacher_id": "актаева_ае",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
       "day": 3,
-      "period": 4
-    },
-    {
-      "class_id": "3а",
-      "subject_id": "math",
-      "teacher_id": "актаева_ае",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 1,
       "period": 0
     },
     {
       "class_id": "3а",
-      "subject_id": "xls_868929b024c4",
-      "teacher_id": "акауова_ин",
+      "subject_id": "xls_d7a11dfa2765",
+      "teacher_id": "актаева_ае",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 5,
+      "day": 2,
+      "period": 1
+    },
+    {
+      "class_id": "3а",
+      "subject_id": "xls_d7a11dfa2765",
+      "teacher_id": "актаева_ае",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 0,
+      "period": 4
+    },
+    {
+      "class_id": "3а",
+      "subject_id": "math",
+      "teacher_id": "актаева_ае",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 2,
+      "period": 0
+    },
+    {
+      "class_id": "3а",
+      "subject_id": "math",
+      "teacher_id": "актаева_ае",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 2,
+      "period": 5
+    },
+    {
+      "class_id": "3а",
+      "subject_id": "math",
+      "teacher_id": "актаева_ае",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 1,
+      "period": 1
+    },
+    {
+      "class_id": "3а",
+      "subject_id": "math",
+      "teacher_id": "актаева_ае",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 4,
+      "period": 5
+    },
+    {
+      "class_id": "3а",
+      "subject_id": "math",
+      "teacher_id": "актаева_ае",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 1,
       "period": 3
     },
     {
@@ -4516,8 +4012,17 @@
       "teacher_id": "акауова_ин",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 0,
-      "period": 1
+      "day": 4,
+      "period": 2
+    },
+    {
+      "class_id": "3а",
+      "subject_id": "xls_868929b024c4",
+      "teacher_id": "акауова_ин",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 2,
+      "period": 3
     },
     {
       "class_id": "3а",
@@ -4525,8 +4030,8 @@
       "teacher_id": "актаева_ае",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 2,
-      "period": 3
+      "day": 0,
+      "period": 5
     },
     {
       "class_id": "3а",
@@ -4534,53 +4039,17 @@
       "teacher_id": "жантемиров_эа",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 1,
-      "period": 2
-    },
-    {
-      "class_id": "3а",
-      "subject_id": "music",
-      "teacher_id": "актаева_ае",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 2,
-      "period": 6
-    },
-    {
-      "class_id": "3а",
-      "subject_id": "izo",
-      "teacher_id": "жекеева_на",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 0,
-      "period": 0
-    },
-    {
-      "class_id": "3а",
-      "subject_id": "pe",
-      "teacher_id": "кашиков_ее",
-      "room_id": "r_2_gym",
-      "subgroup_label": null,
-      "day": 0,
+      "day": 4,
       "period": 3
     },
     {
       "class_id": "3а",
-      "subject_id": "pe",
-      "teacher_id": "кашиков_ее",
-      "room_id": "r_2_gym",
+      "subject_id": "music",
+      "teacher_id": "шкиря_юн",
+      "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 0,
+      "day": 1,
       "period": 2
-    },
-    {
-      "class_id": "3а",
-      "subject_id": "pe",
-      "teacher_id": "кашиков_ее",
-      "room_id": "r_2_gym",
-      "subgroup_label": null,
-      "day": 3,
-      "period": 1
     },
     {
       "class_id": "3а",
@@ -4588,107 +4057,107 @@
       "teacher_id": "жекеева_на",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 2,
-      "period": 2
+      "day": 3,
+      "period": 5
     },
     {
       "class_id": "3а",
       "subject_id": "xls_01e060767411",
-      "teacher_id": "актаева_ае",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 1,
-      "period": 4
-    },
-    {
-      "class_id": "3а",
-      "subject_id": "xls_48d9fc6c827a",
-      "teacher_id": "актаева_ае",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 5,
-      "period": 2
-    },
-    {
-      "class_id": "3а",
-      "subject_id": "xls_48d9fc6c827a",
-      "teacher_id": "актаева_ае",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 4,
-      "period": 1
-    },
-    {
-      "class_id": "3б",
-      "subject_id": "russian",
-      "teacher_id": "радионова_на",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 4,
-      "period": 0
-    },
-    {
-      "class_id": "3б",
-      "subject_id": "russian",
-      "teacher_id": "радионова_на",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 2,
-      "period": 5
-    },
-    {
-      "class_id": "3б",
-      "subject_id": "russian",
-      "teacher_id": "радионова_на",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 0,
-      "period": 6
-    },
-    {
-      "class_id": "3б",
-      "subject_id": "russian",
-      "teacher_id": "радионова_на",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 4,
-      "period": 6
-    },
-    {
-      "class_id": "3б",
-      "subject_id": "kazakh_language",
-      "teacher_id": "асаева_жх",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 5,
-      "period": 2
-    },
-    {
-      "class_id": "3б",
-      "subject_id": "kazakh_language",
-      "teacher_id": "асаева_жх",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 2,
-      "period": 2
-    },
-    {
-      "class_id": "3б",
-      "subject_id": "kazakh_language",
-      "teacher_id": "асаева_жх",
+      "teacher_id": "сапаргалиева_гс",
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 3,
       "period": 1
     },
     {
+      "class_id": "3а",
+      "subject_id": "xls_48d9fc6c827a",
+      "teacher_id": "актаева_ае",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 3,
+      "period": 3
+    },
+    {
+      "class_id": "3а",
+      "subject_id": "xls_48d9fc6c827a",
+      "teacher_id": "актаева_ае",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 0,
+      "period": 3
+    },
+    {
+      "class_id": "3б",
+      "subject_id": "russian",
+      "teacher_id": "радионова_на",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 2,
+      "period": 6
+    },
+    {
+      "class_id": "3б",
+      "subject_id": "russian",
+      "teacher_id": "радионова_на",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 3,
+      "period": 3
+    },
+    {
+      "class_id": "3б",
+      "subject_id": "russian",
+      "teacher_id": "радионова_на",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 2,
+      "period": 4
+    },
+    {
+      "class_id": "3б",
+      "subject_id": "russian",
+      "teacher_id": "радионова_на",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 1,
+      "period": 0
+    },
+    {
+      "class_id": "3б",
+      "subject_id": "kazakh_language",
+      "teacher_id": "асаева_жх",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 4,
+      "period": 5
+    },
+    {
+      "class_id": "3б",
+      "subject_id": "kazakh_language",
+      "teacher_id": "асаева_жх",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 2,
+      "period": 2
+    },
+    {
+      "class_id": "3б",
+      "subject_id": "kazakh_language",
+      "teacher_id": "асаева_жх",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 0,
+      "period": 1
+    },
+    {
       "class_id": "3б",
       "subject_id": "pe",
       "teacher_id": "чифин_дн",
       "room_id": "r_2_gym",
       "subgroup_label": null,
       "day": 4,
-      "period": 2
+      "period": 1
     },
     {
       "class_id": "3б",
@@ -4696,17 +4165,17 @@
       "teacher_id": "чифин_дн",
       "room_id": "r_2_gym",
       "subgroup_label": null,
-      "day": 1,
-      "period": 2
-    },
-    {
-      "class_id": "3б",
-      "subject_id": "pe",
-      "teacher_id": "чифин_дн",
-      "room_id": "r_2_gym",
-      "subgroup_label": null,
-      "day": 1,
+      "day": 4,
       "period": 0
+    },
+    {
+      "class_id": "3б",
+      "subject_id": "pe",
+      "teacher_id": "чифин_дн",
+      "room_id": "r_2_gym",
+      "subgroup_label": null,
+      "day": 1,
+      "period": 3
     },
     {
       "class_id": "3б",
@@ -4714,6 +4183,42 @@
       "teacher_id": "радионова_на",
       "room_id": "r_1_general",
       "subgroup_label": null,
+      "day": 0,
+      "period": 0
+    },
+    {
+      "class_id": "3б",
+      "subject_id": "math",
+      "teacher_id": "радионова_на",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 3,
+      "period": 6
+    },
+    {
+      "class_id": "3б",
+      "subject_id": "math",
+      "teacher_id": "радионова_на",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 4,
+      "period": 2
+    },
+    {
+      "class_id": "3б",
+      "subject_id": "math",
+      "teacher_id": "радионова_на",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 3,
+      "period": 5
+    },
+    {
+      "class_id": "3б",
+      "subject_id": "math",
+      "teacher_id": "радионова_на",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
       "day": 1,
       "period": 5
     },
@@ -4723,49 +4228,22 @@
       "teacher_id": "радионова_на",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 0,
+      "day": 1,
       "period": 4
-    },
-    {
-      "class_id": "3б",
-      "subject_id": "math",
-      "teacher_id": "радионова_на",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 3,
-      "period": 2
-    },
-    {
-      "class_id": "3б",
-      "subject_id": "math",
-      "teacher_id": "радионова_на",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 2,
-      "period": 6
-    },
-    {
-      "class_id": "3б",
-      "subject_id": "math",
-      "teacher_id": "радионова_на",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 3,
-      "period": 4
-    },
-    {
-      "class_id": "3б",
-      "subject_id": "math",
-      "teacher_id": "радионова_на",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 0,
-      "period": 0
     },
     {
       "class_id": "3б",
       "subject_id": "music",
       "teacher_id": "шкиря_юн",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 2,
+      "period": 0
+    },
+    {
+      "class_id": "3б",
+      "subject_id": "xls_be32892d5985",
+      "teacher_id": "радионова_на",
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 0,
@@ -4777,17 +4255,8 @@
       "teacher_id": "радионова_на",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 1,
-      "period": 1
-    },
-    {
-      "class_id": "3б",
-      "subject_id": "xls_be32892d5985",
-      "teacher_id": "радионова_на",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 1,
-      "period": 6
+      "day": 4,
+      "period": 4
     },
     {
       "class_id": "3б",
@@ -4796,7 +4265,7 @@
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 0,
-      "period": 1
+      "period": 2
     },
     {
       "class_id": "3б",
@@ -4804,8 +4273,8 @@
       "teacher_id": "бедрина_мн",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 1,
-      "period": 3
+      "day": 0,
+      "period": 4
     },
     {
       "class_id": "3б",
@@ -4813,17 +4282,17 @@
       "teacher_id": "акауова_ин",
       "room_id": "r_12_languagelab",
       "subgroup_label": null,
-      "day": 2,
-      "period": 3
-    },
-    {
-      "class_id": "3б",
-      "subject_id": "english",
-      "teacher_id": "акауова_ин",
-      "room_id": "r_12_languagelab",
-      "subgroup_label": null,
-      "day": 2,
+      "day": 3,
       "period": 1
+    },
+    {
+      "class_id": "3б",
+      "subject_id": "english",
+      "teacher_id": "акауова_ин",
+      "room_id": "r_12_languagelab",
+      "subgroup_label": null,
+      "day": 4,
+      "period": 3
     },
     {
       "class_id": "3б",
@@ -4831,8 +4300,8 @@
       "teacher_id": "радионова_на",
       "room_id": "r_19_workshop",
       "subgroup_label": null,
-      "day": 0,
-      "period": 5
+      "day": 3,
+      "period": 2
     },
     {
       "class_id": "3б",
@@ -4840,8 +4309,8 @@
       "teacher_id": "радионова_на",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 3,
-      "period": 6
+      "day": 1,
+      "period": 1
     },
     {
       "class_id": "3б",
@@ -4849,7 +4318,7 @@
       "teacher_id": "радионова_на",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 4,
+      "day": 2,
       "period": 5
     },
     {
@@ -4858,13 +4327,58 @@
       "teacher_id": "радионова_на",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 5,
-      "period": 1
+      "day": 4,
+      "period": 3
     },
     {
       "class_id": "3_luo",
       "subject_id": "russian",
       "teacher_id": "радионова_на",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 2,
+      "period": 3
+    },
+    {
+      "class_id": "3_luo",
+      "subject_id": "russian",
+      "teacher_id": "радионова_на",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 3,
+      "period": 0
+    },
+    {
+      "class_id": "3_luo",
+      "subject_id": "kazakh_language",
+      "teacher_id": "асаева_жх",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 4,
+      "period": 4
+    },
+    {
+      "class_id": "3_luo",
+      "subject_id": "kazakh_language",
+      "teacher_id": "асаева_жх",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 3,
+      "period": 2
+    },
+    {
+      "class_id": "3_luo",
+      "subject_id": "xls_c8eeb4eac5ee",
+      "teacher_id": "чифин_дн",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 4,
+      "period": 2
+    },
+    {
+      "class_id": "3_luo",
+      "subject_id": "xls_c8eeb4eac5ee",
+      "teacher_id": "чифин_дн",
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 1,
@@ -4872,56 +4386,11 @@
     },
     {
       "class_id": "3_luo",
-      "subject_id": "russian",
-      "teacher_id": "радионова_на",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 0,
-      "period": 3
-    },
-    {
-      "class_id": "3_luo",
-      "subject_id": "kazakh_language",
-      "teacher_id": "асаева_жх",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 0,
-      "period": 4
-    },
-    {
-      "class_id": "3_luo",
-      "subject_id": "kazakh_language",
-      "teacher_id": "асаева_жх",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 4,
-      "period": 6
-    },
-    {
-      "class_id": "3_luo",
       "subject_id": "xls_c8eeb4eac5ee",
       "teacher_id": "чифин_дн",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 2,
-      "period": 5
-    },
-    {
-      "class_id": "3_luo",
-      "subject_id": "xls_c8eeb4eac5ee",
-      "teacher_id": "чифин_дн",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 0,
-      "period": 6
-    },
-    {
-      "class_id": "3_luo",
-      "subject_id": "xls_c8eeb4eac5ee",
-      "teacher_id": "чифин_дн",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 2,
+      "day": 1,
       "period": 4
     },
     {
@@ -4930,8 +4399,8 @@
       "teacher_id": "радионова_на",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 2,
-      "period": 3
+      "day": 3,
+      "period": 1
     },
     {
       "class_id": "3_luo",
@@ -4939,7 +4408,7 @@
       "teacher_id": "радионова_на",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 4,
+      "day": 0,
       "period": 1
     },
     {
@@ -4948,8 +4417,8 @@
       "teacher_id": "радионова_на",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 4,
-      "period": 2
+      "day": 0,
+      "period": 5
     },
     {
       "class_id": "3_luo",
@@ -4957,8 +4426,8 @@
       "teacher_id": "радионова_на",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 4,
-      "period": 3
+      "day": 2,
+      "period": 2
     },
     {
       "class_id": "3_luo",
@@ -4967,6 +4436,15 @@
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 3,
+      "period": 4
+    },
+    {
+      "class_id": "3_luo",
+      "subject_id": "math",
+      "teacher_id": "радионова_на",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 2,
       "period": 0
     },
     {
@@ -4976,70 +4454,34 @@
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 1,
+      "period": 6
+    },
+    {
+      "class_id": "3_luo",
+      "subject_id": "xls_6bff7fd8e0e9",
+      "teacher_id": "радионова_на",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 0,
       "period": 4
     },
     {
       "class_id": "3_luo",
-      "subject_id": "math",
+      "subject_id": "xls_6bff7fd8e0e9",
       "teacher_id": "радионова_на",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 3,
-      "period": 3
-    },
-    {
-      "class_id": "3_luo",
-      "subject_id": "music",
-      "teacher_id": "шкиря_юн",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 3,
-      "period": 2
+      "day": 0,
+      "period": 6
     },
     {
       "class_id": "3_luo",
       "subject_id": "xls_6bff7fd8e0e9",
       "teacher_id": "радионова_на",
       "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 1,
-      "period": 0
-    },
-    {
-      "class_id": "3_luo",
-      "subject_id": "xls_6bff7fd8e0e9",
-      "teacher_id": "радионова_на",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 5,
-      "period": 3
-    },
-    {
-      "class_id": "3_luo",
-      "subject_id": "xls_6bff7fd8e0e9",
-      "teacher_id": "радионова_на",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 3,
-      "period": 1
-    },
-    {
-      "class_id": "3_luo",
-      "subject_id": "trud",
-      "teacher_id": "радионова_на",
-      "room_id": "r_19_workshop",
-      "subgroup_label": null,
-      "day": 1,
-      "period": 3
-    },
-    {
-      "class_id": "3_luo",
-      "subject_id": "trud",
-      "teacher_id": "радионова_на",
-      "room_id": "r_19_workshop",
       "subgroup_label": null,
       "day": 2,
-      "period": 2
+      "period": 1
     },
     {
       "class_id": "3_luo",
@@ -5047,8 +4489,8 @@
       "teacher_id": "радионова_на",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 5,
-      "period": 2
+      "day": 4,
+      "period": 1
     },
     {
       "class_id": "4а",
@@ -5056,8 +4498,8 @@
       "teacher_id": "жантемиров_эа",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 0,
-      "period": 3
+      "day": 2,
+      "period": 1
     },
     {
       "class_id": "4а",
@@ -5074,8 +4516,8 @@
       "teacher_id": "актаева_ае",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 2,
-      "period": 2
+      "day": 4,
+      "period": 3
     },
     {
       "class_id": "4а",
@@ -5084,67 +4526,31 @@
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 2,
-      "period": 1
-    },
-    {
-      "class_id": "4а",
-      "subject_id": "music",
-      "teacher_id": "актаева_ае",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 0,
-      "period": 2
-    },
-    {
-      "class_id": "4а",
-      "subject_id": "xls_868929b024c4",
-      "teacher_id": "акауова_ин",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 2,
-      "period": 0
-    },
-    {
-      "class_id": "4а",
-      "subject_id": "xls_868929b024c4",
-      "teacher_id": "акауова_ин",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 3,
-      "period": 6
-    },
-    {
-      "class_id": "4а",
-      "subject_id": "izo",
-      "teacher_id": "жекеева_на",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 5,
-      "period": 6
-    },
-    {
-      "class_id": "4а",
-      "subject_id": "pe",
-      "teacher_id": "кашиков_ее",
-      "room_id": "r_2_gym",
-      "subgroup_label": null,
-      "day": 0,
       "period": 4
     },
     {
       "class_id": "4а",
-      "subject_id": "pe",
-      "teacher_id": "кашиков_ее",
-      "room_id": "r_2_gym",
+      "subject_id": "music",
+      "teacher_id": "шкиря_юн",
+      "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 5,
-      "period": 2
+      "day": 3,
+      "period": 1
     },
     {
       "class_id": "4а",
-      "subject_id": "pe",
-      "teacher_id": "кашиков_ее",
-      "room_id": "r_2_gym",
+      "subject_id": "xls_868929b024c4",
+      "teacher_id": "акауова_ин",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 4,
+      "period": 1
+    },
+    {
+      "class_id": "4а",
+      "subject_id": "xls_868929b024c4",
+      "teacher_id": "акауова_ин",
+      "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 0,
       "period": 5
@@ -5155,8 +4561,26 @@
       "teacher_id": "жекеева_на",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 2,
+      "day": 1,
       "period": 3
+    },
+    {
+      "class_id": "4а",
+      "subject_id": "math",
+      "teacher_id": "жекеева_на",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 4,
+      "period": 6
+    },
+    {
+      "class_id": "4а",
+      "subject_id": "math",
+      "teacher_id": "жекеева_на",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 0,
+      "period": 4
     },
     {
       "class_id": "4а",
@@ -5173,24 +4597,6 @@
       "teacher_id": "жекеева_на",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 4,
-      "period": 2
-    },
-    {
-      "class_id": "4а",
-      "subject_id": "math",
-      "teacher_id": "жекеева_на",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 2,
-      "period": 4
-    },
-    {
-      "class_id": "4а",
-      "subject_id": "math",
-      "teacher_id": "жекеева_на",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
       "day": 3,
       "period": 4
     },
@@ -5200,44 +4606,8 @@
       "teacher_id": "жекеева_на",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 1,
-      "period": 1
-    },
-    {
-      "class_id": "4а",
-      "subject_id": "kazakh_language",
-      "teacher_id": "жекеева_на",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 4,
-      "period": 4
-    },
-    {
-      "class_id": "4а",
-      "subject_id": "kazakh_language",
-      "teacher_id": "жекеева_на",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 1,
-      "period": 4
-    },
-    {
-      "class_id": "4а",
-      "subject_id": "kazakh_language",
-      "teacher_id": "жекеева_на",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 1,
-      "period": 2
-    },
-    {
-      "class_id": "4а",
-      "subject_id": "kazakh_language",
-      "teacher_id": "жекеева_на",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 4,
-      "period": 3
+      "day": 3,
+      "period": 6
     },
     {
       "class_id": "4а",
@@ -5245,8 +4615,8 @@
       "teacher_id": "актаева_ае",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 3,
-      "period": 3
+      "day": 1,
+      "period": 6
     },
     {
       "class_id": "4а",
@@ -5255,7 +4625,7 @@
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 1,
-      "period": 5
+      "period": 2
     },
     {
       "class_id": "4а",
@@ -5263,26 +4633,17 @@
       "teacher_id": "жекеева_на",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 1,
+      "day": 0,
       "period": 3
     },
     {
       "class_id": "4а",
       "subject_id": "xls_01e060767411",
-      "teacher_id": "актаева_ае",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 5,
-      "period": 0
-    },
-    {
-      "class_id": "4б",
-      "subject_id": "russian",
-      "teacher_id": "ажикенова_ма",
+      "teacher_id": "сапаргалиева_гс",
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 4,
-      "period": 2
+      "period": 5
     },
     {
       "class_id": "4б",
@@ -5299,8 +4660,8 @@
       "teacher_id": "ажикенова_ма",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 2,
-      "period": 4
+      "day": 1,
+      "period": 5
     },
     {
       "class_id": "4б",
@@ -5309,7 +4670,16 @@
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 0,
-      "period": 2
+      "period": 6
+    },
+    {
+      "class_id": "4б",
+      "subject_id": "russian",
+      "teacher_id": "ажикенова_ма",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 0,
+      "period": 4
     },
     {
       "class_id": "4б",
@@ -5318,52 +4688,34 @@
       "room_id": "r_2_gym",
       "subgroup_label": null,
       "day": 3,
-      "period": 6
+      "period": 4
     },
     {
       "class_id": "4б",
       "subject_id": "pe",
       "teacher_id": "чифин_дн",
       "room_id": "r_2_gym",
-      "subgroup_label": null,
-      "day": 1,
-      "period": 1
-    },
-    {
-      "class_id": "4б",
-      "subject_id": "pe",
-      "teacher_id": "чифин_дн",
-      "room_id": "r_2_gym",
-      "subgroup_label": null,
-      "day": 2,
-      "period": 6
-    },
-    {
-      "class_id": "4б",
-      "subject_id": "kazakh_language",
-      "teacher_id": "ильясова_аб",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 3,
-      "period": 3
-    },
-    {
-      "class_id": "4б",
-      "subject_id": "kazakh_language",
-      "teacher_id": "ильясова_аб",
-      "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 4,
       "period": 3
     },
     {
       "class_id": "4б",
+      "subject_id": "pe",
+      "teacher_id": "чифин_дн",
+      "room_id": "r_2_gym",
+      "subgroup_label": null,
+      "day": 3,
+      "period": 3
+    },
+    {
+      "class_id": "4б",
       "subject_id": "kazakh_language",
       "teacher_id": "ильясова_аб",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 3,
-      "period": 1
+      "day": 2,
+      "period": 3
     },
     {
       "class_id": "4б",
@@ -5376,12 +4728,21 @@
     },
     {
       "class_id": "4б",
-      "subject_id": "english",
-      "teacher_id": "алекпарова_аж",
-      "room_id": "r_12_languagelab",
+      "subject_id": "kazakh_language",
+      "teacher_id": "ильясова_аб",
+      "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 5,
-      "period": 3
+      "day": 2,
+      "period": 4
+    },
+    {
+      "class_id": "4б",
+      "subject_id": "kazakh_language",
+      "teacher_id": "ильясова_аб",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 1,
+      "period": 0
     },
     {
       "class_id": "4б",
@@ -5390,22 +4751,13 @@
       "room_id": "r_12_languagelab",
       "subgroup_label": null,
       "day": 3,
-      "period": 4
+      "period": 5
     },
     {
       "class_id": "4б",
-      "subject_id": "math",
-      "teacher_id": "ажикенова_ма",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 5,
-      "period": 4
-    },
-    {
-      "class_id": "4б",
-      "subject_id": "math",
-      "teacher_id": "ажикенова_ма",
-      "room_id": "r_1_general",
+      "subject_id": "english",
+      "teacher_id": "алекпарова_аж",
+      "room_id": "r_12_languagelab",
       "subgroup_label": null,
       "day": 0,
       "period": 5
@@ -5416,53 +4768,71 @@
       "teacher_id": "ажикенова_ма",
       "room_id": "r_1_general",
       "subgroup_label": null,
+      "day": 4,
+      "period": 4
+    },
+    {
+      "class_id": "4б",
+      "subject_id": "math",
+      "teacher_id": "ажикенова_ма",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 2,
+      "period": 5
+    },
+    {
+      "class_id": "4б",
+      "subject_id": "math",
+      "teacher_id": "ажикенова_ма",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 3,
+      "period": 2
+    },
+    {
+      "class_id": "4б",
+      "subject_id": "math",
+      "teacher_id": "ажикенова_ма",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 4,
+      "period": 5
+    },
+    {
+      "class_id": "4б",
+      "subject_id": "math",
+      "teacher_id": "ажикенова_ма",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 1,
+      "period": 3
+    },
+    {
+      "class_id": "4б",
+      "subject_id": "xls_be32892d5985",
+      "teacher_id": "ажикенова_ма",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 2,
+      "period": 6
+    },
+    {
+      "class_id": "4б",
+      "subject_id": "xls_be32892d5985",
+      "teacher_id": "ажикенова_ма",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
       "day": 2,
       "period": 1
     },
     {
       "class_id": "4б",
-      "subject_id": "math",
-      "teacher_id": "ажикенова_ма",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 5,
-      "period": 6
-    },
-    {
-      "class_id": "4б",
-      "subject_id": "math",
-      "teacher_id": "ажикенова_ма",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 0,
-      "period": 4
-    },
-    {
-      "class_id": "4б",
       "subject_id": "xls_be32892d5985",
       "teacher_id": "ажикенова_ма",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 1,
-      "period": 0
-    },
-    {
-      "class_id": "4б",
-      "subject_id": "xls_be32892d5985",
-      "teacher_id": "ажикенова_ма",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 1,
-      "period": 5
-    },
-    {
-      "class_id": "4б",
-      "subject_id": "xls_be32892d5985",
-      "teacher_id": "ажикенова_ма",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 2,
-      "period": 3
+      "day": 4,
+      "period": 2
     },
     {
       "class_id": "4б",
@@ -5471,7 +4841,7 @@
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 0,
-      "period": 3
+      "period": 2
     },
     {
       "class_id": "4б",
@@ -5479,8 +4849,8 @@
       "teacher_id": "ажикенова_ма",
       "room_id": "r_19_workshop",
       "subgroup_label": null,
-      "day": 5,
-      "period": 5
+      "day": 4,
+      "period": 1
     },
     {
       "class_id": "4б",
@@ -5488,8 +4858,8 @@
       "teacher_id": "шкиря_юн",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 2,
-      "period": 2
+      "day": 1,
+      "period": 1
     },
     {
       "class_id": "4б",
@@ -5497,8 +4867,8 @@
       "teacher_id": "ажикенова_ма",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 4,
-      "period": 5
+      "day": 0,
+      "period": 3
     },
     {
       "class_id": "4б",
@@ -5507,7 +4877,7 @@
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 3,
-      "period": 0
+      "period": 1
     },
     {
       "class_id": "4б",
@@ -5516,7 +4886,7 @@
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 1,
-      "period": 4
+      "period": 6
     },
     {
       "class_id": "4_do",
@@ -5524,8 +4894,8 @@
       "teacher_id": "ажикенова_ма",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 4,
-      "period": 4
+      "day": 3,
+      "period": 0
     },
     {
       "class_id": "4_do",
@@ -5533,8 +4903,8 @@
       "teacher_id": "бедрина_мн",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 4,
-      "period": 2
+      "day": 2,
+      "period": 3
     },
     {
       "class_id": "4_do",
@@ -5551,6 +4921,24 @@
       "teacher_id": "ажикенова_ма",
       "room_id": "r_1_general",
       "subgroup_label": null,
+      "day": 0,
+      "period": 5
+    },
+    {
+      "class_id": "4_do",
+      "subject_id": "math",
+      "teacher_id": "радионова_на",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 1,
+      "period": 3
+    },
+    {
+      "class_id": "4_do",
+      "subject_id": "math",
+      "teacher_id": "радионова_на",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
       "day": 1,
       "period": 2
     },
@@ -5560,25 +4948,7 @@
       "teacher_id": "радионова_на",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 5,
-      "period": 4
-    },
-    {
-      "class_id": "4_do",
-      "subject_id": "math",
-      "teacher_id": "радионова_на",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 0,
-      "period": 2
-    },
-    {
-      "class_id": "4_do",
-      "subject_id": "math",
-      "teacher_id": "радионова_на",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 3,
+      "day": 4,
       "period": 5
     },
     {
@@ -5587,8 +4957,8 @@
       "teacher_id": "ажикенова_ма",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 2,
-      "period": 0
+      "day": 1,
+      "period": 4
     },
     {
       "class_id": "4_do",
@@ -5596,7 +4966,7 @@
       "teacher_id": "алекпарова_аж",
       "room_id": "r_12_languagelab",
       "subgroup_label": null,
-      "day": 1,
+      "day": 3,
       "period": 3
     },
     {
@@ -5614,15 +4984,6 @@
       "teacher_id": "жантемиров_ак",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 2,
-      "period": 0
-    },
-    {
-      "class_id": "5а",
-      "subject_id": "math",
-      "teacher_id": "ізбасты_мж",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
       "day": 0,
       "period": 1
     },
@@ -5633,124 +4994,88 @@
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 4,
+      "period": 4
+    },
+    {
+      "class_id": "5а",
+      "subject_id": "math",
+      "teacher_id": "ізбасты_мж",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 4,
+      "period": 0
+    },
+    {
+      "class_id": "5а",
+      "subject_id": "math",
+      "teacher_id": "ізбасты_мж",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 4,
+      "period": 2
+    },
+    {
+      "class_id": "5а",
+      "subject_id": "math",
+      "teacher_id": "ізбасты_мж",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 3,
+      "period": 5
+    },
+    {
+      "class_id": "5а",
+      "subject_id": "math",
+      "teacher_id": "ізбасты_мж",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 0,
+      "period": 5
+    },
+    {
+      "class_id": "5а",
+      "subject_id": "xls_868929b024c4",
+      "teacher_id": "акауова_ин",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 2,
+      "period": 4
+    },
+    {
+      "class_id": "5а",
+      "subject_id": "xls_868929b024c4",
+      "teacher_id": "акауова_ин",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 2,
+      "period": 5
+    },
+    {
+      "class_id": "5а",
+      "subject_id": "xls_868929b024c4",
+      "teacher_id": "акауова_ин",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 0,
+      "period": 4
+    },
+    {
+      "class_id": "5а",
+      "subject_id": "xls_17ab223c6c34",
+      "teacher_id": "дмитриев_ев",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 3,
       "period": 1
     },
     {
       "class_id": "5а",
-      "subject_id": "math",
-      "teacher_id": "ізбасты_мж",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 1,
-      "period": 4
-    },
-    {
-      "class_id": "5а",
-      "subject_id": "math",
-      "teacher_id": "ізбасты_мж",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 0,
-      "period": 5
-    },
-    {
-      "class_id": "5а",
-      "subject_id": "math",
-      "teacher_id": "ізбасты_мж",
+      "subject_id": "xls_17ab223c6c34",
+      "teacher_id": "дмитриев_ев",
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 2,
       "period": 3
-    },
-    {
-      "class_id": "5а",
-      "subject_id": "xls_868929b024c4",
-      "teacher_id": "акауова_ин",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 5,
-      "period": 2
-    },
-    {
-      "class_id": "5а",
-      "subject_id": "xls_868929b024c4",
-      "teacher_id": "акауова_ин",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 2,
-      "period": 2
-    },
-    {
-      "class_id": "5а",
-      "subject_id": "xls_868929b024c4",
-      "teacher_id": "акауова_ин",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 0,
-      "period": 0
-    },
-    {
-      "class_id": "5а",
-      "subject_id": "kazakh_literature",
-      "teacher_id": "асаева_жх",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 0,
-      "period": 6
-    },
-    {
-      "class_id": "5а",
-      "subject_id": "kazakh_literature",
-      "teacher_id": "асаева_жх",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 4,
-      "period": 3
-    },
-    {
-      "class_id": "5а",
-      "subject_id": "history_kz",
-      "teacher_id": "досаева_мх",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 5,
-      "period": 4
-    },
-    {
-      "class_id": "5а",
-      "subject_id": "history_kz",
-      "teacher_id": "досаева_мх",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 0,
-      "period": 4
-    },
-    {
-      "class_id": "5а",
-      "subject_id": "pe",
-      "teacher_id": "кашиков_ее",
-      "room_id": "r_2_gym",
-      "subgroup_label": null,
-      "day": 3,
-      "period": 0
-    },
-    {
-      "class_id": "5а",
-      "subject_id": "pe",
-      "teacher_id": "кашиков_ее",
-      "room_id": "r_2_gym",
-      "subgroup_label": null,
-      "day": 1,
-      "period": 5
-    },
-    {
-      "class_id": "5а",
-      "subject_id": "pe",
-      "teacher_id": "кашиков_ее",
-      "room_id": "r_2_gym",
-      "subgroup_label": null,
-      "day": 2,
-      "period": 5
     },
     {
       "class_id": "5а",
@@ -5759,24 +5084,6 @@
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 1,
-      "period": 3
-    },
-    {
-      "class_id": "5а",
-      "subject_id": "xls_17ab223c6c34",
-      "teacher_id": "дмитриев_ев",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 3,
-      "period": 5
-    },
-    {
-      "class_id": "5а",
-      "subject_id": "xls_17ab223c6c34",
-      "teacher_id": "дмитриев_ев",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 0,
       "period": 2
     },
     {
@@ -5785,35 +5092,8 @@
       "teacher_id": "досаева_мх",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 0,
-      "period": 3
-    },
-    {
-      "class_id": "5а",
-      "subject_id": "kazakh_language",
-      "teacher_id": "асаева_жх",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 5,
-      "period": 1
-    },
-    {
-      "class_id": "5а",
-      "subject_id": "kazakh_language",
-      "teacher_id": "асаева_жх",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 5,
-      "period": 3
-    },
-    {
-      "class_id": "5а",
-      "subject_id": "kazakh_language",
-      "teacher_id": "асаева_жх",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 1,
-      "period": 2
+      "day": 3,
+      "period": 4
     },
     {
       "class_id": "5а",
@@ -5821,17 +5101,8 @@
       "teacher_id": "жантемиров_эа",
       "room_id": "r_10_informatics",
       "subgroup_label": null,
-      "day": 3,
-      "period": 2
-    },
-    {
-      "class_id": "5а",
-      "subject_id": "xls_01e060767411",
-      "teacher_id": "сапаргалиева_гс",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 3,
-      "period": 1
+      "day": 1,
+      "period": 6
     },
     {
       "class_id": "5а",
@@ -5840,7 +5111,16 @@
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 1,
-      "period": 1
+      "period": 5
+    },
+    {
+      "class_id": "5а",
+      "subject_id": "xls_01e060767411",
+      "teacher_id": "сапаргалиева_гс",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 0,
+      "period": 6
     },
     {
       "class_id": "5а",
@@ -5848,34 +5128,7 @@
       "teacher_id": "шкиря_юн",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 4,
-      "period": 0
-    },
-    {
-      "class_id": "1а",
-      "subject_id": "xls_5bf7b34e289c",
-      "teacher_id": "актаева_ае",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 4,
-      "period": 5
-    },
-    {
-      "class_id": "1а",
-      "subject_id": "xls_5bf7b34e289c",
-      "teacher_id": "актаева_ае",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 4,
-      "period": 3
-    },
-    {
-      "class_id": "1а",
-      "subject_id": "xls_5bf7b34e289c",
-      "teacher_id": "актаева_ае",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 3,
+      "day": 2,
       "period": 1
     },
     {
@@ -5884,8 +5137,8 @@
       "teacher_id": "актаева_ае",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 0,
-      "period": 5
+      "day": 3,
+      "period": 4
     },
     {
       "class_id": "1а",
@@ -5893,7 +5146,16 @@
       "teacher_id": "актаева_ае",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 3,
+      "day": 4,
+      "period": 4
+    },
+    {
+      "class_id": "1а",
+      "subject_id": "xls_5bf7b34e289c",
+      "teacher_id": "актаева_ае",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 4,
       "period": 6
     },
     {
@@ -5902,34 +5164,25 @@
       "teacher_id": "актаева_ае",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 1,
+      "day": 3,
       "period": 1
     },
     {
       "class_id": "1а",
-      "subject_id": "math",
+      "subject_id": "xls_5bf7b34e289c",
       "teacher_id": "актаева_ае",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 3,
-      "period": 2
+      "day": 2,
+      "period": 3
     },
     {
       "class_id": "1а",
-      "subject_id": "math",
+      "subject_id": "xls_5bf7b34e289c",
       "teacher_id": "актаева_ае",
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 1,
-      "period": 2
-    },
-    {
-      "class_id": "1а",
-      "subject_id": "math",
-      "teacher_id": "актаева_ае",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 5,
       "period": 4
     },
     {
@@ -5938,16 +5191,43 @@
       "teacher_id": "актаева_ае",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 0,
-      "period": 3
+      "day": 2,
+      "period": 2
     },
     {
       "class_id": "1а",
-      "subject_id": "music",
+      "subject_id": "math",
       "teacher_id": "актаева_ае",
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 4,
+      "period": 0
+    },
+    {
+      "class_id": "1а",
+      "subject_id": "math",
+      "teacher_id": "актаева_ае",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 0,
+      "period": 2
+    },
+    {
+      "class_id": "1а",
+      "subject_id": "math",
+      "teacher_id": "актаева_ае",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 1,
+      "period": 2
+    },
+    {
+      "class_id": "1а",
+      "subject_id": "music",
+      "teacher_id": "шкиря_юн",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 0,
       "period": 4
     },
     {
@@ -5956,44 +5236,8 @@
       "teacher_id": "актаева_ае",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 3,
-      "period": 0
-    },
-    {
-      "class_id": "1а",
-      "subject_id": "izo",
-      "teacher_id": "романишина_им",
-      "room_id": "r_1_general",
-      "subgroup_label": null,
-      "day": 0,
-      "period": 2
-    },
-    {
-      "class_id": "1а",
-      "subject_id": "pe",
-      "teacher_id": "кашиков_ее",
-      "room_id": "r_2_gym",
-      "subgroup_label": null,
-      "day": 2,
-      "period": 4
-    },
-    {
-      "class_id": "1а",
-      "subject_id": "pe",
-      "teacher_id": "кашиков_ее",
-      "room_id": "r_2_gym",
-      "subgroup_label": null,
-      "day": 4,
-      "period": 2
-    },
-    {
-      "class_id": "1а",
-      "subject_id": "pe",
-      "teacher_id": "кашиков_ее",
-      "room_id": "r_2_gym",
-      "subgroup_label": null,
-      "day": 5,
-      "period": 1
+      "day": 1,
+      "period": 5
     },
     {
       "class_id": "1а",
@@ -6001,8 +5245,8 @@
       "teacher_id": "романишина_им",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 2,
-      "period": 2
+      "day": 4,
+      "period": 5
     },
     {
       "class_id": "1а",
@@ -6010,8 +5254,8 @@
       "teacher_id": "актаева_ае",
       "room_id": "r_1_general",
       "subgroup_label": null,
-      "day": 0,
-      "period": 1
+      "day": 3,
+      "period": 2
     },
     {
       "class_id": "1а",
@@ -6020,7 +5264,25 @@
       "room_id": "r_1_general",
       "subgroup_label": null,
       "day": 2,
-      "period": 5
+      "period": 0
+    },
+    {
+      "class_id": "1б",
+      "subject_id": "kazakh_language",
+      "teacher_id": "ильясова_аб",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 2,
+      "period": 2
+    },
+    {
+      "class_id": "5б",
+      "subject_id": "literature",
+      "teacher_id": "темерканова_ов",
+      "room_id": "r_1_general",
+      "subgroup_label": null,
+      "day": 0,
+      "period": 2
     }
   ],
   "diagnostics": {
