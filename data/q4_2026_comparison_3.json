@@ -17,16 +17,16 @@
   "v2": {
     "hard": {
       "teacher": 0,
-      "room": 0,
+      "room": 3,
       "roomF": 0,
       "class": 0
     },
     "soft": {
-      "win": 232,
-      "sanpin": 2604,
-      "bal": 95,
-      "classWin": 205,
-      "total": 360800
+      "win": 164,
+      "sanpin": 2519,
+      "bal": 87,
+      "classWin": 130,
+      "total": 324460
     }
   },
   "v3": {
