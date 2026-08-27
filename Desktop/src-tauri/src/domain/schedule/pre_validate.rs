@@ -31,7 +31,7 @@ fn count_available_slots_with_daily_limit(
 ) -> usize {
     let m = match AvailabilityMatrix::from_json(&teacher.availability_json) {
         Ok(m) => m,
-        Err(_) => return 0,
+        Err(_) => AvailabilityMatrix::all_available(),
     };
     let max_daily = teacher.max_daily_lessons as usize;
     let mut total = 0;
@@ -55,13 +55,36 @@ fn pre_validate_teachers(
 ) -> PreValidationResult {
     let mut result = PreValidationResult::ok();
 
-    // Сумма hours_per_week для каждого teacher_id (+ split_teacher2_id)
+    // Подсчёт физической нагрузки учителя с учётом совмещенных уроков (joint_lesson_id)
     let mut hours_by_teacher: HashMap<String, i64> = HashMap::new();
+    let mut joint_groups_by_teacher: HashMap<String, HashMap<String, i64>> = HashMap::new();
+
     for entry in curriculum {
-        *hours_by_teacher.entry(entry.teacher_id.clone()).or_insert(0) += entry.hours_per_week;
+        let t1 = entry.teacher_id.clone();
+        if let Some(ref jid) = entry.joint_lesson_id {
+            if !jid.trim().is_empty() {
+                let grp = joint_groups_by_teacher.entry(t1.clone()).or_default();
+                let cur_max = grp.entry(jid.clone()).or_insert(0);
+                *cur_max = (*cur_max).max(entry.hours_per_week);
+
+                if let Some(ref split_id) = entry.split_teacher2_id {
+                    let grp2 = joint_groups_by_teacher.entry(split_id.clone()).or_default();
+                    let cur_max2 = grp2.entry(jid.clone()).or_insert(0);
+                    *cur_max2 = (*cur_max2).max(entry.hours_per_week);
+                }
+                continue;
+            }
+        }
+
+        *hours_by_teacher.entry(t1).or_insert(0) += entry.hours_per_week;
         if let Some(ref split_id) = entry.split_teacher2_id {
             *hours_by_teacher.entry(split_id.clone()).or_insert(0) += entry.hours_per_week;
         }
+    }
+
+    for (t_id, jmap) in joint_groups_by_teacher {
+        let total_joint: i64 = jmap.values().sum();
+        *hours_by_teacher.entry(t_id).or_insert(0) += total_joint;
     }
 
     for teacher in teachers {

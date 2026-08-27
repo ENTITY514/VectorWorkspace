@@ -49,8 +49,11 @@ export const scheduleApi = {
   upsertSubgroupRule(input: { class_id: string; subject_id: string; group_count: number }): Promise<string> {
     return call<string>("schedule_upsert_subgroup_rule", { input });
   },
-  setCurriculum(entries: Array<{ class_id: string; subject_id: string; teacher_id: string; split_teacher2_id?: string | null; hours_per_week: number }>): Promise<ScheduleCurriculum[]> {
+  setCurriculum(entries: Array<{ class_id: string; subject_id: string; teacher_id: string; split_teacher2_id?: string | null; hours_per_week: number; joint_lesson_id?: string | null }>): Promise<ScheduleCurriculum[]> {
     return call<ScheduleCurriculum[]>("schedule_set_curriculum", { entries });
+  },
+  toggleJointLessons(curriculum_ids: string[], joint_lesson_id?: string | null): Promise<ScheduleCurriculum[]> {
+    return call<ScheduleCurriculum[]>("schedule_toggle_joint_lessons", { curriculumIds: curriculum_ids, jointLessonId: joint_lesson_id || null });
   },
   deleteCurriculum(id: string): Promise<void> {
     return call<void>("schedule_delete_curriculum", { id });

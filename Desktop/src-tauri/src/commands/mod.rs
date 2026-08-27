@@ -84,6 +84,7 @@ pub fn register<R: tauri::Runtime>(
             schedule::schedule_port_quarter,
             schedule::schedule_pin_slot,
             schedule::schedule_unpin_slot,
-            schedule::schedule_get_fixed_slots
+            schedule::schedule_get_fixed_slots,
+            schedule::schedule_toggle_joint_lessons
         ])
 }

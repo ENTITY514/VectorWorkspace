@@ -83,16 +83,17 @@ impl AvailabilityMatrix {
     }
 
     pub fn from_json(s: &str) -> Result<Self, String> {
-        let v: Vec<Vec<bool>> = serde_json::from_str(s).map_err(|e| e.to_string())?;
-        if v.len() != 6 {
-            return Err(format!("availability: expected 6 days, got {}", v.len()));
+        let s_trimmed = s.trim();
+        if s_trimmed.is_empty() || s_trimmed == "[]" || s_trimmed == "{}" {
+            return Ok(Self::all_available());
         }
-        let mut m = [[false; 8]; 6];
-        for (d, row) in v.iter().enumerate() {
-            if row.len() != 8 {
-                return Err(format!("availability day {}: expected 8 periods, got {}", d, row.len()));
-            }
-            for (p, &val) in row.iter().enumerate() {
+        let v: Vec<Vec<bool>> = match serde_json::from_str(s_trimmed) {
+            Ok(val) => val,
+            Err(_) => return Ok(Self::all_available()),
+        };
+        let mut m = [[true; 8]; 6];
+        for (d, row) in v.iter().take(6).enumerate() {
+            for (p, &val) in row.iter().take(8).enumerate() {
                 m[d][p] = val;
             }
         }
@@ -198,6 +199,7 @@ pub struct ScheduleCurriculum {
     pub teacher_id: String,
     pub split_teacher2_id: Option<String>,
     pub hours_per_week: i64,
+    pub joint_lesson_id: Option<String>,
 }
 
 /// DTO весов (singleton id='default').
@@ -225,6 +227,7 @@ pub struct ScheduleSlot {
     pub day: i64,
     pub period: i64,
     pub is_double: bool,
+    pub joint_lesson_id: Option<String>,
     #[serde(default)]
     pub week: Option<i64>,
     #[serde(default)]

@@ -154,8 +154,45 @@ def add_soft_constraints(model, x, y, m, instances, room_by_id=None):
                 dev = model.NewIntVar(0, 100, f"dev_{cid}_{d}")
                 model.AddMaxEquality(dev, [diff_pos, diff_neg])
                 dev_vars.append(dev)
+
+        # S3b: Штраф за позицию урока внутри дня (Period Position Penalty) согласно СанПиН № ҚР ДСМ-76
+        # Предметы высокой сложности (9-11 баллов): идеал - 2, 3, 4 уроки (p=1, 2, 3). Выселяем с 6, 7 уроков и из Пятницы вечер.
+        # Легкие предметы (1-4 балла): идеальны на последних уроках.
+        for inst in instances:
+            subj = subject_by_id.get(inst["subject_id"])
+            weight = subj.sanitary_weight if subj else 5
+            for d in range(m.time_grid.days):
+                for p in range(m.time_grid.periods_per_day):
+                    k = (inst["idx"], d, p)
+                    if k not in x:
+                        continue
+                    pen_cost = 0
+                    if weight >= 9:
+                        if p in (1, 2, 3):    # 2, 3, 4 уроки — ПИК умственной активности
+                            pen_cost = 0
+                        elif p == 0:          # 1 урок — врабатывание
+                            pen_cost = 2
+                        elif p == 4:          # 5 урок — спад активности
+                            pen_cost = 8
+                        elif p >= 5:          # 6, 7, 8 уроки — сильное утомление
+                            pen_cost = 30
+                        
+                        # В Пятницу (d=4) на 5, 6, 7 уроках — максимальный штраф для предметов 9-11 баллов
+                        if d == 4 and p >= 4:
+                            pen_cost += 40
+                    elif weight <= 4:
+                        if p in (4, 5, 6):    # Легкие предметы идеальны в конце дня
+                            pen_cost = 0
+                        elif p in (1, 2, 3):  # Не занимать пиковое время легкими предметами
+                            pen_cost = 5
+
+                    if pen_cost > 0:
+                        p_var = model.NewBoolVar(f"pos_pen_{inst['idx']}_{d}_{p}")
+                        model.Add(p_var == x[k])
+                        dev_vars.append(pen_cost * p_var)
+
         if dev_vars:
-            pen = model.NewIntVar(0, 100000, "penalty_sanpin")
+            pen = model.NewIntVar(0, 1000000, "penalty_sanpin")
             model.Add(pen == sum(dev_vars))
             penalties["sanpin_parabola"] = pen
         else:

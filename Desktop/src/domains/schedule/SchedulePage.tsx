@@ -8,6 +8,8 @@ import { SchoolSettings } from "./ui/SchoolSettings";
 import { WeightsTab } from "./ui/WeightsTab";
 import { InteractiveGrid, type GridMode } from "./ui/InteractiveGrid";
 import { TeacherDrawer } from "./ui/TeacherDrawer";
+import { GenerateModal } from "./ui/GenerateModal";
+import { ScheduleQualityWidget } from "./ui/ScheduleQualityWidget";
 
 type Tab = "dashboard" | "settings" | "teachers" | "weights" | "grid";
 
@@ -28,6 +30,10 @@ export function SchedulePage() {
   const [lastResult, setLastResult] = useState<ScheduleGenerateResult | null>(null);
   const [importing, setImporting] = useState(false);
   const [variants, setVariants] = useState<ScheduleVariant[]>([]);
+
+  // Modal generation states
+  const [isGenerateModalOpen, setIsGenerateModalOpen] = useState(false);
+  const [isGenerating, setIsGenerating] = useState(false);
 
   // Teacher drawer state
   const [selectedTeacher, setSelectedTeacher] = useState<ScheduleState["teachers"][0] | null>(null);
@@ -215,11 +221,12 @@ export function SchedulePage() {
     finally { setPorting(false); }
   };
 
-  const handleGenerate = async () => {
-    setGenStatus("Генерация...");
+  const handleStartGenerate = async (timeLimitSec: number) => {
+    setIsGenerating(true);
+    setGenStatus("Идёт генерация расписания...");
     setError(null);
     try {
-      const res = await scheduleApi.generate({ time_limit_sec: 60, num_workers: 8, seed: 42 });
+      const res = await scheduleApi.generate({ time_limit_sec: timeLimitSec, num_workers: 8, seed: 42 });
       setGenStatus(`Статус: ${STATUS_LABELS[res.status]} (штраф ${res.penalties.total}, ${res.solver_stats.wall_ms}мс)`);
       setLastResult(res);
       if (res.diagnostics.infeasible_core) {
@@ -232,7 +239,16 @@ export function SchedulePage() {
     } catch (e: unknown) {
       setError(String(e));
       setGenStatus(null);
+    } finally {
+      setIsGenerating(false);
+      setIsGenerateModalOpen(false);
     }
+  };
+
+  const handleCancelGenerate = () => {
+    setIsGenerating(false);
+    setIsGenerateModalOpen(false);
+    setGenStatus("Генерация прервана пользователем");
   };
 
   if (loading) return <div className="panel">{importing ? "Первый запуск — импорт данных Q4..." : "Загрузка расписания..."}</div>;
@@ -240,10 +256,27 @@ export function SchedulePage() {
 
   return (
     <div className="panel schedule-page">
-      <div className="panel-header">
-        <h1>Расписание</h1>
-        <p className="muted">Алгоритм CP-SAT · 0 коллизий · СанПиН-парабола</p>
+      <div className="panel-header" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <div>
+          <h1>Расписание</h1>
+          <p className="muted">Алгоритм CP-SAT · 0 коллизий · СанПиН-парабола</p>
+        </div>
+        <button
+          className="btn btn-primary btn-large"
+          style={{ background: "linear-gradient(135deg, #3b82f6, #1d4ed8)", boxShadow: "0 4px 14px rgba(59, 130, 246, 0.4)" }}
+          onClick={() => setIsGenerateModalOpen(true)}
+        >
+          ⚡ Сгенерировать расписание
+        </button>
       </div>
+
+      {/* ===== Quality & SanPiN Widget ===== */}
+      {state && (
+        <ScheduleQualityWidget
+          state={state}
+          lastResult={lastResult}
+        />
+      )}
 
       {/* ===== Year → Quarter → Variant navigation ===== */}
       <div className="card variant-nav">
@@ -297,7 +330,7 @@ export function SchedulePage() {
       {genStatus && <div className="notice">{genStatus}</div>}
       {error && <div className="error notice">{error}</div>}
 
-      {tab === "dashboard" && <ScheduleDashboard state={state!} onGenerate={handleGenerate} onRefresh={load} lastResult={lastResult} />}
+      {tab === "dashboard" && <ScheduleDashboard state={state!} onGenerate={() => setIsGenerateModalOpen(true)} onRefresh={load} lastResult={lastResult} />}
       {tab === "settings" && <SchoolSettings />}
       {tab === "teachers" && (
         <TeachersTab onSelectTeacher={t => setSelectedTeacher(t)} />
@@ -314,6 +347,15 @@ export function SchedulePage() {
           onDragDrop={handleDragDrop}
         />
       )}
+
+      {/* Generation Settings & Progress Modal */}
+      <GenerateModal
+        isOpen={isGenerateModalOpen}
+        onClose={() => setIsGenerateModalOpen(false)}
+        onStartGenerate={handleStartGenerate}
+        isGenerating={isGenerating}
+        onCancelGenerate={handleCancelGenerate}
+      />
 
       {/* Teacher drawer overlay */}
       {selectedTeacher && state && (

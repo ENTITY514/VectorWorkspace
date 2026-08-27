@@ -14,7 +14,8 @@
     "source_subject": "Физкультура.",
     "source_teacher": "Ольков Г.В.",
     "source_time": "08:15 - 09:00",
-    "source_note": "спортивный зал"
+    "source_note": "спортивный зал",
+    "joint_lesson_id": null
   },
   {
     "class_id": "1б",
@@ -31,7 +32,8 @@
     "source_subject": "Букварь, Обучение гр",
     "source_teacher": "Квашнина Е.В.",
     "source_time": "08:15 - 09:00",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "1б",
@@ -48,7 +50,8 @@
     "source_subject": "Музыка.",
     "source_teacher": "Шкиря Ю.Н.",
     "source_time": "08:15 - 09:00",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "1б",
@@ -65,7 +68,8 @@
     "source_subject": "Букварь, Обучение гр",
     "source_teacher": "Квашнина Е.В.",
     "source_time": "08:15 - 09:00",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "1б",
@@ -82,7 +86,8 @@
     "source_subject": "Букварь, Обучение гр",
     "source_teacher": "Квашнина Е.В.",
     "source_time": "08:15 - 09:00",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "1б",
@@ -99,7 +104,8 @@
     "source_subject": "Букварь, Обучение гр",
     "source_teacher": "Квашнина Е.В.",
     "source_time": "09:05 - 09:50",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "1б",
@@ -116,7 +122,8 @@
     "source_subject": "Математика",
     "source_teacher": "Квашнина Е.В.",
     "source_time": "09:05 - 09:50",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "1б",
@@ -133,7 +140,8 @@
     "source_subject": "Естествознание",
     "source_teacher": "Радионова Н.А.",
     "source_time": "09:05 - 09:50",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "1б",
@@ -150,7 +158,8 @@
     "source_subject": "Физкультура.",
     "source_teacher": "Ольков Г.В.",
     "source_time": "09:05 - 09:50",
-    "source_note": "спортивный зал"
+    "source_note": "спортивный зал",
+    "joint_lesson_id": null
   },
   {
     "class_id": "1б",
@@ -167,7 +176,8 @@
     "source_subject": "Математика",
     "source_teacher": "Квашнина Е.В.",
     "source_time": "09:05 - 09:50",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "1б",
@@ -184,7 +194,8 @@
     "source_subject": "Математика",
     "source_teacher": "Квашнина Е.В.",
     "source_time": "10:05 - 10:50",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "1б",
@@ -201,7 +212,8 @@
     "source_subject": "Труд. об.",
     "source_teacher": "Квашнина Е.В.",
     "source_time": "10:05 - 10:50",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "1б",
@@ -218,7 +230,8 @@
     "source_subject": "Букварь, Обучение гр",
     "source_teacher": "Квашнина Е.В.",
     "source_time": "10:05 - 10:50",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "1б",
@@ -235,7 +248,8 @@
     "source_subject": "ИЗО.",
     "source_teacher": "Квашнина Е.В.",
     "source_time": "10:05 - 10:50",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "1б",
@@ -252,7 +266,8 @@
     "source_subject": "Казахский язык",
     "source_teacher": "Асаева Ж.Х.",
     "source_time": "10:05 - 10:50",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "1б",
@@ -269,7 +284,8 @@
     "source_subject": "Познание мира",
     "source_teacher": "Радионова Н.А.",
     "source_time": "10:55 - 11:40",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "1б",
@@ -286,7 +302,8 @@
     "source_subject": "Букварь, Обучение гр",
     "source_teacher": "Квашнина Е.В.",
     "source_time": "10:55 - 11:40",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "1б",
@@ -303,7 +320,8 @@
     "source_subject": "Казахский язык",
     "source_teacher": "Асаева Ж.Х.",
     "source_time": "10:55 - 11:40",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "1б",
@@ -320,7 +338,8 @@
     "source_subject": "Математика",
     "source_teacher": "Квашнина Е.В.",
     "source_time": "10:55 - 11:40",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "1б",
@@ -337,7 +356,8 @@
     "source_subject": "Физкультура.",
     "source_teacher": "Ольков Г.В.",
     "source_time": "10:55 - 11:40",
-    "source_note": "спортивный зал"
+    "source_note": "спортивный зал",
+    "joint_lesson_id": null
   },
   {
     "class_id": "1б",
@@ -354,7 +374,8 @@
     "source_subject": "ЦГ",
     "source_teacher": "Бедрина М.Н.",
     "source_time": "11:55 - 12:40",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "5б",
@@ -371,7 +392,8 @@
     "source_subject": "Казахский язык и лит (1гр.каз.яз)",
     "source_teacher": "Асаева Ж.Х.",
     "source_time": "08:15 - 09:00",
-    "source_note": "казахская литер..."
+    "source_note": "казахская литер...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "5б",
@@ -388,7 +410,8 @@
     "source_subject": "Математика",
     "source_teacher": "Пащенко Н.А.",
     "source_time": "08:15 - 09:00",
-    "source_note": "математика"
+    "source_note": "математика",
+    "joint_lesson_id": "jl_пащенко_на_d1_p0"
   },
   {
     "class_id": "5б",
@@ -405,7 +428,8 @@
     "source_subject": "Математика",
     "source_teacher": "Пащенко Н.А.",
     "source_time": "08:15 - 09:00",
-    "source_note": "математика"
+    "source_note": "математика",
+    "joint_lesson_id": "jl_пащенко_на_d2_p0"
   },
   {
     "class_id": "5б",
@@ -422,7 +446,8 @@
     "source_subject": "Математика",
     "source_teacher": "Пащенко Н.А.",
     "source_time": "08:15 - 09:00",
-    "source_note": "математика"
+    "source_note": "математика",
+    "joint_lesson_id": "jl_пащенко_на_d3_p0"
   },
   {
     "class_id": "5б",
@@ -439,7 +464,8 @@
     "source_subject": "Русский язык",
     "source_teacher": "Дмитриев Е.В.",
     "source_time": "08:15 - 09:00",
-    "source_note": "русский язык"
+    "source_note": "русский язык",
+    "joint_lesson_id": "jl_дмитриев_ев_d4_p0"
   },
   {
     "class_id": "5б",
@@ -456,7 +482,8 @@
     "source_subject": "Казахский язык и лит (2гр.каз.яз)",
     "source_teacher": "Ильясова А.Б.",
     "source_time": "08:15 - 09:00",
-    "source_note": "казахский язык"
+    "source_note": "казахский язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "5б",
@@ -473,7 +500,8 @@
     "source_subject": "Естествознание",
     "source_teacher": "Иващенко В.О.",
     "source_time": "09:05 - 09:50",
-    "source_note": "география"
+    "source_note": "география",
+    "joint_lesson_id": "jl_иващенко_во_d0_p1"
   },
   {
     "class_id": "5б",
@@ -490,7 +518,8 @@
     "source_subject": "Рус. литература",
     "source_teacher": "Дмитриев Е.В.",
     "source_time": "09:05 - 09:50",
-    "source_note": "русский язык"
+    "source_note": "русский язык",
+    "joint_lesson_id": "jl_дмитриев_ев_d1_p1"
   },
   {
     "class_id": "5б",
@@ -507,7 +536,8 @@
     "source_subject": "Казахский язык и лит (1гр.каз.яз)",
     "source_teacher": "Асаева Ж.Х.",
     "source_time": "09:05 - 09:50",
-    "source_note": "казахская литер..."
+    "source_note": "казахская литер...",
+    "joint_lesson_id": "jl_асаева_жх_d2_p1"
   },
   {
     "class_id": "5б",
@@ -524,7 +554,8 @@
     "source_subject": "Казахский язык и лит (1гр.каз.яз)",
     "source_teacher": "Асаева Ж.Х.",
     "source_time": "09:05 - 09:50",
-    "source_note": "казахская литер..."
+    "source_note": "казахская литер...",
+    "joint_lesson_id": "jl_асаева_жх_d3_p1"
   },
   {
     "class_id": "5б",
@@ -541,7 +572,8 @@
     "source_subject": "Физкультура.",
     "source_teacher": "Ольков Г.В.",
     "source_time": "09:05 - 09:50",
-    "source_note": "спортивный зал"
+    "source_note": "спортивный зал",
+    "joint_lesson_id": "jl_ольков_гв_d4_p1"
   },
   {
     "class_id": "5б",
@@ -558,7 +590,8 @@
     "source_subject": "Казахский язык и лит (2гр.каз.яз)",
     "source_teacher": "Ильясова А.Б.",
     "source_time": "09:05 - 09:50",
-    "source_note": "казахский язык"
+    "source_note": "казахский язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "5б",
@@ -575,7 +608,8 @@
     "source_subject": "Казахский язык и лит (2гр.каз.яз)",
     "source_teacher": "Ильясова А.Б.",
     "source_time": "09:05 - 09:50",
-    "source_note": "казахский язык"
+    "source_note": "казахский язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "5б",
@@ -592,7 +626,8 @@
     "source_subject": "Математика",
     "source_teacher": "Пащенко Н.А.",
     "source_time": "10:05 - 10:50",
-    "source_note": "математика"
+    "source_note": "математика",
+    "joint_lesson_id": "jl_пащенко_на_d0_p2"
   },
   {
     "class_id": "5б",
@@ -609,7 +644,8 @@
     "source_subject": "Физкультура.",
     "source_teacher": "Ольков Г.В.",
     "source_time": "10:05 - 10:50",
-    "source_note": "спортивный зал"
+    "source_note": "спортивный зал",
+    "joint_lesson_id": "jl_ольков_гв_d1_p2"
   },
   {
     "class_id": "5б",
@@ -626,7 +662,8 @@
     "source_subject": "Музыка.",
     "source_teacher": "Шкиря Ю.Н.",
     "source_time": "10:05 - 10:50",
-    "source_note": "Нет кабинета"
+    "source_note": "Нет кабинета",
+    "joint_lesson_id": "jl_шкиря_юн_d2_p2"
   },
   {
     "class_id": "5б",
@@ -643,7 +680,8 @@
     "source_subject": "Худ. труд",
     "source_teacher": "Романишина И.М.",
     "source_time": "10:05 - 10:50",
-    "source_note": "технология"
+    "source_note": "технология",
+    "joint_lesson_id": "jl_романишина_им_d3_p2"
   },
   {
     "class_id": "5б",
@@ -660,7 +698,8 @@
     "source_subject": "Математика",
     "source_teacher": "Пащенко Н.А.",
     "source_time": "10:05 - 10:50",
-    "source_note": "математика"
+    "source_note": "математика",
+    "joint_lesson_id": "jl_пащенко_на_d4_p2"
   },
   {
     "class_id": "5б",
@@ -677,7 +716,8 @@
     "source_subject": "Русский язык",
     "source_teacher": "Дмитриев Е.В.",
     "source_time": "10:55 - 11:40",
-    "source_note": "русский язык"
+    "source_note": "русский язык",
+    "joint_lesson_id": "jl_дмитриев_ев_d0_p3"
   },
   {
     "class_id": "5б",
@@ -694,7 +734,8 @@
     "source_subject": "Худ. труд",
     "source_teacher": "Романишина И.М.",
     "source_time": "10:55 - 11:40",
-    "source_note": "технология"
+    "source_note": "технология",
+    "joint_lesson_id": "jl_романишина_им_d1_p3"
   },
   {
     "class_id": "5б",
@@ -711,7 +752,8 @@
     "source_subject": "Английский язык (1гр.анг.яз)",
     "source_teacher": "Алекпарова А.Ж.",
     "source_time": "10:55 - 11:40",
-    "source_note": "английский язык"
+    "source_note": "английский язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "5б",
@@ -728,7 +770,8 @@
     "source_subject": "Рус. литература",
     "source_teacher": "Дмитриев Е.В.",
     "source_time": "10:55 - 11:40",
-    "source_note": "русский язык"
+    "source_note": "русский язык",
+    "joint_lesson_id": "jl_дмитриев_ев_d3_p3"
   },
   {
     "class_id": "5б",
@@ -745,7 +788,8 @@
     "source_subject": "Естествознание",
     "source_teacher": "Иващенко В.О.",
     "source_time": "10:55 - 11:40",
-    "source_note": "география"
+    "source_note": "география",
+    "joint_lesson_id": "jl_иващенко_во_d4_p3"
   },
   {
     "class_id": "5б",
@@ -762,7 +806,8 @@
     "source_subject": "Английский язык (2гр.анг.яз)",
     "source_teacher": "Акауова И.Н.",
     "source_time": "10:55 - 11:40",
-    "source_note": "ағылшын тілі"
+    "source_note": "ағылшын тілі",
+    "joint_lesson_id": null
   },
   {
     "class_id": "5б",
@@ -779,7 +824,8 @@
     "source_subject": "Информатика (2гр.информ)",
     "source_teacher": "Бедрина М.Н.",
     "source_time": "11:55 - 12:40",
-    "source_note": "мультимедийный"
+    "source_note": "мультимедийный",
+    "joint_lesson_id": null
   },
   {
     "class_id": "5б",
@@ -796,7 +842,8 @@
     "source_subject": "История Каз-на",
     "source_teacher": "Мельникова Л.Р.",
     "source_time": "11:55 - 12:40",
-    "source_note": "история"
+    "source_note": "история",
+    "joint_lesson_id": null
   },
   {
     "class_id": "5б",
@@ -813,7 +860,8 @@
     "source_subject": "Русский язык",
     "source_teacher": "Дмитриев Е.В.",
     "source_time": "11:55 - 12:40",
-    "source_note": "русский язык"
+    "source_note": "русский язык",
+    "joint_lesson_id": "jl_дмитриев_ев_d2_p4"
   },
   {
     "class_id": "5б",
@@ -830,7 +878,8 @@
     "source_subject": "Всемирная история",
     "source_teacher": "Мельникова Л.Р.",
     "source_time": "11:55 - 12:40",
-    "source_note": "история"
+    "source_note": "история",
+    "joint_lesson_id": null
   },
   {
     "class_id": "5б",
@@ -847,7 +896,8 @@
     "source_subject": "Казахский язык и лит (1гр.каз.яз)",
     "source_teacher": "Асаева Ж.Х.",
     "source_time": "11:55 - 12:40",
-    "source_note": "казахская литер..."
+    "source_note": "казахская литер...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "5б",
@@ -864,7 +914,8 @@
     "source_subject": "Английский язык (1гр.анг.яз)",
     "source_teacher": "Алекпарова А.Ж.",
     "source_time": "11:55 - 12:40",
-    "source_note": "английский язык"
+    "source_note": "английский язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "5б",
@@ -881,7 +932,8 @@
     "source_subject": "Казахский язык и лит (2гр.каз.яз)",
     "source_teacher": "Ильясова А.Б.",
     "source_time": "11:55 - 12:40",
-    "source_note": "казахский язык"
+    "source_note": "казахский язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "5б",
@@ -898,7 +950,8 @@
     "source_subject": "Информатика (1гр.информ)",
     "source_teacher": "Бедрина М.Н.",
     "source_time": "12:45 - 13:30",
-    "source_note": "мультимедийный"
+    "source_note": "мультимедийный",
+    "joint_lesson_id": null
   },
   {
     "class_id": "5б",
@@ -915,7 +968,8 @@
     "source_subject": "Физкультура.",
     "source_teacher": "Ольков Г.В.",
     "source_time": "12:45 - 13:30",
-    "source_note": "спортивный зал"
+    "source_note": "спортивный зал",
+    "joint_lesson_id": "jl_ольков_гв_d2_p5"
   },
   {
     "class_id": "5б",
@@ -932,7 +986,8 @@
     "source_subject": "Английский язык (1гр.анг.яз)",
     "source_teacher": "Алекпарова А.Ж.",
     "source_time": "12:45 - 13:30",
-    "source_note": "английский язык"
+    "source_note": "английский язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "5б",
@@ -949,7 +1004,8 @@
     "source_subject": "История Каз-на",
     "source_teacher": "Мельникова Л.Р.",
     "source_time": "12:45 - 13:30",
-    "source_note": "история"
+    "source_note": "история",
+    "joint_lesson_id": null
   },
   {
     "class_id": "5б",
@@ -966,7 +1022,8 @@
     "source_subject": "Английский язык (2гр.анг.яз)",
     "source_teacher": "Акауова И.Н.",
     "source_time": "12:45 - 13:30",
-    "source_note": "английский язык"
+    "source_note": "английский язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "5б",
@@ -983,7 +1040,8 @@
     "source_subject": "Английский язык (2гр.анг.яз)",
     "source_teacher": "Акауова И.Н.",
     "source_time": "12:45 - 13:30",
-    "source_note": "ағылшын тілі"
+    "source_note": "ағылшын тілі",
+    "joint_lesson_id": null
   },
   {
     "class_id": "5_luo",
@@ -1000,7 +1058,8 @@
     "source_subject": "Математика",
     "source_teacher": "Пащенко Н.А.",
     "source_time": "08:15 - 09:00",
-    "source_note": "математика"
+    "source_note": "математика",
+    "joint_lesson_id": "jl_пащенко_на_d1_p0"
   },
   {
     "class_id": "5_luo",
@@ -1017,7 +1076,8 @@
     "source_subject": "Математика",
     "source_teacher": "Пащенко Н.А.",
     "source_time": "08:15 - 09:00",
-    "source_note": "математика"
+    "source_note": "математика",
+    "joint_lesson_id": "jl_пащенко_на_d2_p0"
   },
   {
     "class_id": "5_luo",
@@ -1034,7 +1094,8 @@
     "source_subject": "Математика",
     "source_teacher": "Пащенко Н.А.",
     "source_time": "08:15 - 09:00",
-    "source_note": "математика"
+    "source_note": "математика",
+    "joint_lesson_id": "jl_пащенко_на_d3_p0"
   },
   {
     "class_id": "5_luo",
@@ -1051,7 +1112,8 @@
     "source_subject": "Русский язык",
     "source_teacher": "Дмитриев Е.В.",
     "source_time": "08:15 - 09:00",
-    "source_note": "русский язык"
+    "source_note": "русский язык",
+    "joint_lesson_id": "jl_дмитриев_ев_d4_p0"
   },
   {
     "class_id": "5_luo",
@@ -1068,7 +1130,8 @@
     "source_subject": "Мир вокруг.",
     "source_teacher": "Иващенко В.О.",
     "source_time": "09:05 - 09:50",
-    "source_note": "география"
+    "source_note": "география",
+    "joint_lesson_id": "jl_иващенко_во_d0_p1"
   },
   {
     "class_id": "5_luo",
@@ -1085,7 +1148,8 @@
     "source_subject": "Ч и РР",
     "source_teacher": "Дмитриев Е.В.",
     "source_time": "09:05 - 09:50",
-    "source_note": "русский язык"
+    "source_note": "русский язык",
+    "joint_lesson_id": "jl_дмитриев_ев_d1_p1"
   },
   {
     "class_id": "5_luo",
@@ -1102,7 +1166,8 @@
     "source_subject": "Казахский язык",
     "source_teacher": "Асаева Ж.Х.",
     "source_time": "09:05 - 09:50",
-    "source_note": "казахский язык"
+    "source_note": "казахский язык",
+    "joint_lesson_id": "jl_асаева_жх_d2_p1"
   },
   {
     "class_id": "5_luo",
@@ -1119,7 +1184,8 @@
     "source_subject": "Казахский язык",
     "source_teacher": "Асаева Ж.Х.",
     "source_time": "09:05 - 09:50",
-    "source_note": "казахский язык"
+    "source_note": "казахский язык",
+    "joint_lesson_id": "jl_асаева_жх_d3_p1"
   },
   {
     "class_id": "5_luo",
@@ -1136,7 +1202,8 @@
     "source_subject": "АФК",
     "source_teacher": "Ольков Г.В.",
     "source_time": "09:05 - 09:50",
-    "source_note": "спортивный зал"
+    "source_note": "спортивный зал",
+    "joint_lesson_id": "jl_ольков_гв_d4_p1"
   },
   {
     "class_id": "5_luo",
@@ -1153,7 +1220,8 @@
     "source_subject": "Математика",
     "source_teacher": "Пащенко Н.А.",
     "source_time": "10:05 - 10:50",
-    "source_note": "математика"
+    "source_note": "математика",
+    "joint_lesson_id": "jl_пащенко_на_d0_p2"
   },
   {
     "class_id": "5_luo",
@@ -1170,7 +1238,8 @@
     "source_subject": "АФК",
     "source_teacher": "Ольков Г.В.",
     "source_time": "10:05 - 10:50",
-    "source_note": "спортивный зал"
+    "source_note": "спортивный зал",
+    "joint_lesson_id": "jl_ольков_гв_d1_p2"
   },
   {
     "class_id": "5_luo",
@@ -1187,7 +1256,8 @@
     "source_subject": "Музыка.",
     "source_teacher": "Шкиря Ю.Н.",
     "source_time": "10:05 - 10:50",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_шкиря_юн_d2_p2"
   },
   {
     "class_id": "5_luo",
@@ -1204,7 +1274,8 @@
     "source_subject": "ОП",
     "source_teacher": "Романишина И.М.",
     "source_time": "10:05 - 10:50",
-    "source_note": "технология"
+    "source_note": "технология",
+    "joint_lesson_id": "jl_романишина_им_d3_p2"
   },
   {
     "class_id": "5_luo",
@@ -1221,7 +1292,8 @@
     "source_subject": "Математика",
     "source_teacher": "Пащенко Н.А.",
     "source_time": "10:05 - 10:50",
-    "source_note": "математика"
+    "source_note": "математика",
+    "joint_lesson_id": "jl_пащенко_на_d4_p2"
   },
   {
     "class_id": "5_luo",
@@ -1238,7 +1310,8 @@
     "source_subject": "Русский язык",
     "source_teacher": "Дмитриев Е.В.",
     "source_time": "10:55 - 11:40",
-    "source_note": "русский язык"
+    "source_note": "русский язык",
+    "joint_lesson_id": "jl_дмитриев_ев_d0_p3"
   },
   {
     "class_id": "5_luo",
@@ -1255,7 +1328,8 @@
     "source_subject": "ОП",
     "source_teacher": "Романишина И.М.",
     "source_time": "10:55 - 11:40",
-    "source_note": "технология"
+    "source_note": "технология",
+    "joint_lesson_id": "jl_романишина_им_d1_p3"
   },
   {
     "class_id": "5_luo",
@@ -1272,7 +1346,8 @@
     "source_subject": "Ч и РР",
     "source_teacher": "Дмитриев Е.В.",
     "source_time": "10:55 - 11:40",
-    "source_note": "русский язык"
+    "source_note": "русский язык",
+    "joint_lesson_id": "jl_дмитриев_ев_d3_p3"
   },
   {
     "class_id": "5_luo",
@@ -1289,7 +1364,8 @@
     "source_subject": "Мир вокруг.",
     "source_teacher": "Иващенко В.О.",
     "source_time": "10:55 - 11:40",
-    "source_note": "география"
+    "source_note": "география",
+    "joint_lesson_id": "jl_иващенко_во_d4_p3"
   },
   {
     "class_id": "5_luo",
@@ -1306,7 +1382,8 @@
     "source_subject": "Русский язык",
     "source_teacher": "Дмитриев Е.В.",
     "source_time": "11:55 - 12:40",
-    "source_note": "русский язык"
+    "source_note": "русский язык",
+    "joint_lesson_id": "jl_дмитриев_ев_d2_p4"
   },
   {
     "class_id": "5_luo",
@@ -1323,7 +1400,8 @@
     "source_subject": "АФК",
     "source_teacher": "Ольков Г.В.",
     "source_time": "12:45 - 13:30",
-    "source_note": "спортивный зал"
+    "source_note": "спортивный зал",
+    "joint_lesson_id": "jl_ольков_гв_d2_p5"
   },
   {
     "class_id": "6",
@@ -1340,7 +1418,8 @@
     "source_subject": "Естествознание",
     "source_teacher": "Иващенко В.О.",
     "source_time": "08:15 - 09:00",
-    "source_note": "география"
+    "source_note": "география",
+    "joint_lesson_id": "jl_иващенко_во_d0_p0"
   },
   {
     "class_id": "6",
@@ -1357,7 +1436,8 @@
     "source_subject": "Русский язык",
     "source_teacher": "Жолдан А.Б.",
     "source_time": "08:15 - 09:00",
-    "source_note": "русский язык"
+    "source_note": "русский язык",
+    "joint_lesson_id": "jl_жолдан_аб_d3_p0"
   },
   {
     "class_id": "6",
@@ -1374,7 +1454,8 @@
     "source_subject": "Естествознание",
     "source_teacher": "Иващенко В.О.",
     "source_time": "08:15 - 09:00",
-    "source_note": "география"
+    "source_note": "география",
+    "joint_lesson_id": "jl_иващенко_во_d4_p0"
   },
   {
     "class_id": "6",
@@ -1391,7 +1472,8 @@
     "source_subject": "История Каз-на",
     "source_teacher": "Досаева М.Х.",
     "source_time": "09:05 - 09:50",
-    "source_note": "история"
+    "source_note": "история",
+    "joint_lesson_id": null
   },
   {
     "class_id": "6",
@@ -1408,7 +1490,8 @@
     "source_subject": "Математика",
     "source_teacher": "Бедрина М.Н.",
     "source_time": "09:05 - 09:50",
-    "source_note": "информатика"
+    "source_note": "информатика",
+    "joint_lesson_id": "jl_бедрина_мн_d1_p1"
   },
   {
     "class_id": "6",
@@ -1425,7 +1508,8 @@
     "source_subject": "Русский язык",
     "source_teacher": "Жолдан А.Б.",
     "source_time": "09:05 - 09:50",
-    "source_note": "русский язык"
+    "source_note": "русский язык",
+    "joint_lesson_id": "jl_жолдан_аб_d2_p1"
   },
   {
     "class_id": "6",
@@ -1442,7 +1526,8 @@
     "source_subject": "Математика",
     "source_teacher": "Бедрина М.Н.",
     "source_time": "09:05 - 09:50",
-    "source_note": "информатика"
+    "source_note": "информатика",
+    "joint_lesson_id": "jl_бедрина_мн_d3_p1"
   },
   {
     "class_id": "6",
@@ -1459,7 +1544,8 @@
     "source_subject": "Английский язык",
     "source_teacher": "Алекпарова А.Ж.",
     "source_time": "09:05 - 09:50",
-    "source_note": "английский язык"
+    "source_note": "английский язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "6",
@@ -1476,7 +1562,8 @@
     "source_subject": "Казахский язык и лит",
     "source_teacher": "Ильясова А.Б.",
     "source_time": "10:05 - 10:50",
-    "source_note": "казахская литер..."
+    "source_note": "казахская литер...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "6",
@@ -1493,7 +1580,8 @@
     "source_subject": "Худ. труд",
     "source_teacher": "Романишина И.М.",
     "source_time": "10:05 - 10:50",
-    "source_note": "технология"
+    "source_note": "технология",
+    "joint_lesson_id": "jl_романишина_им_d1_p2"
   },
   {
     "class_id": "6",
@@ -1510,7 +1598,8 @@
     "source_subject": "Русский язык",
     "source_teacher": "Жолдан А.Б.",
     "source_time": "10:05 - 10:50",
-    "source_note": "русский язык"
+    "source_note": "русский язык",
+    "joint_lesson_id": "jl_жолдан_аб_d2_p2"
   },
   {
     "class_id": "6",
@@ -1527,7 +1616,8 @@
     "source_subject": "Рус. литература",
     "source_teacher": "Актаева А.Е.",
     "source_time": "10:05 - 10:50",
-    "source_note": "русский язык"
+    "source_note": "русский язык",
+    "joint_lesson_id": "jl_актаева_ае_d3_p2"
   },
   {
     "class_id": "6",
@@ -1544,7 +1634,8 @@
     "source_subject": "Музыка.",
     "source_teacher": "Шкиря Ю.Н.",
     "source_time": "10:05 - 10:50",
-    "source_note": "Нет кабинета"
+    "source_note": "Нет кабинета",
+    "joint_lesson_id": "jl_шкиря_юн_d4_p2"
   },
   {
     "class_id": "6",
@@ -1561,7 +1652,8 @@
     "source_subject": "Математика",
     "source_teacher": "Бедрина М.Н.",
     "source_time": "10:55 - 11:40",
-    "source_note": "математика"
+    "source_note": "математика",
+    "joint_lesson_id": "jl_бедрина_мн_d0_p3"
   },
   {
     "class_id": "6",
@@ -1578,7 +1670,8 @@
     "source_subject": "Английский язык",
     "source_teacher": "Алекпарова А.Ж.",
     "source_time": "10:55 - 11:40",
-    "source_note": "английский язык"
+    "source_note": "английский язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "6",
@@ -1595,7 +1688,8 @@
     "source_subject": "Физкультура.",
     "source_teacher": "Кашиков Е.Е.",
     "source_time": "10:55 - 11:40",
-    "source_note": "спортивный зал"
+    "source_note": "спортивный зал",
+    "joint_lesson_id": "jl_кашиков_ее_d2_p3"
   },
   {
     "class_id": "6",
@@ -1612,7 +1706,8 @@
     "source_subject": "Информатика",
     "source_teacher": "Бедрина М.Н.",
     "source_time": "10:55 - 11:40",
-    "source_note": "мультимедийный"
+    "source_note": "мультимедийный",
+    "joint_lesson_id": null
   },
   {
     "class_id": "6",
@@ -1629,7 +1724,8 @@
     "source_subject": "Математика",
     "source_teacher": "Бедрина М.Н.",
     "source_time": "10:55 - 11:40",
-    "source_note": "математика"
+    "source_note": "математика",
+    "joint_lesson_id": "jl_бедрина_мн_d4_p3"
   },
   {
     "class_id": "6",
@@ -1646,7 +1742,8 @@
     "source_subject": "Физкультура.",
     "source_teacher": "Кашиков Е.Е.",
     "source_time": "11:55 - 12:40",
-    "source_note": "спортивный зал"
+    "source_note": "спортивный зал",
+    "joint_lesson_id": "jl_кашиков_ее_d0_p4"
   },
   {
     "class_id": "6",
@@ -1663,7 +1760,8 @@
     "source_subject": "Казахский язык и лит",
     "source_teacher": "Ильясова А.Б.",
     "source_time": "11:55 - 12:40",
-    "source_note": "казахская литер..."
+    "source_note": "казахская литер...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "6",
@@ -1680,7 +1778,8 @@
     "source_subject": "Математика",
     "source_teacher": "Бедрина М.Н.",
     "source_time": "11:55 - 12:40",
-    "source_note": "информатика"
+    "source_note": "информатика",
+    "joint_lesson_id": "jl_бедрина_мн_d2_p4"
   },
   {
     "class_id": "6",
@@ -1697,7 +1796,8 @@
     "source_subject": "Английский язык",
     "source_teacher": "Алекпарова А.Ж.",
     "source_time": "11:55 - 12:40",
-    "source_note": "английский язык"
+    "source_note": "английский язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "6",
@@ -1714,7 +1814,8 @@
     "source_subject": "Физкультура.",
     "source_teacher": "Кашиков Е.Е.",
     "source_time": "11:55 - 12:40",
-    "source_note": "спортивный зал"
+    "source_note": "спортивный зал",
+    "joint_lesson_id": "jl_кашиков_ее_d4_p4"
   },
   {
     "class_id": "6",
@@ -1731,7 +1832,8 @@
     "source_subject": "Худ. труд",
     "source_teacher": "Романишина И.М.",
     "source_time": "12:45 - 13:30",
-    "source_note": "технология"
+    "source_note": "технология",
+    "joint_lesson_id": "jl_романишина_им_d0_p5"
   },
   {
     "class_id": "6",
@@ -1748,7 +1850,8 @@
     "source_subject": "Всемирная история",
     "source_teacher": "Досаева М.Х.",
     "source_time": "12:45 - 13:30",
-    "source_note": "история"
+    "source_note": "история",
+    "joint_lesson_id": null
   },
   {
     "class_id": "6",
@@ -1765,7 +1868,8 @@
     "source_subject": "Казахский язык и лит",
     "source_teacher": "Ильясова А.Б.",
     "source_time": "12:45 - 13:30",
-    "source_note": "казахская литер..."
+    "source_note": "казахская литер...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "6",
@@ -1782,7 +1886,8 @@
     "source_subject": "История Каз-на",
     "source_teacher": "Досаева М.Х.",
     "source_time": "12:45 - 13:30",
-    "source_note": "история"
+    "source_note": "история",
+    "joint_lesson_id": null
   },
   {
     "class_id": "6",
@@ -1799,7 +1904,8 @@
     "source_subject": "Казахский язык и лит",
     "source_teacher": "Ильясова А.Б.",
     "source_time": "12:45 - 13:30",
-    "source_note": "казахская литер..."
+    "source_note": "казахская литер...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "6",
@@ -1816,7 +1922,8 @@
     "source_subject": "Рус. литература",
     "source_teacher": "Актаева А.Е.",
     "source_time": "13:35 - 14:20",
-    "source_note": "русский язык"
+    "source_note": "русский язык",
+    "joint_lesson_id": "jl_актаева_ае_d1_p6"
   },
   {
     "class_id": "6_do",
@@ -1833,7 +1940,8 @@
     "source_subject": "Хоз. труд.",
     "source_teacher": "Романишина И.М.",
     "source_time": "Нет кабинета",
-    "source_note": ""
+    "source_note": "",
+    "joint_lesson_id": null
   },
   {
     "class_id": "6_do",
@@ -1850,7 +1958,8 @@
     "source_subject": "Счет.",
     "source_teacher": "Ажикенова М.А.",
     "source_time": "Нет кабинета",
-    "source_note": ""
+    "source_note": "",
+    "joint_lesson_id": null
   },
   {
     "class_id": "6_do",
@@ -1867,7 +1976,8 @@
     "source_subject": "РРиК",
     "source_teacher": "Дукач Т.А.",
     "source_time": "Нет кабинета",
-    "source_note": ""
+    "source_note": "",
+    "joint_lesson_id": null
   },
   {
     "class_id": "6_do",
@@ -1884,7 +1994,8 @@
     "source_subject": "Счет.",
     "source_teacher": "Ажикенова М.А.",
     "source_time": "Нет кабинета",
-    "source_note": ""
+    "source_note": "",
+    "joint_lesson_id": null
   },
   {
     "class_id": "6_do",
@@ -1901,7 +2012,8 @@
     "source_subject": "СБО.",
     "source_teacher": "Романишина И.М.",
     "source_time": "Нет кабинета",
-    "source_note": ""
+    "source_note": "",
+    "joint_lesson_id": null
   },
   {
     "class_id": "6_do",
@@ -1918,7 +2030,8 @@
     "source_subject": "Человек и мир.",
     "source_teacher": "Дукач Т.А.",
     "source_time": "Нет кабинета",
-    "source_note": ""
+    "source_note": "",
+    "joint_lesson_id": null
   },
   {
     "class_id": "6_do",
@@ -1935,7 +2048,8 @@
     "source_subject": "РРиК",
     "source_teacher": "Дукач Т.А.",
     "source_time": "Нет кабинета",
-    "source_note": ""
+    "source_note": "",
+    "joint_lesson_id": null
   },
   {
     "class_id": "6_do",
@@ -1952,7 +2066,8 @@
     "source_subject": "ПР",
     "source_teacher": "Дукач Т.А.",
     "source_time": "Нет кабинета",
-    "source_note": ""
+    "source_note": "",
+    "joint_lesson_id": null
   },
   {
     "class_id": "6_do",
@@ -1969,7 +2084,8 @@
     "source_subject": "Человек и мир.",
     "source_teacher": "Дукач Т.А.",
     "source_time": "Нет кабинета",
-    "source_note": ""
+    "source_note": "",
+    "joint_lesson_id": null
   },
   {
     "class_id": "6_do",
@@ -1986,7 +2102,8 @@
     "source_subject": "ИЗО.",
     "source_teacher": "Романишина И.М.",
     "source_time": "Нет кабинета",
-    "source_note": ""
+    "source_note": "",
+    "joint_lesson_id": null
   },
   {
     "class_id": "6_luo",
@@ -2003,7 +2120,8 @@
     "source_subject": "Естествознание",
     "source_teacher": "Иващенко В.О.",
     "source_time": "08:15 - 09:00",
-    "source_note": "география"
+    "source_note": "география",
+    "joint_lesson_id": "jl_иващенко_во_d0_p0"
   },
   {
     "class_id": "6_luo",
@@ -2020,7 +2138,8 @@
     "source_subject": "Русский язык",
     "source_teacher": "Жолдан А.Б.",
     "source_time": "08:15 - 09:00",
-    "source_note": "русский язык"
+    "source_note": "русский язык",
+    "joint_lesson_id": "jl_жолдан_аб_d3_p0"
   },
   {
     "class_id": "6_luo",
@@ -2037,7 +2156,8 @@
     "source_subject": "Естествознание",
     "source_teacher": "Иващенко В.О.",
     "source_time": "08:15 - 09:00",
-    "source_note": "география"
+    "source_note": "география",
+    "joint_lesson_id": "jl_иващенко_во_d4_p0"
   },
   {
     "class_id": "6_luo",
@@ -2054,7 +2174,8 @@
     "source_subject": "Математика",
     "source_teacher": "Бедрина М.Н.",
     "source_time": "09:05 - 09:50",
-    "source_note": "математика"
+    "source_note": "математика",
+    "joint_lesson_id": "jl_бедрина_мн_d1_p1"
   },
   {
     "class_id": "6_luo",
@@ -2071,7 +2192,8 @@
     "source_subject": "Русский язык",
     "source_teacher": "Жолдан А.Б.",
     "source_time": "09:05 - 09:50",
-    "source_note": "русский язык"
+    "source_note": "русский язык",
+    "joint_lesson_id": "jl_жолдан_аб_d2_p1"
   },
   {
     "class_id": "6_luo",
@@ -2088,7 +2210,8 @@
     "source_subject": "Математика",
     "source_teacher": "Бедрина М.Н.",
     "source_time": "09:05 - 09:50",
-    "source_note": "математика"
+    "source_note": "математика",
+    "joint_lesson_id": "jl_бедрина_мн_d3_p1"
   },
   {
     "class_id": "6_luo",
@@ -2105,7 +2228,8 @@
     "source_subject": "Қазақ тілі",
     "source_teacher": "Балгабаева Н.К.",
     "source_time": "10:05 - 10:50",
-    "source_note": "казахский язык"
+    "source_note": "казахский язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "6_luo",
@@ -2122,7 +2246,8 @@
     "source_subject": "ОП (Худ.тр.дев)",
     "source_teacher": "Романишина И.М.",
     "source_time": "10:05 - 10:50",
-    "source_note": "технология"
+    "source_note": "технология",
+    "joint_lesson_id": "jl_романишина_им_d1_p2"
   },
   {
     "class_id": "6_luo",
@@ -2139,7 +2264,8 @@
     "source_subject": "Русский язык",
     "source_teacher": "Жолдан А.Б.",
     "source_time": "10:05 - 10:50",
-    "source_note": "русский язык"
+    "source_note": "русский язык",
+    "joint_lesson_id": "jl_жолдан_аб_d2_p2"
   },
   {
     "class_id": "6_luo",
@@ -2156,7 +2282,8 @@
     "source_subject": "Ч и РР",
     "source_teacher": "Актаева А.Е.",
     "source_time": "10:05 - 10:50",
-    "source_note": "русский язык"
+    "source_note": "русский язык",
+    "joint_lesson_id": "jl_актаева_ае_d3_p2"
   },
   {
     "class_id": "6_luo",
@@ -2173,7 +2300,8 @@
     "source_subject": "Музыка.",
     "source_teacher": "Шкиря Ю.Н.",
     "source_time": "10:05 - 10:50",
-    "source_note": "бастауыш сынып"
+    "source_note": "бастауыш сынып",
+    "joint_lesson_id": "jl_шкиря_юн_d4_p2"
   },
   {
     "class_id": "6_luo",
@@ -2190,7 +2318,8 @@
     "source_subject": "Математика",
     "source_teacher": "Бедрина М.Н.",
     "source_time": "10:55 - 11:40",
-    "source_note": "математика"
+    "source_note": "математика",
+    "joint_lesson_id": "jl_бедрина_мн_d0_p3"
   },
   {
     "class_id": "6_luo",
@@ -2207,7 +2336,8 @@
     "source_subject": "АФК",
     "source_teacher": "Кашиков Е.Е.",
     "source_time": "10:55 - 11:40",
-    "source_note": "спортивный зал"
+    "source_note": "спортивный зал",
+    "joint_lesson_id": "jl_кашиков_ее_d2_p3"
   },
   {
     "class_id": "6_luo",
@@ -2224,7 +2354,8 @@
     "source_subject": "Математика",
     "source_teacher": "Бедрина М.Н.",
     "source_time": "10:55 - 11:40",
-    "source_note": "математика"
+    "source_note": "математика",
+    "joint_lesson_id": "jl_бедрина_мн_d4_p3"
   },
   {
     "class_id": "6_luo",
@@ -2241,7 +2372,8 @@
     "source_subject": "АФК",
     "source_teacher": "Кашиков Е.Е.",
     "source_time": "11:55 - 12:40",
-    "source_note": "спортивный зал"
+    "source_note": "спортивный зал",
+    "joint_lesson_id": "jl_кашиков_ее_d0_p4"
   },
   {
     "class_id": "6_luo",
@@ -2258,7 +2390,8 @@
     "source_subject": "Қазақ тілі",
     "source_teacher": "Балгабаева Н.К.",
     "source_time": "11:55 - 12:40",
-    "source_note": "казахский язык"
+    "source_note": "казахский язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "6_luo",
@@ -2275,7 +2408,8 @@
     "source_subject": "Математика",
     "source_teacher": "Бедрина М.Н.",
     "source_time": "11:55 - 12:40",
-    "source_note": "математика"
+    "source_note": "математика",
+    "joint_lesson_id": "jl_бедрина_мн_d2_p4"
   },
   {
     "class_id": "6_luo",
@@ -2292,7 +2426,8 @@
     "source_subject": "АФК",
     "source_teacher": "Кашиков Е.Е.",
     "source_time": "11:55 - 12:40",
-    "source_note": "спортивный зал"
+    "source_note": "спортивный зал",
+    "joint_lesson_id": "jl_кашиков_ее_d4_p4"
   },
   {
     "class_id": "6_luo",
@@ -2309,7 +2444,8 @@
     "source_subject": "ОП (Худ.тр.дев)",
     "source_teacher": "Романишина И.М.",
     "source_time": "12:45 - 13:30",
-    "source_note": "технология"
+    "source_note": "технология",
+    "joint_lesson_id": "jl_романишина_им_d0_p5"
   },
   {
     "class_id": "6_luo",
@@ -2326,7 +2462,8 @@
     "source_subject": "Ч и РР",
     "source_teacher": "Актаева А.Е.",
     "source_time": "13:35 - 14:20",
-    "source_note": "русский язык"
+    "source_note": "русский язык",
+    "joint_lesson_id": "jl_актаева_ае_d1_p6"
   },
   {
     "class_id": "7а",
@@ -2343,7 +2480,8 @@
     "source_subject": "Русский язык",
     "source_teacher": "Дмитриев Е.В.",
     "source_time": "08:15 - 09:00",
-    "source_note": "русский язык"
+    "source_note": "русский язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "7а",
@@ -2360,7 +2498,8 @@
     "source_subject": "Геометрия",
     "source_teacher": "Бабич И.Д.",
     "source_time": "08:15 - 09:00",
-    "source_note": "математика"
+    "source_note": "математика",
+    "joint_lesson_id": null
   },
   {
     "class_id": "7а",
@@ -2377,7 +2516,8 @@
     "source_subject": "Алгебра",
     "source_teacher": "Бабич И.Д.",
     "source_time": "08:15 - 09:00",
-    "source_note": "физика"
+    "source_note": "физика",
+    "joint_lesson_id": null
   },
   {
     "class_id": "7а",
@@ -2394,7 +2534,8 @@
     "source_subject": "История Каз-на",
     "source_teacher": "Бучкова И.О.",
     "source_time": "08:15 - 09:00",
-    "source_note": "история"
+    "source_note": "история",
+    "joint_lesson_id": null
   },
   {
     "class_id": "7а",
@@ -2411,7 +2552,8 @@
     "source_subject": "Английский язык",
     "source_teacher": "Акауова И.Н.",
     "source_time": "08:15 - 09:00",
-    "source_note": "Нет кабинета"
+    "source_note": "Нет кабинета",
+    "joint_lesson_id": null
   },
   {
     "class_id": "7а",
@@ -2428,7 +2570,8 @@
     "source_subject": "Физкультура.",
     "source_teacher": "Ольков Г.В.",
     "source_time": "09:05 - 09:50",
-    "source_note": "спортивный зал"
+    "source_note": "спортивный зал",
+    "joint_lesson_id": null
   },
   {
     "class_id": "7а",
@@ -2445,7 +2588,8 @@
     "source_subject": "Худ. труд",
     "source_teacher": "Романишина И.М.",
     "source_time": "09:05 - 09:50",
-    "source_note": "технология"
+    "source_note": "технология",
+    "joint_lesson_id": null
   },
   {
     "class_id": "7а",
@@ -2462,7 +2606,8 @@
     "source_subject": "Русский язык",
     "source_teacher": "Дмитриев Е.В.",
     "source_time": "09:05 - 09:50",
-    "source_note": "русский язык"
+    "source_note": "русский язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "7а",
@@ -2479,7 +2624,8 @@
     "source_subject": "Рус. литература",
     "source_teacher": "Темерканова О.В.",
     "source_time": "09:05 - 09:50",
-    "source_note": "русский язык"
+    "source_note": "русский язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "7а",
@@ -2496,7 +2642,8 @@
     "source_subject": "Алгебра",
     "source_teacher": "Бабич И.Д.",
     "source_time": "09:05 - 09:50",
-    "source_note": "физика"
+    "source_note": "физика",
+    "joint_lesson_id": null
   },
   {
     "class_id": "7а",
@@ -2513,7 +2660,8 @@
     "source_subject": "Алгебра",
     "source_teacher": "Бабич И.Д.",
     "source_time": "10:05 - 10:50",
-    "source_note": "физика"
+    "source_note": "физика",
+    "joint_lesson_id": null
   },
   {
     "class_id": "7а",
@@ -2530,7 +2678,8 @@
     "source_subject": "Казахский язык и лит",
     "source_teacher": "Власова А.К.",
     "source_time": "10:05 - 10:50",
-    "source_note": "казахский язык"
+    "source_note": "казахский язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "7а",
@@ -2547,7 +2696,8 @@
     "source_subject": "География",
     "source_teacher": "Сидоров В.Б.",
     "source_time": "10:05 - 10:50",
-    "source_note": "география"
+    "source_note": "география",
+    "joint_lesson_id": null
   },
   {
     "class_id": "7а",
@@ -2564,7 +2714,8 @@
     "source_subject": "Английский язык",
     "source_teacher": "Акауова И.Н.",
     "source_time": "10:05 - 10:50",
-    "source_note": "Нет кабинета"
+    "source_note": "Нет кабинета",
+    "joint_lesson_id": null
   },
   {
     "class_id": "7а",
@@ -2581,7 +2732,8 @@
     "source_subject": "Биология",
     "source_teacher": "Красноперова О.В.",
     "source_time": "10:05 - 10:50",
-    "source_note": "биология"
+    "source_note": "биология",
+    "joint_lesson_id": null
   },
   {
     "class_id": "7а",
@@ -2598,7 +2750,8 @@
     "source_subject": "Физика",
     "source_teacher": "Русина Н.В.",
     "source_time": "10:55 - 11:40",
-    "source_note": "физика"
+    "source_note": "физика",
+    "joint_lesson_id": null
   },
   {
     "class_id": "7а",
@@ -2615,7 +2768,8 @@
     "source_subject": "Всемирная история",
     "source_teacher": "Бучкова И.О.",
     "source_time": "10:55 - 11:40",
-    "source_note": "история"
+    "source_note": "история",
+    "joint_lesson_id": null
   },
   {
     "class_id": "7а",
@@ -2632,7 +2786,8 @@
     "source_subject": "Казахский язык и лит",
     "source_teacher": "Власова А.К.",
     "source_time": "10:55 - 11:40",
-    "source_note": "казахский язык"
+    "source_note": "казахский язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "7а",
@@ -2649,7 +2804,8 @@
     "source_subject": "Химия",
     "source_teacher": "Красноперова О.В.",
     "source_time": "10:55 - 11:40",
-    "source_note": "химия"
+    "source_note": "химия",
+    "joint_lesson_id": null
   },
   {
     "class_id": "7а",
@@ -2666,7 +2822,8 @@
     "source_subject": "География",
     "source_teacher": "Сидоров В.Б.",
     "source_time": "10:55 - 11:40",
-    "source_note": "география"
+    "source_note": "география",
+    "joint_lesson_id": null
   },
   {
     "class_id": "7а",
@@ -2683,7 +2840,8 @@
     "source_subject": "История Каз-на",
     "source_teacher": "Бучкова И.О.",
     "source_time": "11:55 - 12:40",
-    "source_note": "история"
+    "source_note": "история",
+    "joint_lesson_id": null
   },
   {
     "class_id": "7а",
@@ -2700,7 +2858,8 @@
     "source_subject": "Биология",
     "source_teacher": "Красноперова О.В.",
     "source_time": "11:55 - 12:40",
-    "source_note": "биология"
+    "source_note": "биология",
+    "joint_lesson_id": null
   },
   {
     "class_id": "7а",
@@ -2717,7 +2876,8 @@
     "source_subject": "Физкультура.",
     "source_teacher": "Ольков Г.В.",
     "source_time": "11:55 - 12:40",
-    "source_note": "спортивный зал"
+    "source_note": "спортивный зал",
+    "joint_lesson_id": null
   },
   {
     "class_id": "7а",
@@ -2734,7 +2894,8 @@
     "source_subject": "Казахский язык и лит",
     "source_teacher": "Власова А.К.",
     "source_time": "11:55 - 12:40",
-    "source_note": "казахский язык"
+    "source_note": "казахский язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "7а",
@@ -2751,7 +2912,8 @@
     "source_subject": "Физика",
     "source_teacher": "Русина Н.В.",
     "source_time": "11:55 - 12:40",
-    "source_note": "физика"
+    "source_note": "физика",
+    "joint_lesson_id": null
   },
   {
     "class_id": "7а",
@@ -2768,7 +2930,8 @@
     "source_subject": "Казахский язык и лит",
     "source_teacher": "Власова А.К.",
     "source_time": "12:45 - 13:30",
-    "source_note": "казахский язык"
+    "source_note": "казахский язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "7а",
@@ -2785,7 +2948,8 @@
     "source_subject": "Английский язык",
     "source_teacher": "Акауова И.Н.",
     "source_time": "12:45 - 13:30",
-    "source_note": "Нет кабинета"
+    "source_note": "Нет кабинета",
+    "joint_lesson_id": null
   },
   {
     "class_id": "7а",
@@ -2802,7 +2966,8 @@
     "source_subject": "Информатика",
     "source_teacher": "Бедрина М.Н.",
     "source_time": "12:45 - 13:30",
-    "source_note": "мультимедийный"
+    "source_note": "мультимедийный",
+    "joint_lesson_id": null
   },
   {
     "class_id": "7а",
@@ -2819,7 +2984,8 @@
     "source_subject": "Геометрия",
     "source_teacher": "Бабич И.Д.",
     "source_time": "12:45 - 13:30",
-    "source_note": "математика"
+    "source_note": "математика",
+    "joint_lesson_id": null
   },
   {
     "class_id": "7а",
@@ -2836,7 +3002,8 @@
     "source_subject": "Русский язык",
     "source_teacher": "Дмитриев Е.В.",
     "source_time": "12:45 - 13:30",
-    "source_note": "русский язык"
+    "source_note": "русский язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "7а",
@@ -2853,7 +3020,8 @@
     "source_subject": "Рус. литература",
     "source_teacher": "Темерканова О.В.",
     "source_time": "13:35 - 14:20",
-    "source_note": "русский язык"
+    "source_note": "русский язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "7а",
@@ -2870,7 +3038,8 @@
     "source_subject": "Физкультура.",
     "source_teacher": "Ольков Г.В.",
     "source_time": "13:35 - 14:20",
-    "source_note": "спортивный зал"
+    "source_note": "спортивный зал",
+    "joint_lesson_id": null
   },
   {
     "class_id": "7ә",
@@ -2887,7 +3056,8 @@
     "source_subject": "Алгебра",
     "source_teacher": "Ізбасты М.Ж.",
     "source_time": "08:15 - 09:00",
-    "source_note": "физика"
+    "source_note": "физика",
+    "joint_lesson_id": null
   },
   {
     "class_id": "7ә",
@@ -2904,7 +3074,8 @@
     "source_subject": "Қазақстан тарихы",
     "source_teacher": "Досаева М.Х.",
     "source_time": "08:15 - 09:00",
-    "source_note": "история"
+    "source_note": "история",
+    "joint_lesson_id": null
   },
   {
     "class_id": "7ә",
@@ -2921,7 +3092,8 @@
     "source_subject": "Орыс тілі ж/е әдеб.",
     "source_teacher": "Ажикенова М.А.",
     "source_time": "08:15 - 09:00",
-    "source_note": "русский язык"
+    "source_note": "русский язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "7ә",
@@ -2938,7 +3110,8 @@
     "source_subject": "Геометрия",
     "source_teacher": "Ізбасты М.Ж.",
     "source_time": "08:15 - 09:00",
-    "source_note": "информатика"
+    "source_note": "информатика",
+    "joint_lesson_id": null
   },
   {
     "class_id": "7ә",
@@ -2955,7 +3128,8 @@
     "source_subject": "Алгебра",
     "source_teacher": "Ізбасты М.Ж.",
     "source_time": "08:15 - 09:00",
-    "source_note": "физика"
+    "source_note": "физика",
+    "joint_lesson_id": null
   },
   {
     "class_id": "7ә",
@@ -2972,7 +3146,8 @@
     "source_subject": "Көркем еңбек.",
     "source_teacher": "Жантемиров А.К.",
     "source_time": "09:05 - 09:50",
-    "source_note": "технология"
+    "source_note": "технология",
+    "joint_lesson_id": "jl_жантемиров_ак_d0_p1"
   },
   {
     "class_id": "7ә",
@@ -2989,7 +3164,8 @@
     "source_subject": "Қазақ әдебиет",
     "source_teacher": "Ильясова А.Б.",
     "source_time": "09:05 - 09:50",
-    "source_note": "казахский язык"
+    "source_note": "казахский язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "7ә",
@@ -3006,7 +3182,8 @@
     "source_subject": "Дене шынықтыру.",
     "source_teacher": "Кашиков Е.Е.",
     "source_time": "09:05 - 09:50",
-    "source_note": "спортивный зал"
+    "source_note": "спортивный зал",
+    "joint_lesson_id": "jl_кашиков_ее_d2_p1"
   },
   {
     "class_id": "7ә",
@@ -3023,7 +3200,8 @@
     "source_subject": "Ағылшын тілі",
     "source_teacher": "Алекпарова А.Ж.",
     "source_time": "09:05 - 09:50",
-    "source_note": "ағылшын тілі"
+    "source_note": "ағылшын тілі",
+    "joint_lesson_id": null
   },
   {
     "class_id": "7ә",
@@ -3040,7 +3218,8 @@
     "source_subject": "Қазақ тілі",
     "source_teacher": "Ильясова А.Б.",
     "source_time": "09:05 - 09:50",
-    "source_note": "казахский язык"
+    "source_note": "казахский язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "7ә",
@@ -3057,7 +3236,8 @@
     "source_subject": "Ағылшын тілі",
     "source_teacher": "Алекпарова А.Ж.",
     "source_time": "10:05 - 10:50",
-    "source_note": "ағылшын тілі"
+    "source_note": "ағылшын тілі",
+    "joint_lesson_id": null
   },
   {
     "class_id": "7ә",
@@ -3074,7 +3254,8 @@
     "source_subject": "Информатика",
     "source_teacher": "Жантемиров Э.А.",
     "source_time": "10:05 - 10:50",
-    "source_note": "мультимедийный"
+    "source_note": "мультимедийный",
+    "joint_lesson_id": null
   },
   {
     "class_id": "7ә",
@@ -3091,7 +3272,8 @@
     "source_subject": "Алгебра",
     "source_teacher": "Ізбасты М.Ж.",
     "source_time": "10:05 - 10:50",
-    "source_note": "физика"
+    "source_note": "физика",
+    "joint_lesson_id": null
   },
   {
     "class_id": "7ә",
@@ -3108,7 +3290,8 @@
     "source_subject": "Дүниежүзі тарихы",
     "source_teacher": "Досаева М.Х.",
     "source_time": "10:05 - 10:50",
-    "source_note": "история"
+    "source_note": "история",
+    "joint_lesson_id": null
   },
   {
     "class_id": "7ә",
@@ -3125,7 +3308,8 @@
     "source_subject": "Дене шынықтыру.",
     "source_teacher": "Кашиков Е.Е.",
     "source_time": "10:05 - 10:50",
-    "source_note": "спортивный зал"
+    "source_note": "спортивный зал",
+    "joint_lesson_id": "jl_кашиков_ее_d4_p2"
   },
   {
     "class_id": "7ә",
@@ -3142,7 +3326,8 @@
     "source_subject": "Орыс тілі ж/е әдеб.",
     "source_teacher": "Ажикенова М.А.",
     "source_time": "10:55 - 11:40",
-    "source_note": "русский язык"
+    "source_note": "русский язык",
+    "joint_lesson_id": "jl_ажикенова_ма_d0_p3"
   },
   {
     "class_id": "7ә",
@@ -3159,7 +3344,8 @@
     "source_subject": "Орыс тілі ж/е әдеб.",
     "source_teacher": "Ажикенова М.А.",
     "source_time": "10:55 - 11:40",
-    "source_note": "русский язык"
+    "source_note": "русский язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "7ә",
@@ -3176,7 +3362,8 @@
     "source_subject": "Қазақ тілі",
     "source_teacher": "Ильясова А.Б.",
     "source_time": "10:55 - 11:40",
-    "source_note": "казахский язык"
+    "source_note": "казахский язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "7ә",
@@ -3193,7 +3380,8 @@
     "source_subject": "Физика",
     "source_teacher": "Ізбасты М.Ж.",
     "source_time": "10:55 - 11:40",
-    "source_note": "физика"
+    "source_note": "физика",
+    "joint_lesson_id": null
   },
   {
     "class_id": "7ә",
@@ -3210,7 +3398,8 @@
     "source_subject": "Биология",
     "source_teacher": "Балташева З.Т.",
     "source_time": "10:55 - 11:40",
-    "source_note": "биология"
+    "source_note": "биология",
+    "joint_lesson_id": null
   },
   {
     "class_id": "7ә",
@@ -3227,7 +3416,8 @@
     "source_subject": "Қазақ тілі",
     "source_teacher": "Ильясова А.Б.",
     "source_time": "11:55 - 12:40",
-    "source_note": "казахский язык"
+    "source_note": "казахский язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "7ә",
@@ -3244,7 +3434,8 @@
     "source_subject": "Ағылшын тілі",
     "source_teacher": "Алекпарова А.Ж.",
     "source_time": "11:55 - 12:40",
-    "source_note": "ағылшын тілі"
+    "source_note": "ағылшын тілі",
+    "joint_lesson_id": null
   },
   {
     "class_id": "7ә",
@@ -3261,7 +3452,8 @@
     "source_subject": "Биология",
     "source_teacher": "Балташева З.Т.",
     "source_time": "11:55 - 12:40",
-    "source_note": "биология"
+    "source_note": "биология",
+    "joint_lesson_id": null
   },
   {
     "class_id": "7ә",
@@ -3278,7 +3470,8 @@
     "source_subject": "Қазақ әдебиет",
     "source_teacher": "Ильясова А.Б.",
     "source_time": "11:55 - 12:40",
-    "source_note": "казахский язык"
+    "source_note": "казахский язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "7ә",
@@ -3295,7 +3488,8 @@
     "source_subject": "География",
     "source_teacher": "Сапаргалиева Г.С.",
     "source_time": "11:55 - 12:40",
-    "source_note": "география"
+    "source_note": "география",
+    "joint_lesson_id": null
   },
   {
     "class_id": "7ә",
@@ -3312,7 +3506,8 @@
     "source_subject": "Дене шынықтыру.",
     "source_teacher": "Кашиков Е.Е.",
     "source_time": "12:45 - 13:30",
-    "source_note": "спортивный зал"
+    "source_note": "спортивный зал",
+    "joint_lesson_id": "jl_кашиков_ее_d0_p5"
   },
   {
     "class_id": "7ә",
@@ -3329,7 +3524,8 @@
     "source_subject": "Геометрия",
     "source_teacher": "Ізбасты М.Ж.",
     "source_time": "12:45 - 13:30",
-    "source_note": "информатика"
+    "source_note": "информатика",
+    "joint_lesson_id": null
   },
   {
     "class_id": "7ә",
@@ -3346,7 +3542,8 @@
     "source_subject": "Химия",
     "source_teacher": "Балташева З.Т.",
     "source_time": "12:45 - 13:30",
-    "source_note": "биология"
+    "source_note": "биология",
+    "joint_lesson_id": null
   },
   {
     "class_id": "7ә",
@@ -3363,7 +3560,8 @@
     "source_subject": "География",
     "source_teacher": "Сапаргалиева Г.С.",
     "source_time": "12:45 - 13:30",
-    "source_note": "география"
+    "source_note": "география",
+    "joint_lesson_id": null
   },
   {
     "class_id": "7ә",
@@ -3380,7 +3578,8 @@
     "source_subject": "Қазақстан тарихы",
     "source_teacher": "Досаева М.Х.",
     "source_time": "12:45 - 13:30",
-    "source_note": "история"
+    "source_note": "история",
+    "joint_lesson_id": null
   },
   {
     "class_id": "7ә",
@@ -3397,7 +3596,8 @@
     "source_subject": "Физика",
     "source_teacher": "Ізбасты М.Ж.",
     "source_time": "13:35 - 14:20",
-    "source_note": "физика"
+    "source_note": "физика",
+    "joint_lesson_id": null
   },
   {
     "class_id": "7б",
@@ -3414,7 +3614,8 @@
     "source_subject": "Алгебра",
     "source_teacher": "Бабич И.Д.",
     "source_time": "08:15 - 09:00",
-    "source_note": "математика"
+    "source_note": "математика",
+    "joint_lesson_id": "jl_бабич_ид_d0_p0"
   },
   {
     "class_id": "7б",
@@ -3431,7 +3632,8 @@
     "source_subject": "Биология",
     "source_teacher": "Красноперова О.В.",
     "source_time": "08:15 - 09:00",
-    "source_note": "биология"
+    "source_note": "биология",
+    "joint_lesson_id": "jl_красноперова_ов_d1_p0"
   },
   {
     "class_id": "7б",
@@ -3448,7 +3650,8 @@
     "source_subject": "Русский язык",
     "source_teacher": "Жолдан А.Б.",
     "source_time": "08:15 - 09:00",
-    "source_note": "русский язык"
+    "source_note": "русский язык",
+    "joint_lesson_id": "jl_жолдан_аб_d2_p0"
   },
   {
     "class_id": "7б",
@@ -3465,7 +3668,8 @@
     "source_subject": "Английский язык",
     "source_teacher": "Алекпарова А.Ж.",
     "source_time": "08:15 - 09:00",
-    "source_note": "английский язык"
+    "source_note": "английский язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "7б",
@@ -3482,7 +3686,8 @@
     "source_subject": "Алгебра",
     "source_teacher": "Бабич И.Д.",
     "source_time": "08:15 - 09:00",
-    "source_note": "математика"
+    "source_note": "математика",
+    "joint_lesson_id": "jl_бабич_ид_d4_p0"
   },
   {
     "class_id": "7б",
@@ -3499,7 +3704,8 @@
     "source_subject": "Казахский язык и лит",
     "source_teacher": "Асаева Ж.Х.",
     "source_time": "09:05 - 09:50",
-    "source_note": "казахский язык"
+    "source_note": "казахский язык",
+    "joint_lesson_id": "jl_асаева_жх_d0_p1"
   },
   {
     "class_id": "7б",
@@ -3516,7 +3722,8 @@
     "source_subject": "Рус. литература",
     "source_teacher": "Темерканова О.В.",
     "source_time": "09:05 - 09:50",
-    "source_note": "русский язык"
+    "source_note": "русский язык",
+    "joint_lesson_id": "jl_темерканова_ов_d1_p1"
   },
   {
     "class_id": "7б",
@@ -3533,7 +3740,8 @@
     "source_subject": "География",
     "source_teacher": "Сидоров В.Б.",
     "source_time": "09:05 - 09:50",
-    "source_note": "география"
+    "source_note": "география",
+    "joint_lesson_id": "jl_сидоров_вб_d2_p1"
   },
   {
     "class_id": "7б",
@@ -3550,7 +3758,8 @@
     "source_subject": "Русский язык",
     "source_teacher": "Жолдан А.Б.",
     "source_time": "09:05 - 09:50",
-    "source_note": "русский язык"
+    "source_note": "русский язык",
+    "joint_lesson_id": "jl_жолдан_аб_d3_p1"
   },
   {
     "class_id": "7б",
@@ -3567,7 +3776,8 @@
     "source_subject": "Биология",
     "source_teacher": "Красноперова О.В.",
     "source_time": "09:05 - 09:50",
-    "source_note": "биология"
+    "source_note": "биология",
+    "joint_lesson_id": "jl_красноперова_ов_d4_p1"
   },
   {
     "class_id": "7б",
@@ -3584,7 +3794,8 @@
     "source_subject": "Рус. литература",
     "source_teacher": "Темерканова О.В.",
     "source_time": "10:05 - 10:50",
-    "source_note": "русский язык"
+    "source_note": "русский язык",
+    "joint_lesson_id": "jl_темерканова_ов_d0_p2"
   },
   {
     "class_id": "7б",
@@ -3601,7 +3812,8 @@
     "source_subject": "Английский язык",
     "source_teacher": "Алекпарова А.Ж.",
     "source_time": "10:05 - 10:50",
-    "source_note": "английский язык"
+    "source_note": "английский язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "7б",
@@ -3618,7 +3830,8 @@
     "source_subject": "Худ. труд",
     "source_teacher": "Романишина И.М.",
     "source_time": "10:05 - 10:50",
-    "source_note": "технология"
+    "source_note": "технология",
+    "joint_lesson_id": "jl_романишина_им_d2_p2"
   },
   {
     "class_id": "7б",
@@ -3635,7 +3848,8 @@
     "source_subject": "Русский язык",
     "source_teacher": "Жолдан А.Б.",
     "source_time": "10:05 - 10:50",
-    "source_note": "русский язык"
+    "source_note": "русский язык",
+    "joint_lesson_id": "jl_жолдан_аб_d3_p2"
   },
   {
     "class_id": "7б",
@@ -3652,7 +3866,8 @@
     "source_subject": "Физкультура.",
     "source_teacher": "Ольков Г.В.",
     "source_time": "10:05 - 10:50",
-    "source_note": "спортивный зал"
+    "source_note": "спортивный зал",
+    "joint_lesson_id": "jl_ольков_гв_d4_p2"
   },
   {
     "class_id": "7б",
@@ -3669,7 +3884,8 @@
     "source_subject": "Физкультура.",
     "source_teacher": "Ольков Г.В.",
     "source_time": "10:55 - 11:40",
-    "source_note": "спортивный зал"
+    "source_note": "спортивный зал",
+    "joint_lesson_id": "jl_ольков_гв_d0_p3"
   },
   {
     "class_id": "7б",
@@ -3686,7 +3902,8 @@
     "source_subject": "Казахский язык и лит",
     "source_teacher": "Асаева Ж.Х.",
     "source_time": "10:55 - 11:40",
-    "source_note": "казахский язык"
+    "source_note": "казахский язык",
+    "joint_lesson_id": "jl_асаева_жх_d1_p3"
   },
   {
     "class_id": "7б",
@@ -3703,7 +3920,8 @@
     "source_subject": "Физкультура.",
     "source_teacher": "Ольков Г.В.",
     "source_time": "10:55 - 11:40",
-    "source_note": "спортивный зал"
+    "source_note": "спортивный зал",
+    "joint_lesson_id": "jl_ольков_гв_d2_p3"
   },
   {
     "class_id": "7б",
@@ -3720,7 +3938,8 @@
     "source_subject": "Геометрия",
     "source_teacher": "Бабич И.Д.",
     "source_time": "10:55 - 11:40",
-    "source_note": "математика"
+    "source_note": "математика",
+    "joint_lesson_id": "jl_бабич_ид_d3_p3"
   },
   {
     "class_id": "7б",
@@ -3737,7 +3956,8 @@
     "source_subject": "Физика",
     "source_teacher": "Русина Н.В.",
     "source_time": "10:55 - 11:40",
-    "source_note": "физика"
+    "source_note": "физика",
+    "joint_lesson_id": null
   },
   {
     "class_id": "7б",
@@ -3754,7 +3974,8 @@
     "source_subject": "История Каз-на",
     "source_teacher": "Досаева М.Х.",
     "source_time": "11:55 - 12:40",
-    "source_note": "история"
+    "source_note": "история",
+    "joint_lesson_id": "jl_досаева_мх_d0_p4"
   },
   {
     "class_id": "7б",
@@ -3771,7 +3992,8 @@
     "source_subject": "Всемирная история",
     "source_teacher": "Досаева М.Х.",
     "source_time": "11:55 - 12:40",
-    "source_note": "история"
+    "source_note": "история",
+    "joint_lesson_id": null
   },
   {
     "class_id": "7б",
@@ -3788,7 +4010,8 @@
     "source_subject": "Алгебра",
     "source_teacher": "Бабич И.Д.",
     "source_time": "11:55 - 12:40",
-    "source_note": "математика"
+    "source_note": "математика",
+    "joint_lesson_id": "jl_бабич_ид_d2_p4"
   },
   {
     "class_id": "7б",
@@ -3805,7 +4028,8 @@
     "source_subject": "История Каз-на",
     "source_teacher": "Досаева М.Х.",
     "source_time": "11:55 - 12:40",
-    "source_note": "история"
+    "source_note": "история",
+    "joint_lesson_id": "jl_досаева_мх_d3_p4"
   },
   {
     "class_id": "7б",
@@ -3822,7 +4046,8 @@
     "source_subject": "География",
     "source_teacher": "Сидоров В.Б.",
     "source_time": "11:55 - 12:40",
-    "source_note": "география"
+    "source_note": "география",
+    "joint_lesson_id": "jl_сидоров_вб_d4_p4"
   },
   {
     "class_id": "7б",
@@ -3839,7 +4064,8 @@
     "source_subject": "Физика",
     "source_teacher": "Русина Н.В.",
     "source_time": "12:45 - 13:30",
-    "source_note": "физика"
+    "source_note": "физика",
+    "joint_lesson_id": null
   },
   {
     "class_id": "7б",
@@ -3856,7 +4082,8 @@
     "source_subject": "Геометрия",
     "source_teacher": "Бабич И.Д.",
     "source_time": "12:45 - 13:30",
-    "source_note": "математика"
+    "source_note": "математика",
+    "joint_lesson_id": "jl_бабич_ид_d1_p5"
   },
   {
     "class_id": "7б",
@@ -3873,7 +4100,8 @@
     "source_subject": "Химия",
     "source_teacher": "Красноперова О.В.",
     "source_time": "12:45 - 13:30",
-    "source_note": "химия"
+    "source_note": "химия",
+    "joint_lesson_id": null
   },
   {
     "class_id": "7б",
@@ -3890,7 +4118,8 @@
     "source_subject": "Информатика",
     "source_teacher": "Бедрина М.Н.",
     "source_time": "12:45 - 13:30",
-    "source_note": "мультимедийный"
+    "source_note": "мультимедийный",
+    "joint_lesson_id": null
   },
   {
     "class_id": "7б",
@@ -3907,7 +4136,8 @@
     "source_subject": "Английский язык",
     "source_teacher": "Алекпарова А.Ж.",
     "source_time": "13:35 - 14:20",
-    "source_note": "английский язык"
+    "source_note": "английский язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "7б",
@@ -3924,7 +4154,8 @@
     "source_subject": "Казахский язык и лит",
     "source_teacher": "Асаева Ж.Х.",
     "source_time": "13:35 - 14:20",
-    "source_note": "казахский язык"
+    "source_note": "казахский язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "7б",
@@ -3941,7 +4172,8 @@
     "source_subject": "Казахский язык и лит",
     "source_teacher": "Асаева Ж.Х.",
     "source_time": "13:35 - 14:20",
-    "source_note": "казахский язык"
+    "source_note": "казахский язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "7б_luo",
@@ -3958,7 +4190,8 @@
     "source_subject": "Математика",
     "source_teacher": "Бабич И.Д.",
     "source_time": "08:15 - 09:00",
-    "source_note": "математика"
+    "source_note": "математика",
+    "joint_lesson_id": "jl_бабич_ид_d0_p0"
   },
   {
     "class_id": "7б_luo",
@@ -3975,7 +4208,8 @@
     "source_subject": "Естествознание",
     "source_teacher": "Красноперова О.В.",
     "source_time": "08:15 - 09:00",
-    "source_note": "биология"
+    "source_note": "биология",
+    "joint_lesson_id": "jl_красноперова_ов_d1_p0"
   },
   {
     "class_id": "7б_luo",
@@ -3992,7 +4226,8 @@
     "source_subject": "Русский язык",
     "source_teacher": "Жолдан А.Б.",
     "source_time": "08:15 - 09:00",
-    "source_note": "русский язык"
+    "source_note": "русский язык",
+    "joint_lesson_id": "jl_жолдан_аб_d2_p0"
   },
   {
     "class_id": "7б_luo",
@@ -4009,7 +4244,8 @@
     "source_subject": "Математика",
     "source_teacher": "Бабич И.Д.",
     "source_time": "08:15 - 09:00",
-    "source_note": "математика"
+    "source_note": "математика",
+    "joint_lesson_id": "jl_бабич_ид_d4_p0"
   },
   {
     "class_id": "7б_luo",
@@ -4026,7 +4262,8 @@
     "source_subject": "Казахский язык",
     "source_teacher": "Асаева Ж.Х.",
     "source_time": "09:05 - 09:50",
-    "source_note": "казахский язык"
+    "source_note": "казахский язык",
+    "joint_lesson_id": "jl_асаева_жх_d0_p1"
   },
   {
     "class_id": "7б_luo",
@@ -4043,7 +4280,8 @@
     "source_subject": "Ч и РР",
     "source_teacher": "Темерканова О.В.",
     "source_time": "09:05 - 09:50",
-    "source_note": "русский язык"
+    "source_note": "русский язык",
+    "joint_lesson_id": "jl_темерканова_ов_d1_p1"
   },
   {
     "class_id": "7б_luo",
@@ -4060,7 +4298,8 @@
     "source_subject": "География",
     "source_teacher": "Сидоров В.Б.",
     "source_time": "09:05 - 09:50",
-    "source_note": "география"
+    "source_note": "география",
+    "joint_lesson_id": "jl_сидоров_вб_d2_p1"
   },
   {
     "class_id": "7б_luo",
@@ -4077,7 +4316,8 @@
     "source_subject": "Русский язык",
     "source_teacher": "Жолдан А.Б.",
     "source_time": "09:05 - 09:50",
-    "source_note": "русский язык"
+    "source_note": "русский язык",
+    "joint_lesson_id": "jl_жолдан_аб_d3_p1"
   },
   {
     "class_id": "7б_luo",
@@ -4094,7 +4334,8 @@
     "source_subject": "Естествознание",
     "source_teacher": "Красноперова О.В.",
     "source_time": "09:05 - 09:50",
-    "source_note": "биология"
+    "source_note": "биология",
+    "joint_lesson_id": "jl_красноперова_ов_d4_p1"
   },
   {
     "class_id": "7б_luo",
@@ -4111,7 +4352,8 @@
     "source_subject": "Ч и РР",
     "source_teacher": "Темерканова О.В.",
     "source_time": "10:05 - 10:50",
-    "source_note": "русский язык"
+    "source_note": "русский язык",
+    "joint_lesson_id": "jl_темерканова_ов_d0_p2"
   },
   {
     "class_id": "7б_luo",
@@ -4128,7 +4370,8 @@
     "source_subject": "ПТО",
     "source_teacher": "Романишина И.М.",
     "source_time": "10:05 - 10:50",
-    "source_note": "технология"
+    "source_note": "технология",
+    "joint_lesson_id": "jl_романишина_им_d2_p2"
   },
   {
     "class_id": "7б_luo",
@@ -4145,7 +4388,8 @@
     "source_subject": "Русский язык",
     "source_teacher": "Жолдан А.Б.",
     "source_time": "10:05 - 10:50",
-    "source_note": "русский язык"
+    "source_note": "русский язык",
+    "joint_lesson_id": "jl_жолдан_аб_d3_p2"
   },
   {
     "class_id": "7б_luo",
@@ -4162,7 +4406,8 @@
     "source_subject": "АФК",
     "source_teacher": "Ольков Г.В.",
     "source_time": "10:05 - 10:50",
-    "source_note": "спортивный зал"
+    "source_note": "спортивный зал",
+    "joint_lesson_id": "jl_ольков_гв_d4_p2"
   },
   {
     "class_id": "7б_luo",
@@ -4179,7 +4424,8 @@
     "source_subject": "АФК",
     "source_teacher": "Ольков Г.В.",
     "source_time": "10:55 - 11:40",
-    "source_note": "спортивный зал"
+    "source_note": "спортивный зал",
+    "joint_lesson_id": "jl_ольков_гв_d0_p3"
   },
   {
     "class_id": "7б_luo",
@@ -4196,7 +4442,8 @@
     "source_subject": "Казахский язык",
     "source_teacher": "Асаева Ж.Х.",
     "source_time": "10:55 - 11:40",
-    "source_note": "казахский язык"
+    "source_note": "казахский язык",
+    "joint_lesson_id": "jl_асаева_жх_d1_p3"
   },
   {
     "class_id": "7б_luo",
@@ -4213,7 +4460,8 @@
     "source_subject": "АФК",
     "source_teacher": "Ольков Г.В.",
     "source_time": "10:55 - 11:40",
-    "source_note": "спортивный зал"
+    "source_note": "спортивный зал",
+    "joint_lesson_id": "jl_ольков_гв_d2_p3"
   },
   {
     "class_id": "7б_luo",
@@ -4230,7 +4478,8 @@
     "source_subject": "Математика",
     "source_teacher": "Бабич И.Д.",
     "source_time": "10:55 - 11:40",
-    "source_note": "математика"
+    "source_note": "математика",
+    "joint_lesson_id": "jl_бабич_ид_d3_p3"
   },
   {
     "class_id": "7б_luo",
@@ -4247,7 +4496,8 @@
     "source_subject": "История Каз-на",
     "source_teacher": "Досаева М.Х.",
     "source_time": "11:55 - 12:40",
-    "source_note": "история"
+    "source_note": "история",
+    "joint_lesson_id": "jl_досаева_мх_d0_p4"
   },
   {
     "class_id": "7б_luo",
@@ -4264,7 +4514,8 @@
     "source_subject": "Математика",
     "source_teacher": "Бабич И.Д.",
     "source_time": "11:55 - 12:40",
-    "source_note": "математика"
+    "source_note": "математика",
+    "joint_lesson_id": "jl_бабич_ид_d2_p4"
   },
   {
     "class_id": "7б_luo",
@@ -4281,7 +4532,8 @@
     "source_subject": "История Каз-на",
     "source_teacher": "Досаева М.Х.",
     "source_time": "11:55 - 12:40",
-    "source_note": "история"
+    "source_note": "история",
+    "joint_lesson_id": "jl_досаева_мх_d3_p4"
   },
   {
     "class_id": "7б_luo",
@@ -4298,7 +4550,8 @@
     "source_subject": "География",
     "source_teacher": "Сидоров В.Б.",
     "source_time": "11:55 - 12:40",
-    "source_note": "география"
+    "source_note": "география",
+    "joint_lesson_id": "jl_сидоров_вб_d4_p4"
   },
   {
     "class_id": "7б_luo",
@@ -4315,7 +4568,8 @@
     "source_subject": "Математика",
     "source_teacher": "Бабич И.Д.",
     "source_time": "12:45 - 13:30",
-    "source_note": "математика"
+    "source_note": "математика",
+    "joint_lesson_id": "jl_бабич_ид_d1_p5"
   },
   {
     "class_id": "2",
@@ -4332,7 +4586,8 @@
     "source_subject": "Математика",
     "source_teacher": "Темерканова О.В.",
     "source_time": "08:15 - 09:00",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "2",
@@ -4349,7 +4604,8 @@
     "source_subject": "Русский язык",
     "source_teacher": "Темерканова О.В.",
     "source_time": "08:15 - 09:00",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "2",
@@ -4366,7 +4622,8 @@
     "source_subject": "Русский язык",
     "source_teacher": "Темерканова О.В.",
     "source_time": "08:15 - 09:00",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "2",
@@ -4383,7 +4640,8 @@
     "source_subject": "Русский язык",
     "source_teacher": "Темерканова О.В.",
     "source_time": "08:15 - 09:00",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "2",
@@ -4400,7 +4658,8 @@
     "source_subject": "Лит. чтение",
     "source_teacher": "Темерканова О.В.",
     "source_time": "08:15 - 09:00",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "2",
@@ -4417,7 +4676,8 @@
     "source_subject": "Русский язык",
     "source_teacher": "Темерканова О.В.",
     "source_time": "09:05 - 09:50",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "2",
@@ -4434,7 +4694,8 @@
     "source_subject": "Физкультура.",
     "source_teacher": "Чифин Д.Н.",
     "source_time": "09:05 - 09:50",
-    "source_note": "спортивный зал"
+    "source_note": "спортивный зал",
+    "joint_lesson_id": null
   },
   {
     "class_id": "2",
@@ -4451,7 +4712,8 @@
     "source_subject": "Математика",
     "source_teacher": "Темерканова О.В.",
     "source_time": "09:05 - 09:50",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "2",
@@ -4468,7 +4730,8 @@
     "source_subject": "Физкультура.",
     "source_teacher": "Чифин Д.Н.",
     "source_time": "09:05 - 09:50",
-    "source_note": "спортивный зал"
+    "source_note": "спортивный зал",
+    "joint_lesson_id": null
   },
   {
     "class_id": "2",
@@ -4485,7 +4748,8 @@
     "source_subject": "Музыка.",
     "source_teacher": "Шкиря Ю.Н.",
     "source_time": "09:05 - 09:50",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "2",
@@ -4502,7 +4766,8 @@
     "source_subject": "Казахский язык",
     "source_teacher": "Асаева Ж.Х.",
     "source_time": "10:05 - 10:50",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "2",
@@ -4519,7 +4784,8 @@
     "source_subject": "Математика",
     "source_teacher": "Темерканова О.В.",
     "source_time": "10:05 - 10:50",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "2",
@@ -4536,7 +4802,8 @@
     "source_subject": "Казахский язык",
     "source_teacher": "Асаева Ж.Х.",
     "source_time": "10:05 - 10:50",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "2",
@@ -4553,7 +4820,8 @@
     "source_subject": "Математика",
     "source_teacher": "Темерканова О.В.",
     "source_time": "10:05 - 10:50",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "2",
@@ -4570,7 +4838,8 @@
     "source_subject": "Труд. об.",
     "source_teacher": "Темерканова О.В.",
     "source_time": "10:05 - 10:50",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "2",
@@ -4587,7 +4856,8 @@
     "source_subject": "ЦГ",
     "source_teacher": "Бедрина М.Н.",
     "source_time": "10:55 - 11:40",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_бедрина_мн_d0_p3"
   },
   {
     "class_id": "2",
@@ -4604,7 +4874,8 @@
     "source_subject": "Лит. чтение",
     "source_teacher": "Темерканова О.В.",
     "source_time": "10:55 - 11:40",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "2",
@@ -4621,7 +4892,8 @@
     "source_subject": "ИЗО.",
     "source_teacher": "Темерканова О.В.",
     "source_time": "10:55 - 11:40",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "2",
@@ -4638,7 +4910,8 @@
     "source_subject": "Лит. чтение",
     "source_teacher": "Темерканова О.В.",
     "source_time": "10:55 - 11:40",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "2",
@@ -4655,7 +4928,8 @@
     "source_subject": "Казахский язык",
     "source_teacher": "Асаева Ж.Х.",
     "source_time": "10:55 - 11:40",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "2",
@@ -4672,7 +4946,8 @@
     "source_subject": "Физкультура.",
     "source_teacher": "Чифин Д.Н.",
     "source_time": "11:55 - 12:40",
-    "source_note": "спортивный зал"
+    "source_note": "спортивный зал",
+    "joint_lesson_id": null
   },
   {
     "class_id": "2",
@@ -4689,7 +4964,8 @@
     "source_subject": "Познание мира",
     "source_teacher": "Темерканова О.В.",
     "source_time": "11:55 - 12:40",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "2",
@@ -4706,7 +4982,8 @@
     "source_subject": "Естествознание",
     "source_teacher": "Темерканова О.В.",
     "source_time": "11:55 - 12:40",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "8",
@@ -4723,7 +5000,8 @@
     "source_subject": "Биология",
     "source_teacher": "Красноперова О.В.",
     "source_time": "08:15 - 09:00",
-    "source_note": "биология"
+    "source_note": "биология",
+    "joint_lesson_id": null
   },
   {
     "class_id": "8",
@@ -4740,7 +5018,8 @@
     "source_subject": "Казахский язык и лит (1гр.каз.яз)",
     "source_teacher": "Асаева Ж.Х.",
     "source_time": "08:15 - 09:00",
-    "source_note": "казахский язык"
+    "source_note": "казахский язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "8",
@@ -4757,7 +5036,8 @@
     "source_subject": "Рус. литература",
     "source_teacher": "Дмитриев Е.В.",
     "source_time": "08:15 - 09:00",
-    "source_note": "русский язык"
+    "source_note": "русский язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "8",
@@ -4774,7 +5054,8 @@
     "source_subject": "История Каз-на",
     "source_teacher": "Досаева М.Х.",
     "source_time": "08:15 - 09:00",
-    "source_note": "история"
+    "source_note": "история",
+    "joint_lesson_id": null
   },
   {
     "class_id": "8",
@@ -4791,7 +5072,8 @@
     "source_subject": "Казахский язык и лит (1гр.каз.яз)",
     "source_teacher": "Асаева Ж.Х.",
     "source_time": "08:15 - 09:00",
-    "source_note": "казахский язык"
+    "source_note": "казахский язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "8",
@@ -4808,7 +5090,8 @@
     "source_subject": "Казахский язык и лит (2гр.каз.яз)",
     "source_teacher": "Ильясова А.Б.",
     "source_time": "08:15 - 09:00",
-    "source_note": "казахская литер..."
+    "source_note": "казахская литер...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "8",
@@ -4825,7 +5108,8 @@
     "source_subject": "Казахский язык и лит (2гр.каз.яз)",
     "source_teacher": "Ильясова А.Б.",
     "source_time": "08:15 - 09:00",
-    "source_note": "казахская литер..."
+    "source_note": "казахская литер...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "8",
@@ -4842,7 +5126,8 @@
     "source_subject": "Информатика (2 гр.инф)",
     "source_teacher": "Бедрина М.Н.",
     "source_time": "09:05 - 09:50",
-    "source_note": "мультимедийный"
+    "source_note": "мультимедийный",
+    "joint_lesson_id": null
   },
   {
     "class_id": "8",
@@ -4859,7 +5144,8 @@
     "source_subject": "История Каз-на",
     "source_teacher": "Досаева М.Х.",
     "source_time": "09:05 - 09:50",
-    "source_note": "история"
+    "source_note": "история",
+    "joint_lesson_id": null
   },
   {
     "class_id": "8",
@@ -4876,7 +5162,8 @@
     "source_subject": "Химия",
     "source_teacher": "Красноперова О.В.",
     "source_time": "09:05 - 09:50",
-    "source_note": "физика"
+    "source_note": "физика",
+    "joint_lesson_id": null
   },
   {
     "class_id": "8",
@@ -4893,7 +5180,8 @@
     "source_subject": "Русский язык",
     "source_teacher": "Дмитриев Е.В.",
     "source_time": "09:05 - 09:50",
-    "source_note": "русский язык"
+    "source_note": "русский язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "8",
@@ -4910,7 +5198,8 @@
     "source_subject": "Физика",
     "source_teacher": "Русина Н.В.",
     "source_time": "09:05 - 09:50",
-    "source_note": "физика"
+    "source_note": "физика",
+    "joint_lesson_id": null
   },
   {
     "class_id": "8",
@@ -4927,7 +5216,8 @@
     "source_subject": "Английский язык (1гр.анг.яз)",
     "source_teacher": "Алекпарова А.Ж.",
     "source_time": "09:05 - 09:50",
-    "source_note": "английский язык"
+    "source_note": "английский язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "8",
@@ -4944,7 +5234,8 @@
     "source_subject": "Информатика (1 гр.инф)",
     "source_teacher": "Бедрина М.Н.",
     "source_time": "10:05 - 10:50",
-    "source_note": "мультимедиа каб..."
+    "source_note": "мультимедиа каб...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "8",
@@ -4961,7 +5252,8 @@
     "source_subject": "Химия",
     "source_teacher": "Красноперова О.В.",
     "source_time": "10:05 - 10:50",
-    "source_note": "биология"
+    "source_note": "биология",
+    "joint_lesson_id": null
   },
   {
     "class_id": "8",
@@ -4978,7 +5270,8 @@
     "source_subject": "Английский язык (1гр.анг.яз)",
     "source_teacher": "Алекпарова А.Ж.",
     "source_time": "10:05 - 10:50",
-    "source_note": "английский язык"
+    "source_note": "английский язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "8",
@@ -4995,7 +5288,8 @@
     "source_subject": "Геометрия",
     "source_teacher": "Бабич И.Д.",
     "source_time": "10:05 - 10:50",
-    "source_note": "физика"
+    "source_note": "физика",
+    "joint_lesson_id": null
   },
   {
     "class_id": "8",
@@ -5012,7 +5306,8 @@
     "source_subject": "Алгебра",
     "source_teacher": "Бабич И.Д.",
     "source_time": "10:05 - 10:50",
-    "source_note": "физика"
+    "source_note": "физика",
+    "joint_lesson_id": null
   },
   {
     "class_id": "8",
@@ -5029,7 +5324,8 @@
     "source_subject": "Английский язык (2гр.анг.яз)",
     "source_teacher": "Акауова И.Н.",
     "source_time": "10:05 - 10:50",
-    "source_note": "ағылшын тілі"
+    "source_note": "ағылшын тілі",
+    "joint_lesson_id": null
   },
   {
     "class_id": "8",
@@ -5046,7 +5342,8 @@
     "source_subject": "Английский язык (2гр.анг.яз)",
     "source_teacher": "Акауова И.Н.",
     "source_time": "10:05 - 10:50",
-    "source_note": "английский язык"
+    "source_note": "английский язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "8",
@@ -5063,7 +5360,8 @@
     "source_subject": "Казахский язык и лит (1гр.каз.яз)",
     "source_teacher": "Асаева Ж.Х.",
     "source_time": "10:55 - 11:40",
-    "source_note": "казахский язык"
+    "source_note": "казахский язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "8",
@@ -5080,7 +5378,8 @@
     "source_subject": "Русский язык",
     "source_teacher": "Дмитриев Е.В.",
     "source_time": "10:55 - 11:40",
-    "source_note": "русский язык"
+    "source_note": "русский язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "8",
@@ -5097,7 +5396,8 @@
     "source_subject": "Алгебра",
     "source_teacher": "Бабич И.Д.",
     "source_time": "10:55 - 11:40",
-    "source_note": "физика"
+    "source_note": "физика",
+    "joint_lesson_id": null
   },
   {
     "class_id": "8",
@@ -5114,7 +5414,8 @@
     "source_subject": "Казахский язык и лит (1гр.каз.яз)",
     "source_teacher": "Асаева Ж.Х.",
     "source_time": "10:55 - 11:40",
-    "source_note": "казахский язык"
+    "source_note": "казахский язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "8",
@@ -5131,7 +5432,8 @@
     "source_subject": "Английский язык (1гр.анг.яз)",
     "source_teacher": "Алекпарова А.Ж.",
     "source_time": "10:55 - 11:40",
-    "source_note": "английский язык"
+    "source_note": "английский язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "8",
@@ -5148,7 +5450,8 @@
     "source_subject": "Казахский язык и лит (2гр.каз.яз)",
     "source_teacher": "Ильясова А.Б.",
     "source_time": "10:55 - 11:40",
-    "source_note": "казахская литер..."
+    "source_note": "казахская литер...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "8",
@@ -5165,7 +5468,8 @@
     "source_subject": "Казахский язык и лит (2гр.каз.яз)",
     "source_teacher": "Ильясова А.Б.",
     "source_time": "10:55 - 11:40",
-    "source_note": "казахская литер..."
+    "source_note": "казахская литер...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "8",
@@ -5182,7 +5486,8 @@
     "source_subject": "Английский язык (2гр.анг.яз)",
     "source_teacher": "Акауова И.Н.",
     "source_time": "10:55 - 11:40",
-    "source_note": "английский язык"
+    "source_note": "английский язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "8",
@@ -5199,7 +5504,8 @@
     "source_subject": "Алгебра",
     "source_teacher": "Бабич И.Д.",
     "source_time": "11:55 - 12:40",
-    "source_note": "физика"
+    "source_note": "физика",
+    "joint_lesson_id": null
   },
   {
     "class_id": "8",
@@ -5216,7 +5522,8 @@
     "source_subject": "Геометрия",
     "source_teacher": "Бабич И.Д.",
     "source_time": "11:55 - 12:40",
-    "source_note": "физика"
+    "source_note": "физика",
+    "joint_lesson_id": null
   },
   {
     "class_id": "8",
@@ -5233,7 +5540,8 @@
     "source_subject": "География",
     "source_teacher": "Сидоров В.Б.",
     "source_time": "11:55 - 12:40",
-    "source_note": "биология"
+    "source_note": "биология",
+    "joint_lesson_id": null
   },
   {
     "class_id": "8",
@@ -5250,7 +5558,8 @@
     "source_subject": "Биология",
     "source_teacher": "Красноперова О.В.",
     "source_time": "11:55 - 12:40",
-    "source_note": "биология"
+    "source_note": "биология",
+    "joint_lesson_id": null
   },
   {
     "class_id": "8",
@@ -5267,7 +5576,8 @@
     "source_subject": "Всемирная история",
     "source_teacher": "Бучкова И.О.",
     "source_time": "11:55 - 12:40",
-    "source_note": "история"
+    "source_note": "история",
+    "joint_lesson_id": null
   },
   {
     "class_id": "8",
@@ -5284,7 +5594,8 @@
     "source_subject": "Рус. литература",
     "source_teacher": "Дмитриев Е.В.",
     "source_time": "12:45 - 13:30",
-    "source_note": "русский язык"
+    "source_note": "русский язык",
+    "joint_lesson_id": "jl_дмитриев_ев_d0_p5"
   },
   {
     "class_id": "8",
@@ -5301,7 +5612,8 @@
     "source_subject": "Физкультура.",
     "source_teacher": "Ольков Г.В.",
     "source_time": "12:45 - 13:30",
-    "source_note": "спортивный зал"
+    "source_note": "спортивный зал",
+    "joint_lesson_id": null
   },
   {
     "class_id": "8",
@@ -5318,7 +5630,8 @@
     "source_subject": "Физика",
     "source_teacher": "Русина Н.В.",
     "source_time": "12:45 - 13:30",
-    "source_note": "физика"
+    "source_note": "физика",
+    "joint_lesson_id": null
   },
   {
     "class_id": "8",
@@ -5335,7 +5648,8 @@
     "source_subject": "Рус. литература",
     "source_teacher": "Дмитриев Е.В.",
     "source_time": "12:45 - 13:30",
-    "source_note": "русский язык"
+    "source_note": "русский язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "8",
@@ -5352,7 +5666,8 @@
     "source_subject": "География",
     "source_teacher": "Сидоров В.Б.",
     "source_time": "12:45 - 13:30",
-    "source_note": "биология"
+    "source_note": "биология",
+    "joint_lesson_id": null
   },
   {
     "class_id": "8",
@@ -5369,7 +5684,8 @@
     "source_subject": "Физкультура.",
     "source_teacher": "Ольков Г.В.",
     "source_time": "13:35 - 14:20",
-    "source_note": "спортивный зал"
+    "source_note": "спортивный зал",
+    "joint_lesson_id": null
   },
   {
     "class_id": "8",
@@ -5386,7 +5702,8 @@
     "source_subject": "Худ. труд",
     "source_teacher": "Романишина И.М.",
     "source_time": "13:35 - 14:20",
-    "source_note": "технология"
+    "source_note": "технология",
+    "joint_lesson_id": null
   },
   {
     "class_id": "8",
@@ -5403,7 +5720,8 @@
     "source_subject": "Физкультура.",
     "source_teacher": "Ольков Г.В.",
     "source_time": "13:35 - 14:20",
-    "source_note": "спортивный зал"
+    "source_note": "спортивный зал",
+    "joint_lesson_id": null
   },
   {
     "class_id": "8_do",
@@ -5420,7 +5738,8 @@
     "source_subject": "РРиК",
     "source_teacher": "Дукач Т.А.",
     "source_time": "Нет кабинета",
-    "source_note": ""
+    "source_note": "",
+    "joint_lesson_id": null
   },
   {
     "class_id": "8_do",
@@ -5437,7 +5756,8 @@
     "source_subject": "Счет.",
     "source_teacher": "Дукач Т.А.",
     "source_time": "Нет кабинета",
-    "source_note": ""
+    "source_note": "",
+    "joint_lesson_id": null
   },
   {
     "class_id": "8_do",
@@ -5454,7 +5774,8 @@
     "source_subject": "РРиК",
     "source_teacher": "Дукач Т.А.",
     "source_time": "Нет кабинета",
-    "source_note": ""
+    "source_note": "",
+    "joint_lesson_id": null
   },
   {
     "class_id": "8_do",
@@ -5471,7 +5792,8 @@
     "source_subject": "Человек и мир.",
     "source_teacher": "Дукач Т.А.",
     "source_time": "Нет кабинета",
-    "source_note": ""
+    "source_note": "",
+    "joint_lesson_id": null
   },
   {
     "class_id": "8_do",
@@ -5488,7 +5810,8 @@
     "source_subject": "ПР",
     "source_teacher": "Дукач Т.А.",
     "source_time": "Нет кабинета",
-    "source_note": ""
+    "source_note": "",
+    "joint_lesson_id": null
   },
   {
     "class_id": "8_do",
@@ -5505,7 +5828,8 @@
     "source_subject": "ИЗО.",
     "source_teacher": "Романишина И.М.",
     "source_time": "Нет кабинета",
-    "source_note": ""
+    "source_note": "",
+    "joint_lesson_id": null
   },
   {
     "class_id": "8_do",
@@ -5522,7 +5846,8 @@
     "source_subject": "Счет.",
     "source_teacher": "Дукач Т.А.",
     "source_time": "Нет кабинета",
-    "source_note": ""
+    "source_note": "",
+    "joint_lesson_id": null
   },
   {
     "class_id": "8_do",
@@ -5539,7 +5864,8 @@
     "source_subject": "СБО.",
     "source_teacher": "Дукач Т.А.",
     "source_time": "Нет кабинета",
-    "source_note": ""
+    "source_note": "",
+    "joint_lesson_id": null
   },
   {
     "class_id": "8_do",
@@ -5556,7 +5882,8 @@
     "source_subject": "Хоз. труд.",
     "source_teacher": "Романишина И.М.",
     "source_time": "Нет кабинета",
-    "source_note": ""
+    "source_note": "",
+    "joint_lesson_id": null
   },
   {
     "class_id": "8_do",
@@ -5573,7 +5900,8 @@
     "source_subject": "Человек и мир.",
     "source_teacher": "Дукач Т.А.",
     "source_time": "Нет кабинета",
-    "source_note": ""
+    "source_note": "",
+    "joint_lesson_id": null
   },
   {
     "class_id": "9",
@@ -5590,7 +5918,8 @@
     "source_subject": "Английский язык",
     "source_teacher": "Алекпарова А.Ж.",
     "source_time": "08:15 - 09:00",
-    "source_note": "английский язык"
+    "source_note": "английский язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "9",
@@ -5607,7 +5936,8 @@
     "source_subject": "Физкультура.",
     "source_teacher": "Мельников П.В.",
     "source_time": "08:15 - 09:00",
-    "source_note": "спортивный зал"
+    "source_note": "спортивный зал",
+    "joint_lesson_id": "jl_мельников_пв_d1_p0"
   },
   {
     "class_id": "9",
@@ -5624,7 +5954,8 @@
     "source_subject": "Всемирная история",
     "source_teacher": "Бучкова И.О.",
     "source_time": "08:15 - 09:00",
-    "source_note": "география"
+    "source_note": "география",
+    "joint_lesson_id": null
   },
   {
     "class_id": "9",
@@ -5641,7 +5972,8 @@
     "source_subject": "Русский язык",
     "source_teacher": "Дмитриев Е.В.",
     "source_time": "08:15 - 09:00",
-    "source_note": "русский язык"
+    "source_note": "русский язык",
+    "joint_lesson_id": "jl_дмитриев_ев_d3_p0"
   },
   {
     "class_id": "9",
@@ -5658,7 +5990,8 @@
     "source_subject": "Физкультура.",
     "source_teacher": "Мельников П.В.",
     "source_time": "08:15 - 09:00",
-    "source_note": "спортивный зал"
+    "source_note": "спортивный зал",
+    "joint_lesson_id": "jl_мельников_пв_d4_p0"
   },
   {
     "class_id": "9",
@@ -5675,7 +6008,8 @@
     "source_subject": "Рус. литература",
     "source_teacher": "Дмитриев Е.В.",
     "source_time": "09:05 - 09:50",
-    "source_note": "русский язык"
+    "source_note": "русский язык",
+    "joint_lesson_id": "jl_дмитриев_ев_d0_p1"
   },
   {
     "class_id": "9",
@@ -5692,7 +6026,8 @@
     "source_subject": "История Каз-на",
     "source_teacher": "Бучкова И.О.",
     "source_time": "09:05 - 09:50",
-    "source_note": "география"
+    "source_note": "география",
+    "joint_lesson_id": "jl_бучкова_ио_d1_p1"
   },
   {
     "class_id": "9",
@@ -5709,7 +6044,8 @@
     "source_subject": "Алгебра",
     "source_teacher": "Бабич И.Д.",
     "source_time": "09:05 - 09:50",
-    "source_note": "физика"
+    "source_note": "физика",
+    "joint_lesson_id": "jl_бабич_ид_d2_p1"
   },
   {
     "class_id": "9",
@@ -5726,7 +6062,8 @@
     "source_subject": "Геометрия",
     "source_teacher": "Бабич И.Д.",
     "source_time": "09:05 - 09:50",
-    "source_note": "физика"
+    "source_note": "физика",
+    "joint_lesson_id": "jl_бабич_ид_d3_p1"
   },
   {
     "class_id": "9",
@@ -5743,7 +6080,8 @@
     "source_subject": "Рус. литература",
     "source_teacher": "Дмитриев Е.В.",
     "source_time": "09:05 - 09:50",
-    "source_note": "русский язык"
+    "source_note": "русский язык",
+    "joint_lesson_id": "jl_дмитриев_ев_d4_p1"
   },
   {
     "class_id": "9",
@@ -5760,7 +6098,8 @@
     "source_subject": "Биология",
     "source_teacher": "Красноперова О.В.",
     "source_time": "10:05 - 10:50",
-    "source_note": "физика"
+    "source_note": "физика",
+    "joint_lesson_id": "jl_красноперова_ов_d0_p2"
   },
   {
     "class_id": "9",
@@ -5777,7 +6116,8 @@
     "source_subject": "Казахский язык и лит",
     "source_teacher": "Ильясова А.Б.",
     "source_time": "10:05 - 10:50",
-    "source_note": "казахская литер..."
+    "source_note": "казахская литер...",
+    "joint_lesson_id": "jl_ильясова_аб_d1_p2"
   },
   {
     "class_id": "9",
@@ -5794,7 +6134,8 @@
     "source_subject": "Рус. литература",
     "source_teacher": "Дмитриев Е.В.",
     "source_time": "10:05 - 10:50",
-    "source_note": "русский язык"
+    "source_note": "русский язык",
+    "joint_lesson_id": "jl_дмитриев_ев_d2_p2"
   },
   {
     "class_id": "9",
@@ -5811,7 +6152,8 @@
     "source_subject": "Биология",
     "source_teacher": "Красноперова О.В.",
     "source_time": "10:05 - 10:50",
-    "source_note": "физика"
+    "source_note": "физика",
+    "joint_lesson_id": "jl_красноперова_ов_d3_p2"
   },
   {
     "class_id": "9",
@@ -5828,7 +6170,8 @@
     "source_subject": "География",
     "source_teacher": "Сидоров В.Б.",
     "source_time": "10:05 - 10:50",
-    "source_note": "физика"
+    "source_note": "физика",
+    "joint_lesson_id": "jl_сидоров_вб_d4_p2"
   },
   {
     "class_id": "9",
@@ -5845,7 +6188,8 @@
     "source_subject": "Алгебра",
     "source_teacher": "Бабич И.Д.",
     "source_time": "10:55 - 11:40",
-    "source_note": "физика"
+    "source_note": "физика",
+    "joint_lesson_id": "jl_бабич_ид_d0_p3"
   },
   {
     "class_id": "9",
@@ -5862,7 +6206,8 @@
     "source_subject": "Геометрия",
     "source_teacher": "Бабич И.Д.",
     "source_time": "10:55 - 11:40",
-    "source_note": "физика"
+    "source_note": "физика",
+    "joint_lesson_id": "jl_бабич_ид_d1_p3"
   },
   {
     "class_id": "9",
@@ -5879,7 +6224,8 @@
     "source_subject": "Физика",
     "source_teacher": "Русина Н.В.",
     "source_time": "10:55 - 11:40",
-    "source_note": "физика"
+    "source_note": "физика",
+    "joint_lesson_id": null
   },
   {
     "class_id": "9",
@@ -5896,7 +6242,8 @@
     "source_subject": "Физкультура.",
     "source_teacher": "Мельников П.В.",
     "source_time": "10:55 - 11:40",
-    "source_note": "спортивный зал"
+    "source_note": "спортивный зал",
+    "joint_lesson_id": "jl_мельников_пв_d3_p3"
   },
   {
     "class_id": "9",
@@ -5913,7 +6260,8 @@
     "source_subject": "Казахский язык и лит",
     "source_teacher": "Ильясова А.Б.",
     "source_time": "10:55 - 11:40",
-    "source_note": "казахская литер..."
+    "source_note": "казахская литер...",
+    "joint_lesson_id": "jl_ильясова_аб_d4_p3"
   },
   {
     "class_id": "9",
@@ -5930,7 +6278,8 @@
     "source_subject": "Физика",
     "source_teacher": "Русина Н.В.",
     "source_time": "11:55 - 12:40",
-    "source_note": "физика"
+    "source_note": "физика",
+    "joint_lesson_id": null
   },
   {
     "class_id": "9",
@@ -5947,7 +6296,8 @@
     "source_subject": "Русский язык",
     "source_teacher": "Дмитриев Е.В.",
     "source_time": "11:55 - 12:40",
-    "source_note": "русский язык"
+    "source_note": "русский язык",
+    "joint_lesson_id": "jl_дмитриев_ев_d1_p4"
   },
   {
     "class_id": "9",
@@ -5964,7 +6314,8 @@
     "source_subject": "Казахский язык и лит",
     "source_teacher": "Ильясова А.Б.",
     "source_time": "11:55 - 12:40",
-    "source_note": "казахская литер..."
+    "source_note": "казахская литер...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "9",
@@ -5981,7 +6332,8 @@
     "source_subject": "История Каз-на",
     "source_teacher": "Бучкова И.О.",
     "source_time": "11:55 - 12:40",
-    "source_note": "география"
+    "source_note": "география",
+    "joint_lesson_id": "jl_бучкова_ио_d3_p4"
   },
   {
     "class_id": "9",
@@ -5998,7 +6350,8 @@
     "source_subject": "Алгебра",
     "source_teacher": "Бабич И.Д.",
     "source_time": "11:55 - 12:40",
-    "source_note": "физика"
+    "source_note": "физика",
+    "joint_lesson_id": "jl_бабич_ид_d4_p4"
   },
   {
     "class_id": "9",
@@ -6015,7 +6368,8 @@
     "source_subject": "Казахский язык и лит",
     "source_teacher": "Ильясова А.Б.",
     "source_time": "12:45 - 13:30",
-    "source_note": "казахская литер..."
+    "source_note": "казахская литер...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "9",
@@ -6032,7 +6386,8 @@
     "source_subject": "Основы права",
     "source_teacher": "Бучкова И.О.",
     "source_time": "12:45 - 13:30",
-    "source_note": "история"
+    "source_note": "история",
+    "joint_lesson_id": "jl_бучкова_ио_d1_p5"
   },
   {
     "class_id": "9",
@@ -6049,7 +6404,8 @@
     "source_subject": "Английский язык",
     "source_teacher": "Алекпарова А.Ж.",
     "source_time": "12:45 - 13:30",
-    "source_note": "английский язык"
+    "source_note": "английский язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "9",
@@ -6066,7 +6422,8 @@
     "source_subject": "Худ. труд",
     "source_teacher": "Романишина И.М.",
     "source_time": "12:45 - 13:30",
-    "source_note": "технология"
+    "source_note": "технология",
+    "joint_lesson_id": "jl_романишина_им_d3_p5"
   },
   {
     "class_id": "9",
@@ -6083,7 +6440,8 @@
     "source_subject": "Английский язык",
     "source_teacher": "Алекпарова А.Ж.",
     "source_time": "12:45 - 13:30",
-    "source_note": "английский язык"
+    "source_note": "английский язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "9",
@@ -6100,7 +6458,8 @@
     "source_subject": "Химия",
     "source_teacher": "Красноперова О.В.",
     "source_time": "13:35 - 14:20",
-    "source_note": "физика"
+    "source_note": "физика",
+    "joint_lesson_id": null
   },
   {
     "class_id": "9",
@@ -6117,7 +6476,8 @@
     "source_subject": "География",
     "source_teacher": "Сидоров В.Б.",
     "source_time": "13:35 - 14:20",
-    "source_note": "физика"
+    "source_note": "физика",
+    "joint_lesson_id": "jl_сидоров_вб_d2_p6"
   },
   {
     "class_id": "9",
@@ -6134,7 +6494,8 @@
     "source_subject": "Информатика",
     "source_teacher": "Бедрина М.Н.",
     "source_time": "13:35 - 14:20",
-    "source_note": "мультимедийный"
+    "source_note": "мультимедийный",
+    "joint_lesson_id": "jl_бедрина_мн_d3_p6"
   },
   {
     "class_id": "9",
@@ -6151,7 +6512,8 @@
     "source_subject": "Химия",
     "source_teacher": "Красноперова О.В.",
     "source_time": "13:35 - 14:20",
-    "source_note": "физика"
+    "source_note": "физика",
+    "joint_lesson_id": null
   },
   {
     "class_id": "9_do",
@@ -6168,7 +6530,8 @@
     "source_subject": "РРиК",
     "source_teacher": "Дукач Т.А.",
     "source_time": "Нет кабинета",
-    "source_note": ""
+    "source_note": "",
+    "joint_lesson_id": null
   },
   {
     "class_id": "9_do",
@@ -6185,7 +6548,8 @@
     "source_subject": "Счет.",
     "source_teacher": "Дукач Т.А.",
     "source_time": "Нет кабинета",
-    "source_note": ""
+    "source_note": "",
+    "joint_lesson_id": null
   },
   {
     "class_id": "9_do",
@@ -6202,7 +6566,8 @@
     "source_subject": "СБО.",
     "source_teacher": "Романишина И.М.",
     "source_time": "Нет кабинета",
-    "source_note": ""
+    "source_note": "",
+    "joint_lesson_id": null
   },
   {
     "class_id": "9_do",
@@ -6219,7 +6584,8 @@
     "source_subject": "РРиК",
     "source_teacher": "Дукач Т.А.",
     "source_time": "Нет кабинета",
-    "source_note": ""
+    "source_note": "",
+    "joint_lesson_id": null
   },
   {
     "class_id": "9_do",
@@ -6236,7 +6602,8 @@
     "source_subject": "Счет.",
     "source_teacher": "Дукач Т.А.",
     "source_time": "Нет кабинета",
-    "source_note": ""
+    "source_note": "",
+    "joint_lesson_id": null
   },
   {
     "class_id": "9_do",
@@ -6253,7 +6620,8 @@
     "source_subject": "Человек и мир.",
     "source_teacher": "Дукач Т.А.",
     "source_time": "Нет кабинета",
-    "source_note": ""
+    "source_note": "",
+    "joint_lesson_id": null
   },
   {
     "class_id": "9_do",
@@ -6270,7 +6638,8 @@
     "source_subject": "ПР",
     "source_teacher": "Дукач Т.А.",
     "source_time": "Нет кабинета",
-    "source_note": ""
+    "source_note": "",
+    "joint_lesson_id": null
   },
   {
     "class_id": "9_do",
@@ -6287,7 +6656,8 @@
     "source_subject": "ИЗО.",
     "source_teacher": "Романишина И.М.",
     "source_time": "Нет кабинета",
-    "source_note": ""
+    "source_note": "",
+    "joint_lesson_id": null
   },
   {
     "class_id": "9_do",
@@ -6304,7 +6674,8 @@
     "source_subject": "Человек и мир.",
     "source_teacher": "Дукач Т.А.",
     "source_time": "Нет кабинета",
-    "source_note": ""
+    "source_note": "",
+    "joint_lesson_id": null
   },
   {
     "class_id": "9_do",
@@ -6321,7 +6692,8 @@
     "source_subject": "Хоз. труд.",
     "source_teacher": "Романишина И.М.",
     "source_time": "Нет кабинета",
-    "source_note": ""
+    "source_note": "",
+    "joint_lesson_id": null
   },
   {
     "class_id": "9_luo",
@@ -6338,7 +6710,8 @@
     "source_subject": "АФК",
     "source_teacher": "Мельников П.В.",
     "source_time": "08:15 - 09:00",
-    "source_note": "спортивный зал"
+    "source_note": "спортивный зал",
+    "joint_lesson_id": "jl_мельников_пв_d1_p0"
   },
   {
     "class_id": "9_luo",
@@ -6355,7 +6728,8 @@
     "source_subject": "Русский язык",
     "source_teacher": "Дмитриев Е.В.",
     "source_time": "08:15 - 09:00",
-    "source_note": "русский язык"
+    "source_note": "русский язык",
+    "joint_lesson_id": "jl_дмитриев_ев_d3_p0"
   },
   {
     "class_id": "9_luo",
@@ -6372,7 +6746,8 @@
     "source_subject": "АФК",
     "source_teacher": "Мельников П.В.",
     "source_time": "08:15 - 09:00",
-    "source_note": "спортивный зал"
+    "source_note": "спортивный зал",
+    "joint_lesson_id": "jl_мельников_пв_d4_p0"
   },
   {
     "class_id": "9_luo",
@@ -6389,7 +6764,8 @@
     "source_subject": "Ч и РР",
     "source_teacher": "Дмитриев Е.В.",
     "source_time": "09:05 - 09:50",
-    "source_note": "русский язык"
+    "source_note": "русский язык",
+    "joint_lesson_id": "jl_дмитриев_ев_d0_p1"
   },
   {
     "class_id": "9_luo",
@@ -6406,7 +6782,8 @@
     "source_subject": "История Каз-на",
     "source_teacher": "Бучкова И.О.",
     "source_time": "09:05 - 09:50",
-    "source_note": "история"
+    "source_note": "история",
+    "joint_lesson_id": "jl_бучкова_ио_d1_p1"
   },
   {
     "class_id": "9_luo",
@@ -6423,7 +6800,8 @@
     "source_subject": "Математика",
     "source_teacher": "Бабич И.Д.",
     "source_time": "09:05 - 09:50",
-    "source_note": "математика"
+    "source_note": "математика",
+    "joint_lesson_id": "jl_бабич_ид_d2_p1"
   },
   {
     "class_id": "9_luo",
@@ -6440,7 +6818,8 @@
     "source_subject": "Математика",
     "source_teacher": "Бабич И.Д.",
     "source_time": "09:05 - 09:50",
-    "source_note": "математика"
+    "source_note": "математика",
+    "joint_lesson_id": "jl_бабич_ид_d3_p1"
   },
   {
     "class_id": "9_luo",
@@ -6457,7 +6836,8 @@
     "source_subject": "Ч и РР",
     "source_teacher": "Дмитриев Е.В.",
     "source_time": "09:05 - 09:50",
-    "source_note": "русский язык"
+    "source_note": "русский язык",
+    "joint_lesson_id": "jl_дмитриев_ев_d4_p1"
   },
   {
     "class_id": "9_luo",
@@ -6474,7 +6854,8 @@
     "source_subject": "Естествознание",
     "source_teacher": "Красноперова О.В.",
     "source_time": "10:05 - 10:50",
-    "source_note": "биология"
+    "source_note": "биология",
+    "joint_lesson_id": "jl_красноперова_ов_d0_p2"
   },
   {
     "class_id": "9_luo",
@@ -6491,7 +6872,8 @@
     "source_subject": "Казахский язык",
     "source_teacher": "Ильясова А.Б.",
     "source_time": "10:05 - 10:50",
-    "source_note": "мультимедийный"
+    "source_note": "мультимедийный",
+    "joint_lesson_id": "jl_ильясова_аб_d1_p2"
   },
   {
     "class_id": "9_luo",
@@ -6508,7 +6890,8 @@
     "source_subject": "Ч и РР",
     "source_teacher": "Дмитриев Е.В.",
     "source_time": "10:05 - 10:50",
-    "source_note": "русский язык"
+    "source_note": "русский язык",
+    "joint_lesson_id": "jl_дмитриев_ев_d2_p2"
   },
   {
     "class_id": "9_luo",
@@ -6525,7 +6908,8 @@
     "source_subject": "Естествознание",
     "source_teacher": "Красноперова О.В.",
     "source_time": "10:05 - 10:50",
-    "source_note": "биология"
+    "source_note": "биология",
+    "joint_lesson_id": "jl_красноперова_ов_d3_p2"
   },
   {
     "class_id": "9_luo",
@@ -6542,7 +6926,8 @@
     "source_subject": "География",
     "source_teacher": "Сидоров В.Б.",
     "source_time": "10:05 - 10:50",
-    "source_note": "география"
+    "source_note": "география",
+    "joint_lesson_id": "jl_сидоров_вб_d4_p2"
   },
   {
     "class_id": "9_luo",
@@ -6559,7 +6944,8 @@
     "source_subject": "Математика",
     "source_teacher": "Бабич И.Д.",
     "source_time": "10:55 - 11:40",
-    "source_note": "математика"
+    "source_note": "математика",
+    "joint_lesson_id": "jl_бабич_ид_d0_p3"
   },
   {
     "class_id": "9_luo",
@@ -6576,7 +6962,8 @@
     "source_subject": "Математика",
     "source_teacher": "Бабич И.Д.",
     "source_time": "10:55 - 11:40",
-    "source_note": "математика"
+    "source_note": "математика",
+    "joint_lesson_id": "jl_бабич_ид_d1_p3"
   },
   {
     "class_id": "9_luo",
@@ -6593,7 +6980,8 @@
     "source_subject": "АФК",
     "source_teacher": "Мельников П.В.",
     "source_time": "10:55 - 11:40",
-    "source_note": "спортивный зал"
+    "source_note": "спортивный зал",
+    "joint_lesson_id": "jl_мельников_пв_d3_p3"
   },
   {
     "class_id": "9_luo",
@@ -6610,7 +6998,8 @@
     "source_subject": "Казахский язык",
     "source_teacher": "Ильясова А.Б.",
     "source_time": "10:55 - 11:40",
-    "source_note": "мультимедийный"
+    "source_note": "мультимедийный",
+    "joint_lesson_id": "jl_ильясова_аб_d4_p3"
   },
   {
     "class_id": "9_luo",
@@ -6627,7 +7016,8 @@
     "source_subject": "Русский язык",
     "source_teacher": "Дмитриев Е.В.",
     "source_time": "11:55 - 12:40",
-    "source_note": "русский язык"
+    "source_note": "русский язык",
+    "joint_lesson_id": "jl_дмитриев_ев_d1_p4"
   },
   {
     "class_id": "9_luo",
@@ -6644,7 +7034,8 @@
     "source_subject": "История Каз-на",
     "source_teacher": "Бучкова И.О.",
     "source_time": "11:55 - 12:40",
-    "source_note": "история"
+    "source_note": "история",
+    "joint_lesson_id": "jl_бучкова_ио_d3_p4"
   },
   {
     "class_id": "9_luo",
@@ -6661,7 +7052,8 @@
     "source_subject": "Математика",
     "source_teacher": "Бабич И.Д.",
     "source_time": "11:55 - 12:40",
-    "source_note": "математика"
+    "source_note": "математика",
+    "joint_lesson_id": "jl_бабич_ид_d4_p4"
   },
   {
     "class_id": "9_luo",
@@ -6678,7 +7070,8 @@
     "source_subject": "Общество и право",
     "source_teacher": "Бучкова И.О.",
     "source_time": "12:45 - 13:30",
-    "source_note": "история"
+    "source_note": "история",
+    "joint_lesson_id": "jl_бучкова_ио_d1_p5"
   },
   {
     "class_id": "9_luo",
@@ -6695,7 +7088,8 @@
     "source_subject": "ПТО",
     "source_teacher": "Романишина И.М.",
     "source_time": "12:45 - 13:30",
-    "source_note": "технология (мал..."
+    "source_note": "технология (мал...",
+    "joint_lesson_id": "jl_романишина_им_d3_p5"
   },
   {
     "class_id": "9_luo",
@@ -6712,7 +7106,8 @@
     "source_subject": "География",
     "source_teacher": "Сидоров В.Б.",
     "source_time": "13:35 - 14:20",
-    "source_note": "география"
+    "source_note": "география",
+    "joint_lesson_id": "jl_сидоров_вб_d2_p6"
   },
   {
     "class_id": "9_luo",
@@ -6729,7 +7124,8 @@
     "source_subject": "Информатика",
     "source_teacher": "Бедрина М.Н.",
     "source_time": "13:35 - 14:20",
-    "source_note": "мультимедиа каб..."
+    "source_note": "мультимедиа каб...",
+    "joint_lesson_id": "jl_бедрина_мн_d3_p6"
   },
   {
     "class_id": "10а",
@@ -6746,7 +7142,8 @@
     "source_subject": "Қазақстан тарихы",
     "source_teacher": "Досаева М.Х.",
     "source_time": "08:15 - 09:00",
-    "source_note": "история"
+    "source_note": "история",
+    "joint_lesson_id": null
   },
   {
     "class_id": "10а",
@@ -6763,7 +7160,8 @@
     "source_subject": "Ағылшын тілі",
     "source_teacher": "Акауова И.Н.",
     "source_time": "08:15 - 09:00",
-    "source_note": "ағылшын тілі"
+    "source_note": "ағылшын тілі",
+    "joint_lesson_id": null
   },
   {
     "class_id": "10а",
@@ -6780,7 +7178,8 @@
     "source_subject": "Қазақ әдебиет",
     "source_teacher": "Ильясова А.Б.",
     "source_time": "08:15 - 09:00",
-    "source_note": "мультимедиа каб..."
+    "source_note": "мультимедиа каб...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "10а",
@@ -6797,7 +7196,8 @@
     "source_subject": "Ағылшын тілі",
     "source_teacher": "Акауова И.Н.",
     "source_time": "09:05 - 09:50",
-    "source_note": "ағылшын тілі"
+    "source_note": "ағылшын тілі",
+    "joint_lesson_id": null
   },
   {
     "class_id": "10а",
@@ -6814,7 +7214,8 @@
     "source_subject": "Геометрия",
     "source_teacher": "Ізбасты М.Ж.",
     "source_time": "09:05 - 09:50",
-    "source_note": "физика"
+    "source_note": "физика",
+    "joint_lesson_id": null
   },
   {
     "class_id": "10а",
@@ -6831,7 +7232,8 @@
     "source_subject": "Қазақстан тарихы",
     "source_teacher": "Досаева М.Х.",
     "source_time": "09:05 - 09:50",
-    "source_note": "история"
+    "source_note": "история",
+    "joint_lesson_id": null
   },
   {
     "class_id": "10а",
@@ -6848,7 +7250,8 @@
     "source_subject": "Ағылшын тілі",
     "source_teacher": "Акауова И.Н.",
     "source_time": "09:05 - 09:50",
-    "source_note": "ағылшын тілі"
+    "source_note": "ағылшын тілі",
+    "joint_lesson_id": null
   },
   {
     "class_id": "10а",
@@ -6865,7 +7268,8 @@
     "source_subject": "Алгебра ж. анализ б,",
     "source_teacher": "Ізбасты М.Ж.",
     "source_time": "10:05 - 10:50",
-    "source_note": "химия"
+    "source_note": "химия",
+    "joint_lesson_id": null
   },
   {
     "class_id": "10а",
@@ -6882,7 +7286,8 @@
     "source_subject": "Дүниежүзі тарихы",
     "source_teacher": "Досаева М.Х.",
     "source_time": "10:05 - 10:50",
-    "source_note": "история"
+    "source_note": "история",
+    "joint_lesson_id": null
   },
   {
     "class_id": "10а",
@@ -6899,7 +7304,8 @@
     "source_subject": "Қазақ тілі",
     "source_teacher": "Ильясова А.Б.",
     "source_time": "10:05 - 10:50",
-    "source_note": "мультимедиа каб..."
+    "source_note": "мультимедиа каб...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "10а",
@@ -6916,7 +7322,8 @@
     "source_subject": "Алгебра ж. анализ б,",
     "source_teacher": "Ізбасты М.Ж.",
     "source_time": "10:05 - 10:50",
-    "source_note": "химия"
+    "source_note": "химия",
+    "joint_lesson_id": null
   },
   {
     "class_id": "10а",
@@ -6933,7 +7340,8 @@
     "source_subject": "География",
     "source_teacher": "Сапаргалиева Г.С.",
     "source_time": "10:05 - 10:50",
-    "source_note": "история"
+    "source_note": "история",
+    "joint_lesson_id": null
   },
   {
     "class_id": "10а",
@@ -6950,7 +7358,8 @@
     "source_subject": "АӘжТД",
     "source_teacher": "Жолдаспаев А.К.",
     "source_time": "10:55 - 11:40",
-    "source_note": "НВП"
+    "source_note": "НВП",
+    "joint_lesson_id": null
   },
   {
     "class_id": "10а",
@@ -6967,7 +7376,8 @@
     "source_subject": "Қазақ әдебиет",
     "source_teacher": "Ильясова А.Б.",
     "source_time": "10:55 - 11:40",
-    "source_note": "мультимедиа каб..."
+    "source_note": "мультимедиа каб...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "10а",
@@ -6984,7 +7394,8 @@
     "source_subject": "Алгебра ж. анализ б,",
     "source_teacher": "Ізбасты М.Ж.",
     "source_time": "10:55 - 11:40",
-    "source_note": "химия"
+    "source_note": "химия",
+    "joint_lesson_id": null
   },
   {
     "class_id": "10а",
@@ -7001,7 +7412,8 @@
     "source_subject": "Құқық негіздері",
     "source_teacher": "Досаева М.Х.",
     "source_time": "10:55 - 11:40",
-    "source_note": "история"
+    "source_note": "история",
+    "joint_lesson_id": null
   },
   {
     "class_id": "10а",
@@ -7018,7 +7430,8 @@
     "source_subject": "Алгебра ж. анализ б,",
     "source_teacher": "Ізбасты М.Ж.",
     "source_time": "10:55 - 11:40",
-    "source_note": "химия"
+    "source_note": "химия",
+    "joint_lesson_id": null
   },
   {
     "class_id": "10а",
@@ -7035,7 +7448,8 @@
     "source_subject": "Физика",
     "source_teacher": "Ізбасты М.Ж.",
     "source_time": "11:55 - 12:40",
-    "source_note": "физика"
+    "source_note": "физика",
+    "joint_lesson_id": null
   },
   {
     "class_id": "10а",
@@ -7052,7 +7466,8 @@
     "source_subject": "Дене шынықтыру.",
     "source_teacher": "Кашиков Е.Е.",
     "source_time": "11:55 - 12:40",
-    "source_note": "спортивный зал"
+    "source_note": "спортивный зал",
+    "joint_lesson_id": null
   },
   {
     "class_id": "10а",
@@ -7069,7 +7484,8 @@
     "source_subject": "Дене шынықтыру.",
     "source_teacher": "Кашиков Е.Е.",
     "source_time": "11:55 - 12:40",
-    "source_note": "спортивный зал"
+    "source_note": "спортивный зал",
+    "joint_lesson_id": null
   },
   {
     "class_id": "10а",
@@ -7086,7 +7502,8 @@
     "source_subject": "Дене шынықтыру.",
     "source_teacher": "Кашиков Е.Е.",
     "source_time": "11:55 - 12:40",
-    "source_note": "спортивный зал"
+    "source_note": "спортивный зал",
+    "joint_lesson_id": null
   },
   {
     "class_id": "10а",
@@ -7103,7 +7520,8 @@
     "source_subject": "Биология",
     "source_teacher": "Балташева З.Т.",
     "source_time": "11:55 - 12:40",
-    "source_note": "мультимедиа каб..."
+    "source_note": "мультимедиа каб...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "10а",
@@ -7120,7 +7538,8 @@
     "source_subject": "Орыс тілі ж/е әдеб.",
     "source_teacher": "Дмитриев Е.В.",
     "source_time": "12:45 - 13:30",
-    "source_note": "казахская литер..."
+    "source_note": "казахская литер...",
+    "joint_lesson_id": "jl_дмитриев_ев_d0_p5"
   },
   {
     "class_id": "10а",
@@ -7137,7 +7556,8 @@
     "source_subject": "Информатика",
     "source_teacher": "Жантемиров Э.А.",
     "source_time": "12:45 - 13:30",
-    "source_note": "информатика"
+    "source_note": "информатика",
+    "joint_lesson_id": null
   },
   {
     "class_id": "10а",
@@ -7154,7 +7574,8 @@
     "source_subject": "Физика",
     "source_teacher": "Ізбасты М.Ж.",
     "source_time": "12:45 - 13:30",
-    "source_note": "физика"
+    "source_note": "физика",
+    "joint_lesson_id": null
   },
   {
     "class_id": "10а",
@@ -7171,7 +7592,8 @@
     "source_subject": "Геометрия",
     "source_teacher": "Ізбасты М.Ж.",
     "source_time": "12:45 - 13:30",
-    "source_note": "физика"
+    "source_note": "физика",
+    "joint_lesson_id": null
   },
   {
     "class_id": "10а",
@@ -7188,7 +7610,8 @@
     "source_subject": "Химия",
     "source_teacher": "Балташева З.Т.",
     "source_time": "12:45 - 13:30",
-    "source_note": "химия"
+    "source_note": "химия",
+    "joint_lesson_id": null
   },
   {
     "class_id": "10а",
@@ -7205,7 +7628,8 @@
     "source_subject": "Информатика",
     "source_teacher": "Жантемиров Э.А.",
     "source_time": "13:35 - 14:20",
-    "source_note": "информатика"
+    "source_note": "информатика",
+    "joint_lesson_id": null
   },
   {
     "class_id": "10а",
@@ -7222,7 +7646,8 @@
     "source_subject": "Биология",
     "source_teacher": "Балташева З.Т.",
     "source_time": "13:35 - 14:20",
-    "source_note": "мультимедиа каб..."
+    "source_note": "мультимедиа каб...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "10а",
@@ -7239,7 +7664,8 @@
     "source_subject": "География",
     "source_teacher": "Сапаргалиева Г.С.",
     "source_time": "13:35 - 14:20",
-    "source_note": "история"
+    "source_note": "история",
+    "joint_lesson_id": null
   },
   {
     "class_id": "10а",
@@ -7256,7 +7682,8 @@
     "source_subject": "Орыс тілі ж/е әдеб.",
     "source_teacher": "Дмитриев Е.В.",
     "source_time": "13:35 - 14:20",
-    "source_note": "казахская литер..."
+    "source_note": "казахская литер...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "10а",
@@ -7273,7 +7700,8 @@
     "source_subject": "Химия",
     "source_teacher": "Балташева З.Т.",
     "source_time": "14:25 - 15:10",
-    "source_note": "химия"
+    "source_note": "химия",
+    "joint_lesson_id": null
   },
   {
     "class_id": "10б",
@@ -7290,7 +7718,8 @@
     "source_subject": "Английский язык",
     "source_teacher": "Акауова И.Н.",
     "source_time": "08:15 - 09:00",
-    "source_note": "английский язык"
+    "source_note": "английский язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "10б",
@@ -7307,7 +7736,8 @@
     "source_subject": "Информатика",
     "source_teacher": "Бедрина М.Н.",
     "source_time": "08:15 - 09:00",
-    "source_note": "информатика"
+    "source_note": "информатика",
+    "joint_lesson_id": null
   },
   {
     "class_id": "10б",
@@ -7324,7 +7754,8 @@
     "source_subject": "ОПиБ",
     "source_teacher": "Досаева М.Х.",
     "source_time": "08:15 - 09:00",
-    "source_note": "история"
+    "source_note": "история",
+    "joint_lesson_id": null
   },
   {
     "class_id": "10б",
@@ -7341,7 +7772,8 @@
     "source_subject": "Информатика",
     "source_teacher": "Бедрина М.Н.",
     "source_time": "08:15 - 09:00",
-    "source_note": "информатика"
+    "source_note": "информатика",
+    "joint_lesson_id": null
   },
   {
     "class_id": "10б",
@@ -7358,7 +7790,8 @@
     "source_subject": "Алгебра и нач. ан.",
     "source_teacher": "Пащенко Н.А.",
     "source_time": "08:15 - 09:00",
-    "source_note": "химия"
+    "source_note": "химия",
+    "joint_lesson_id": null
   },
   {
     "class_id": "10б",
@@ -7375,7 +7808,8 @@
     "source_subject": "Биология",
     "source_teacher": "Красноперова О.В.",
     "source_time": "09:05 - 09:50",
-    "source_note": "биология"
+    "source_note": "биология",
+    "joint_lesson_id": null
   },
   {
     "class_id": "10б",
@@ -7392,7 +7826,8 @@
     "source_subject": "Английский язык",
     "source_teacher": "Акауова И.Н.",
     "source_time": "09:05 - 09:50",
-    "source_note": "английский язык"
+    "source_note": "английский язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "10б",
@@ -7409,7 +7844,8 @@
     "source_subject": "Алгебра и нач. ан.",
     "source_teacher": "Пащенко Н.А.",
     "source_time": "09:05 - 09:50",
-    "source_note": "химия"
+    "source_note": "химия",
+    "joint_lesson_id": null
   },
   {
     "class_id": "10б",
@@ -7426,7 +7862,8 @@
     "source_subject": "Физика",
     "source_teacher": "Русина Н.В.",
     "source_time": "09:05 - 09:50",
-    "source_note": "физика"
+    "source_note": "физика",
+    "joint_lesson_id": null
   },
   {
     "class_id": "10б",
@@ -7443,7 +7880,8 @@
     "source_subject": "Казахский язык и лит",
     "source_teacher": "Асаева Ж.Х.",
     "source_time": "09:05 - 09:50",
-    "source_note": "казахская литер..."
+    "source_note": "казахская литер...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "10б",
@@ -7460,7 +7898,8 @@
     "source_subject": "Физика",
     "source_teacher": "Русина Н.В.",
     "source_time": "10:05 - 10:50",
-    "source_note": "физика"
+    "source_note": "физика",
+    "joint_lesson_id": null
   },
   {
     "class_id": "10б",
@@ -7477,7 +7916,8 @@
     "source_subject": "Геометрия",
     "source_teacher": "Пащенко Н.А.",
     "source_time": "10:05 - 10:50",
-    "source_note": "математика"
+    "source_note": "математика",
+    "joint_lesson_id": null
   },
   {
     "class_id": "10б",
@@ -7494,7 +7934,8 @@
     "source_subject": "НВиТП",
     "source_teacher": "Ольков Г.В.",
     "source_time": "10:05 - 10:50",
-    "source_note": "НВП"
+    "source_note": "НВП",
+    "joint_lesson_id": null
   },
   {
     "class_id": "10б",
@@ -7511,7 +7952,8 @@
     "source_subject": "Рус. литература",
     "source_teacher": "Дмитриев Е.В.",
     "source_time": "10:05 - 10:50",
-    "source_note": "русский язык"
+    "source_note": "русский язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "10б",
@@ -7528,7 +7970,8 @@
     "source_subject": "Физика",
     "source_teacher": "Русина Н.В.",
     "source_time": "10:05 - 10:50",
-    "source_note": "физика"
+    "source_note": "физика",
+    "joint_lesson_id": null
   },
   {
     "class_id": "10б",
@@ -7545,7 +7988,8 @@
     "source_subject": "История Каз-на",
     "source_teacher": "Досаева М.Х.",
     "source_time": "10:55 - 11:40",
-    "source_note": "история"
+    "source_note": "история",
+    "joint_lesson_id": null
   },
   {
     "class_id": "10б",
@@ -7562,7 +8006,8 @@
     "source_subject": "Физкультура.",
     "source_teacher": "Мельников П.В.",
     "source_time": "10:55 - 11:40",
-    "source_note": "спортивный зал"
+    "source_note": "спортивный зал",
+    "joint_lesson_id": null
   },
   {
     "class_id": "10б",
@@ -7579,7 +8024,8 @@
     "source_subject": "Биология",
     "source_teacher": "Красноперова О.В.",
     "source_time": "10:55 - 11:40",
-    "source_note": "биология"
+    "source_note": "биология",
+    "joint_lesson_id": null
   },
   {
     "class_id": "10б",
@@ -7596,7 +8042,8 @@
     "source_subject": "Геометрия",
     "source_teacher": "Пащенко Н.А.",
     "source_time": "10:55 - 11:40",
-    "source_note": "математика"
+    "source_note": "математика",
+    "joint_lesson_id": null
   },
   {
     "class_id": "10б",
@@ -7613,7 +8060,8 @@
     "source_subject": "Всемирная история",
     "source_teacher": "Досаева М.Х.",
     "source_time": "10:55 - 11:40",
-    "source_note": "история"
+    "source_note": "история",
+    "joint_lesson_id": null
   },
   {
     "class_id": "10б",
@@ -7630,7 +8078,8 @@
     "source_subject": "Русский язык",
     "source_teacher": "Дмитриев Е.В.",
     "source_time": "11:55 - 12:40",
-    "source_note": "русский язык"
+    "source_note": "русский язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "10б",
@@ -7647,7 +8096,8 @@
     "source_subject": "Алгебра и нач. ан.",
     "source_teacher": "Пащенко Н.А.",
     "source_time": "11:55 - 12:40",
-    "source_note": "химия"
+    "source_note": "химия",
+    "joint_lesson_id": null
   },
   {
     "class_id": "10б",
@@ -7664,7 +8114,8 @@
     "source_subject": "Казахский язык и лит",
     "source_teacher": "Асаева Ж.Х.",
     "source_time": "11:55 - 12:40",
-    "source_note": "казахская литер..."
+    "source_note": "казахская литер...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "10б",
@@ -7681,7 +8132,8 @@
     "source_subject": "Физкультура.",
     "source_teacher": "Мельников П.В.",
     "source_time": "11:55 - 12:40",
-    "source_note": "спортивный зал"
+    "source_note": "спортивный зал",
+    "joint_lesson_id": null
   },
   {
     "class_id": "10б",
@@ -7698,7 +8150,8 @@
     "source_subject": "Биология",
     "source_teacher": "Красноперова О.В.",
     "source_time": "11:55 - 12:40",
-    "source_note": "биология"
+    "source_note": "биология",
+    "joint_lesson_id": null
   },
   {
     "class_id": "10б",
@@ -7715,7 +8168,8 @@
     "source_subject": "Алгебра и нач. ан.",
     "source_teacher": "Пащенко Н.А.",
     "source_time": "12:45 - 13:30",
-    "source_note": "химия"
+    "source_note": "химия",
+    "joint_lesson_id": null
   },
   {
     "class_id": "10б",
@@ -7732,7 +8186,8 @@
     "source_subject": "Казахский язык и лит",
     "source_teacher": "Асаева Ж.Х.",
     "source_time": "12:45 - 13:30",
-    "source_note": "казахская литер..."
+    "source_note": "казахская литер...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "10б",
@@ -7749,7 +8204,8 @@
     "source_subject": "Рус. литература",
     "source_teacher": "Дмитриев Е.В.",
     "source_time": "12:45 - 13:30",
-    "source_note": "русский язык"
+    "source_note": "русский язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "10б",
@@ -7766,7 +8222,8 @@
     "source_subject": "Английский язык",
     "source_teacher": "Акауова И.Н.",
     "source_time": "12:45 - 13:30",
-    "source_note": "английский язык"
+    "source_note": "английский язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "11",
@@ -7783,7 +8240,8 @@
     "source_subject": "Физика",
     "source_teacher": "Русина Н.В.",
     "source_time": "08:15 - 09:00",
-    "source_note": "физика"
+    "source_note": "физика",
+    "joint_lesson_id": null
   },
   {
     "class_id": "11",
@@ -7800,7 +8258,8 @@
     "source_subject": "Рус. литература",
     "source_teacher": "Дмитриев Е.В.",
     "source_time": "08:15 - 09:00",
-    "source_note": "русский язык"
+    "source_note": "русский язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "11",
@@ -7817,7 +8276,8 @@
     "source_subject": "Английский язык",
     "source_teacher": "Алекпарова А.Ж.",
     "source_time": "08:15 - 09:00",
-    "source_note": "английский язык"
+    "source_note": "английский язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "11",
@@ -7834,7 +8294,8 @@
     "source_subject": "Биология",
     "source_teacher": "Красноперова О.В.",
     "source_time": "08:15 - 09:00",
-    "source_note": "биология"
+    "source_note": "биология",
+    "joint_lesson_id": null
   },
   {
     "class_id": "11",
@@ -7851,7 +8312,8 @@
     "source_subject": "Биология",
     "source_teacher": "Красноперова О.В.",
     "source_time": "08:15 - 09:00",
-    "source_note": "биология"
+    "source_note": "биология",
+    "joint_lesson_id": null
   },
   {
     "class_id": "11",
@@ -7868,7 +8330,8 @@
     "source_subject": "Алгебра и нач. ан.",
     "source_teacher": "Пащенко Н.А.",
     "source_time": "09:05 - 09:50",
-    "source_note": "математика"
+    "source_note": "математика",
+    "joint_lesson_id": null
   },
   {
     "class_id": "11",
@@ -7885,7 +8348,8 @@
     "source_subject": "Геометрия",
     "source_teacher": "Пащенко Н.А.",
     "source_time": "09:05 - 09:50",
-    "source_note": "математика"
+    "source_note": "математика",
+    "joint_lesson_id": null
   },
   {
     "class_id": "11",
@@ -7902,7 +8366,8 @@
     "source_subject": "Информатика",
     "source_teacher": "Бедрина М.Н.",
     "source_time": "09:05 - 09:50",
-    "source_note": "информатика"
+    "source_note": "информатика",
+    "joint_lesson_id": null
   },
   {
     "class_id": "11",
@@ -7919,7 +8384,8 @@
     "source_subject": "Геометрия",
     "source_teacher": "Пащенко Н.А.",
     "source_time": "09:05 - 09:50",
-    "source_note": "математика"
+    "source_note": "математика",
+    "joint_lesson_id": null
   },
   {
     "class_id": "11",
@@ -7936,7 +8402,8 @@
     "source_subject": "Всемирная история",
     "source_teacher": "Досаева М.Х.",
     "source_time": "09:05 - 09:50",
-    "source_note": "история"
+    "source_note": "история",
+    "joint_lesson_id": null
   },
   {
     "class_id": "11",
@@ -7953,7 +8420,8 @@
     "source_subject": "Русский язык",
     "source_teacher": "Дмитриев Е.В.",
     "source_time": "10:05 - 10:50",
-    "source_note": "русский язык"
+    "source_note": "русский язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "11",
@@ -7970,7 +8438,8 @@
     "source_subject": "Казахский язык и лит",
     "source_teacher": "Асаева Ж.Х.",
     "source_time": "10:05 - 10:50",
-    "source_note": "казахская литер..."
+    "source_note": "казахская литер...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "11",
@@ -7987,7 +8456,8 @@
     "source_subject": "Алгебра и нач. ан.",
     "source_teacher": "Пащенко Н.А.",
     "source_time": "10:05 - 10:50",
-    "source_note": "математика"
+    "source_note": "математика",
+    "joint_lesson_id": null
   },
   {
     "class_id": "11",
@@ -8004,7 +8474,8 @@
     "source_subject": "Физкультура.",
     "source_teacher": "Мельников П.В.",
     "source_time": "10:05 - 10:50",
-    "source_note": "спортивный зал"
+    "source_note": "спортивный зал",
+    "joint_lesson_id": null
   },
   {
     "class_id": "11",
@@ -8021,7 +8492,8 @@
     "source_subject": "Английский язык",
     "source_teacher": "Алекпарова А.Ж.",
     "source_time": "10:05 - 10:50",
-    "source_note": "английский язык"
+    "source_note": "английский язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "11",
@@ -8038,7 +8510,8 @@
     "source_subject": "Биология",
     "source_teacher": "Красноперова О.В.",
     "source_time": "10:55 - 11:40",
-    "source_note": "биология"
+    "source_note": "биология",
+    "joint_lesson_id": null
   },
   {
     "class_id": "11",
@@ -8055,7 +8528,8 @@
     "source_subject": "Алгебра и нач. ан.",
     "source_teacher": "Пащенко Н.А.",
     "source_time": "10:55 - 11:40",
-    "source_note": "математика"
+    "source_note": "математика",
+    "joint_lesson_id": null
   },
   {
     "class_id": "11",
@@ -8072,7 +8546,8 @@
     "source_subject": "ОПиБ",
     "source_teacher": "Досаева М.Х.",
     "source_time": "10:55 - 11:40",
-    "source_note": "история"
+    "source_note": "история",
+    "joint_lesson_id": null
   },
   {
     "class_id": "11",
@@ -8089,7 +8564,8 @@
     "source_subject": "Физика",
     "source_teacher": "Русина Н.В.",
     "source_time": "10:55 - 11:40",
-    "source_note": "физика"
+    "source_note": "физика",
+    "joint_lesson_id": null
   },
   {
     "class_id": "11",
@@ -8106,7 +8582,8 @@
     "source_subject": "Алгебра и нач. ан.",
     "source_teacher": "Пащенко Н.А.",
     "source_time": "10:55 - 11:40",
-    "source_note": "математика"
+    "source_note": "математика",
+    "joint_lesson_id": null
   },
   {
     "class_id": "11",
@@ -8123,7 +8600,8 @@
     "source_subject": "НВиТП",
     "source_teacher": "Ольков Г.В.",
     "source_time": "11:55 - 12:40",
-    "source_note": "НВП"
+    "source_note": "НВП",
+    "joint_lesson_id": null
   },
   {
     "class_id": "11",
@@ -8140,7 +8618,8 @@
     "source_subject": "Физкультура.",
     "source_teacher": "Мельников П.В.",
     "source_time": "11:55 - 12:40",
-    "source_note": "спортивный зал"
+    "source_note": "спортивный зал",
+    "joint_lesson_id": null
   },
   {
     "class_id": "11",
@@ -8157,7 +8636,8 @@
     "source_subject": "Физика",
     "source_teacher": "Русина Н.В.",
     "source_time": "11:55 - 12:40",
-    "source_note": "физика"
+    "source_note": "физика",
+    "joint_lesson_id": null
   },
   {
     "class_id": "11",
@@ -8174,7 +8654,8 @@
     "source_subject": "Рус. литература",
     "source_teacher": "Дмитриев Е.В.",
     "source_time": "11:55 - 12:40",
-    "source_note": "русский язык"
+    "source_note": "русский язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "11",
@@ -8191,7 +8672,8 @@
     "source_subject": "Информатика",
     "source_teacher": "Бедрина М.Н.",
     "source_time": "11:55 - 12:40",
-    "source_note": "информатика"
+    "source_note": "информатика",
+    "joint_lesson_id": null
   },
   {
     "class_id": "11",
@@ -8208,7 +8690,8 @@
     "source_subject": "История Каз-на",
     "source_teacher": "Досаева М.Х.",
     "source_time": "12:45 - 13:30",
-    "source_note": "история"
+    "source_note": "история",
+    "joint_lesson_id": null
   },
   {
     "class_id": "11",
@@ -8225,7 +8708,8 @@
     "source_subject": "Английский язык",
     "source_teacher": "Алекпарова А.Ж.",
     "source_time": "12:45 - 13:30",
-    "source_note": "английский язык"
+    "source_note": "английский язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "11",
@@ -8242,7 +8726,8 @@
     "source_subject": "Казахский язык и лит",
     "source_teacher": "Асаева Ж.Х.",
     "source_time": "12:45 - 13:30",
-    "source_note": "казахская литер..."
+    "source_note": "казахская литер...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "11",
@@ -8259,7 +8744,8 @@
     "source_subject": "Казахский язык и лит",
     "source_teacher": "Асаева Ж.Х.",
     "source_time": "12:45 - 13:30",
-    "source_note": "казахская литер..."
+    "source_note": "казахская литер...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "3а",
@@ -8276,7 +8762,8 @@
     "source_subject": "Қазақ тілі",
     "source_teacher": "Актаева А.Е.",
     "source_time": "08:15 - 09:00",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_актаева_ае_d0_p0"
   },
   {
     "class_id": "3а",
@@ -8293,7 +8780,8 @@
     "source_subject": "Әдебиеттік оқу.",
     "source_teacher": "Актаева А.Е.",
     "source_time": "08:15 - 09:00",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_актаева_ае_d1_p0"
   },
   {
     "class_id": "3а",
@@ -8310,7 +8798,8 @@
     "source_subject": "Математика",
     "source_teacher": "Актаева А.Е.",
     "source_time": "08:15 - 09:00",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_актаева_ае_d2_p0"
   },
   {
     "class_id": "3а",
@@ -8327,7 +8816,8 @@
     "source_subject": "Ағылшын тілі",
     "source_teacher": "Акауова И.Н.",
     "source_time": "08:15 - 09:00",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "3а",
@@ -8344,7 +8834,8 @@
     "source_subject": "Математика",
     "source_teacher": "Актаева А.Е.",
     "source_time": "08:15 - 09:00",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_актаева_ае_d4_p0"
   },
   {
     "class_id": "3а",
@@ -8361,7 +8852,8 @@
     "source_subject": "Дүниетану",
     "source_teacher": "Актаева А.Е.",
     "source_time": "09:05 - 09:50",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_актаева_ае_d0_p1"
   },
   {
     "class_id": "3а",
@@ -8378,7 +8870,8 @@
     "source_subject": "ЦС",
     "source_teacher": "Жантемиров Э.А.",
     "source_time": "09:05 - 09:50",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "3а",
@@ -8395,7 +8888,8 @@
     "source_subject": "Музыка.",
     "source_teacher": "Актаева А.Е.",
     "source_time": "09:05 - 09:50",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_актаева_ае_d2_p1"
   },
   {
     "class_id": "3а",
@@ -8412,7 +8906,8 @@
     "source_subject": "Әдебиеттік оқу.",
     "source_teacher": "Актаева А.Е.",
     "source_time": "09:05 - 09:50",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_актаева_ае_d3_p1"
   },
   {
     "class_id": "3а",
@@ -8429,7 +8924,8 @@
     "source_subject": "Әдебиеттік оқу.",
     "source_teacher": "Актаева А.Е.",
     "source_time": "09:05 - 09:50",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_актаева_ае_d4_p1"
   },
   {
     "class_id": "3а",
@@ -8446,7 +8942,8 @@
     "source_subject": "Математика",
     "source_teacher": "Актаева А.Е.",
     "source_time": "10:05 - 10:50",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_актаева_ае_d0_p2"
   },
   {
     "class_id": "3а",
@@ -8463,7 +8960,8 @@
     "source_subject": "бейнелеу өнері",
     "source_teacher": "Жекеева Н.А.",
     "source_time": "10:05 - 10:50",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_жекеева_на_d1_p2"
   },
   {
     "class_id": "3а",
@@ -8480,7 +8978,8 @@
     "source_subject": "Дене шынықтыру.",
     "source_teacher": "Кашиков Е.Е.",
     "source_time": "10:05 - 10:50",
-    "source_note": "спортивный зал"
+    "source_note": "спортивный зал",
+    "joint_lesson_id": "jl_кашиков_ее_d2_p2"
   },
   {
     "class_id": "3а",
@@ -8497,7 +8996,8 @@
     "source_subject": "Еңбекке баулу",
     "source_teacher": "Жекеева Н.А.",
     "source_time": "10:05 - 10:50",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_жекеева_на_d3_p2"
   },
   {
     "class_id": "3а",
@@ -8514,7 +9014,8 @@
     "source_subject": "Ағылшын тілі",
     "source_teacher": "Акауова И.Н.",
     "source_time": "10:05 - 10:50",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "3а",
@@ -8531,7 +9032,8 @@
     "source_subject": "Дене шынықтыру.",
     "source_teacher": "Кашиков Е.Е.",
     "source_time": "10:55 - 11:40",
-    "source_note": "спортивный зал"
+    "source_note": "спортивный зал",
+    "joint_lesson_id": "jl_кашиков_ее_d0_p3"
   },
   {
     "class_id": "3а",
@@ -8548,7 +9050,8 @@
     "source_subject": "Математика",
     "source_teacher": "Актаева А.Е.",
     "source_time": "10:55 - 11:40",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_актаева_ае_d1_p3"
   },
   {
     "class_id": "3а",
@@ -8565,7 +9068,8 @@
     "source_subject": "Қазақ тілі",
     "source_teacher": "Актаева А.Е.",
     "source_time": "10:55 - 11:40",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "3а",
@@ -8582,7 +9086,8 @@
     "source_subject": "Математика",
     "source_teacher": "Актаева А.Е.",
     "source_time": "10:55 - 11:40",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "3а",
@@ -8599,7 +9104,8 @@
     "source_subject": "Дене шынықтыру.",
     "source_teacher": "Кашиков Е.Е.",
     "source_time": "10:55 - 11:40",
-    "source_note": "спортивный зал"
+    "source_note": "спортивный зал",
+    "joint_lesson_id": "jl_кашиков_ее_d4_p3"
   },
   {
     "class_id": "3а",
@@ -8616,7 +9122,8 @@
     "source_subject": "Жаратылыстану",
     "source_teacher": "Актаева А.Е.",
     "source_time": "11:55 - 12:40",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "3а",
@@ -8633,7 +9140,8 @@
     "source_subject": "Орыс тілі",
     "source_teacher": "Актаева А.Е.",
     "source_time": "11:55 - 12:40",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "3а",
@@ -8650,7 +9158,8 @@
     "source_subject": "Қазақ тілі",
     "source_teacher": "Актаева А.Е.",
     "source_time": "11:55 - 12:40",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "3а",
@@ -8667,7 +9176,8 @@
     "source_subject": "Қазақ тілі",
     "source_teacher": "Актаева А.Е.",
     "source_time": "11:55 - 12:40",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "3а",
@@ -8684,7 +9194,8 @@
     "source_subject": "Орыс тілі",
     "source_teacher": "Актаева А.Е.",
     "source_time": "12:45 - 13:30",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "3б",
@@ -8701,7 +9212,8 @@
     "source_subject": "Русский язык",
     "source_teacher": "Радионова Н.А.",
     "source_time": "08:15 - 09:00",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_радионова_на_d0_p0"
   },
   {
     "class_id": "3б",
@@ -8718,7 +9230,8 @@
     "source_subject": "Русский язык",
     "source_teacher": "Радионова Н.А.",
     "source_time": "08:15 - 09:00",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_радионова_на_d1_p0"
   },
   {
     "class_id": "3б",
@@ -8735,7 +9248,8 @@
     "source_subject": "Казахский язык",
     "source_teacher": "Асаева Ж.Х.",
     "source_time": "08:15 - 09:00",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_асаева_жх_d2_p0"
   },
   {
     "class_id": "3б",
@@ -8752,7 +9266,8 @@
     "source_subject": "Физкультура.",
     "source_teacher": "Чифин Д.Н.",
     "source_time": "08:15 - 09:00",
-    "source_note": "спортивный зал"
+    "source_note": "спортивный зал",
+    "joint_lesson_id": "jl_чифин_дн_d3_p0"
   },
   {
     "class_id": "3б",
@@ -8769,7 +9284,8 @@
     "source_subject": "Русский язык",
     "source_teacher": "Радионова Н.А.",
     "source_time": "08:15 - 09:00",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_радионова_на_d4_p0"
   },
   {
     "class_id": "3б",
@@ -8786,7 +9302,8 @@
     "source_subject": "Познание мира",
     "source_teacher": "Радионова Н.А.",
     "source_time": "09:05 - 09:50",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_радионова_на_d0_p1"
   },
   {
     "class_id": "3б",
@@ -8803,7 +9320,8 @@
     "source_subject": "Математика",
     "source_teacher": "Радионова Н.А.",
     "source_time": "09:05 - 09:50",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_радионова_на_d1_p1"
   },
   {
     "class_id": "3б",
@@ -8820,7 +9338,8 @@
     "source_subject": "Музыка.",
     "source_teacher": "Шкиря Ю.Н.",
     "source_time": "09:05 - 09:50",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_шкиря_юн_d2_p1"
   },
   {
     "class_id": "3б",
@@ -8837,7 +9356,8 @@
     "source_subject": "Математика",
     "source_teacher": "Радионова Н.А.",
     "source_time": "09:05 - 09:50",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_радионова_на_d3_p1"
   },
   {
     "class_id": "3б",
@@ -8854,7 +9374,8 @@
     "source_subject": "Математика",
     "source_teacher": "Радионова Н.А.",
     "source_time": "09:05 - 09:50",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_радионова_на_d4_p1"
   },
   {
     "class_id": "3б",
@@ -8871,7 +9392,8 @@
     "source_subject": "Математика",
     "source_teacher": "Радионова Н.А.",
     "source_time": "10:05 - 10:50",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_радионова_на_d0_p2"
   },
   {
     "class_id": "3б",
@@ -8888,7 +9410,8 @@
     "source_subject": "Лит. чтение",
     "source_teacher": "Радионова Н.А.",
     "source_time": "10:05 - 10:50",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_радионова_на_d1_p2"
   },
   {
     "class_id": "3б",
@@ -8905,7 +9428,8 @@
     "source_subject": "Лит. чтение",
     "source_teacher": "Радионова Н.А.",
     "source_time": "10:05 - 10:50",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_радионова_на_d2_p2"
   },
   {
     "class_id": "3б",
@@ -8922,7 +9446,8 @@
     "source_subject": "ЦГ",
     "source_teacher": "Бедрина М.Н.",
     "source_time": "10:05 - 10:50",
-    "source_note": "мультимедийный"
+    "source_note": "мультимедийный",
+    "joint_lesson_id": null
   },
   {
     "class_id": "3б",
@@ -8939,7 +9464,8 @@
     "source_subject": "Лит. чтение",
     "source_teacher": "Радионова Н.А.",
     "source_time": "10:05 - 10:50",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_радионова_на_d4_p2"
   },
   {
     "class_id": "3б",
@@ -8956,7 +9482,8 @@
     "source_subject": "Английский язык",
     "source_teacher": "Акауова И.Н.",
     "source_time": "10:55 - 11:40",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "3б",
@@ -8973,7 +9500,8 @@
     "source_subject": "Физкультура.",
     "source_teacher": "Чифин Д.Н.",
     "source_time": "10:55 - 11:40",
-    "source_note": "спортивный зал"
+    "source_note": "спортивный зал",
+    "joint_lesson_id": "jl_чифин_дн_d1_p3"
   },
   {
     "class_id": "3б",
@@ -8990,7 +9518,8 @@
     "source_subject": "Математика",
     "source_teacher": "Радионова Н.А.",
     "source_time": "10:55 - 11:40",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_радионова_на_d2_p3"
   },
   {
     "class_id": "3б",
@@ -9007,7 +9536,8 @@
     "source_subject": "Русский язык",
     "source_teacher": "Радионова Н.А.",
     "source_time": "10:55 - 11:40",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_радионова_на_d3_p3"
   },
   {
     "class_id": "3б",
@@ -9024,7 +9554,8 @@
     "source_subject": "Физкультура.",
     "source_teacher": "Чифин Д.Н.",
     "source_time": "10:55 - 11:40",
-    "source_note": "спортивный зал"
+    "source_note": "спортивный зал",
+    "joint_lesson_id": "jl_чифин_дн_d4_p3"
   },
   {
     "class_id": "3б",
@@ -9041,7 +9572,8 @@
     "source_subject": "Казахский язык",
     "source_teacher": "Асаева Ж.Х.",
     "source_time": "11:55 - 12:40",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_асаева_жх_d0_p4"
   },
   {
     "class_id": "3б",
@@ -9058,7 +9590,8 @@
     "source_subject": "Труд. об.",
     "source_teacher": "Радионова Н.А.",
     "source_time": "11:55 - 12:40",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_радионова_на_d1_p4"
   },
   {
     "class_id": "3б",
@@ -9075,7 +9608,8 @@
     "source_subject": "ИЗО.",
     "source_teacher": "Радионова Н.А.",
     "source_time": "11:55 - 12:40",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_радионова_на_d2_p4"
   },
   {
     "class_id": "3б",
@@ -9092,7 +9626,8 @@
     "source_subject": "Казахский язык",
     "source_teacher": "Асаева Ж.Х.",
     "source_time": "11:55 - 12:40",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "3б",
@@ -9109,7 +9644,8 @@
     "source_subject": "Английский язык",
     "source_teacher": "Акауова И.Н.",
     "source_time": "11:55 - 12:40",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "3б",
@@ -9126,7 +9662,8 @@
     "source_subject": "Естествознание",
     "source_teacher": "Радионова Н.А.",
     "source_time": "12:45 - 13:30",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_радионова_на_d4_p5"
   },
   {
     "class_id": "3_luo",
@@ -9143,7 +9680,8 @@
     "source_subject": "Русский язык",
     "source_teacher": "Радионова Н.А.",
     "source_time": "08:15 - 09:00",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_радионова_на_d0_p0"
   },
   {
     "class_id": "3_luo",
@@ -9160,7 +9698,8 @@
     "source_subject": "Русский язык",
     "source_teacher": "Радионова Н.А.",
     "source_time": "08:15 - 09:00",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_радионова_на_d1_p0"
   },
   {
     "class_id": "3_luo",
@@ -9177,7 +9716,8 @@
     "source_subject": "Казахский язык",
     "source_teacher": "Асаева Ж.Х.",
     "source_time": "08:15 - 09:00",
-    "source_note": "казахский язык"
+    "source_note": "казахский язык",
+    "joint_lesson_id": "jl_асаева_жх_d2_p0"
   },
   {
     "class_id": "3_luo",
@@ -9194,7 +9734,8 @@
     "source_subject": "АФК",
     "source_teacher": "Чифин Д.Н.",
     "source_time": "08:15 - 09:00",
-    "source_note": "спортивный зал"
+    "source_note": "спортивный зал",
+    "joint_lesson_id": "jl_чифин_дн_d3_p0"
   },
   {
     "class_id": "3_luo",
@@ -9211,7 +9752,8 @@
     "source_subject": "Русский язык",
     "source_teacher": "Радионова Н.А.",
     "source_time": "08:15 - 09:00",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_радионова_на_d4_p0"
   },
   {
     "class_id": "3_luo",
@@ -9228,7 +9770,8 @@
     "source_subject": "Мир вокруг.",
     "source_teacher": "Радионова Н.А.",
     "source_time": "09:05 - 09:50",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_радионова_на_d0_p1"
   },
   {
     "class_id": "3_luo",
@@ -9245,7 +9788,8 @@
     "source_subject": "Математика",
     "source_teacher": "Радионова Н.А.",
     "source_time": "09:05 - 09:50",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_радионова_на_d1_p1"
   },
   {
     "class_id": "3_luo",
@@ -9262,7 +9806,8 @@
     "source_subject": "Музыка и пение",
     "source_teacher": "Шкиря Ю.Н.",
     "source_time": "09:05 - 09:50",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_шкиря_юн_d2_p1"
   },
   {
     "class_id": "3_luo",
@@ -9279,7 +9824,8 @@
     "source_subject": "Математика",
     "source_teacher": "Радионова Н.А.",
     "source_time": "09:05 - 09:50",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_радионова_на_d3_p1"
   },
   {
     "class_id": "3_luo",
@@ -9296,7 +9842,8 @@
     "source_subject": "Математика",
     "source_teacher": "Радионова Н.А.",
     "source_time": "09:05 - 09:50",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_радионова_на_d4_p1"
   },
   {
     "class_id": "3_luo",
@@ -9313,7 +9860,8 @@
     "source_subject": "Математика",
     "source_teacher": "Радионова Н.А.",
     "source_time": "10:05 - 10:50",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_радионова_на_d0_p2"
   },
   {
     "class_id": "3_luo",
@@ -9330,7 +9878,8 @@
     "source_subject": "Ч и РР",
     "source_teacher": "Радионова Н.А.",
     "source_time": "10:05 - 10:50",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_радионова_на_d1_p2"
   },
   {
     "class_id": "3_luo",
@@ -9347,7 +9896,8 @@
     "source_subject": "Ч и РР",
     "source_teacher": "Радионова Н.А.",
     "source_time": "10:05 - 10:50",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_радионова_на_d2_p2"
   },
   {
     "class_id": "3_luo",
@@ -9364,7 +9914,8 @@
     "source_subject": "Ч и РР",
     "source_teacher": "Радионова Н.А.",
     "source_time": "10:05 - 10:50",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_радионова_на_d4_p2"
   },
   {
     "class_id": "3_luo",
@@ -9381,7 +9932,8 @@
     "source_subject": "АФК",
     "source_teacher": "Чифин Д.Н.",
     "source_time": "10:55 - 11:40",
-    "source_note": "спортивный зал"
+    "source_note": "спортивный зал",
+    "joint_lesson_id": "jl_чифин_дн_d1_p3"
   },
   {
     "class_id": "3_luo",
@@ -9398,7 +9950,8 @@
     "source_subject": "Математика",
     "source_teacher": "Радионова Н.А.",
     "source_time": "10:55 - 11:40",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_радионова_на_d2_p3"
   },
   {
     "class_id": "3_luo",
@@ -9415,7 +9968,8 @@
     "source_subject": "Ручной труд.",
     "source_teacher": "Радионова Н.А.",
     "source_time": "10:55 - 11:40",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_радионова_на_d3_p3"
   },
   {
     "class_id": "3_luo",
@@ -9432,7 +9986,8 @@
     "source_subject": "АФК",
     "source_teacher": "Чифин Д.Н.",
     "source_time": "10:55 - 11:40",
-    "source_note": "спортивный зал"
+    "source_note": "спортивный зал",
+    "joint_lesson_id": "jl_чифин_дн_d4_p3"
   },
   {
     "class_id": "3_luo",
@@ -9449,7 +10004,8 @@
     "source_subject": "Казахский язык",
     "source_teacher": "Асаева Ж.Х.",
     "source_time": "11:55 - 12:40",
-    "source_note": "казахский язык"
+    "source_note": "казахский язык",
+    "joint_lesson_id": "jl_асаева_жх_d0_p4"
   },
   {
     "class_id": "3_luo",
@@ -9466,7 +10022,8 @@
     "source_subject": "Ручной труд.",
     "source_teacher": "Радионова Н.А.",
     "source_time": "11:55 - 12:40",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_радионова_на_d1_p4"
   },
   {
     "class_id": "3_luo",
@@ -9483,7 +10040,8 @@
     "source_subject": "ИЗО.",
     "source_teacher": "Радионова Н.А.",
     "source_time": "11:55 - 12:40",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_радионова_на_d2_p4"
   },
   {
     "class_id": "3_luo",
@@ -9500,7 +10058,8 @@
     "source_subject": "Мир вокруг.",
     "source_teacher": "Радионова Н.А.",
     "source_time": "12:45 - 13:30",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_радионова_на_d4_p5"
   },
   {
     "class_id": "4а",
@@ -9517,7 +10076,8 @@
     "source_subject": "ЦС",
     "source_teacher": "Жантемиров Э.А.",
     "source_time": "08:15 - 09:00",
-    "source_note": "мультимедиа каб..."
+    "source_note": "мультимедиа каб...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "4а",
@@ -9534,7 +10094,8 @@
     "source_subject": "Әдебиеттік оқу.",
     "source_teacher": "Актаева А.Е.",
     "source_time": "08:15 - 09:00",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_актаева_ае_d3_p0"
   },
   {
     "class_id": "4а",
@@ -9551,7 +10112,8 @@
     "source_subject": "Әдебиеттік оқу.",
     "source_teacher": "Актаева А.Е.",
     "source_time": "09:05 - 09:50",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_актаева_ае_d1_p1"
   },
   {
     "class_id": "4а",
@@ -9568,7 +10130,8 @@
     "source_subject": "Музыка.",
     "source_teacher": "Актаева А.Е.",
     "source_time": "09:05 - 09:50",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_актаева_ае_d2_p1"
   },
   {
     "class_id": "4а",
@@ -9585,7 +10148,8 @@
     "source_subject": "Ағылшын тілі",
     "source_teacher": "Акауова И.Н.",
     "source_time": "09:05 - 09:50",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "4а",
@@ -9602,7 +10166,8 @@
     "source_subject": "бейнелеу өнері",
     "source_teacher": "Жекеева Н.А.",
     "source_time": "10:05 - 10:50",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_жекеева_на_d1_p2"
   },
   {
     "class_id": "4а",
@@ -9619,7 +10184,8 @@
     "source_subject": "Дене шынықтыру.",
     "source_teacher": "Кашиков Е.Е.",
     "source_time": "10:05 - 10:50",
-    "source_note": "спортивный зал"
+    "source_note": "спортивный зал",
+    "joint_lesson_id": "jl_кашиков_ее_d2_p2"
   },
   {
     "class_id": "4а",
@@ -9636,7 +10202,8 @@
     "source_subject": "Еңбекке баулу",
     "source_teacher": "Жекеева Н.А.",
     "source_time": "10:05 - 10:50",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_жекеева_на_d3_p2"
   },
   {
     "class_id": "4а",
@@ -9653,7 +10220,8 @@
     "source_subject": "Әдебиеттік оқу.",
     "source_teacher": "Актаева А.Е.",
     "source_time": "10:05 - 10:50",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_актаева_ае_d4_p2"
   },
   {
     "class_id": "4а",
@@ -9670,7 +10238,8 @@
     "source_subject": "Дене шынықтыру.",
     "source_teacher": "Кашиков Е.Е.",
     "source_time": "10:55 - 11:40",
-    "source_note": "спортивный зал"
+    "source_note": "спортивный зал",
+    "joint_lesson_id": "jl_кашиков_ее_d0_p3"
   },
   {
     "class_id": "4а",
@@ -9687,7 +10256,8 @@
     "source_subject": "Ағылшын тілі",
     "source_teacher": "Акауова И.Н.",
     "source_time": "10:55 - 11:40",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "4а",
@@ -9704,7 +10274,8 @@
     "source_subject": "Математика",
     "source_teacher": "Жекеева Н.А.",
     "source_time": "10:55 - 11:40",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "4а",
@@ -9721,7 +10292,8 @@
     "source_subject": "Математика",
     "source_teacher": "Жекеева Н.А.",
     "source_time": "10:55 - 11:40",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "4а",
@@ -9738,7 +10310,8 @@
     "source_subject": "Дене шынықтыру.",
     "source_teacher": "Кашиков Е.Е.",
     "source_time": "10:55 - 11:40",
-    "source_note": "спортивный зал"
+    "source_note": "спортивный зал",
+    "joint_lesson_id": "jl_кашиков_ее_d4_p3"
   },
   {
     "class_id": "4а",
@@ -9755,7 +10328,8 @@
     "source_subject": "Математика",
     "source_teacher": "Жекеева Н.А.",
     "source_time": "11:55 - 12:40",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "4а",
@@ -9772,7 +10346,8 @@
     "source_subject": "Қазақ тілі",
     "source_teacher": "Жекеева Н.А.",
     "source_time": "11:55 - 12:40",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "4а",
@@ -9789,7 +10364,8 @@
     "source_subject": "Дүниетану",
     "source_teacher": "Актаева А.Е.",
     "source_time": "11:55 - 12:40",
-    "source_note": "немецкий язык"
+    "source_note": "немецкий язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "4а",
@@ -9806,7 +10382,8 @@
     "source_subject": "Қазақ тілі",
     "source_teacher": "Жекеева Н.А.",
     "source_time": "11:55 - 12:40",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "4а",
@@ -9823,7 +10400,8 @@
     "source_subject": "Математика",
     "source_teacher": "Жекеева Н.А.",
     "source_time": "11:55 - 12:40",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "4а",
@@ -9840,7 +10418,8 @@
     "source_subject": "Қазақ тілі",
     "source_teacher": "Жекеева Н.А.",
     "source_time": "12:45 - 13:30",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "4а",
@@ -9857,7 +10436,8 @@
     "source_subject": "Математика",
     "source_teacher": "Жекеева Н.А.",
     "source_time": "12:45 - 13:30",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "4а",
@@ -9874,7 +10454,8 @@
     "source_subject": "Орыс тілі",
     "source_teacher": "Жекеева Н.А.",
     "source_time": "12:45 - 13:30",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "4а",
@@ -9891,7 +10472,8 @@
     "source_subject": "Қазақ тілі",
     "source_teacher": "Жекеева Н.А.",
     "source_time": "12:45 - 13:30",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "4а",
@@ -9908,7 +10490,8 @@
     "source_subject": "Жаратылыстану",
     "source_teacher": "Актаева А.Е.",
     "source_time": "13:35 - 14:20",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "4а",
@@ -9925,7 +10508,8 @@
     "source_subject": "Орыс тілі",
     "source_teacher": "Жекеева Н.А.",
     "source_time": "13:35 - 14:20",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "4б",
@@ -9942,7 +10526,8 @@
     "source_subject": "Русский язык",
     "source_teacher": "Ажикенова М.А.",
     "source_time": "08:15 - 09:00",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "4б",
@@ -9959,7 +10544,8 @@
     "source_subject": "Физкультура.",
     "source_teacher": "Чифин Д.Н.",
     "source_time": "08:15 - 09:00",
-    "source_note": "спортивный зал"
+    "source_note": "спортивный зал",
+    "joint_lesson_id": null
   },
   {
     "class_id": "4б",
@@ -9976,7 +10562,8 @@
     "source_subject": "Казахский язык",
     "source_teacher": "Ильясова А.Б.",
     "source_time": "08:15 - 09:00",
-    "source_note": "бастауыш сынып"
+    "source_note": "бастауыш сынып",
+    "joint_lesson_id": null
   },
   {
     "class_id": "4б",
@@ -9993,7 +10580,8 @@
     "source_subject": "Русский язык",
     "source_teacher": "Ажикенова М.А.",
     "source_time": "08:15 - 09:00",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "4б",
@@ -10010,7 +10598,8 @@
     "source_subject": "Английский язык",
     "source_teacher": "Алекпарова А.Ж.",
     "source_time": "08:15 - 09:00",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "4б",
@@ -10027,7 +10616,8 @@
     "source_subject": "Казахский язык",
     "source_teacher": "Ильясова А.Б.",
     "source_time": "09:05 - 09:50",
-    "source_note": "бастауыш сынып"
+    "source_note": "бастауыш сынып",
+    "joint_lesson_id": null
   },
   {
     "class_id": "4б",
@@ -10044,7 +10634,8 @@
     "source_subject": "Английский язык",
     "source_teacher": "Алекпарова А.Ж.",
     "source_time": "09:05 - 09:50",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "4б",
@@ -10061,7 +10652,8 @@
     "source_subject": "Математика",
     "source_teacher": "Ажикенова М.А.",
     "source_time": "09:05 - 09:50",
-    "source_note": "бастауыш сынып"
+    "source_note": "бастауыш сынып",
+    "joint_lesson_id": null
   },
   {
     "class_id": "4б",
@@ -10078,7 +10670,8 @@
     "source_subject": "Математика",
     "source_teacher": "Ажикенова М.А.",
     "source_time": "09:05 - 09:50",
-    "source_note": "бастауыш сынып"
+    "source_note": "бастауыш сынып",
+    "joint_lesson_id": null
   },
   {
     "class_id": "4б",
@@ -10095,7 +10688,8 @@
     "source_subject": "Математика",
     "source_teacher": "Ажикенова М.А.",
     "source_time": "09:05 - 09:50",
-    "source_note": "бастауыш сынып"
+    "source_note": "бастауыш сынып",
+    "joint_lesson_id": null
   },
   {
     "class_id": "4б",
@@ -10112,7 +10706,8 @@
     "source_subject": "Математика",
     "source_teacher": "Ажикенова М.А.",
     "source_time": "10:05 - 10:50",
-    "source_note": "бастауыш сынып"
+    "source_note": "бастауыш сынып",
+    "joint_lesson_id": null
   },
   {
     "class_id": "4б",
@@ -10129,7 +10724,8 @@
     "source_subject": "Математика",
     "source_teacher": "Ажикенова М.А.",
     "source_time": "10:05 - 10:50",
-    "source_note": "бастауыш сынып"
+    "source_note": "бастауыш сынып",
+    "joint_lesson_id": null
   },
   {
     "class_id": "4б",
@@ -10146,7 +10742,8 @@
     "source_subject": "Лит. чтение",
     "source_teacher": "Ажикенова М.А.",
     "source_time": "10:05 - 10:50",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "4б",
@@ -10163,7 +10760,8 @@
     "source_subject": "Казахский язык",
     "source_teacher": "Ильясова А.Б.",
     "source_time": "10:05 - 10:50",
-    "source_note": "бастауыш сынып"
+    "source_note": "бастауыш сынып",
+    "joint_lesson_id": null
   },
   {
     "class_id": "4б",
@@ -10180,7 +10778,8 @@
     "source_subject": "Казахский язык",
     "source_teacher": "Ильясова А.Б.",
     "source_time": "10:05 - 10:50",
-    "source_note": "бастауыш сынып"
+    "source_note": "бастауыш сынып",
+    "joint_lesson_id": null
   },
   {
     "class_id": "4б",
@@ -10197,7 +10796,8 @@
     "source_subject": "Физкультура.",
     "source_teacher": "Чифин Д.Н.",
     "source_time": "10:55 - 11:40",
-    "source_note": "спортивный зал"
+    "source_note": "спортивный зал",
+    "joint_lesson_id": null
   },
   {
     "class_id": "4б",
@@ -10214,7 +10814,8 @@
     "source_subject": "ЦГ",
     "source_teacher": "Бедрина М.Н.",
     "source_time": "10:55 - 11:40",
-    "source_note": "мультимедийный"
+    "source_note": "мультимедийный",
+    "joint_lesson_id": null
   },
   {
     "class_id": "4б",
@@ -10231,7 +10832,8 @@
     "source_subject": "Труд. об.",
     "source_teacher": "Ажикенова М.А.",
     "source_time": "10:55 - 11:40",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "4б",
@@ -10248,7 +10850,8 @@
     "source_subject": "Физкультура.",
     "source_teacher": "Чифин Д.Н.",
     "source_time": "10:55 - 11:40",
-    "source_note": "спортивный зал"
+    "source_note": "спортивный зал",
+    "joint_lesson_id": null
   },
   {
     "class_id": "4б",
@@ -10265,7 +10868,8 @@
     "source_subject": "Русский язык",
     "source_teacher": "Ажикенова М.А.",
     "source_time": "10:55 - 11:40",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "4б",
@@ -10282,7 +10886,8 @@
     "source_subject": "Лит. чтение",
     "source_teacher": "Ажикенова М.А.",
     "source_time": "11:55 - 12:40",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "4б",
@@ -10299,7 +10904,8 @@
     "source_subject": "Русский язык",
     "source_teacher": "Ажикенова М.А.",
     "source_time": "11:55 - 12:40",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "4б",
@@ -10316,7 +10922,8 @@
     "source_subject": "Музыка.",
     "source_teacher": "Шкиря Ю.Н.",
     "source_time": "11:55 - 12:40",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "4б",
@@ -10333,7 +10940,8 @@
     "source_subject": "Лит. чтение",
     "source_teacher": "Ажикенова М.А.",
     "source_time": "11:55 - 12:40",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "4б",
@@ -10350,7 +10958,8 @@
     "source_subject": "Естествознание",
     "source_teacher": "Ажикенова М.А.",
     "source_time": "11:55 - 12:40",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "4б",
@@ -10367,7 +10976,8 @@
     "source_subject": "Познание мира",
     "source_teacher": "Ажикенова М.А.",
     "source_time": "12:45 - 13:30",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "4б",
@@ -10384,7 +10994,8 @@
     "source_subject": "ИЗО.",
     "source_teacher": "Ажикенова М.А.",
     "source_time": "12:45 - 13:30",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "4_do",
@@ -10401,7 +11012,8 @@
     "source_subject": "Литературное чтение",
     "source_teacher": "Ажикенова М.А.",
     "source_time": "Нет кабинета",
-    "source_note": ""
+    "source_note": "",
+    "joint_lesson_id": null
   },
   {
     "class_id": "4_do",
@@ -10418,7 +11030,8 @@
     "source_subject": "ЦГ",
     "source_teacher": "Бедрина М.Н.",
     "source_time": "Нет кабинета",
-    "source_note": ""
+    "source_note": "",
+    "joint_lesson_id": null
   },
   {
     "class_id": "4_do",
@@ -10435,7 +11048,8 @@
     "source_subject": "Русский язык",
     "source_teacher": "Ажикенова М.А.",
     "source_time": "Нет кабинета",
-    "source_note": ""
+    "source_note": "",
+    "joint_lesson_id": "jl_ажикенова_ма_d0_p3"
   },
   {
     "class_id": "4_do",
@@ -10452,7 +11066,8 @@
     "source_subject": "Русский язык",
     "source_teacher": "Ажикенова М.А.",
     "source_time": "Нет кабинета",
-    "source_note": ""
+    "source_note": "",
+    "joint_lesson_id": null
   },
   {
     "class_id": "4_do",
@@ -10469,7 +11084,8 @@
     "source_subject": "Математика",
     "source_teacher": "Радионова Н.А.",
     "source_time": "Нет кабинета",
-    "source_note": ""
+    "source_note": "",
+    "joint_lesson_id": null
   },
   {
     "class_id": "4_do",
@@ -10486,7 +11102,8 @@
     "source_subject": "Математика",
     "source_teacher": "Радионова Н.А.",
     "source_time": "Нет кабинета",
-    "source_note": ""
+    "source_note": "",
+    "joint_lesson_id": null
   },
   {
     "class_id": "4_do",
@@ -10503,7 +11120,8 @@
     "source_subject": "Математика",
     "source_teacher": "Радионова Н.А.",
     "source_time": "Нет кабинета",
-    "source_note": ""
+    "source_note": "",
+    "joint_lesson_id": null
   },
   {
     "class_id": "4_do",
@@ -10520,7 +11138,8 @@
     "source_subject": "Естествознание",
     "source_teacher": "Ажикенова М.А.",
     "source_time": "Нет кабинета",
-    "source_note": ""
+    "source_note": "",
+    "joint_lesson_id": null
   },
   {
     "class_id": "4_do",
@@ -10537,7 +11156,8 @@
     "source_subject": "Английский язык",
     "source_teacher": "Алекпарова А.Ж.",
     "source_time": "Нет кабинета",
-    "source_note": ""
+    "source_note": "",
+    "joint_lesson_id": null
   },
   {
     "class_id": "5а",
@@ -10554,7 +11174,8 @@
     "source_subject": "Көркем еңбек.",
     "source_teacher": "Жантемиров А.К.",
     "source_time": "08:15 - 09:00",
-    "source_note": "технология"
+    "source_note": "технология",
+    "joint_lesson_id": null
   },
   {
     "class_id": "5а",
@@ -10571,7 +11192,8 @@
     "source_subject": "Математика",
     "source_teacher": "Ізбасты М.Ж.",
     "source_time": "08:15 - 09:00",
-    "source_note": "математика"
+    "source_note": "математика",
+    "joint_lesson_id": null
   },
   {
     "class_id": "5а",
@@ -10588,7 +11210,8 @@
     "source_subject": "Ағылшын тілі",
     "source_teacher": "Акауова И.Н.",
     "source_time": "08:15 - 09:00",
-    "source_note": "ағылшын тілі"
+    "source_note": "ағылшын тілі",
+    "joint_lesson_id": null
   },
   {
     "class_id": "5а",
@@ -10605,7 +11228,8 @@
     "source_subject": "Қазақ әдебиет",
     "source_teacher": "Асаева Ж.Х.",
     "source_time": "08:15 - 09:00",
-    "source_note": "казахская литер..."
+    "source_note": "казахская литер...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "5а",
@@ -10622,7 +11246,8 @@
     "source_subject": "Қазақстан тарихы",
     "source_teacher": "Досаева М.Х.",
     "source_time": "08:15 - 09:00",
-    "source_note": "история"
+    "source_note": "история",
+    "joint_lesson_id": null
   },
   {
     "class_id": "5а",
@@ -10639,7 +11264,8 @@
     "source_subject": "Көркем еңбек.",
     "source_teacher": "Жантемиров А.К.",
     "source_time": "09:05 - 09:50",
-    "source_note": "технология"
+    "source_note": "технология",
+    "joint_lesson_id": "jl_жантемиров_ак_d0_p1"
   },
   {
     "class_id": "5а",
@@ -10656,7 +11282,8 @@
     "source_subject": "Қазақ әдебиет",
     "source_teacher": "Асаева Ж.Х.",
     "source_time": "09:05 - 09:50",
-    "source_note": "казахская литер..."
+    "source_note": "казахская литер...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "5а",
@@ -10673,7 +11300,8 @@
     "source_subject": "Дене шынықтыру.",
     "source_teacher": "Кашиков Е.Е.",
     "source_time": "09:05 - 09:50",
-    "source_note": "спортивный зал"
+    "source_note": "спортивный зал",
+    "joint_lesson_id": "jl_кашиков_ее_d2_p1"
   },
   {
     "class_id": "5а",
@@ -10690,7 +11318,8 @@
     "source_subject": "Математика",
     "source_teacher": "Ізбасты М.Ж.",
     "source_time": "09:05 - 09:50",
-    "source_note": "математика"
+    "source_note": "математика",
+    "joint_lesson_id": null
   },
   {
     "class_id": "5а",
@@ -10707,7 +11336,8 @@
     "source_subject": "Математика",
     "source_teacher": "Ізбасты М.Ж.",
     "source_time": "09:05 - 09:50",
-    "source_note": "математика"
+    "source_note": "математика",
+    "joint_lesson_id": null
   },
   {
     "class_id": "5а",
@@ -10724,7 +11354,8 @@
     "source_subject": "Қазақстан тарихы",
     "source_teacher": "Досаева М.Х.",
     "source_time": "10:05 - 10:50",
-    "source_note": "история"
+    "source_note": "история",
+    "joint_lesson_id": null
   },
   {
     "class_id": "5а",
@@ -10741,7 +11372,8 @@
     "source_subject": "Орыс тілі ж/е әдеб.",
     "source_teacher": "Дмитриев Е.В.",
     "source_time": "10:05 - 10:50",
-    "source_note": "русский язык"
+    "source_note": "русский язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "5а",
@@ -10758,7 +11390,8 @@
     "source_subject": "Дүниежүзі тарихы",
     "source_teacher": "Досаева М.Х.",
     "source_time": "10:05 - 10:50",
-    "source_note": "история"
+    "source_note": "история",
+    "joint_lesson_id": null
   },
   {
     "class_id": "5а",
@@ -10775,7 +11408,8 @@
     "source_subject": "Қазақ тілі",
     "source_teacher": "Асаева Ж.Х.",
     "source_time": "10:05 - 10:50",
-    "source_note": "казахский язык"
+    "source_note": "казахский язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "5а",
@@ -10792,7 +11426,8 @@
     "source_subject": "Дене шынықтыру.",
     "source_teacher": "Кашиков Е.Е.",
     "source_time": "10:05 - 10:50",
-    "source_note": "спортивный зал"
+    "source_note": "спортивный зал",
+    "joint_lesson_id": "jl_кашиков_ее_d4_p2"
   },
   {
     "class_id": "5а",
@@ -10809,7 +11444,8 @@
     "source_subject": "Математика",
     "source_teacher": "Ізбасты М.Ж.",
     "source_time": "10:55 - 11:40",
-    "source_note": "математика"
+    "source_note": "математика",
+    "joint_lesson_id": null
   },
   {
     "class_id": "5а",
@@ -10826,7 +11462,8 @@
     "source_subject": "Информатика",
     "source_teacher": "Жантемиров Э.А.",
     "source_time": "10:55 - 11:40",
-    "source_note": "мультимедиа каб..."
+    "source_note": "мультимедиа каб...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "5а",
@@ -10843,7 +11480,8 @@
     "source_subject": "Орыс тілі ж/е әдеб.",
     "source_teacher": "Дмитриев Е.В.",
     "source_time": "10:55 - 11:40",
-    "source_note": "русский язык"
+    "source_note": "русский язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "5а",
@@ -10860,7 +11498,8 @@
     "source_subject": "Ағылшын тілі",
     "source_teacher": "Акауова И.Н.",
     "source_time": "10:55 - 11:40",
-    "source_note": "ағылшын тілі"
+    "source_note": "ағылшын тілі",
+    "joint_lesson_id": null
   },
   {
     "class_id": "5а",
@@ -10877,7 +11516,8 @@
     "source_subject": "Жаратылыстану",
     "source_teacher": "Сапаргалиева Г.С.",
     "source_time": "10:55 - 11:40",
-    "source_note": "география"
+    "source_note": "география",
+    "joint_lesson_id": null
   },
   {
     "class_id": "5а",
@@ -10894,7 +11534,8 @@
     "source_subject": "Ағылшын тілі",
     "source_teacher": "Акауова И.Н.",
     "source_time": "11:55 - 12:40",
-    "source_note": "ағылшын тілі"
+    "source_note": "ағылшын тілі",
+    "joint_lesson_id": null
   },
   {
     "class_id": "5а",
@@ -10911,7 +11552,8 @@
     "source_subject": "Қазақ тілі",
     "source_teacher": "Асаева Ж.Х.",
     "source_time": "11:55 - 12:40",
-    "source_note": "казахский язык"
+    "source_note": "казахский язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "5а",
@@ -10928,7 +11570,8 @@
     "source_subject": "Математика",
     "source_teacher": "Ізбасты М.Ж.",
     "source_time": "11:55 - 12:40",
-    "source_note": "математика"
+    "source_note": "математика",
+    "joint_lesson_id": null
   },
   {
     "class_id": "5а",
@@ -10945,7 +11588,8 @@
     "source_subject": "Жаратылыстану",
     "source_teacher": "Сапаргалиева Г.С.",
     "source_time": "11:55 - 12:40",
-    "source_note": "география"
+    "source_note": "география",
+    "joint_lesson_id": null
   },
   {
     "class_id": "5а",
@@ -10962,7 +11606,8 @@
     "source_subject": "Орыс тілі ж/е әдеб.",
     "source_teacher": "Дмитриев Е.В.",
     "source_time": "11:55 - 12:40",
-    "source_note": "русский язык"
+    "source_note": "русский язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "5а",
@@ -10979,7 +11624,8 @@
     "source_subject": "Дене шынықтыру.",
     "source_teacher": "Кашиков Е.Е.",
     "source_time": "12:45 - 13:30",
-    "source_note": "спортивный зал"
+    "source_note": "спортивный зал",
+    "joint_lesson_id": "jl_кашиков_ее_d0_p5"
   },
   {
     "class_id": "5а",
@@ -10996,7 +11642,8 @@
     "source_subject": "Қазақ тілі",
     "source_teacher": "Асаева Ж.Х.",
     "source_time": "12:45 - 13:30",
-    "source_note": "казахский язык"
+    "source_note": "казахский язык",
+    "joint_lesson_id": null
   },
   {
     "class_id": "5а",
@@ -11013,7 +11660,8 @@
     "source_subject": "Музыка.",
     "source_teacher": "Шкиря Ю.Н.",
     "source_time": "12:45 - 13:30",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   },
   {
     "class_id": "1а",
@@ -11030,7 +11678,8 @@
     "source_subject": "Әліппе, Ана тілі",
     "source_teacher": "Актаева А.Е.",
     "source_time": "08:15 - 09:00",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_актаева_ае_d0_p0"
   },
   {
     "class_id": "1а",
@@ -11047,7 +11696,8 @@
     "source_subject": "Әліппе, Ана тілі",
     "source_teacher": "Актаева А.Е.",
     "source_time": "08:15 - 09:00",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_актаева_ае_d1_p0"
   },
   {
     "class_id": "1а",
@@ -11064,7 +11714,8 @@
     "source_subject": "Әліппе, Ана тілі",
     "source_teacher": "Актаева А.Е.",
     "source_time": "08:15 - 09:00",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_актаева_ае_d2_p0"
   },
   {
     "class_id": "1а",
@@ -11081,7 +11732,8 @@
     "source_subject": "Әліппе, Ана тілі",
     "source_teacher": "Актаева А.Е.",
     "source_time": "08:15 - 09:00",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_актаева_ае_d3_p0"
   },
   {
     "class_id": "1а",
@@ -11098,7 +11750,8 @@
     "source_subject": "Әліппе, Ана тілі",
     "source_teacher": "Актаева А.Е.",
     "source_time": "08:15 - 09:00",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_актаева_ае_d4_p0"
   },
   {
     "class_id": "1а",
@@ -11115,7 +11768,8 @@
     "source_subject": "Математика",
     "source_teacher": "Актаева А.Е.",
     "source_time": "09:05 - 09:50",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_актаева_ае_d0_p1"
   },
   {
     "class_id": "1а",
@@ -11132,7 +11786,8 @@
     "source_subject": "Математика",
     "source_teacher": "Актаева А.Е.",
     "source_time": "09:05 - 09:50",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_актаева_ае_d1_p1"
   },
   {
     "class_id": "1а",
@@ -11149,7 +11804,8 @@
     "source_subject": "Музыка.",
     "source_teacher": "Актаева А.Е.",
     "source_time": "09:05 - 09:50",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_актаева_ае_d2_p1"
   },
   {
     "class_id": "1а",
@@ -11166,7 +11822,8 @@
     "source_subject": "Математика",
     "source_teacher": "Актаева А.Е.",
     "source_time": "09:05 - 09:50",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_актаева_ае_d3_p1"
   },
   {
     "class_id": "1а",
@@ -11183,7 +11840,8 @@
     "source_subject": "Математика",
     "source_teacher": "Актаева А.Е.",
     "source_time": "09:05 - 09:50",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_актаева_ае_d4_p1"
   },
   {
     "class_id": "1а",
@@ -11200,7 +11858,8 @@
     "source_subject": "Жаратылыстану",
     "source_teacher": "Актаева А.Е.",
     "source_time": "10:05 - 10:50",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_актаева_ае_d0_p2"
   },
   {
     "class_id": "1а",
@@ -11217,7 +11876,8 @@
     "source_subject": "бейнелеу өнері",
     "source_teacher": "Романишина И.М.",
     "source_time": "10:05 - 10:50",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_романишина_им_d1_p2"
   },
   {
     "class_id": "1а",
@@ -11234,7 +11894,8 @@
     "source_subject": "Дене шынықтыру.",
     "source_teacher": "Кашиков Е.Е.",
     "source_time": "10:05 - 10:50",
-    "source_note": "спортивный зал"
+    "source_note": "спортивный зал",
+    "joint_lesson_id": "jl_кашиков_ее_d2_p2"
   },
   {
     "class_id": "1а",
@@ -11251,7 +11912,8 @@
     "source_subject": "Еңбекке баулу",
     "source_teacher": "Романишина И.М.",
     "source_time": "10:05 - 10:50",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_романишина_им_d3_p2"
   },
   {
     "class_id": "1а",
@@ -11268,7 +11930,8 @@
     "source_subject": "Дүниетану",
     "source_teacher": "Актаева А.Е.",
     "source_time": "10:05 - 10:50",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_актаева_ае_d4_p2"
   },
   {
     "class_id": "1а",
@@ -11285,7 +11948,8 @@
     "source_subject": "Дене шынықтыру.",
     "source_teacher": "Кашиков Е.Е.",
     "source_time": "10:55 - 11:40",
-    "source_note": "спортивный зал"
+    "source_note": "спортивный зал",
+    "joint_lesson_id": "jl_кашиков_ее_d0_p3"
   },
   {
     "class_id": "1а",
@@ -11302,7 +11966,8 @@
     "source_subject": "Әліппе, Ана тілі",
     "source_teacher": "Актаева А.Е.",
     "source_time": "10:55 - 11:40",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": "jl_актаева_ае_d1_p3"
   },
   {
     "class_id": "1а",
@@ -11319,7 +11984,8 @@
     "source_subject": "Дене шынықтыру.",
     "source_teacher": "Кашиков Е.Е.",
     "source_time": "10:55 - 11:40",
-    "source_note": "спортивный зал"
+    "source_note": "спортивный зал",
+    "joint_lesson_id": "jl_кашиков_ее_d4_p3"
   },
   {
     "class_id": "1а",
@@ -11336,6 +12002,7 @@
     "source_subject": "ЦС",
     "source_teacher": "Жантемиров Э.А.",
     "source_time": "11:55 - 12:40",
-    "source_note": "начальные класс..."
+    "source_note": "начальные класс...",
+    "joint_lesson_id": null
   }
 ]

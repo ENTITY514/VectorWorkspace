@@ -73,6 +73,7 @@ class CurriculumEntry(BaseModel):
     teacher_id: str
     split_teacher2_id: Optional[str] = None
     hours_per_week: int = Field(ge=1, le=6)
+    joint_lesson_id: Optional[str] = None
 
     @model_validator(mode="after")
     def check_split(self):
@@ -101,6 +102,7 @@ class FixedLesson(BaseModel):
     day: int = Field(ge=0, le=5)
     period: int = Field(ge=0, le=7)
     subgroup_label: Optional[str] = None
+    joint_lesson_id: Optional[str] = None
 
 
 class InputModel(BaseModel):
@@ -125,6 +127,7 @@ class SlotOutput(BaseModel):
     subgroup_label: Optional[str] = None
     day: int = Field(ge=0, le=5)
     period: int = Field(ge=0, le=7)
+    joint_lesson_id: Optional[str] = None
 
 
 class Penalties(BaseModel):

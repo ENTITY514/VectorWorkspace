@@ -249,15 +249,27 @@ pub struct CurriculumEntryInput {
     pub teacher_id: String,
     pub split_teacher2_id: Option<String>,
     pub hours_per_week: i64,
+    pub joint_lesson_id: Option<String>,
 }
 
 #[tauri::command]
 pub async fn schedule_set_curriculum(state: State<'_, AppState>, entries: Vec<CurriculumEntryInput>) -> Result<Vec<crate::domain::schedule::model::ScheduleCurriculum>, String> {
     let tuples = entries
         .into_iter()
-        .map(|e| (e.class_id, e.subject_id, e.teacher_id, e.split_teacher2_id, e.hours_per_week))
+        .map(|e| (e.class_id, e.subject_id, e.teacher_id, e.split_teacher2_id, e.hours_per_week, e.joint_lesson_id))
         .collect();
     curriculum::set_curriculum_entries(&state.pool, tuples)
+        .await
+        .map_err(|e| e.to_string())
+}
+
+#[tauri::command]
+pub async fn schedule_toggle_joint_lessons(
+    state: State<'_, AppState>,
+    curriculum_ids: Vec<String>,
+    joint_lesson_id: Option<String>,
+) -> Result<Vec<crate::domain::schedule::model::ScheduleCurriculum>, String> {
+    curriculum::toggle_joint_lessons(&state.pool, curriculum_ids, joint_lesson_id)
         .await
         .map_err(|e| e.to_string())
 }
@@ -708,7 +720,7 @@ pub async fn schedule_import_legacy(state: State<'_, AppState>, quarter: Option<
     }
 
     // 6) Нагрузка
-    let mut entries: Vec<(String,String,String,Option<String>,i64)> = Vec::new();
+    let mut entries: Vec<(String, String, String, Option<String>, i64, Option<String>)> = Vec::new();
     for e in &curriculum {
         let class_id = e.get("class_id").and_then(|v| v.as_str()).unwrap_or("").to_string();
         let subject_id = e.get("subject_id").and_then(|v| v.as_str()).unwrap_or("").to_string();
@@ -716,7 +728,7 @@ pub async fn schedule_import_legacy(state: State<'_, AppState>, quarter: Option<
         let split2 = e.get("split_teacher2_id").and_then(|v| v.as_str().map(|s| s.to_string()));
         let hours = e.get("hours_per_week").and_then(|v| v.as_i64()).unwrap_or(1);
         if class_id.is_empty() || subject_id.is_empty() || teacher_id.is_empty() { continue; }
-        entries.push((class_id, subject_id, teacher_id, split2, hours));
+        entries.push((class_id, subject_id, teacher_id, split2, hours, None));
     }
     curriculum::set_curriculum_entries(pool, entries).await.map_err(|e| e.to_string())?;
 
@@ -731,6 +743,10 @@ pub async fn schedule_import_legacy(state: State<'_, AppState>, quarter: Option<
         // Q4: импортируем два варианта 2025-2026/Q4/V1 и V2
         let v1_str = std::fs::read_to_string(&q4_v1_path).map_err(|e| format!("read q4 variant1: {}", e))?;
         let v1_slots: Vec<serde_json::Value> = serde_json::from_str(&v1_str).map_err(|e| e.to_string())?;
+        // Переименовываем вариант 1 для ясного отображения
+        sqlx::query("UPDATE schedule_variants SET name = '4 четверть, Вариант 1 (Ручной / XLS)' WHERE id = ?1")
+            .bind(&variant_id).execute(pool).await.ok();
+
         // Вставляем слоты V1
         sqlx::query("DELETE FROM schedule_slots WHERE variant_id = ?1").bind(&variant_id).execute(pool).await.map_err(|e| e.to_string())?;
         for v in &v1_slots {
@@ -741,10 +757,11 @@ pub async fn schedule_import_legacy(state: State<'_, AppState>, quarter: Option<
             let day = v.get("day").and_then(|x| x.as_i64()).unwrap_or(0);
             let period = v.get("period").and_then(|x| x.as_i64()).unwrap_or(0);
             let subgroup = v.get("subgroup_label").and_then(|x| x.as_str()).unwrap_or("").to_string();
+            let joint_id = v.get("joint_lesson_id").and_then(|x| x.as_str().map(|s| s.to_string()));
             let slot_id = if subgroup.is_empty() { format!("q4v1_{}_{}_{}_{}", class_id, day, period, teacher_id) } else { format!("q4v1_{}_{}_{}_{}_{}", class_id, day, period, teacher_id, &subgroup) };
             let _ = sqlx::query(
-                "INSERT OR IGNORE INTO schedule_slots (id, class_id, subject_id, teacher_id, room_id, subgroup_label, day, period, is_double, variant_id)
-                 VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, 0, ?9)",
+                "INSERT OR IGNORE INTO schedule_slots (id, class_id, subject_id, teacher_id, room_id, subgroup_label, day, period, is_double, variant_id, joint_lesson_id)
+                 VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, 0, ?9, ?10)",
             )
             .bind(&slot_id)
             .bind(&class_id)
@@ -755,6 +772,7 @@ pub async fn schedule_import_legacy(state: State<'_, AppState>, quarter: Option<
             .bind(day)
             .bind(period)
             .bind(&variant_id)
+            .bind(&joint_id)
             .execute(pool).await;
         }
 
@@ -765,12 +783,15 @@ pub async fn schedule_import_legacy(state: State<'_, AppState>, quarter: Option<
             )
             .fetch_optional(pool).await.map_err(|e| e.to_string())?;
             match existing {
-                Some(vid) => vid,
+                Some(vid) => {
+                    sqlx::query("UPDATE schedule_variants SET name = '4 четверть, Вариант 2 (Жадный алгоритм)' WHERE id = ?1").bind(&vid).execute(pool).await.ok();
+                    vid
+                },
                 None => {
                     let vid = uuid::Uuid::new_v4().to_string();
                     sqlx::query(
                         "INSERT INTO schedule_variants (id, name, academic_year, quarter_number, variant_number, is_active, created_at, parent_variant_id)
-                         VALUES (?1, '4 четверть, Вариант 2 (Автогенерация)', '2025-2026', 4, 2, 0, datetime('now'), ?2)",
+                         VALUES (?1, '4 четверть, Вариант 2 (Жадный алгоритм)', '2025-2026', 4, 2, 0, datetime('now'), ?2)",
                     )
                     .bind(&vid)
                     .bind(&variant_id)
@@ -791,10 +812,11 @@ pub async fn schedule_import_legacy(state: State<'_, AppState>, quarter: Option<
                 let day = v.get("day").and_then(|x| x.as_i64()).unwrap_or(0);
                 let period = v.get("period").and_then(|x| x.as_i64()).unwrap_or(0);
                 let subgroup = v.get("subgroup_label").and_then(|x| x.as_str()).unwrap_or("").to_string();
+                let joint_id = v.get("joint_lesson_id").and_then(|x| x.as_str().map(|s| s.to_string()));
                 let slot_id = if subgroup.is_empty() { format!("q4v2_{}_{}_{}_{}", class_id, day, period, teacher_id) } else { format!("q4v2_{}_{}_{}_{}_{}", class_id, day, period, teacher_id, &subgroup) };
                 let _ = sqlx::query(
-                    "INSERT OR IGNORE INTO schedule_slots (id, class_id, subject_id, teacher_id, room_id, subgroup_label, day, period, is_double, variant_id)
-                     VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, 0, ?9)",
+                    "INSERT OR IGNORE INTO schedule_slots (id, class_id, subject_id, teacher_id, room_id, subgroup_label, day, period, is_double, variant_id, joint_lesson_id)
+                     VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, 0, ?9, ?10)",
                 )
                 .bind(&slot_id)
                 .bind(&class_id)
@@ -805,14 +827,15 @@ pub async fn schedule_import_legacy(state: State<'_, AppState>, quarter: Option<
                 .bind(day)
                 .bind(period)
                 .bind(&variant2_id)
+                .bind(&joint_id)
                 .execute(pool).await;
             }
         } else {
             // Fallback: копируем V1 как V2
             sqlx::query("DELETE FROM schedule_slots WHERE variant_id = ?1").bind(&variant2_id).execute(pool).await.map_err(|e| e.to_string())?;
             sqlx::query(
-                "INSERT OR IGNORE INTO schedule_slots (id, class_id, subject_id, teacher_id, room_id, subgroup_label, day, period, is_double, variant_id)
-                 SELECT 'q4v2_' || id, class_id, subject_id, teacher_id, room_id, subgroup_label, day, period, is_double, ?1
+                "INSERT OR IGNORE INTO schedule_slots (id, class_id, subject_id, teacher_id, room_id, subgroup_label, day, period, is_double, variant_id, joint_lesson_id)
+                 SELECT 'q4v2_' || id, class_id, subject_id, teacher_id, room_id, subgroup_label, day, period, is_double, ?1, joint_lesson_id
                  FROM schedule_slots WHERE variant_id = ?2",
             )
             .bind(&variant2_id)
@@ -820,19 +843,22 @@ pub async fn schedule_import_legacy(state: State<'_, AppState>, quarter: Option<
             .execute(pool).await.map_err(|e| e.to_string())?;
         }
 
-        // Создаём/получаем вариант 3 (CP-SAT 3 минуты)
+        // Создаём/получаем вариант 3 (CP-SAT Умная генерация)
         let variant3_id = {
             let existing: Option<String> = sqlx::query_scalar(
                 "SELECT id FROM schedule_variants WHERE academic_year='2025-2026' AND quarter_number=4 AND variant_number=3",
             )
             .fetch_optional(pool).await.map_err(|e| e.to_string())?;
             match existing {
-                Some(vid) => vid,
+                Some(vid) => {
+                    sqlx::query("UPDATE schedule_variants SET name = '4 четверть, Вариант 3 (Умный алгоритм CP-SAT)' WHERE id = ?1").bind(&vid).execute(pool).await.ok();
+                    vid
+                },
                 None => {
                     let vid = uuid::Uuid::new_v4().to_string();
                     sqlx::query(
                         "INSERT INTO schedule_variants (id, name, academic_year, quarter_number, variant_number, is_active, created_at, parent_variant_id)
-                         VALUES (?1, '4 четверть, Вариант 3 (CP-SAT 3 мин)', '2025-2026', 4, 3, 0, datetime('now'), ?2)",
+                         VALUES (?1, '4 четверть, Вариант 3 (Умный алгоритм CP-SAT)', '2025-2026', 4, 3, 0, datetime('now'), ?2)",
                     )
                     .bind(&vid)
                     .bind(&variant_id)
@@ -853,10 +879,11 @@ pub async fn schedule_import_legacy(state: State<'_, AppState>, quarter: Option<
                 let day = v.get("day").and_then(|x| x.as_i64()).unwrap_or(0);
                 let period = v.get("period").and_then(|x| x.as_i64()).unwrap_or(0);
                 let subgroup = v.get("subgroup_label").and_then(|x| x.as_str()).unwrap_or("").to_string();
+                let joint_id = v.get("joint_lesson_id").and_then(|x| x.as_str().map(|s| s.to_string()));
                 let slot_id = if subgroup.is_empty() { format!("q4v3_{}_{}_{}_{}", class_id, day, period, teacher_id) } else { format!("q4v3_{}_{}_{}_{}_{}", class_id, day, period, teacher_id, &subgroup) };
                 let _ = sqlx::query(
-                    "INSERT OR IGNORE INTO schedule_slots (id, class_id, subject_id, teacher_id, room_id, subgroup_label, day, period, is_double, variant_id)
-                     VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, 0, ?9)",
+                    "INSERT OR IGNORE INTO schedule_slots (id, class_id, subject_id, teacher_id, room_id, subgroup_label, day, period, is_double, variant_id, joint_lesson_id)
+                     VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, 0, ?9, ?10)",
                 )
                 .bind(&slot_id)
                 .bind(&class_id)
@@ -867,6 +894,7 @@ pub async fn schedule_import_legacy(state: State<'_, AppState>, quarter: Option<
                 .bind(day)
                 .bind(period)
                 .bind(&variant3_id)
+                .bind(&joint_id)
                 .execute(pool).await;
             }
         }
@@ -970,6 +998,7 @@ pub async fn schedule_get_legacy(state: State<'_, AppState>, quarter: i64) -> Re
             day,
             period,
             is_double: false,
+            joint_lesson_id: None,
             week: v.get("week").and_then(|x| x.as_i64()),
             source_subject: v.get("source_subject").and_then(|x| x.as_str()).map(str::to_string),
             source_teacher: v.get("source_teacher").and_then(|x| x.as_str()).map(str::to_string),
@@ -1125,7 +1154,7 @@ pub async fn schedule_get_slots_for_variant(state: State<'_, AppState>, variant_
         crate::domain::schedule::model::ScheduleSlot {
             id, class_id, subject_id, teacher_id, room_id,
             subgroup_label: if subgroup_label.is_empty() { None } else { Some(subgroup_label) },
-            day, period, is_double, week: None,
+            day, period, is_double, joint_lesson_id: None, week: None,
             source_subject: None, source_teacher: None, source_time: None, source_note: None,
             variant_id,
         }

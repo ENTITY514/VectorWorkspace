@@ -12,7 +12,7 @@ pub fn generate_xlsx(
 ) -> Vec<u8> {
     let rows_per_day = 7;
     let n_days = 6;
-    let total_rows = n_days * rows_per_day;
+    let _total_rows = n_days * rows_per_day;
 
     // Индексы стилей заливки: index 0 = без заливки, далее по hash
     let mut fill_map: std::collections::HashMap<u32, usize> = std::collections::HashMap::new();
@@ -64,7 +64,7 @@ pub fn generate_xlsx(
                 r#"<c r="A{}" t="inlineStr" s="2"><is><t>{} {}</t></is></c>"#,
                 r, day_names[d], p + 1
             ));
-            for (i, c) in classes.iter().enumerate() {
+            for (i, _c) in classes.iter().enumerate() {
                 let col = col_name(i + 2);
                 let cell_ref = format!("{}{}", col, r);
                 if let Some(labels) = grid.get(&(i, d, p)) {
@@ -166,7 +166,7 @@ pub fn generate_xlsx(
     buf.into_inner()
 }
 
-fn labels_first_teacher_subject(labels: &[String], slots: &[ScheduleExportSlot]) -> Option<(String, String)> {
+fn labels_first_teacher_subject(_labels: &[String], slots: &[ScheduleExportSlot]) -> Option<(String, String)> {
     // Находим первый слот, чей составной текст присутствует в labels (грубое сопоставление не нужно —
     // просто берём по индексу). Для простоты возвращаем первый слот с совпадающим subject/teacher.
     slots.iter().next().map(|s| (s.teacher_id.clone(), s.subject_id.clone()))

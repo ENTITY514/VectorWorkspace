@@ -2,7 +2,7 @@ use serde::{Deserialize, Serialize};
 use std::path::PathBuf;
 use std::time::Duration;
 use tokio::process::Command;
-use tokio::io::{AsyncReadExt, AsyncWriteExt};
+use tokio::io::AsyncWriteExt;
 
 #[derive(Debug, thiserror::Error)]
 pub enum SolverError {
@@ -38,19 +38,31 @@ impl SolverHost {
 
     /// Пытается найти python с ortools: сперва полный путь Python312, затем `python`, затем `python3`.
     pub fn default_python() -> String {
-        let candidates = [
-            r"C:\Users\Sulpak\AppData\Local\Programs\Python\Python312\python.exe",
-            r"C:\Program Files\Python312\python.exe",
-            "python",
-            "python3",
+        let mut candidates = vec![
+            r"C:\Users\imanb\AppData\Local\Python\pythoncore-3.13-64\python.exe".to_string(),
         ];
+
+        if let Ok(user_profile) = std::env::var("USERPROFILE") {
+            candidates.push(format!(r"{}\AppData\Local\Python\pythoncore-3.13-64\python.exe", user_profile));
+            candidates.push(format!(r"{}\AppData\Local\Programs\Python\Python312\python.exe", user_profile));
+            candidates.push(format!(r"{}\AppData\Local\Programs\Python\Python313\python.exe", user_profile));
+        }
+
+        candidates.extend([
+            r"C:\Users\Sulpak\AppData\Local\Programs\Python\Python312\python.exe".to_string(),
+            r"C:\Program Files\Python312\python.exe".to_string(),
+            r"C:\Program Files\Python313\python.exe".to_string(),
+            "python".to_string(),
+            "python3".to_string(),
+        ]);
+
         for c in candidates {
             if c.contains(':') {
-                if std::path::Path::new(c).exists() {
-                    return c.to_string();
+                if std::path::Path::new(&c).exists() {
+                    return c;
                 }
             } else {
-                return c.to_string();
+                return c;
             }
         }
         "python".to_string()

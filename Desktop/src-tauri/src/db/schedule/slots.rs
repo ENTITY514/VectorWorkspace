@@ -52,14 +52,14 @@ pub async fn set_weights(
 }
 
 pub async fn list_slots(pool: &SqlitePool) -> Result<Vec<ScheduleSlot>, DbError> {
-    let rows = sqlx::query_as::<_, (String, String, String, String, String, String, i64, i64, i64, String)>(
-        "SELECT id, class_id, subject_id, teacher_id, room_id, subgroup_label, day, period, is_double, variant_id FROM schedule_slots ORDER BY day, period",
+    let rows = sqlx::query_as::<_, (String, String, String, String, String, String, i64, i64, i64, String, Option<String>)>(
+        "SELECT id, class_id, subject_id, teacher_id, room_id, subgroup_label, day, period, is_double, variant_id, joint_lesson_id FROM schedule_slots ORDER BY day, period",
     )
     .fetch_all(pool)
     .await?;
     Ok(rows
         .into_iter()
-        .map(|(id, class_id, subject_id, teacher_id, room_id, subgroup_label, day, period, is_double, variant_id)| ScheduleSlot {
+        .map(|(id, class_id, subject_id, teacher_id, room_id, subgroup_label, day, period, is_double, variant_id, joint_lesson_id)| ScheduleSlot {
             id,
             class_id,
             subject_id,
@@ -69,6 +69,7 @@ pub async fn list_slots(pool: &SqlitePool) -> Result<Vec<ScheduleSlot>, DbError>
             day,
             period,
             is_double: is_double != 0,
+            joint_lesson_id,
             week: None,
             source_subject: None,
             source_teacher: None,
@@ -80,15 +81,15 @@ pub async fn list_slots(pool: &SqlitePool) -> Result<Vec<ScheduleSlot>, DbError>
 }
 
 pub async fn list_slots_for_variant(pool: &SqlitePool, variant_id: &str) -> Result<Vec<ScheduleSlot>, DbError> {
-    let rows = sqlx::query_as::<_, (String, String, String, String, String, String, i64, i64, i64)>(
-        "SELECT id, class_id, subject_id, teacher_id, room_id, subgroup_label, day, period, is_double FROM schedule_slots WHERE variant_id = ?1 ORDER BY day, period",
+    let rows = sqlx::query_as::<_, (String, String, String, String, String, String, i64, i64, i64, Option<String>)>(
+        "SELECT id, class_id, subject_id, teacher_id, room_id, subgroup_label, day, period, is_double, joint_lesson_id FROM schedule_slots WHERE variant_id = ?1 ORDER BY day, period",
     )
     .bind(variant_id)
     .fetch_all(pool)
     .await?;
     Ok(rows
         .into_iter()
-        .map(|(id, class_id, subject_id, teacher_id, room_id, subgroup_label, day, period, is_double)| ScheduleSlot {
+        .map(|(id, class_id, subject_id, teacher_id, room_id, subgroup_label, day, period, is_double, joint_lesson_id)| ScheduleSlot {
             id,
             class_id,
             subject_id,
@@ -98,6 +99,7 @@ pub async fn list_slots_for_variant(pool: &SqlitePool, variant_id: &str) -> Resu
             day,
             period,
             is_double: is_double != 0,
+            joint_lesson_id,
             week: None,
             source_subject: None,
             source_teacher: None,

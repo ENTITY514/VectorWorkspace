@@ -1103,7 +1103,7 @@
       "required_room_type": null,
       "requires_split": false,
       "is_double_allowed": false,
-      "related_subjects_json": "[]"
+      "related_subjects_json": "[\"trud\", \"xls_89eeb6bf7feb\", \"xls_3347cdc0f735\"]"
     },
     {
       "id": "pe",
@@ -1121,7 +1121,7 @@
       "required_room_type": "Workshop",
       "requires_split": false,
       "is_double_allowed": false,
-      "related_subjects_json": "[]"
+      "related_subjects_json": "[\"izo\"]"
     },
     {
       "id": "dunietanu",
@@ -1139,7 +1139,7 @@
       "required_room_type": null,
       "requires_split": false,
       "is_double_allowed": false,
-      "related_subjects_json": "[]"
+      "related_subjects_json": "[\"russian\"]"
     },
     {
       "id": "english",
@@ -1157,7 +1157,7 @@
       "required_room_type": null,
       "requires_split": false,
       "is_double_allowed": false,
-      "related_subjects_json": "[]"
+      "related_subjects_json": "[\"kazakh_literature\", \"xls_d7a11dfa2765\"]"
     },
     {
       "id": "russian",
@@ -1166,7 +1166,7 @@
       "required_room_type": null,
       "requires_split": false,
       "is_double_allowed": false,
-      "related_subjects_json": "[]"
+      "related_subjects_json": "[\"literature\", \"xls_be32892d5985\", \"xls_ee02542adfa7\"]"
     },
     {
       "id": "history_kz",
@@ -1175,7 +1175,7 @@
       "required_room_type": null,
       "requires_split": false,
       "is_double_allowed": false,
-      "related_subjects_json": "[]"
+      "related_subjects_json": "[\"history_world\", \"xls_9c595eca2c44\"]"
     },
     {
       "id": "kazakh_literature",
@@ -1184,7 +1184,7 @@
       "required_room_type": null,
       "requires_split": false,
       "is_double_allowed": false,
-      "related_subjects_json": "[]"
+      "related_subjects_json": "[\"kazakh_language\"]"
     },
     {
       "id": "geometry",
@@ -1193,7 +1193,7 @@
       "required_room_type": null,
       "requires_split": false,
       "is_double_allowed": false,
-      "related_subjects_json": "[]"
+      "related_subjects_json": "[\"algebra\"]"
     },
     {
       "id": "algebra",
@@ -1202,7 +1202,7 @@
       "required_room_type": null,
       "requires_split": false,
       "is_double_allowed": false,
-      "related_subjects_json": "[]"
+      "related_subjects_json": "[\"geometry\"]"
     },
     {
       "id": "history_world",
@@ -1211,7 +1211,7 @@
       "required_room_type": null,
       "requires_split": false,
       "is_double_allowed": false,
-      "related_subjects_json": "[]"
+      "related_subjects_json": "[\"history_kz\"]"
     },
     {
       "id": "geography",
@@ -1238,7 +1238,7 @@
       "required_room_type": "PhysicsLab",
       "requires_split": false,
       "is_double_allowed": false,
-      "related_subjects_json": "[]"
+      "related_subjects_json": "[\"chemistry\", \"biology\"]"
     },
     {
       "id": "biology",
@@ -1247,7 +1247,7 @@
       "required_room_type": "BiologyLab",
       "requires_split": false,
       "is_double_allowed": false,
-      "related_subjects_json": "[]"
+      "related_subjects_json": "[\"physics\", \"chemistry\"]"
     },
     {
       "id": "informatics",
@@ -1265,7 +1265,7 @@
       "required_room_type": "ChemistryLab",
       "requires_split": false,
       "is_double_allowed": false,
-      "related_subjects_json": "[]"
+      "related_subjects_json": "[\"physics\", \"biology\"]"
     },
     {
       "id": "poznanie",
@@ -1301,7 +1301,7 @@
       "required_room_type": null,
       "requires_split": false,
       "is_double_allowed": false,
-      "related_subjects_json": "[]"
+      "related_subjects_json": "[\"russian\"]"
     },
     {
       "id": "xls_23480fec4526",
@@ -1346,7 +1346,7 @@
       "required_room_type": null,
       "requires_split": false,
       "is_double_allowed": false,
-      "related_subjects_json": "[]"
+      "related_subjects_json": "[\"izo\"]"
     },
     {
       "id": "xls_27fd1b2f1ffd",
@@ -1445,7 +1445,7 @@
       "required_room_type": null,
       "requires_split": false,
       "is_double_allowed": false,
-      "related_subjects_json": "[]"
+      "related_subjects_json": "[\"kazakh_language\"]"
     },
     {
       "id": "xls_868929b024c4",
@@ -1490,7 +1490,7 @@
       "required_room_type": null,
       "requires_split": false,
       "is_double_allowed": false,
-      "related_subjects_json": "[]"
+      "related_subjects_json": "[\"history_kz\"]"
     },
     {
       "id": "xls_d88e55dae191",
@@ -1535,7 +1535,7 @@
       "required_room_type": null,
       "requires_split": false,
       "is_double_allowed": false,
-      "related_subjects_json": "[]"
+      "related_subjects_json": "[\"russian\"]"
     },
     {
       "id": "xls_3347cdc0f735",
@@ -1544,7 +1544,7 @@
       "required_room_type": null,
       "requires_split": false,
       "is_double_allowed": false,
-      "related_subjects_json": "[]"
+      "related_subjects_json": "[\"izo\"]"
     },
     {
       "id": "xls_fe606f83c672",

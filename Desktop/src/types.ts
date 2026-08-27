@@ -399,6 +399,7 @@ export interface ScheduleCurriculum {
   teacher_id: string;
   split_teacher2_id: string | null;
   hours_per_week: number;
+  joint_lesson_id: string | null;
 }
 
 export interface ScheduleWeights {
@@ -422,6 +423,7 @@ export interface ScheduleSlot {
   day: number;
   period: number;
   is_double: boolean;
+  joint_lesson_id: string | null;
   week?: number | null;
   source_subject?: string | null;
   source_teacher?: string | null;

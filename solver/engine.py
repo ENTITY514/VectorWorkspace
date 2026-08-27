@@ -24,13 +24,22 @@ def create_variables(model, m):
     # Разворачиваем curriculum в instances
     instances = []
     idx = 0
+    joint_hour_offset: dict[tuple[str, str], int] = {}
     for entry in m.curriculum:
         subj = subject_by_id.get(entry.subject_id)
         if subj is None:
             continue
         is_split = subj.requires_split
         hours = entry.hours_per_week
+        joint_id = getattr(entry, "joint_lesson_id", None)
+        base_h_offset = 0
+        if joint_id:
+            key_cj = (entry.class_id, joint_id)
+            base_h_offset = joint_hour_offset.get(key_cj, 0)
+            joint_hour_offset[key_cj] = base_h_offset + hours
+
         for h in range(hours):
+            j_h_idx = base_h_offset + h
             if is_split:
                 # два instance с одним split_key
                 sk = f"{entry.class_id}|{entry.subject_id}|{h}"
@@ -42,6 +51,8 @@ def create_variables(model, m):
                     "subgroup_label": "1гр",
                     "split_key": sk,
                     "requires_split": True,
+                    "joint_lesson_id": joint_id,
+                    "joint_hour_index": j_h_idx,
                 })
                 idx += 1
                 instances.append({
@@ -52,6 +63,8 @@ def create_variables(model, m):
                     "subgroup_label": "2гр",
                     "split_key": sk,
                     "requires_split": True,
+                    "joint_lesson_id": joint_id,
+                    "joint_hour_index": j_h_idx,
                 })
                 idx += 1
             else:
@@ -63,6 +76,8 @@ def create_variables(model, m):
                     "subgroup_label": "",
                     "split_key": None,
                     "requires_split": False,
+                    "joint_lesson_id": joint_id,
+                    "joint_hour_index": j_h_idx,
                 })
                 idx += 1
 
@@ -354,6 +369,7 @@ def solve(input_model: InputModel) -> dict:
                             "subgroup_label": inst["subgroup_label"] if inst["subgroup_label"] != "" else None,
                             "day": d,
                             "period": p,
+                            "joint_lesson_id": inst.get("joint_lesson_id"),
                         })
                         break
         # собрать реальные штрафы

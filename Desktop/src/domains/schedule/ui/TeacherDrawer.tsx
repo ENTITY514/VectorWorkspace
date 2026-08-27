@@ -82,7 +82,53 @@ export function TeacherDrawer({ teacher, rooms, subjects, classes, curriculum, o
   const subjectName = (id: string) => subjects.find(s => s.id === id)?.name || id;
   const className = (id: string) => {
     const c = classes.find(c => c.id === id);
-    return c ? `${c.grade}${c.letter}` : id;
+    if (!c) {
+      if (id.endsWith("_luo")) return id.replace("_luo", "") + " ЛУО";
+      if (id.endsWith("_do")) return id.replace("_do", "") + " ДО";
+      return id;
+    }
+    let base = c.letter ? `${c.grade}-${c.letter}` : `${c.grade}`;
+    const ctype = (c.class_type || "").toLowerCase();
+    const idLower = (c.id || "").toLowerCase();
+    if (ctype === "luo" || idLower.endsWith("_luo") || idLower.includes("luo")) base += " ЛУО";
+    else if (ctype === "do" || idLower.endsWith("_do") || idLower.includes("_do")) base += " ДО";
+    return base;
+  };
+
+  const [selectedIds, setSelectedIds] = useState<string[]>([]);
+
+  const toggleSelect = (id: string) => {
+    setSelectedIds(prev => prev.includes(id) ? prev.filter(x => x !== id) : [...prev, id]);
+  };
+
+  const physicalSlotsCount = useMemo(() => {
+    let total = 0;
+    const jointGroups = new Map<string, number>();
+    for (const c of teacherCurriculum) {
+      if (c.joint_lesson_id) {
+        const curMax = jointGroups.get(c.joint_lesson_id) || 0;
+        jointGroups.set(c.joint_lesson_id, Math.max(curMax, c.hours_per_week));
+      } else {
+        total += c.hours_per_week;
+      }
+    }
+    for (const hrs of jointGroups.values()) total += hrs;
+    return total;
+  }, [teacherCurriculum]);
+
+  const handleCombineSelected = async () => {
+    if (selectedIds.length < 2) return;
+    const jid = `jl_${teacher.id}_${Date.now().toString(36)}`;
+    await scheduleApi.toggleJointLessons(selectedIds, jid);
+    setSelectedIds([]);
+    onSave();
+    showToast("Уроки успешно объединены в класс-комплект", "success");
+  };
+
+  const handleUnlink = async (id: string) => {
+    await scheduleApi.toggleJointLessons([id], null);
+    onSave();
+    showToast("Связь совмещения удалена", "info");
   };
 
   return (
@@ -144,20 +190,56 @@ export function TeacherDrawer({ teacher, rooms, subjects, classes, curriculum, o
 
         {/* Curriculum / load table */}
         <div className="drawer-section">
-          <h4>Нагрузка ({teacherCurriculum.length} записей)</h4>
+          <div className="row" style={{ justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
+            <h4>
+              Нагрузка ({teacherCurriculum.length} записей · <strong style={{ color: physicalSlotsCount > 35 ? "#ef4444" : "#10b981" }}>{physicalSlotsCount} физич. слотов</strong>)
+            </h4>
+            {selectedIds.length >= 2 && (
+              <button className="btn btn-small btn-primary" onClick={handleCombineSelected}>
+                🔗 Совместить ({selectedIds.length})
+              </button>
+            )}
+          </div>
+
           {teacherCurriculum.length === 0 ? (
             <p className="muted">Нет назначенных уроков</p>
           ) : (
             <table className="table centered" style={{ fontSize: 13 }}>
-              <thead><tr><th>Класс</th><th>Предмет</th><th>Часов/нед</th></tr></thead>
+              <thead>
+                <tr>
+                  <th style={{ width: 30 }}></th>
+                  <th>Класс</th>
+                  <th>Предмет</th>
+                  <th>Часов</th>
+                  <th>Совмещение</th>
+                </tr>
+              </thead>
               <tbody>
-                {teacherCurriculum.map((c, i) => (
-                  <tr key={i}>
-                    <td>{className(c.class_id)}</td>
-                    <td>{subjectName(c.subject_id)}</td>
-                    <td>{c.hours_per_week}</td>
-                  </tr>
-                ))}
+                {teacherCurriculum.map((c) => {
+                  const isChecked = selectedIds.includes(c.id);
+                  return (
+                    <tr key={c.id} style={{ background: c.joint_lesson_id ? "rgba(59, 130, 246, 0.18)" : undefined }}>
+                      <td>
+                        <input type="checkbox" checked={isChecked} onChange={() => toggleSelect(c.id)} />
+                      </td>
+                      <td>{className(c.class_id)}</td>
+                      <td>{subjectName(c.subject_id)}</td>
+                      <td>{c.hours_per_week}</td>
+                      <td>
+                        {c.joint_lesson_id ? (
+                          <div className="row" style={{ gap: 4, justifyContent: "center" }}>
+                            <span className="badge badge-green">🔗 Комплект</span>
+                            <button className="btn btn-small" style={{ padding: "1px 6px" }} title="Разъединить" onClick={() => handleUnlink(c.id)}>
+                              ✂️
+                            </button>
+                          </div>
+                        ) : (
+                          <span className="muted">—</span>
+                        )}
+                      </td>
+                    </tr>
+                  );
+                })}
               </tbody>
             </table>
           )}

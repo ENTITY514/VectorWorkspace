@@ -4,7 +4,7 @@ import type { ScheduleState, RoomType, Shift } from "../../../types";
 import { ROOM_TYPE_LABELS, SHIFT_LABELS } from "../../../types";
 import { showToast } from "../../../components/Toast";
 
-type SettingsTab = "subjects" | "classes" | "rooms";
+type SettingsTab = "subjects" | "classes" | "rooms" | "joint_lessons";
 
 function slugFromName(name: string): string {
   const s = name.trim().toLowerCase().replace(/\s+/g, "_").replace(/[^a-zа-яё0-9_]/g, "");
@@ -23,15 +23,16 @@ export function SchoolSettings() {
   return (
     <div className="card">
       <div className="tabs" role="tablist" style={{ marginBottom: 16 }}>
-        {(["subjects", "classes", "rooms"] as SettingsTab[]).map(t => (
+        {(["subjects", "classes", "rooms", "joint_lessons"] as SettingsTab[]).map(t => (
           <button key={t} role="tab" aria-selected={tab === t} className={tab === t ? "tab active" : "tab"} onClick={() => setTab(t)}>
-            {{ subjects: "Предметы", classes: "Классы", rooms: "Кабинеты" }[t]}
+            {{ subjects: "Предметы", classes: "Классы", rooms: "Кабинеты", joint_lessons: "🔗 Класс-комплекты" }[t]}
           </button>
         ))}
       </div>
       {tab === "subjects" && <SubjectsPanel subjects={state.subjects} onRefresh={load} />}
       {tab === "classes" && <ClassesPanel classes={state.classes} onRefresh={load} />}
       {tab === "rooms" && <RoomsPanel rooms={state.rooms} onRefresh={load} />}
+      {tab === "joint_lessons" && <JointLessonsPanel state={state} onRefresh={load} />}
     </div>
   );
 }
@@ -369,5 +370,197 @@ function RoomsPanel({ rooms, onRefresh }: { rooms: ScheduleState["rooms"]; onRef
         ))}
       </ul>
     </>
+  );
+}
+
+/* ─── Joint Lessons (Класс-комплекты) Panel ─── */
+function JointLessonsPanel({ state, onRefresh }: { state: ScheduleState; onRefresh: () => void }) {
+  const [selectedTeacherId, setSelectedTeacherId] = useState<string>("");
+  const [selectedCurriculumIds, setSelectedCurriculumIds] = useState<string[]>([]);
+  const [submitting, setSubmitting] = useState(false);
+
+  // Group curriculum items by teacher
+  const teacherCurriculum = useMemo(() => {
+    if (!selectedTeacherId) return [];
+    return state.curriculum.filter(c => c.teacher_id === selectedTeacherId);
+  }, [state.curriculum, selectedTeacherId]);
+
+  // Existing joint groups
+  const existingJointGroups = useMemo(() => {
+    const map = new Map<string, typeof state.curriculum>();
+    for (const c of state.curriculum) {
+      if (c.joint_lesson_id) {
+        const list = map.get(c.joint_lesson_id) || [];
+        list.push(c);
+        map.set(c.joint_lesson_id, list);
+      }
+    }
+    return Array.from(map.entries()).map(([jointId, items]) => ({ jointId, items }));
+  }, [state.curriculum]);
+
+  const toggleSelect = (id: string) => {
+    setSelectedCurriculumIds(prev => (prev.includes(id) ? prev.filter(x => x !== id) : [...prev, id]));
+  };
+
+  const handleCombine = async () => {
+    if (selectedCurriculumIds.length < 2) return;
+    setSubmitting(true);
+    try {
+      await scheduleApi.toggleJointLessons(selectedCurriculumIds);
+      showToast("Уроки успешно объединены в класс-комплект!", "success");
+      setSelectedCurriculumIds([]);
+      onRefresh();
+    } catch (e: any) {
+      showToast(e.message || "Ошибка объединения", "error");
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  const handleUnlinkGroup = async (curriculumIds: string[]) => {
+    setSubmitting(true);
+    try {
+      await scheduleApi.toggleJointLessons(curriculumIds);
+      showToast("Уроки разъединены", "info");
+      onRefresh();
+    } catch (e: any) {
+      showToast(e.message || "Ошибка разъединения", "error");
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  const formatClass = (classId: string) => {
+    const c = state.classes.find(x => x.id === classId);
+    if (!c) return classId;
+    let base = c.letter ? `${c.grade}-${c.letter}` : `${c.grade}`;
+    if (c.class_type === "luo" || c.id.endsWith("_luo")) base += " ЛУО";
+    else if (c.class_type === "do" || c.id.endsWith("_do")) base += " ДО";
+    return base;
+  };
+
+  const formatSubj = (subjId: string) => state.subjects.find(s => s.id === subjId)?.name || subjId;
+  const formatTeacher = (tId: string) => state.teachers.find(t => t.id === tId)?.full_name || tId;
+
+  return (
+    <div className="joint-lessons-panel">
+      <div className="card-section" style={{ marginBottom: 24 }}>
+        <h3 style={{ fontSize: 16, fontWeight: 600, marginBottom: 6 }}>🔗 Создать новый Класс-комплект (Совмещенный урок)</h3>
+        <p className="muted" style={{ fontSize: 13, marginBottom: 14 }}>
+          Выберите преподавателя и отметьте галочками 2 или более предметов у разных классов (например, Музыка у 2-а, 3-а и 4-а или Математика в 7-б ЛУО и 7-б), которые проводятся одновременно.
+        </p>
+
+        <div className="form-row" style={{ marginBottom: 14 }}>
+          <div className="form-field" style={{ maxWidth: 360 }}>
+            <label className="form-label">Выберите преподавателя:</label>
+            <select
+              className="filter-select"
+              style={{ width: "100%" }}
+              value={selectedTeacherId}
+              onChange={e => {
+                setSelectedTeacherId(e.target.value);
+                setSelectedCurriculumIds([]);
+              }}
+            >
+              <option value="">-- Выберите учителя --</option>
+              {state.teachers.map(t => (
+                <option key={t.id} value={t.id}>
+                  {t.full_name}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+
+        {selectedTeacherId && teacherCurriculum.length > 0 && (
+          <div>
+            <table className="table centered" style={{ marginTop: 8 }}>
+              <thead>
+                <tr>
+                  <th style={{ width: 40 }}>Выбор</th>
+                  <th>Класс</th>
+                  <th>Предмет</th>
+                  <th>Часов/нед</th>
+                  <th>Статус</th>
+                </tr>
+              </thead>
+              <tbody>
+                {teacherCurriculum.map(c => {
+                  const isChecked = selectedCurriculumIds.includes(c.id);
+                  return (
+                    <tr key={c.id} className="clickable" onClick={() => toggleSelect(c.id)}>
+                      <td>
+                        <input type="checkbox" checked={isChecked} onChange={() => {}} />
+                      </td>
+                      <td>
+                        <strong>{formatClass(c.class_id)}</strong>
+                      </td>
+                      <td>{formatSubj(c.subject_id)}</td>
+                      <td>{c.hours_per_week} ч/нед</td>
+                      <td>
+                        {c.joint_lesson_id ? (
+                          <span className="card-badge badge-joint">🔗 В комплекте</span>
+                        ) : (
+                          <span className="muted">—</span>
+                        )}
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+
+            <div style={{ marginTop: 14, display: "flex", gap: 10 }}>
+              <button
+                className="btn btn-primary"
+                disabled={selectedCurriculumIds.length < 2 || submitting}
+                onClick={handleCombine}
+              >
+                🔗 Объединить выбранные ({selectedCurriculumIds.length}) в Класс-комплект
+              </button>
+            </div>
+          </div>
+        )}
+      </div>
+
+      <div className="card-section">
+        <h3 style={{ fontSize: 16, fontWeight: 600, marginBottom: 10 }}>📋 Действующие Класс-комплекты ({existingJointGroups.length})</h3>
+        {existingJointGroups.length === 0 ? (
+          <p className="muted">Пока нет созданных класс-комплектов.</p>
+        ) : (
+          <div style={{ display: "grid", gap: 12, marginTop: 12 }}>
+            {existingJointGroups.map(({ jointId, items }) => {
+              const teacherName = formatTeacher(items[0]?.teacher_id || "");
+              return (
+                <div key={jointId} className="card" style={{ padding: 12, background: "var(--bg-surface, #1e293b)" }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 8 }}>
+                    <div>
+                      <strong>👤 {teacherName}</strong>
+                      <span className="card-badge badge-joint" style={{ marginLeft: 8 }}>
+                        🔗 Комплект #{jointId.slice(0, 8)}
+                      </span>
+                    </div>
+                    <button
+                      className="btn btn-small btn-secondary"
+                      onClick={() => handleUnlinkGroup(items.map(i => i.id))}
+                      disabled={submitting}
+                    >
+                      ✂️ Разъединить
+                    </button>
+                  </div>
+                  <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+                    {items.map(item => (
+                      <div key={item.id} style={{ padding: "4px 8px", background: "rgba(255,255,255,0.06)", borderRadius: 4, fontSize: 12 }}>
+                        <strong>{formatClass(item.class_id)}</strong>: {formatSubj(item.subject_id)} ({item.hours_per_week} ч/нед)
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        )}
+      </div>
+    </div>
   );
 }
