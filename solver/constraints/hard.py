@@ -227,7 +227,7 @@ def add_hard_constraints(model, x, y, m, instances, room_by_id, subject_by_id):
 
     # H_luo_priority: ПРИОРИТЕТ КЛАССОВ ЛУО И ДО
     # 1. Запрет 7-го урока (p=6) для всех спецклассов (ЛУО/ДО)
-    # 2. Строгий запрет ОКОН (gaps) в расписании ЛУО/ДО классов — уроки идут подряд без разрывов
+    # 2. Строгий запрет ОКОН (gaps) в расписании ЛУО/ДО классов (запрет 7-го урока)
     class_ids = [c.id for c in m.classes]
     for inst in instances:
         cid = inst["class_id"]
@@ -239,26 +239,25 @@ def add_hard_constraints(model, x, y, m, instances, room_by_id, subject_by_id):
                 if k in x:
                     model.Add(x[k] == 0)
 
-    # Запрет окон (windows/gaps) для ЛУО/ДО классов
+    # 3. H_no_student_windows: СТРОГИЙ ЗАПРЕТ ОКОН У УЧЕНИКОВ ДЛЯ ВСЕХ КЛАССОВ ШКОЛЫ
+    # Ни у одного класса (от 1 до 11 класса) не может быть «окон» (пустых уроков) между первым и последним уроком дня.
     for cid in class_ids:
-        cid_lower = cid.lower()
-        if "luo" in cid_lower or "do" in cid_lower:
-            for d in range(m.time_grid.days):
-                for p_gap in range(1, m.time_grid.periods_per_day - 1):
-                    # Если есть занятие до p_gap и занятие после p_gap, то на p_gap ОБЯЗАНО быть занятие
-                    vars_before = [x[(inst["idx"], d, pb)] for inst in instances if inst["class_id"] == cid for pb in range(0, p_gap) if (inst["idx"], d, pb) in x]
-                    vars_after = [x[(inst["idx"], d, pa)] for inst in instances if inst["class_id"] == cid for pa in range(p_gap + 1, m.time_grid.periods_per_day) if (inst["idx"], d, pa) in x]
-                    vars_curr = [x[(inst["idx"], d, p_gap)] for inst in instances if inst["class_id"] == cid if (inst["idx"], d, p_gap) in x]
-                    if vars_before and vars_after:
-                        has_before = model.NewBoolVar(f"luo_bef_{cid}_{d}_{p_gap}")
-                        has_after = model.NewBoolVar(f"luo_aft_{cid}_{d}_{p_gap}")
-                        has_curr = model.NewBoolVar(f"luo_curr_{cid}_{d}_{p_gap}")
-                        model.AddMaxEquality(has_before, vars_before)
-                        model.AddMaxEquality(has_after, vars_after)
-                        if vars_curr:
-                            model.AddMaxEquality(has_curr, vars_curr)
-                            # has_before + has_after - 1 <= has_curr  => если есть до и после, curr обязано быть 1
-                            model.Add(has_curr >= has_before + has_after - 1)
+        for d in range(m.time_grid.days):
+            for p_gap in range(1, m.time_grid.periods_per_day - 1):
+                # Если есть занятие до p_gap и занятие после p_gap, то на p_gap ОБЯЗАНО быть занятие
+                vars_before = [x[(inst["idx"], d, pb)] for inst in instances if inst["class_id"] == cid for pb in range(0, p_gap) if (inst["idx"], d, pb) in x]
+                vars_after = [x[(inst["idx"], d, pa)] for inst in instances if inst["class_id"] == cid for pa in range(p_gap + 1, m.time_grid.periods_per_day) if (inst["idx"], d, pa) in x]
+                vars_curr = [x[(inst["idx"], d, p_gap)] for inst in instances if inst["class_id"] == cid if (inst["idx"], d, p_gap) in x]
+                if vars_before and vars_after:
+                    has_before = model.NewBoolVar(f"cls_bef_{cid}_{d}_{p_gap}")
+                    has_after = model.NewBoolVar(f"cls_aft_{cid}_{d}_{p_gap}")
+                    has_curr = model.NewBoolVar(f"cls_curr_{cid}_{d}_{p_gap}")
+                    model.AddMaxEquality(has_before, vars_before)
+                    model.AddMaxEquality(has_after, vars_after)
+                    if vars_curr:
+                        model.AddMaxEquality(has_curr, vars_curr)
+                        # has_before + has_after - 1 <= has_curr  => если есть уроки до и после, в p_gap обязан быть урок
+                        model.Add(has_curr >= has_before + has_after - 1)
 
     # H4: кабинет ≤1 в слот (через y + x связка)
     # Для каждой комнаты и слота: сумма instance занимающих комнату в этот слот ≤1

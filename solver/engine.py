@@ -93,11 +93,17 @@ def create_variables(model, m):
         if teacher is None or subj is None or cls is None:
             allowed_rooms_by_idx[inst["idx"]] = []
             continue
-        # предфильтр по required_room_type: допустимые комнаты
+        # предфильтр по required_room_type: допустимые комнаты (специализированные + fallback General / базовый)
         allowed_rooms = []
+        req_type = subj.required_room_type
         for rid, room in room_by_id.items():
-            if subj.required_room_type is not None and room.room_type != subj.required_room_type:
-                continue
+            if req_type is not None:
+                # Включаем специализированные кабинеты, а также общие (General) и базовый кабинет учителя как фоллбэк
+                is_spec = room.room_type == req_type
+                is_general = room.room_type == "General" or room.room_type == "Стандартный"
+                is_teacher_base = teacher.base_room_id is not None and rid == teacher.base_room_id
+                if not (is_spec or is_general or is_teacher_base):
+                    continue
             allowed_rooms.append(rid)
         allowed_rooms_by_idx[inst["idx"]] = allowed_rooms
         for rid in allowed_rooms:
