@@ -1,0 +1,42 @@
+{
+  "v1": {
+    "slots": 667,
+    "hard": {
+      "teacher_overlap": 137,
+      "class_overlap": 0,
+      "room_overlap": 322,
+      "room_filtered": 165
+    },
+    "soft": {
+      "window_gaps": 95,
+      "room_disp": 0,
+      "sanpin_dev": 2658,
+      "load_bal": 45,
+      "class_windows": 17,
+      "total_weighted": 286150
+    }
+  },
+  "v2": {
+    "slots": 667,
+    "hard": {
+      "teacher_overlap": 0,
+      "class_overlap": 0,
+      "room_overlap": 0,
+      "room_filtered": 0
+    },
+    "soft": {
+      "window_gaps": 126,
+      "room_disp": 0,
+      "sanpin_dev": 2557,
+      "load_bal": 101,
+      "class_windows": 130,
+      "total_weighted": 283930
+    }
+  },
+  "delta": {
+    "window": -31,
+    "sanpin": 101,
+    "balance": -56,
+    "total": 2220
+  }
+}
