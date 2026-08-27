@@ -114,12 +114,12 @@ export function SchedulePage() {
 
   useEffect(() => { load(); }, []);
 
-  // Автодобавление второго варианта Q4 2025-2026 если после импорта остался только один
+  // Автодобавление вариантов Q4 2025-2026 если после импорта осталось <3
   useEffect(() => {
     if (loading || importing) return;
     const q4vars = variants.filter(v => v.academic_year === "2025-2026" && v.quarter_number === 4);
-    if (q4vars.length === 1) {
-      // Триггерим повторный импорт который теперь создаст Вариант 2
+    if (q4vars.length > 0 && q4vars.length < 3) {
+      // Триггерим повторный импорт который теперь создаст недостающие варианты (V2/V3)
       (async () => {
         setImporting(true);
         try {
@@ -128,7 +128,7 @@ export function SchedulePage() {
           setState(s2);
           if (s2.variants) setVariants(s2.variants);
         } catch (e) {
-          console.error("Auto-seed V2 failed:", e);
+          console.error("Auto-seed V3 failed:", e);
         } finally {
           setImporting(false);
         }

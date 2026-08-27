@@ -1,0 +1,57 @@
+{
+  "v1": {
+    "hard": {
+      "teacher": 137,
+      "room": 322,
+      "roomF": 165,
+      "class": 0
+    },
+    "soft": {
+      "win": 95,
+      "sanpin": 2658,
+      "bal": 45,
+      "classWin": 17,
+      "total": 307400
+    }
+  },
+  "v2": {
+    "hard": {
+      "teacher": 0,
+      "room": 0,
+      "roomF": 0,
+      "class": 0
+    },
+    "soft": {
+      "win": 126,
+      "sanpin": 2051,
+      "bal": 101,
+      "classWin": 130,
+      "total": 263580
+    }
+  },
+  "v3": {
+    "hard": {
+      "teacher": 0,
+      "room": 504,
+      "roomF": 30,
+      "class": 0
+    },
+    "soft": {
+      "win": 1,
+      "sanpin": 2160,
+      "bal": 60,
+      "classWin": 101,
+      "total": 221200
+    },
+    "solver": {
+      "window": 1,
+      "room_displacement": 0,
+      "sanpin_parabola": 2470,
+      "alternation": 0,
+      "movement": 0,
+      "load_balance": 68,
+      "change_slot": 0,
+      "total": 252840
+    }
+  }
+}

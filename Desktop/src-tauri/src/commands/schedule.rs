@@ -724,6 +724,7 @@ pub async fn schedule_import_legacy(state: State<'_, AppState>, quarter: Option<
     // Для Q4 2025-2026 используем детализированные варианты из Materials/Q4 Schedule 2026
     let q4_v1_path = base.join("schedule_q4_2026_variant1.json");
     let q4_v2_path = base.join("schedule_q4_2026_variant2.json");
+    let q4_v3_path = base.join("schedule_q4_2026_variant3.json");
     let legacy_path = base.join(format!("schedule_legacy_q{}.json", q));
 
     if q == 4 && q4_v1_path.exists() {
@@ -819,10 +820,62 @@ pub async fn schedule_import_legacy(state: State<'_, AppState>, quarter: Option<
             .execute(pool).await.map_err(|e| e.to_string())?;
         }
 
+        // Создаём/получаем вариант 3 (CP-SAT 3 минуты)
+        let variant3_id = {
+            let existing: Option<String> = sqlx::query_scalar(
+                "SELECT id FROM schedule_variants WHERE academic_year='2025-2026' AND quarter_number=4 AND variant_number=3",
+            )
+            .fetch_optional(pool).await.map_err(|e| e.to_string())?;
+            match existing {
+                Some(vid) => vid,
+                None => {
+                    let vid = uuid::Uuid::new_v4().to_string();
+                    sqlx::query(
+                        "INSERT INTO schedule_variants (id, name, academic_year, quarter_number, variant_number, is_active, created_at, parent_variant_id)
+                         VALUES (?1, '4 четверть, Вариант 3 (CP-SAT 3 мин)', '2025-2026', 4, 3, 0, datetime('now'), ?2)",
+                    )
+                    .bind(&vid)
+                    .bind(&variant_id)
+                    .execute(pool).await.map_err(|e| e.to_string())?;
+                    vid
+                }
+            }
+        };
+        if q4_v3_path.exists() {
+            let v3_str = std::fs::read_to_string(&q4_v3_path).map_err(|e| format!("read q4 variant3: {}", e))?;
+            let v3_slots: Vec<serde_json::Value> = serde_json::from_str(&v3_str).map_err(|e| e.to_string())?;
+            sqlx::query("DELETE FROM schedule_slots WHERE variant_id = ?1").bind(&variant3_id).execute(pool).await.map_err(|e| e.to_string())?;
+            for v in &v3_slots {
+                let class_id = v.get("class_id").and_then(|x| x.as_str()).unwrap_or("").to_string();
+                let subject_id = v.get("subject_id").and_then(|x| x.as_str()).unwrap_or("").to_string();
+                let teacher_id = v.get("teacher_id").and_then(|x| x.as_str()).unwrap_or("").to_string();
+                let room_id = v.get("room_id").and_then(|x| x.as_str()).unwrap_or("").to_string();
+                let day = v.get("day").and_then(|x| x.as_i64()).unwrap_or(0);
+                let period = v.get("period").and_then(|x| x.as_i64()).unwrap_or(0);
+                let subgroup = v.get("subgroup_label").and_then(|x| x.as_str()).unwrap_or("").to_string();
+                let slot_id = if subgroup.is_empty() { format!("q4v3_{}_{}_{}_{}", class_id, day, period, teacher_id) } else { format!("q4v3_{}_{}_{}_{}_{}", class_id, day, period, teacher_id, &subgroup) };
+                let _ = sqlx::query(
+                    "INSERT OR IGNORE INTO schedule_slots (id, class_id, subject_id, teacher_id, room_id, subgroup_label, day, period, is_double, variant_id)
+                     VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, 0, ?9)",
+                )
+                .bind(&slot_id)
+                .bind(&class_id)
+                .bind(&subject_id)
+                .bind(&teacher_id)
+                .bind(&room_id)
+                .bind(&subgroup)
+                .bind(day)
+                .bind(period)
+                .bind(&variant3_id)
+                .execute(pool).await;
+            }
+        }
+
         Ok(serde_json::json!({
             "quarter": q,
             "variant_id": variant_id,
             "variant2_id": variant2_id,
+            "variant3_id": variant3_id,
             "imported": true,
             "catalog_counts": {
                 "teachers": catalog.get("teachers").and_then(|v| v.as_array()).map(|a| a.len()).unwrap_or(0),
@@ -832,7 +885,8 @@ pub async fn schedule_import_legacy(state: State<'_, AppState>, quarter: Option<
             },
             "q4_variants": {
                 "v1_slots": v1_slots.len(),
-                "v2_exists": true
+                "v2_exists": true,
+                "v3_exists": q4_v3_path.exists()
             }
         }))
     } else if legacy_path.exists() {
