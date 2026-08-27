@@ -1,0 +1,199 @@
+=== TEACHERS (37) ===
+  ольков_гв: Ольков Г.В.
+  квашнина_ев: Квашнина Е.В.
+  шкиря_юн: Шкиря Ю.Н.
+  радионова_на: Радионова Н.А.
+  асаева_жх: Асаева Ж.Х.
+  бедрина_мн: Бедрина М.Н.
+  пащенко_на: Пащенко Н.А.
+  дмитриев_ев: Дмитриев Е.В.
+  иващенко_во: Иващенко В.О.
+  романишина_им: Романишина И.М.
+  алекпарова_аж: Алекпарова А.Ж.
+  мельникова_лр: Мельникова Л.Р.
+  жолдан_аб: Жолдан А.Б.
+  досаева_мх: Досаева М.Х.
+  ильясова_аб: Ильясова А.Б.
+  актаева_ае: Актаева А.Е.
+  кашиков_ее: Кашиков Е.Е.
+  ажикенова_ма: Ажикенова М.А.
+  дукач_та: Дукач Т.А.
+  балгабаева_нк: Балгабаева Н.К.
+  бабич_ид: Бабич И.Д.
+  бучкова_ио: Бучкова И.О.
+  акауова_ин: Акауова И.Н.
+  темерканова_ов: Темерканова О.В.
+  власова_ак: Власова А.К.
+  сидоров_вб: Сидоров В.Б.
+  красноперова_ов: Красноперова О.В.
+  русина_нв: Русина Н.В.
+  ізбасты_мж: Ізбасты М.Ж.
+  жантемиров_ак: Жантемиров А.К.
+  жантемиров_эа: Жантемиров Э.А.
+  балташева_зт: Балташева З.Т.
+  сапаргалиева_гс: Сапаргалиева Г.С.
+  чифин_дн: Чифин Д.Н.
+  мельников_пв: Мельников П.В.
+  жолдаспаев_ак: Жолдаспаев А.К.
+  жекеева_на: Жекеева Н.А.
+
+=== SUBJECTS (26) ===
+  pe: Физкультура (w=2, room=Gym)
+  bukvar: Букварь (w=8, room=-)
+  music: Музыка (w=3, room=-)
+  math: Математика (w=9, room=-)
+  estestvoznanie: Естествознание (w=7, room=-)
+  trud: Труд (w=4, room=Workshop)
+  izo: ИЗО (w=3, room=-)
+  kazakh_language: Казахский язык (w=7, room=-)
+  poznanie: Познание мира (w=6, room=-)
+  geography: География (w=6, room=-)
+  russian: Русский язык (w=7, room=-)
+  literature: Литература (w=6, room=-)
+  english: Английский язык (w=6, room=LanguageLab)
+  informatics: Информатика (w=7, room=Informatics)
+  history: История (w=6, room=-)
+  samopoznanie: Самопознание (w=3, room=-)
+  law: Основы права (w=5, room=-)
+  оп_худтрдев: Оп (Худ.Тр.Дев) (w=5, room=-)
+  geometry: Геометрия (w=9, room=-)
+  algebra: Алгебра (w=9, room=-)
+  biology: Биология (w=7, room=BiologyLab)
+  physics: Физика (w=9, room=PhysicsLab)
+  chemistry: Химия (w=9, room=ChemistryLab)
+  history_kz: История Казахстана (w=6, room=-)
+  kazakh_literature: Казахская литература (w=6, room=-)
+  dunietanu: Дүниетану (w=6, room=-)
+
+=== CLASSES (27) ===
+  1б: grade=1 letter='б' type=normal
+  5б: grade=5 letter='б' type=normal
+  5_luo: grade=5 letter='' type=luo
+  6: grade=6 letter='' type=normal
+  6_do: grade=6 letter='' type=do
+  6_luo: grade=6 letter='' type=luo
+  7а: grade=7 letter='а' type=normal
+  7ә: grade=7 letter='ә' type=normal
+  7б: grade=7 letter='б' type=normal
+  7б_luo: grade=7 letter='б' type=luo
+  2: grade=2 letter='' type=normal
+  8: grade=8 letter='' type=normal
+  8_do: grade=8 letter='' type=do
+  9: grade=9 letter='' type=normal
+  9_do: grade=9 letter='' type=do
+  9_luo: grade=9 letter='' type=luo
+  10а: grade=10 letter='а' type=normal
+  10б: grade=10 letter='б' type=normal
+  11: grade=11 letter='' type=normal
+  3а: grade=3 letter='а' type=normal
+  3б: grade=3 letter='б' type=normal
+  3_luo: grade=3 letter='' type=luo
+  4а: grade=4 letter='а' type=normal
+  4б: grade=4 letter='б' type=normal
+  4_do: grade=4 letter='' type=do
+  5а: grade=5 letter='а' type=normal
+  1а: grade=1 letter='а' type=normal
+
+=== ROOMS (57) ===
+  r_1_gym: спортивный зал (type=Gym, cap=40)
+  r_2_general: начальные класс... (type=General, cap=30)
+  r_3_general: казахская литер... (type=General, cap=30)
+  r_4_general: математика (type=General, cap=30)
+  r_5_languagelab: русский язык (type=LanguageLab, cap=30)
+  r_6_general: география (type=General, cap=30)
+  r_7_general: Нет кабинета (type=General, cap=30)
+  r_8_workshop: технология (type=Workshop, cap=30)
+  r_9_languagelab: английский язык (type=LanguageLab, cap=30)
+  r_10_general: мультимедийный (type=General, cap=30)
+  r_11_general: история (type=General, cap=30)
+  r_12_languagelab: казахский язык (type=LanguageLab, cap=30)
+  r_13_informatics: информатика (type=Informatics, cap=25)
+  r_14_general: Каб. General-14 (type=General, cap=30)
+  r_15_general: бастауыш сынып (type=General, cap=30)
+  r_16_general: физика (type=General, cap=30)
+  r_17_biologylab: биология (type=BiologyLab, cap=25)
+  r_18_chemistrylab: химия (type=ChemistryLab, cap=25)
+  r_19_general: ағылшын тілі (type=General, cap=30)
+  r_20_general: мультимедиа каб... (type=General, cap=30)
+  r_21_workshop: технология (мал... (type=Workshop, cap=30)
+  r_22_general: НВП (type=General, cap=30)
+  r_23_languagelab: немецкий язык (type=LanguageLab, cap=30)
+  r_synth_gym_2: Каб. Gym 2 (синт.) (type=Gym, cap=40)
+  r_synth_gym_3: Каб. Gym 3 (синт.) (type=Gym, cap=40)
+  r_synth_gym_4: Каб. Gym 4 (синт.) (type=Gym, cap=40)
+  r_synth_gym_5: Каб. Gym 5 (синт.) (type=Gym, cap=40)
+  r_synth_gym_6: Каб. Gym 6 (синт.) (type=Gym, cap=40)
+  r_synth_gym_7: Каб. Gym 7 (синт.) (type=Gym, cap=40)
+  r_synth_gym_8: Каб. Gym 8 (синт.) (type=Gym, cap=40)
+  r_synth_gym_9: Каб. Gym 9 (синт.) (type=Gym, cap=40)
+  r_synth_general_14: Каб. General 14 (синт.) (type=General, cap=30)
+  r_synth_general_15: Каб. General 15 (синт.) (type=General, cap=30)
+  r_synth_general_16: Каб. General 16 (синт.) (type=General, cap=30)
+  r_synth_general_17: Каб. General 17 (синт.) (type=General, cap=30)
+  r_synth_general_18: Каб. General 18 (синт.) (type=General, cap=30)
+  r_synth_general_19: Каб. General 19 (синт.) (type=General, cap=30)
+  r_synth_general_20: Каб. General 20 (синт.) (type=General, cap=30)
+  r_synth_general_21: Каб. General 21 (синт.) (type=General, cap=30)
+  r_synth_general_22: Каб. General 22 (синт.) (type=General, cap=30)
+  r_synth_workshop_3: Каб. Workshop 3 (синт.) (type=Workshop, cap=30)
+  r_synth_workshop_4: Каб. Workshop 4 (синт.) (type=Workshop, cap=30)
+  r_synth_workshop_5: Каб. Workshop 5 (синт.) (type=Workshop, cap=30)
+  r_synth_workshop_6: Каб. Workshop 6 (синт.) (type=Workshop, cap=30)
+  r_synth_biologylab_2: Каб. BiologyLab 2 (синт.) (type=BiologyLab, cap=25)
+  r_synth_biologylab_3: Каб. BiologyLab 3 (синт.) (type=BiologyLab, cap=25)
+  r_synth_biologylab_4: Каб. BiologyLab 4 (синт.) (type=BiologyLab, cap=25)
+  r_synth_physicslab_1: Каб. PhysicsLab 1 (синт.) (type=PhysicsLab, cap=25)
+  r_synth_physicslab_2: Каб. PhysicsLab 2 (синт.) (type=PhysicsLab, cap=25)
+  r_synth_physicslab_3: Каб. PhysicsLab 3 (синт.) (type=PhysicsLab, cap=25)
+  r_synth_physicslab_4: Каб. PhysicsLab 4 (синт.) (type=PhysicsLab, cap=25)
+  r_synth_informatics_2: Каб. Informatics 2 (синт.) (type=Informatics, cap=25)
+  r_synth_informatics_3: Каб. Informatics 3 (синт.) (type=Informatics, cap=25)
+  r_synth_informatics_4: Каб. Informatics 4 (синт.) (type=Informatics, cap=25)
+  r_synth_chemistrylab_2: Каб. ChemistryLab 2 (синт.) (type=ChemistryLab, cap=25)
+  r_synth_chemistrylab_3: Каб. ChemistryLab 3 (синт.) (type=ChemistryLab, cap=25)
+  r_synth_chemistrylab_4: Каб. ChemistryLab 4 (синт.) (type=ChemistryLab, cap=25)
+
+=== UNNORMALIZED SUBJECTS (4) ===
+  kazakh_language: Казахский язык
+  оп_худтрдев: Оп (Худ.Тр.Дев)
+  history_kz: История Казахстана
+  kazakh_literature: Казахская литература
+
+=== TEACHER -> SUBJECTS ===
+  ажикенова_ма: estestvoznanie, izo, literature, math, poznanie, russian, trud
+  акауова_ин: english
+  актаева_ае: bukvar, dunietanu, estestvoznanie, kazakh_language, literature, math, music, russian
+  алекпарова_аж: english
+  асаева_жх: kazakh_language, kazakh_literature
+  бабич_ид: algebra, geometry, math
+  балгабаева_нк: kazakh_language
+  балташева_зт: biology, chemistry
+  бедрина_мн: geography, informatics, math
+  бучкова_ио: history, law
+  власова_ак: kazakh_language
+  дмитриев_ев: literature, russian
+  досаева_мх: history, history_kz, law
+  дукач_та: law, math, poznanie, russian
+  жантемиров_ак: trud
+  жантемиров_эа: informatics
+  жекеева_на: izo, kazakh_language, math, russian, trud
+  жолдан_аб: russian
+  жолдаспаев_ак: pe
+  иващенко_во: estestvoznanie, poznanie
+  ильясова_аб: kazakh_language, kazakh_literature
+  кашиков_ее: pe
+  квашнина_ев: bukvar, izo, math, trud
+  красноперова_ов: biology, chemistry, estestvoznanie
+  мельников_пв: pe
+  мельникова_лр: history
+  ольков_гв: pe, trud
+  пащенко_на: algebra, geometry, math
+  радионова_на: estestvoznanie, izo, literature, math, poznanie, russian, trud
+  романишина_им: izo, math, samopoznanie, trud, оп_худтрдев
+  русина_нв: physics
+  сапаргалиева_гс: estestvoznanie, geography
+  сидоров_вб: geography
+  темерканова_ов: estestvoznanie, izo, literature, math, poznanie, russian, trud
+  чифин_дн: pe
+  шкиря_юн: music
+  ізбасты_мж: algebra, geometry, math, physics

@@ -1,0 +1,41 @@
+{
+  "legacy": {
+    "label": "Legacy (XLS)",
+    "total_slots": 650,
+    "total_windows": 102,
+    "avg_rooms_per_teacher": 2.27,
+    "density_percent": 57.3,
+    "unique_teachers": 37,
+    "unique_classes": 27
+  },
+  "solver": "FEASIBLE",
+  "solver_metrics": {
+    "label": "Solver",
+    "total_slots": 650,
+    "total_windows": 4,
+    "avg_rooms_per_teacher": 1.32,
+    "density_percent": 57.3,
+    "unique_teachers": 37,
+    "unique_classes": 27
+  },
+  "solver_stats": {
+    "wall_ms": 61462,
+    "branches": 62659,
+    "conflicts": 0,
+    "gap_percent": 0.0,
+    "objective_value": 255200
+  },
+  "penalties": {
+    "window": 4,
+    "room_displacement": 0,
+    "sanpin_parabola": 2523,
+    "alternation": 0,
+    "movement": 0,
+    "load_balance": 70,
+    "total": 255200
+  },
+  "diagnostics": {
+    "infeasible_core": null,
+    "warnings": []
+  }
+}
