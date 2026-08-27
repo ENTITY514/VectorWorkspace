@@ -4,8 +4,8 @@ use crate::db::DbError;
 use crate::domain::schedule::model::{ScheduleSlot, ScheduleWeights};
 
 pub async fn get_weights(pool: &SqlitePool) -> Result<ScheduleWeights, DbError> {
-    let row = sqlx::query_as::<_, (String, i64, i64, i64, i64, i64, i64)>(
-        "SELECT id, window, room_displacement, sanpin_parabola, alternation, movement, load_balance FROM schedule_weights WHERE id='default'",
+    let row = sqlx::query_as::<_, (String, i64, i64, i64, i64, i64, i64, i64)>(
+        "SELECT id, window, room_displacement, sanpin_parabola, alternation, movement, load_balance, change_slot FROM schedule_weights WHERE id='default'",
     )
     .fetch_one(pool)
     .await?;
@@ -17,6 +17,7 @@ pub async fn get_weights(pool: &SqlitePool) -> Result<ScheduleWeights, DbError> 
         alternation: row.4,
         movement: row.5,
         load_balance: row.6,
+        change_slot: row.7,
     })
 }
 
@@ -28,14 +29,15 @@ pub async fn set_weights(
     alternation: i64,
     movement: i64,
     load_balance: i64,
+    change_slot: i64,
 ) -> Result<ScheduleWeights, DbError> {
-    for v in [window, room_displacement, sanpin_parabola, alternation, movement, load_balance] {
+    for v in [window, room_displacement, sanpin_parabola, alternation, movement, load_balance, change_slot] {
         if !(0..=1000).contains(&v) {
             return Err(DbError::Validation("weights 0..1000".to_string()));
         }
     }
     sqlx::query(
-        "UPDATE schedule_weights SET window=?1, room_displacement=?2, sanpin_parabola=?3, alternation=?4, movement=?5, load_balance=?6 WHERE id='default'",
+        "UPDATE schedule_weights SET window=?1, room_displacement=?2, sanpin_parabola=?3, alternation=?4, movement=?5, load_balance=?6, change_slot=?7 WHERE id='default'",
     )
     .bind(window)
     .bind(room_displacement)
@@ -43,6 +45,7 @@ pub async fn set_weights(
     .bind(alternation)
     .bind(movement)
     .bind(load_balance)
+    .bind(change_slot)
     .execute(pool)
     .await?;
     get_weights(pool).await

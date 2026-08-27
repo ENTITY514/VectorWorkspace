@@ -2763,3 +2763,130 @@ table.data .row-quarter:hover td {
   background: var(--bg-subtle);
   border-radius: var(--radius-sm);
 }
+
+/* ===== Teacher Drawer ===== */
+.drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  z-index: 100;
+}
+
+.drawer {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: min(520px, 92vw);
+  background: var(--bg-surface-elevated);
+  border-left: 1px solid var(--border-strong);
+  box-shadow: -8px 0 30px rgba(0, 0, 0, 0.18);
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.drawer-header h3 {
+  margin: 0;
+  color: var(--text-primary);
+}
+
+.drawer-section {
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 14px;
+}
+
+.drawer-section h4 {
+  margin: 0 0 10px;
+  font-size: 14px;
+  color: var(--text-primary);
+}
+
+.drawer-footer {
+  margin-top: auto;
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  border-top: 1px solid var(--border-subtle);
+  padding-top: 14px;
+}
+
+/* ===== InteractiveGrid ===== */
+.interactive-grid th, .interactive-grid td {
+  border: 1px solid var(--border-subtle);
+  padding: 2px;
+  vertical-align: top;
+}
+
+.interactive-grid .period-col {
+  text-align: center;
+  font-size: 11px;
+  color: var(--text-secondary);
+  background: var(--bg-subtle);
+  width: 24px;
+}
+
+.grid-cell {
+  min-width: 90px;
+  min-height: 34px;
+  background: var(--bg-subtle);
+  position: relative;
+}
+
+.grid-cell.has-slot {
+  background: var(--bg-surface);
+}
+
+.grid-cell.pinned {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+
+.grid-cell.drag-over {
+  outline: 2px dashed var(--accent);
+  background: var(--bg-accent-soft, var(--bg-subtle));
+}
+
+.grid-cell .chip {
+  display: block;
+  font-size: 11px;
+  line-height: 1.2;
+  padding: 2px 4px;
+  margin: 1px;
+  border-radius: var(--radius-xs, 4px);
+  cursor: grab;
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.grid-cell .chip.dragging {
+  opacity: 0.4;
+}
+
+.grid-cell .chip.pinned-chip {
+  box-shadow: inset 0 0 0 1px var(--accent);
+}
+
+.grid-cell .pin-marker {
+  margin-left: 4px;
+  font-size: 10px;
+}
+
+.slider-hint {
+  cursor: help;
+  font-size: 12px;
+  opacity: 0.7;
+  margin-left: 4px;
+  color: var(--text-secondary);
+}

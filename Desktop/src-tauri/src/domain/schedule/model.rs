@@ -210,6 +210,7 @@ pub struct ScheduleWeights {
     pub alternation: i64,
     pub movement: i64,
     pub load_balance: i64,
+    pub change_slot: i64,
 }
 
 /// DTO слота расписания.

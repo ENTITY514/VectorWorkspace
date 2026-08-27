@@ -1,0 +1,218 @@
+{
+  "generatedAt": "2026-08-27T09:41:13.747Z",
+  "variant1": {
+    "slots": 667,
+    "classes": 27,
+    "teachers": 37,
+    "subjects": 62
+  },
+  "variant2": {
+    "slots": 667,
+    "classes": 27,
+    "teachers": 37,
+    "subjects": 62
+  },
+  "curriculumEntries": 312,
+  "createdSubjects": 0,
+  "issues": {
+    "unknownClasses": [],
+    "unknownTeachers": [],
+    "roomFallbacks": [
+      {
+        "cls": "6_do",
+        "note": "",
+        "room": "r_1_general"
+      },
+      {
+        "cls": "6_do",
+        "note": "",
+        "room": "r_1_general"
+      },
+      {
+        "cls": "6_do",
+        "note": "",
+        "room": "r_1_general"
+      },
+      {
+        "cls": "6_do",
+        "note": "",
+        "room": "r_1_general"
+      },
+      {
+        "cls": "6_do",
+        "note": "",
+        "room": "r_1_general"
+      },
+      {
+        "cls": "6_do",
+        "note": "",
+        "room": "r_1_general"
+      },
+      {
+        "cls": "6_do",
+        "note": "",
+        "room": "r_1_general"
+      },
+      {
+        "cls": "6_do",
+        "note": "",
+        "room": "r_1_general"
+      },
+      {
+        "cls": "6_do",
+        "note": "",
+        "room": "r_1_general"
+      },
+      {
+        "cls": "6_do",
+        "note": "",
+        "room": "r_1_general"
+      },
+      {
+        "cls": "8_do",
+        "note": "",
+        "room": "r_1_general"
+      },
+      {
+        "cls": "8_do",
+        "note": "",
+        "room": "r_1_general"
+      },
+      {
+        "cls": "8_do",
+        "note": "",
+        "room": "r_1_general"
+      },
+      {
+        "cls": "8_do",
+        "note": "",
+        "room": "r_1_general"
+      },
+      {
+        "cls": "8_do",
+        "note": "",
+        "room": "r_1_general"
+      },
+      {
+        "cls": "8_do",
+        "note": "",
+        "room": "r_1_general"
+      },
+      {
+        "cls": "8_do",
+        "note": "",
+        "room": "r_1_general"
+      },
+      {
+        "cls": "8_do",
+        "note": "",
+        "room": "r_1_general"
+      },
+      {
+        "cls": "8_do",
+        "note": "",
+        "room": "r_1_general"
+      },
+      {
+        "cls": "8_do",
+        "note": "",
+        "room": "r_1_general"
+      },
+      {
+        "cls": "9_do",
+        "note": "",
+        "room": "r_1_general"
+      },
+      {
+        "cls": "9_do",
+        "note": "",
+        "room": "r_1_general"
+      },
+      {
+        "cls": "9_do",
+        "note": "",
+        "room": "r_1_general"
+      },
+      {
+        "cls": "9_do",
+        "note": "",
+        "room": "r_1_general"
+      },
+      {
+        "cls": "9_do",
+        "note": "",
+        "room": "r_1_general"
+      },
+      {
+        "cls": "9_do",
+        "note": "",
+        "room": "r_1_general"
+      },
+      {
+        "cls": "9_do",
+        "note": "",
+        "room": "r_1_general"
+      },
+      {
+        "cls": "9_do",
+        "note": "",
+        "room": "r_1_general"
+      },
+      {
+        "cls": "9_do",
+        "note": "",
+        "room": "r_1_general"
+      },
+      {
+        "cls": "9_do",
+        "note": "",
+        "room": "r_1_general"
+      },
+      {
+        "cls": "4_do",
+        "note": "",
+        "room": "r_1_general"
+      },
+      {
+        "cls": "4_do",
+        "note": "",
+        "room": "r_1_general"
+      },
+      {
+        "cls": "4_do",
+        "note": "",
+        "room": "r_1_general"
+      },
+      {
+        "cls": "4_do",
+        "note": "",
+        "room": "r_1_general"
+      },
+      {
+        "cls": "4_do",
+        "note": "",
+        "room": "r_1_general"
+      },
+      {
+        "cls": "4_do",
+        "note": "",
+        "room": "r_1_general"
+      },
+      {
+        "cls": "4_do",
+        "note": "",
+        "room": "r_1_general"
+      },
+      {
+        "cls": "4_do",
+        "note": "",
+        "room": "r_1_general"
+      },
+      {
+        "cls": "4_do",
+        "note": "",
+        "room": "r_1_general"
+      }
+    ]
+  }
+}

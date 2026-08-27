@@ -253,4 +253,31 @@ def add_soft_constraints(model, x, y, m, instances, room_by_id=None):
             penalties["load_balance"] = model.NewIntVar(0, 0, "penalty_bal_zero")
             model.Add(penalties["load_balance"] == 0)
 
+    # S7: Minimal Perturbation — штраф за изменение слотов по сравнению с previous_grid
+    if m.weights.change_slot > 0 and m.previous_grid:
+        change_vars = []
+        # previous_grid: dict[(class_id, subject_id, teacher_id, day, period)] -> bool
+        prev = m.previous_grid
+        for inst in instances:
+            for d in range(m.time_grid.days):
+                for p in range(m.time_grid.periods_per_day):
+                    key = (inst["idx"], d, p)
+                    if key not in x:
+                        continue
+                    # Проверяем, был ли этот слот в previous_grid
+                    prev_key = (inst["class_id"], inst["subject_id"], inst["teacher_id"], d, p)
+                    was_assigned = prev.get(prev_key, False)
+                    if was_assigned:
+                        # Штраф если теперь НЕ в этом слоте: pen = 1 - x[key]
+                        pen_i = model.NewBoolVar(f"change_{inst['idx']}_{d}_{p}")
+                        model.Add(pen_i + x[key] == 1)
+                        change_vars.append(pen_i)
+        if change_vars:
+            pen = model.NewIntVar(0, 100000, "penalty_change_slot")
+            model.Add(pen == sum(change_vars))
+            penalties["change_slot"] = pen
+        else:
+            penalties["change_slot"] = model.NewIntVar(0, 0, "penalty_change_zero")
+            model.Add(penalties["change_slot"] == 0)
+
     return penalties

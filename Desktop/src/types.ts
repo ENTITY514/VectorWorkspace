@@ -409,6 +409,7 @@ export interface ScheduleWeights {
   alternation: number;
   movement: number;
   load_balance: number;
+  change_slot: number;
 }
 
 export interface ScheduleSlot {
@@ -426,6 +427,20 @@ export interface ScheduleSlot {
   source_teacher?: string | null;
   source_time?: string | null;
   source_note?: string | null;
+  variant_id?: string | null;
+}
+
+export interface ScheduleFixedSlot {
+  id: string;
+  variant_id: string;
+  class_id: string;
+  subject_id: string;
+  teacher_id: string;
+  room_id: string;
+  day: number;
+  period: number;
+  subgroup_label: string | null;
+  created_at: string;
 }
 
 export interface ScheduleVariant {
@@ -449,13 +464,14 @@ export interface ScheduleState {
   weights: ScheduleWeights;
   slots: ScheduleSlot[];
   variants: ScheduleVariant[];
+  fixed_slots: ScheduleFixedSlot[];
 }
 
 export interface ScheduleGenerateResult {
   schema_version: number;
   status: "OPTIMAL" | "FEASIBLE" | "INFEASIBLE" | "TIME_LIMIT" | "INVALID_INPUT";
   solver_stats: { wall_ms: number; branches: number; conflicts: number; gap_percent: number; objective_value: number };
-  penalties: { window: number; room_displacement: number; sanpin_parabola: number; alternation: number; movement: number; load_balance: number; total: number };
+  penalties: { window: number; room_displacement: number; sanpin_parabola: number; alternation: number; movement: number; load_balance: number; change_slot: number; total: number };
   slots: ScheduleSlot[];
   diagnostics: { infeasible_core: { reason: string; conflicting_entities: string[]; suggestion: string } | null; warnings: string[] };
 }
@@ -512,4 +528,15 @@ export const WEIGHT_LABELS: Record<keyof ScheduleWeights, string> = {
   alternation: "Чередование",
   movement: "Миграция",
   load_balance: "Баланс нагрузки",
+  change_slot: "Минимальные изменения",
+};
+
+export const WEIGHT_TOOLTIPS: Partial<Record<keyof ScheduleWeights, string>> = {
+  window: "Штраф за «окна» в расписании учителя (разрывы между уроками)",
+  room_displacement: "Штраф за урок не в базовом кабинете учителя",
+  sanpin_parabola: "Соблюдение СанПиН: равномерное распределение сложных предметов по дням",
+  alternation: "Чередование уроков: одинаковые предметы не подряд",
+  movement: "Минимизация перемещений классов между кабинетами",
+  load_balance: "Балансировка нагрузки между классами по дням",
+  change_slot: "Минимальные изменения по сравнению с предыдущей четвертью (warm-start)",
 };

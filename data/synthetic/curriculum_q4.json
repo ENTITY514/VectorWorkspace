@@ -1,71 +1,519 @@
 [
   {
-    "class_id": "1б",
-    "subject_id": "pe",
-    "teacher_id": "ольков_гв",
-    "split_teacher2_id": null,
-    "hours_per_week": 3
-  },
-  {
-    "class_id": "1б",
-    "subject_id": "bukvar",
-    "teacher_id": "квашнина_ев",
-    "split_teacher2_id": null,
-    "hours_per_week": 6
-  },
-  {
-    "class_id": "1б",
-    "subject_id": "music",
-    "teacher_id": "шкиря_юн",
-    "split_teacher2_id": null,
-    "hours_per_week": 1
-  },
-  {
-    "class_id": "1б",
-    "subject_id": "math",
-    "teacher_id": "квашнина_ев",
+    "class_id": "3а",
+    "subject_id": "kazakh_language",
+    "teacher_id": "актаева_ае",
     "split_teacher2_id": null,
     "hours_per_week": 4
   },
   {
-    "class_id": "1б",
-    "subject_id": "estestvoznanie",
-    "teacher_id": "радионова_на",
+    "class_id": "3а",
+    "subject_id": "literature",
+    "teacher_id": "актаева_ае",
     "split_teacher2_id": null,
-    "hours_per_week": 1
+    "hours_per_week": 3
   },
   {
-    "class_id": "1б",
-    "subject_id": "trud",
-    "teacher_id": "квашнина_ев",
+    "class_id": "3а",
+    "subject_id": "math",
+    "teacher_id": "актаева_ае",
     "split_teacher2_id": null,
-    "hours_per_week": 1
+    "hours_per_week": 5
   },
   {
-    "class_id": "1б",
-    "subject_id": "izo",
-    "teacher_id": "квашнина_ев",
-    "split_teacher2_id": null,
-    "hours_per_week": 1
-  },
-  {
-    "class_id": "1б",
-    "subject_id": "kazakh_language",
-    "teacher_id": "асаева_жх",
+    "class_id": "3а",
+    "subject_id": "english",
+    "teacher_id": "акауова_ин",
     "split_teacher2_id": null,
     "hours_per_week": 2
   },
   {
-    "class_id": "1б",
+    "class_id": "3а",
+    "subject_id": "dunietanu",
+    "teacher_id": "актаева_ае",
+    "split_teacher2_id": null,
+    "hours_per_week": 1
+  },
+  {
+    "class_id": "3а",
+    "subject_id": "informatics",
+    "teacher_id": "жантемиров_эа",
+    "split_teacher2_id": null,
+    "hours_per_week": 1
+  },
+  {
+    "class_id": "3а",
+    "subject_id": "music",
+    "teacher_id": "актаева_ае",
+    "split_teacher2_id": null,
+    "hours_per_week": 1
+  },
+  {
+    "class_id": "3а",
+    "subject_id": "izo",
+    "teacher_id": "жекеева_на",
+    "split_teacher2_id": null,
+    "hours_per_week": 1
+  },
+  {
+    "class_id": "3а",
+    "subject_id": "pe",
+    "teacher_id": "кашиков_ее",
+    "split_teacher2_id": null,
+    "hours_per_week": 3
+  },
+  {
+    "class_id": "3а",
+    "subject_id": "trud",
+    "teacher_id": "жекеева_на",
+    "split_teacher2_id": null,
+    "hours_per_week": 1
+  },
+  {
+    "class_id": "3а",
+    "subject_id": "estestvoznanie",
+    "teacher_id": "актаева_ае",
+    "split_teacher2_id": null,
+    "hours_per_week": 1
+  },
+  {
+    "class_id": "3а",
+    "subject_id": "russian",
+    "teacher_id": "актаева_ае",
+    "split_teacher2_id": null,
+    "hours_per_week": 2
+  },
+  {
+    "class_id": "3б",
+    "subject_id": "russian",
+    "teacher_id": "радионова_на",
+    "split_teacher2_id": null,
+    "hours_per_week": 4
+  },
+  {
+    "class_id": "3б",
+    "subject_id": "kazakh_language",
+    "teacher_id": "асаева_жх",
+    "split_teacher2_id": null,
+    "hours_per_week": 3
+  },
+  {
+    "class_id": "3б",
+    "subject_id": "pe",
+    "teacher_id": "чифин_дн",
+    "split_teacher2_id": null,
+    "hours_per_week": 3
+  },
+  {
+    "class_id": "3б",
     "subject_id": "poznanie",
     "teacher_id": "радионова_на",
     "split_teacher2_id": null,
     "hours_per_week": 1
   },
   {
-    "class_id": "1б",
+    "class_id": "3б",
+    "subject_id": "math",
+    "teacher_id": "радионова_на",
+    "split_teacher2_id": null,
+    "hours_per_week": 5
+  },
+  {
+    "class_id": "3б",
+    "subject_id": "music",
+    "teacher_id": "шкиря_юн",
+    "split_teacher2_id": null,
+    "hours_per_week": 1
+  },
+  {
+    "class_id": "3б",
+    "subject_id": "literature",
+    "teacher_id": "радионова_на",
+    "split_teacher2_id": null,
+    "hours_per_week": 3
+  },
+  {
+    "class_id": "3б",
     "subject_id": "geography",
     "teacher_id": "бедрина_мн",
+    "split_teacher2_id": null,
+    "hours_per_week": 1
+  },
+  {
+    "class_id": "3б",
+    "subject_id": "english",
+    "teacher_id": "акауова_ин",
+    "split_teacher2_id": null,
+    "hours_per_week": 2
+  },
+  {
+    "class_id": "3б",
+    "subject_id": "trud",
+    "teacher_id": "радионова_на",
+    "split_teacher2_id": null,
+    "hours_per_week": 1
+  },
+  {
+    "class_id": "3б",
+    "subject_id": "izo",
+    "teacher_id": "радионова_на",
+    "split_teacher2_id": null,
+    "hours_per_week": 1
+  },
+  {
+    "class_id": "3б",
+    "subject_id": "estestvoznanie",
+    "teacher_id": "радионова_на",
+    "split_teacher2_id": null,
+    "hours_per_week": 1
+  },
+  {
+    "class_id": "3_luo",
+    "subject_id": "russian",
+    "teacher_id": "радионова_на",
+    "split_teacher2_id": null,
+    "hours_per_week": 6
+  },
+  {
+    "class_id": "3_luo",
+    "subject_id": "kazakh_language",
+    "teacher_id": "асаева_жх",
+    "split_teacher2_id": null,
+    "hours_per_week": 2
+  },
+  {
+    "class_id": "3_luo",
+    "subject_id": "pe",
+    "teacher_id": "чифин_дн",
+    "split_teacher2_id": null,
+    "hours_per_week": 3
+  },
+  {
+    "class_id": "3_luo",
+    "subject_id": "poznanie",
+    "teacher_id": "радионова_на",
+    "split_teacher2_id": null,
+    "hours_per_week": 2
+  },
+  {
+    "class_id": "3_luo",
+    "subject_id": "math",
+    "teacher_id": "радионова_на",
+    "split_teacher2_id": null,
+    "hours_per_week": 5
+  },
+  {
+    "class_id": "3_luo",
+    "subject_id": "music",
+    "teacher_id": "шкиря_юн",
+    "split_teacher2_id": null,
+    "hours_per_week": 1
+  },
+  {
+    "class_id": "3_luo",
+    "subject_id": "trud",
+    "teacher_id": "радионова_на",
+    "split_teacher2_id": null,
+    "hours_per_week": 2
+  },
+  {
+    "class_id": "3_luo",
+    "subject_id": "izo",
+    "teacher_id": "радионова_на",
+    "split_teacher2_id": null,
+    "hours_per_week": 1
+  },
+  {
+    "class_id": "4а",
+    "subject_id": "informatics",
+    "teacher_id": "жантемиров_эа",
+    "split_teacher2_id": null,
+    "hours_per_week": 1
+  },
+  {
+    "class_id": "4а",
+    "subject_id": "literature",
+    "teacher_id": "актаева_ае",
+    "split_teacher2_id": null,
+    "hours_per_week": 3
+  },
+  {
+    "class_id": "4а",
+    "subject_id": "music",
+    "teacher_id": "актаева_ае",
+    "split_teacher2_id": null,
+    "hours_per_week": 1
+  },
+  {
+    "class_id": "4а",
+    "subject_id": "english",
+    "teacher_id": "акауова_ин",
+    "split_teacher2_id": null,
+    "hours_per_week": 2
+  },
+  {
+    "class_id": "4а",
+    "subject_id": "izo",
+    "teacher_id": "жекеева_на",
+    "split_teacher2_id": null,
+    "hours_per_week": 1
+  },
+  {
+    "class_id": "4а",
+    "subject_id": "pe",
+    "teacher_id": "кашиков_ее",
+    "split_teacher2_id": null,
+    "hours_per_week": 3
+  },
+  {
+    "class_id": "4а",
+    "subject_id": "trud",
+    "teacher_id": "жекеева_на",
+    "split_teacher2_id": null,
+    "hours_per_week": 1
+  },
+  {
+    "class_id": "4а",
+    "subject_id": "math",
+    "teacher_id": "жекеева_на",
+    "split_teacher2_id": null,
+    "hours_per_week": 5
+  },
+  {
+    "class_id": "4а",
+    "subject_id": "kazakh_language",
+    "teacher_id": "жекеева_на",
+    "split_teacher2_id": null,
+    "hours_per_week": 4
+  },
+  {
+    "class_id": "4а",
+    "subject_id": "dunietanu",
+    "teacher_id": "актаева_ае",
+    "split_teacher2_id": null,
+    "hours_per_week": 1
+  },
+  {
+    "class_id": "4а",
+    "subject_id": "russian",
+    "teacher_id": "жекеева_на",
+    "split_teacher2_id": null,
+    "hours_per_week": 2
+  },
+  {
+    "class_id": "4а",
+    "subject_id": "estestvoznanie",
+    "teacher_id": "актаева_ае",
+    "split_teacher2_id": null,
+    "hours_per_week": 1
+  },
+  {
+    "class_id": "4б",
+    "subject_id": "russian",
+    "teacher_id": "ажикенова_ма",
+    "split_teacher2_id": null,
+    "hours_per_week": 4
+  },
+  {
+    "class_id": "4б",
+    "subject_id": "pe",
+    "teacher_id": "чифин_дн",
+    "split_teacher2_id": null,
+    "hours_per_week": 3
+  },
+  {
+    "class_id": "4б",
+    "subject_id": "kazakh_language",
+    "teacher_id": "ильясова_аб",
+    "split_teacher2_id": null,
+    "hours_per_week": 4
+  },
+  {
+    "class_id": "4б",
+    "subject_id": "english",
+    "teacher_id": "алекпарова_аж",
+    "split_teacher2_id": null,
+    "hours_per_week": 2
+  },
+  {
+    "class_id": "4б",
+    "subject_id": "math",
+    "teacher_id": "ажикенова_ма",
+    "split_teacher2_id": null,
+    "hours_per_week": 5
+  },
+  {
+    "class_id": "4б",
+    "subject_id": "literature",
+    "teacher_id": "ажикенова_ма",
+    "split_teacher2_id": null,
+    "hours_per_week": 3
+  },
+  {
+    "class_id": "4б",
+    "subject_id": "geography",
+    "teacher_id": "бедрина_мн",
+    "split_teacher2_id": null,
+    "hours_per_week": 1
+  },
+  {
+    "class_id": "4б",
+    "subject_id": "trud",
+    "teacher_id": "ажикенова_ма",
+    "split_teacher2_id": null,
+    "hours_per_week": 1
+  },
+  {
+    "class_id": "4б",
+    "subject_id": "music",
+    "teacher_id": "шкиря_юн",
+    "split_teacher2_id": null,
+    "hours_per_week": 1
+  },
+  {
+    "class_id": "4б",
+    "subject_id": "estestvoznanie",
+    "teacher_id": "ажикенова_ма",
+    "split_teacher2_id": null,
+    "hours_per_week": 1
+  },
+  {
+    "class_id": "4б",
+    "subject_id": "poznanie",
+    "teacher_id": "ажикенова_ма",
+    "split_teacher2_id": null,
+    "hours_per_week": 1
+  },
+  {
+    "class_id": "4б",
+    "subject_id": "izo",
+    "teacher_id": "ажикенова_ма",
+    "split_teacher2_id": null,
+    "hours_per_week": 1
+  },
+  {
+    "class_id": "4_do",
+    "subject_id": "literature",
+    "teacher_id": "ажикенова_ма",
+    "split_teacher2_id": null,
+    "hours_per_week": 1
+  },
+  {
+    "class_id": "4_do",
+    "subject_id": "geography",
+    "teacher_id": "бедрина_мн",
+    "split_teacher2_id": null,
+    "hours_per_week": 1
+  },
+  {
+    "class_id": "4_do",
+    "subject_id": "russian",
+    "teacher_id": "ажикенова_ма",
+    "split_teacher2_id": null,
+    "hours_per_week": 2
+  },
+  {
+    "class_id": "4_do",
+    "subject_id": "math",
+    "teacher_id": "радионова_на",
+    "split_teacher2_id": null,
+    "hours_per_week": 3
+  },
+  {
+    "class_id": "4_do",
+    "subject_id": "estestvoznanie",
+    "teacher_id": "ажикенова_ма",
+    "split_teacher2_id": null,
+    "hours_per_week": 1
+  },
+  {
+    "class_id": "4_do",
+    "subject_id": "english",
+    "teacher_id": "алекпарова_аж",
+    "split_teacher2_id": null,
+    "hours_per_week": 1
+  },
+  {
+    "class_id": "5а",
+    "subject_id": "trud",
+    "teacher_id": "жантемиров_ак",
+    "split_teacher2_id": null,
+    "hours_per_week": 2
+  },
+  {
+    "class_id": "5а",
+    "subject_id": "math",
+    "teacher_id": "ізбасты_мж",
+    "split_teacher2_id": null,
+    "hours_per_week": 5
+  },
+  {
+    "class_id": "5а",
+    "subject_id": "english",
+    "teacher_id": "акауова_ин",
+    "split_teacher2_id": null,
+    "hours_per_week": 3
+  },
+  {
+    "class_id": "5а",
+    "subject_id": "kazakh_literature",
+    "teacher_id": "асаева_жх",
+    "split_teacher2_id": null,
+    "hours_per_week": 2
+  },
+  {
+    "class_id": "5а",
+    "subject_id": "history_kz",
+    "teacher_id": "досаева_мх",
+    "split_teacher2_id": null,
+    "hours_per_week": 2
+  },
+  {
+    "class_id": "5а",
+    "subject_id": "pe",
+    "teacher_id": "кашиков_ее",
+    "split_teacher2_id": null,
+    "hours_per_week": 3
+  },
+  {
+    "class_id": "5а",
+    "subject_id": "russian",
+    "teacher_id": "дмитриев_ев",
+    "split_teacher2_id": null,
+    "hours_per_week": 3
+  },
+  {
+    "class_id": "5а",
+    "subject_id": "history_world",
+    "teacher_id": "досаева_мх",
+    "split_teacher2_id": null,
+    "hours_per_week": 1
+  },
+  {
+    "class_id": "5а",
+    "subject_id": "kazakh_language",
+    "teacher_id": "асаева_жх",
+    "split_teacher2_id": null,
+    "hours_per_week": 3
+  },
+  {
+    "class_id": "5а",
+    "subject_id": "informatics",
+    "teacher_id": "жантемиров_эа",
+    "split_teacher2_id": null,
+    "hours_per_week": 1
+  },
+  {
+    "class_id": "5а",
+    "subject_id": "estestvoznanie",
+    "teacher_id": "сапаргалиева_гс",
+    "split_teacher2_id": null,
+    "hours_per_week": 2
+  },
+  {
+    "class_id": "5а",
+    "subject_id": "music",
+    "teacher_id": "шкиря_юн",
     "split_teacher2_id": null,
     "hours_per_week": 1
   },
@@ -144,7 +592,14 @@
     "subject_id": "history",
     "teacher_id": "мельникова_лр",
     "split_teacher2_id": null,
-    "hours_per_week": 3
+    "hours_per_week": 2
+  },
+  {
+    "class_id": "5б",
+    "subject_id": "history_world",
+    "teacher_id": "мельникова_лр",
+    "split_teacher2_id": null,
+    "hours_per_week": 1
   },
   {
     "class_id": "5_luo",
@@ -214,7 +669,7 @@
     "subject_id": "history",
     "teacher_id": "досаева_мх",
     "split_teacher2_id": null,
-    "hours_per_week": 3
+    "hours_per_week": 2
   },
   {
     "class_id": "6",
@@ -273,51 +728,9 @@
     "hours_per_week": 1
   },
   {
-    "class_id": "6_do",
-    "subject_id": "trud",
-    "teacher_id": "романишина_им",
-    "split_teacher2_id": null,
-    "hours_per_week": 1
-  },
-  {
-    "class_id": "6_do",
-    "subject_id": "math",
-    "teacher_id": "ажикенова_ма",
-    "split_teacher2_id": null,
-    "hours_per_week": 2
-  },
-  {
-    "class_id": "6_do",
-    "subject_id": "russian",
-    "teacher_id": "дукач_та",
-    "split_teacher2_id": null,
-    "hours_per_week": 2
-  },
-  {
-    "class_id": "6_do",
-    "subject_id": "math",
-    "teacher_id": "романишина_им",
-    "split_teacher2_id": null,
-    "hours_per_week": 1
-  },
-  {
-    "class_id": "6_do",
-    "subject_id": "poznanie",
-    "teacher_id": "дукач_та",
-    "split_teacher2_id": null,
-    "hours_per_week": 2
-  },
-  {
-    "class_id": "6_do",
-    "subject_id": "law",
-    "teacher_id": "дукач_та",
-    "split_teacher2_id": null,
-    "hours_per_week": 1
-  },
-  {
-    "class_id": "6_do",
-    "subject_id": "izo",
-    "teacher_id": "романишина_им",
+    "class_id": "6",
+    "subject_id": "history_world",
+    "teacher_id": "досаева_мх",
     "split_teacher2_id": null,
     "hours_per_week": 1
   },
@@ -378,6 +791,55 @@
     "hours_per_week": 3
   },
   {
+    "class_id": "6_do",
+    "subject_id": "trud",
+    "teacher_id": "романишина_им",
+    "split_teacher2_id": null,
+    "hours_per_week": 1
+  },
+  {
+    "class_id": "6_do",
+    "subject_id": "math",
+    "teacher_id": "ажикенова_ма",
+    "split_teacher2_id": null,
+    "hours_per_week": 2
+  },
+  {
+    "class_id": "6_do",
+    "subject_id": "russian",
+    "teacher_id": "дукач_та",
+    "split_teacher2_id": null,
+    "hours_per_week": 2
+  },
+  {
+    "class_id": "6_do",
+    "subject_id": "math",
+    "teacher_id": "романишина_им",
+    "split_teacher2_id": null,
+    "hours_per_week": 1
+  },
+  {
+    "class_id": "6_do",
+    "subject_id": "poznanie",
+    "teacher_id": "дукач_та",
+    "split_teacher2_id": null,
+    "hours_per_week": 2
+  },
+  {
+    "class_id": "6_do",
+    "subject_id": "law",
+    "teacher_id": "дукач_та",
+    "split_teacher2_id": null,
+    "hours_per_week": 1
+  },
+  {
+    "class_id": "6_do",
+    "subject_id": "izo",
+    "teacher_id": "романишина_им",
+    "split_teacher2_id": null,
+    "hours_per_week": 1
+  },
+  {
     "class_id": "7а",
     "subject_id": "russian",
     "teacher_id": "дмитриев_ев",
@@ -403,7 +865,7 @@
     "subject_id": "history",
     "teacher_id": "бучкова_ио",
     "split_teacher2_id": null,
-    "hours_per_week": 3
+    "hours_per_week": 2
   },
   {
     "class_id": "7а",
@@ -463,6 +925,13 @@
   },
   {
     "class_id": "7а",
+    "subject_id": "history_world",
+    "teacher_id": "бучкова_ио",
+    "split_teacher2_id": null,
+    "hours_per_week": 1
+  },
+  {
+    "class_id": "7а",
     "subject_id": "chemistry",
     "teacher_id": "красноперова_ов",
     "split_teacher2_id": null,
@@ -472,6 +941,83 @@
     "class_id": "7а",
     "subject_id": "informatics",
     "teacher_id": "бедрина_мн",
+    "split_teacher2_id": null,
+    "hours_per_week": 1
+  },
+  {
+    "class_id": "2",
+    "subject_id": "math",
+    "teacher_id": "темерканова_ов",
+    "split_teacher2_id": null,
+    "hours_per_week": 4
+  },
+  {
+    "class_id": "2",
+    "subject_id": "russian",
+    "teacher_id": "темерканова_ов",
+    "split_teacher2_id": null,
+    "hours_per_week": 4
+  },
+  {
+    "class_id": "2",
+    "subject_id": "literature",
+    "teacher_id": "темерканова_ов",
+    "split_teacher2_id": null,
+    "hours_per_week": 3
+  },
+  {
+    "class_id": "2",
+    "subject_id": "pe",
+    "teacher_id": "чифин_дн",
+    "split_teacher2_id": null,
+    "hours_per_week": 3
+  },
+  {
+    "class_id": "2",
+    "subject_id": "music",
+    "teacher_id": "шкиря_юн",
+    "split_teacher2_id": null,
+    "hours_per_week": 1
+  },
+  {
+    "class_id": "2",
+    "subject_id": "kazakh_language",
+    "teacher_id": "асаева_жх",
+    "split_teacher2_id": null,
+    "hours_per_week": 3
+  },
+  {
+    "class_id": "2",
+    "subject_id": "trud",
+    "teacher_id": "темерканова_ов",
+    "split_teacher2_id": null,
+    "hours_per_week": 1
+  },
+  {
+    "class_id": "2",
+    "subject_id": "geography",
+    "teacher_id": "бедрина_мн",
+    "split_teacher2_id": null,
+    "hours_per_week": 1
+  },
+  {
+    "class_id": "2",
+    "subject_id": "izo",
+    "teacher_id": "темерканова_ов",
+    "split_teacher2_id": null,
+    "hours_per_week": 1
+  },
+  {
+    "class_id": "2",
+    "subject_id": "poznanie",
+    "teacher_id": "темерканова_ов",
+    "split_teacher2_id": null,
+    "hours_per_week": 1
+  },
+  {
+    "class_id": "2",
+    "subject_id": "estestvoznanie",
+    "teacher_id": "темерканова_ов",
     "split_teacher2_id": null,
     "hours_per_week": 1
   },
@@ -547,7 +1093,7 @@
   },
   {
     "class_id": "7ә",
-    "subject_id": "history",
+    "subject_id": "history_world",
     "teacher_id": "досаева_мх",
     "split_teacher2_id": null,
     "hours_per_week": 1
@@ -662,7 +1208,14 @@
     "subject_id": "history",
     "teacher_id": "досаева_мх",
     "split_teacher2_id": null,
-    "hours_per_week": 3
+    "hours_per_week": 2
+  },
+  {
+    "class_id": "7б",
+    "subject_id": "history_world",
+    "teacher_id": "досаева_мх",
+    "split_teacher2_id": null,
+    "hours_per_week": 1
   },
   {
     "class_id": "7б",
@@ -740,83 +1293,6 @@
     "teacher_id": "досаева_мх",
     "split_teacher2_id": null,
     "hours_per_week": 2
-  },
-  {
-    "class_id": "2",
-    "subject_id": "math",
-    "teacher_id": "темерканова_ов",
-    "split_teacher2_id": null,
-    "hours_per_week": 4
-  },
-  {
-    "class_id": "2",
-    "subject_id": "russian",
-    "teacher_id": "темерканова_ов",
-    "split_teacher2_id": null,
-    "hours_per_week": 4
-  },
-  {
-    "class_id": "2",
-    "subject_id": "literature",
-    "teacher_id": "темерканова_ов",
-    "split_teacher2_id": null,
-    "hours_per_week": 3
-  },
-  {
-    "class_id": "2",
-    "subject_id": "pe",
-    "teacher_id": "чифин_дн",
-    "split_teacher2_id": null,
-    "hours_per_week": 3
-  },
-  {
-    "class_id": "2",
-    "subject_id": "music",
-    "teacher_id": "шкиря_юн",
-    "split_teacher2_id": null,
-    "hours_per_week": 1
-  },
-  {
-    "class_id": "2",
-    "subject_id": "kazakh_language",
-    "teacher_id": "асаева_жх",
-    "split_teacher2_id": null,
-    "hours_per_week": 3
-  },
-  {
-    "class_id": "2",
-    "subject_id": "trud",
-    "teacher_id": "темерканова_ов",
-    "split_teacher2_id": null,
-    "hours_per_week": 1
-  },
-  {
-    "class_id": "2",
-    "subject_id": "geography",
-    "teacher_id": "бедрина_мн",
-    "split_teacher2_id": null,
-    "hours_per_week": 1
-  },
-  {
-    "class_id": "2",
-    "subject_id": "izo",
-    "teacher_id": "темерканова_ов",
-    "split_teacher2_id": null,
-    "hours_per_week": 1
-  },
-  {
-    "class_id": "2",
-    "subject_id": "poznanie",
-    "teacher_id": "темерканова_ов",
-    "split_teacher2_id": null,
-    "hours_per_week": 1
-  },
-  {
-    "class_id": "2",
-    "subject_id": "estestvoznanie",
-    "teacher_id": "темерканова_ов",
-    "split_teacher2_id": null,
-    "hours_per_week": 1
   },
   {
     "class_id": "8",
@@ -904,7 +1380,7 @@
   },
   {
     "class_id": "8",
-    "subject_id": "history",
+    "subject_id": "history_world",
     "teacher_id": "бучкова_ио",
     "split_teacher2_id": null,
     "hours_per_week": 1
@@ -981,10 +1457,10 @@
   },
   {
     "class_id": "9",
-    "subject_id": "history",
+    "subject_id": "history_world",
     "teacher_id": "бучкова_ио",
     "split_teacher2_id": null,
-    "hours_per_week": 3
+    "hours_per_week": 1
   },
   {
     "class_id": "9",
@@ -999,6 +1475,13 @@
     "teacher_id": "дмитриев_ев",
     "split_teacher2_id": null,
     "hours_per_week": 3
+  },
+  {
+    "class_id": "9",
+    "subject_id": "history",
+    "teacher_id": "бучкова_ио",
+    "split_teacher2_id": null,
+    "hours_per_week": 2
   },
   {
     "class_id": "9",
@@ -1226,7 +1709,7 @@
   },
   {
     "class_id": "10а",
-    "subject_id": "history",
+    "subject_id": "history_world",
     "teacher_id": "досаева_мх",
     "split_teacher2_id": null,
     "hours_per_week": 1
@@ -1376,7 +1859,7 @@
     "subject_id": "history",
     "teacher_id": "досаева_мх",
     "split_teacher2_id": null,
-    "hours_per_week": 2
+    "hours_per_week": 1
   },
   {
     "class_id": "10б",
@@ -1384,6 +1867,13 @@
     "teacher_id": "мельников_пв",
     "split_teacher2_id": null,
     "hours_per_week": 2
+  },
+  {
+    "class_id": "10б",
+    "subject_id": "history_world",
+    "teacher_id": "досаева_мх",
+    "split_teacher2_id": null,
+    "hours_per_week": 1
   },
   {
     "class_id": "10б",
@@ -1443,10 +1933,10 @@
   },
   {
     "class_id": "11",
-    "subject_id": "history",
+    "subject_id": "history_world",
     "teacher_id": "досаева_мх",
     "split_teacher2_id": null,
-    "hours_per_week": 2
+    "hours_per_week": 1
   },
   {
     "class_id": "11",
@@ -1484,583 +1974,9 @@
     "hours_per_week": 1
   },
   {
-    "class_id": "3а",
-    "subject_id": "kazakh_language",
-    "teacher_id": "актаева_ае",
-    "split_teacher2_id": null,
-    "hours_per_week": 4
-  },
-  {
-    "class_id": "3а",
-    "subject_id": "literature",
-    "teacher_id": "актаева_ае",
-    "split_teacher2_id": null,
-    "hours_per_week": 3
-  },
-  {
-    "class_id": "3а",
-    "subject_id": "math",
-    "teacher_id": "актаева_ае",
-    "split_teacher2_id": null,
-    "hours_per_week": 5
-  },
-  {
-    "class_id": "3а",
-    "subject_id": "english",
-    "teacher_id": "акауова_ин",
-    "split_teacher2_id": null,
-    "hours_per_week": 2
-  },
-  {
-    "class_id": "3а",
-    "subject_id": "dunietanu",
-    "teacher_id": "актаева_ае",
-    "split_teacher2_id": null,
-    "hours_per_week": 1
-  },
-  {
-    "class_id": "3а",
-    "subject_id": "informatics",
-    "teacher_id": "жантемиров_эа",
-    "split_teacher2_id": null,
-    "hours_per_week": 1
-  },
-  {
-    "class_id": "3а",
-    "subject_id": "music",
-    "teacher_id": "актаева_ае",
-    "split_teacher2_id": null,
-    "hours_per_week": 1
-  },
-  {
-    "class_id": "3а",
-    "subject_id": "izo",
-    "teacher_id": "жекеева_на",
-    "split_teacher2_id": null,
-    "hours_per_week": 1
-  },
-  {
-    "class_id": "3а",
-    "subject_id": "pe",
-    "teacher_id": "кашиков_ее",
-    "split_teacher2_id": null,
-    "hours_per_week": 3
-  },
-  {
-    "class_id": "3а",
-    "subject_id": "trud",
-    "teacher_id": "жекеева_на",
-    "split_teacher2_id": null,
-    "hours_per_week": 1
-  },
-  {
-    "class_id": "3а",
-    "subject_id": "estestvoznanie",
-    "teacher_id": "актаева_ае",
-    "split_teacher2_id": null,
-    "hours_per_week": 1
-  },
-  {
-    "class_id": "3а",
-    "subject_id": "russian",
-    "teacher_id": "актаева_ае",
-    "split_teacher2_id": null,
-    "hours_per_week": 2
-  },
-  {
-    "class_id": "3б",
-    "subject_id": "russian",
-    "teacher_id": "радионова_на",
-    "split_teacher2_id": null,
-    "hours_per_week": 4
-  },
-  {
-    "class_id": "3б",
-    "subject_id": "kazakh_language",
-    "teacher_id": "асаева_жх",
-    "split_teacher2_id": null,
-    "hours_per_week": 3
-  },
-  {
-    "class_id": "3б",
-    "subject_id": "pe",
-    "teacher_id": "чифин_дн",
-    "split_teacher2_id": null,
-    "hours_per_week": 3
-  },
-  {
-    "class_id": "3б",
-    "subject_id": "poznanie",
-    "teacher_id": "радионова_на",
-    "split_teacher2_id": null,
-    "hours_per_week": 1
-  },
-  {
-    "class_id": "3б",
-    "subject_id": "math",
-    "teacher_id": "радионова_на",
-    "split_teacher2_id": null,
-    "hours_per_week": 5
-  },
-  {
-    "class_id": "3б",
-    "subject_id": "music",
-    "teacher_id": "шкиря_юн",
-    "split_teacher2_id": null,
-    "hours_per_week": 1
-  },
-  {
-    "class_id": "3б",
-    "subject_id": "literature",
-    "teacher_id": "радионова_на",
-    "split_teacher2_id": null,
-    "hours_per_week": 3
-  },
-  {
-    "class_id": "3б",
-    "subject_id": "geography",
-    "teacher_id": "бедрина_мн",
-    "split_teacher2_id": null,
-    "hours_per_week": 1
-  },
-  {
-    "class_id": "3б",
-    "subject_id": "english",
-    "teacher_id": "акауова_ин",
-    "split_teacher2_id": null,
-    "hours_per_week": 2
-  },
-  {
-    "class_id": "3б",
-    "subject_id": "trud",
-    "teacher_id": "радионова_на",
-    "split_teacher2_id": null,
-    "hours_per_week": 1
-  },
-  {
-    "class_id": "3б",
-    "subject_id": "izo",
-    "teacher_id": "радионова_на",
-    "split_teacher2_id": null,
-    "hours_per_week": 1
-  },
-  {
-    "class_id": "3б",
-    "subject_id": "estestvoznanie",
-    "teacher_id": "радионова_на",
-    "split_teacher2_id": null,
-    "hours_per_week": 1
-  },
-  {
-    "class_id": "3_luo",
-    "subject_id": "russian",
-    "teacher_id": "радионова_на",
-    "split_teacher2_id": null,
-    "hours_per_week": 6
-  },
-  {
-    "class_id": "3_luo",
-    "subject_id": "kazakh_language",
-    "teacher_id": "асаева_жх",
-    "split_teacher2_id": null,
-    "hours_per_week": 2
-  },
-  {
-    "class_id": "3_luo",
-    "subject_id": "pe",
-    "teacher_id": "чифин_дн",
-    "split_teacher2_id": null,
-    "hours_per_week": 3
-  },
-  {
-    "class_id": "3_luo",
-    "subject_id": "poznanie",
-    "teacher_id": "радионова_на",
-    "split_teacher2_id": null,
-    "hours_per_week": 2
-  },
-  {
-    "class_id": "3_luo",
-    "subject_id": "math",
-    "teacher_id": "радионова_на",
-    "split_teacher2_id": null,
-    "hours_per_week": 5
-  },
-  {
-    "class_id": "3_luo",
-    "subject_id": "music",
-    "teacher_id": "шкиря_юн",
-    "split_teacher2_id": null,
-    "hours_per_week": 1
-  },
-  {
-    "class_id": "3_luo",
-    "subject_id": "trud",
-    "teacher_id": "радионова_на",
-    "split_teacher2_id": null,
-    "hours_per_week": 2
-  },
-  {
-    "class_id": "3_luo",
-    "subject_id": "izo",
-    "teacher_id": "радионова_на",
-    "split_teacher2_id": null,
-    "hours_per_week": 1
-  },
-  {
-    "class_id": "4а",
-    "subject_id": "informatics",
-    "teacher_id": "жантемиров_эа",
-    "split_teacher2_id": null,
-    "hours_per_week": 1
-  },
-  {
-    "class_id": "4а",
-    "subject_id": "literature",
-    "teacher_id": "актаева_ае",
-    "split_teacher2_id": null,
-    "hours_per_week": 3
-  },
-  {
-    "class_id": "4а",
-    "subject_id": "music",
-    "teacher_id": "актаева_ае",
-    "split_teacher2_id": null,
-    "hours_per_week": 1
-  },
-  {
-    "class_id": "4а",
-    "subject_id": "english",
-    "teacher_id": "акауова_ин",
-    "split_teacher2_id": null,
-    "hours_per_week": 2
-  },
-  {
-    "class_id": "4а",
-    "subject_id": "izo",
-    "teacher_id": "жекеева_на",
-    "split_teacher2_id": null,
-    "hours_per_week": 1
-  },
-  {
-    "class_id": "4а",
-    "subject_id": "pe",
-    "teacher_id": "кашиков_ее",
-    "split_teacher2_id": null,
-    "hours_per_week": 3
-  },
-  {
-    "class_id": "4а",
-    "subject_id": "trud",
-    "teacher_id": "жекеева_на",
-    "split_teacher2_id": null,
-    "hours_per_week": 1
-  },
-  {
-    "class_id": "4а",
-    "subject_id": "math",
-    "teacher_id": "жекеева_на",
-    "split_teacher2_id": null,
-    "hours_per_week": 5
-  },
-  {
-    "class_id": "4а",
-    "subject_id": "kazakh_language",
-    "teacher_id": "жекеева_на",
-    "split_teacher2_id": null,
-    "hours_per_week": 4
-  },
-  {
-    "class_id": "4а",
-    "subject_id": "dunietanu",
-    "teacher_id": "актаева_ае",
-    "split_teacher2_id": null,
-    "hours_per_week": 1
-  },
-  {
-    "class_id": "4а",
-    "subject_id": "russian",
-    "teacher_id": "жекеева_на",
-    "split_teacher2_id": null,
-    "hours_per_week": 2
-  },
-  {
-    "class_id": "4а",
-    "subject_id": "estestvoznanie",
-    "teacher_id": "актаева_ае",
-    "split_teacher2_id": null,
-    "hours_per_week": 1
-  },
-  {
-    "class_id": "4б",
-    "subject_id": "russian",
-    "teacher_id": "ажикенова_ма",
-    "split_teacher2_id": null,
-    "hours_per_week": 4
-  },
-  {
-    "class_id": "4б",
-    "subject_id": "pe",
-    "teacher_id": "чифин_дн",
-    "split_teacher2_id": null,
-    "hours_per_week": 3
-  },
-  {
-    "class_id": "4б",
-    "subject_id": "kazakh_language",
-    "teacher_id": "ильясова_аб",
-    "split_teacher2_id": null,
-    "hours_per_week": 4
-  },
-  {
-    "class_id": "4б",
-    "subject_id": "english",
-    "teacher_id": "алекпарова_аж",
-    "split_teacher2_id": null,
-    "hours_per_week": 2
-  },
-  {
-    "class_id": "4б",
-    "subject_id": "math",
-    "teacher_id": "ажикенова_ма",
-    "split_teacher2_id": null,
-    "hours_per_week": 5
-  },
-  {
-    "class_id": "4б",
-    "subject_id": "literature",
-    "teacher_id": "ажикенова_ма",
-    "split_teacher2_id": null,
-    "hours_per_week": 3
-  },
-  {
-    "class_id": "4б",
-    "subject_id": "geography",
-    "teacher_id": "бедрина_мн",
-    "split_teacher2_id": null,
-    "hours_per_week": 1
-  },
-  {
-    "class_id": "4б",
-    "subject_id": "trud",
-    "teacher_id": "ажикенова_ма",
-    "split_teacher2_id": null,
-    "hours_per_week": 1
-  },
-  {
-    "class_id": "4б",
-    "subject_id": "music",
-    "teacher_id": "шкиря_юн",
-    "split_teacher2_id": null,
-    "hours_per_week": 1
-  },
-  {
-    "class_id": "4б",
-    "subject_id": "estestvoznanie",
-    "teacher_id": "ажикенова_ма",
-    "split_teacher2_id": null,
-    "hours_per_week": 1
-  },
-  {
-    "class_id": "4б",
-    "subject_id": "poznanie",
-    "teacher_id": "ажикенова_ма",
-    "split_teacher2_id": null,
-    "hours_per_week": 1
-  },
-  {
-    "class_id": "4б",
-    "subject_id": "izo",
-    "teacher_id": "ажикенова_ма",
-    "split_teacher2_id": null,
-    "hours_per_week": 1
-  },
-  {
-    "class_id": "4_do",
-    "subject_id": "literature",
-    "teacher_id": "ажикенова_ма",
-    "split_teacher2_id": null,
-    "hours_per_week": 1
-  },
-  {
-    "class_id": "4_do",
-    "subject_id": "geography",
-    "teacher_id": "бедрина_мн",
-    "split_teacher2_id": null,
-    "hours_per_week": 1
-  },
-  {
-    "class_id": "4_do",
-    "subject_id": "russian",
-    "teacher_id": "ажикенова_ма",
-    "split_teacher2_id": null,
-    "hours_per_week": 2
-  },
-  {
-    "class_id": "4_do",
-    "subject_id": "math",
-    "teacher_id": "радионова_на",
-    "split_teacher2_id": null,
-    "hours_per_week": 3
-  },
-  {
-    "class_id": "4_do",
-    "subject_id": "estestvoznanie",
-    "teacher_id": "ажикенова_ма",
-    "split_teacher2_id": null,
-    "hours_per_week": 1
-  },
-  {
-    "class_id": "4_do",
-    "subject_id": "english",
-    "teacher_id": "алекпарова_аж",
-    "split_teacher2_id": null,
-    "hours_per_week": 1
-  },
-  {
-    "class_id": "5а",
-    "subject_id": "trud",
-    "teacher_id": "жантемиров_ак",
-    "split_teacher2_id": null,
-    "hours_per_week": 2
-  },
-  {
-    "class_id": "5а",
-    "subject_id": "math",
-    "teacher_id": "ізбасты_мж",
-    "split_teacher2_id": null,
-    "hours_per_week": 5
-  },
-  {
-    "class_id": "5а",
-    "subject_id": "english",
-    "teacher_id": "акауова_ин",
-    "split_teacher2_id": null,
-    "hours_per_week": 3
-  },
-  {
-    "class_id": "5а",
-    "subject_id": "kazakh_literature",
-    "teacher_id": "асаева_жх",
-    "split_teacher2_id": null,
-    "hours_per_week": 2
-  },
-  {
-    "class_id": "5а",
-    "subject_id": "history_kz",
-    "teacher_id": "досаева_мх",
-    "split_teacher2_id": null,
-    "hours_per_week": 2
-  },
-  {
-    "class_id": "5а",
-    "subject_id": "pe",
-    "teacher_id": "кашиков_ее",
-    "split_teacher2_id": null,
-    "hours_per_week": 3
-  },
-  {
-    "class_id": "5а",
-    "subject_id": "russian",
-    "teacher_id": "дмитриев_ев",
-    "split_teacher2_id": null,
-    "hours_per_week": 3
-  },
-  {
-    "class_id": "5а",
+    "class_id": "11",
     "subject_id": "history",
     "teacher_id": "досаева_мх",
-    "split_teacher2_id": null,
-    "hours_per_week": 1
-  },
-  {
-    "class_id": "5а",
-    "subject_id": "kazakh_language",
-    "teacher_id": "асаева_жх",
-    "split_teacher2_id": null,
-    "hours_per_week": 3
-  },
-  {
-    "class_id": "5а",
-    "subject_id": "informatics",
-    "teacher_id": "жантемиров_эа",
-    "split_teacher2_id": null,
-    "hours_per_week": 1
-  },
-  {
-    "class_id": "5а",
-    "subject_id": "estestvoznanie",
-    "teacher_id": "сапаргалиева_гс",
-    "split_teacher2_id": null,
-    "hours_per_week": 2
-  },
-  {
-    "class_id": "5а",
-    "subject_id": "music",
-    "teacher_id": "шкиря_юн",
-    "split_teacher2_id": null,
-    "hours_per_week": 1
-  },
-  {
-    "class_id": "1а",
-    "subject_id": "bukvar",
-    "teacher_id": "актаева_ае",
-    "split_teacher2_id": null,
-    "hours_per_week": 6
-  },
-  {
-    "class_id": "1а",
-    "subject_id": "math",
-    "teacher_id": "актаева_ае",
-    "split_teacher2_id": null,
-    "hours_per_week": 4
-  },
-  {
-    "class_id": "1а",
-    "subject_id": "music",
-    "teacher_id": "актаева_ае",
-    "split_teacher2_id": null,
-    "hours_per_week": 1
-  },
-  {
-    "class_id": "1а",
-    "subject_id": "estestvoznanie",
-    "teacher_id": "актаева_ае",
-    "split_teacher2_id": null,
-    "hours_per_week": 1
-  },
-  {
-    "class_id": "1а",
-    "subject_id": "izo",
-    "teacher_id": "романишина_им",
-    "split_teacher2_id": null,
-    "hours_per_week": 1
-  },
-  {
-    "class_id": "1а",
-    "subject_id": "pe",
-    "teacher_id": "кашиков_ее",
-    "split_teacher2_id": null,
-    "hours_per_week": 3
-  },
-  {
-    "class_id": "1а",
-    "subject_id": "trud",
-    "teacher_id": "романишина_им",
-    "split_teacher2_id": null,
-    "hours_per_week": 1
-  },
-  {
-    "class_id": "1а",
-    "subject_id": "dunietanu",
-    "teacher_id": "актаева_ае",
-    "split_teacher2_id": null,
-    "hours_per_week": 1
-  },
-  {
-    "class_id": "1а",
-    "subject_id": "informatics",
-    "teacher_id": "жантемиров_эа",
     "split_teacher2_id": null,
     "hours_per_week": 1
   }

@@ -9,6 +9,7 @@ import type {
   ScheduleSlot,
   ScheduleGenerateResult,
   ScheduleVariant,
+  ScheduleFixedSlot,
 } from "../../types";
 
 const isTauri = "__TAURI_INTERNALS__" in window;
@@ -54,7 +55,7 @@ export const scheduleApi = {
   deleteCurriculum(id: string): Promise<void> {
     return call<void>("schedule_delete_curriculum", { id });
   },
-  setWeights(input: { window: number; room_displacement: number; sanpin_parabola: number; alternation: number; movement: number; load_balance: number }): Promise<ScheduleWeights> {
+  setWeights(input: { window: number; room_displacement: number; sanpin_parabola: number; alternation: number; movement: number; load_balance: number; change_slot: number }): Promise<ScheduleWeights> {
     return call<ScheduleWeights>("schedule_set_weights", { input });
   },
   getSlots(): Promise<ScheduleSlot[]> {
@@ -79,9 +80,21 @@ export const scheduleApi = {
     return call<ScheduleVariant>("schedule_create_variant", { input });
   },
   setActiveVariant(variant_id: string): Promise<void> {
-    return call<void>("schedule_set_active_variant", { variant_id });
+    return call<void>("schedule_set_active_variant", { variantId: variant_id });
   },
   deleteVariant(variant_id: string): Promise<void> {
-    return call<void>("schedule_delete_variant", { variant_id });
+    return call<void>("schedule_delete_variant", { variantId: variant_id });
+  },
+  portQuarter(from_quarter: number, to_quarter: number): Promise<{ cloned_teachers: number; cloned_classes: number }> {
+    return call<{ cloned_teachers: number; cloned_classes: number }>("schedule_port_quarter", { fromQuarter: from_quarter, toQuarter: to_quarter });
+  },
+  pinSlot(input: { variant_id: string; class_id: string; subject_id: string; teacher_id: string; room_id: string; day: number; period: number; subgroup_label?: string }): Promise<ScheduleFixedSlot> {
+    return call<ScheduleFixedSlot>("schedule_pin_slot", { input });
+  },
+  unpinSlot(slot_id: string): Promise<void> {
+    return call<void>("schedule_unpin_slot", { slotId: slot_id });
+  },
+  getFixedSlots(variant_id: string): Promise<ScheduleFixedSlot[]> {
+    return call<ScheduleFixedSlot[]>("schedule_get_fixed_slots", { variantId: variant_id });
   },
 };

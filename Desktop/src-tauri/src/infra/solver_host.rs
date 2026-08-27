@@ -120,7 +120,7 @@ impl SolverHost {
             "rooms": [{"id": "r1", "name": "Kab1", "room_type": "General", "capacity": 30}],
             "subjects": [{"id": "math", "name": "Math", "sanitary_weight": 9}],
             "curriculum": [{"class_id": "c1", "subject_id": "math", "teacher_id": "t1", "hours_per_week": 1}],
-            "weights": {"window": 0, "room_displacement": 0, "sanpin_parabola": 0, "alternation": 0, "movement": 0, "load_balance": 0}
+            "weights": {"window": 0, "room_displacement": 0, "sanpin_parabola": 0, "alternation": 0, "movement": 0, "load_balance": 0, "change_slot": 0}
         })
     }
 

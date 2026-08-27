@@ -1,4 +1,4 @@
-"""Pydantic v2 JSON contract schema_version=1 (Rust <-> Python)."""
+"""Pydantic v2 JSON contract schema_version=2 (Rust <-> Python)."""
 from __future__ import annotations
 
 from typing import Literal, Optional
@@ -88,10 +88,23 @@ class Weights(BaseModel):
     alternation: int = Field(ge=0, le=1000)
     movement: int = Field(ge=0, le=1000)
     load_balance: int = Field(ge=0, le=1000)
+    change_slot: int = Field(default=0, ge=0, le=1000)
+
+
+class FixedLesson(BaseModel):
+    """Фиксированный (закреплённый пользователем) слот."""
+    lesson_idx: int = Field(ge=0)
+    class_id: str
+    subject_id: str
+    teacher_id: str
+    room_id: str
+    day: int = Field(ge=0, le=5)
+    period: int = Field(ge=0, le=7)
+    subgroup_label: Optional[str] = None
 
 
 class InputModel(BaseModel):
-    schema_version: Literal[1] = 1
+    schema_version: Literal[1, 2] = 1
     meta: Meta = Field(default_factory=Meta)
     time_grid: TimeGrid
     teachers: list[TeacherInput]
@@ -100,6 +113,8 @@ class InputModel(BaseModel):
     subjects: list[SubjectInput]
     curriculum: list[CurriculumEntry]
     weights: Weights = Field(default_factory=Weights)
+    fixed_lessons: list[FixedLesson] = Field(default_factory=list)
+    previous_grid: Optional[dict] = None
 
 
 class SlotOutput(BaseModel):
@@ -142,7 +157,7 @@ class Diagnostics(BaseModel):
 
 
 class OutputModel(BaseModel):
-    schema_version: Literal[1] = 1
+    schema_version: Literal[1, 2] = 2
     status: Literal["OPTIMAL", "FEASIBLE", "INFEASIBLE", "TIME_LIMIT", "INVALID_INPUT"]
     solver_stats: SolverStats = Field(default_factory=SolverStats)
     penalties: Penalties = Field(default_factory=Penalties)

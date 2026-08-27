@@ -1,18 +1,23 @@
 import { useEffect, useMemo, useState } from "react";
 import { scheduleApi } from "./api";
-import type { ScheduleState, ScheduleGenerateResult, ScheduleVariant } from "../../types";
+import type { ScheduleState, ScheduleGenerateResult, ScheduleVariant, ScheduleSlot } from "../../types";
 import { STATUS_LABELS, INFEASIBLE_REASON_LABELS, ENTITY_TYPE_LABELS } from "../../types";
 import { ScheduleDashboard } from "./ui/ScheduleDashboard";
 import { TeachersTab } from "./ui/TeachersTab";
-import { ClassesTab } from "./ui/ClassesTab";
-import { RoomsTab } from "./ui/RoomsTab";
-import { SubjectsTab } from "./ui/SubjectsTab";
-import { CurriculumTab } from "./ui/CurriculumTab";
+import { SchoolSettings } from "./ui/SchoolSettings";
 import { WeightsTab } from "./ui/WeightsTab";
-import { GridTab } from "./ui/GridTab";
-import { AnalyticsCharts } from "./ui/AnalyticsCharts";
+import { InteractiveGrid, type GridMode } from "./ui/InteractiveGrid";
+import { TeacherDrawer } from "./ui/TeacherDrawer";
 
-type Tab = "dashboard" | "teachers" | "classes" | "rooms" | "subjects" | "curriculum" | "weights" | "grid" | "charts";
+type Tab = "dashboard" | "settings" | "teachers" | "weights" | "grid";
+
+const TAB_LABELS: Record<Tab, string> = {
+  dashboard: "Сводка",
+  settings: "Настройки",
+  teachers: "Учителя",
+  weights: "Веса",
+  grid: "Расписание",
+};
 
 export function SchedulePage() {
   const [tab, setTab] = useState<Tab>("dashboard");
@@ -24,13 +29,68 @@ export function SchedulePage() {
   const [importing, setImporting] = useState(false);
   const [variants, setVariants] = useState<ScheduleVariant[]>([]);
 
+  // Teacher drawer state
+  const [selectedTeacher, setSelectedTeacher] = useState<ScheduleState["teachers"][0] | null>(null);
+
+  const [gridMode, setGridMode] = useState<GridMode>("class");
+  const [porting, setPorting] = useState(false);
+
+  const handlePin = async (slot: ScheduleSlot) => {
+    const vid = activeVariant?.id;
+    if (!vid) { setError("Нет активного варианта"); return; }
+    try {
+      await scheduleApi.pinSlot({
+        variant_id: vid,
+        class_id: slot.class_id,
+        subject_id: slot.subject_id,
+        teacher_id: slot.teacher_id,
+        room_id: slot.room_id,
+        day: slot.day,
+        period: slot.period,
+        subgroup_label: slot.subgroup_label || undefined,
+      });
+      await load();
+    } catch (e) { setError(String(e)); }
+  };
+
+  const handleUnpin = async (slotId: string) => {
+    try {
+      await scheduleApi.unpinSlot(slotId);
+      await load();
+    } catch (e) { setError(String(e)); }
+  };
+
+  const handleDragDrop = async (slot: ScheduleSlot, day: number, period: number) => {
+    if (slot.day === day && slot.period === period) return;
+    const vid = activeVariant?.id;
+    if (!vid) { setError("Нет активного варианта"); return; }
+    try {
+      // Убрать существующий закреплённый слот в целевой ячейке (если есть)
+      const existingFixed = state?.fixed_slots.find(f =>
+        f.variant_id === vid && f.class_id === slot.class_id && f.day === day && f.period === period
+      );
+      if (existingFixed) await scheduleApi.unpinSlot(existingFixed.id);
+      // Закрепить на новом месте
+      await scheduleApi.pinSlot({
+        variant_id: vid,
+        class_id: slot.class_id,
+        subject_id: slot.subject_id,
+        teacher_id: slot.teacher_id,
+        room_id: slot.room_id,
+        day,
+        period,
+        subgroup_label: slot.subgroup_label || undefined,
+      });
+      await load();
+    } catch (e) { setError(String(e)); }
+  };
+
   const load = async () => {
     setLoading(true);
     try {
       const s = await scheduleApi.getState();
       setState(s);
       if (s.variants) setVariants(s.variants);
-      // Auto-import Q4 if subjects are missing
       if (s.subjects.length === 0 && !importing) {
         setImporting(true);
         try {
@@ -54,10 +114,30 @@ export function SchedulePage() {
 
   useEffect(() => { load(); }, []);
 
-  // Active variant
+  // Автодобавление второго варианта Q4 2025-2026 если после импорта остался только один
+  useEffect(() => {
+    if (loading || importing) return;
+    const q4vars = variants.filter(v => v.academic_year === "2025-2026" && v.quarter_number === 4);
+    if (q4vars.length === 1) {
+      // Триггерим повторный импорт который теперь создаст Вариант 2
+      (async () => {
+        setImporting(true);
+        try {
+          await scheduleApi.importLegacy(4);
+          const s2 = await scheduleApi.getState();
+          setState(s2);
+          if (s2.variants) setVariants(s2.variants);
+        } catch (e) {
+          console.error("Auto-seed V2 failed:", e);
+        } finally {
+          setImporting(false);
+        }
+      })();
+    }
+  }, [variants, loading]);
+
   const activeVariant = useMemo(() => variants.find(v => v.is_active), [variants]);
 
-  // Group variants: Year → Quarter → Variant
   const years = useMemo(() => {
     const ym = new Map<string, Map<number, ScheduleVariant[]>>();
     for (const v of variants) {
@@ -73,7 +153,6 @@ export function SchedulePage() {
   const [selectedYear, setSelectedYear] = useState<string>("2025-2026");
   const [selectedQuarter, setSelectedQuarter] = useState<number>(4);
 
-  // Sync selection with active variant
   useEffect(() => {
     if (activeVariant) {
       setSelectedYear(activeVariant.academic_year);
@@ -81,12 +160,9 @@ export function SchedulePage() {
     }
   }, [activeVariant]);
 
-  // Pre-generated years: 2025-2026 → 2049-2050
   const ALL_YEARS = useMemo(() => {
     const ys: string[] = [];
-    for (let start = 2025; start <= 2049; start++) {
-      ys.push(`${start}-${start + 1}`);
-    }
+    for (let start = 2025; start <= 2049; start++) ys.push(`${start}-${start + 1}`);
     return ys;
   }, []);
 
@@ -103,12 +179,7 @@ export function SchedulePage() {
   }, [selectedYear, selectedQuarter, years]);
 
   const switchVariant = async (variantId: string) => {
-    try {
-      await scheduleApi.setActiveVariant(variantId);
-      await load();
-    } catch (e) {
-      setError(String(e));
-    }
+    try { await scheduleApi.setActiveVariant(variantId); await load(); } catch (e) { setError(String(e)); }
   };
 
   const handleCreateVariant = async () => {
@@ -122,19 +193,26 @@ export function SchedulePage() {
         copy_from_variant_id: activeVariant?.id,
       });
       await load();
-    } catch (e) {
-      setError(String(e));
-    }
+    } catch (e) { setError(String(e)); }
   };
 
   const handleDeleteVariant = async (variantId: string) => {
     if (!window.confirm("Удалить вариант? Слоты будут удалены.")) return;
+    try { await scheduleApi.deleteVariant(variantId); await load(); } catch (e) { setError(String(e)); }
+  };
+
+  const handlePortQuarter = async (toQuarter: number) => {
+    const fromQuarter = toQuarter - 1;
+    if (fromQuarter < 1) { setError("Нет предыдущей четверти для копирования"); return; }
+    if (!window.confirm(`Скопировать настройки (учителя, классы, нагрузку) из ${QUARTER_LABELS[fromQuarter - 1]} в ${QUARTER_LABELS[toQuarter - 1]}?`)) return;
+    setPorting(true);
     try {
-      await scheduleApi.deleteVariant(variantId);
+      const res = await scheduleApi.portQuarter(fromQuarter, toQuarter);
+      setError(null);
+      setGenStatus(`Портирование: ${res.cloned_teachers} учителей, ${res.cloned_classes} классов`);
       await load();
-    } catch (e) {
-      setError(String(e));
-    }
+    } catch (e) { setError(String(e)); }
+    finally { setPorting(false); }
   };
 
   const handleGenerate = async () => {
@@ -185,18 +263,21 @@ export function SchedulePage() {
         </div>
         <div className="variant-nav-row">
           <span className="variant-nav-label">Вариант:</span>
-          {variantsForSelection.length === 0 && (
-            <span className="muted" style={{ marginRight: 8 }}>Нет вариантов</span>
-          )}
+          {variantsForSelection.length === 0 && <span className="muted" style={{ marginRight: 8 }}>Нет вариантов</span>}
           {variantsForSelection.map(v => (
             <span key={v.id} className={`variant-chip ${v.is_active ? "active" : ""}`} onClick={() => switchVariant(v.id)}>
               Вариант {v.variant_number} {v.is_active ? "●" : ""}
               {variantsForSelection.length > 1 && (
-                <span className="variant-delete" onClick={(e) => { e.stopPropagation(); handleDeleteVariant(v.id); }}>×</span>
+                <span className="variant-delete" onClick={e => { e.stopPropagation(); handleDeleteVariant(v.id); }}>×</span>
               )}
             </span>
           ))}
           <button className="btn btn-small btn-primary" onClick={handleCreateVariant}>+ Вариант</button>
+          {selectedQuarter > 1 && (
+            <button className="btn btn-small" onClick={() => handlePortQuarter(selectedQuarter)} disabled={porting}>
+              {porting ? "Копирование..." : "Скопировать настройки из предыдущей четверти"}
+            </button>
+          )}
         </div>
         {activeVariant && (
           <div className="variant-nav-active">
@@ -206,9 +287,9 @@ export function SchedulePage() {
       </div>
 
       <div className="tabs" role="tablist">
-        {(["dashboard","teachers","classes","rooms","subjects","curriculum","weights","grid","charts"] as Tab[]).map(t => (
-          <button key={t} role="tab" aria-selected={tab===t} className={tab===t?"tab active":"tab"} onClick={()=>setTab(t)}>
-            {labelForTab(t)}
+        {(["dashboard", "settings", "teachers", "weights", "grid"] as Tab[]).map(t => (
+          <button key={t} role="tab" aria-selected={tab === t} className={tab === t ? "tab active" : "tab"} onClick={() => setTab(t)}>
+            {TAB_LABELS[t]}
           </button>
         ))}
       </div>
@@ -216,30 +297,36 @@ export function SchedulePage() {
       {genStatus && <div className="notice">{genStatus}</div>}
       {error && <div className="error notice">{error}</div>}
 
-      {tab==="dashboard" && <ScheduleDashboard state={state!} onGenerate={handleGenerate} onRefresh={load} lastResult={lastResult} />}
-      {tab==="teachers" && <TeachersTab />}
-      {tab==="classes" && <ClassesTab />}
-      {tab==="rooms" && <RoomsTab />}
-      {tab==="subjects" && <SubjectsTab />}
-      {tab==="curriculum" && <CurriculumTab />}
-      {tab==="weights" && <WeightsTab state={state!} onSaved={load} />}
-      {tab==="grid" && <GridTab state={state!} />}
-      {tab==="charts" && <AnalyticsCharts state={state!} />}
+      {tab === "dashboard" && <ScheduleDashboard state={state!} onGenerate={handleGenerate} onRefresh={load} lastResult={lastResult} />}
+      {tab === "settings" && <SchoolSettings />}
+      {tab === "teachers" && (
+        <TeachersTab onSelectTeacher={t => setSelectedTeacher(t)} />
+      )}
+      {tab === "weights" && <WeightsTab state={state!} onSaved={load} />}
+      {tab === "grid" && (
+        <InteractiveGrid
+          state={state!}
+          variantId={activeVariant?.id ?? null}
+          mode={gridMode}
+          onModeChange={setGridMode}
+          onPin={handlePin}
+          onUnpin={handleUnpin}
+          onDragDrop={handleDragDrop}
+        />
+      )}
+
+      {/* Teacher drawer overlay */}
+      {selectedTeacher && state && (
+        <TeacherDrawer
+          teacher={selectedTeacher}
+          rooms={state.rooms}
+          subjects={state.subjects}
+          classes={state.classes}
+          curriculum={state.curriculum}
+          onSave={load}
+          onClose={() => setSelectedTeacher(null)}
+        />
+      )}
     </div>
   );
-}
-
-function labelForTab(t: Tab): string {
-  const m: Record<Tab,string> = {
-    dashboard: "Сводка",
-    teachers: "Учителя",
-    classes: "Классы",
-    rooms: "Кабинеты",
-    subjects: "Предметы",
-    curriculum: "Нагрузка",
-    weights: "Веса",
-    grid: "Матрица",
-    charts: "Графики",
-  };
-  return m[t];
 }

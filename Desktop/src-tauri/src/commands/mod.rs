@@ -80,6 +80,10 @@ pub fn register<R: tauri::Runtime>(
             schedule::schedule_create_variant,
             schedule::schedule_set_active_variant,
             schedule::schedule_delete_variant,
-            schedule::schedule_get_slots_for_variant
+            schedule::schedule_get_slots_for_variant,
+            schedule::schedule_port_quarter,
+            schedule::schedule_pin_slot,
+            schedule::schedule_unpin_slot,
+            schedule::schedule_get_fixed_slots
         ])
 }

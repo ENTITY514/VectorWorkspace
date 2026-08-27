@@ -1,0 +1,34 @@
+Сводка Q4 2026 — Детальная верификация
+Дата: 2026-08-27T09:31:46.510Z
+Всего файлов: 27
+Всего уроков: 667
+Учителей: 37
+Предметов: 72
+
+1-а | schedule.xls | 19 уроков | 4 четверть, 13 — 19 апреля 2026
+1-б | schedule (1).xls | 21 уроков | 4 четверть, 13 — 19 апреля 2026
+10-а | schedule (25).xls | 32 уроков | null
+10-б | schedule (26).xls | 29 уроков | null
+11 | schedule (27).xls | 29 уроков | null
+2 | schedule (2).xls | 23 уроков | null
+3 ЛУО | schedule (5).xls | 22 уроков | null
+3-а | schedule (3).xls | 25 уроков | null
+3-б | schedule (4).xls | 26 уроков | null
+4 ДО | schedule (8).xls | 9 уроков | null
+4-а | schedule (6).xls | 25 уроков | null
+4-б | schedule (7).xls | 27 уроков | null
+5 ЛУО | schedule (12).xls | 20 уроков | null
+5-а | schedule (9).xls | 28 уроков | null
+5-б | schedule (10).xls | 37 уроков | null
+6 | schedule (13).xls | 29 уроков | null
+6 ЛУО | schedule (15).xls | 20 уроков | null
+6-ДО | schedule (14).xls | 10 уроков | null
+7 б | schedule (18).xls | 32 уроков | null
+7-а | schedule (16).xls | 32 уроков | null
+7-ә | schedule (17).xls | 31 уроков | null
+7-бЛУО | schedule (19).xls | 22 уроков | null
+8 | schedule (20).xls | 41 уроков | null
+8Д.О. | schedule (21).xls | 10 уроков | null
+9 | schedule (22).xls | 34 уроков | null
+9 Д.О. | schedule (23).xls | 10 уроков | null
+9 ЛУО | schedule (24).xls | 24 уроков | null

@@ -1,28 +1,77 @@
 {
-  "total_files": 27,
-  "unique_class_quarter": 27,
+  "total_files": 115,
+  "unique_class_quarter": 102,
   "catalog_counts": {
-    "teachers": 37,
+    "teachers": 39,
     "classes": 27,
-    "rooms": 57,
-    "subjects": 25
+    "rooms": 58,
+    "subjects": 362
   },
   "per_quarter": {
     "1": {
-      "legacy_slots": 0,
-      "curriculum": 0
+      "legacy_slots": 778,
+      "curriculum": 273
     },
     "2": {
-      "legacy_slots": 0,
-      "curriculum": 0
+      "legacy_slots": 670,
+      "curriculum": 300
     },
     "3": {
-      "legacy_slots": 0,
-      "curriculum": 0
+      "legacy_slots": 251,
+      "curriculum": 203
     },
     "4": {
-      "legacy_slots": 650,
-      "curriculum": 295
+      "legacy_slots": 627,
+      "curriculum": 283
+    }
+  },
+  "xls_import": {
+    "source_lessons": 2551,
+    "imported_lessons": 2326,
+    "duplicate_lessons_removed": 225,
+    "invalid_lessons": 0,
+    "unknown_classes": 0,
+    "unknown_teachers": 0,
+    "room_fallbacks": 163,
+    "by_quarter": {
+      "1": {
+        "lessons": 778,
+        "classes": 25,
+        "teachers": 36,
+        "subjects": 60
+      },
+      "2": {
+        "lessons": 670,
+        "classes": 27,
+        "teachers": 37,
+        "subjects": 62
+      },
+      "3": {
+        "lessons": 251,
+        "classes": 25,
+        "teachers": 33,
+        "subjects": 44
+      },
+      "4": {
+        "lessons": 627,
+        "classes": 25,
+        "teachers": 36,
+        "subjects": 60
+      }
+    },
+    "by_type": {
+      "normal": {
+        "lessons": 1873,
+        "classes": 18
+      },
+      "luo": {
+        "lessons": 330,
+        "classes": 5
+      },
+      "do": {
+        "lessons": 123,
+        "classes": 4
+      }
     }
   }
 }

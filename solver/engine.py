@@ -226,10 +226,10 @@ def solve(input_model: InputModel) -> dict:
     # Если нет instance — сразу FEASIBLE пустой
     if not instances:
         return {
-            "schema_version": 1,
+            "schema_version": 2,
             "status": "OPTIMAL",
             "solver_stats": {"wall_ms": 0, "branches": 0, "conflicts": 0, "gap_percent": 0.0, "objective_value": 0},
-            "penalties": {"window": 0, "room_displacement": 0, "sanpin_parabola": 0, "alternation": 0, "movement": 0, "load_balance": 0, "total": 0},
+            "penalties": {"window": 0, "room_displacement": 0, "sanpin_parabola": 0, "alternation": 0, "movement": 0, "load_balance": 0, "change_slot": 0, "total": 0},
             "slots": [],
             "diagnostics": {"infeasible_core": None, "warnings": []},
         }
@@ -261,10 +261,10 @@ def solve(input_model: InputModel) -> dict:
                 )
                 core["conflicting_entities"] = [inst["teacher_id"], inst["class_id"]]
             return {
-                "schema_version": 1,
+                "schema_version": 2,
                 "status": "INFEASIBLE",
                 "solver_stats": {"wall_ms": int((time.time()-start)*1000), "branches": 0, "conflicts": 0, "gap_percent": 0.0, "objective_value": 0},
-                "penalties": {"window": 0, "room_displacement": 0, "sanpin_parabola": 0, "alternation": 0, "movement": 0, "load_balance": 0, "total": 0},
+                "penalties": {"window": 0, "room_displacement": 0, "sanpin_parabola": 0, "alternation": 0, "movement": 0, "load_balance": 0, "change_slot": 0, "total": 0},
                 "slots": [],
                 "diagnostics": {"infeasible_core": core, "warnings": []},
             }
@@ -274,6 +274,19 @@ def solve(input_model: InputModel) -> dict:
 
     # Предупреждения: mismatches subject_ids учителя с curriculum
     warnings = []
+    # Предупреждение о fixed lessons без matching instance
+    for fixed in input_model.fixed_lessons:
+        found = any(
+            inst["class_id"] == fixed.class_id
+            and inst["subject_id"] == fixed.subject_id
+            and inst["teacher_id"] == fixed.teacher_id
+            for inst in instances
+        )
+        if not found:
+            warnings.append(
+                f"Fixed lesson: class={fixed.class_id}, subject={fixed.subject_id}, "
+                f"teacher={fixed.teacher_id} — нет matching instance в curriculum"
+            )
     teacher_by_id = {t.id: t for t in input_model.teachers}
     for entry in input_model.curriculum:
         teacher = teacher_by_id.get(entry.teacher_id)
@@ -344,7 +357,7 @@ def solve(input_model: InputModel) -> dict:
                         })
                         break
         # собрать реальные штрафы
-        pen_vals = {"window": 0, "room_displacement": 0, "sanpin_parabola": 0, "alternation": 0, "movement": 0, "load_balance": 0}
+        pen_vals = {"window": 0, "room_displacement": 0, "sanpin_parabola": 0, "alternation": 0, "movement": 0, "load_balance": 0, "change_slot": 0}
         total = 0
         for name, var in penalties.items():
             try:
@@ -377,10 +390,10 @@ def solve(input_model: InputModel) -> dict:
         core = build_infeasible_core(input_model)
         # если статус INFEASIBLE но эвристика не нашла причину — оставляем generic
         return {
-            "schema_version": 1,
+            "schema_version": 2,
             "status": "INFEASIBLE",
             "solver_stats": {"wall_ms": wall_ms, "branches": int(solver.NumBranches()), "conflicts": int(solver.NumConflicts()), "gap_percent": 0.0, "objective_value": 0},
-            "penalties": {"window": 0, "room_displacement": 0, "sanpin_parabola": 0, "alternation": 0, "movement": 0, "load_balance": 0, "total": 0},
+            "penalties": {"window": 0, "room_displacement": 0, "sanpin_parabola": 0, "alternation": 0, "movement": 0, "load_balance": 0, "change_slot": 0, "total": 0},
             "slots": [],
             "diagnostics": {"infeasible_core": core, "warnings": warnings},
         }

@@ -125,10 +125,10 @@ mod schedule_tests {
         let dir = tempfile::tempdir().unwrap();
         let pool = connect(&dir.path().join("test.db")).await.unwrap();
         // zero is allowed
-        let w = slots::set_weights(&pool, 0, 0, 0, 0, 0, 0).await.unwrap();
+        let w = slots::set_weights(&pool, 0, 0, 0, 0, 0, 0, 0).await.unwrap();
         assert_eq!(w.window, 0);
         // over limit should fail
-        let bad = slots::set_weights(&pool, 1001, 0, 0, 0, 0, 0).await;
+        let bad = slots::set_weights(&pool, 1001, 0, 0, 0, 0, 0, 0).await;
         assert!(bad.is_err());
     }
 
@@ -161,5 +161,77 @@ mod schedule_tests {
         let hours = vec![3, 3];
         let n: usize = hours.iter().sum::<usize>();
         assert_eq!(n, 6);
+    }
+
+    #[tokio::test]
+    async fn port_quarter_clones_teachers_and_classes() {
+        let dir = tempfile::tempdir().unwrap();
+        let pool = connect(&dir.path().join("test.db")).await.unwrap();
+
+        // Создаём глобальных учителей и класс (quarter_number = NULL)
+        let t = teachers::upsert_teacher(&pool, None, "Петрова".into(), None, 5, avail_all(), "[]".to_string(), false).await.unwrap();
+        sqlx::query("INSERT INTO schedule_classes (id, grade, letter, headcount, shift, class_type) VALUES ('c1', 8, 'А', 25, 'First', 'normal')")
+            .execute(&pool).await.unwrap();
+
+        // Портирование Q3 -> Q4
+        let (nt, nc) = crate::db::schedule::porting::port_quarter(&pool, 3, 4).await.unwrap();
+        assert_eq!(nt, 1);
+        assert_eq!(nc, 1);
+
+        // Новые записи привязаны к Q4, старые остаются
+        let q4t: i64 = sqlx::query_scalar("SELECT COUNT(*) FROM schedule_teachers WHERE quarter_number = 4").fetch_one(&pool).await.unwrap();
+        let q4c: i64 = sqlx::query_scalar("SELECT COUNT(*) FROM schedule_classes WHERE quarter_number = 4").fetch_one(&pool).await.unwrap();
+        assert_eq!(q4t, 1);
+        assert_eq!(q4c, 1);
+        let global_t: i64 = sqlx::query_scalar("SELECT COUNT(*) FROM schedule_teachers WHERE quarter_number IS NULL").fetch_one(&pool).await.unwrap();
+        assert_eq!(global_t, 1);
+        // исходный учитель не переименован
+        assert!(t.id.starts_with("q4_") == false, "original teacher should keep id");
+    }
+
+    #[tokio::test]
+    async fn port_quarter_idempotent() {
+        let dir = tempfile::tempdir().unwrap();
+        let pool = connect(&dir.path().join("test.db")).await.unwrap();
+        teachers::upsert_teacher(&pool, None, "Петрова".into(), None, 5, avail_all(), "[]".to_string(), false).await.unwrap();
+        sqlx::query("INSERT INTO schedule_classes (id, grade, letter, headcount, shift, class_type) VALUES ('c1', 8, 'А', 25, 'First', 'normal')")
+            .execute(&pool).await.unwrap();
+
+        // Дважды портируем Q3 -> Q4: второй раз ничего нового не создаёт
+        let (nt1, nc1) = crate::db::schedule::porting::port_quarter(&pool, 3, 4).await.unwrap();
+        assert_eq!((nt1, nc1), (1, 1));
+        let (nt2, nc2) = crate::db::schedule::porting::port_quarter(&pool, 3, 4).await.unwrap();
+        assert_eq!((nt2, nc2), (0, 0));
+    }
+
+    #[tokio::test]
+    async fn port_quarter_does_not_clone_variants_or_rooms() {
+        let dir = tempfile::tempdir().unwrap();
+        let pool = connect(&dir.path().join("test.db")).await.unwrap();
+        teachers::upsert_teacher(&pool, None, "Петрова".into(), None, 5, avail_all(), "[]".to_string(), false).await.unwrap();
+        sqlx::query("INSERT INTO schedule_classes (id, grade, letter, headcount, shift, class_type) VALUES ('c1', 8, 'А', 25, 'First', 'normal')")
+            .execute(&pool).await.unwrap();
+        rooms::upsert_room(&pool, None, "Каб. 1".into(), "General".into(), 30, None, None).await.unwrap();
+        sqlx::query("INSERT INTO schedule_variants (id, name, academic_year, quarter_number, variant_number) VALUES ('v1', 'В1', '2025-2026', 3, 1)")
+            .execute(&pool).await.unwrap();
+
+        let (nt, nc) = crate::db::schedule::porting::port_quarter(&pool, 3, 4).await.unwrap();
+        assert_eq!(nt, 1);
+        assert_eq!(nc, 1);
+
+        // Кабинеты глобальные — не клонируются
+        let rooms_cnt: i64 = sqlx::query_scalar("SELECT COUNT(*) FROM schedule_rooms").fetch_one(&pool).await.unwrap();
+        assert_eq!(rooms_cnt, 1);
+        // Варианты не клонируются (остаётся default + v1 = 2)
+        let variants_cnt: i64 = sqlx::query_scalar("SELECT COUNT(*) FROM schedule_variants").fetch_one(&pool).await.unwrap();
+        assert_eq!(variants_cnt, 2);
+    }
+
+    #[tokio::test]
+    async fn port_quarter_same_quarter_rejected() {
+        let dir = tempfile::tempdir().unwrap();
+        let pool = connect(&dir.path().join("test.db")).await.unwrap();
+        let res = crate::db::schedule::porting::port_quarter(&pool, 4, 4).await;
+        assert!(res.is_err());
     }
 }

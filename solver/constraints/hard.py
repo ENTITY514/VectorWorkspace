@@ -173,3 +173,33 @@ def add_hard_constraints(model, x, y, m, instances, room_by_id, subject_by_id):
     # Не применяем Hard для MVP, оставляем Soft (S6)
 
     # H10: спаренные не реализованы в MVP (is_double_allowed — V2)
+
+    # H11: Fixed lessons — пользователь закрепил слот, он обязателен
+    for fixed in m.fixed_lessons:
+        # Находим instance_idx по (class_id, subject_id, teacher_id)
+        matched_idx = None
+        for inst in instances:
+            if (inst["class_id"] == fixed.class_id
+                    and inst["subject_id"] == fixed.subject_id
+                    and inst["teacher_id"] == fixed.teacher_id):
+                matched_idx = inst["idx"]
+                break
+        if matched_idx is None:
+            # Нет такого instance — конфликт, делаем 0==1 для INFEASIBLE
+            dummy = model.NewBoolVar(f"fixed_missing_{fixed.class_id}_{fixed.day}_{fixed.period}")
+            model.Add(dummy == 0)
+            model.Add(dummy == 1)
+            continue
+        key = (matched_idx, fixed.day, fixed.period)
+        if key in x:
+            model.Add(x[key] == 1)
+        else:
+            # Слот недоступен (availability/shift) — конфликт
+            dummy = model.NewBoolVar(f"fixed_unavail_{fixed.class_id}_{fixed.day}_{fixed.period}")
+            model.Add(dummy == 0)
+            model.Add(dummy == 1)
+            continue
+        # Фиксируем кабинет
+        y_key = (matched_idx, fixed.room_id)
+        if y_key in y:
+            model.Add(y[y_key] == 1)
