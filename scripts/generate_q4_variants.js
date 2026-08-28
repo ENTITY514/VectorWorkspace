@@ -374,21 +374,24 @@ function generateVariant(slotsV1, curriculum, seedInit=42){
 
 const slotsV2=generateVariant(slotsV1, curriculum, 42);
 console.log(`Variant2 generated slots: ${slotsV2.length}`);
+// Variant 3 создаётся ТОЛЬКО CP-SAT (scripts/generate_variant3.py).
+// Жадная копия не пишется в variant3.json, чтобы не затирать joint/alternation.
+// Сохраняем greedy-копию отдельно для сравнения.
 const slotsV3=generateVariant(slotsV1, curriculum, 123);
-console.log(`Variant3 generated slots: ${slotsV3.length}`);
+console.log(`Variant3 (greedy diagnostic) slots: ${slotsV3.length}`);
 
 // Write variant files
 const outDir=path.join(root,'data','synthetic');
 fs.writeFileSync(path.join(outDir,'schedule_q4_2026_variant1.json'), JSON.stringify(slotsV1,null,2)+'\n','utf8');
 fs.writeFileSync(path.join(outDir,'schedule_q4_2026_variant2.json'), JSON.stringify(slotsV2,null,2)+'\n','utf8');
-fs.writeFileSync(path.join(outDir,'schedule_q4_2026_variant3.json'), JSON.stringify(slotsV3,null,2)+'\n','utf8');
+// НЕ пишем variant3.json здесь — он генерируется CP-SAT скриптом
 
 // Also produce human-readable verification for variants
 const variantReport={
   generatedAt:new Date().toISOString(),
   variant1:{slots:slotsV1.length, classes:new Set(slotsV1.map(s=>s.class_id)).size, teachers:new Set(slotsV1.map(s=>s.teacher_id)).size, subjects:new Set(slotsV1.map(s=>s.subject_id)).size},
   variant2:{slots:slotsV2.length, classes:new Set(slotsV2.map(s=>s.class_id)).size, teachers:new Set(slotsV2.map(s=>s.teacher_id)).size, subjects:new Set(slotsV2.map(s=>s.subject_id)).size},
-  variant3:{slots:slotsV3.length, classes:new Set(slotsV3.map(s=>s.class_id)).size, teachers:new Set(slotsV3.map(s=>s.teacher_id)).size, subjects:new Set(slotsV3.map(s=>s.subject_id)).size},
+  variant3_greedy_diag:{slots:slotsV3.length, classes:new Set(slotsV3.map(s=>s.class_id)).size, teachers:new Set(slotsV3.map(s=>s.teacher_id)).size, subjects:new Set(slotsV3.map(s=>s.subject_id)).size},
   curriculumEntries: curriculum.length,
   createdSubjects: createdSubjects.length,
   issues

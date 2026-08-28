@@ -6,14 +6,8 @@ curriculum_path = root / "data" / "synthetic" / "curriculum_q4_2026_variant.json
 out_path = root / "data" / "synthetic" / "schedule_q4_2026_variant3.json"
 
 catalog = json.loads(catalog_path.read_text(encoding='utf-8'))
-# Use 5-day balanced curriculum (651 periods, max teacher 35 fits 5×7=35)
-for p in [root / "data" / "synthetic" / "curriculum_q4_5day_balanced.json", root / "data" / "synthetic" / "curriculum_q4_5day.json"]:
-    if p.exists():
-        curriculum = json.loads(p.read_text(encoding='utf-8'))
-        print(f"Using {p.name}: {len(curriculum)} entries, total {sum(c['hours_per_week'] for c in curriculum)}")
-        break
-else:
-    curriculum = json.loads(curriculum_path.read_text(encoding='utf-8'))
+curriculum = json.loads(curriculum_path.read_text(encoding='utf-8'))
+print(f"Using original curriculum: {len(curriculum)} entries, total {sum(c['hours_per_week'] for c in curriculum)}")
 
 # Build InputModel
 teachers=[]

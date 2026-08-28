@@ -597,7 +597,7 @@
     "teacher_id": "ажикенова_ма",
     "split_teacher2_id": null,
     "hours_per_week": 3,
-    "joint_lesson_id": "jl_ажикенова_ма_d0_p3"
+    "joint_lesson_id": null
   },
   {
     "class_id": "7ә",
@@ -613,7 +613,7 @@
     "teacher_id": "жантемиров_ак",
     "split_teacher2_id": null,
     "hours_per_week": 1,
-    "joint_lesson_id": "jl_жантемиров_ак_d0_p1"
+    "joint_lesson_id": null
   },
   {
     "class_id": "7ә",
@@ -733,7 +733,7 @@
     "teacher_id": "асаева_жх",
     "split_teacher2_id": null,
     "hours_per_week": 4,
-    "joint_lesson_id": "jl_асаева_жх_d1_p3"
+    "joint_lesson_id": null
   },
   {
     "class_id": "7б",
@@ -845,7 +845,7 @@
     "teacher_id": "асаева_жх",
     "split_teacher2_id": null,
     "hours_per_week": 2,
-    "joint_lesson_id": "jl_асаева_жх_d1_p3"
+    "joint_lesson_id": null
   },
   {
     "class_id": "7б_luo",
@@ -997,7 +997,7 @@
     "teacher_id": "дмитриев_ев",
     "split_teacher2_id": null,
     "hours_per_week": 3,
-    "joint_lesson_id": "jl_дмитриев_ев_d0_p5"
+    "joint_lesson_id": null
   },
   {
     "class_id": "8",
@@ -1229,7 +1229,7 @@
     "teacher_id": "ильясова_аб",
     "split_teacher2_id": null,
     "hours_per_week": 4,
-    "joint_lesson_id": "jl_ильясова_аб_d4_p3"
+    "joint_lesson_id": null
   },
   {
     "class_id": "9",
@@ -1389,7 +1389,7 @@
     "teacher_id": "ильясова_аб",
     "split_teacher2_id": null,
     "hours_per_week": 2,
-    "joint_lesson_id": "jl_ильясова_аб_d4_p3"
+    "joint_lesson_id": null
   },
   {
     "class_id": "9_luo",
@@ -1533,7 +1533,7 @@
     "teacher_id": "дмитриев_ев",
     "split_teacher2_id": null,
     "hours_per_week": 2,
-    "joint_lesson_id": "jl_дмитриев_ев_d0_p5"
+    "joint_lesson_id": null
   },
   {
     "class_id": "10а",
@@ -1885,7 +1885,7 @@
     "teacher_id": "асаева_жх",
     "split_teacher2_id": null,
     "hours_per_week": 3,
-    "joint_lesson_id": "jl_асаева_жх_d0_p4"
+    "joint_lesson_id": null
   },
   {
     "class_id": "3б",
@@ -1965,7 +1965,7 @@
     "teacher_id": "радионова_на",
     "split_teacher2_id": null,
     "hours_per_week": 1,
-    "joint_lesson_id": "jl_радионова_на_d4_p5"
+    "joint_lesson_id": null
   },
   {
     "class_id": "3_luo",
@@ -1981,7 +1981,7 @@
     "teacher_id": "асаева_жх",
     "split_teacher2_id": null,
     "hours_per_week": 2,
-    "joint_lesson_id": "jl_асаева_жх_d0_p4"
+    "joint_lesson_id": null
   },
   {
     "class_id": "3_luo",
@@ -1997,7 +1997,7 @@
     "teacher_id": "радионова_на",
     "split_teacher2_id": null,
     "hours_per_week": 2,
-    "joint_lesson_id": "jl_радионова_на_d4_p5"
+    "joint_lesson_id": null
   },
   {
     "class_id": "3_luo",
@@ -2053,7 +2053,7 @@
     "teacher_id": "актаева_ае",
     "split_teacher2_id": null,
     "hours_per_week": 3,
-    "joint_lesson_id": "jl_актаева_ае_d4_p2"
+    "joint_lesson_id": null
   },
   {
     "class_id": "4а",
@@ -2253,7 +2253,7 @@
     "teacher_id": "ажикенова_ма",
     "split_teacher2_id": null,
     "hours_per_week": 2,
-    "joint_lesson_id": "jl_ажикенова_ма_d0_p3"
+    "joint_lesson_id": null
   },
   {
     "class_id": "4_do",
@@ -2285,7 +2285,7 @@
     "teacher_id": "жантемиров_ак",
     "split_teacher2_id": null,
     "hours_per_week": 2,
-    "joint_lesson_id": "jl_жантемиров_ак_d0_p1"
+    "joint_lesson_id": null
   },
   {
     "class_id": "5а",
@@ -2437,7 +2437,7 @@
     "teacher_id": "актаева_ае",
     "split_teacher2_id": null,
     "hours_per_week": 1,
-    "joint_lesson_id": "jl_актаева_ае_d4_p2"
+    "joint_lesson_id": null
   },
   {
     "class_id": "1а",

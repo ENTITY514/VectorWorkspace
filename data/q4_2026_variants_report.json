@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-27T10:46:18.804Z",
+  "generatedAt": "2026-08-28T03:18:44.614Z",
   "variant1": {
     "slots": 667,
     "classes": 27,
@@ -8,6 +8,12 @@
   },
   "variant2": {
     "slots": 637,
+    "classes": 27,
+    "teachers": 37,
+    "subjects": 64
+  },
+  "variant3": {
+    "slots": 638,
     "classes": 27,
     "teachers": 37,
     "subjects": 64

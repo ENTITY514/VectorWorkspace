@@ -39,16 +39,8 @@ print(f"Target SQLite DB: {db_path}")
 conn = sqlite3.connect(db_path)
 cur = conn.cursor()
 
-# Ensure migration 0018 columns exist
-try:
-    cur.execute("ALTER TABLE schedule_curriculum ADD COLUMN joint_lesson_id TEXT")
-except Exception:
-    pass
-
-try:
-    cur.execute("ALTER TABLE schedule_slots ADD COLUMN joint_lesson_id TEXT")
-except Exception:
-    pass
+# NOTE: joint_lesson_id columns are added by migrations 0018/0019
+# Do NOT add ALTER TABLE here - it conflicts with sqlx migrations
 
 # Read JSON data
 with open(v1_path, "r", encoding="utf-8") as f:
