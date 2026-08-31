@@ -16,6 +16,12 @@ export interface ExcelSheet {
   rows: (string | number)[][];
 }
 
+// Excel ограничивает имя листа 31 символом и запрещает символы : \ / ? * [ ].
+const sanitizeSheetName = (name: string): string => {
+  const cleaned = name.replace(/[\\/?*[\]:]/g, " ").replace(/\s+/g, " ").trim();
+  return cleaned.slice(0, 31) || "Sheet";
+};
+
 function buildSheet(sheet: ExcelSheet): any {
   const data = [sheet.headers.map((h) => h.title), ...sheet.rows];
   const ws = XLSX.utils.aoa_to_sheet(data);
@@ -47,7 +53,7 @@ export async function exportToExcel(
   rows: (string | number)[][],
 ): Promise<void> {
   const wb = XLSX.utils.book_new();
-  XLSX.utils.book_append_sheet(wb, buildSheet({ sheetName, headers, rows }), sheetName);
+  XLSX.utils.book_append_sheet(wb, buildSheet({ sheetName, headers, rows }), sanitizeSheetName(sheetName));
 
   const buffer = XLSX.write(wb, { bookType: "xlsx", type: "array" }) as Uint8Array;
   await saveBinaryFile(buffer, `${fileName}.xlsx`);
@@ -63,7 +69,7 @@ export async function exportToExcelMulti(
 ): Promise<void> {
   const wb = XLSX.utils.book_new();
   for (const sheet of sheets) {
-    XLSX.utils.book_append_sheet(wb, buildSheet(sheet), sheet.sheetName);
+    XLSX.utils.book_append_sheet(wb, buildSheet(sheet), sanitizeSheetName(sheet.sheetName));
   }
 
   const buffer = XLSX.write(wb, { bookType: "xlsx", type: "array" }) as Uint8Array;

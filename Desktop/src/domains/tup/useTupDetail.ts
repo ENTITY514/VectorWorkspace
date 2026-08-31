@@ -40,6 +40,7 @@ export const SECTION_TITLES = {
     totalObjectives: "Всего целей",
     quartersCount: "Четвертей",
     notFilled: "Данные не заполнены.",
+    content: "Содержание",
   },
   kz: {
     general: "1-параграф. Жалпы ережелер",
@@ -74,6 +75,7 @@ export const SECTION_TITLES = {
     totalObjectives: "Барлығы мақсаттар",
     quartersCount: "Тоқсандар",
     notFilled: "Деректер толтырылмаған.",
+    content: "Мазмұны",
   },
 } as const;
 
@@ -139,7 +141,7 @@ export function useTupDetail(id: string) {
     for (const task of detail.tasks) generalRows.push([t.tasks, task]);
     sheets.push({
       sheetName: t.general,
-      headers: [{ title: t.code, width: 30 }, { title: t.objectiveDesc, width: 90 }],
+      headers: [{ title: t.section, width: 30 }, { title: t.content, width: 90 }],
       rows: generalRows,
     });
 
@@ -149,8 +151,8 @@ export function useTupDetail(id: string) {
     sheets.push({
       sheetName: t.objectives,
       headers: [
-        { title: t.code, width: 12 }, { title: t.section, width: 10 },
-        { title: t.subsection, width: 12 }, { title: t.objectiveDesc, width: 80 },
+        { title: t.code, width: 10 }, { title: t.section, width: 5 },
+        { title: t.subsection, width: 5 }, { title: t.objectiveDesc, width: 80 },
       ],
       rows: objectiveRows,
     });
@@ -194,8 +196,16 @@ export function useTupDetail(id: string) {
     };
   }, [detail, objectivesByCode, t, lang, subjectName_]);
 
+  const exportWholeDocumentWord = useMemo(() => {
+    if (!detail) return undefined;
+    return async () => {
+      const { generateTupWord } = await import("../../lib/tup-word");
+      return generateTupWord({ detail, subjectName: subjectName_, lang, t, objectivesByCode });
+    };
+  }, [detail, subjectName_, lang, t, objectivesByCode]);
+
   return {
     detail, loading, error, lang, t, subjectName_,
-    objectivesByGrade, objectivesByCode, exportWholeDocument
+    objectivesByGrade, objectivesByCode, exportWholeDocument, exportWholeDocumentWord
   };
 }

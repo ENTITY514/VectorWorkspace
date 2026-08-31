@@ -9,7 +9,7 @@ import { directionLabel, directionFull, languageLabel } from "../labels";
 export function TupDetail({ id, onClose }: { id: string; onClose: () => void }) {
   const {
     detail, loading, error, lang, t, subjectName_,
-    objectivesByGrade, objectivesByCode, exportWholeDocument
+    objectivesByGrade, objectivesByCode, exportWholeDocument, exportWholeDocumentWord
   } = useTupDetail(id);
 
   if (loading) return <div className="empty">Загрузка документа...</div>;
@@ -25,6 +25,11 @@ export function TupDetail({ id, onClose }: { id: string; onClose: () => void }) 
       <div className="doc-header">
         <div className="block-header">
           <h2>{subjectName_}</h2>
+          {exportWholeDocumentWord && (
+            <button className="btn btn-sm" onClick={() => exportWholeDocumentWord()}>
+              {lang === "kz" ? "Word-ға толық экспорт" : "Экспортировать весь документ в Word"}
+            </button>
+          )}
           {exportWholeDocument && (
             <button className="btn btn-sm" onClick={() => exportWholeDocument()}>
               {lang === "kz" ? "Excel-ге толық экспорт" : "Экспортировать весь документ в Excel"}

@@ -37,9 +37,9 @@ export function TupParagraph2({
                       `${subjectName_}_${grade} ${t.grade}_${lang === "kz" ? "мақсаттар" : "цели"}`,
                       t.objectives,
                       [
-                        { title: t.code, width: 12 },
-                        { title: t.section, width: 10 },
-                        { title: t.subsection, width: 12 },
+                        { title: t.code, width: 10 },
+                        { title: t.section, width: 5 },
+                        { title: t.subsection, width: 5 },
                         { title: t.objectiveDesc, width: 80 },
                       ],
                       rows,
