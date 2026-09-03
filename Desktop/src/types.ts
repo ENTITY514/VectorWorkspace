@@ -442,7 +442,82 @@ export interface ScheduleFixedSlot {
   day: number;
   period: number;
   subgroup_label: string | null;
+  joint_lesson_id: string | null;
   created_at: string;
+}
+
+/** Сетка расписания: дни, уроки и граница смен. */
+export interface ScheduleSettings {
+  days: number;
+  periods_per_day: number;
+  shift_boundary_period: number | null;
+}
+
+/** Накладка в сохранённом расписании (БД их не отвергает — см. миграцию 0020). */
+export interface SlotConflict {
+  kind: "teacher" | "room";
+  entity_id: string;
+  day: number;
+  period: number;
+  class_ids: string[];
+}
+
+// ---- Импорт из Excel ----
+
+export interface ParsedRoom {
+  id: string;
+  name: string;
+  room_type: string;
+  base_teacher_name: string | null;
+}
+
+export interface ParsedTeacher {
+  id: string;
+  full_name: string;
+  base_room_name: string | null;
+  max_daily_lessons: number;
+  is_combined: boolean;
+}
+
+export interface ParsedClass {
+  id: string;
+  grade: number;
+  letter: string;
+  class_type: string;
+  shift: string;
+  headcount: number;
+}
+
+export interface ParsedCurriculum {
+  class_id: string;
+  subject_id: string;
+  subject_name: string;
+  teacher_id: string;
+  teacher_name: string;
+  split_teacher2_id: string | null;
+  hours_per_week: number;
+  joint_lesson_id: string | null;
+  room_type: string | null;
+}
+
+export interface ExcelImportPreview {
+  rooms: ParsedRoom[];
+  teachers: ParsedTeacher[];
+  classes: ParsedClass[];
+  curriculum: ParsedCurriculum[];
+  /** Из-за чего строки отброшены или связи не сошлись. */
+  problems: string[];
+  /** Замечания, не мешающие импорту. */
+  warnings: string[];
+}
+
+export interface ImportSummary {
+  rooms: number;
+  teachers: number;
+  classes: number;
+  subjects: number;
+  curriculum: number;
+  skipped: number;
 }
 
 export interface ScheduleVariant {

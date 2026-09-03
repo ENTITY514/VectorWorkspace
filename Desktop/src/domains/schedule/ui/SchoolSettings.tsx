@@ -3,8 +3,10 @@ import { scheduleApi } from "../api";
 import type { ScheduleState, RoomType, Shift } from "../../../types";
 import { ROOM_TYPE_LABELS, SHIFT_LABELS } from "../../../types";
 import { showToast } from "../../../components/Toast";
+import { ImportPanel } from "./ImportPanel";
+import { GridSettingsPanel } from "./GridSettingsPanel";
 
-type SettingsTab = "subjects" | "classes" | "rooms" | "joint_lessons";
+type SettingsTab = "grid" | "subjects" | "classes" | "rooms" | "joint_lessons" | "import";
 
 function slugFromName(name: string): string {
   const s = name.trim().toLowerCase().replace(/\s+/g, "_").replace(/[^a-zа-яё0-9_]/g, "");
@@ -12,7 +14,7 @@ function slugFromName(name: string): string {
 }
 
 export function SchoolSettings() {
-  const [tab, setTab] = useState<SettingsTab>("subjects");
+  const [tab, setTab] = useState<SettingsTab>("grid");
   const [state, setState] = useState<ScheduleState | null>(null);
 
   const load = async () => setState(await scheduleApi.getState());
@@ -23,12 +25,14 @@ export function SchoolSettings() {
   return (
     <div className="card">
       <div className="tabs" role="tablist" style={{ marginBottom: 16 }}>
-        {(["subjects", "classes", "rooms", "joint_lessons"] as SettingsTab[]).map(t => (
+        {(["grid", "subjects", "classes", "rooms", "joint_lessons", "import"] as SettingsTab[]).map(t => (
           <button key={t} role="tab" aria-selected={tab === t} className={tab === t ? "tab active" : "tab"} onClick={() => setTab(t)}>
-            {{ subjects: "Предметы", classes: "Классы", rooms: "Кабинеты", joint_lessons: "🔗 Класс-комплекты" }[t]}
+            {{ grid: "Сетка", subjects: "Предметы", classes: "Классы", rooms: "Кабинеты", joint_lessons: "Класс-комплекты", import: "Импорт Excel" }[t]}
           </button>
         ))}
       </div>
+      {tab === "grid" && <GridSettingsPanel />}
+      {tab === "import" && <ImportPanel onImported={load} />}
       {tab === "subjects" && <SubjectsPanel subjects={state.subjects} onRefresh={load} />}
       {tab === "classes" && <ClassesPanel classes={state.classes} onRefresh={load} />}
       {tab === "rooms" && <RoomsPanel rooms={state.rooms} onRefresh={load} />}

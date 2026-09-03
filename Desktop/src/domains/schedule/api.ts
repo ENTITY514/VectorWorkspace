@@ -1,5 +1,9 @@
 import { invoke } from "@tauri-apps/api/core";
 import type {
+  ExcelImportPreview,
+  ImportSummary,
+  ScheduleSettings,
+  SlotConflict,
   ScheduleState,
   ScheduleTeacher,
   ScheduleRoom,
@@ -96,5 +100,28 @@ export const scheduleApi = {
   },
   getFixedSlots(variant_id: string): Promise<ScheduleFixedSlot[]> {
     return call<ScheduleFixedSlot[]>("schedule_get_fixed_slots", { variantId: variant_id });
+  },
+
+  // ---- Импорт из Excel ----
+  /** Разбирает книгу и возвращает отчёт БЕЗ записи в базу. */
+  previewExcel(path: string): Promise<ExcelImportPreview> {
+    return call<ExcelImportPreview>("schedule_preview_excel", { path });
+  },
+  /** Записывает разобранную книгу в базу одной транзакцией. */
+  importExcel(path: string): Promise<ImportSummary> {
+    return call<ImportSummary>("schedule_import_excel", { path });
+  },
+
+  // ---- Настройки сетки ----
+  getSettings(): Promise<ScheduleSettings> {
+    return call<ScheduleSettings>("schedule_get_settings");
+  },
+  setSettings(input: { days: number; periods_per_day: number; shift_boundary_period: number | null }): Promise<ScheduleSettings> {
+    return call<ScheduleSettings>("schedule_set_settings", { input });
+  },
+
+  /** Накладки в сохранённом расписании варианта. */
+  findConflicts(variant_id?: string): Promise<SlotConflict[]> {
+    return call<SlotConflict[]>("schedule_find_conflicts", { variantId: variant_id ?? null });
   },
 };
