@@ -1071,3 +1071,112 @@ pub async fn schedule_get_fixed_slots(
         .await
         .map_err(|e| e.to_string())
 }
+
+// ─────────────────────────────────────────────────────────────────────────
+// Импорт учебного плана из Excel
+// ─────────────────────────────────────────────────────────────────────────
+
+/// Разбирает Excel-шаблон и возвращает предпросмотр БЕЗ записи в базу.
+///
+/// Двухфазность намеренная: заполненная вручную таблица почти всегда
+/// содержит опечатки в ФИО и названиях, из-за которых рвутся связи между
+/// листами. Пользователь должен увидеть это до того, как данные попадут в БД.
+#[tauri::command]
+pub async fn schedule_preview_excel(
+    path: String,
+) -> Result<crate::infra::excel_import::ExcelImportPreview, String> {
+    let p = std::path::PathBuf::from(path);
+    tauri::async_runtime::spawn_blocking(move || {
+        crate::infra::excel_import::parse_workbook(&p).map_err(|e| e.to_string())
+    })
+    .await
+    .map_err(|e| e.to_string())?
+}
+
+/// Записывает разобранный Excel в базу одной транзакцией.
+#[tauri::command]
+pub async fn schedule_import_excel(
+    state: State<'_, AppState>,
+    path: String,
+) -> Result<crate::infra::excel_import::ImportSummary, String> {
+    let p = std::path::PathBuf::from(path);
+    let preview = tauri::async_runtime::spawn_blocking(move || {
+        crate::infra::excel_import::parse_workbook(&p).map_err(|e| e.to_string())
+    })
+    .await
+    .map_err(|e| e.to_string())??;
+
+    crate::infra::excel_import::apply(&state.pool, &preview)
+        .await
+        .map_err(|e| e.to_string())
+}
+
+/// Накладки в сохранённом расписании варианта.
+///
+/// База их не отвергает: уникальность снята ради совмещённых уроков (см.
+/// миграцию 0020), поэтому исторические конфликты нужно показывать явно.
+#[tauri::command]
+pub async fn schedule_find_conflicts(
+    state: State<'_, AppState>,
+    variant_id: Option<String>,
+) -> Result<Vec<crate::domain::schedule::generation_service::SlotConflict>, String> {
+    let vid = match variant_id {
+        Some(v) => v,
+        None => slots::get_active_variant_id(&state.pool).await.map_err(|e| e.to_string())?,
+    };
+    crate::domain::schedule::generation_service::find_slot_conflicts(&state.pool, &vid)
+        .await
+        .map_err(|e| e.to_string())
+}
+
+/// Настройки сетки расписания.
+#[tauri::command]
+pub async fn schedule_get_settings(
+    state: State<'_, AppState>,
+) -> Result<crate::domain::schedule::time_grid::TimeGrid, String> {
+    crate::domain::schedule::time_grid::TimeGrid::load(&state.pool)
+        .await
+        .map_err(|e| e.to_string())
+}
+
+#[derive(Debug, Deserialize)]
+pub struct SetSettingsInput {
+    pub days: i64,
+    pub periods_per_day: i64,
+    pub shift_boundary_period: Option<i64>,
+}
+
+#[tauri::command]
+pub async fn schedule_set_settings(
+    state: State<'_, AppState>,
+    input: SetSettingsInput,
+) -> Result<crate::domain::schedule::time_grid::TimeGrid, String> {
+    if !(1..=7).contains(&input.days) {
+        return Err("дней в неделе: допустимо 1..7".to_string());
+    }
+    if !(1..=10).contains(&input.periods_per_day) {
+        return Err("уроков в день: допустимо 1..10".to_string());
+    }
+    if let Some(b) = input.shift_boundary_period {
+        if !(1..input.periods_per_day).contains(&b) {
+            return Err("граница смен должна быть внутри дня".to_string());
+        }
+    }
+    sqlx::query(
+        "INSERT INTO schedule_settings (id, days_per_week, periods_per_day, shift_boundary_period) \
+         VALUES ('default', ?1, ?2, ?3) \
+         ON CONFLICT(id) DO UPDATE SET days_per_week = excluded.days_per_week, \
+             periods_per_day = excluded.periods_per_day, \
+             shift_boundary_period = excluded.shift_boundary_period",
+    )
+    .bind(input.days)
+    .bind(input.periods_per_day)
+    .bind(input.shift_boundary_period)
+    .execute(&state.pool)
+    .await
+    .map_err(|e| e.to_string())?;
+
+    crate::domain::schedule::time_grid::TimeGrid::load(&state.pool)
+        .await
+        .map_err(|e| e.to_string())
+}

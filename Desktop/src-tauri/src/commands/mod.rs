@@ -85,6 +85,11 @@ pub fn register<R: tauri::Runtime>(
             schedule::schedule_pin_slot,
             schedule::schedule_unpin_slot,
             schedule::schedule_get_fixed_slots,
-            schedule::schedule_toggle_joint_lessons
+            schedule::schedule_toggle_joint_lessons,
+            schedule::schedule_preview_excel,
+            schedule::schedule_import_excel,
+            schedule::schedule_find_conflicts,
+            schedule::schedule_get_settings,
+            schedule::schedule_set_settings
         ])
 }
