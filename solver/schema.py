@@ -56,6 +56,9 @@ class ClassInput(BaseModel):
     headcount: int = Field(ge=1, le=50)
     shift: Literal["First", "Second"]
     subgroups: list[dict] = Field(default_factory=list)
+    #: Тип класса. Раньше ЛУО/ДО определялись по подстроке в идентификаторе
+    #: ("do" in class_id), что срабатывало ложно на обычных классах.
+    class_type: str = "normal"
 
 
 class RoomInput(BaseModel):
@@ -123,6 +126,14 @@ class SchedulePolicy(BaseModel):
     """
     #: Запрещать ли двум занятиям делить кабинет в одном слоте.
     enforce_room_conflicts: bool = True
+
+    #: Типы классов, которым кабинет не нужен вовсе.
+    #: Надомное обучение (ДО) проходит у ученика дома: такой урок не занимает
+    #: кабинет и не должен конкурировать за него с очными занятиями.
+    roomless_class_types: list[str] = Field(default_factory=lambda: ["do"])
+
+    #: Типы классов, которым нельзя ставить последний урок дня.
+    no_last_period_class_types: list[str] = Field(default_factory=lambda: ["luo", "do"])
 
 
 class InputModel(BaseModel):

@@ -225,17 +225,19 @@ def add_hard_constraints(model, x, y, m, instances, room_by_id, subject_by_id):
                     elif d == 1 and "algebra" in sid:
                         model.Add(x[k] == 0)
 
-    # H_luo_priority: ПРИОРИТЕТ КЛАССОВ ЛУО И ДО
-    # 1. Запрет 7-го урока (p=6) для всех спецклассов (ЛУО/ДО)
-    # 2. Строгий запрет ОКОН (gaps) в расписании ЛУО/ДО классов (запрет 7-го урока)
+    # H_luo_priority: спецклассам (ЛУО, надомное обучение) нельзя ставить
+    # последний урок дня.
+    #
+    # Тип класса берётся из данных. Прежняя проверка искала подстроки "luo"
+    # и "do" в идентификаторе класса: "do" встречается в множестве обычных
+    # идентификаторов, и такой класс ошибочно получал ограничение.
     class_ids = [c.id for c in m.classes]
+    class_type_by_id = {c.id: c.class_type for c in m.classes}
+    last_period = m.time_grid.periods_per_day - 1
     for inst in instances:
-        cid = inst["class_id"]
-        cid_lower = cid.lower()
-        is_luo_or_do = "luo" in cid_lower or "do" in cid_lower
-        if is_luo_or_do:
+        if class_type_by_id.get(inst["class_id"]) in m.policy.no_last_period_class_types:
             for d in range(m.time_grid.days):
-                k = (inst["idx"], d, 6) # 7-й урок
+                k = (inst["idx"], d, last_period)
                 if k in x:
                     model.Add(x[k] == 0)
 

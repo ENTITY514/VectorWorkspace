@@ -251,6 +251,12 @@ impl SolverHost {
                 }
             }
 
+            // Урок без кабинета (надомное обучение) помещение не занимает
+            // и в проверке накладок не участвует.
+            if room.trim().is_empty() {
+                continue;
+            }
+
             // Кабинет: то же правило.
             let rk = format!("{room}\u{1}{day}\u{1}{period}");
             match room_slots.get(&rk) {

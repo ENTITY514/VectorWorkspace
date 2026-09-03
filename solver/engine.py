@@ -129,6 +129,14 @@ def create_variables(model, m):
         if teacher is None or subj is None or cls is None:
             allowed_rooms_by_idx[inst["idx"]] = []
             continue
+        # Надомное обучение (ДО): урок проходит у ученика дома и кабинет не
+        # занимает. Переменные y для него не создаются вовсе — иначе такой
+        # урок конкурировал бы за кабинет с очными занятиями и раздувал модель.
+        if cls.class_type in m.policy.roomless_class_types:
+            allowed_rooms_by_idx[inst["idx"]] = []
+            _add_time_vars(model, x, inst, teacher, cls, m)
+            continue
+
         # Кабинетная система: если у учителя есть базовый кабинет, обычный
         # (не требующий спецкабинета) урок идёт именно туда. Это не только
         # соответствует практике школ, но и снимает главную симметрию модели:
@@ -298,11 +306,16 @@ def solve(input_model: InputModel) -> dict:
     room_by_id_tmp = {r.id: r for r in input_model.rooms}
     subj_by_id_tmp = {s.id: s for s in input_model.subjects}
     teacher_by_id_tmp = {t.id: t for t in input_model.teachers}
+    class_by_id_tmp = {c.id: c for c in input_model.classes}
     for inst in instances:
         has_x = any((inst["idx"], d, p) in x for d in range(input_model.time_grid.days) for p in range(input_model.time_grid.periods_per_day))
         has_y = any((inst["idx"], rid) in y for rid in room_by_id_tmp)
         subj = subj_by_id_tmp.get(inst["subject_id"])
-        needs_room = subj is not None and subj.required_room_type is not None
+        cls_tmp = class_by_id_tmp.get(inst["class_id"])
+        roomless = cls_tmp is not None and cls_tmp.class_type in input_model.policy.roomless_class_types
+        needs_room = (
+            not roomless and subj is not None and subj.required_room_type is not None
+        )
         if not has_x or (needs_room and not has_y):
             core = build_infeasible_core(input_model)
             teacher = teacher_by_id_tmp.get(inst["teacher_id"])
@@ -451,7 +464,14 @@ def solve(input_model: InputModel) -> dict:
                                 room_id = rid
                                 break
                         if room_id is None:
-                            room_id = next(iter(room_by_id), "unknown")
+                            # Урок без кабинета (надомное обучение) так и
+                            # остаётся без него: room_id = None. Раньше здесь
+                            # безусловно подставлялся «первый попавшийся»
+                            # кабинет, из-за чего занятие ложно занимало
+                            # помещение. Фолбэк оставлен только для случая,
+                            # когда кабинеты у урока есть, но ни один не выбран.
+                            if any((inst["idx"], rid) in y for rid in room_by_id):
+                                room_id = next(iter(room_by_id), None)
                         slots.append({
                             "class_id": inst["class_id"],
                             "subject_id": inst["subject_id"],

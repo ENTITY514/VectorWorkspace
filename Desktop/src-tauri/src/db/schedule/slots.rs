@@ -53,7 +53,7 @@ pub async fn set_weights(
 
 pub async fn list_slots(pool: &SqlitePool) -> Result<Vec<ScheduleSlot>, DbError> {
     let rows = sqlx::query_as::<_, (String, String, String, String, String, String, i64, i64, i64, String, Option<String>)>(
-        "SELECT id, class_id, subject_id, teacher_id, room_id, subgroup_label, day, period, is_double, variant_id, joint_lesson_id FROM schedule_slots ORDER BY day, period",
+        "SELECT id, class_id, subject_id, teacher_id, COALESCE(room_id, '') AS room_id, subgroup_label, day, period, is_double, variant_id, joint_lesson_id FROM schedule_slots ORDER BY day, period",
     )
     .fetch_all(pool)
     .await?;
@@ -82,7 +82,7 @@ pub async fn list_slots(pool: &SqlitePool) -> Result<Vec<ScheduleSlot>, DbError>
 
 pub async fn list_slots_for_variant(pool: &SqlitePool, variant_id: &str) -> Result<Vec<ScheduleSlot>, DbError> {
     let rows = sqlx::query_as::<_, (String, String, String, String, String, String, i64, i64, i64, Option<String>)>(
-        "SELECT id, class_id, subject_id, teacher_id, room_id, subgroup_label, day, period, is_double, joint_lesson_id FROM schedule_slots WHERE variant_id = ?1 ORDER BY day, period",
+        "SELECT id, class_id, subject_id, teacher_id, COALESCE(room_id, '') AS room_id, subgroup_label, day, period, is_double, joint_lesson_id FROM schedule_slots WHERE variant_id = ?1 ORDER BY day, period",
     )
     .bind(variant_id)
     .fetch_all(pool)

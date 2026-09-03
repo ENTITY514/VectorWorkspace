@@ -221,3 +221,113 @@ def test_relaxing_room_constraint_emits_warning():
     payload = _base_input(policy={"enforce_room_conflicts": False})
     out = solve(InputModel.model_validate(payload))
     assert any("ROOM_CONFLICTS_NOT_ENFORCED" in w for w in out["diagnostics"]["warnings"]), out
+
+
+def test_home_schooling_takes_no_room():
+    """Надомное обучение (ДО) не занимает кабинет.
+
+    Урок проходит у ученика дома. Раньше движок подставлял ему «первый
+    попавшийся» кабинет, и занятие ложно конкурировало за помещение с
+    очными уроками.
+    """
+    payload = _base_input(
+        classes=[
+            {"id": "c1", "grade": 7, "letter": "Б", "headcount": 20,
+             "shift": "First", "subgroups": [], "class_type": "normal"},
+            {"id": "d1", "grade": 8, "letter": "", "headcount": 1,
+             "shift": "First", "subgroups": [], "class_type": "do"},
+        ],
+        teachers=[
+            {"id": "t1", "full_name": "Иванова", "max_daily_lessons": 0,
+             "availability": [_row()] * 6, "subject_ids": []},
+            {"id": "t2", "full_name": "Петрова", "max_daily_lessons": 0,
+             "availability": [_row()] * 6, "subject_ids": []},
+        ],
+        curriculum=[
+            {"class_id": "c1", "subject_id": "hist", "teacher_id": "t1", "hours_per_week": 2},
+            {"class_id": "d1", "subject_id": "hist", "teacher_id": "t2", "hours_per_week": 2},
+        ],
+    )
+    out = solve(InputModel.model_validate(payload))
+    assert out["status"] in ("OPTIMAL", "FEASIBLE"), out
+    for s in out["slots"]:
+        if s["class_id"] == "d1":
+            assert s["room_id"] is None, f"надомный урок занял кабинет: {s}"
+        else:
+            assert s["room_id"] == "r1", s
+
+
+def test_home_schooling_does_not_block_rooms():
+    """Надомные уроки не отнимают кабинет у очных занятий.
+
+    Один кабинет на два одновременных урока: очный занимает его, надомный
+    проходит дома. Без этого правила задача была бы неразрешима.
+
+    Периодов два, а не один: политика запрещает спецклассам последний урок
+    дня, и при единственном периоде размещать надомный урок было бы негде.
+    """
+    payload = _base_input(
+        time_grid={"days": 1, "periods_per_day": 2},
+        classes=[
+            {"id": "c1", "grade": 7, "letter": "Б", "headcount": 20,
+             "shift": "First", "subgroups": [], "class_type": "normal"},
+            {"id": "d1", "grade": 8, "letter": "", "headcount": 1,
+             "shift": "First", "subgroups": [], "class_type": "do"},
+        ],
+        teachers=[
+            {"id": "t1", "full_name": "Иванова", "max_daily_lessons": 0,
+             "availability": [_row()] * 6, "subject_ids": []},
+            {"id": "t2", "full_name": "Петрова", "max_daily_lessons": 0,
+             "availability": [_row()] * 6, "subject_ids": []},
+        ],
+        curriculum=[
+            {"class_id": "c1", "subject_id": "hist", "teacher_id": "t1", "hours_per_week": 1},
+            {"class_id": "d1", "subject_id": "hist", "teacher_id": "t2", "hours_per_week": 1},
+        ],
+    )
+    out = solve(InputModel.model_validate(payload))
+    assert out["status"] in ("OPTIMAL", "FEASIBLE"), out
+    assert len(out["slots"]) == 2, out["slots"]
+    rooms_used = [s["room_id"] for s in out["slots"] if s["class_id"] == "c1"]
+    assert rooms_used == ["r1"], out["slots"]
+
+
+def test_class_type_not_guessed_from_id():
+    """Тип класса берётся из данных, а не из подстроки в идентификаторе.
+
+    Проверка `"do" in class_id` срабатывала на обычных классах вида
+    «9а_dopolnitelnaya» и ошибочно запрещала им последний урок.
+    """
+    payload = _base_input(
+        time_grid={"days": 1, "periods_per_day": 2},
+        classes=[
+            {"id": "9a_dopolnitelnaya", "grade": 9, "letter": "а", "headcount": 25,
+             "shift": "First", "subgroups": [], "class_type": "normal"},
+        ],
+        curriculum=[
+            {"class_id": "9a_dopolnitelnaya", "subject_id": "hist",
+             "teacher_id": "t1", "hours_per_week": 2},
+        ],
+    )
+    out = solve(InputModel.model_validate(payload))
+    assert out["status"] in ("OPTIMAL", "FEASIBLE"), out
+    # Оба урока размещены, включая последний в дне.
+    assert len(out["slots"]) == 2, out["slots"]
+    assert any(s["period"] == 1 for s in out["slots"]), out["slots"]
+
+
+def test_luo_class_has_no_last_period():
+    """Классу ЛУО последний урок дня не ставится."""
+    payload = _base_input(
+        time_grid={"days": 5, "periods_per_day": 3},
+        classes=[
+            {"id": "5_luo", "grade": 5, "letter": "", "headcount": 10,
+             "shift": "First", "subgroups": [], "class_type": "luo"},
+        ],
+        curriculum=[
+            {"class_id": "5_luo", "subject_id": "hist", "teacher_id": "t1", "hours_per_week": 2},
+        ],
+    )
+    out = solve(InputModel.model_validate(payload))
+    assert out["status"] in ("OPTIMAL", "FEASIBLE"), out
+    assert all(s["period"] != 2 for s in out["slots"]), out["slots"]

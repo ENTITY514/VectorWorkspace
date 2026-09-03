@@ -56,8 +56,10 @@ pub async fn build_solver_input(
     let fixed_db = fixed_slots::list_fixed_slots_for_variant(pool, &variant_id).await?;
     let previous_slots = slots::list_slots_for_variant(pool, &variant_id).await?;
 
-    let classes_rows = sqlx::query_as::<_, (String, i64, String, i64, String)>(
-        "SELECT id, grade, letter, headcount, shift FROM schedule_classes",
+    // class_type обязателен для солвера: без него спецклассы (ЛУО,
+    // надомное обучение) определялись по подстроке в идентификаторе.
+    let classes_rows = sqlx::query_as::<_, (String, i64, String, i64, String, String)>(
+        "SELECT id, grade, letter, headcount, shift, COALESCE(class_type, 'normal')          FROM schedule_classes",
     )
     .fetch_all(pool)
     .await?;
@@ -83,7 +85,7 @@ pub async fn build_solver_input(
 
     let classes_json: Vec<serde_json::Value> = classes_rows
         .iter()
-        .map(|(id, grade, letter, headcount, shift)| {
+        .map(|(id, grade, letter, headcount, shift, class_type)| {
             let sg: Vec<serde_json::Value> = subgroup_rules
                 .iter()
                 .filter(|r| &r.class_id == id)
@@ -91,7 +93,8 @@ pub async fn build_solver_input(
                 .collect();
             serde_json::json!({
                 "id": id, "grade": grade, "letter": letter,
-                "headcount": headcount, "shift": shift, "subgroups": sg
+                "headcount": headcount, "shift": shift,
+                "class_type": class_type, "subgroups": sg
             })
         })
         .collect();
@@ -359,6 +362,7 @@ pub async fn find_slot_conflicts(
             "SELECT {column} AS eid, day, period, GROUP_CONCAT(class_id) \
              FROM schedule_slots \
              WHERE variant_id = ?1 AND joint_lesson_id IS NULL \
+               AND {column} IS NOT NULL AND TRIM({column}) != '' \
              GROUP BY {column}, day, period HAVING COUNT(*) > 1"
         );
         let rows = sqlx::query_as::<_, (String, i64, i64, String)>(&sql)
