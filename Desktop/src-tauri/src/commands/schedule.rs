@@ -345,14 +345,29 @@ pub async fn schedule_generate(state: State<'_, AppState>, input: Option<Generat
     let nw = input.as_ref().and_then(|i| i.num_workers).unwrap_or(8);
     let seed = input.as_ref().and_then(|i| i.seed).unwrap_or(42);
 
+    // Единый источник размера сетки для пре-валидатора и солвера.
+    let grid = crate::domain::schedule::time_grid::TimeGrid::load(pool)
+        .await
+        .map_err(|e| e.to_string())?;
+
+    // Закрепления и текущее расписание активного варианта: и то и другое
+    // влияет на постановку задачи, но раньше не доходило до солвера.
+    let active_vid = slots::get_active_variant_id(pool).await.map_err(|e| e.to_string())?;
+    let fixed_db = fixed_slots::list_fixed_slots_for_variant(pool, &active_vid)
+        .await
+        .map_err(|e| e.to_string())?;
+    let previous_slots = slots::list_slots_for_variant(pool, &active_vid)
+        .await
+        .map_err(|e| e.to_string())?;
+
     // ─── Pre-Solver Shield: математическая проверка до вызова Python ───
     let pre_result = crate::domain::schedule::pre_validate::pre_validate_all(
         &teachers_db,
         &subjects_db,
         &rooms_db,
         &curriculum_db,
-        6,  // days
-        7,  // periods_per_day
+        grid.days as usize,
+        grid.periods_per_day as usize,
     );
     if !pre_result.is_ok() {
         return Ok(serde_json::json!({
@@ -439,6 +454,9 @@ pub async fn schedule_generate(state: State<'_, AppState>, input: Option<Generat
         })
         .collect();
 
+    // joint_lesson_id обязан дойти до солвера: без него класс-комплекты
+    // (ЛУО/ДО/инклюзия) рассыпаются на независимые уроки, а вся логика
+    // H_joint в solver/constraints/hard.py остаётся мёртвым кодом.
     let curriculum_json: Vec<serde_json::Value> = curriculum_db
         .into_iter()
         .map(|c| serde_json::json!({
@@ -446,8 +464,43 @@ pub async fn schedule_generate(state: State<'_, AppState>, input: Option<Generat
             "subject_id": c.subject_id,
             "teacher_id": c.teacher_id,
             "split_teacher2_id": c.split_teacher2_id,
-            "hours_per_week": c.hours_per_week
+            "hours_per_week": c.hours_per_week,
+            "joint_lesson_id": c.joint_lesson_id
         }))
+        .collect();
+
+    // Закрепления пользователя (pin / drag&drop). Раньше не передавались
+    // вовсе, из-за чего таблица schedule_fixed_slots ни на что не влияла.
+    let fixed_json: Vec<serde_json::Value> = fixed_db
+        .iter()
+        .enumerate()
+        .filter(|(_, f)| f.day < grid.days && f.period < grid.periods_per_day)
+        .map(|(idx, f)| serde_json::json!({
+            "lesson_idx": idx,
+            "class_id": f.class_id,
+            "subject_id": f.subject_id,
+            "teacher_id": f.teacher_id,
+            "room_id": f.room_id,
+            "day": f.day,
+            "period": f.period,
+            "subgroup_label": f.subgroup_label,
+            "joint_lesson_id": f.joint_lesson_id
+        }))
+        .collect();
+
+    // Предыдущая сетка — основа штрафа change_slot («минимальное возмущение»).
+    // Ключ совпадает с prev_key в soft.py: class|subject|teacher|day|period.
+    let previous_grid: serde_json::Map<String, serde_json::Value> = previous_slots
+        .iter()
+        .map(|s| {
+            (
+                format!(
+                    "{}|{}|{}|{}|{}",
+                    s.class_id, s.subject_id, s.teacher_id, s.day, s.period
+                ),
+                serde_json::Value::Bool(true),
+            )
+        })
         .collect();
 
     let input_json = serde_json::json!({
@@ -460,14 +513,17 @@ pub async fn schedule_generate(state: State<'_, AppState>, input: Option<Generat
             "random_seed": seed
         },
         "time_grid": {
-            "days": 6,
-            "periods_per_day": 7
+            "days": grid.days,
+            "periods_per_day": grid.periods_per_day,
+            "shift_boundary_period": grid.shift_boundary_period
         },
         "teachers": teachers_json,
         "classes": classes_json,
         "rooms": rooms_json,
         "subjects": subjects_json,
         "curriculum": curriculum_json,
+        "fixed_lessons": fixed_json,
+        "previous_grid": previous_grid,
         "weights": {
             "window": weights_db.window,
             "room_displacement": weights_db.room_displacement,
@@ -512,7 +568,13 @@ pub async fn schedule_generate(state: State<'_, AppState>, input: Option<Generat
             let subgroup = slot.get("subgroup_label").and_then(|v| v.as_str()).unwrap_or("");
             let day = slot.get("day").and_then(|v| v.as_i64()).unwrap_or(0);
             let period = slot.get("period").and_then(|v| v.as_i64()).unwrap_or(0);
-            sqlx::query("INSERT INTO schedule_slots (id, class_id, subject_id, teacher_id, room_id, subgroup_label, day, period, variant_id) VALUES (?1,?2,?3,?4,?5,?6,?7,?8,?9)")
+            // Без joint_lesson_id спаренность не переживала генерацию:
+            // колонка есть с миграции 0018, но INSERT её не заполнял.
+            let joint = slot
+                .get("joint_lesson_id")
+                .and_then(|v| v.as_str())
+                .filter(|j| !j.trim().is_empty());
+            sqlx::query("INSERT INTO schedule_slots (id, class_id, subject_id, teacher_id, room_id, subgroup_label, day, period, variant_id, joint_lesson_id) VALUES (?1,?2,?3,?4,?5,?6,?7,?8,?9,?10)")
                 .bind(&id)
                 .bind(class_id)
                 .bind(subject_id)
@@ -522,6 +584,7 @@ pub async fn schedule_generate(state: State<'_, AppState>, input: Option<Generat
                 .bind(day)
                 .bind(period)
                 .bind(&variant_id)
+                .bind(joint)
                 .execute(&mut *tx).await.map_err(|e| e.to_string())?;
         }
         tx.commit().await.map_err(|e| e.to_string())?;
@@ -1173,6 +1236,10 @@ pub struct PinSlotInput {
     pub day: i64,
     pub period: i64,
     pub subgroup_label: Option<String>,
+    /// Закрепление совмещённого урока: без этого поля частичный уникальный
+    /// индекс из миграции 0020 отвергнет второй класс класс-комплекта.
+    #[serde(default)]
+    pub joint_lesson_id: Option<String>,
 }
 
 #[tauri::command]
@@ -1192,6 +1259,7 @@ pub async fn schedule_pin_slot(
         input.day,
         input.period,
         input.subgroup_label.as_deref(),
+        input.joint_lesson_id.as_deref(),
     )
     .await
     .map_err(|e| e.to_string())

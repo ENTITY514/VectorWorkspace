@@ -14,6 +14,26 @@ except ImportError:
     from constraints.soft import add_soft_constraints
 
 
+def _shift_boundary(time_grid):
+    """Урок, с которого начинается вторая смена, либо None для односменной школы.
+
+    Явное значение из контракта имеет приоритет; при его отсутствии смены
+    не применяются вовсе — молча угадывать границу по числу уроков нельзя,
+    именно это раньше приводило к неприменению фильтра на сетке 5x7.
+    """
+    boundary = getattr(time_grid, "shift_boundary_period", None)
+    if boundary is None:
+        boundaries = getattr(time_grid, "shift_boundaries", None)
+        if isinstance(boundaries, dict):
+            boundary = boundaries.get("second_shift_start")
+    if boundary is None:
+        return None
+    boundary = int(boundary)
+    if not (0 < boundary < time_grid.periods_per_day):
+        return None
+    return boundary
+
+
 def create_variables(model, m):
     """Создаёт x[i,d,p] и y[i,room] с предфильтром availability/room_type/ shift."""
     room_by_id = {r.id: r for r in m.rooms}
@@ -115,11 +135,15 @@ def create_variables(model, m):
                 if d < len(teacher.availability) and p < len(teacher.availability[d]):
                     if not teacher.availability[d][p]:
                         continue
-                # смены
-                if m.time_grid.periods_per_day >= 8:
-                    if cls.shift == "First" and p >= 6:
+                # Смены. Раньше фильтр включался только при periods_per_day >= 8,
+                # из-за чего на реальной сетке 5x7 не применялся вовсе и вторая
+                # смена могла встать на первый урок. Граница берётся из
+                # time_grid.shift_boundary_period; без неё школа односменная.
+                boundary = _shift_boundary(m.time_grid)
+                if boundary is not None:
+                    if cls.shift == "First" and p >= boundary:
                         continue
-                    if cls.shift == "Second" and p < 2:
+                    if cls.shift == "Second" and p < boundary:
                         continue
                 x[(inst["idx"], d, p)] = model.NewBoolVar(f"x_{inst['idx']}_{d}_{p}")
 

@@ -293,7 +293,10 @@ def add_soft_constraints(model, x, y, m, instances, room_by_id=None):
     # S7: Minimal Perturbation — штраф за изменение слотов по сравнению с previous_grid
     if m.weights.change_slot > 0 and m.previous_grid:
         change_vars = []
-        # previous_grid: dict[(class_id, subject_id, teacher_id, day, period)] -> bool
+        # previous_grid приходит из JSON, поэтому ключи — СТРОКИ вида
+        # "class|subject|teacher|day|period". Прежний код искал по кортежу,
+        # который в JSON-словаре не встречается никогда: штраф был мёртвым
+        # даже там, где previous_grid передавался.
         prev = m.previous_grid
         for inst in instances:
             for d in range(m.time_grid.days):
@@ -301,9 +304,8 @@ def add_soft_constraints(model, x, y, m, instances, room_by_id=None):
                     key = (inst["idx"], d, p)
                     if key not in x:
                         continue
-                    # Проверяем, был ли этот слот в previous_grid
-                    prev_key = (inst["class_id"], inst["subject_id"], inst["teacher_id"], d, p)
-                    was_assigned = prev.get(prev_key, False)
+                    prev_key = f"{inst['class_id']}|{inst['subject_id']}|{inst['teacher_id']}|{d}|{p}"
+                    was_assigned = bool(prev.get(prev_key, False))
                     if was_assigned:
                         # Штраф если теперь НЕ в этом слоте: pen = 1 - x[key]
                         pen_i = model.NewBoolVar(f"change_{inst['idx']}_{d}_{p}")

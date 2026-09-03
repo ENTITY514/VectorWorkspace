@@ -25,6 +25,8 @@ class TimeGrid(BaseModel):
     days: int = Field(ge=1, le=7)
     periods_per_day: int = Field(ge=1, le=10)
     shift_boundaries: Optional[dict] = None
+    #: Урок, с которого начинается вторая смена. None — школа односменная.
+    shift_boundary_period: Optional[int] = Field(default=None, ge=1, le=9)
 
 
 class TeacherInput(BaseModel):

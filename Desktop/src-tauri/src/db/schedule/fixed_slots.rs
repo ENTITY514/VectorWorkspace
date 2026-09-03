@@ -12,6 +12,7 @@ pub struct FixedSlot {
     pub day: i64,
     pub period: i64,
     pub subgroup_label: Option<String>,
+    pub joint_lesson_id: Option<String>,
     pub created_at: String,
 }
 
@@ -26,11 +27,13 @@ pub async fn insert_fixed_slot(
     day: i64,
     period: i64,
     subgroup_label: Option<&str>,
+    joint_lesson_id: Option<&str>,
 ) -> Result<FixedSlot, DbError> {
     let sub = subgroup_label.unwrap_or("");
+    let joint = joint_lesson_id.filter(|v| !v.trim().is_empty());
     sqlx::query(
-        r#"INSERT INTO schedule_fixed_slots (id, variant_id, class_id, subject_id, teacher_id, room_id, day, period, subgroup_label)
-           VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9)"#,
+        r#"INSERT INTO schedule_fixed_slots (id, variant_id, class_id, subject_id, teacher_id, room_id, day, period, subgroup_label, joint_lesson_id)
+           VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10)"#,
     )
     .bind(id)
     .bind(variant_id)
@@ -41,6 +44,7 @@ pub async fn insert_fixed_slot(
     .bind(day)
     .bind(period)
     .bind(sub)
+    .bind(joint)
     .execute(pool)
     .await?;
 
@@ -48,8 +52,8 @@ pub async fn insert_fixed_slot(
 }
 
 pub async fn get_fixed_slot(pool: &SqlitePool, id: &str) -> Result<FixedSlot, DbError> {
-    let row = sqlx::query_as::<_, (String, String, String, String, String, String, i64, i64, String, String)>(
-        r#"SELECT id, variant_id, class_id, subject_id, teacher_id, room_id, day, period, subgroup_label, created_at
+    let row = sqlx::query_as::<_, (String, String, String, String, String, String, i64, i64, String, Option<String>, String)>(
+        r#"SELECT id, variant_id, class_id, subject_id, teacher_id, room_id, day, period, subgroup_label, joint_lesson_id, created_at
            FROM schedule_fixed_slots WHERE id = ?1"#,
     )
     .bind(id)
@@ -67,7 +71,8 @@ pub async fn get_fixed_slot(pool: &SqlitePool, id: &str) -> Result<FixedSlot, Db
         day: row.6,
         period: row.7,
         subgroup_label: if row.8.is_empty() { None } else { Some(row.8) },
-        created_at: row.9,
+        joint_lesson_id: row.9.filter(|v| !v.trim().is_empty()),
+        created_at: row.10,
     })
 }
 
@@ -75,8 +80,8 @@ pub async fn list_fixed_slots_for_variant(
     pool: &SqlitePool,
     variant_id: &str,
 ) -> Result<Vec<FixedSlot>, DbError> {
-    let rows = sqlx::query_as::<_, (String, String, String, String, String, String, i64, i64, String, String)>(
-        r#"SELECT id, variant_id, class_id, subject_id, teacher_id, room_id, day, period, subgroup_label, created_at
+    let rows = sqlx::query_as::<_, (String, String, String, String, String, String, i64, i64, String, Option<String>, String)>(
+        r#"SELECT id, variant_id, class_id, subject_id, teacher_id, room_id, day, period, subgroup_label, joint_lesson_id, created_at
            FROM schedule_fixed_slots WHERE variant_id = ?1 ORDER BY day, period"#,
     )
     .bind(variant_id)
@@ -95,7 +100,8 @@ pub async fn list_fixed_slots_for_variant(
             day: r.6,
             period: r.7,
             subgroup_label: if r.8.is_empty() { None } else { Some(r.8) },
-            created_at: r.9,
+            joint_lesson_id: r.9.filter(|v| !v.trim().is_empty()),
+            created_at: r.10,
         })
         .collect())
 }
@@ -143,7 +149,7 @@ mod tests {
         .unwrap();
 
         let slot = super::insert_fixed_slot(
-            &pool, "fs1", "v1", "8", "math", "ivanov", "r1", 1, 2, None,
+            &pool, "fs1", "v1", "8", "math", "ivanov", "r1", 1, 2, None, None,
         )
         .await
         .unwrap();
@@ -165,12 +171,12 @@ mod tests {
         .await
         .unwrap();
 
-        super::insert_fixed_slot(&pool, "fs1", "v1", "8", "math", "ivanov", "r1", 1, 2, None)
+        super::insert_fixed_slot(&pool, "fs1", "v1", "8", "math", "ivanov", "r1", 1, 2, None, None)
             .await
             .unwrap();
 
         let result = super::insert_fixed_slot(
-            &pool, "fs2", "v1", "8", "phys", "petrov", "r2", 1, 2, None,
+            &pool, "fs2", "v1", "8", "phys", "petrov", "r2", 1, 2, None, None,
         )
         .await;
         assert!(result.is_err());
@@ -187,7 +193,7 @@ mod tests {
         .await
         .unwrap();
 
-        super::insert_fixed_slot(&pool, "fs1", "v1", "8", "math", "ivanov", "r1", 1, 2, None)
+        super::insert_fixed_slot(&pool, "fs1", "v1", "8", "math", "ivanov", "r1", 1, 2, None, None)
             .await
             .unwrap();
         super::delete_fixed_slot(&pool, "fs1").await.unwrap();
@@ -207,7 +213,7 @@ mod tests {
         .await
         .unwrap();
 
-        super::insert_fixed_slot(&pool, "fs1", "v1", "8", "math", "ivanov", "r1", 1, 2, None)
+        super::insert_fixed_slot(&pool, "fs1", "v1", "8", "math", "ivanov", "r1", 1, 2, None, None)
             .await
             .unwrap();
 
@@ -232,7 +238,7 @@ mod tests {
         .unwrap();
 
         let slot = super::insert_fixed_slot(
-            &pool, "fs1", "v1", "8", "eng", "smith", "r1", 1, 2, Some("A"),
+            &pool, "fs1", "v1", "8", "eng", "smith", "r1", 1, 2, Some("A"), None,
         )
         .await
         .unwrap();
