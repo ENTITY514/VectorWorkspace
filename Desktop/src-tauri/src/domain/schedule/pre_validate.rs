@@ -288,6 +288,7 @@ mod tests {
             teacher_id: "t1".into(),
             split_teacher2_id: None,
             hours_per_week: 20,
+            joint_lesson_id: None,
         }];
         let result = pre_validate_teachers(&teachers, &curriculum, 6, 7);
         assert!(result.is_ok());
@@ -303,6 +304,7 @@ mod tests {
             teacher_id: "t1".into(),
             split_teacher2_id: None,
             hours_per_week: 20,
+            joint_lesson_id: None,
         }];
         let result = pre_validate_teachers(&teachers, &curriculum, 6, 7);
         assert!(!result.is_ok());
@@ -320,6 +322,7 @@ mod tests {
             teacher_id: "t1".into(),
             split_teacher2_id: None,
             hours_per_week: 7,
+            joint_lesson_id: None,
         }];
         let result = pre_validate_teachers(&teachers, &curriculum, 6, 7);
         assert!(!result.is_ok());
@@ -351,6 +354,7 @@ mod tests {
             teacher_id: "t1".into(),
             split_teacher2_id: Some("t2".into()),
             hours_per_week: 4,
+            joint_lesson_id: None,
         }];
         let result = pre_validate_split_teachers(&subjects, &curriculum, &[t1, t2_shifted], 7);
         assert!(!result.is_ok());

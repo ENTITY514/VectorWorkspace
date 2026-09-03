@@ -61,11 +61,11 @@ mod schedule_tests {
             .execute(&pool).await.unwrap();
         subjects::upsert_subject(&pool, "eng".into(), "Английский".into(), 5, None, true, false, "[]".into()).await.unwrap();
         // try curriculum without second teacher — должен упасть триггер
-        let res = curriculum::set_curriculum_entries(&pool, vec![("c1".into(), "eng".into(), t1.id.clone(), None, 2)]).await;
+        let res = curriculum::set_curriculum_entries(&pool, vec![("c1".into(), "eng".into(), t1.id.clone(), None, 2, None)]).await;
         assert!(res.is_err(), "split without second teacher should fail: {:?}", res);
         // с двумя — ок
         let t2 = teachers::upsert_teacher(&pool, None, "Учитель2".into(), None, 0, avail_all(), "[]".to_string(), false).await.unwrap();
-        let ok = curriculum::set_curriculum_entries(&pool, vec![("c1".into(), "eng".into(), t1.id.clone(), Some(t2.id.clone()), 2)]).await;
+        let ok = curriculum::set_curriculum_entries(&pool, vec![("c1".into(), "eng".into(), t1.id.clone(), Some(t2.id.clone()), 2, None)]).await;
         assert!(ok.is_ok(), "split with two teachers should succeed: {:?}", ok);
     }
 
@@ -77,7 +77,7 @@ mod schedule_tests {
         sqlx::query("INSERT INTO schedule_classes (id, grade, letter, headcount, shift) VALUES ('c1', 8, 'А', 25, 'First')")
             .execute(&pool).await.unwrap();
         subjects::upsert_subject(&pool, "eng".into(), "Английский".into(), 5, None, true, false, "[]".into()).await.unwrap();
-        let res = curriculum::set_curriculum_entries(&pool, vec![("c1".into(), "eng".into(), t1.id.clone(), Some(t1.id.clone()), 2)]).await;
+        let res = curriculum::set_curriculum_entries(&pool, vec![("c1".into(), "eng".into(), t1.id.clone(), Some(t1.id.clone()), 2, None)]).await;
         assert!(res.is_err(), "same split teachers should fail");
     }
 
@@ -107,6 +107,35 @@ mod schedule_tests {
         let dup_class = sqlx::query("INSERT INTO schedule_slots (id, class_id, subject_id, teacher_id, room_id, subgroup_label, day, period) VALUES ('s4', 'c1', 'math', ?1, ?2, '', 0, 0)")
             .bind(&t2.id).bind(&r2.id).execute(&pool).await;
         assert!(dup_class.is_err(), "class singularity should fail: {:?}", dup_class);
+    }
+
+    /// Совмещённый урок (класс-комплект): один учитель в одном кабинете ведёт
+    /// два класса одновременно. Частичный индекс из миграции 0020 обязан это
+    /// разрешать — и продолжать запрещать накладку вне joint-группы.
+    #[tokio::test]
+    async fn joint_lesson_allows_shared_teacher_and_room() {
+        let dir = tempfile::tempdir().unwrap();
+        let pool = connect(&dir.path().join("test.db")).await.unwrap();
+        let t1 = teachers::upsert_teacher(&pool, None, "Учитель1".into(), None, 0, avail_all(), "[]".to_string(), false).await.unwrap();
+        let t2 = teachers::upsert_teacher(&pool, None, "Учитель2".into(), None, 0, avail_all(), "[]".to_string(), false).await.unwrap();
+        let r1 = rooms::upsert_room(&pool, None, "Каб. 1".into(), "General".into(), 30, None, None).await.unwrap();
+        sqlx::query("INSERT INTO schedule_classes (id, grade, letter, headcount, shift) VALUES ('c1', 7, 'Б', 20, 'First'), ('c2', 7, 'В', 8, 'First')")
+            .execute(&pool).await.unwrap();
+        subjects::upsert_subject(&pool, "math".into(), "Матем".into(), 9, None, false, false, "[]".into()).await.unwrap();
+
+        sqlx::query("INSERT INTO schedule_slots (id, class_id, subject_id, teacher_id, room_id, subgroup_label, day, period, joint_lesson_id) VALUES ('j1', 'c1', 'math', ?1, ?2, '', 0, 0, 'jl_x')")
+            .bind(&t1.id).bind(&r1.id).execute(&pool).await.unwrap();
+        let joint_ok = sqlx::query("INSERT INTO schedule_slots (id, class_id, subject_id, teacher_id, room_id, subgroup_label, day, period, joint_lesson_id) VALUES ('j2', 'c2', 'math', ?1, ?2, '', 0, 0, 'jl_x')")
+            .bind(&t1.id).bind(&r1.id).execute(&pool).await;
+        assert!(joint_ok.is_ok(), "совмещённый урок должен приниматься: {:?}", joint_ok);
+
+        // Тот же слот без joint — по-прежнему накладка.
+        let solo = sqlx::query("INSERT INTO schedule_slots (id, class_id, subject_id, teacher_id, room_id, subgroup_label, day, period) VALUES ('j3', 'c1', 'math', ?1, ?2, '', 1, 0)")
+            .bind(&t2.id).bind(&r1.id).execute(&pool).await;
+        assert!(solo.is_ok(), "свободный слот занимается нормально");
+        let solo_dup = sqlx::query("INSERT INTO schedule_slots (id, class_id, subject_id, teacher_id, room_id, subgroup_label, day, period) VALUES ('j4', 'c2', 'math', ?1, ?2, '', 1, 0)")
+            .bind(&t2.id).bind(&r1.id).execute(&pool).await;
+        assert!(solo_dup.is_err(), "накладка вне joint должна отвергаться: {:?}", solo_dup);
     }
 
     #[tokio::test]
@@ -142,10 +171,10 @@ mod schedule_tests {
         subjects::upsert_subject(&pool, "eng".into(), "Английский".into(), 5, None, true, false, "[]".into()).await.unwrap();
         sqlx::query("INSERT INTO schedule_subgroup_rules (id, class_id, subject_id, group_count) VALUES ('sr1', 'c1', 'eng', 2)")
             .execute(&pool).await.unwrap();
-        curriculum::set_curriculum_entries(&pool, vec![("c1".into(), "eng".into(), t1.id.clone(), Some(t1.id.clone() + "x"), 2)]).await.unwrap_err(); // expect fail due to FK on second teacher (fake id)
+        curriculum::set_curriculum_entries(&pool, vec![("c1".into(), "eng".into(), t1.id.clone(), Some(t1.id.clone() + "x"), 2, None)]).await.unwrap_err(); // expect fail due to FK on second teacher (fake id)
         // use real t2
         let t2 = teachers::upsert_teacher(&pool, None, "Учитель2".into(), None, 0, avail_all(), "[]".to_string(), false).await.unwrap();
-        curriculum::set_curriculum_entries(&pool, vec![("c1".into(), "eng".into(), t1.id.clone(), Some(t2.id.clone()), 2)]).await.unwrap();
+        curriculum::set_curriculum_entries(&pool, vec![("c1".into(), "eng".into(), t1.id.clone(), Some(t2.id.clone()), 2, None)]).await.unwrap();
         // delete class
         sqlx::query("DELETE FROM schedule_classes WHERE id='c1'").execute(&pool).await.unwrap();
         let cnt: i64 = sqlx::query_scalar("SELECT COUNT(*) FROM schedule_subgroup_rules WHERE class_id='c1'").fetch_one(&pool).await.unwrap();
