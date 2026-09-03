@@ -3550,3 +3550,21 @@ table.data .row-quarter:hover td {
   color: var(--status-warning-text);
   font-weight: 600;
 }
+
+/* Подсказка «поставить урок» в пустой клетке расписания. */
+.grid-cell .cell-add-hint {
+  display: none;
+  color: var(--text-muted);
+  font-size: 18px;
+  line-height: 1;
+  user-select: none;
+}
+
+.grid-cell:not(.has-slot):hover {
+  cursor: pointer;
+  background: var(--accent-subtle);
+}
+
+.grid-cell:not(.has-slot):hover .cell-add-hint {
+  display: inline;
+}

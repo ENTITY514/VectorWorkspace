@@ -3,8 +3,7 @@ import type { ScheduleState, ScheduleSlot, ScheduleClass } from "../../../types"
 
 export type GridMode = "class";
 
-const DAY_NAMES = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб"];
-const PERIODS = [0, 1, 2, 3, 4, 5, 6];
+const DAY_NAMES = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"];
 
 const colorCache = new Map<string, string>();
 function getColor(teacherId: string, subjectId: string): string {
@@ -83,6 +82,11 @@ interface InteractiveGridProps {
   onPin: (slot: ScheduleSlot) => void;
   onUnpin: (slotId: string) => void;
   onDragDrop: (slot: ScheduleSlot, day: number, period: number) => void;
+  /** Размер сетки берётся из настроек школы, а не из литералов. */
+  days?: number;
+  periodsPerDay?: number;
+  /** Клик по пустой ячейке — ручная постановка урока. */
+  onEmptyCellClick?: (classId: string, day: number, period: number) => void;
 }
 
 interface CellData {
@@ -104,7 +108,15 @@ export interface SlotResolvedDetails {
   color: string;
 }
 
-export function InteractiveGrid({ state, variantId, onPin, onUnpin, onDragDrop }: InteractiveGridProps) {
+export function InteractiveGrid({
+  state, variantId, onPin, onUnpin, onDragDrop,
+  days = 5, periodsPerDay = 7, onEmptyCellClick,
+}: InteractiveGridProps) {
+  const PERIODS = useMemo(
+    () => Array.from({ length: periodsPerDay }, (_, i) => i),
+    [periodsPerDay],
+  );
+  const DAYS = useMemo(() => Array.from({ length: days }, (_, i) => i), [days]);
   const [dragSlot, setDragSlot] = useState<ScheduleSlot | null>(null);
   const [dragOver, setDragOver] = useState<string | null>(null);
 
@@ -409,10 +421,10 @@ export function InteractiveGrid({ state, variantId, onPin, onUnpin, onDragDrop }
               </tr>
             </thead>
             <tbody>
-              {DAY_NAMES.map((_, d) => (
+              {DAYS.map((d) => (
                 PERIODS.map(p => (
                   <tr key={`${d}:${p}`}>
-                    {p === 0 && <th rowSpan={7}>{DAY_NAMES[d]}</th>}
+                    {p === 0 && <th rowSpan={periodsPerDay}>{DAY_NAMES[d]}</th>}
                     <th className="period-col">{p + 1}</th>
                     {columns.map(c => {
                       const cell = cellFor(c.id, d, p);
@@ -429,6 +441,7 @@ export function InteractiveGrid({ state, variantId, onPin, onUnpin, onDragDrop }
                           onDragEnd={() => { setDragSlot(null); setDragOver(null); }}
                           onDragOverKey={(key) => setDragOver(key)}
                           onDrop={(e, day, period) => handleDrop(e, day, period)}
+                          onEmptyClick={onEmptyCellClick}
                         />
                       );
                     })}
@@ -440,7 +453,7 @@ export function InteractiveGrid({ state, variantId, onPin, onUnpin, onDragDrop }
         </div>
       )}
       <p className="muted" style={{ marginTop: 8 }}>
-        Клик по карточке урока — закрепить/открепить. Перетаскивание — переместить на другой день/урок. Иконка 🔗 указывает на совмещенный урок (класс-комплект).
+        Клик по карточке — закрепить или открепить. Перетаскивание — перенести на другой день или урок. Клик по пустой клетке — поставить урок вручную. Иконка 🔗 — совмещённый урок (класс-комплект).
       </p>
     </div>
   );
@@ -457,9 +470,10 @@ interface GridCellProps {
   onDragEnd: () => void;
   onDragOverKey: (key: string | null) => void;
   onDrop: (e: DragEvent, day: number, period: number) => void;
+  onEmptyClick?: (classId: string, day: number, period: number) => void;
 }
 
-function GridCell({ cell, resolveSlot, tooltipFor, dragSlotId, dragOverKey, onSlotClick, onDragStart, onDragEnd, onDragOverKey, onDrop }: GridCellProps) {
+function GridCell({ cell, resolveSlot, tooltipFor, dragSlotId, dragOverKey, onSlotClick, onDragStart, onDragEnd, onDragOverKey, onDrop, onEmptyClick }: GridCellProps) {
   const cellKey = `${cell.colId}:${cell.day}:${cell.period}`;
   const isOver = dragOverKey === cellKey && dragSlotId !== null;
   return (
@@ -468,7 +482,10 @@ function GridCell({ cell, resolveSlot, tooltipFor, dragSlotId, dragOverKey, onSl
       onDragOver={e => { e.preventDefault(); if (dragSlotId) onDragOverKey(cellKey); }}
       onDragLeave={() => { if (dragOverKey === cellKey) onDragOverKey(null); }}
       onDrop={e => onDrop(e, cell.day, cell.period)}
+      onClick={() => { if (!cell.isFull && onEmptyClick) onEmptyClick(cell.colId, cell.day, cell.period); }}
+      title={!cell.isFull && onEmptyClick ? "Поставить урок вручную" : undefined}
     >
+      {!cell.isFull && onEmptyClick && <span className="cell-add-hint">+</span>}
       {cell.slots.map(slot => {
         const isDrag = dragSlotId === slot.id;
         const details = resolveSlot(slot);

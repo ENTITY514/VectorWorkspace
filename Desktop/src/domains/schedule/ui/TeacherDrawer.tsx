@@ -57,6 +57,14 @@ export function TeacherDrawer({ teacher, rooms, subjects, classes, curriculum, o
       return next;
     }));
 
+  /// Оставляет доступными только указанные дни целиком.
+  /// Частый случай: учитель-совместитель приезжает два дня в неделю —
+  /// раскликивать 48 галочек вручную неприемлемо.
+  const keepOnlyDays = (days: number[]) =>
+    setEditAvail(prev =>
+      prev.map((row, d) => row.map(() => days.includes(d))),
+    );
+
   const clearDay = (day: number) =>
     setEditAvail(prev => {
       const next = prev.map(row => [...row]);
@@ -161,6 +169,8 @@ export function TeacherDrawer({ teacher, rooms, subjects, classes, curriculum, o
             <div className="row" style={{ gap: 8 }}>
               <button type="button" className="btn btn-small" onClick={() => setAll(true)}>Все</button>
               <button type="button" className="btn btn-small" onClick={() => setAll(false)}>Очистить</button>
+              <button type="button" className="btn btn-small" title="Только понедельник, среда, пятница" onClick={() => keepOnlyDays([0, 2, 4])}>Пн/Ср/Пт</button>
+              <button type="button" className="btn btn-small" title="Только вторник и четверг" onClick={() => keepOnlyDays([1, 3])}>Вт/Чт</button>
             </div>
           </div>
           <div className="availability-grid">
@@ -186,6 +196,11 @@ export function TeacherDrawer({ teacher, rooms, subjects, classes, curriculum, o
             ))}
           </div>
           {errors.avail && <p className="field-error">{errors.avail}</p>}
+          <p className="muted" style={{ marginTop: 6 }}>
+            Снятая галочка означает, что в этот урок ставить учителя нельзя.
+            Так задаются приходящие учителя и методические дни. Крестик в
+            заголовке очищает день или урок целиком.
+          </p>
         </div>
 
         {/* Curriculum / load table */}

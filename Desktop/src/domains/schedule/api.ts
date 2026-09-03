@@ -93,7 +93,7 @@ export const scheduleApi = {
   portQuarter(from_quarter: number, to_quarter: number): Promise<{ cloned_teachers: number; cloned_classes: number }> {
     return call<{ cloned_teachers: number; cloned_classes: number }>("schedule_port_quarter", { fromQuarter: from_quarter, toQuarter: to_quarter });
   },
-  pinSlot(input: { variant_id: string; class_id: string; subject_id: string; teacher_id: string; room_id: string; day: number; period: number; subgroup_label?: string }): Promise<ScheduleFixedSlot> {
+  pinSlot(input: { variant_id: string; class_id: string; subject_id: string; teacher_id: string; room_id: string; day: number; period: number; subgroup_label?: string; joint_lesson_id?: string }): Promise<ScheduleFixedSlot> {
     return call<ScheduleFixedSlot>("schedule_pin_slot", { input });
   },
   unpinSlot(slot_id: string): Promise<void> {

@@ -7,6 +7,7 @@ import { TeachersTab } from "./ui/TeachersTab";
 import { SchoolSettings } from "./ui/SchoolSettings";
 import { WeightsTab } from "./ui/WeightsTab";
 import { InteractiveGrid, type GridMode } from "./ui/InteractiveGrid";
+import { PlaceLessonModal, type PlacementRequest } from "./ui/PlaceLessonModal";
 import { TeacherDrawer } from "./ui/TeacherDrawer";
 import { GenerateModal } from "./ui/GenerateModal";
 import { ScheduleQualityWidget } from "./ui/ScheduleQualityWidget";
@@ -39,6 +40,8 @@ export function SchedulePage() {
   const [selectedTeacher, setSelectedTeacher] = useState<ScheduleState["teachers"][0] | null>(null);
 
   const [gridMode, setGridMode] = useState<GridMode>("class");
+  const [grid, setGrid] = useState({ days: 5, periods_per_day: 7 });
+  const [placing, setPlacing] = useState<{ classId: string; day: number; period: number } | null>(null);
   const [porting, setPorting] = useState(false);
 
   const handlePin = async (slot: ScheduleSlot) => {
@@ -64,6 +67,26 @@ export function SchedulePage() {
       await scheduleApi.unpinSlot(slotId);
       await load();
     } catch (e) { setError(String(e)); }
+  };
+
+  /// Ручная постановка урока: закрепление в конкретной клетке.
+  /// Именно так задаются «учитель приходит только по вторникам» и подобные
+  /// требования, которые генератор сам вывести не может.
+  const handlePlaceLesson = async (req: PlacementRequest) => {
+    const vid = activeVariant?.id;
+    if (!vid) { setError("Нет активного варианта"); return; }
+    await scheduleApi.pinSlot({
+      variant_id: vid,
+      class_id: req.class_id,
+      subject_id: req.subject_id,
+      teacher_id: req.teacher_id,
+      room_id: req.room_id,
+      day: req.day,
+      period: req.period,
+      joint_lesson_id: req.joint_lesson_id ?? undefined,
+    });
+    setPlacing(null);
+    await load();
   };
 
   const handleDragDrop = async (slot: ScheduleSlot, day: number, period: number) => {
@@ -97,8 +120,12 @@ export function SchedulePage() {
   const load = async () => {
     setLoading(true);
     try {
-      const s = await scheduleApi.getState();
+      const [s, settings] = await Promise.all([
+        scheduleApi.getState(),
+        scheduleApi.getSettings().catch(() => ({ days: 5, periods_per_day: 7, shift_boundary_period: null })),
+      ]);
       setState(s);
+      setGrid({ days: settings.days, periods_per_day: settings.periods_per_day });
       if (s.variants) setVariants(s.variants);
     } catch (e: unknown) {
       setError(String(e));
@@ -344,10 +371,24 @@ export function SchedulePage() {
           onPin={handlePin}
           onUnpin={handleUnpin}
           onDragDrop={handleDragDrop}
+          days={grid.days}
+          periodsPerDay={grid.periods_per_day}
+          onEmptyCellClick={(classId, day, period) => setPlacing({ classId, day, period })}
         />
       )}
 
       {/* Generation Settings & Progress Modal */}
+      {placing && state && (
+        <PlaceLessonModal
+          state={state}
+          classId={placing.classId}
+          day={placing.day}
+          period={placing.period}
+          onCancel={() => setPlacing(null)}
+          onPlace={handlePlaceLesson}
+        />
+      )}
+
       <GenerateModal
         isOpen={isGenerateModalOpen}
         onClose={() => setIsGenerateModalOpen(false)}
