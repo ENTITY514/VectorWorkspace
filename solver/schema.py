@@ -133,7 +133,12 @@ class SchedulePolicy(BaseModel):
     roomless_class_types: list[str] = Field(default_factory=lambda: ["do"])
 
     #: Типы классов, которым нельзя ставить последний урок дня.
-    no_last_period_class_types: list[str] = Field(default_factory=lambda: ["luo", "do"])
+    #:
+    #: Ограничение защищает учеников спецклассов от занятий в час наибольшего
+    #: утомления. Надомное обучение (ДО) сюда не входит: ученик занимается
+    #: дома, и школьный «последний урок» для него не имеет смысла. Раньше ДО
+    #: попадал под запрет заодно с ЛУО — из-за определения типа по подстроке.
+    no_last_period_class_types: list[str] = Field(default_factory=lambda: ["luo"])
 
 
 class InputModel(BaseModel):

@@ -262,12 +262,9 @@ def test_home_schooling_does_not_block_rooms():
 
     Один кабинет на два одновременных урока: очный занимает его, надомный
     проходит дома. Без этого правила задача была бы неразрешима.
-
-    Периодов два, а не один: политика запрещает спецклассам последний урок
-    дня, и при единственном периоде размещать надомный урок было бы негде.
     """
     payload = _base_input(
-        time_grid={"days": 1, "periods_per_day": 2},
+        time_grid={"days": 1, "periods_per_day": 1},
         classes=[
             {"id": "c1", "grade": 7, "letter": "Б", "headcount": 20,
              "shift": "First", "subgroups": [], "class_type": "normal"},
@@ -331,3 +328,27 @@ def test_luo_class_has_no_last_period():
     out = solve(InputModel.model_validate(payload))
     assert out["status"] in ("OPTIMAL", "FEASIBLE"), out
     assert all(s["period"] != 2 for s in out["slots"]), out["slots"]
+
+
+def test_home_schooling_may_take_last_period():
+    """Надомному обучению последний урок дня разрешён.
+
+    Ученик занимается дома, поэтому школьное правило «не ставить спецкласс
+    на последний урок» к нему не относится. Раньше ДО попадал под запрет
+    заодно с ЛУО, потому что тип класса определялся по подстроке в id.
+    """
+    payload = _base_input(
+        time_grid={"days": 1, "periods_per_day": 2},
+        classes=[
+            {"id": "d1", "grade": 8, "letter": "", "headcount": 1,
+             "shift": "First", "subgroups": [], "class_type": "do"},
+        ],
+        curriculum=[
+            {"class_id": "d1", "subject_id": "hist", "teacher_id": "t1", "hours_per_week": 2},
+        ],
+    )
+    out = solve(InputModel.model_validate(payload))
+    assert out["status"] in ("OPTIMAL", "FEASIBLE"), out
+    assert len(out["slots"]) == 2, out["slots"]
+    assert any(s["period"] == 1 for s in out["slots"]), "последний урок должен быть доступен"
+    assert all(s["room_id"] is None for s in out["slots"]), out["slots"]
