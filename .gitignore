@@ -46,3 +46,14 @@ supabase/.temp/
 .cursor/
 graphify-out/
 _tmp_remote_check/
+
+# Backups and local artifacts
+backup/
+scratch/
+__pycache__/
+*.pyc
+.pytest_cache/
+*.db
+*.db.bak.*
+*.db-wal
+*.db-shm
