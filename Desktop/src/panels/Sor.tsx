@@ -2,23 +2,20 @@ import { Panel } from "../components/ui";
 
 export function Sor() {
   return (
-    <>
-      <Panel
-        title="СОР / СОЧ"
-        subtitle="Суммативное оценивание — анализ и загрузка"
-        actions={
-          <div style={{ display: "flex", gap: 8 }}>
-            <button className="btn btn-primary btn-sm">Загрузить результаты</button>
-            <button className="btn btn-sm">Анализ</button>
-          </div>
-        }
-      >
-        <div className="panel-body">
-          <div className="empty">
-            СОР/СОЧ строятся из спецификаций и КТП. Контур подключается в Фазе 6.
-          </div>
+    <Panel
+      title="СОР / СОЧ"
+      subtitle="Суммативное оценивание"
+    >
+      <div className="panel-body">
+        <div className="empty">
+          <p>Раздел ещё не реализован.</p>
+          <p className="muted">
+            Спецификации СОР и СОЧ, дескрипторы и баллы уже заложены в
+            схему базы, но интерфейс работы с ними не сделан. Уроки типа
+            СОР и СОЧ при этом уже размечаются в редакторе КТП.
+          </p>
         </div>
-      </Panel>
-    </>
+      </div>
+    </Panel>
   );
 }
