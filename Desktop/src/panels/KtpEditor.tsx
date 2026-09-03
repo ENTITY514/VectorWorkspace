@@ -31,7 +31,7 @@ export function KtpEditor({ planId, onClose }: Props) {
     setDaysOfWeek, setHistoryOpen, setTemplateFor, setTemplateName, setUnfilledQuarter, setDraft, setMergeFor, setMergeReason,
     save, recalcSchedule, applyEdit, beginEdit, doAddHour, doDeleteLesson, doSplit, doAddSor, doMergeObjectivesNext,
     handleDragEnd, updateLesson, confirmMerge, doSaveTemplate, exportWord, exportXlsx,
-    hoursReport, progress
+    hoursReport, progress, isDirty
   } = useKtpEditorState(planId);
 
   const planName = dbPlan
@@ -42,7 +42,14 @@ export function KtpEditor({ planId, onClose }: Props) {
     <Panel
       title="Редактор КТП"
       actions={
-        <button className="btn btn-sm" onClick={onClose}>
+        <button
+          className="btn btn-sm"
+          onClick={() => {
+            // Уход из редактора с несохранёнными правками терял работу молча.
+            if (isDirty && !window.confirm("В плане есть несохранённые изменения. Выйти без сохранения?")) return;
+            onClose();
+          }}
+        >
           ← К списку
         </button>
       }
@@ -110,8 +117,8 @@ export function KtpEditor({ planId, onClose }: Props) {
               <button className="btn btn-sm" onClick={() => setTemplateFor(true)} title="Сохранить план как шаблон">
                 В шаблон
               </button>
-              <button className="btn btn-primary btn-sm" onClick={save} disabled={busy}>
-                {busy ? "…" : "Сохранить"}
+              <button className="btn btn-primary btn-sm" onClick={save} disabled={busy || !isDirty}>
+                {busy ? "…" : isDirty ? "Сохранить" : "Сохранено"}
               </button>
             </div>
 

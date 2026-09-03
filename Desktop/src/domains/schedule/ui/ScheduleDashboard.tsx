@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line, PieChart, Pie, Cell, type PieLabelRenderProps } from "recharts";
 import { scheduleApi } from "../api";
+import { saveBinaryFile, saveTextFile } from "../../../lib/saver";
 import type { ScheduleState, ScheduleGenerateResult } from "../../../types";
 import { STATUS_LABELS } from "../../../types";
 import { showToast } from "../../../components/Toast";
@@ -55,29 +56,23 @@ export function ScheduleDashboard({ state, onGenerate, onRefresh, lastResult }: 
   const handleExport = async (format: string) => {
     try {
       const data = await scheduleApi.exportSchedule(format);
+      // Браузерная загрузка (<a download>) в webview Tauri молча не работает:
+      // файл никуда не попадает, а пользователь видит сообщение об успехе.
+      // Сохраняем через нативный диалог.
+      let path: string | null;
       if (format === "xlsx") {
         const b64 = data.split(",")[1] || data;
-        const bytes = atob(b64);
-        const arr = new Uint8Array(bytes.length);
-        for (let i = 0; i < bytes.length; i++) arr[i] = bytes.charCodeAt(i);
-        const blob = new Blob([arr], { type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = "schedule.xlsx";
-        a.click();
-        URL.revokeObjectURL(url);
+        const bin = atob(b64);
+        const bytes = new Uint8Array(bin.length);
+        for (let i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+        path = await saveBinaryFile(bytes, "Расписание.xlsx");
       } else {
-        const blob = new Blob([data], { type: format === "csv" ? "text/csv" : "application/json" });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = `schedule.${format}`;
-        a.click();
-        URL.revokeObjectURL(url);
+        path = await saveTextFile(data, `Расписание.${format}`);
       }
-      showToast(`Экспорт ${format.toUpperCase()} выполнен`, "success");
-    } catch (e) { showToast(String(e), "error"); }
+      if (path) showToast(`Сохранено: ${path}`, "success");
+    } catch (e) {
+      showToast(`Не удалось сохранить: ${String(e)}`, "error");
+    }
   };
 
   return (

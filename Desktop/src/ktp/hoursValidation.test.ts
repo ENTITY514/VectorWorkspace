@@ -106,3 +106,24 @@ describe("formatShortDate", () => {
     expect(formatShortDate("2026-12-16")).toBe("16 дек.");
   });
 });
+describe("validateHours: часы различаются по четвертям", () => {
+  it("считает норму отдельно для каждой четверти", () => {
+    // 2 ч/нед в 1-2 четвертях, 3 ч/нед в 3-4: 16 + 16 + 30 + 24 = 86.
+    const report = validateHours(planOfQuarterCounts([16, 16, 30, 24]), [2, 2, 3, 3]);
+    expect(report.quarters.map((q) => q.should)).toEqual([16, 16, 30, 24]);
+    expect(report.totalShould).toBe(86);
+    expect(report.overallOk).toBe(true);
+  });
+
+  it("прежнее поведение с одним числом сохранено", () => {
+    const report = validateHours(planOfQuarterCounts([24, 24, 30, 24]), 3);
+    expect(report.totalShould).toBe(102);
+    expect(report.overallOk).toBe(true);
+  });
+
+  it("нехватка значения для четверти не обнуляет норму", () => {
+    // Задано только две четверти — для остальных берётся последнее известное.
+    const report = validateHours(planOfQuarterCounts([16, 16, 20, 16]), [2, 2]);
+    expect(report.quarters.map((q) => q.should)).toEqual([16, 16, 20, 16]);
+  });
+});

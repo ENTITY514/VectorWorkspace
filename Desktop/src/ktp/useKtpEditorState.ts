@@ -44,6 +44,10 @@ export function useKtpEditorState(planId: string) {
   const [templateFor, setTemplateFor] = useState(false);
   const [templateName, setTemplateName] = useState("");
   const [unfilledQuarter, setUnfilledQuarter] = useState<number | null>(null);
+  /// Снимок последнего сохранённого плана. Нужен, чтобы отличать
+  /// «есть правки» от «была отмена до исходного состояния»: canUndo для
+  /// этого не годится и приводил бы к ложным предупреждениям.
+  const savedSnapshot = useRef<string>("");
 
   const showToast = useCallback((msg: string) => {
     setToast(msg);
@@ -61,7 +65,9 @@ export function useKtpEditorState(planId: string) {
         const plan = await api.getKtpPlan(planId);
         if (cancelled) return;
         setDbPlan(plan);
-        history.reset(flattenPlan(plan));
+        const loaded = flattenPlan(plan);
+        savedSnapshot.current = JSON.stringify(loaded);
+        history.reset(loaded);
         setDaysOfWeek(plan.daysOfWeek.split(",").map((s: string) => Number(s)).filter(Boolean));
         showToast(`План загружен: ${plan.totalHours} уроков.`);
       } catch (e) {
@@ -105,7 +111,9 @@ export function useKtpEditorState(planId: string) {
       const nextDb = unflattenPlan(dbPlan, flat);
       const saved = await api.saveKtpPlan(nextDb);
       setDbPlan(saved);
-      history.reset(flattenPlan(saved));
+      const savedFlat = flattenPlan(saved);
+      savedSnapshot.current = JSON.stringify(savedFlat);
+      history.reset(savedFlat);
       setStatus(`План сохранён: ${saved.totalHours} уроков.`);
     } catch (e) {
       setError(String(e));
@@ -124,7 +132,9 @@ export function useKtpEditorState(planId: string) {
       const nextDb = unflattenPlan(dbPlan, flat);
       const updated = await api.updateKtpSchedule(nextDb.id, daysOfWeek);
       setDbPlan(updated);
-      history.reset(flattenPlan(updated));
+      const updatedFlat = flattenPlan(updated);
+      savedSnapshot.current = JSON.stringify(updatedFlat);
+      history.reset(updatedFlat);
       setStatus("Даты пересчитаны по календарю РК.");
     } catch (e) {
       setError(String(e));
@@ -240,8 +250,25 @@ export function useKtpEditorState(planId: string) {
     showToast(`Шаблон «${t.name}» сохранён.`);
   };
 
-  const hoursPerWeek = dbPlan?.quarters[0]?.hoursPerWeek ?? 0;
-  const hoursReport = useMemo(() => validateHours(flat, hoursPerWeek), [flat, hoursPerWeek]);
+  // Часы в неделю берутся ПО КАЖДОЙ четверти: схема хранит их отдельно, и у
+  // предмета они действительно различаются. Прежде сюда шло значение только
+  // первой четверти, и норма для остальных считалась неверно.
+  /// Есть ли несохранённые правки. Сравнение со снимком, а не с историей:
+  /// отмена всех действий возвращает план к исходному виду, и предупреждать
+  /// в этом случае не о чем.
+  const isDirty = useMemo(
+    () => savedSnapshot.current !== "" && JSON.stringify(flat) !== savedSnapshot.current,
+    [flat],
+  );
+
+  const hoursPerQuarter = useMemo(
+    () => (dbPlan?.quarters ?? []).map((q) => q.hoursPerWeek),
+    [dbPlan],
+  );
+  const hoursReport = useMemo(
+    () => validateHours(flat, hoursPerQuarter.length ? hoursPerQuarter : 0),
+    [flat, hoursPerQuarter],
+  );
 
   const progress = useMemo(() => {
     const byQuarter: { done: number; total: number }[] = [];
@@ -325,6 +352,6 @@ export function useKtpEditorState(planId: string) {
     setDaysOfWeek, setHistoryOpen, setTemplateFor, setTemplateName, setUnfilledQuarter, setDraft, setMergeFor, setMergeReason,
     save, recalcSchedule, applyEdit, beginEdit, doAddHour, doDeleteLesson, doSplit, doAddSor, doMergeObjectivesNext,
     handleDragEnd, updateLesson, confirmMerge, doSaveTemplate, exportWord, exportXlsx,
-    hoursReport, progress
+    hoursReport, progress, isDirty
   };
 }

@@ -59,11 +59,30 @@ export function splitByQuarters(plan: KtpPlan): KtpPlan[] {
   return quarters;
 }
 
-export function validateHours(plan: KtpPlan, hoursPerWeek: number): HoursValidationReport {
+/**
+ * Сверяет план с нормой часов.
+ *
+ * `hoursPerWeek` принимает либо одно число, либо значение для каждой
+ * четверти. Второе — не редкость: схема хранит `hours_per_week` отдельно для
+ * каждой четверти, и нагрузка предмета в них действительно различается.
+ * Раньше сюда передавались часы только первой четверти, из-за чего для
+ * остальных норма считалась неверно.
+ */
+export function validateHours(
+  plan: KtpPlan,
+  hoursPerWeek: number | readonly number[],
+): HoursValidationReport {
+  const perQuarter = (i: number): number => {
+    if (typeof hoursPerWeek === "number") return hoursPerWeek;
+    // Если для четверти значения нет, берём последнее известное:
+    // отсутствие данных не должно обнулять норму.
+    return hoursPerWeek[i] ?? hoursPerWeek[hoursPerWeek.length - 1] ?? 0;
+  };
+
   const quarters = splitByQuarters(plan);
   const report: QuarterHoursReport[] = quarters.map((lessons, i) => {
     const quarterNumber = i + 1;
-    const should = (QUARTER_WEEKS[i] ?? 8) * hoursPerWeek;
+    const should = (QUARTER_WEEKS[i] ?? 8) * perQuarter(i);
     const dated = lessons.filter((l) => Boolean(l.date));
     const planned = dated.length;
 
@@ -113,7 +132,7 @@ export function validateHours(plan: KtpPlan, hoursPerWeek: number): HoursValidat
     : `Не сходится: норма ${totalShould} ч., фактически ${totalActual} ч. Проверьте введённые часы и распределение уроков по неделям.`;
 
   return {
-    hoursPerWeek,
+    hoursPerWeek: typeof hoursPerWeek === "number" ? hoursPerWeek : perQuarter(0),
     norm: totalShould,
     quarters: report,
     totalShould,
