@@ -55,9 +55,6 @@ export const scheduleApi = {
   toggleJointLessons(curriculum_ids: string[], joint_lesson_id?: string | null): Promise<ScheduleCurriculum[]> {
     return call<ScheduleCurriculum[]>("schedule_toggle_joint_lessons", { curriculumIds: curriculum_ids, jointLessonId: joint_lesson_id || null });
   },
-  deleteCurriculum(id: string): Promise<void> {
-    return call<void>("schedule_delete_curriculum", { id });
-  },
   setWeights(input: { window: number; room_displacement: number; sanpin_parabola: number; alternation: number; movement: number; load_balance: number; change_slot: number }): Promise<ScheduleWeights> {
     return call<ScheduleWeights>("schedule_set_weights", { input });
   },

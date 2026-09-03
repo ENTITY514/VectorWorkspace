@@ -91,26 +91,15 @@ export function SchedulePage() {
     } catch (e) { setError(String(e)); }
   };
 
+  /// Загрузка состояния. Никаких побочных мутаций БД: раньше при пустой базе
+  /// здесь молча вызывался importLegacy(4), заливавший данные конкретной школы
+  /// (с реальными ФИО учителей) в базу любого пользователя.
   const load = async () => {
     setLoading(true);
     try {
       const s = await scheduleApi.getState();
       setState(s);
       if (s.variants) setVariants(s.variants);
-      if (s.subjects.length === 0 && !importing) {
-        setImporting(true);
-        try {
-          await scheduleApi.importLegacy(4);
-          const s2 = await scheduleApi.getState();
-          setState(s2);
-          if (s2.variants) setVariants(s2.variants);
-        } catch (e2) {
-          console.error("Auto-import failed:", e2);
-          setError(`Ошибка импорта: ${String(e2)}`);
-        } finally {
-          setImporting(false);
-        }
-      }
     } catch (e: unknown) {
       setError(String(e));
     } finally {
@@ -118,29 +107,21 @@ export function SchedulePage() {
     }
   };
 
-  useEffect(() => { load(); }, []);
-
-  // Автодобавление вариантов Q4 2025-2026 если после импорта осталось <3
-  useEffect(() => {
-    if (loading || importing) return;
-    const q4vars = variants.filter(v => v.academic_year === "2025-2026" && v.quarter_number === 4);
-    if (q4vars.length > 0 && q4vars.length < 3) {
-      // Триггерим повторный импорт который теперь создаст недостающие варианты (V2/V3)
-      (async () => {
-        setImporting(true);
-        try {
-          await scheduleApi.importLegacy(4);
-          const s2 = await scheduleApi.getState();
-          setState(s2);
-          if (s2.variants) setVariants(s2.variants);
-        } catch (e) {
-          console.error("Auto-seed V3 failed:", e);
-        } finally {
-          setImporting(false);
-        }
-      })();
+  /// Явный импорт демонстрационных данных — только по действию пользователя.
+  const handleImportDemo = async () => {
+    setImporting(true);
+    setError(null);
+    try {
+      await scheduleApi.importLegacy(4);
+      await load();
+    } catch (e) {
+      setError(`Ошибка импорта: ${String(e)}`);
+    } finally {
+      setImporting(false);
     }
-  }, [variants, loading]);
+  };
+
+  useEffect(() => { load(); }, []);
 
   const activeVariant = useMemo(() => variants.find(v => v.is_active), [variants]);
 
@@ -251,8 +232,26 @@ export function SchedulePage() {
     setGenStatus("Генерация прервана пользователем");
   };
 
-  if (loading) return <div className="panel">{importing ? "Первый запуск — импорт данных Q4..." : "Загрузка расписания..."}</div>;
+  if (loading) return <div className="panel">Загрузка расписания...</div>;
   if (error && !state) return <div className="panel error">{error}</div>;
+
+  // Пустая база — предлагаем выбор, а не подставляем чужие данные молча.
+  if (state && state.subjects.length === 0) {
+    return (
+      <div className="panel">
+        <h2>Расписание не настроено</h2>
+        <p>
+          В базе нет предметов, классов и нагрузки. Заполните справочники вручную
+          на вкладке «Настройки» либо загрузите демонстрационный набор, чтобы
+          посмотреть, как работает генератор.
+        </p>
+        {error && <div className="error">{error}</div>}
+        <button className="btn" onClick={handleImportDemo} disabled={importing}>
+          {importing ? "Импорт..." : "Загрузить демонстрационные данные"}
+        </button>
+      </div>
+    );
+  }
 
   return (
     <div className="panel schedule-page">
