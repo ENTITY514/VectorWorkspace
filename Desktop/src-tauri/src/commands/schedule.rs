@@ -326,52 +326,35 @@ pub struct GenerateInput {
 #[tauri::command]
 pub async fn schedule_generate<R: tauri::Runtime>(app: tauri::AppHandle<R>, state: State<'_, AppState>, input: Option<GenerateInput>) -> Result<serde_json::Value, String> {
     let pool = &state.pool;
-    // собрать входной JSON из БД
-    let teachers_db = teachers::list_teachers(pool).await.map_err(|e| e.to_string())?;
-    let rooms_db = rooms::list_rooms(pool).await.map_err(|e| e.to_string())?;
-    let subjects_db = subjects::list_subjects(pool).await.map_err(|e| e.to_string())?;
-    let curriculum_db = curriculum::list_curriculum(pool).await.map_err(|e| e.to_string())?;
-    let subgroup_rules = curriculum::list_subgroup_rules(pool).await.map_err(|e| e.to_string())?;
-    let weights_db = slots::get_weights(pool).await.map_err(|e| e.to_string())?;
 
-    let classes_rows = sqlx::query_as::<_, (String, i64, String, i64, String)>(
-        "SELECT id, grade, letter, headcount, shift FROM schedule_classes",
-    )
-    .fetch_all(pool)
-    .await
-    .map_err(|e| e.to_string())?;
+    let params = crate::domain::schedule::generation_service::GenerationParams {
+        time_limit_sec: input.as_ref().and_then(|i| i.time_limit_sec).unwrap_or(60),
+        num_workers: input.as_ref().and_then(|i| i.num_workers).unwrap_or(8),
+        seed: input.as_ref().and_then(|i| i.seed).unwrap_or(42),
+    };
 
-    let tl = input.as_ref().and_then(|i| i.time_limit_sec).unwrap_or(60);
-    let nw = input.as_ref().and_then(|i| i.num_workers).unwrap_or(8);
-    let seed = input.as_ref().and_then(|i| i.seed).unwrap_or(42);
-
-    // Единый источник размера сетки для пре-валидатора и солвера.
-    let grid = crate::domain::schedule::time_grid::TimeGrid::load(pool)
-        .await
-        .map_err(|e| e.to_string())?;
-
-    // Закрепления и текущее расписание активного варианта: и то и другое
-    // влияет на постановку задачи, но раньше не доходило до солвера.
-    let active_vid = slots::get_active_variant_id(pool).await.map_err(|e| e.to_string())?;
-    let fixed_db = fixed_slots::list_fixed_slots_for_variant(pool, &active_vid)
-        .await
-        .map_err(|e| e.to_string())?;
-    let previous_slots = slots::list_slots_for_variant(pool, &active_vid)
+    // Контракт собирается ЕДИНСТВЕННОЙ функцией: команда, тест и CLI обязаны
+    // идти одним путём, иначе расхождение UI и скриптов воспроизведётся.
+    let built = crate::domain::schedule::generation_service::build_solver_input(pool, &params)
         .await
         .map_err(|e| e.to_string())?;
 
     // ─── Pre-Solver Shield: математическая проверка до вызова Python ───
+    let teachers_db = teachers::list_teachers(pool).await.map_err(|e| e.to_string())?;
+    let rooms_db = rooms::list_rooms(pool).await.map_err(|e| e.to_string())?;
+    let subjects_db = subjects::list_subjects(pool).await.map_err(|e| e.to_string())?;
+    let curriculum_db = curriculum::list_curriculum(pool).await.map_err(|e| e.to_string())?;
     let pre_result = crate::domain::schedule::pre_validate::pre_validate_all(
         &teachers_db,
         &subjects_db,
         &rooms_db,
         &curriculum_db,
-        grid.days as usize,
-        grid.periods_per_day as usize,
+        built.grid.days as usize,
+        built.grid.periods_per_day as usize,
     );
     if !pre_result.is_ok() {
         return Ok(serde_json::json!({
-            "schema_version": 1,
+            "schema_version": crate::infra::solver_host::SCHEMA_VERSION,
             "status": "INFEASIBLE",
             "solver_stats": { "wall_ms": 0, "branches": 0, "conflicts": 0, "gap_percent": 0.0, "objective_value": 0 },
             "penalties": { "window": 0, "room_displacement": 0, "sanpin_parabola": 0, "alternation": 0, "movement": 0, "load_balance": 0, "change_slot": 0, "total": 0 },
@@ -387,153 +370,7 @@ pub async fn schedule_generate<R: tauri::Runtime>(app: tauri::AppHandle<R>, stat
         }));
     }
 
-    // build InputModel JSON (camelCase по схеме pydantic)
-    let teachers_json: Vec<serde_json::Value> = teachers_db
-        .into_iter()
-        .map(|t| {
-            let avail: serde_json::Value = serde_json::from_str(&t.availability_json).unwrap_or_else(|_| {
-                let row = serde_json::json!([true,true,true,true,true,true,true,true]);
-                serde_json::json!([row.clone(), row.clone(), row.clone(), row.clone(), row.clone(), row.clone()])
-            });
-            let subject_ids: Vec<String> = serde_json::from_str(&t.subject_ids).unwrap_or_default();
-            serde_json::json!({
-                "id": t.id,
-                "full_name": t.full_name,
-                "base_room_id": t.base_room_id,
-                "max_daily_lessons": t.max_daily_lessons,
-                "availability": avail,
-                "subject_ids": subject_ids,
-                "is_combined": t.is_combined
-            })
-        })
-        .collect();
-
-    let classes_json: Vec<serde_json::Value> = classes_rows
-        .into_iter()
-        .map(|(id, grade, letter, headcount, shift)| {
-            let sg: Vec<serde_json::Value> = subgroup_rules
-                .iter()
-                .filter(|r| r.class_id == id)
-                .map(|r| serde_json::json!({"subject_id": r.subject_id, "group_count": r.group_count}))
-                .collect();
-            serde_json::json!({
-                "id": id,
-                "grade": grade,
-                "letter": letter,
-                "headcount": headcount,
-                "shift": shift,
-                "subgroups": sg
-            })
-        })
-        .collect();
-
-    let rooms_json: Vec<serde_json::Value> = rooms_db
-        .into_iter()
-        .map(|r| serde_json::json!({
-            "id": r.id,
-            "name": r.name,
-            "room_type": r.room_type,
-            "capacity": r.capacity,
-            "floor": r.floor
-        }))
-        .collect();
-
-    let subjects_json: Vec<serde_json::Value> = subjects_db
-        .into_iter()
-        .map(|s| {
-            let related: Vec<String> = serde_json::from_str(&s.related_subjects_json).unwrap_or_default();
-            serde_json::json!({
-                "id": s.id,
-                "name": s.name,
-                "sanitary_weight": s.sanitary_weight,
-                "required_room_type": s.required_room_type,
-                "requires_split": s.requires_split,
-                "is_double_allowed": s.is_double_allowed,
-                "related_subject_ids": related
-            })
-        })
-        .collect();
-
-    // joint_lesson_id обязан дойти до солвера: без него класс-комплекты
-    // (ЛУО/ДО/инклюзия) рассыпаются на независимые уроки, а вся логика
-    // H_joint в solver/constraints/hard.py остаётся мёртвым кодом.
-    let curriculum_json: Vec<serde_json::Value> = curriculum_db
-        .into_iter()
-        .map(|c| serde_json::json!({
-            "class_id": c.class_id,
-            "subject_id": c.subject_id,
-            "teacher_id": c.teacher_id,
-            "split_teacher2_id": c.split_teacher2_id,
-            "hours_per_week": c.hours_per_week,
-            "joint_lesson_id": c.joint_lesson_id
-        }))
-        .collect();
-
-    // Закрепления пользователя (pin / drag&drop). Раньше не передавались
-    // вовсе, из-за чего таблица schedule_fixed_slots ни на что не влияла.
-    let fixed_json: Vec<serde_json::Value> = fixed_db
-        .iter()
-        .enumerate()
-        .filter(|(_, f)| f.day < grid.days && f.period < grid.periods_per_day)
-        .map(|(idx, f)| serde_json::json!({
-            "lesson_idx": idx,
-            "class_id": f.class_id,
-            "subject_id": f.subject_id,
-            "teacher_id": f.teacher_id,
-            "room_id": f.room_id,
-            "day": f.day,
-            "period": f.period,
-            "subgroup_label": f.subgroup_label,
-            "joint_lesson_id": f.joint_lesson_id
-        }))
-        .collect();
-
-    // Предыдущая сетка — основа штрафа change_slot («минимальное возмущение»).
-    // Ключ совпадает с prev_key в soft.py: class|subject|teacher|day|period.
-    let previous_grid: serde_json::Map<String, serde_json::Value> = previous_slots
-        .iter()
-        .map(|s| {
-            (
-                format!(
-                    "{}|{}|{}|{}|{}",
-                    s.class_id, s.subject_id, s.teacher_id, s.day, s.period
-                ),
-                serde_json::Value::Bool(true),
-            )
-        })
-        .collect();
-
-    let input_json = serde_json::json!({
-        "schema_version": 2,
-        "meta": {
-            "school_name": "Vector",
-            "generated_at": chrono::Utc::now().to_rfc3339(),
-            "time_limit_sec": tl,
-            "num_workers": nw,
-            "random_seed": seed
-        },
-        "time_grid": {
-            "days": grid.days,
-            "periods_per_day": grid.periods_per_day,
-            "shift_boundary_period": grid.shift_boundary_period
-        },
-        "teachers": teachers_json,
-        "classes": classes_json,
-        "rooms": rooms_json,
-        "subjects": subjects_json,
-        "curriculum": curriculum_json,
-        "fixed_lessons": fixed_json,
-        "previous_grid": previous_grid,
-        "weights": {
-            "window": weights_db.window,
-            "room_displacement": weights_db.room_displacement,
-            "sanpin_parabola": weights_db.sanpin_parabola,
-            "alternation": weights_db.alternation,
-            "movement": weights_db.movement,
-            "load_balance": weights_db.load_balance,
-            "change_slot": weights_db.change_slot
-        }
-    });
+    let input_json = built.json;
 
     // вызвать солвер
     let solver_script = crate::infra::resource_paths::solver_script(&app).map_err(|e| e.to_string())?;
@@ -543,51 +380,15 @@ pub async fn schedule_generate<R: tauri::Runtime>(app: tauri::AppHandle<R>, stat
 
     // при OPTIMAL/FEASIBLE — валидировать и коммитить в активный вариант
     if output.status == "OPTIMAL" || output.status == "FEASIBLE" {
-        crate::infra::solver_host::SolverHost::validate_hard(&output.slots).map_err(|e| e.to_string())?;
-        // Определяем активный вариант (или default)
-        let active_variant: Option<String> = sqlx::query_scalar(
-            "SELECT id FROM schedule_variants WHERE is_active = 1 LIMIT 1",
+        crate::infra::solver_host::SolverHost::validate_hard(&output.slots)
+            .map_err(|e| e.to_string())?;
+        crate::domain::schedule::generation_service::commit_slots(
+            pool,
+            &built.variant_id,
+            &output.slots,
         )
-        .fetch_optional(pool)
         .await
         .map_err(|e| e.to_string())?;
-        let variant_id = active_variant.unwrap_or_else(|| "default".to_string());
-        // транзакция: чистим только слоты активного варианта
-        let mut tx = pool.begin().await.map_err(|e| e.to_string())?;
-        sqlx::query("DELETE FROM schedule_slots WHERE variant_id = ?1")
-            .bind(&variant_id)
-            .execute(&mut *tx)
-            .await
-            .map_err(|e| e.to_string())?;
-        for slot in &output.slots {
-            let id = uuid::Uuid::new_v4().to_string();
-            let class_id = slot.get("class_id").and_then(|v| v.as_str()).unwrap_or("");
-            let subject_id = slot.get("subject_id").and_then(|v| v.as_str()).unwrap_or("");
-            let teacher_id = slot.get("teacher_id").and_then(|v| v.as_str()).unwrap_or("");
-            let room_id = slot.get("room_id").and_then(|v| v.as_str()).unwrap_or("");
-            let subgroup = slot.get("subgroup_label").and_then(|v| v.as_str()).unwrap_or("");
-            let day = slot.get("day").and_then(|v| v.as_i64()).unwrap_or(0);
-            let period = slot.get("period").and_then(|v| v.as_i64()).unwrap_or(0);
-            // Без joint_lesson_id спаренность не переживала генерацию:
-            // колонка есть с миграции 0018, но INSERT её не заполнял.
-            let joint = slot
-                .get("joint_lesson_id")
-                .and_then(|v| v.as_str())
-                .filter(|j| !j.trim().is_empty());
-            sqlx::query("INSERT INTO schedule_slots (id, class_id, subject_id, teacher_id, room_id, subgroup_label, day, period, variant_id, joint_lesson_id) VALUES (?1,?2,?3,?4,?5,?6,?7,?8,?9,?10)")
-                .bind(&id)
-                .bind(class_id)
-                .bind(subject_id)
-                .bind(teacher_id)
-                .bind(room_id)
-                .bind(subgroup)
-                .bind(day)
-                .bind(period)
-                .bind(&variant_id)
-                .bind(joint)
-                .execute(&mut *tx).await.map_err(|e| e.to_string())?;
-        }
-        tx.commit().await.map_err(|e| e.to_string())?;
     }
 
     serde_json::to_value(&output).map_err(|e| e.to_string())
