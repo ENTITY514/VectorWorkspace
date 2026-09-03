@@ -518,6 +518,11 @@ export interface ImportSummary {
   subjects: number;
   curriculum: number;
   skipped: number;
+  /** Удалено при полной замене справочников. */
+  removed_classes: number;
+  removed_teachers: number;
+  removed_rooms: number;
+  removed_subjects: number;
 }
 
 export interface ScheduleVariant {

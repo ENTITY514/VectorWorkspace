@@ -15,6 +15,7 @@ export function ImportPanel({ onImported }: { onImported: () => void }) {
   const [preview, setPreview] = useState<ExcelImportPreview | null>(null);
   const [summary, setSummary] = useState<ImportSummary | null>(null);
   const [busy, setBusy] = useState(false);
+  const [replace, setReplace] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const pickFile = async () => {
@@ -42,7 +43,7 @@ export function ImportPanel({ onImported }: { onImported: () => void }) {
     setBusy(true);
     setError(null);
     try {
-      setSummary(await scheduleApi.importExcel(path));
+      setSummary(await scheduleApi.importExcel(path, replace));
       setPreview(null);
       onImported();
     } catch (e) {
@@ -86,6 +87,13 @@ export function ImportPanel({ onImported }: { onImported: () => void }) {
             <Stat label="Нагрузка" value={summary.curriculum} />
             {summary.skipped > 0 && <Stat label="Пропущено" value={summary.skipped} warn />}
           </div>
+          {(summary.removed_classes + summary.removed_teachers + summary.removed_rooms + summary.removed_subjects) > 0 && (
+            <p className="muted">
+              Удалено при замене: классов {summary.removed_classes}, учителей{" "}
+              {summary.removed_teachers}, кабинетов {summary.removed_rooms},
+              предметов {summary.removed_subjects}. Расписания очищены.
+            </p>
+          )}
           {summary.skipped > 0 && (
             <p className="muted">
               Пропущенные строки ссылались на учителя или класс, которых нет в
@@ -150,13 +158,31 @@ export function ImportPanel({ onImported }: { onImported: () => void }) {
           )}
 
           <section className="card">
+            <label className="row gap-sm" style={{ alignItems: "flex-start" }}>
+              <input
+                type="checkbox"
+                checked={replace}
+                onChange={(e) => setReplace(e.target.checked)}
+                style={{ marginTop: 3 }}
+              />
+              <span>
+                <b>Заменить справочники целиком</b>
+                <br />
+                <span className="muted">
+                  Всё, чего нет в книге — классы, учителя, кабинеты, предметы —
+                  будет удалено вместе с расписаниями. Нужно, когда прежние
+                  данные недостоверны: иначе старые записи останутся рядом с
+                  новыми. Отменить нельзя.
+                </span>
+              </span>
+            </label>
             <div className="row gap-sm">
               <button
                 className="btn primary"
                 onClick={doImport}
                 disabled={busy || preview.curriculum.length === 0}
               >
-                {busy ? "Импортирую..." : "Импортировать в базу"}
+                {busy ? "Импортирую..." : replace ? "Заменить данные" : "Импортировать в базу"}
               </button>
               <button className="btn" onClick={() => setPreview(null)} disabled={busy}>
                 Отмена

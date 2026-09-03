@@ -108,9 +108,13 @@ export const scheduleApi = {
   previewExcel(path: string): Promise<ExcelImportPreview> {
     return call<ExcelImportPreview>("schedule_preview_excel", { path });
   },
-  /** Записывает разобранную книгу в базу одной транзакцией. */
-  importExcel(path: string): Promise<ImportSummary> {
-    return call<ImportSummary>("schedule_import_excel", { path });
+  /**
+   * Записывает разобранную книгу в базу одной транзакцией.
+   * `replace` заменяет справочники целиком, удаляя всё, чего нет в книге,
+   * вместе с расписаниями. Операция необратима.
+   */
+  importExcel(path: string, replace = false): Promise<ImportSummary> {
+    return call<ImportSummary>("schedule_import_excel", { path, replace });
   },
 
   // ---- Настройки сетки ----

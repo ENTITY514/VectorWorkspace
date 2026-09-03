@@ -353,21 +353,59 @@ fn check_references(p: &mut ExcelImportPreview) {
     }
 }
 
+/// Режим импорта.
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(rename_all = "snake_case")]
+pub enum ImportMode {
+    /// Дополнить справочники: существующие записи обновляются, лишние
+    /// остаются. Подходит, когда книга описывает часть школы.
+    Merge,
+    /// Заменить справочники целиком: всё, чего нет в книге, удаляется вместе
+    /// с расписаниями. Нужен, когда прежние данные недостоверны — иначе
+    /// старые записи остаются рядом с новыми и School раздваивается.
+    Replace,
+}
+
+impl Default for ImportMode {
+    fn default() -> Self {
+        // По умолчанию — безопасное слияние: замена необратима.
+        Self::Merge
+    }
+}
+
 /// Записывает разобранные данные в базу одной транзакцией.
 ///
-/// Справочники обновляются, нагрузка заменяется целиком: частичное слияние
-/// давало бы «призрачные» записи от прошлых импортов.
-pub async fn apply(pool: &SqlitePool, p: &ExcelImportPreview) -> Result<ImportSummary, DbError> {
+/// Нагрузка заменяется целиком в обоих режимах: частичное слияние оставляло
+/// бы «призрачные» строки от прошлых импортов.
+pub async fn apply(
+    pool: &SqlitePool,
+    p: &ExcelImportPreview,
+    mode: ImportMode,
+) -> Result<ImportSummary, DbError> {
     let mut tx = pool.begin().await?;
     let mut summary = ImportSummary::default();
 
     // Кабинеты
+    // Сопоставление по НАЗВАНИЮ, а не по идентификатору: у таблицы уникально
+    // имя, и кабинет из книги с другим id, но тем же названием иначе ронял бы
+    // весь импорт нарушением уникальности.
+    let existing_room_by_name: HashMap<String, String> =
+        sqlx::query_as::<_, (String, String)>("SELECT name, id FROM schedule_rooms")
+            .fetch_all(&mut *tx)
+            .await?
+            .into_iter()
+            .collect();
+    let mut room_id_map: HashMap<&str, String> = HashMap::new();
     for r in &p.rooms {
+        let effective = existing_room_by_name
+            .get(&r.name)
+            .cloned()
+            .unwrap_or_else(|| r.id.clone());
+        room_id_map.insert(r.id.as_str(), effective.clone());
         sqlx::query(
-            "INSERT INTO schedule_rooms (id, name, room_type, capacity) VALUES (?1, ?2, ?3, 30) \
-             ON CONFLICT(id) DO UPDATE SET name = excluded.name, room_type = excluded.room_type",
+            "INSERT INTO schedule_rooms (id, name, room_type, capacity) VALUES (?1, ?2, ?3, 30)              ON CONFLICT(id) DO UPDATE SET name = excluded.name, room_type = excluded.room_type",
         )
-        .bind(&r.id)
+        .bind(&effective)
         .bind(&r.name)
         .bind(&r.room_type)
         .execute(&mut *tx)
@@ -383,7 +421,10 @@ pub async fn apply(pool: &SqlitePool, p: &ExcelImportPreview) -> Result<ImportSu
         let base_room = t
             .base_room_name
             .as_deref()
-            .and_then(|n| room_id_by_name.get(n).copied());
+            .and_then(|n| room_id_by_name.get(n).copied())
+            // Идентификатор кабинета — сопоставленный, иначе ссылка укажет
+            // на строку, которой в базе нет.
+            .and_then(|sheet| room_id_map.get(sheet).map(|s| s.as_str()));
         sqlx::query(
             "INSERT INTO schedule_teachers (id, full_name, base_room_id, max_daily_lessons, availability_json, subject_ids, is_combined) \
              VALUES (?1, ?2, ?3, ?4, '[]', '[]', ?5) \
@@ -409,22 +450,37 @@ pub async fn apply(pool: &SqlitePool, p: &ExcelImportPreview) -> Result<ImportSu
             if let Some(tid) = tid {
                 sqlx::query("UPDATE schedule_rooms SET base_teacher_id = ?1 WHERE id = ?2")
                     .bind(tid)
-                    .bind(&r.id)
+                    .bind(room_id_map.get(r.id.as_str()).unwrap_or(&r.id))
                     .execute(&mut *tx)
                     .await?;
             }
         }
     }
 
-    // Классы
-    for c in &p.classes {
-        sqlx::query(
-            "INSERT INTO schedule_classes (id, grade, letter, headcount, shift, class_type) \
-             VALUES (?1, ?2, ?3, ?4, ?5, ?6) \
-             ON CONFLICT(id) DO UPDATE SET grade = excluded.grade, letter = excluded.letter, \
-                 shift = excluded.shift, class_type = excluded.class_type",
+    // Классы.
+    //
+    // Сопоставление по естественному ключу (параллель, литера, тип), а не по
+    // идентификатору: в книге класс называется «4 ЛУО», в базе — «4_luo».
+    // Вставка по id ломалась бы об уникальность (grade, letter, class_type),
+    // а новый идентификатор оторвал бы класс от накопленных расписаний.
+    let existing_class_by_key: HashMap<(i64, String, String), String> =
+        sqlx::query_as::<_, (String, i64, String, String)>(
+            "SELECT id, grade, COALESCE(letter, ''), COALESCE(class_type, 'normal') FROM schedule_classes",
         )
-        .bind(&c.id)
+        .fetch_all(&mut *tx)
+        .await?
+        .into_iter()
+        .map(|(id, grade, letter, ctype)| ((grade, letter, ctype), id))
+        .collect();
+
+    let mut class_id_map: HashMap<&str, String> = HashMap::new();
+    for c in &p.classes {
+        let key = (c.grade, c.letter.clone(), c.class_type.clone());
+        let effective = existing_class_by_key.get(&key).cloned().unwrap_or_else(|| c.id.clone());
+        sqlx::query(
+            "INSERT INTO schedule_classes (id, grade, letter, headcount, shift, class_type)              VALUES (?1, ?2, ?3, ?4, ?5, ?6)              ON CONFLICT(id) DO UPDATE SET grade = excluded.grade, letter = excluded.letter,                  shift = excluded.shift, class_type = excluded.class_type",
+        )
+        .bind(&effective)
         .bind(c.grade)
         .bind(&c.letter)
         .bind(c.headcount)
@@ -432,6 +488,7 @@ pub async fn apply(pool: &SqlitePool, p: &ExcelImportPreview) -> Result<ImportSu
         .bind(&c.class_type)
         .execute(&mut *tx)
         .await?;
+        class_id_map.insert(c.id.as_str(), effective);
         summary.classes += 1;
     }
 
@@ -458,11 +515,15 @@ pub async fn apply(pool: &SqlitePool, p: &ExcelImportPreview) -> Result<ImportSu
     // Нагрузка заменяется целиком.
     sqlx::query("DELETE FROM schedule_curriculum").execute(&mut *tx).await?;
     let known_teachers: HashSet<&str> = p.teachers.iter().map(|t| t.id.as_str()).collect();
-    let known_classes: HashSet<&str> = p.classes.iter().map(|c| c.id.as_str()).collect();
     for e in &p.curriculum {
-        if !known_teachers.contains(e.teacher_id.as_str())
-            || !known_classes.contains(e.class_id.as_str())
-        {
+        // Класс берётся СОПОСТАВЛЕННЫМ: в книге он называется «4 ЛУО», в базе
+        // это «4_do». Без отображения нагрузка ссылалась бы на строку,
+        // которой нет, и импорт падал бы на внешнем ключе.
+        let Some(class_id) = class_id_map.get(e.class_id.as_str()) else {
+            summary.skipped += 1;
+            continue;
+        };
+        if !known_teachers.contains(e.teacher_id.as_str()) {
             summary.skipped += 1;
             continue;
         }
@@ -475,7 +536,7 @@ pub async fn apply(pool: &SqlitePool, p: &ExcelImportPreview) -> Result<ImportSu
                  joint_lesson_id = excluded.joint_lesson_id",
         )
         .bind(&id)
-        .bind(&e.class_id)
+        .bind(class_id)
         .bind(&e.subject_id)
         .bind(&e.teacher_id)
         .bind(e.split_teacher2_id.as_deref().filter(|t| known_teachers.contains(*t)))
@@ -486,8 +547,46 @@ pub async fn apply(pool: &SqlitePool, p: &ExcelImportPreview) -> Result<ImportSu
         summary.curriculum += 1;
     }
 
+    // Полная замена: всё, чего нет в книге, удаляется. Расписания снимаются
+    // первыми — иначе ON DELETE RESTRICT не даст убрать предметы и кабинеты.
+    if mode == ImportMode::Replace {
+        let keep_classes: Vec<String> = class_id_map.values().cloned().collect();
+        let keep_teachers: Vec<String> = p.teachers.iter().map(|t| t.id.clone()).collect();
+        let keep_rooms: Vec<String> = room_id_map.values().cloned().collect();
+        let keep_subjects: Vec<String> =
+            p.curriculum.iter().map(|e| e.subject_id.clone()).collect();
+
+        sqlx::query("DELETE FROM schedule_slots").execute(&mut *tx).await?;
+        sqlx::query("DELETE FROM schedule_fixed_slots").execute(&mut *tx).await?;
+
+        summary.removed_classes = delete_missing(&mut tx, "schedule_classes", &keep_classes).await?;
+        summary.removed_teachers = delete_missing(&mut tx, "schedule_teachers", &keep_teachers).await?;
+        summary.removed_rooms = delete_missing(&mut tx, "schedule_rooms", &keep_rooms).await?;
+        summary.removed_subjects = delete_missing(&mut tx, "schedule_subjects", &keep_subjects).await?;
+    }
+
     tx.commit().await?;
     Ok(summary)
+}
+
+/// Удаляет из таблицы всё, чего нет в списке сохраняемых идентификаторов.
+async fn delete_missing(
+    tx: &mut sqlx::Transaction<'_, sqlx::Sqlite>,
+    table: &str,
+    keep: &[String],
+) -> Result<usize, DbError> {
+    if keep.is_empty() {
+        // Пустой список означал бы «удалить всё» — почти наверняка ошибка
+        // разбора, а не намерение пользователя.
+        return Ok(0);
+    }
+    let placeholders = keep.iter().map(|_| "?").collect::<Vec<_>>().join(",");
+    let sql = format!("DELETE FROM {table} WHERE id NOT IN ({placeholders})");
+    let mut q = sqlx::query(&sql);
+    for k in keep {
+        q = q.bind(k);
+    }
+    Ok(q.execute(&mut **tx).await?.rows_affected() as usize)
 }
 
 #[derive(Debug, Clone, Default, Serialize, Deserialize)]
@@ -498,6 +597,11 @@ pub struct ImportSummary {
     pub subjects: usize,
     pub curriculum: usize,
     pub skipped: usize,
+    /// Удалено при полной замене справочников.
+    pub removed_classes: usize,
+    pub removed_teachers: usize,
+    pub removed_rooms: usize,
+    pub removed_subjects: usize,
 }
 
 #[cfg(test)]
@@ -528,6 +632,66 @@ mod tests {
         assert_eq!(normalize_class_type("ЛУО"), "luo");
         assert_eq!(normalize_class_type("ДО (надомное)"), "do");
         assert_eq!(normalize_class_type("надомное обучение"), "do");
+    }
+
+    /// Классы и кабинеты сопоставляются по естественному ключу, а не по
+    /// идентификатору из книги. В шаблоне класс называется «4 ЛУО», в базе —
+    /// «4_luo»: вставка по id ломалась об уникальность (grade, letter,
+    /// class_type), а нагрузка ссылалась на несуществующий класс и импорт
+    /// падал на внешнем ключе.
+    #[tokio::test]
+    async fn matches_existing_class_by_natural_key() {
+        let dir = tempfile::tempdir().unwrap();
+        let pool = crate::db::connect(&dir.path().join("t.db")).await.unwrap();
+        sqlx::query("INSERT INTO schedule_classes (id, grade, letter, headcount, shift, class_type) VALUES ('4_luo', 4, '', 25, 'First', 'luo')")
+            .execute(&pool).await.unwrap();
+        sqlx::query("INSERT INTO schedule_rooms (id, name, room_type, capacity) VALUES ('r_1', 'Кабинет 1', 'General', 30)")
+            .execute(&pool).await.unwrap();
+
+        let preview = ExcelImportPreview {
+            rooms: vec![ParsedRoom {
+                id: "sheet_room".into(), name: "Кабинет 1".into(),
+                room_type: "General".into(), base_teacher_name: None,
+            }],
+            teachers: vec![ParsedTeacher {
+                id: "ivanova".into(), full_name: "Иванова".into(),
+                base_room_name: Some("Кабинет 1".into()), max_daily_lessons: 7,
+                is_combined: false,
+            }],
+            classes: vec![ParsedClass {
+                id: "4 ЛУО".into(), grade: 4, letter: String::new(),
+                class_type: "luo".into(), shift: "First".into(), headcount: 1,
+            }],
+            curriculum: vec![ParsedCurriculum {
+                class_id: "4 ЛУО".into(), subject_id: "hist".into(),
+                subject_name: "История".into(), teacher_id: "ivanova".into(),
+                teacher_name: "Иванова".into(), split_teacher2_id: None,
+                hours_per_week: 2, joint_lesson_id: None, room_type: None,
+            }],
+            ..Default::default()
+        };
+
+        let summary = apply(&pool, &preview, ImportMode::Merge).await.expect("импорт должен пройти");
+        assert_eq!(summary.curriculum, 1);
+        assert_eq!(summary.skipped, 0);
+
+        // Класс не продублирован: обновилась существующая строка.
+        let classes: i64 = sqlx::query_scalar("SELECT COUNT(*) FROM schedule_classes")
+            .fetch_one(&pool).await.unwrap();
+        assert_eq!(classes, 1, "класс из книги не должен создавать дубликат");
+
+        // Нагрузка ссылается на существующий класс.
+        let cid: String = sqlx::query_scalar("SELECT class_id FROM schedule_curriculum")
+            .fetch_one(&pool).await.unwrap();
+        assert_eq!(cid, "4_luo");
+
+        // Кабинет сопоставлен по названию, дубликата нет.
+        let rooms: i64 = sqlx::query_scalar("SELECT COUNT(*) FROM schedule_rooms")
+            .fetch_one(&pool).await.unwrap();
+        assert_eq!(rooms, 1);
+        let base: Option<String> = sqlx::query_scalar("SELECT base_room_id FROM schedule_teachers")
+            .fetch_one(&pool).await.unwrap();
+        assert_eq!(base.as_deref(), Some("r_1"));
     }
 
     #[test]

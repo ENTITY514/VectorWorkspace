@@ -1098,6 +1098,9 @@ pub async fn schedule_preview_excel(
 pub async fn schedule_import_excel(
     state: State<'_, AppState>,
     path: String,
+    // `false` — дополнить справочники, `true` — заменить целиком.
+    // Замена необратима, поэтому по умолчанию выключена.
+    replace: Option<bool>,
 ) -> Result<crate::infra::excel_import::ImportSummary, String> {
     let p = std::path::PathBuf::from(path);
     let preview = tauri::async_runtime::spawn_blocking(move || {
@@ -1106,7 +1109,12 @@ pub async fn schedule_import_excel(
     .await
     .map_err(|e| e.to_string())??;
 
-    crate::infra::excel_import::apply(&state.pool, &preview)
+    let mode = if replace.unwrap_or(false) {
+        crate::infra::excel_import::ImportMode::Replace
+    } else {
+        crate::infra::excel_import::ImportMode::Merge
+    };
+    crate::infra::excel_import::apply(&state.pool, &preview, mode)
         .await
         .map_err(|e| e.to_string())
 }

@@ -1,12 +1,15 @@
 //! Проверка разбора Excel-шаблона без записи в базу.
 //!
-//! Запуск: cargo run --bin verify_excel -- <путь-к-книге.xlsx>
+//! Запуск:
+//!   cargo run --bin verify_excel -- <книга.xlsx>              # только разбор
+//!   cargo run --bin verify_excel -- <книга.xlsx> <копия.db>   # разбор и запись
 
 use std::path::PathBuf;
 
 use vector_workspace_lib::infra::excel_import;
 
-fn main() -> Result<(), Box<dyn std::error::Error>> {
+#[tokio::main]
+async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let Some(path) = std::env::args().nth(1) else {
         eprintln!("использование: verify_excel <путь-к-книге.xlsx>");
         std::process::exit(2);
@@ -41,6 +44,34 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         }
         if preview.warnings.len() > 10 {
             println!("   ... ещё {}", preview.warnings.len() - 10);
+        }
+    }
+    // Запись только в явно указанную копию базы.
+    if let Some(db) = std::env::args().nth(2) {
+        let low = db.to_lowercase();
+        if low.contains("appdata") || low.contains("com.teacher.vectorworkspace") {
+            eprintln!("ОТКАЗ: путь ведёт к боевой базе. Работайте с копией.");
+            std::process::exit(2);
+        }
+        let pool = vector_workspace_lib::db::connect(&PathBuf::from(&db)).await?;
+        let mode = if std::env::args().any(|a| a == "--replace") {
+            excel_import::ImportMode::Replace
+        } else {
+            excel_import::ImportMode::Merge
+        };
+        let summary = excel_import::apply(&pool, &preview, mode).await?;
+        println!("
+Записано в {db}:");
+        println!("  кабинетов : {}", summary.rooms);
+        println!("  учителей  : {}", summary.teachers);
+        println!("  классов   : {}", summary.classes);
+        println!("  предметов : {}", summary.subjects);
+        println!("  нагрузка  : {}", summary.curriculum);
+        println!("  пропущено : {}", summary.skipped);
+        if mode == excel_import::ImportMode::Replace {
+            println!("  удалено   : классов {}, учителей {}, кабинетов {}, предметов {}",
+                summary.removed_classes, summary.removed_teachers,
+                summary.removed_rooms, summary.removed_subjects);
         }
     }
     Ok(())
