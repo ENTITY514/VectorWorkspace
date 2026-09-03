@@ -4,6 +4,13 @@ use std::time::Duration;
 use tokio::process::Command;
 use tokio::io::AsyncWriteExt;
 
+/// Версия контракта, которую отправляет Rust. Должна совпадать с
+/// `SCHEMA_VERSION` в `solver/schema.py` — проверяется контрактным тестом.
+pub const SCHEMA_VERSION: i64 = 2;
+
+/// Версии ответа солвера, которые хост умеет разбирать.
+pub const SUPPORTED_SCHEMA_VERSIONS: [i64; 2] = [1, 2];
+
 #[derive(Debug, thiserror::Error)]
 pub enum SolverError {
     #[error("неверный контракт: {0}")]
@@ -115,8 +122,11 @@ impl SolverHost {
         }
 
         let parsed: SolverOutput = serde_json::from_str(&stdout).map_err(|e| SolverError::Crashed(format!("stdout parse failed: {} stderr:{} stdout:{}", e, stderr, stdout)))?;
-        if parsed.schema_version != 1 {
-            return Err(SolverError::InvalidContract(format!("schema_version mismatch: {}", parsed.schema_version)));
+        if !SUPPORTED_SCHEMA_VERSIONS.contains(&parsed.schema_version) {
+            return Err(SolverError::InvalidContract(format!(
+                "schema_version {} не поддерживается (ожидается одна из {:?})",
+                parsed.schema_version, SUPPORTED_SCHEMA_VERSIONS
+            )));
         }
         Ok(parsed)
     }
@@ -137,11 +147,20 @@ impl SolverHost {
     }
 
     /// Валидирует Hard-ограничения на Rust-стороне перед коммитом (Zero-Trust).
+    ///
+    /// Совмещённые уроки (класс-комплекты, инклюзия, ЛУО) — законное исключение:
+    /// один учитель в одном кабинете ведёт несколько классов одновременно.
+    /// Такой дубликат допустим ТОЛЬКО при совпадающем непустом `joint_lesson_id`
+    /// — ровно тот инвариант, который миграция 0019 сняла с уровня БД.
+    /// Класс не может находиться в двух местах ни при каких условиях.
     pub fn validate_hard(slots: &[serde_json::Value]) -> Result<(), String> {
-        use std::collections::HashSet;
-        let mut teacher_slots = HashSet::new();
-        let mut class_slots = HashSet::new();
-        let mut room_slots = HashSet::new();
+        use std::collections::{HashMap, HashSet};
+
+        // (teacher|room, day, period) -> joint_lesson_id первого занявшего слот
+        let mut teacher_slots: HashMap<String, Option<String>> = HashMap::new();
+        let mut room_slots: HashMap<String, Option<String>> = HashMap::new();
+        let mut class_slots: HashSet<String> = HashSet::new();
+
         for s in slots {
             let teacher = s.get("teacher_id").and_then(|v| v.as_str()).unwrap_or("");
             let class = s.get("class_id").and_then(|v| v.as_str()).unwrap_or("");
@@ -149,17 +168,48 @@ impl SolverHost {
             let day = s.get("day").and_then(|v| v.as_i64()).unwrap_or(-1);
             let period = s.get("period").and_then(|v| v.as_i64()).unwrap_or(-1);
             let label = s.get("subgroup_label").and_then(|v| v.as_str()).unwrap_or("");
-            let tk = format!("{teacher}:{day}:{period}");
-            if !teacher_slots.insert(tk.clone()) {
-                return Err(format!("Hard violation: teacher {teacher} duplicate at {day}:{period}"));
+            let joint = s
+                .get("joint_lesson_id")
+                .and_then(|v| v.as_str())
+                .filter(|j| !j.trim().is_empty())
+                .map(|j| j.to_string());
+
+            // Класс: дубликат недопустим всегда (подгруппы различаются меткой).
+            let ck = format!("{class}\u{1}{label}\u{1}{day}\u{1}{period}");
+            if !class_slots.insert(ck) {
+                return Err(format!(
+                    "Hard violation: класс {class} занят дважды в {day}:{period}"
+                ));
             }
-            let ck = format!("{class}:{label}:{day}:{period}");
-            if !class_slots.insert(ck.clone()) {
-                return Err(format!("Hard violation: class {class} duplicate at {day}:{period}"));
+
+            // Учитель: дубликат допустим только внутри одной joint-группы.
+            let tk = format!("{teacher}\u{1}{day}\u{1}{period}");
+            match teacher_slots.get(&tk) {
+                Some(existing) if *existing == joint && joint.is_some() => {}
+                Some(_) => {
+                    return Err(format!(
+                        "Hard violation: учитель {teacher} занят дважды в {day}:{period} \
+                         (совмещённый урок не подтверждён общим joint_lesson_id)"
+                    ));
+                }
+                None => {
+                    teacher_slots.insert(tk, joint.clone());
+                }
             }
-            let rk = format!("{room}:{day}:{period}");
-            if !room_slots.insert(rk.clone()) {
-                return Err(format!("Hard violation: room {room} duplicate at {day}:{period}"));
+
+            // Кабинет: то же правило.
+            let rk = format!("{room}\u{1}{day}\u{1}{period}");
+            match room_slots.get(&rk) {
+                Some(existing) if *existing == joint && joint.is_some() => {}
+                Some(_) => {
+                    return Err(format!(
+                        "Hard violation: кабинет {room} занят дважды в {day}:{period} \
+                         (совмещённый урок не подтверждён общим joint_lesson_id)"
+                    ));
+                }
+                None => {
+                    room_slots.insert(rk, joint.clone());
+                }
             }
         }
         Ok(())
@@ -169,6 +219,61 @@ impl SolverHost {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    fn slot(class: &str, teacher: &str, room: &str, d: i64, p: i64, joint: Option<&str>) -> serde_json::Value {
+        serde_json::json!({
+            "class_id": class, "subject_id": "s", "teacher_id": teacher, "room_id": room,
+            "subgroup_label": null, "day": d, "period": p, "joint_lesson_id": joint
+        })
+    }
+
+    #[test]
+    fn validate_hard_accepts_joint_lesson() {
+        // Класс-комплект: один учитель, один кабинет, два класса, общий joint_lesson_id.
+        let slots = vec![
+            slot("7b", "t1", "r1", 0, 2, Some("jl_math")),
+            slot("7b_luo", "t1", "r1", 0, 2, Some("jl_math")),
+        ];
+        SolverHost::validate_hard(&slots).expect("совмещённый урок должен приниматься");
+    }
+
+    #[test]
+    fn validate_hard_rejects_teacher_overlap_without_joint() {
+        let slots = vec![
+            slot("7b", "t1", "r1", 0, 2, None),
+            slot("8a", "t1", "r2", 0, 2, None),
+        ];
+        let err = SolverHost::validate_hard(&slots).expect_err("накладка учителя должна отвергаться");
+        assert!(err.contains("учитель"), "{err}");
+    }
+
+    #[test]
+    fn validate_hard_rejects_teacher_overlap_with_different_joint() {
+        let slots = vec![
+            slot("7b", "t1", "r1", 0, 2, Some("jl_a")),
+            slot("8a", "t1", "r1", 0, 2, Some("jl_b")),
+        ];
+        assert!(SolverHost::validate_hard(&slots).is_err(), "разные joint-группы — накладка");
+    }
+
+    #[test]
+    fn validate_hard_rejects_class_duplicate_even_when_joint() {
+        // Класс не может быть в двух местах даже внутри joint-группы.
+        let slots = vec![
+            slot("7b", "t1", "r1", 0, 2, Some("jl_a")),
+            slot("7b", "t2", "r2", 0, 2, Some("jl_a")),
+        ];
+        assert!(SolverHost::validate_hard(&slots).is_err(), "дубликат класса недопустим");
+    }
+
+    #[test]
+    fn validate_hard_allows_subgroups_in_same_slot() {
+        let mut a = slot("7b", "t1", "r1", 0, 2, None);
+        let mut b = slot("7b", "t2", "r2", 0, 2, None);
+        a["subgroup_label"] = serde_json::json!("1гр");
+        b["subgroup_label"] = serde_json::json!("2гр");
+        SolverHost::validate_hard(&[a, b]).expect("подгруппы идут параллельно");
+    }
 
     #[tokio::test]
     async fn solver_host_micro_optimal() {
