@@ -4,6 +4,7 @@ import { SUBJECT_NAMES } from "../../../panels/SubjectNames";
 import { useTupList } from "../useTupList";
 import { TupDocumentCard } from "./TupDocumentCard";
 import { directionLabel, languageLabel, entityTypeLabel } from "../labels";
+import { TupImportPanel } from "./TupImportPanel";
 
 export function TupList({ onSelect }: { onSelect: (id: string) => void }) {
   const hook = useTupList(onSelect);
@@ -13,7 +14,7 @@ export function TupList({ onSelect }: { onSelect: (id: string) => void }) {
     selectedGrades, setSelectedGrades, selectedDirection, setSelectedDirection,
     selectedLanguage, setSelectedLanguage, sortField, setSortField,
     sortDir, setSortDir, subjects, directions, languages, gradeSet,
-    filteredAndSorted, stats
+    filteredAndSorted, stats, reload
   } = hook;
 
   if (loading) return <div className="empty">Загрузка документов ТУП...</div>;
@@ -30,6 +31,8 @@ export function TupList({ onSelect }: { onSelect: (id: string) => void }) {
       <Panel title="Нормативный базис — ТУП" subtitle="Типовые учебные программы: документы и цели обучения">
         <div className="panel-body">
           {error && <div className="flash-error" style={{ marginBottom: 12 }}>{error}</div>}
+
+          <TupImportPanel onImported={reload} />
 
           <div className="search-row" style={{ marginBottom: 12 }}>
             <input

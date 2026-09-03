@@ -151,6 +151,8 @@ export function useTupList(onSelect: (id: string) => void) {
     selectedGrades, setSelectedGrades, selectedDirection, setSelectedDirection,
     selectedLanguage, setSelectedLanguage, sortField, setSortField,
     sortDir, setSortDir, subjects, directions, languages, gradeSet,
-    filteredAndSorted, stats, onSelect
+    filteredAndSorted, stats, onSelect,
+    /// Перечитать список документов — нужен после импорта ТУП.
+    reload: loadDocuments,
   };
 }
