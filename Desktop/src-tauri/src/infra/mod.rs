@@ -3,6 +3,7 @@
 //! - `opencode` — контроль дочернего процесса OpenCode CLI через stdio — Фаза 8
 
 pub mod ktp_service;
+pub mod resource_paths;
 pub mod schedule_export;
 pub mod solver_host;
 pub mod tup_parser;

@@ -324,7 +324,7 @@ pub struct GenerateInput {
 }
 
 #[tauri::command]
-pub async fn schedule_generate(state: State<'_, AppState>, input: Option<GenerateInput>) -> Result<serde_json::Value, String> {
+pub async fn schedule_generate<R: tauri::Runtime>(app: tauri::AppHandle<R>, state: State<'_, AppState>, input: Option<GenerateInput>) -> Result<serde_json::Value, String> {
     let pool = &state.pool;
     // собрать входной JSON из БД
     let teachers_db = teachers::list_teachers(pool).await.map_err(|e| e.to_string())?;
@@ -536,7 +536,7 @@ pub async fn schedule_generate(state: State<'_, AppState>, input: Option<Generat
     });
 
     // вызвать солвер
-    let solver_script = std::path::PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../../solver/__main__.py");
+    let solver_script = crate::infra::resource_paths::solver_script(&app).map_err(|e| e.to_string())?;
     let python_bin = crate::infra::solver_host::SolverHost::default_python();
     let host = crate::infra::solver_host::SolverHost::new(python_bin, solver_script);
     let output = host.run(input_json).await.map_err(|e| e.to_string())?;
@@ -657,12 +657,12 @@ fn base64_encode(data: &[u8]) -> String {
 }
 
 #[tauri::command]
-pub async fn schedule_import_legacy(state: State<'_, AppState>, quarter: Option<i64>) -> Result<serde_json::Value, String> {
+pub async fn schedule_import_legacy<R: tauri::Runtime>(app: tauri::AppHandle<R>, state: State<'_, AppState>, quarter: Option<i64>) -> Result<serde_json::Value, String> {
     let q = quarter.unwrap_or(4);
     if !(1..=4).contains(&q) {
         return Err("quarter must be 1..4".to_string());
     }
-    let base = std::path::PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../../data/synthetic");
+    let base = crate::infra::resource_paths::seed_data_dir(&app).map_err(|e| e.to_string())?;
     let catalog_path = base.join("catalog.json");
     let curriculum_path = base.join(format!("curriculum_q{}.json", q));
     let catalog_str = std::fs::read_to_string(&catalog_path).map_err(|e| format!("read catalog.json: {}", e))?;
@@ -1035,11 +1035,11 @@ pub async fn schedule_import_legacy(state: State<'_, AppState>, quarter: Option<
 }
 
 #[tauri::command]
-pub async fn schedule_get_legacy(state: State<'_, AppState>, quarter: i64) -> Result<Vec<crate::domain::schedule::model::ScheduleSlot>, String> {
+pub async fn schedule_get_legacy<R: tauri::Runtime>(app: tauri::AppHandle<R>, state: State<'_, AppState>, quarter: i64) -> Result<Vec<crate::domain::schedule::model::ScheduleSlot>, String> {
     if !(1..=4).contains(&quarter) {
         return Err("quarter must be 1..4".to_string());
     }
-    let base = std::path::PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../../data/synthetic");
+    let base = crate::infra::resource_paths::seed_data_dir(&app).map_err(|e| e.to_string())?;
     let path = base.join(format!("schedule_legacy_q{}.json", quarter));
     let s = std::fs::read_to_string(&path).map_err(|e| format!("read legacy_q{}.json: {}", quarter, e))?;
     let arr: Vec<serde_json::Value> = serde_json::from_str(&s).map_err(|e| e.to_string())?;

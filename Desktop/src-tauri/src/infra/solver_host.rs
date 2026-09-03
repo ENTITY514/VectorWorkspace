@@ -43,36 +43,82 @@ impl SolverHost {
         Self { python_bin, solver_script }
     }
 
-    /// Пытается найти python с ortools: сперва полный путь Python312, затем `python`, затем `python3`.
-    pub fn default_python() -> String {
-        let mut candidates = vec![
-            r"C:\Users\imanb\AppData\Local\Python\pythoncore-3.13-64\python.exe".to_string(),
-        ];
+    /// Список кандидатов на интерпретатор, в порядке приоритета.
+    ///
+    /// Личные пути разработчика убраны: они делали сборку неработоспособной
+    /// на любой чужой машине. Приоритет отдан явной настройке пользователя.
+    fn python_candidates() -> Vec<String> {
+        let mut candidates = Vec::new();
 
-        if let Ok(user_profile) = std::env::var("USERPROFILE") {
-            candidates.push(format!(r"{}\AppData\Local\Python\pythoncore-3.13-64\python.exe", user_profile));
-            candidates.push(format!(r"{}\AppData\Local\Programs\Python\Python312\python.exe", user_profile));
-            candidates.push(format!(r"{}\AppData\Local\Programs\Python\Python313\python.exe", user_profile));
-        }
-
-        candidates.extend([
-            r"C:\Users\Sulpak\AppData\Local\Programs\Python\Python312\python.exe".to_string(),
-            r"C:\Program Files\Python312\python.exe".to_string(),
-            r"C:\Program Files\Python313\python.exe".to_string(),
-            "python".to_string(),
-            "python3".to_string(),
-        ]);
-
-        for c in candidates {
-            if c.contains(':') {
-                if std::path::Path::new(&c).exists() {
-                    return c;
-                }
-            } else {
-                return c;
+        // 1. Явное указание пользователя — всегда важнее любых догадок.
+        if let Ok(explicit) = std::env::var("VECTOR_PYTHON") {
+            if !explicit.trim().is_empty() {
+                candidates.push(explicit);
             }
         }
-        "python".to_string()
+
+        // 2. Типовые установки в профиле текущего пользователя.
+        if let Ok(profile) = std::env::var("USERPROFILE") {
+            for suffix in [
+                r"AppData\Local\Python\pythoncore-3.13-64\python.exe",
+                r"AppData\Local\Programs\Python\Python313\python.exe",
+                r"AppData\Local\Programs\Python\Python312\python.exe",
+                r"AppData\Local\Programs\Python\Python311\python.exe",
+            ] {
+                candidates.push(format!(r"{profile}\{suffix}"));
+            }
+        }
+
+        // 3. Общесистемные установки.
+        candidates.extend([
+            r"C:\Program Files\Python313\python.exe".to_string(),
+            r"C:\Program Files\Python312\python.exe".to_string(),
+            r"C:\Program Files\Python311\python.exe".to_string(),
+        ]);
+
+        // 4. PATH — последняя надежда.
+        candidates.extend(["python3".to_string(), "python".to_string()]);
+        candidates
+    }
+
+    /// Проверяет, что интерпретатор существует И умеет импортировать ortools.
+    ///
+    /// Проверка по факту запуска, а не по существованию файла: python без
+    /// ortools бесполезен, а прежний код возвращал первый же `python` из PATH
+    /// вообще без проверок — ветка без `:` в пути выходила из цикла сразу.
+    fn probe_python(bin: &str) -> bool {
+        std::process::Command::new(bin)
+            .args(["-c", "import ortools.sat.python.cp_model"])
+            .stdin(std::process::Stdio::null())
+            .stdout(std::process::Stdio::null())
+            .stderr(std::process::Stdio::null())
+            .status()
+            .map(|s| s.success())
+            .unwrap_or(false)
+    }
+
+    /// Находит рабочий интерпретатор Python с установленным ortools.
+    ///
+    /// Результат кэшируется: проба запускает процесс, а генерация может
+    /// вызываться часто.
+    pub fn default_python() -> String {
+        use std::sync::OnceLock;
+        static CACHED: OnceLock<String> = OnceLock::new();
+        CACHED
+            .get_or_init(|| {
+                Self::python_candidates()
+                    .into_iter()
+                    .find(|c| Self::probe_python(c))
+                    // Ничего не найдено: возвращаем «python», чтобы ошибка
+                    // пришла от запуска с внятным stderr, а не от пустой строки.
+                    .unwrap_or_else(|| "python".to_string())
+            })
+            .clone()
+    }
+
+    /// Есть ли на машине пригодный интерпретатор. Для экрана диагностики.
+    pub fn python_is_available() -> bool {
+        Self::probe_python(&Self::default_python())
     }
 
     /// Запускает Python-процесс, передаёт JSON на stdin, читает stdout JSON.
@@ -84,6 +130,10 @@ impl SolverHost {
             .stdin(std::process::Stdio::piped())
             .stdout(std::process::Stdio::piped())
             .stderr(std::process::Stdio::piped())
+            // Без этого при таймауте дочерний процесс продолжал жить: CP-SAT
+            // с num_workers=8 занимал все ядра, а повторные запуски генерации
+            // накапливали процессы до перезагрузки машины.
+            .kill_on_drop(true)
             .spawn()
             .map_err(|e| SolverError::Io(e.to_string()))?;
 
@@ -97,10 +147,14 @@ impl SolverHost {
         let time_limit = input_json.get("meta").and_then(|m| m.get("time_limit_sec")).and_then(|v| v.as_u64()).unwrap_or(60);
         let timeout = Duration::from_secs(time_limit + 10);
 
-        let output = tokio::time::timeout(timeout, child.wait_with_output())
-            .await
-            .map_err(|_| SolverError::Timeout)?
-            .map_err(|e| SolverError::Io(e.to_string()))?;
+        let output = match tokio::time::timeout(timeout, child.wait_with_output()).await {
+            Ok(res) => res.map_err(|e| SolverError::Io(e.to_string()))?,
+            Err(_) => {
+                // `child` уже поглощён wait_with_output; процесс снимет
+                // kill_on_drop при развёртывании стека.
+                return Err(SolverError::Timeout);
+            }
+        };
 
         let stdout = String::from_utf8_lossy(&output.stdout).to_string();
         let stderr = String::from_utf8_lossy(&output.stderr).to_string();
