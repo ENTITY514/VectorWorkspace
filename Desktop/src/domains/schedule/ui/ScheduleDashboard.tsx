@@ -1,8 +1,8 @@
-import { useMemo } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line, PieChart, Pie, Cell, type PieLabelRenderProps } from "recharts";
 import { scheduleApi } from "../api";
 import { saveBinaryFile, saveTextFile } from "../../../lib/saver";
-import type { ScheduleState, ScheduleGenerateResult } from "../../../types";
+import type { ScheduleState, ScheduleGenerateResult, ScheduleAnalytics } from "../../../types";
 import { STATUS_LABELS } from "../../../types";
 import { showToast } from "../../../components/Toast";
 
@@ -27,31 +27,20 @@ export function ScheduleDashboard({ state, onGenerate, onRefresh, lastResult }: 
   ];
   const ready = readiness.every(r => r.ok);
 
-  const analytics = useMemo(() => {
-    if (slots.length === 0) return null;
-    const windowsByTeacher = new Map<string, number>();
-    for (const teacher of state.teachers) {
-      const teacherSlots = slots.filter(s => s.teacher_id === teacher.id);
-      for (const day of [0, 1, 2, 3, 4, 5]) {
-        const daySlots = teacherSlots.filter(s => s.day === day).map(s => s.period).sort((a, b) => a - b);
-        if (daySlots.length > 1) {
-          const windows = daySlots[daySlots.length - 1] - daySlots[0] + 1 - daySlots.length;
-          if (windows > 0) windowsByTeacher.set(teacher.id, (windowsByTeacher.get(teacher.id) || 0) + windows);
-        }
-      }
-    }
-    const totalWindows = Array.from(windowsByTeacher.values()).reduce((a, b) => a + b, 0);
-    const maxClassLoad = Math.max(...state.classes.map(c => {
-      const classSlots = slots.filter(s => s.class_id === `${c.grade}${c.letter}`);
-      return Math.max(...[0, 1, 2, 3, 4, 5].map(d => classSlots.filter(s => s.day === d).length));
-    }));
-    const maxTeacherLoad = Math.max(...state.teachers.map(t => {
-      const teacherSlots = slots.filter(s => s.teacher_id === t.id);
-      return Math.max(...[0, 1, 2, 3, 4, 5].map(d => teacherSlots.filter(s => s.day === d).length));
-    }));
-    const doubleLessons = slots.filter(s => s.is_double).length;
-    return { totalWindows, maxClassLoad, maxTeacherLoad, doubleLessons };
-  }, [slots, state.teachers, state.classes]);
+  // Метрики считает ядро (schedule_analytics). Раньше здесь был свой расчёт
+  // с захардкоженной шестидневкой, а идентификатор класса собирался как
+  // `${grade}${letter}` — в базе они вида «7б_luo», поэтому фильтр не
+  // находил ничего и максимальная нагрузка класса всегда выходила нулевой.
+  const [analytics, setAnalytics] = useState<ScheduleAnalytics | null>(null);
+  useEffect(() => {
+    let cancelled = false;
+    if (slots.length === 0) { setAnalytics(null); return; }
+    scheduleApi
+      .analytics()
+      .then((a) => { if (!cancelled) setAnalytics(a); })
+      .catch(() => { if (!cancelled) setAnalytics(null); });
+    return () => { cancelled = true; };
+  }, [slots.length]);
 
   const handleExport = async (format: string) => {
     try {
@@ -121,14 +110,31 @@ export function ScheduleDashboard({ state, onGenerate, onRefresh, lastResult }: 
 
       {analytics && (
         <div className="card">
-          <h3>Аналитика расписания</h3>
-          <div className="analytics-summary">
-            <div className="stat-card"><div className="stat-label">Всего слотов</div><div className="stat-value">{slots.length}</div></div>
-            <div className="stat-card"><div className="stat-label">Окон у учителей</div><div className="stat-value">{analytics.totalWindows}</div></div>
-            <div className="stat-card"><div className="stat-label">Макс. уроков/день (класс)</div><div className="stat-value">{analytics.maxClassLoad}</div></div>
-            <div className="stat-card"><div className="stat-label">Макс. уроков/день (учитель)</div><div className="stat-value">{analytics.maxTeacherLoad}</div></div>
-            <div className="stat-card"><div className="stat-label">Двойных уроков</div><div className="stat-value">{analytics.doubleLessons}</div></div>
+          <h3>Качество расписания</h3>
+          <div className="stat-row">
+            <div className="stat"><div className="stat-value">{analytics.total_lessons}</div><div className="stat-label">Уроков</div></div>
+            <div className={analytics.student_windows === 0 ? "stat stat-good" : "stat stat-bad"}>
+              <div className="stat-value">{analytics.student_windows}</div>
+              <div className="stat-label">Окна у учеников</div>
+            </div>
+            <div className={analytics.teacher_windows === 0 ? "stat stat-good" : "stat"}>
+              <div className="stat-value">{analytics.teacher_windows}</div>
+              <div className="stat-label">Окна у учителей</div>
+            </div>
+            <div className={analytics.conflicts.length === 0 ? "stat stat-good" : "stat stat-bad"}>
+              <div className="stat-value">{analytics.conflicts.length}</div>
+              <div className="stat-label">Накладки</div>
+            </div>
+            <div className={analytics.sanpin_hard_at_late_periods === 0 ? "stat stat-good" : "stat stat-warn"}>
+              <div className="stat-value">{analytics.sanpin_hard_at_late_periods}</div>
+              <div className="stat-label">Трудные поздно</div>
+            </div>
+            <div className={analytics.coverage_issues.length === 0 ? "stat stat-good" : "stat stat-warn"}>
+              <div className="stat-value">{analytics.coverage_issues.length}</div>
+              <div className="stat-label">Расхождений с планом</div>
+            </div>
           </div>
+          <p className="muted">Подробная разбивка — на странице «Аналитика».</p>
         </div>
       )}
 
@@ -152,7 +158,8 @@ function ScheduleCharts({ state }: { state: ScheduleState }) {
     for (const teacher of teachers) {
       const teacherSlots = slots.filter(s => s.teacher_id === teacher.id);
       let totalWindows = 0;
-      for (const day of [0, 1, 2, 3, 4, 5]) {
+      const dayCount = slots.reduce((m, s) => Math.max(m, s.day), 0) + 1;
+      for (let day = 0; day < dayCount; day++) {
         const daySlots = teacherSlots.filter(s => s.day === day).map(s => s.period).sort((a, b) => a - b);
         if (daySlots.length > 1) {
           const windows = daySlots[daySlots.length - 1] - daySlots[0] + 1 - daySlots.length;
@@ -168,13 +175,25 @@ function ScheduleCharts({ state }: { state: ScheduleState }) {
   }, [slots, teachers]);
 
   const loadByDay = useMemo(() => {
-    const days = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб"];
-    return days.map((day, i) => ({ день: day, слоты: slots.filter(s => s.day === i).length }));
+    const names = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"];
+    // Число дней берётся из самих данных: сетка настраивается, и литерал
+    // «шесть дней» рисовал пустую субботу на пятидневке.
+    const maxDay = slots.reduce((m, s) => Math.max(m, s.day), 0);
+    return names.slice(0, maxDay + 1).map((day, i) => ({
+      день: day,
+      слоты: slots.filter((s) => s.day === i).length,
+    }));
   }, [slots]);
 
-  const loadByPeriod = useMemo(() =>
-    Array.from({ length: 7 }, (_, i) => ({ урок: `${i + 1}`, слоты: slots.filter(s => s.period === i).length })),
-  [slots]);
+  const loadByPeriod = useMemo(() => {
+    // Число уроков — из данных: сетка настраивается, литерал «семь» рисовал
+    // лишние пустые столбцы или обрезал восьмой урок.
+    const maxPeriod = slots.reduce((m, s) => Math.max(m, s.period), 0);
+    return Array.from({ length: maxPeriod + 1 }, (_, i) => ({
+      урок: `${i + 1}`,
+      слоты: slots.filter((s) => s.period === i).length,
+    }));
+  }, [slots]);
 
   const subjectData = useMemo(() => {
     const map = new Map<string, number>();
@@ -183,8 +202,9 @@ function ScheduleCharts({ state }: { state: ScheduleState }) {
   }, [slots]);
 
   const sanpinData = useMemo(() => {
-    const days = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб"];
-    return days.map((day, i) => {
+    const names = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"];
+    const maxDay = slots.reduce((m, s) => Math.max(m, s.day), 0);
+    return names.slice(0, maxDay + 1).map((day, i) => {
       const daySlots = slots.filter(s => s.day === i);
       const avgWeight = daySlots.length > 0
         ? daySlots.reduce((sum, s) => sum + (state.subjects.find(sub => sub.id === s.subject_id)?.sanitary_weight || 5), 0) / daySlots.length
