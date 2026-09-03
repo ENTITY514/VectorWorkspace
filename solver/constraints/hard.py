@@ -43,11 +43,11 @@ def add_hard_constraints(model, x, y, m, instances, room_by_id, subject_by_id):
                 if y0 in y and yi in y:
                     model.Add(y[yi] == y[y0])
 
+    # Представитель joint-группы: только он занимает учителя и кабинет,
+    # остальные классы группы сидят на том же уроке.
     joint_rep_keys: set[tuple[str, int, int]] = set()
     for (jid, h_idx), grp in joint_groups.items():
         joint_rep_keys.add((jid, h_idx, grp[0]["idx"]))
-
-
 
     # H2: учитель ≤1 в слот
     # группируем по (teacher, day, period)
@@ -74,7 +74,7 @@ def add_hard_constraints(model, x, y, m, instances, room_by_id, subject_by_id):
     # Реализация: группируем split-инстансы по split_key в один occupancy-переменный, затем AtMostOne.
     # Упрощение: для каждого (cid,d,p) собираем representatives:
     #  - каждый non-split instance отдельно
-    #  - каждая split-группа как один представитель (첫 instance группы)
+    #  - каждая split-группа как один представитель (первый instance группы)
     # Затем AtMostOne по representatives.
     # Для этого создаём для каждой split-группы вспомогательную occupancy переменную class_occ[group] в каждом T,
     # но проще: т.к. H6 уже требует x[g0]==x[g1], достаточно взять только первый instance группы как representative — второй не добавится.

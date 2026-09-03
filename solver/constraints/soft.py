@@ -28,10 +28,6 @@ def add_soft_constraints(model, x, y, m, instances, room_by_id=None):
     # S1: Окна учителей
     if m.weights.window > 0:
         window_vars = []
-        for (tid, d, p), vars_ in busy_map.items():
-            # will create gaps in separate loop per teacher/day
-            pass
-        # per teacher, per day compute windows
         for t in m.teachers:
             tid = t.id
             for d in range(m.time_grid.days):
@@ -254,10 +250,6 @@ def add_soft_constraints(model, x, y, m, instances, room_by_id=None):
         # даже если вес 0, не создаём, но engine ожидает ключ? Engine проверяет penalties dict наличие, если вес 0 мы не должны иметь ключ
         # Но мы уже выше не добавляли для weight 0, так что здесь не создаём
         pass
-
-    if m.weights.movement > 0 and "movement" not in penalties:
-        penalties["movement"] = model.NewIntVar(0, 0, "penalty_move_zero2")
-        model.Add(penalties["movement"] == 0)
 
     # S6: Баланс нагрузки (дисперсия)
     if m.weights.load_balance > 0:

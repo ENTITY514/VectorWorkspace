@@ -263,7 +263,7 @@ def build_infeasible_core(m):
     for cid, hours in hours_by_class.items():
         if hours > total_slots:
             reasons.append(
-                f"Класс {cid}: {hours} ч/нед, но.max {total_slots} слотов ({m.time_grid.days} × {m.time_grid.periods_per_day})"
+                f"Класс {cid}: {hours} ч/нед, но max {total_slots} слотов ({m.time_grid.days} × {m.time_grid.periods_per_day})"
             )
             entities.append(cid)
 

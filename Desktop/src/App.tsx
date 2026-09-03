@@ -14,11 +14,18 @@ import { Students } from "./panels/Students";
 import { Settings } from "./panels/Settings";
 import { Onboarding } from "./panels/Onboarding";
 import { api } from "./services/api";
-import { DesignSandbox } from "./DesignSandbox";
+import { lazy, Suspense } from "react";
 import { MainLayout } from "./shared/ui/layout/MainLayout";
 import { Titlebar } from "./shared/ui/layout/Titlebar";
 import { SchedulePage } from "./domains/schedule/SchedulePage";
 import { ToastContainer } from "./components/Toast";
+
+// Песочница дизайн-системы — инструмент разработчика, а не часть продукта.
+// Ленивый импорт держит её вне основного бандла; в production-сборке
+// маршрут недоступен вовсе.
+const DesignSandbox = lazy(() =>
+  import("./DesignSandbox").then((m) => ({ default: m.DesignSandbox })),
+);
 
 function App() {
   const [view, setView] = useState<View>("today");
@@ -77,7 +84,11 @@ function App() {
         {view === "students" && <Students />}
         {view === "settings" && <Settings />}
         {view === "schedule" && <SchedulePage />}
-        {view === "ds" && <DesignSandbox />}
+        {view === "ds" && import.meta.env.DEV && (
+          <Suspense fallback={<div className="panel">Загрузка песочницы...</div>}>
+            <DesignSandbox />
+          </Suspense>
+        )}
       </MainLayout>
     </div>
   );

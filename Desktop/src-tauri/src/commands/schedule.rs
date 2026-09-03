@@ -431,7 +431,9 @@ pub async fn schedule_export(state: State<'_, AppState>, format: Option<String>)
             &export_rooms,
             &export_slots,
         );
-        return Ok(format!("data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,{}", base64_encode(&bytes)));
+        use base64::Engine as _;
+        let encoded = base64::engine::general_purpose::STANDARD.encode(&bytes);
+        return Ok(format!("data:application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;base64,{encoded}"));
     }
     let mut out = String::from("class_id,subject_id,teacher_id,room_id,subgroup_label,day,period\n");
     for s in &slots {
@@ -439,22 +441,6 @@ pub async fn schedule_export(state: State<'_, AppState>, format: Option<String>)
         out.push_str(&format!("{},{},{},{},{},{},{}\n", s.class_id, s.subject_id, s.teacher_id, s.room_id, label, s.day, s.period));
     }
     Ok(out)
-}
-
-fn base64_encode(data: &[u8]) -> String {
-    const TABLE: &[u8] = b"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
-    let mut out = String::with_capacity((data.len() + 2) / 3 * 4);
-    for chunk in data.chunks(3) {
-        let b0 = chunk[0] as u32;
-        let b1 = chunk.get(1).copied().unwrap_or(0) as u32;
-        let b2 = chunk.get(2).copied().unwrap_or(0) as u32;
-        let n = (b0 << 16) | (b1 << 8) | b2;
-        out.push(TABLE[(n >> 18) as usize & 63] as char);
-        out.push(TABLE[(n >> 12) as usize & 63] as char);
-        out.push(if chunk.len() > 1 { TABLE[(n >> 6) as usize & 63] as char } else { '=' });
-        out.push(if chunk.len() > 2 { TABLE[n as usize & 63] as char } else { '=' });
-    }
-    out
 }
 
 #[tauri::command]
