@@ -90,6 +90,7 @@ pub fn register<R: tauri::Runtime>(
             schedule::schedule_import_excel,
             schedule::schedule_find_conflicts,
             schedule::schedule_get_settings,
-            schedule::schedule_set_settings
+            schedule::schedule_set_settings,
+            schedule::schedule_analytics
         ])
 }

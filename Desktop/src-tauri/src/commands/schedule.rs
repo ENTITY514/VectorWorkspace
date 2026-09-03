@@ -1180,3 +1180,18 @@ pub async fn schedule_set_settings(
         .await
         .map_err(|e| e.to_string())
 }
+
+/// Полная аналитика расписания: окна, СанПиН, нагрузка, кабинеты, покрытие.
+#[tauri::command]
+pub async fn schedule_analytics(
+    state: State<'_, AppState>,
+    variant_id: Option<String>,
+) -> Result<crate::domain::schedule::analytics::ScheduleAnalytics, String> {
+    let vid = match variant_id {
+        Some(v) => v,
+        None => slots::get_active_variant_id(&state.pool).await.map_err(|e| e.to_string())?,
+    };
+    crate::domain::schedule::analytics::compute(&state.pool, &vid)
+        .await
+        .map_err(|e| e.to_string())
+}

@@ -617,3 +617,60 @@ export const WEIGHT_TOOLTIPS: Partial<Record<keyof ScheduleWeights, string>> = {
   load_balance: "Балансировка нагрузки между классами по дням",
   change_slot: "Минимальные изменения по сравнению с предыдущей четвертью (warm-start)",
 };
+
+
+// ---- Аналитика расписания ----
+
+export interface TeacherLoad {
+  teacher_id: string;
+  full_name: string;
+  lessons: number;
+  planned_hours: number;
+  windows: number;
+  working_days: number;
+  max_lessons_per_day: number;
+  base_room_id: string | null;
+}
+
+export interface ClassLoad {
+  class_id: string;
+  class_type: string;
+  windows: number;
+  lessons: number;
+  per_day: number[];
+  difficulty_per_day: number[];
+  hard_outside_peak: number;
+  hard_at_late_periods: number;
+}
+
+export interface RoomUsage {
+  room_id: string;
+  name: string;
+  room_type: string;
+  lessons: number;
+  utilization: number;
+}
+
+export interface CoverageIssue {
+  class_id: string;
+  subject_id: string;
+  planned: number;
+  scheduled: number;
+}
+
+export interface ScheduleAnalytics {
+  variant_id: string;
+  grid: ScheduleSettings;
+  total_lessons: number;
+  lessons_without_room: number;
+  student_windows: number;
+  teacher_windows: number;
+  teachers: TeacherLoad[];
+  classes: ClassLoad[];
+  rooms: RoomUsage[];
+  heatmap: number[][];
+  sanpin_hard_outside_peak: number;
+  sanpin_hard_at_late_periods: number;
+  coverage_issues: CoverageIssue[];
+  conflicts: SlotConflict[];
+}

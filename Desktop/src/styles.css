@@ -3539,3 +3539,14 @@ table.data .row-quarter:hover td {
 .meter.warn > span { background: var(--status-warning-text); }
 .meter.bad > span  { background: var(--status-error-text); }
 .meter.good > span { background: var(--status-success-text); }
+
+/* Подсветка проблемных ячеек в таблицах аналитики. */
+.cell-bad {
+  color: var(--status-error-text);
+  font-weight: 600;
+}
+
+.cell-warn {
+  color: var(--status-warning-text);
+  font-weight: 600;
+}

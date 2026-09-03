@@ -4,6 +4,7 @@ import type {
   ImportSummary,
   ScheduleSettings,
   SlotConflict,
+  ScheduleAnalytics,
   ScheduleState,
   ScheduleTeacher,
   ScheduleRoom,
@@ -118,6 +119,11 @@ export const scheduleApi = {
   },
   setSettings(input: { days: number; periods_per_day: number; shift_boundary_period: number | null }): Promise<ScheduleSettings> {
     return call<ScheduleSettings>("schedule_set_settings", { input });
+  },
+
+  /** Полная аналитика: окна, СанПиН, нагрузка, кабинеты, покрытие плана. */
+  analytics(variant_id?: string): Promise<ScheduleAnalytics> {
+    return call<ScheduleAnalytics>("schedule_analytics", { variantId: variant_id ?? null });
   },
 
   /** Накладки в сохранённом расписании варианта. */
