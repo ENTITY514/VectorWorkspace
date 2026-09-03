@@ -5,11 +5,11 @@ from collections import defaultdict
 from ortools.sat.python import cp_model
 
 try:
-    from solver.schema import InputModel
+    from solver.schema import InputModel, SCHEMA_VERSION
     from solver.constraints.hard import add_hard_constraints
     from solver.constraints.soft import add_soft_constraints
 except ImportError:
-    from schema import InputModel
+    from schema import InputModel, SCHEMA_VERSION
     from constraints.hard import add_hard_constraints
     from constraints.soft import add_soft_constraints
 
@@ -247,7 +247,7 @@ def solve(input_model: InputModel) -> dict:
     # Если нет instance — сразу FEASIBLE пустой
     if not instances:
         return {
-            "schema_version": 2,
+            "schema_version": SCHEMA_VERSION,
             "status": "OPTIMAL",
             "solver_stats": {"wall_ms": 0, "branches": 0, "conflicts": 0, "gap_percent": 0.0, "objective_value": 0},
             "penalties": {"window": 0, "room_displacement": 0, "sanpin_parabola": 0, "alternation": 0, "movement": 0, "load_balance": 0, "change_slot": 0, "total": 0},
@@ -282,7 +282,7 @@ def solve(input_model: InputModel) -> dict:
                 )
                 core["conflicting_entities"] = [inst["teacher_id"], inst["class_id"]]
             return {
-                "schema_version": 2,
+                "schema_version": SCHEMA_VERSION,
                 "status": "INFEASIBLE",
                 "solver_stats": {"wall_ms": int((time.time()-start)*1000), "branches": 0, "conflicts": 0, "gap_percent": 0.0, "objective_value": 0},
                 "penalties": {"window": 0, "room_displacement": 0, "sanpin_parabola": 0, "alternation": 0, "movement": 0, "load_balance": 0, "change_slot": 0, "total": 0},
@@ -395,7 +395,7 @@ def solve(input_model: InputModel) -> dict:
                 pen_vals[name] = v
         pen_vals["total"] = total
         return {
-            "schema_version": 1,
+            "schema_version": SCHEMA_VERSION,
             "status": out_status,
             "solver_stats": {
                 "wall_ms": wall_ms,
@@ -412,7 +412,7 @@ def solve(input_model: InputModel) -> dict:
         core = build_infeasible_core(input_model)
         # если статус INFEASIBLE но эвристика не нашла причину — оставляем generic
         return {
-            "schema_version": 2,
+            "schema_version": SCHEMA_VERSION,
             "status": "INFEASIBLE",
             "solver_stats": {"wall_ms": wall_ms, "branches": int(solver.NumBranches()), "conflicts": int(solver.NumConflicts()), "gap_percent": 0.0, "objective_value": 0},
             "penalties": {"window": 0, "room_displacement": 0, "sanpin_parabola": 0, "alternation": 0, "movement": 0, "load_balance": 0, "change_slot": 0, "total": 0},

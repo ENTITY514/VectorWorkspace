@@ -1,6 +1,13 @@
 """Pydantic v2 JSON contract schema_version=2 (Rust <-> Python)."""
 from __future__ import annotations
 
+#: Единственный источник истины по версии контракта Rust <-> Python.
+#: Меняется ТОЛЬКО вместе с contracts/ и проверкой на стороне Rust.
+SCHEMA_VERSION = 2
+
+#: Версии входа, которые солвер ещё умеет принимать.
+SUPPORTED_INPUT_VERSIONS = (1, 2)
+
 from typing import Literal, Optional
 
 from pydantic import BaseModel, Field, field_validator, model_validator
@@ -137,6 +144,7 @@ class Penalties(BaseModel):
     alternation: int = 0
     movement: int = 0
     load_balance: int = 0
+    change_slot: int = 0
     total: int = 0
 
 
