@@ -10,20 +10,36 @@
 
 | Путь | Содержимое |
 |------|------------|
-| `KTPHUB/` | Веб-приложение календарно-тематического планирования |
-| `supabase/` | Общие SQL-миграции платформы |
+| `Desktop/` | Десктоп-приложение (Tauri v2 + React + Rust) |
+| `Desktop/src-tauri/` | Rust-ядро: команды, домен, репозитории, миграции SQLite |
+| `solver/` | Математическое ядро расписания (Python + OR-Tools CP-SAT) |
+| `scripts/` | Вспомогательные скрипты (сокращаются в пользу продукта) |
 | `docs/` | Документация |
-| `Materials/` | Учебные материалы (ТУП/КТП и др.) |
+| `Materials/` | Учебные материалы и спецификации рефакторинга |
 | `.env.example` | Шаблон переменных окружения (корень) |
 
 ## Быстрый старт
 
 ```bash
-cp .env.example .env.local   # заполнить ключи Supabase
-# применить supabase/migrations при необходимости
-cd KTPHUB
+# 1. Фронтенд и десктоп-оболочка
+cd Desktop
 npm install
-npm start
+npm run tauri dev
+
+# 2. Математическое ядро (нужен Python 3.13)
+pip install -r solver/requirements.txt
+python -m pytest solver/tests -q
+```
+
+Путь к интерпретатору задаётся переменной `VECTOR_PYTHON`, если
+автоопределение не нашло Python с установленным `ortools`.
+
+## Проверки
+
+```bash
+cd Desktop && npm run build          # типы и сборка фронтенда
+cargo test --manifest-path Desktop/src-tauri/Cargo.toml
+python -m pytest solver/tests -q
 ```
 
 Секреты хранятся **только** в корневом `.env.local`, не внутри приложений.
