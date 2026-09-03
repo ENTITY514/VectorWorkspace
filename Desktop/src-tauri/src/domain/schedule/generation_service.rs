@@ -163,12 +163,15 @@ pub async fn build_solver_input(
         .collect();
 
     // Ключ обязан совпадать с prev_key в solver/constraints/soft.py.
+    // Значение — идентификатор кабинета: солвер использует его как подсказку
+    // размещения, что резко сокращает перебор при 58 взаимозаменяемых
+    // кабинетах. Для штрафа change_slot достаточно самого факта наличия ключа.
     let previous_grid: serde_json::Map<String, serde_json::Value> = previous_slots
         .iter()
         .map(|s| {
             (
                 format!("{}|{}|{}|{}|{}", s.class_id, s.subject_id, s.teacher_id, s.day, s.period),
-                serde_json::Value::Bool(true),
+                serde_json::Value::String(s.room_id.clone()),
             )
         })
         .collect();
@@ -330,6 +333,51 @@ pub fn check_joint_sync(slots: &[serde_json::Value]) -> Vec<String> {
     problems
 }
 
+/// Накладка в сохранённом расписании.
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct SlotConflict {
+    pub kind: String,
+    pub entity_id: String,
+    pub day: i64,
+    pub period: i64,
+    pub class_ids: Vec<String>,
+}
+
+/// Ищет накладки в уже сохранённом расписании варианта.
+///
+/// Нужна, потому что БД их не отвергает: миграция 0019 сняла уникальность
+/// ради совмещённых уроков, а вернуть её нельзя — исторические данные её
+/// нарушают. Отчёт делает эти нарушения видимыми вместо молчаливого
+/// накопления.
+pub async fn find_slot_conflicts(
+    pool: &SqlitePool,
+    variant_id: &str,
+) -> Result<Vec<SlotConflict>, DbError> {
+    let mut out = Vec::new();
+    for (kind, column) in [("teacher", "teacher_id"), ("room", "room_id")] {
+        let sql = format!(
+            "SELECT {column} AS eid, day, period, GROUP_CONCAT(class_id) \
+             FROM schedule_slots \
+             WHERE variant_id = ?1 AND joint_lesson_id IS NULL \
+             GROUP BY {column}, day, period HAVING COUNT(*) > 1"
+        );
+        let rows = sqlx::query_as::<_, (String, i64, i64, String)>(&sql)
+            .bind(variant_id)
+            .fetch_all(pool)
+            .await?;
+        for (eid, day, period, classes) in rows {
+            out.push(SlotConflict {
+                kind: kind.to_string(),
+                entity_id: eid,
+                day,
+                period,
+                class_ids: classes.split(',').map(|s| s.trim().to_string()).collect(),
+            });
+        }
+    }
+    Ok(out)
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -359,6 +407,43 @@ mod tests {
         // Второй класс уехал в другой слот — группа рассыпалась.
         let bad = vec![s("c1", 0, 0, Some("j")), s("c2", 1, 3, Some("j"))];
         assert!(!check_joint_sync(&bad).is_empty());
+    }
+
+    #[tokio::test]
+    async fn finds_room_conflicts_but_ignores_joint() {
+        let dir = tempfile::tempdir().unwrap();
+        let pool = crate::db::connect(&dir.path().join("t.db")).await.unwrap();
+        let t1 = teachers::upsert_teacher(
+            &pool, None, "Т1".into(), None, 0, "[]".into(), "[]".into(), false,
+        ).await.unwrap();
+        let t2 = teachers::upsert_teacher(
+            &pool, None, "Т2".into(), None, 0, "[]".into(), "[]".into(), false,
+        ).await.unwrap();
+        let r1 = rooms::upsert_room(&pool, None, "К1".into(), "General".into(), 30, None, None)
+            .await.unwrap();
+        sqlx::query("INSERT INTO schedule_classes (id, grade, letter, headcount, shift) VALUES ('c1',7,'А',20,'First'),('c2',7,'Б',20,'First')")
+            .execute(&pool).await.unwrap();
+        subjects::upsert_subject(&pool, "m".into(), "М".into(), 9, None, false, false, "[]".into())
+            .await.unwrap();
+
+        // Настоящая накладка: один кабинет, два класса, разные учителя, без joint.
+        for (id, class, t) in [("a", "c1", &t1.id), ("b", "c2", &t2.id)] {
+            sqlx::query("INSERT INTO schedule_slots (id, class_id, subject_id, teacher_id, room_id, subgroup_label, day, period, variant_id) VALUES (?1,?2,'m',?3,?4,'',0,0,'default')")
+                .bind(id).bind(class).bind(t).bind(&r1.id)
+                .execute(&pool).await.unwrap();
+        }
+        let conflicts = find_slot_conflicts(&pool, "default").await.unwrap();
+        assert_eq!(conflicts.len(), 1, "ожидалась одна накладка по кабинету: {conflicts:?}");
+        assert_eq!(conflicts[0].kind, "room");
+
+        // Совмещённый урок накладкой не считается.
+        for (id, class) in [("c", "c1"), ("d", "c2")] {
+            sqlx::query("INSERT INTO schedule_slots (id, class_id, subject_id, teacher_id, room_id, subgroup_label, day, period, variant_id, joint_lesson_id) VALUES (?1,?2,'m',?3,?4,'',1,0,'default','jl')")
+                .bind(id).bind(class).bind(&t1.id).bind(&r1.id)
+                .execute(&pool).await.unwrap();
+        }
+        let after = find_slot_conflicts(&pool, "default").await.unwrap();
+        assert_eq!(after.len(), 1, "joint-урок не должен попадать в накладки: {after:?}");
     }
 
     #[tokio::test]

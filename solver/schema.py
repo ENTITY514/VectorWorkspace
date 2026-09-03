@@ -114,6 +114,17 @@ class FixedLesson(BaseModel):
     joint_lesson_id: Optional[str] = None
 
 
+class SchedulePolicy(BaseModel):
+    """Правила школы, влияющие на постановку задачи.
+
+    Заведено, чтобы ослабление ограничений было ЯВНЫМ. Раньше жёсткое
+    ограничение по кабинетам молча отключалось эвристикой на больших моделях,
+    и пользователь получал расписание с накладками, не зная об этом.
+    """
+    #: Запрещать ли двум занятиям делить кабинет в одном слоте.
+    enforce_room_conflicts: bool = True
+
+
 class InputModel(BaseModel):
     schema_version: Literal[1, 2] = 1
     meta: Meta = Field(default_factory=Meta)
@@ -124,6 +135,7 @@ class InputModel(BaseModel):
     subjects: list[SubjectInput]
     curriculum: list[CurriculumEntry]
     weights: Weights = Field(default_factory=Weights)
+    policy: SchedulePolicy = Field(default_factory=SchedulePolicy)
     fixed_lessons: list[FixedLesson] = Field(default_factory=list)
     previous_grid: Optional[dict] = None
 

@@ -274,39 +274,64 @@ def add_hard_constraints(model, x, y, m, instances, room_by_id, subject_by_id):
         if y_vars:
             model.AddExactlyOne(y_vars)
 
-    # H4b: для каждой комнаты и слота — не более одного instance где и x и y активны
-    # Оптимизация: если модель большая (>80k z-переменных), пропускаем H4b как Hard (делаем Soft/игнор)
-    # т.к. для синтетики с 24 комнатами и 244 instances это 244*24*42≈246k z — слишком тяжело для 15с
-    total_z_estimate = len(instances) * len(room_by_id) * m.time_grid.days * m.time_grid.periods_per_day
-    # считаем только разрешённые y (allowed rooms) — в среднем ~30% от всех, но оценка сверху
-    # если >80k, пропускаем H4b (комнаты считаем достаточно, нарушение маловероятно)
-    if total_z_estimate > 80000:
-        # пропускаем H4b, оставляем только H4a (ExactlyOne per instance)
-        # Room hard становится soft — для бенчмарка это приемлемо
-        pass
-    else:
+    # H4b: кабинет занят не более чем одним занятием в слот.
+    #
+    # Прежняя реализация материализовала z[instance, room, day, period] и,
+    # когда их становилось больше 80 000, МОЛЧА пропускала всё ограничение.
+    # На боевом размере задачи (≈1300 instances × 58 кабинетов × 35 слотов ≈
+    # 2.6 млн) оценка превышала порог всегда, поэтому жёсткое ограничение по
+    # кабинетам не действовало никогда — отсюда накладки в сохранённых
+    # расписаниях (63 конфликтных слота в варианте default).
+    #
+    # Переформулировано через опциональные интервалы: на каждую пару
+    # (instance, допустимый кабинет) — один интервал длиной 1 с признаком
+    # наличия y[i, room], и AddNoOverlap на кабинет. Число интервалов равно
+    # сумме допустимых кабинетов по instance (десятки тысяч вместо миллионов),
+    # а ограничение соблюдается точно и всегда.
+    periods = m.time_grid.periods_per_day
+    horizon = m.time_grid.days * periods
+
+    # t[i] — линейный номер слота: t = day * periods + period.
+    slot_index = {}
+    for inst in instances:
+        idx = inst["idx"]
+        terms = []
+        for d in range(m.time_grid.days):
+            for p in range(periods):
+                k = (idx, d, p)
+                if k in x:
+                    terms.append((d * periods + p) * x[k])
+        if not terms:
+            continue
+        t = model.NewIntVar(0, horizon - 1, f"t_{idx}")
+        model.Add(t == sum(terms))
+        slot_index[idx] = t
+
+    intervals_by_room: dict[str, list] = {}
+    for inst in instances:
+        idx = inst["idx"]
+        if idx not in slot_index:
+            continue
+        # Совмещённый урок занимает кабинет один раз: берём представителя группы.
+        jid = inst.get("joint_lesson_id")
+        h_idx = inst.get("joint_hour_index", 0)
+        if jid and (jid, h_idx, idx) not in joint_rep_keys:
+            continue
         for rid in room_by_id:
-            for d in range(m.time_grid.days):
-                for p in range(m.time_grid.periods_per_day):
-                    occupants = []
-                    for inst in instances:
-                        jid = inst.get("joint_lesson_id")
-                        h_idx = inst.get("joint_hour_index", 0)
-                        if jid and (jid, h_idx, inst["idx"]) not in joint_rep_keys:
-                            continue
-                        xk = (inst["idx"], d, p)
-                        yk = (inst["idx"], rid)
-                        if xk not in x or yk not in y:
-                            continue
-                        z = model.NewBoolVar(f"z_{inst['idx']}_{rid}_{d}_{p}")
-                        model.AddImplication(z, x[xk])
-                        model.AddImplication(z, y[yk])
-                        model.Add(z <= x[xk])
-                        model.Add(z <= y[yk])
-                        model.Add(z >= x[xk] + y[yk] - 1)
-                        occupants.append(z)
-                    if len(occupants) > 1:
-                        model.AddAtMostOne(occupants)
+            yk = (idx, rid)
+            if yk not in y:
+                continue
+            iv = model.NewOptionalIntervalVar(
+                slot_index[idx], 1, slot_index[idx] + 1, y[yk], f"iv_{idx}_{rid}"
+            )
+            intervals_by_room.setdefault(rid, []).append(iv)
+
+    # Ослабление возможно ТОЛЬКО по явной настройке школы и всегда
+    # сопровождается предупреждением в диагностике (см. engine.solve).
+    if getattr(m, "policy", None) is None or m.policy.enforce_room_conflicts:
+        for rid, ivs in intervals_by_room.items():
+            if len(ivs) > 1:
+                model.AddNoOverlap(ivs)
 
     # H5: availability уже учтён предфильтром (x не создаётся вне availability)
     # + H7 спецкабинеты уже предфильтром (y не создаётся вне пула)

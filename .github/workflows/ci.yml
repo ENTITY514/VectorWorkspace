@@ -44,6 +44,25 @@ jobs:
         working-directory: Desktop/src-tauri
         run: cargo test
 
+  solver:
+    name: Solver (pytest)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: pip
+      - name: Install solver dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r solver/requirements.txt pytest
+      - name: Unit and contract tests
+        # Математическое ядро — главный носитель ценности продукта, но до
+        # сих пор не проверялось ни одним автоматическим прогоном: job для
+        # pytest в CI отсутствовал, и тесты молча протухали.
+        run: python -m pytest solver/tests -q
+
   db-scripts:
     name: Audit DB-mutating scripts
     runs-on: ubuntu-latest

@@ -1,10 +1,16 @@
 import sys
 import json
 
-# Контракт с Rust — строго UTF-8. Без этого на русской Windows stdout
-# открывается в cp1251, и любой ответ с «×» или казахскими буквами
-# роняет процесс UnicodeEncodeError ещё до того, как Rust его прочитает.
-for _stream in (sys.stdout, sys.stderr):
+# Контракт с Rust — строго UTF-8 во ВСЕХ трёх потоках.
+#
+# На русской Windows потоки открываются в cp1251, и это ломало обе стороны:
+#   * stdin  — Rust шлёт JSON с кириллическими ФИО, Python читал его как
+#              cp1251 и падал с INVALID_INPUT. Генерация из приложения не
+#              могла работать на реальных данных в принципе — только на
+#              латинских тестовых наборах;
+#   * stdout — ответ с «×» (диагностика кабинетов) или казахскими буквами
+#              ронял процесс UnicodeEncodeError до того, как Rust его прочтёт.
+for _stream in (sys.stdin, sys.stdout, sys.stderr):
     try:
         _stream.reconfigure(encoding="utf-8", errors="replace")
     except (AttributeError, ValueError):  # поток подменён или уже закрыт

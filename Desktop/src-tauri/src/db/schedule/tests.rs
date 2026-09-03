@@ -95,14 +95,15 @@ mod schedule_tests {
         // first slot ok (subgroup_label '' = whole class)
         sqlx::query("INSERT INTO schedule_slots (id, class_id, subject_id, teacher_id, room_id, subgroup_label, day, period) VALUES ('s1', 'c1', 'math', ?1, ?2, '', 0, 0)")
             .bind(&t1.id).bind(&r1.id).execute(&pool).await.unwrap();
-        // duplicate teacher same slot -> fail
+        // Накладки учителя и кабинета на уровне БД НЕ отвергаются: после
+        // миграции 0019 уникальность снята ради совмещённых уроков, а вернуть
+        // её частичным индексом нельзя — исторические данные её нарушают
+        // (см. комментарий в миграции 0020). Инвариант держит validate_hard.
         let dup_teacher = sqlx::query("INSERT INTO schedule_slots (id, class_id, subject_id, teacher_id, room_id, subgroup_label, day, period) VALUES ('s2', 'c2', 'math', ?1, ?2, '', 0, 0)")
             .bind(&t1.id).bind(&r2.id).execute(&pool).await;
-        assert!(dup_teacher.is_err(), "teacher singularity should fail: {:?}", dup_teacher);
-        // duplicate room same slot -> fail
-        let dup_room = sqlx::query("INSERT INTO schedule_slots (id, class_id, subject_id, teacher_id, room_id, subgroup_label, day, period) VALUES ('s3', 'c2', 'math', ?1, ?2, '', 0, 0)")
-            .bind(&t2.id).bind(&r1.id).execute(&pool).await;
-        assert!(dup_room.is_err(), "room singularity should fail: {:?}", dup_room);
+        assert!(dup_teacher.is_ok(), "БД накладки не проверяет — это делает validate_hard");
+        sqlx::query("DELETE FROM schedule_slots WHERE id = 's2'").execute(&pool).await.unwrap();
+
         // duplicate class same slot -> fail (same subgroup_label '')
         let dup_class = sqlx::query("INSERT INTO schedule_slots (id, class_id, subject_id, teacher_id, room_id, subgroup_label, day, period) VALUES ('s4', 'c1', 'math', ?1, ?2, '', 0, 0)")
             .bind(&t2.id).bind(&r2.id).execute(&pool).await;
@@ -110,8 +111,13 @@ mod schedule_tests {
     }
 
     /// Совмещённый урок (класс-комплект): один учитель в одном кабинете ведёт
-    /// два класса одновременно. Частичный индекс из миграции 0020 обязан это
-    /// разрешать — и продолжать запрещать накладку вне joint-группы.
+    /// два класса одновременно. Схема обязана это принимать.
+    ///
+    /// Уникальность слотов на уровне БД не восстановлена намеренно:
+    /// исторические расписания содержат накладки по кабинетам (см. миграцию
+    /// 0020), и UNIQUE-индекс не дал бы приложению запуститься. Инвариант
+    /// проверяет SolverHost::validate_hard перед записью — его тесты лежат
+    /// в infra/solver_host.rs.
     #[tokio::test]
     async fn joint_lesson_allows_shared_teacher_and_room() {
         let dir = tempfile::tempdir().unwrap();
@@ -129,13 +135,25 @@ mod schedule_tests {
             .bind(&t1.id).bind(&r1.id).execute(&pool).await;
         assert!(joint_ok.is_ok(), "совмещённый урок должен приниматься: {:?}", joint_ok);
 
-        // Тот же слот без joint — по-прежнему накладка.
-        let solo = sqlx::query("INSERT INTO schedule_slots (id, class_id, subject_id, teacher_id, room_id, subgroup_label, day, period) VALUES ('j3', 'c1', 'math', ?1, ?2, '', 1, 0)")
-            .bind(&t2.id).bind(&r1.id).execute(&pool).await;
-        assert!(solo.is_ok(), "свободный слот занимается нормально");
-        let solo_dup = sqlx::query("INSERT INTO schedule_slots (id, class_id, subject_id, teacher_id, room_id, subgroup_label, day, period) VALUES ('j4', 'c2', 'math', ?1, ?2, '', 1, 0)")
-            .bind(&t2.id).bind(&r1.id).execute(&pool).await;
-        assert!(solo_dup.is_err(), "накладка вне joint должна отвергаться: {:?}", solo_dup);
+        // Закрепления — единственное место, где инвариант восстановлен на
+        // уровне БД: пользовательских данных мало и конфликтов в них нет.
+        super::super::fixed_slots::insert_fixed_slot(
+            &pool, "f1", "default", "c1", "math", &t2.id, &r1.id, 1, 0, None, None,
+        ).await.unwrap();
+        let dup_fixed = super::super::fixed_slots::insert_fixed_slot(
+            &pool, "f2", "default", "c2", "math", &t2.id, &r1.id, 1, 0, None, None,
+        ).await;
+        assert!(dup_fixed.is_err(), "накладка закреплений вне joint должна отвергаться");
+
+        // А с общим joint — принимается.
+        let joint_fixed = super::super::fixed_slots::insert_fixed_slot(
+            &pool, "f3", "default", "c1", "math", &t1.id, &r1.id, 2, 0, None, Some("jl_y"),
+        ).await;
+        assert!(joint_fixed.is_ok(), "закрепление совмещённого урока: {:?}", joint_fixed);
+        let joint_fixed2 = super::super::fixed_slots::insert_fixed_slot(
+            &pool, "f4", "default", "c2", "math", &t1.id, &r1.id, 2, 0, None, Some("jl_y"),
+        ).await;
+        assert!(joint_fixed2.is_ok(), "второй класс joint-группы: {:?}", joint_fixed2);
     }
 
     #[tokio::test]

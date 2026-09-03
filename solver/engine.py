@@ -34,6 +34,22 @@ def _shift_boundary(time_grid):
     return boundary
 
 
+def _add_time_vars(model, x, inst, teacher, cls, m):
+    """Создаёт x[i,d,p] с предфильтром по доступности учителя и смене класса."""
+    boundary = _shift_boundary(m.time_grid)
+    for d in range(m.time_grid.days):
+        for p in range(m.time_grid.periods_per_day):
+            if d < len(teacher.availability) and p < len(teacher.availability[d]):
+                if not teacher.availability[d][p]:
+                    continue
+            if boundary is not None:
+                if cls.shift == "First" and p >= boundary:
+                    continue
+                if cls.shift == "Second" and p < boundary:
+                    continue
+            x[(inst["idx"], d, p)] = model.NewBoolVar(f"x_{inst['idx']}_{d}_{p}")
+
+
 def create_variables(model, m):
     """Создаёт x[i,d,p] и y[i,room] с предфильтром availability/room_type/ shift."""
     room_by_id = {r.id: r for r in m.rooms}
@@ -113,9 +129,24 @@ def create_variables(model, m):
         if teacher is None or subj is None or cls is None:
             allowed_rooms_by_idx[inst["idx"]] = []
             continue
+        # Кабинетная система: если у учителя есть базовый кабинет, обычный
+        # (не требующий спецкабинета) урок идёт именно туда. Это не только
+        # соответствует практике школ, но и снимает главную симметрию модели:
+        # без закрепления почти каждый урок можно поставить в любой кабинет,
+        # и перебор становится неподъёмным.
+        #
+        # Пока базовые кабинеты не заданы, поведение прежнее — все кабинеты.
+        req_type = subj.required_room_type
+        if req_type is None and teacher.base_room_id and teacher.base_room_id in room_by_id:
+            allowed_rooms_by_idx[inst["idx"]] = [teacher.base_room_id]
+            y[(inst["idx"], teacher.base_room_id)] = model.NewBoolVar(
+                f"y_{inst['idx']}_{teacher.base_room_id}"
+            )
+            _add_time_vars(model, x, inst, teacher, cls, m)
+            continue
+
         # предфильтр по required_room_type: допустимые комнаты (специализированные + fallback General / базовый)
         allowed_rooms = []
-        req_type = subj.required_room_type
         for rid, room in room_by_id.items():
             if req_type is not None:
                 # Включаем специализированные кабинеты, а также общие (General) и базовый кабинет учителя как фоллбэк
@@ -129,23 +160,7 @@ def create_variables(model, m):
         for rid in allowed_rooms:
             y[(inst["idx"], rid)] = model.NewBoolVar(f"y_{inst['idx']}_{rid}")
 
-        for d in range(m.time_grid.days):
-            for p in range(m.time_grid.periods_per_day):
-                # availability
-                if d < len(teacher.availability) and p < len(teacher.availability[d]):
-                    if not teacher.availability[d][p]:
-                        continue
-                # Смены. Раньше фильтр включался только при periods_per_day >= 8,
-                # из-за чего на реальной сетке 5x7 не применялся вовсе и вторая
-                # смена могла встать на первый урок. Граница берётся из
-                # time_grid.shift_boundary_period; без неё школа односменная.
-                boundary = _shift_boundary(m.time_grid)
-                if boundary is not None:
-                    if cls.shift == "First" and p >= boundary:
-                        continue
-                    if cls.shift == "Second" and p < boundary:
-                        continue
-                x[(inst["idx"], d, p)] = model.NewBoolVar(f"x_{inst['idx']}_{d}_{p}")
+        _add_time_vars(model, x, inst, teacher, cls, m)
 
     return x, y, instances, room_by_id, subject_by_id
 
@@ -319,6 +334,13 @@ def solve(input_model: InputModel) -> dict:
 
     # Предупреждения: mismatches subject_ids учителя с curriculum
     warnings = []
+    # Ослабленные ограничения обязаны быть видимыми: молчаливое ослабление —
+    # исходная причина накладок в сохранённых расписаниях.
+    if not input_model.policy.enforce_room_conflicts:
+        warnings.append(
+            "ROOM_CONFLICTS_NOT_ENFORCED: проверка занятости кабинетов отключена "
+            "настройкой школы — в расписании возможны накладки по кабинетам."
+        )
     # Предупреждение о fixed lessons без matching instance
     for fixed in input_model.fixed_lessons:
         found = any(
@@ -353,6 +375,45 @@ def solve(input_model: InputModel) -> dict:
                 obj_terms.append(w * var)
         if obj_terms:
             model.Minimize(sum(obj_terms))
+
+    # Подсказка стартового решения из предыдущего расписания.
+    #
+    # Пространство поиска огромно из-за симметрии кабинетов: у школы 58
+    # кабинетов, ни у одного учителя не задан базовый, поэтому почти каждый
+    # урок можно поставить в любой из них. Подсказка даёт CP-SAT точку старта
+    # рядом с рабочим расписанием, и вместо поиска с нуля он «чинит» его.
+    #
+    # На множество решений подсказка не влияет — только на порядок обхода.
+    if input_model.previous_grid:
+        prev = input_model.previous_grid
+        hinted = 0
+        used_keys: set[str] = set()
+        for inst in instances:
+            placed = False
+            for d in range(input_model.time_grid.days):
+                if placed:
+                    break
+                for p in range(input_model.time_grid.periods_per_day):
+                    k = (inst["idx"], d, p)
+                    if k not in x:
+                        continue
+                    key = f"{inst['class_id']}|{inst['subject_id']}|{inst['teacher_id']}|{d}|{p}"
+                    if key in used_keys or key not in prev:
+                        continue
+                    used_keys.add(key)
+                    model.AddHint(x[k], 1)
+                    hinted += 1
+                    # Подсказка по кабинету снимает главную симметрию: без неё
+                    # почти каждый урок можно поставить в любой из 58 кабинетов.
+                    prev_room = prev.get(key)
+                    if isinstance(prev_room, str):
+                        yk = (inst["idx"], prev_room)
+                        if yk in y:
+                            model.AddHint(y[yk], 1)
+                    placed = True
+                    break
+        if hinted:
+            warnings.append(f"Подсказка из предыдущего расписания: {hinted} уроков")
 
     solver = cp_model.CpSolver()
     solver.parameters.max_time_in_seconds = float(input_model.meta.time_limit_sec)
@@ -433,11 +494,34 @@ def solve(input_model: InputModel) -> dict:
             "diagnostics": {"infeasible_core": None, "warnings": warnings},
         }
     else:
-        core = build_infeasible_core(input_model)
-        # если статус INFEASIBLE но эвристика не нашла причину — оставляем generic
+        # ВАЖНО: здесь нельзя возвращать INFEASIBLE безусловно. Раньше именно
+        # так и было, поэтому ЛЮБОЙ таймаут доходил до пользователя как
+        # «расписание невозможно». Человек считал свои данные противоречивыми,
+        # хотя решение существовало и не хватало лишь времени.
+        if out_status == "INFEASIBLE":
+            core = build_infeasible_core(input_model)
+        else:
+            core = None
+            warnings.append(
+                f"TIME_LIMIT: решение не найдено за {input_model.meta.time_limit_sec} с. "
+                f"Это НЕ доказательство невозможности расписания."
+            )
+            # Главный источник взрыва перебора — незакреплённые кабинеты:
+            # если ни у кого нет базового кабинета, почти каждый урок можно
+            # поставить в любой из них, и варианты становятся неразличимы.
+            no_base = sum(1 for t in input_model.teachers if not t.base_room_id)
+            if no_base == len(input_model.teachers) and len(input_model.rooms) > 10:
+                warnings.append(
+                    f"NO_BASE_ROOMS: ни у одного из {len(input_model.teachers)} учителей "
+                    f"не задан базовый кабинет, а кабинетов {len(input_model.rooms)}. "
+                    f"Почти каждый урок можно поставить в любой кабинет, поэтому "
+                    f"перебор размещений огромен. Закрепление кабинетов сокращает "
+                    f"его, но требует, чтобы у одновременно ведущих учителей "
+                    f"кабинеты не совпадали."
+                )
         return {
             "schema_version": SCHEMA_VERSION,
-            "status": "INFEASIBLE",
+            "status": out_status,
             "solver_stats": {"wall_ms": wall_ms, "branches": int(solver.NumBranches()), "conflicts": int(solver.NumConflicts()), "gap_percent": 0.0, "objective_value": 0},
             "penalties": {"window": 0, "room_displacement": 0, "sanpin_parabola": 0, "alternation": 0, "movement": 0, "load_balance": 0, "change_slot": 0, "total": 0},
             "slots": [],

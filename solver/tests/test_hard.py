@@ -83,14 +83,33 @@ def test_hard_required_room_type():
         if s["subject_id"] == "chem":
             assert s["room_id"] == "r_chem", f"chem should be in chem lab, got {s['room_id']}"
 
-def test_hard_room_type_no_room_infeasible():
-    # нет химикабинетов -> infeasible (no y variable)
+def test_hard_room_type_falls_back_to_general():
+    """Нет спецкабинета -> урок уходит в общий, а не делает задачу нерешаемой.
+
+    Тест раньше ожидал INFEASIBLE и падал с момента, когда был введён фолбэк
+    на общие кабинеты. Никто этого не видел: job для pytest в CI отсутствовал.
+    Фиксируем фактическое (и намеренное) поведение.
+    """
     inp = make_input(
         teachers=[{"id": "t1", "full_name": "T1", "max_daily_lessons": 0, "availability": avail_all()}],
         classes=[{"id": "c1", "grade": 8, "letter": "А", "headcount": 25, "shift": "First", "subgroups": []}],
         rooms=[
             {"id": "r_gen", "name": "Каб.1", "room_type": "General", "capacity": 30},
         ],
+        subjects=[{"id": "chem", "name": "Химия", "sanitary_weight": 9, "required_room_type": "ChemistryLab"}],
+        curriculum=[{"class_id": "c1", "subject_id": "chem", "teacher_id": "t1", "hours_per_week": 1}],
+    )
+    out = solve(inp)
+    assert out["status"] in ("OPTIMAL", "FEASIBLE"), out
+    assert out["slots"][0]["room_id"] == "r_gen"
+
+
+def test_hard_no_rooms_at_all_is_infeasible():
+    """Кабинетов нет вовсе — разместить урок физически негде."""
+    inp = make_input(
+        teachers=[{"id": "t1", "full_name": "T1", "max_daily_lessons": 0, "availability": avail_all()}],
+        classes=[{"id": "c1", "grade": 8, "letter": "А", "headcount": 25, "shift": "First", "subgroups": []}],
+        rooms=[],
         subjects=[{"id": "chem", "name": "Химия", "sanitary_weight": 9, "required_room_type": "ChemistryLab"}],
         curriculum=[{"class_id": "c1", "subject_id": "chem", "teacher_id": "t1", "hours_per_week": 1}],
     )
