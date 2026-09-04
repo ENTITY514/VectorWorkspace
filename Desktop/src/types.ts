@@ -679,3 +679,16 @@ export interface ScheduleAnalytics {
   coverage_issues: CoverageIssue[];
   conflicts: SlotConflict[];
 }
+
+
+// ---- Выгрузка расписания ----
+
+/** Что именно выгружаем. Совпадает с ReportScope в ядре. */
+export type ReportScope =
+  | { kind: "all" }
+  | { kind: "all_classes" }
+  | { kind: "all_teachers" }
+  | { kind: "class"; id: string }
+  | { kind: "teacher"; id: string };
+
+export type ReportFormat = "xlsx" | "pdf";

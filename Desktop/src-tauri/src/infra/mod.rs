@@ -1,11 +1,10 @@
-//! Инфраструктура: инструменты взаимодействия с внешним миром.
-//! - `keyring` — OS Keyring (Windows Credential Manager) — Фаза 8
-//! - `opencode` — контроль дочернего процесса OpenCode CLI через stdio — Фаза 8
-
 pub mod excel_import;
 pub mod ktp_service;
+pub mod report_pdf;
+pub mod report_xlsx;
 pub mod resource_paths;
 pub mod schedule_export;
+pub mod schedule_report;
 pub mod solver_host;
 pub mod tup_parser;
 pub mod tup_html_parser;

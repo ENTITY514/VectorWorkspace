@@ -12,10 +12,11 @@ interface DashboardProps {
   state: ScheduleState;
   onGenerate: () => void;
   onRefresh: () => void;
+  onExport: () => void;
   lastResult?: ScheduleGenerateResult | null;
 }
 
-export function ScheduleDashboard({ state, onGenerate, onRefresh, lastResult }: DashboardProps) {
+export function ScheduleDashboard({ state, onGenerate, onRefresh, onExport, lastResult }: DashboardProps) {
   const { slots } = state;
 
   const readiness = [
@@ -79,9 +80,8 @@ export function ScheduleDashboard({ state, onGenerate, onRefresh, lastResult }: 
           <button className="btn" onClick={() => scheduleApi.clearSlots().then(onRefresh)}>Очистить слоты</button>
           {slots.length > 0 && (
             <>
-              <button className="btn" onClick={() => handleExport("xlsx")}>Экспорт XLSX</button>
-              <button className="btn" onClick={() => handleExport("csv")}>Экспорт CSV</button>
-              <button className="btn" onClick={() => handleExport("json")}>Экспорт JSON</button>
+              <button className="btn" onClick={onExport}>Выгрузить расписание…</button>
+              <button className="btn" onClick={() => handleExport("csv")} title="Плоский список слотов для обработки в другой программе">Данные CSV</button>
             </>
           )}
         </div>

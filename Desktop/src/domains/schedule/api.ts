@@ -4,6 +4,8 @@ import type {
   ImportSummary,
   ScheduleSettings,
   SlotConflict,
+  ReportFormat,
+  ReportScope,
   ScheduleAnalytics,
   ScheduleState,
   ScheduleTeacher,
@@ -128,6 +130,22 @@ export const scheduleApi = {
   /** Полная аналитика: окна, СанПиН, нагрузка, кабинеты, покрытие плана. */
   analytics(variant_id?: string): Promise<ScheduleAnalytics> {
     return call<ScheduleAnalytics>("schedule_analytics", { variantId: variant_id ?? null });
+  },
+
+  // ---- Выгрузка расписания ----
+  /** Предлагаемое имя файла для выбранного среза (без расширения). */
+  reportFilename(scope: ReportScope, variant_id?: string): Promise<string> {
+    return call<string>("schedule_report_filename", { scope, variantId: variant_id ?? null });
+  },
+  /**
+   * Формирует файл и записывает его по указанному пути.
+   * Файл пишется в ядре: книга на тридцать листов — это мегабайты, гонять
+   * их через IPC ради последующей записи на диск незачем.
+   */
+  exportReport(scope: ReportScope, format: ReportFormat, path: string, variant_id?: string): Promise<string> {
+    return call<string>("schedule_export_report", {
+      scope, format, path, variantId: variant_id ?? null,
+    });
   },
 
   /** Накладки в сохранённом расписании варианта. */

@@ -8,6 +8,7 @@ import { SchoolSettings } from "./ui/SchoolSettings";
 import { WeightsTab } from "./ui/WeightsTab";
 import { InteractiveGrid, type GridMode } from "./ui/InteractiveGrid";
 import { PlaceLessonModal, type PlacementRequest } from "./ui/PlaceLessonModal";
+import { ExportModal } from "./ui/ExportModal";
 import { TeacherDrawer } from "./ui/TeacherDrawer";
 import { GenerateModal } from "./ui/GenerateModal";
 import { ScheduleQualityWidget } from "./ui/ScheduleQualityWidget";
@@ -42,6 +43,7 @@ export function SchedulePage() {
   const [gridMode, setGridMode] = useState<GridMode>("class");
   const [grid, setGrid] = useState({ days: 5, periods_per_day: 7 });
   const [placing, setPlacing] = useState<{ classId: string; day: number; period: number } | null>(null);
+  const [exporting, setExporting] = useState(false);
   const [porting, setPorting] = useState(false);
 
   const handlePin = async (slot: ScheduleSlot) => {
@@ -356,7 +358,8 @@ export function SchedulePage() {
       {genStatus && <div className="notice">{genStatus}</div>}
       {error && <div className="error notice">{error}</div>}
 
-      {tab === "dashboard" && <ScheduleDashboard state={state!} onGenerate={() => setIsGenerateModalOpen(true)} onRefresh={load} lastResult={lastResult} />}
+      {tab === "dashboard" && <ScheduleDashboard state={state!} onGenerate={() => setIsGenerateModalOpen(true)} onRefresh={load}
+          onExport={() => setExporting(true)} lastResult={lastResult} />}
       {tab === "settings" && <SchoolSettings />}
       {tab === "teachers" && (
         <TeachersTab onSelectTeacher={t => setSelectedTeacher(t)} />
@@ -386,6 +389,14 @@ export function SchedulePage() {
           period={placing.period}
           onCancel={() => setPlacing(null)}
           onPlace={handlePlaceLesson}
+        />
+      )}
+
+      {exporting && state && (
+        <ExportModal
+          state={state}
+          variantId={activeVariant?.id ?? null}
+          onClose={() => setExporting(false)}
         />
       )}
 

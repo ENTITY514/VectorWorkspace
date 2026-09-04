@@ -1203,3 +1203,67 @@ pub async fn schedule_analytics(
         .await
         .map_err(|e| e.to_string())
 }
+
+// ─────────────────────────────────────────────────────────────────────────
+// Выгрузка расписания в Excel и PDF
+// ─────────────────────────────────────────────────────────────────────────
+
+#[derive(Debug, Deserialize)]
+#[serde(rename_all = "snake_case")]
+pub enum ReportFormat {
+    Xlsx,
+    Pdf,
+}
+
+/// Формирует файл расписания и записывает его по указанному пути.
+///
+/// Файл пишется здесь, а не передаётся во фронтенд: книга на тридцать
+/// листов — это мегабайты, гонять их через IPC ради последующей записи
+/// на диск бессмысленно.
+#[tauri::command]
+pub async fn schedule_export_report(
+    state: State<'_, AppState>,
+    variant_id: Option<String>,
+    scope: crate::infra::schedule_report::ReportScope,
+    format: ReportFormat,
+    path: String,
+) -> Result<String, String> {
+    let vid = match variant_id {
+        Some(v) => v,
+        None => slots::get_active_variant_id(&state.pool).await.map_err(|e| e.to_string())?,
+    };
+    let data = crate::infra::schedule_report::load(&state.pool, &vid)
+        .await
+        .map_err(|e| e.to_string())?;
+
+    if data.lessons.is_empty() {
+        return Err("В выбранном варианте нет ни одного урока".to_string());
+    }
+
+    let bytes = match format {
+        ReportFormat::Xlsx => crate::infra::report_xlsx::build(&data, &scope)
+            .map_err(|e| format!("не удалось собрать книгу Excel: {e}"))?,
+        ReportFormat::Pdf => crate::infra::report_pdf::build(&data, &scope)?,
+    };
+
+    std::fs::write(&path, bytes).map_err(|e| format!("не удалось записать файл: {e}"))?;
+    Ok(path)
+}
+
+/// Предлагаемое имя файла для выбранного среза — чтобы диалог сохранения
+/// открывался с осмысленным названием, а не «schedule».
+#[tauri::command]
+pub async fn schedule_report_filename(
+    state: State<'_, AppState>,
+    variant_id: Option<String>,
+    scope: crate::infra::schedule_report::ReportScope,
+) -> Result<String, String> {
+    let vid = match variant_id {
+        Some(v) => v,
+        None => slots::get_active_variant_id(&state.pool).await.map_err(|e| e.to_string())?,
+    };
+    let data = crate::infra::schedule_report::load(&state.pool, &vid)
+        .await
+        .map_err(|e| e.to_string())?;
+    Ok(scope.file_stem(&data))
+}
