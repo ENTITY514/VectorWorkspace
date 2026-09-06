@@ -73,7 +73,13 @@ export function TupDetail({ id, onClose }: { id: string; onClose: () => void }) 
       <div className="stats-row" style={{ marginTop: 24, display: "flex", gap: 16 }}>
         <Stat label={t.totalObjectives} value={String(detail.objectives.length)} />
         {detail.quarters.length > 0 && (
-          <Stat label={t.quartersCount} value={String(detail.quarters.reduce((s, q) => s + q.sections.length, 0))} />
+          <Stat label={t.quartersCount} value={String(detail.quarters.length)} />
+        )}
+        {detail.quarters.length > 0 && (
+          <Stat
+            label={t.sectionsCount}
+            value={String(detail.quarters.reduce((s, q) => s + q.sections.length, 0))}
+          />
         )}
       </div>
     </div>

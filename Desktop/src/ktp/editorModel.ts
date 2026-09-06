@@ -34,7 +34,7 @@ export function flattenPlan(db: DbPlan): KtpPlan {
         objectives: l.objectives.map((o) => ({ id: o.code, description: o.description })),
         hours: 1,
         date: l.plannedDate ?? "",
-        notes: "",
+        notes: l.notes ?? "",
         rowType: toFlatType(l.lessonType),
       });
     }
@@ -100,6 +100,7 @@ export function unflattenPlan(db: DbPlan, flat: KtpPlan): DbPlan {
       lessonType: toDbType(row.rowType),
       plannedDate: row.date || null,
       isCancelled: false,
+      notes: row.notes ?? "",
       objectives: row.objectives.map((o) => ({ code: o.id, description: o.description })),
     });
   }
@@ -137,6 +138,22 @@ export function quarterIndexOf(plan: KtpPlan, lessonId: string): number {
     if (l.id === lessonId) return q;
   }
   return 0;
+}
+
+/** Уроки той же четверти, что и `lessonId` (без шапки). */
+export function quarterLessonsAround(plan: KtpPlan, lessonId: string): IKtpLesson[] {
+  let start = 0;
+  let contains = false;
+  for (let i = 0; i < plan.length; i++) {
+    if (plan[i].rowType === LessonRowType.QUARTER_HEADER) {
+      if (contains) return plan.slice(start + 1, i);
+      start = i;
+      contains = false;
+    }
+    if (plan[i].id === lessonId) contains = true;
+  }
+  if (contains) return plan.slice(start + 1).filter((l) => l.rowType !== LessonRowType.QUARTER_HEADER);
+  return [];
 }
 
 /**
@@ -227,7 +244,8 @@ export function deleteLessonFromPlan(plan: KtpPlan, lessonId: string): { plan: K
   if (!lesson || lesson.rowType === LessonRowType.QUARTER_HEADER) return { plan };
 
   const sectionName = lesson.sectionName;
-  const lessonsInSection = plan.filter(
+  const inQuarter = quarterLessonsAround(plan, lessonId);
+  const lessonsInSection = inQuarter.filter(
     (l) =>
       l.sectionName === sectionName &&
       (l.rowType === LessonRowType.STANDARD ||
@@ -239,7 +257,7 @@ export function deleteLessonFromPlan(plan: KtpPlan, lessonId: string): { plan: K
   }
 
   const otherObjectiveIds = new Set(
-    plan
+    inQuarter
       .filter((l) => l.id !== lessonId && l.sectionName === sectionName)
       .flatMap((l) => l.objectives.map((o) => o.id)),
   );

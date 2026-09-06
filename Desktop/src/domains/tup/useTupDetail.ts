@@ -3,6 +3,8 @@ import { api } from "../../services/api";
 import type { TupDocumentDetail } from "../../types";
 import { subjectName } from "../../panels/SubjectNames";
 import type { ExcelColumn } from "../../lib/tup-excel";
+import { isKazakh } from "./labels";
+import { parseGrades } from "../../lib/grades";
 
 const formatCode = (code: string): string => code.replace(/\s+/g, "");
 
@@ -38,7 +40,8 @@ export const SECTION_TITLES = {
     orderDate: "Дата приказа",
     lang: "Язык обучения",
     totalObjectives: "Всего целей",
-    quartersCount: "Четвертей",
+    quartersCount: "Четвертей ДСП",
+    sectionsCount: "Разделов ДСП",
     notFilled: "Данные не заполнены.",
     content: "Содержание",
   },
@@ -73,7 +76,8 @@ export const SECTION_TITLES = {
     orderDate: "Бұйрық күні",
     lang: "Оқыту тілі",
     totalObjectives: "Барлығы мақсаттар",
-    quartersCount: "Тоқсандар",
+    quartersCount: "ДСП тоқсандары",
+    sectionsCount: "ДСП бөлімдері",
     notFilled: "Деректер толтырылмаған.",
     content: "Мазмұны",
   },
@@ -89,6 +93,8 @@ export function useTupDetail(id: string) {
   useEffect(() => {
     let cancelled = false;
     setLoading(true);
+    setError(null);
+    setDetail(null);
     api.fetchTupDocument(id)
       .then((d) => { if (!cancelled) setDetail(d); })
       .catch((e) => { if (!cancelled) setError(String(e)); })
@@ -96,21 +102,11 @@ export function useTupDetail(id: string) {
     return () => { cancelled = true; };
   }, [id]);
 
-  const lang: Lang = detail?.language === "kz" ? "kz" : "ru";
+  const lang: Lang = isKazakh(detail?.language) ? "kz" : "ru";
   const t = SECTION_TITLES[lang];
   const subjectName_ = detail ? subjectName(detail.subjectId, detail.language) : "";
 
-  const grades = useMemo(() => {
-    if (!detail?.targetGrades) return [];
-    if (detail.targetGrades.includes("-")) {
-      const [lo, hi] = detail.targetGrades.split("-").map((s) => Number(s.trim()));
-      if (!isNaN(lo) && !isNaN(hi)) {
-        return Array.from({ length: hi - lo + 1 }, (_, i) => lo + i);
-      }
-    }
-    const single = Number(detail.targetGrades.trim());
-    return !isNaN(single) ? [single] : [];
-  }, [detail?.targetGrades]);
+  const grades = useMemo(() => parseGrades(detail?.targetGrades ?? ""), [detail?.targetGrades]);
 
   const objectivesByGrade = useMemo(() => {
     if (!detail) return [];

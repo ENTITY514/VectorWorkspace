@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from "react";
 import { api } from "../../services/api";
 import type { TupDocumentListItem, TupSearchHit } from "../../types";
 import { parseGrades } from "../../lib/grades";
+import { normalizeDirection } from "./labels";
 
 export function useTupList(onSelect: (id: string) => void) {
   const [documents, setDocuments] = useState<TupDocumentListItem[]>([]);
@@ -75,7 +76,7 @@ export function useTupList(onSelect: (id: string) => void) {
   const directions = useMemo(() => {
     const set = new Set<string>();
     for (const d of documents) {
-      if (d.directionStr) set.add(d.directionStr);
+      set.add(normalizeDirection(d.directionStr));
     }
     return ["all", ...Array.from(set)];
   }, [documents]);
@@ -111,7 +112,9 @@ export function useTupList(onSelect: (id: string) => void) {
     }
 
     if (selectedSubject !== "all") result = result.filter(d => d.subjectName === selectedSubject);
-    if (selectedDirection !== "all") result = result.filter(d => d.directionStr === selectedDirection);
+    if (selectedDirection !== "all") {
+      result = result.filter((d) => normalizeDirection(d.directionStr) === selectedDirection);
+    }
     if (selectedLanguage !== "all") result = result.filter(d => d.language === selectedLanguage);
 
     if (selectedGrades.length > 0) {
@@ -128,7 +131,13 @@ export function useTupList(onSelect: (id: string) => void) {
 
       switch (sortField) {
         case "subjectName": cmp = nameA.localeCompare(nameB); break;
-        case "targetGrades": cmp = String(a.targetGrades || "").localeCompare(String(b.targetGrades || "")); break;
+        case "targetGrades": {
+          const ga = parseGrades(a.targetGrades)[0] ?? 0;
+          const gb = parseGrades(b.targetGrades)[0] ?? 0;
+          cmp = ga - gb;
+          if (cmp === 0) cmp = a.appendixNumber - b.appendixNumber;
+          break;
+        }
         case "objectiveCount": cmp = Number(a.objectiveCount ?? 0) - Number(b.objectiveCount ?? 0); break;
         case "orderDate": cmp = new Date(a.orderDate).getTime() - new Date(b.orderDate).getTime(); break;
       }
@@ -138,6 +147,26 @@ export function useTupList(onSelect: (id: string) => void) {
     return result;
   }, [documents, searchQuery, selectedSubject, selectedGrades, selectedDirection, selectedLanguage, sortField, sortDir]);
 
+  const filteredFtsHits = useMemo(() => {
+    return ftsHits.filter((h) => {
+      const doc = documents.find((d) => d.id === h.documentId);
+      if (selectedSubject !== "all") {
+        const name = doc?.subjectName ?? h.subjectId;
+        if (name !== selectedSubject) return false;
+      }
+      if (selectedLanguage !== "all" && h.language !== selectedLanguage) return false;
+      if (selectedDirection !== "all") {
+        const dir = doc ? normalizeDirection(doc.directionStr) : "common";
+        if (dir !== selectedDirection) return false;
+      }
+      if (selectedGrades.length > 0) {
+        const grades = h.grade != null ? [h.grade] : parseGrades(h.targetGrades);
+        if (!grades.some((g) => selectedGrades.includes(g))) return false;
+      }
+      return true;
+    });
+  }, [ftsHits, documents, selectedSubject, selectedLanguage, selectedDirection, selectedGrades]);
+
   const stats = useMemo(() => {
     const totalDocs = documents.length;
     const totalObjectives = documents.reduce((s, d) => s + d.objectiveCount, 0);
@@ -146,7 +175,7 @@ export function useTupList(onSelect: (id: string) => void) {
   }, [documents]);
 
   return {
-    loading, error, documents, ftsQuery, setFtsQuery, ftsHits, ftsLoading, ftsError,
+    loading, error, documents, ftsQuery, setFtsQuery, ftsHits, filteredFtsHits, ftsLoading, ftsError,
     searchQuery, setSearchQuery, selectedSubject, setSelectedSubject,
     selectedGrades, setSelectedGrades, selectedDirection, setSelectedDirection,
     selectedLanguage, setSelectedLanguage, sortField, setSortField,

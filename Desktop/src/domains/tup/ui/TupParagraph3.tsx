@@ -108,9 +108,11 @@ export function TupParagraph3({
   if (detail.quarters.length === 0) return null;
   return (
     <Section title={t.dsp}>
-      {detail.quarters.map((quarter) => (
-        <QuarterBlock key={`${quarter.grade}-${quarter.quarterNumber}`} quarter={quarter} objectivesByCode={objectivesByCode} t={t} lang={lang} />
-      ))}
+      {[...detail.quarters]
+        .sort((a, b) => a.grade - b.grade || a.quarterNumber - b.quarterNumber)
+        .map((quarter) => (
+          <QuarterBlock key={`${quarter.grade}-${quarter.quarterNumber}`} quarter={quarter} objectivesByCode={objectivesByCode} t={t} lang={lang} />
+        ))}
     </Section>
   );
 }

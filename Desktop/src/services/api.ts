@@ -20,8 +20,7 @@ import type {
   TupImportResult,
   TupSearchHit,
 } from "../types";
-import { SUBJECT_NAMES } from "../panels/SubjectNames";
-import { directionLabel } from "../domains/tup/labels";
+import { subjectName } from "../panels/SubjectNames";
 
 const isTauri = "__TAURI_INTERNALS__" in window;
 
@@ -49,14 +48,14 @@ export const api = {
     return docs.map((d) => ({
       id: d.id,
       subjectId: d.subjectId,
-      subjectName: SUBJECT_NAMES[d.subjectId] ?? d.subjectId,
+      subjectName: subjectName(d.subjectId, d.language),
       targetGrades: d.targetGrades,
-      directionStr: directionLabel(d.direction),
+      directionStr: d.direction,
       appendixNumber: d.appendixNumber,
       orderNumber: d.orderNumber,
       orderDate: d.orderDate,
       objectiveCount: d.objectiveCount,
-      hasDsp: false, // заполнится из детального запроса
+      hasDsp: Boolean(d.hasDsp),
       language: d.language,
     }));
   },
@@ -95,6 +94,11 @@ export const api = {
   /** Список сохранённых планов КТП. */
   async listKtpPlans(): Promise<KtpPlanCard[]> {
     return call<KtpPlanCard[]>("list_ktp_plans");
+  },
+
+  /** Удаление плана КТП. КСП на уроках плана блокирует операцию. */
+  async deleteKtpPlan(planId: string): Promise<void> {
+    return call<void>("delete_ktp_plan", { planId });
   },
 
   /** Генерация и сохранение плана КТП из документа ТУП. */

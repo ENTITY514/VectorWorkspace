@@ -1,8 +1,11 @@
-import { SUBJECT_NAMES } from "../../../panels/SubjectNames";
+import { subjectName } from "../../../panels/SubjectNames";
+import { languageLabel } from "../../tup/labels";
+import { academicYearOptions, type KtpListHook } from "../useKtpList";
 
-export function KtpClonePanel({ hook }: { hook: any }) {
+export function KtpClonePanel({ hook }: { hook: KtpListHook }) {
   const {
-    templates, selectedTemplateId, setSelectedTemplateId, cloneGrade, setCloneGrade, cloneBusy, cloneFromTemplate
+    templates, selectedTemplateId, setSelectedTemplateId, cloneGrade, setCloneGrade,
+    cloneBusy, cloneFromTemplate, removeTemplate, academicYear, setAcademicYear,
   } = hook;
 
   if (templates.length === 0) return null;
@@ -21,9 +24,9 @@ export function KtpClonePanel({ hook }: { hook: any }) {
             onChange={(e) => setSelectedTemplateId(e.target.value)}
           >
             <option value="">Шаблон…</option>
-            {templates.map((t: any) => (
+            {templates.map((t) => (
               <option key={t.id} value={t.id}>
-                {t.name} · {SUBJECT_NAMES[t.subjectId] ?? t.subjectId} · {t.grade} класс · {t.language}
+                {t.name} · {subjectName(t.subjectId, t.language)} · {t.grade} класс · {languageLabel(t.language)}
               </option>
             ))}
           </select>
@@ -34,8 +37,18 @@ export function KtpClonePanel({ hook }: { hook: any }) {
             onChange={(e) => setCloneGrade(e.target.value ? Number(e.target.value) : null)}
           >
             <option value="">Класс…</option>
-            {Array.from({ length: 11 }, (_, i) => i + 2).map((g) => (
+            {Array.from({ length: 11 }, (_, i) => i + 1).map((g) => (
               <option key={g} value={g}>{g} класс</option>
+            ))}
+          </select>
+          <select
+            className="filter-select"
+            style={{ minWidth: 130 }}
+            value={academicYear}
+            onChange={(e) => setAcademicYear(e.target.value)}
+          >
+            {academicYearOptions(academicYear).map((y) => (
+              <option key={y} value={y}>{y}</option>
             ))}
           </select>
           <button
@@ -45,6 +58,18 @@ export function KtpClonePanel({ hook }: { hook: any }) {
           >
             {cloneBusy ? "…" : "Создать и открыть"}
           </button>
+          {selectedTemplateId && (
+            <button
+              className="btn btn-sm btn-danger"
+              onClick={() => {
+                if (window.confirm("Удалить этот шаблон? Сохранённые планы не затронутся.")) {
+                  removeTemplate(selectedTemplateId);
+                }
+              }}
+            >
+              Удалить шаблон
+            </button>
+          )}
         </div>
       </div>
     </div>

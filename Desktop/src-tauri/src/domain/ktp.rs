@@ -87,6 +87,9 @@ pub struct KtpLesson {
     /// Физическая дата (производственный календарь РК).
     pub planned_date: Option<NaiveDate>,
     pub is_cancelled: bool,
+    /// Примечание / домашнее задание (колонка редактора и выгрузка в Кунделик).
+    #[serde(default)]
+    pub notes: String,
     /// Цели обучения урока: код + описание (то, что видит учитель).
     pub objectives: Vec<LessonObjective>,
 }
@@ -109,6 +112,7 @@ impl KtpLesson {
             lesson_type,
             planned_date: None,
             is_cancelled: false,
+            notes: String::new(),
             objectives: Vec::new(),
         }
     }

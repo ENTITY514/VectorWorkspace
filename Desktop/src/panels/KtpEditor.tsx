@@ -6,8 +6,12 @@ import { KtpTable } from "../ktp/KtpTable";
 import { useKtpEditorState } from "../ktp/useKtpEditorState";
 import { adiletAppendixUrl } from "../lib/adilet";
 import { sourceDocLabel } from "../lib/sourceDoc";
-import { validateHours } from "../ktp/hoursValidation";
-import { IKtpLesson } from "../ktp/model/types";
+import { directionLabel, directionWhy, normalizeDirection } from "../domains/tup/labels";
+import { KtpHoursPanel } from "../domains/ktp/ui/KtpHoursPanel";
+import { KtpProgressPanel } from "../domains/ktp/ui/KtpProgressPanel";
+import { KtpInvariantBar } from "../domains/ktp/ui/KtpInvariantBar";
+import { KtpQuarterTabs } from "../domains/ktp/ui/KtpQuarterTabs";
+import { KtpCalendarStrip } from "../domains/ktp/ui/KtpCalendarStrip";
 
 const WEEKDAYS = [
   { num: 1, label: "Пн" },
@@ -26,13 +30,14 @@ interface Props {
 
 export function KtpEditor({ planId, onClose }: Props) {
   const {
-    dbPlan, history, flat, loading, error, status, toast, busy, daysOfWeek, sourceDoc,
-    historyOpen, templateFor, templateName, unfilledQuarter, editing, draft, mergeFor, mergeReason,
-    setDaysOfWeek, setHistoryOpen, setTemplateFor, setTemplateName, setUnfilledQuarter, setDraft, setMergeFor, setMergeReason,
-    save, recalcSchedule, applyEdit, beginEdit, doAddHour, doDeleteLesson, doSplit, doAddSor, doMergeObjectivesNext,
+    dbPlan, history, visibleFlat, loading, error, status, toast, busy, daysOfWeek, sourceDoc,
+    historyOpen, templateFor, templateName, unfilledQuarter, selectedQuarter, editing, draft, mergeFor, mergeReason,
+    setDaysOfWeek, setHistoryOpen, setTemplateFor, setTemplateName, setUnfilledQuarter, setSelectedQuarter, setDraft, setMergeFor, setMergeReason,
+    save, recalcSchedule, applyEdit, commitEdit, cancelEdit, tabNext, beginEdit, doAddHour, doDeleteLesson, doSplit, doAddSor, doMergeObjectivesNext,
     handleDragEnd, updateLesson, confirmMerge, doSaveTemplate, exportWord, exportXlsx,
-    hoursReport, progress, isDirty
+    hoursReport, liveInvariant, quarterCounts, progress, isDirty
   } = useKtpEditorState(planId);
+  const direction = sourceDoc ? normalizeDirection(sourceDoc.directionStr) : "common";
 
   const planName = dbPlan
     ? `${SUBJECT_NAMES[dbPlan.subjectId] ?? dbPlan.subjectId} · ${dbPlan.grade} класс · ${dbPlan.language} · ${dbPlan.academicYear}`
@@ -67,13 +72,20 @@ export function KtpEditor({ planId, onClose }: Props) {
             <div className="ktp-schedule">
               <span className="ktp-schedule-label">{planName}</span>
               {sourceDoc ? (
-                <a
-                  className="ktp-source-link"
-                  title="Открыть оригинал документа ТУП"
-                  onClick={() => openUrl(adiletAppendixUrl(sourceDoc.language, sourceDoc.appendixNumber))}
-                >
-                  {sourceDocLabel(sourceDoc)} · [ссылка]
-                </a>
+                <>
+                  {direction !== "common" && (
+                    <span className="ktp-dir-badge" title={directionWhy(sourceDoc.directionStr)}>
+                      {directionLabel(direction)}
+                    </span>
+                  )}
+                  <a
+                    className="ktp-source-link"
+                    title="Открыть оригинал документа ТУП"
+                    onClick={() => openUrl(adiletAppendixUrl(sourceDoc.language, sourceDoc.appendixNumber))}
+                  >
+                    {sourceDocLabel(sourceDoc)} · [ссылка]
+                  </a>
+                </>
               ) : (
                 <span className="ktp-source-missing">Источник не определён — создайте КТП из документа ТУП.</span>
               )}
@@ -141,17 +153,23 @@ export function KtpEditor({ planId, onClose }: Props) {
               </div>
             )}
 
-            <HoursPanel report={hoursReport} />
-            <ProgressPanel progress={progress} onShowQuarter={setUnfilledQuarter} />
+            <KtpHoursPanel report={hoursReport} />
+            <KtpInvariantBar report={liveInvariant} />
+            <KtpProgressPanel progress={progress} onShowQuarter={setUnfilledQuarter} />
+            <KtpQuarterTabs selected={selectedQuarter} counts={quarterCounts} onSelect={setSelectedQuarter} />
+            <KtpCalendarStrip flat={visibleFlat} />
 
             <DndContext collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
               <KtpTable
-                flat={flat}
+                flat={visibleFlat}
                 editing={editing}
                 draft={draft}
                 setDraft={setDraft}
                 beginEdit={beginEdit}
                 applyEdit={applyEdit}
+                commitEdit={commitEdit}
+                cancelEdit={cancelEdit}
+                onTabNext={tabNext}
                 onUpdate={updateLesson}
                 onAddHour={doAddHour}
                 onDelete={doDeleteLesson}
@@ -247,55 +265,3 @@ export function KtpEditor({ planId, onClose }: Props) {
   );
 }
 
-function HoursPanel({ report }: { report: ReturnType<typeof validateHours> }) {
-  return (
-    <div className={`ktp-hours ktp-hours-${report.overallOk ? "ok" : "warn"}`}>
-      <div className="ktp-hours-title">
-        Часы: норма {report.norm} ч. ({report.hoursPerWeek} ч/нед) · {report.overallMessage}
-      </div>
-      {report.quarters.map((q) => (
-        <div key={q.quarterNumber} className={q.ok ? "" : "ktp-hours-warn"}>
-          {q.quarterNumber}-я четв.: {q.message}.
-        </div>
-      ))}
-    </div>
-  );
-}
-
-function ProgressPanel({
-  progress,
-  onShowQuarter,
-}: {
-  progress: { byQuarter: { done: number; total: number }[]; unfilledByQuarter: Record<number, IKtpLesson[]> };
-  onShowQuarter: (q: number) => void;
-}) {
-  const totalDone = progress.byQuarter.reduce((s, q) => s + q.done, 0);
-  const total = progress.byQuarter.reduce((s, q) => s + q.total, 0);
-  const pct = total === 0 ? 0 : Math.round((totalDone / total) * 100);
-  return (
-    <div className="ktp-progress">
-      <div className="ktp-progress-total">
-        Готовность: {totalDone}/{total} ({pct}%)
-        <div className="ktp-progress-bar">
-          <div className="ktp-progress-fill" style={{ width: `${pct}%` }} />
-        </div>
-      </div>
-      {progress.byQuarter.map((q, i) => {
-        const qp = q.total === 0 ? 0 : Math.round((q.done / q.total) * 100);
-        return (
-          <button
-            key={i}
-            className="ktp-progress-quarter"
-            onClick={() => onShowQuarter(i + 1)}
-            title={`${i + 1}-я четверть: ${q.done}/${q.total}`}
-          >
-            {i + 1}·{qp}%
-            <div className="ktp-progress-bar">
-              <div className="ktp-progress-fill" style={{ width: `${qp}%` }} />
-            </div>
-          </button>
-        );
-      })}
-    </div>
-  );
-}

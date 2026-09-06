@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { addSorToPlan, mergeObjectivesWithNext, reorderPlan } from "./editorModel";
+import { addSorToPlan, deleteLessonFromPlan, mergeObjectivesWithNext, reorderPlan } from "./editorModel";
 import { HistoryMachine } from "./history";
 import type { IKtpLesson, KtpPlan } from "./model/types";
 import { LessonRowType } from "./model/types";
@@ -101,6 +101,21 @@ describe("mergeObjectivesWithNext (A11)", () => {
     // Нумерация корректна: у оставшегося урока номер 1.
     const standard = res.find((l) => l.id === "a");
     expect(standard!.lessonNumber).toBe(1);
+  });
+});
+
+describe("deleteLessonFromPlan", () => {
+  it("не считает одноимённый раздел другой четверти", () => {
+    const plan: KtpPlan = [
+      quarterHeader("q1"),
+      lesson({ id: "only-q1", sectionName: "Раздел 1", lessonTopic: "Тема Q1", objectives: [{ id: "1.1", description: "цель" }] }),
+      quarterHeader("q2"),
+      lesson({ id: "q2a", sectionName: "Раздел 1", lessonTopic: "Тема Q2", objectives: [{ id: "2.1", description: "цель 2" }] }),
+      lesson({ id: "q2b", sectionName: "Раздел 1", lessonTopic: "Тема Q2б", objectives: [{ id: "2.2", description: "цель 3" }] }),
+    ];
+    const res = deleteLessonFromPlan(plan, "only-q1");
+    expect(res.error).toContain("последний урок");
+    expect(res.plan).toEqual(plan);
   });
 });
 

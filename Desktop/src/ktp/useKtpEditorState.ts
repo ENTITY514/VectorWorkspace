@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { DragEndEvent } from "@dnd-kit/core";
 import { api } from "../services/api";
 import type { KtpPlan, TupDocumentListItem } from "../types";
-import { SUBJECT_NAMES } from "../panels/SubjectNames";
+import { SUBJECT_NAMES, subjectName } from "../panels/SubjectNames";
 import { IKtpLesson, ILessonObjective, KtpPlan as FlatPlan, LessonRowType } from "./model/types";
 import {
   flattenPlan,
@@ -23,6 +23,7 @@ import { generateWordDocument } from "../lib/word-generator";
 import { totalHoursOf } from "./fromDb";
 import { sourceDocLabel, matchSourceDoc } from "../lib/sourceDoc";
 import { validateHours } from "./hoursValidation";
+import { checkInvariants } from "./invariants";
 import { useHistory } from "./useHistory";
 import { saveTemplate, KtpTemplate } from "./templateLib";
 
@@ -44,10 +45,12 @@ export function useKtpEditorState(planId: string) {
   const [templateFor, setTemplateFor] = useState(false);
   const [templateName, setTemplateName] = useState("");
   const [unfilledQuarter, setUnfilledQuarter] = useState<number | null>(null);
+  const [selectedQuarter, setSelectedQuarter] = useState(0);
   /// Снимок последнего сохранённого плана. Нужен, чтобы отличать
   /// «есть правки» от «была отмена до исходного состояния»: canUndo для
   /// этого не годится и приводил бы к ложным предупреждениям.
   const savedSnapshot = useRef<string>("");
+  const suppressBlur = useRef(false);
 
   const showToast = useCallback((msg: string) => {
     setToast(msg);
@@ -102,13 +105,19 @@ export function useKtpEditorState(planId: string) {
   const [mergeFor, setMergeFor] = useState<string | null>(null);
   const [mergeReason, setMergeReason] = useState("");
 
+  const planToDb = () => {
+    if (!dbPlan) return null;
+    return { ...unflattenPlan(dbPlan, flat), daysOfWeek: daysOfWeek.join(",") };
+  };
+
   const save = async () => {
     if (!dbPlan) return;
     setBusy(true);
     setError("");
     setStatus("Сохранение плана…");
     try {
-      const nextDb = unflattenPlan(dbPlan, flat);
+      const nextDb = planToDb();
+      if (!nextDb) return;
       const saved = await api.saveKtpPlan(nextDb);
       setDbPlan(saved);
       const savedFlat = flattenPlan(saved);
@@ -129,7 +138,12 @@ export function useKtpEditorState(planId: string) {
     setError("");
     setStatus("Авторасчёт дат по календарю РК…");
     try {
-      const nextDb = unflattenPlan(dbPlan, flat);
+      const nextDb = planToDb();
+      if (!nextDb) return;
+      const savedSnapshotNow = JSON.stringify(flat);
+      if (savedSnapshot.current !== savedSnapshotNow) {
+        await api.saveKtpPlan(nextDb);
+      }
       const updated = await api.updateKtpSchedule(nextDb.id, daysOfWeek);
       setDbPlan(updated);
       const updatedFlat = flattenPlan(updated);
@@ -146,6 +160,11 @@ export function useKtpEditorState(planId: string) {
 
   const applyEdit = () => {
     if (!editing) return;
+    const cur = flat.find((l) => l.id === editing.id);
+    if (cur && String(cur[editing.field] ?? "") === draft) {
+      setEditing(null);
+      return;
+    }
     history.commit(
       renumberPlan(flat.map((l) => (l.id === editing.id ? { ...l, [editing.field]: draft } : l))),
       "Изменить поле",
@@ -153,10 +172,26 @@ export function useKtpEditorState(planId: string) {
     setEditing(null);
   };
 
+  const applyEditFromBlur = () => {
+    if (suppressBlur.current) {
+      suppressBlur.current = false;
+      return;
+    }
+    applyEdit();
+  };
+
+  const cancelEdit = () => {
+    suppressBlur.current = true;
+    setEditing(null);
+    setDraft("");
+  };
+
   const beginEdit = (lesson: IKtpLesson, field: EditableField) => {
     setEditing({ id: lesson.id, field });
     setDraft(String(lesson[field] ?? ""));
   };
+
+  const EDIT_FIELDS: EditableField[] = ["sectionName", "lessonTopic", "date", "notes"];
 
   const doAddHour = (lessonId: string) => history.commit(addHourToPlan(flat, lessonId), "Добавить час");
   const doDeleteLesson = (lessonId: string) => {
@@ -231,9 +266,24 @@ export function useKtpEditorState(planId: string) {
     return () => window.removeEventListener("keydown", onKey);
   }, [history]);
 
+  const tabNext = (lesson: IKtpLesson, field: EditableField) => {
+    applyEdit();
+    suppressBlur.current = true;
+    const fi = EDIT_FIELDS.indexOf(field);
+    const rows = visibleFlat.filter((l) => l.rowType !== LessonRowType.QUARTER_HEADER);
+    const li = rows.findIndex((l) => l.id === lesson.id);
+    if (fi >= 0 && fi + 1 < EDIT_FIELDS.length) {
+      const current = visibleFlat.find((l) => l.id === lesson.id);
+      if (current) beginEdit(current, EDIT_FIELDS[fi + 1]);
+      return;
+    }
+    const next = rows[li + 1];
+    if (next) beginEdit(next, EDIT_FIELDS[0]);
+  };
+
   const doSaveTemplate = () => {
     if (!dbPlan || !templateName.trim()) return;
-    const snapshot = unflattenPlan(dbPlan, flat);
+    const snapshot = planToDb() ?? unflattenPlan(dbPlan, flat);
     const t: KtpTemplate = {
       id: crypto.randomUUID(),
       name: templateName.trim(),
@@ -256,10 +306,11 @@ export function useKtpEditorState(planId: string) {
   /// Есть ли несохранённые правки. Сравнение со снимком, а не с историей:
   /// отмена всех действий возвращает план к исходному виду, и предупреждать
   /// в этом случае не о чем.
-  const isDirty = useMemo(
-    () => savedSnapshot.current !== "" && JSON.stringify(flat) !== savedSnapshot.current,
-    [flat],
-  );
+  const isDirty = useMemo(() => {
+    if (savedSnapshot.current === "") return false;
+    const daysChanged = dbPlan ? daysOfWeek.join(",") !== dbPlan.daysOfWeek : false;
+    return JSON.stringify(flat) !== savedSnapshot.current || daysChanged;
+  }, [flat, daysOfWeek, dbPlan]);
 
   const hoursPerQuarter = useMemo(
     () => (dbPlan?.quarters ?? []).map((q) => q.hoursPerWeek),
@@ -269,6 +320,39 @@ export function useKtpEditorState(planId: string) {
     () => validateHours(flat, hoursPerQuarter.length ? hoursPerQuarter : 0),
     [flat, hoursPerQuarter],
   );
+  const liveInvariant = useMemo(
+    () => checkInvariants(flat, hoursPerQuarter.length ? hoursPerQuarter : 0),
+    [flat, hoursPerQuarter],
+  );
+  const quarterCounts = useMemo(() => {
+    const counts: number[] = [];
+    let n = 0;
+    for (const l of flat) {
+      if (l.rowType === LessonRowType.QUARTER_HEADER) {
+        if (counts.length) counts[counts.length - 1] = n;
+        counts.push(0);
+        n = 0;
+        continue;
+      }
+      n += 1;
+    }
+    if (counts.length) counts[counts.length - 1] = n;
+    return counts;
+  }, [flat]);
+  const visibleFlat = useMemo(() => {
+    if (selectedQuarter === 0) return flat;
+    const out: FlatPlan = [];
+    let qi = 0;
+    for (const l of flat) {
+      if (l.rowType === LessonRowType.QUARTER_HEADER) {
+        qi += 1;
+        if (qi === selectedQuarter) out.push(l);
+        continue;
+      }
+      if (qi === selectedQuarter) out.push(l);
+    }
+    return out;
+  }, [flat, selectedQuarter]);
 
   const progress = useMemo(() => {
     const byQuarter: { done: number; total: number }[] = [];
@@ -300,7 +384,7 @@ export function useKtpEditorState(planId: string) {
     setBusy(true);
     setError("");
     try {
-      const hoursPerWeek = dbPlan.quarters[0]?.hoursPerWeek ?? 2;
+      const hoursPerWeek = hoursPerQuarter[0] ?? dbPlan.quarters[0]?.hoursPerWeek ?? 2;
       const total = totalHoursOf(flat);
       const quarterWorkHours = { q1: 0, q2: 0, q3: 0, q4: 0 };
       let qi = 0;
@@ -312,8 +396,8 @@ export function useKtpEditorState(planId: string) {
         const key = `q${qi}` as keyof typeof quarterWorkHours;
         if (key in quarterWorkHours) quarterWorkHours[key] += l.hours;
       }
-      await generateWordDocument({
-        subjectName: SUBJECT_NAMES[dbPlan.subjectId] ?? dbPlan.subjectId,
+      const path = await generateWordDocument({
+        subjectName: subjectName(dbPlan.subjectId, dbPlan.language),
         className: `${dbPlan.grade} класс`,
         hoursPerWeek,
         totalHours: total,
@@ -321,7 +405,7 @@ export function useKtpEditorState(planId: string) {
         quarterWorkHours,
         sourceLabel: sourceDoc ? sourceDocLabel(sourceDoc) : "Источник не определён",
       });
-      setStatus(`Word сформирован: ${total} строк.`);
+      setStatus(path ? `Word сохранён: ${total} ч.` : "Экспорт Word отменён.");
     } catch (e) {
       setError(String(e));
     } finally {
@@ -335,9 +419,8 @@ export function useKtpEditorState(planId: string) {
     setError("");
     try {
       const fileName = `KTP_${SUBJECT_NAMES[dbPlan.subjectId] ?? dbPlan.subjectId}_${dbPlan.grade}`;
-      if (kundelik) await generateKundelikXlsx(flat, fileName);
-      else await generateXlsx(flat, fileName);
-      setStatus(`Экспортировано (${flat.length} строк).`);
+      const path = kundelik ? await generateKundelikXlsx(flat, fileName) : await generateXlsx(flat, fileName);
+      setStatus(path ? `Экспортировано: ${path}` : "Экспорт отменён.");
     } catch (e) {
       setError(String(e));
     } finally {
@@ -347,11 +430,11 @@ export function useKtpEditorState(planId: string) {
 
 
   return {
-    dbPlan, history, flat, loading, error, status, toast, busy, daysOfWeek, sourceDoc,
-    historyOpen, templateFor, templateName, unfilledQuarter, editing, draft, mergeFor, mergeReason,
-    setDaysOfWeek, setHistoryOpen, setTemplateFor, setTemplateName, setUnfilledQuarter, setDraft, setMergeFor, setMergeReason,
-    save, recalcSchedule, applyEdit, beginEdit, doAddHour, doDeleteLesson, doSplit, doAddSor, doMergeObjectivesNext,
+    dbPlan, history, flat, visibleFlat, loading, error, status, toast, busy, daysOfWeek, sourceDoc,
+    historyOpen, templateFor, templateName, unfilledQuarter, selectedQuarter, editing, draft, mergeFor, mergeReason,
+    setDaysOfWeek, setHistoryOpen, setTemplateFor, setTemplateName, setUnfilledQuarter, setSelectedQuarter, setDraft, setMergeFor, setMergeReason,
+    save, recalcSchedule, applyEdit: applyEditFromBlur, commitEdit: applyEdit, cancelEdit, tabNext, beginEdit, doAddHour, doDeleteLesson, doSplit, doAddSor, doMergeObjectivesNext,
     handleDragEnd, updateLesson, confirmMerge, doSaveTemplate, exportWord, exportXlsx,
-    hoursReport, progress, isDirty
+    hoursReport, liveInvariant, quarterCounts, progress, isDirty
   };
 }

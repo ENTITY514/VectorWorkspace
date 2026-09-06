@@ -55,14 +55,14 @@ export const generateXlsx = async (ktp: IKtpLesson[], fileName: string) => {
       const reasonText = reason ? `(${reason})` : "";
 
       const mergedTheme = `${lessonNumbers}. ${lessonTopics} ${reasonText}`;
-      data.push([formatDate(lesson.date), mergedTheme, ""]);
+      data.push([formatDate(lesson.date), mergedTheme, reason]);
 
       i += mergedLessons.length; // Advance the loop counter by the number of merged lessons
     } else {
       const lessonTopicWithNumber = `${lesson.lessonNumber}. ${lesson.lessonTopic}`;
       const lessonHours = lesson.hours || 1;
       for (let j = 0; j < lessonHours; j++) {
-        data.push([formatDate(lesson.date), lessonTopicWithNumber, ""]);
+        data.push([formatDate(lesson.date), lessonTopicWithNumber, lesson.notes || ""]);
       }
       i++;
     }
@@ -79,7 +79,7 @@ export const generateXlsx = async (ktp: IKtpLesson[], fileName: string) => {
   worksheet["!cols"] = colWidths;
 
   const out = XLSX.write(workbook, { bookType: "xlsx", type: "array" });
-  await saveBinaryFile(new Uint8Array(out), `${fileName}.xlsx`);
+  return saveBinaryFile(new Uint8Array(out), `${fileName}.xlsx`);
 };
 
 export const generateKundelikXlsx = async (ktp: IKtpLesson[], fileName: string) => {
@@ -108,7 +108,7 @@ export const generateKundelikXlsx = async (ktp: IKtpLesson[], fileName: string) 
         String(lesson.lessonNumber),
         formatDate(lesson.date),
         topic,
-        "",
+        lesson.notes || "",
         objectivesText,
       ]);
       i++;
@@ -119,7 +119,7 @@ export const generateKundelikXlsx = async (ktp: IKtpLesson[], fileName: string) 
       String(lesson.lessonNumber),
       formatDate(lesson.date),
       lesson.lessonTopic,
-      "",
+      lesson.notes || "",
       objectivesText,
     ]);
     i++;
@@ -140,5 +140,5 @@ export const generateKundelikXlsx = async (ktp: IKtpLesson[], fileName: string) 
   worksheet["!cols"] = colWidths;
 
   const out = XLSX.write(workbook, { bookType: "xlsx", type: "array" });
-  await saveBinaryFile(new Uint8Array(out), `${fileName}_Kundelik.xlsx`);
+  return saveBinaryFile(new Uint8Array(out), `${fileName}_Kundelik.xlsx`);
 };

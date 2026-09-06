@@ -1,12 +1,12 @@
 import { openUrl } from "@tauri-apps/plugin-opener";
 import type { TupDocumentListItem } from "../../../types";
 import { adiletAppendixUrl } from "../../../lib/adilet";
-import { directionLabel, directionWhy, languageLabel, normalizeDirection } from "../labels";
+import { directionLabel, directionWhy, isKazakh, languageLabel, normalizeDirection } from "../labels";
 
 export function TupDocumentCard({ doc, onClick }: { doc: TupDocumentListItem; onClick: () => void }) {
   const dir = normalizeDirection(doc.directionStr);
   const dirClass = dir === "emn" ? "doc-badge-emn" : dir === "ogn" ? "doc-badge-ogn" : "";
-  const langClass = doc.language === "kz" ? "doc-badge-kz" : "doc-badge-ru";
+  const langClass = isKazakh(doc.language) ? "doc-badge-kz" : "doc-badge-ru";
 
   return (
     <button className="doc-card" onClick={onClick}>
@@ -26,7 +26,7 @@ export function TupDocumentCard({ doc, onClick }: { doc: TupDocumentListItem; on
         <div className="doc-stats">
           <span>{doc.objectiveCount} целей</span>
           {doc.hasDsp && (
-            <span className="dsp-badge" title="Дополнительные содержательные параметры">
+            <span className="dsp-badge" title="Долгосрочное планирование (параграф 3)">
               ДСП
             </span>
           )}

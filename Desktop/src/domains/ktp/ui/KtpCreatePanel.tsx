@@ -1,14 +1,30 @@
 import { openUrl } from "@tauri-apps/plugin-opener";
 import { adiletAppendixUrl, appendixLabel } from "../../../lib/adilet";
-import { WEEKDAYS } from "../useKtpList";
-import { directionWhy, documentChoiceLabel } from "../../tup/labels";
+import {
+  STATUS_LABEL,
+  WEEKDAYS,
+  YEAR_WEEKS,
+  academicYearOptions,
+  type KtpListHook,
+} from "../useKtpList";
+import { directionWhy, documentChoiceLabel, languageLabel } from "../../tup/labels";
+import { subjectName } from "../../../panels/SubjectNames";
 
-export function KtpCreatePanel({ hook }: { hook: any }) {
+export function KtpCreatePanel({ hook }: { hook: KtpListHook }) {
   const {
     subjects, selectedSubject, setSelectedSubject, setSelectedLanguage, setSelectedGrade, setSelectedDocId,
     languages, selectedLanguage, gradeOptions, selectedGrade, candidateDocs, selectedDocId,
-    daysOfWeek, setDaysOfWeek, busy, canGenerate, selectedDoc, setPendingDoc
+    daysOfWeek, setDaysOfWeek, academicYear, setAcademicYear,
+    busy, canGenerate, selectedDoc, setPendingDoc,
+    hoursPerWeek, expectedHours, duplicates, openPlan,
   } = hook;
+
+  const dayHint =
+    hoursPerWeek != null && daysOfWeek.length !== hoursPerWeek
+      ? daysOfWeek.length < hoursPerWeek
+        ? `В ТУП ${hoursPerWeek} ч/нед, выбрано ${daysOfWeek.length} дн. — часть уроков будет сдвоенной.`
+        : `Выбрано ${daysOfWeek.length} дн. при ${hoursPerWeek} ч/нед в ТУП — лишние дни останутся без урока.`
+      : null;
 
   return (
     <div className="panel" style={{ marginBottom: 16 }}>
@@ -29,7 +45,7 @@ export function KtpCreatePanel({ hook }: { hook: any }) {
             }}
           >
             <option value="">Предмет…</option>
-            {subjects.map((s: string) => <option key={s} value={s}>{s}</option>)}
+            {subjects.map((s) => <option key={s} value={s}>{s}</option>)}
           </select>
 
           <select
@@ -43,7 +59,7 @@ export function KtpCreatePanel({ hook }: { hook: any }) {
             }}
           >
             <option value="">Язык…</option>
-            {languages.map((l: string) => <option key={l} value={l}>{l.toUpperCase()}</option>)}
+            {languages.map((l) => <option key={l} value={l}>{languageLabel(l)}</option>)}
           </select>
 
           <select
@@ -56,7 +72,7 @@ export function KtpCreatePanel({ hook }: { hook: any }) {
             }}
           >
             <option value="">Класс…</option>
-            {gradeOptions.map((g: number) => <option key={g} value={g}>{g} класс</option>)}
+            {gradeOptions.map((g) => <option key={g} value={g}>{g} класс</option>)}
           </select>
 
           <select
@@ -66,10 +82,21 @@ export function KtpCreatePanel({ hook }: { hook: any }) {
             onChange={(e) => setSelectedDocId(e.target.value)}
           >
             <option value="">Документ ТУП…</option>
-            {candidateDocs.map((d: any) => (
+            {candidateDocs.map((d) => (
               <option key={d.id} value={d.id}>
                 {documentChoiceLabel(d)}
               </option>
+            ))}
+          </select>
+
+          <select
+            className="filter-select"
+            style={{ minWidth: 130 }}
+            value={academicYear}
+            onChange={(e) => setAcademicYear(e.target.value)}
+          >
+            {academicYearOptions(academicYear).map((y) => (
+              <option key={y} value={y}>{y}</option>
             ))}
           </select>
         </div>
@@ -81,7 +108,7 @@ export function KtpCreatePanel({ hook }: { hook: any }) {
                 type="checkbox"
                 checked={daysOfWeek.includes(w.num)}
                 onChange={() =>
-                  setDaysOfWeek((prev: number[]) =>
+                  setDaysOfWeek((prev) =>
                     prev.includes(w.num) ? prev.filter((n) => n !== w.num) : [...prev, w.num].sort()
                   )
                 }
@@ -97,6 +124,28 @@ export function KtpCreatePanel({ hook }: { hook: any }) {
             {busy ? "…" : "Сгенерировать и открыть"}
           </button>
         </div>
+        {expectedHours != null && hoursPerWeek != null && (
+          <div className="ktp-hint">
+            Норма ТУП: {hoursPerWeek} ч/нед × {YEAR_WEEKS} нед. = <strong>{expectedHours} ч.</strong> за год
+            {selectedGrade != null ? ` · ${selectedGrade} класс` : ""}.
+          </div>
+        )}
+        {dayHint && <div className="ktp-hint ktp-hint-warn">{dayHint}</div>}
+        {duplicates.length > 0 && (
+          <div className="ktp-hint ktp-hint-warn">
+            Уже есть {duplicates.length}{" "}
+            {duplicates.length === 1 ? "план" : "плана"}{" "}
+            {selectedDoc ? subjectName(selectedDoc.subjectId, selectedDoc.language) : ""}{" "}
+            {selectedGrade} кл. за {academicYear}. Можно открыть существующий или создать ещё.
+            <div className="row gap-sm" style={{ marginTop: 8 }}>
+              {duplicates.map((p) => (
+                <button key={p.id} className="btn btn-sm" onClick={() => openPlan(p.id)}>
+                  Открыть · {p.totalHours} ч. · {STATUS_LABEL[p.status] ?? p.status}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
         {selectedDoc && (
           <div className="ktp-source-note">
             Источник: приказ МОН РК от {selectedDoc.orderDate} № {selectedDoc.orderNumber} ·{" "}

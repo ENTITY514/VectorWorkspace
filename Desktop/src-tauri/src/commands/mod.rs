@@ -53,6 +53,7 @@ pub fn register<R: tauri::Runtime>(
             tup::read_file_text,
             ktp::get_rk_calendar_defaults,
             ktp::list_ktp_plans,
+            ktp::delete_ktp_plan,
             ktp::generate_ktp_from_tup,
             ktp::update_ktp_schedule,
             ktp::validate_ktp_invariants,

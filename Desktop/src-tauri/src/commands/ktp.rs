@@ -82,6 +82,7 @@ pub struct KtpLessonDto {
     pub lesson_type: String,
     pub planned_date: Option<String>,
     pub is_cancelled: bool,
+    pub notes: String,
     pub objectives: Vec<KtpLessonObjectiveDto>,
 }
 
@@ -97,6 +98,7 @@ impl From<&crate::domain::ktp::KtpLesson> for KtpLessonDto {
             lesson_type: l.lesson_type.as_str().to_string(),
             planned_date: l.planned_date.map(|d| d.to_string()),
             is_cancelled: l.is_cancelled,
+            notes: l.notes.clone(),
             objectives: l
                 .objectives
                 .iter()
@@ -204,6 +206,18 @@ pub async fn list_ktp_plans(
             days_of_week: r.days_of_week,
         })
         .collect())
+}
+
+/// Удаление плана КТП. КСП на уроках плана блокирует операцию.
+#[tauri::command]
+pub async fn delete_ktp_plan(
+    state: tauri::State<'_, AppState>,
+    plan_id: String,
+) -> Result<(), String> {
+    let pid = KtpPlanId::from(Uuid::parse_str(&plan_id).map_err(|e| e.to_string())?);
+    db::repo_ktp::delete_plan(&state.pool, pid)
+        .await
+        .map_err(|e| e.to_string())
 }
 
 /// Генерация плана КТП из полного документа ТУП с последующим сохранением.
@@ -360,6 +374,8 @@ pub struct KtpLessonSaveIn {
     lesson_type: String,
     planned_date: Option<String>,
     is_cancelled: bool,
+    #[serde(default)]
+    notes: String,
     objectives: Vec<KtpLessonObjectiveSaveIn>,
 }
 
@@ -422,6 +438,7 @@ pub async fn save_ktp_plan(
                                 .planned_date
                                 .and_then(|d| NaiveDate::parse_from_str(&d, "%Y-%m-%d").ok()),
                             is_cancelled: l.is_cancelled,
+                            notes: l.notes,
                             objectives: l
                                 .objectives
                                 .into_iter()

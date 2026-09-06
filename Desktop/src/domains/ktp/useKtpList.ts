@@ -1,34 +1,47 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { api } from "../../services/api";
-import type { KtpPlanCard, TupDocumentListItem } from "../../types";
-
+import type { KtpPlanCard, TupDocumentDetail, TupDocumentListItem } from "../../types";
 import { parseGrades } from "../../lib/grades";
-import { clonePlanForGrade, listTemplates } from "../../ktp/templateLib";
+import { clonePlanForGrade, deleteTemplate, listTemplates } from "../../ktp/templateLib";
 import type { KtpTemplate } from "../../ktp/templateLib";
+import { QUARTER_WEEKS } from "../../ktp/hoursValidation";
+import { hoursPerWeekForGrade } from "../../ktp/fromDb";
 import { normalizeDirection } from "../tup/labels";
+import { defaultAcademicYear, filterKtpPlans, startYearOf } from "./ktpListModel";
 
-export const WEEKDAYS = [
-  { num: 1, label: "Пн" },
-  { num: 2, label: "Вт" },
-  { num: 3, label: "Ср" },
-  { num: 4, label: "Чт" },
-  { num: 5, label: "Пт" },
-  { num: 6, label: "Сб" },
-];
+export {
+  WEEKDAYS,
+  STATUS_LABEL,
+  academicYearOptions,
+  defaultAcademicYear,
+  filterKtpPlans,
+  startYearOf,
+  statusTone,
+} from "./ktpListModel";
 
-export const STATUS_LABEL: Record<string, string> = {
-  Draft: "Черновик",
-  Validating: "На проверке",
-  Approved: "Утверждён",
-  Archived: "Архив",
-};
+export const YEAR_WEEKS = QUARTER_WEEKS.reduce((s, n) => s + n, 0);
 
-export function statusTone(status: string): string {
-  switch (status) {
-    case "Approved": return "green";
-    case "Validating": return "amber";
-    case "Archived": return "gray";
-    default: return "blue";
+const DAYS_KEY = "vw_ktp_days";
+const YEAR_KEY = "vw_ktp_year";
+
+function readStoredDays(): number[] {
+  try {
+    const raw = sessionStorage.getItem(DAYS_KEY);
+    if (!raw) return [2, 4];
+    const arr = JSON.parse(raw) as unknown;
+    if (!Array.isArray(arr)) return [2, 4];
+    const days = arr.filter((n): n is number => Number.isInteger(n) && n >= 1 && n <= 6);
+    return days.length > 0 ? days : [2, 4];
+  } catch {
+    return [2, 4];
+  }
+}
+
+function readStoredYear(): string {
+  try {
+    return sessionStorage.getItem(YEAR_KEY) || defaultAcademicYear();
+  } catch {
+    return defaultAcademicYear();
   }
 }
 
@@ -44,13 +57,20 @@ export function useKtpList(onOpen: (id: string) => void) {
   const [selectedLanguage, setSelectedLanguage] = useState<string>("");
   const [selectedGrade, setSelectedGrade] = useState<number | null>(null);
   const [selectedDocId, setSelectedDocId] = useState<string>("");
-  const [daysOfWeek, setDaysOfWeek] = useState<number[]>([2, 4]);
+  const [daysOfWeek, setDaysOfWeek] = useState<number[]>(readStoredDays);
+  const [academicYear, setAcademicYear] = useState<string>(readStoredYear);
   const [pendingDoc, setPendingDoc] = useState<TupDocumentListItem | null>(null);
+  const [hoursPerWeek, setHoursPerWeek] = useState<number | null>(null);
 
   const [templates, setTemplates] = useState<KtpTemplate[]>([]);
   const [selectedTemplateId, setSelectedTemplateId] = useState<string>("");
   const [cloneGrade, setCloneGrade] = useState<number | null>(null);
   const [cloneBusy, setCloneBusy] = useState(false);
+
+  const [listQuery, setListQuery] = useState("");
+  const [listGrade, setListGrade] = useState<number | null>(null);
+  const [listStatus, setListStatus] = useState("");
+  const [listYear, setListYear] = useState("");
 
   const loadAll = useCallback(async () => {
     setLoading(true);
@@ -68,6 +88,22 @@ export function useKtpList(onOpen: (id: string) => void) {
 
   useEffect(() => { loadAll(); }, [loadAll]);
   useEffect(() => { setTemplates(listTemplates()); }, []);
+  useEffect(() => { sessionStorage.setItem(DAYS_KEY, JSON.stringify(daysOfWeek)); }, [daysOfWeek]);
+  useEffect(() => { sessionStorage.setItem(YEAR_KEY, academicYear); }, [academicYear]);
+
+  useEffect(() => {
+    if (!selectedDocId || selectedGrade == null) {
+      setHoursPerWeek(null);
+      return;
+    }
+    let cancelled = false;
+    api.fetchTupDocument(selectedDocId)
+      .then((d: TupDocumentDetail) => {
+        if (!cancelled) setHoursPerWeek(hoursPerWeekForGrade(d, selectedGrade) || null);
+      })
+      .catch(() => { if (!cancelled) setHoursPerWeek(null); });
+    return () => { cancelled = true; };
+  }, [selectedDocId, selectedGrade]);
 
   const cloneFromTemplate = async () => {
     const tpl = templates.find((t) => t.id === selectedTemplateId);
@@ -76,7 +112,7 @@ export function useKtpList(onOpen: (id: string) => void) {
     setError("");
     setStatus("Создание КТП из шаблона…");
     try {
-      const plan = clonePlanForGrade(tpl, cloneGrade, "2026-2027");
+      const plan = clonePlanForGrade(tpl, cloneGrade, academicYear);
       const saved = await api.saveKtpPlan(plan);
       setStatus(`Клон создан: ${saved.totalHours} уроков.`);
       onOpen(saved.id);
@@ -85,6 +121,22 @@ export function useKtpList(onOpen: (id: string) => void) {
       setStatus("");
     } finally {
       setCloneBusy(false);
+    }
+  };
+
+  const removeTemplate = (id: string) => {
+    setTemplates(deleteTemplate(id));
+    if (selectedTemplateId === id) setSelectedTemplateId("");
+  };
+
+  const deletePlan = async (id: string) => {
+    setError("");
+    try {
+      await api.deleteKtpPlan(id);
+      setSavedPlans((prev) => prev.filter((p) => p.id !== id));
+      setStatus("План удалён.");
+    } catch (e) {
+      setError(String(e));
     }
   };
 
@@ -122,12 +174,9 @@ export function useKtpList(onOpen: (id: string) => void) {
       .sort((a, b) => {
         const rank = (d: TupDocumentListItem) => {
           switch (normalizeDirection(d.directionStr)) {
-            case "emn":
-              return 0;
-            case "common":
-              return 1;
-            default:
-              return 2;
+            case "emn": return 0;
+            case "common": return 1;
+            default: return 2;
           }
         };
         return rank(a) - rank(b);
@@ -147,6 +196,39 @@ export function useKtpList(onOpen: (id: string) => void) {
 
   const canGenerate = Boolean(selectedDocId) && selectedGrade != null && daysOfWeek.length > 0;
   const selectedDoc = documents.find((d) => d.id === selectedDocId) ?? null;
+  const expectedHours = hoursPerWeek != null ? hoursPerWeek * YEAR_WEEKS : null;
+
+  const duplicates = useMemo(() => {
+    if (!selectedDoc || selectedGrade == null) return [];
+    return savedPlans.filter(
+      (p) =>
+        p.subjectId === selectedDoc.subjectId &&
+        p.grade === selectedGrade &&
+        p.language === selectedDoc.language &&
+        p.academicYear === academicYear,
+    );
+  }, [savedPlans, selectedDoc, selectedGrade, academicYear]);
+
+  const filteredPlans = useMemo(
+    () => filterKtpPlans(savedPlans, { query: listQuery, grade: listGrade, status: listStatus, year: listYear }),
+    [savedPlans, listQuery, listGrade, listStatus, listYear],
+  );
+
+  const stats = useMemo(() => ({
+    total: savedPlans.length,
+    drafts: savedPlans.filter((p) => p.status === "Draft").length,
+    approved: savedPlans.filter((p) => p.status === "Approved").length,
+    hours: savedPlans.reduce((s, p) => s + (p.totalHours || 0), 0),
+  }), [savedPlans]);
+
+  const listGrades = useMemo(
+    () => Array.from(new Set(savedPlans.map((p) => p.grade))).sort((a, b) => a - b),
+    [savedPlans],
+  );
+  const listYears = useMemo(
+    () => Array.from(new Set(savedPlans.map((p) => p.academicYear))).sort(),
+    [savedPlans],
+  );
 
   const generate = async (docId: string) => {
     if (selectedGrade == null || daysOfWeek.length === 0) return;
@@ -154,7 +236,7 @@ export function useKtpList(onOpen: (id: string) => void) {
     setError("");
     setStatus("Генерация плана из ТУП…");
     try {
-      const plan = await api.generateKtpFromTup(docId, selectedGrade, "2026-2027", 2026, daysOfWeek);
+      const plan = await api.generateKtpFromTup(docId, selectedGrade, academicYear, startYearOf(academicYear), daysOfWeek);
       setStatus(`План сохранён: ${plan.totalHours} уроков.`);
       setPendingDoc(null);
       onOpen(plan.id);
@@ -167,16 +249,23 @@ export function useKtpList(onOpen: (id: string) => void) {
   };
 
   return {
-    loading, error, status, busy, documents, savedPlans,
+    loading, error, status, busy, documents, savedPlans, filteredPlans, stats,
     selectedSubject, setSelectedSubject,
     selectedLanguage, setSelectedLanguage,
     selectedGrade, setSelectedGrade,
     selectedDocId, setSelectedDocId,
     daysOfWeek, setDaysOfWeek,
+    academicYear, setAcademicYear,
     pendingDoc, setPendingDoc,
+    hoursPerWeek, expectedHours, duplicates,
     templates, selectedTemplateId, setSelectedTemplateId,
     cloneGrade, setCloneGrade, cloneBusy,
-    cloneFromTemplate, generate,
-    subjects, languages, gradeOptions, candidateDocs, canGenerate, selectedDoc
+    cloneFromTemplate, removeTemplate, deletePlan, generate, loadAll, openPlan: onOpen,
+    listQuery, setListQuery, listGrade, setListGrade,
+    listStatus, setListStatus, listYear, setListYear,
+    listGrades, listYears,
+    subjects, languages, gradeOptions, candidateDocs, canGenerate, selectedDoc,
   };
 }
+
+export type KtpListHook = ReturnType<typeof useKtpList>;

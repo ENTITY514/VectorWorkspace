@@ -49,6 +49,7 @@ struct LessonRow {
     planned_date: Option<String>,
     is_cancelled: i64,
     objectives_json: String,
+    notes: String,
 }
 
 fn kind_from_sql(s: &str) -> LessonKind {
@@ -118,8 +119,8 @@ pub async fn save_plan(pool: &SqlitePool, plan: &KtpPlan) -> Result<(), DbError>
                 serde_json::to_string(&l.objectives).unwrap_or_else(|_| "[]".into());
             sqlx::query(
                 "INSERT INTO ktp_lessons
-                    (id, quarter_id, global_index, quarter_index, topic_title, section_name, lesson_type, planned_date, is_cancelled, objectives_json)
-                 VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10)",
+                    (id, quarter_id, global_index, quarter_index, topic_title, section_name, lesson_type, planned_date, is_cancelled, objectives_json, notes)
+                 VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11)",
             )
             .bind(l.id.to_string())
             .bind(l.quarter_id.to_string())
@@ -131,6 +132,7 @@ pub async fn save_plan(pool: &SqlitePool, plan: &KtpPlan) -> Result<(), DbError>
             .bind(l.planned_date.map(|d| d.to_string()))
             .bind(l.is_cancelled as i64)
             .bind(&objectives_json)
+            .bind(&l.notes)
             .execute(&mut *tx)
             .await?;
 
@@ -201,7 +203,7 @@ pub async fn load_plan(pool: &SqlitePool, plan_id: KtpPlanId) -> Result<Option<K
     let mut plan_quarters = Vec::new();
     for q in quarters {
         let lessons = sqlx::query_as::<_, LessonRow>(
-            "SELECT id, quarter_id, global_index, quarter_index, topic_title, section_name, lesson_type, planned_date, is_cancelled, objectives_json
+            "SELECT id, quarter_id, global_index, quarter_index, topic_title, section_name, lesson_type, planned_date, is_cancelled, objectives_json, notes
              FROM ktp_lessons WHERE quarter_id = ?1 ORDER BY quarter_index",
         )
         .bind(&q.id)
@@ -238,6 +240,7 @@ pub async fn load_plan(pool: &SqlitePool, plan_id: KtpPlanId) -> Result<Option<K
                 lesson_type: kind_from_sql(&l.lesson_type),
                 planned_date: l.planned_date.as_deref().and_then(|s| NaiveDate::from_str(s).ok()),
                 is_cancelled: l.is_cancelled != 0,
+                notes: l.notes,
                 objectives,
             });
         }
@@ -314,6 +317,38 @@ pub async fn list_plans(pool: &SqlitePool) -> Result<Vec<KtpPlanRow>, DbError> {
     .fetch_all(pool)
     .await
     .map_err(DbError::from)
+}
+
+/// Удаляет план. КСП на уроках плана блокирует удаление (ON DELETE RESTRICT).
+pub async fn delete_plan(pool: &SqlitePool, plan_id: KtpPlanId) -> Result<(), DbError> {
+    let ksp_count: i64 = sqlx::query_scalar(
+        "SELECT COUNT(*) FROM ksp_documents
+         WHERE ktp_lesson_id IN (
+           SELECT l.id FROM ktp_lessons l
+           JOIN ktp_quarters q ON q.id = l.quarter_id
+           WHERE q.ktp_id = ?1
+         )",
+    )
+    .bind(plan_id.to_string())
+    .fetch_one(pool)
+    .await?;
+
+    if ksp_count > 0 {
+        return Err(DbError::Validation(format!(
+            "Нельзя удалить план: к его урокам привязано {ksp_count} КСП"
+        )));
+    }
+
+    let res = sqlx::query("DELETE FROM ktp_plans WHERE id = ?1")
+        .bind(plan_id.to_string())
+        .execute(pool)
+        .await?;
+    if res.rows_affected() == 0 {
+        return Err(DbError::Validation(format!(
+            "План КТП не найден: {plan_id}"
+        )));
+    }
+    Ok(())
 }
 
 #[cfg(test)]

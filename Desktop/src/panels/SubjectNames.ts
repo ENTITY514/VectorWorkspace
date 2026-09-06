@@ -119,6 +119,8 @@ export const SUBJECT_NAMES_KZ: Record<string, string> = {
 };
 
 export function subjectName(subjectId: string, language?: string): string {
-  if (language === "kz") return SUBJECT_NAMES_KZ[subjectId] ?? SUBJECT_NAMES[subjectId] ?? subjectId;
+  const kazakh = (language || "").trim().toLowerCase();
+  const isKz = kazakh === "kz" || kazakh === "kk" || kazakh === "kaz";
+  if (isKz) return SUBJECT_NAMES_KZ[subjectId] ?? SUBJECT_NAMES[subjectId] ?? subjectId;
   return SUBJECT_NAMES[subjectId] ?? SUBJECT_NAMES_KZ[subjectId] ?? subjectId;
 }

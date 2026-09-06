@@ -85,7 +85,7 @@ const createCell = (
 const createHeaderCell = (text: string, widthIndex: number): TableCell =>
   createCell(text, { widthIndex, align: AlignmentType.CENTER });
 
-export const generateWordDocument = (data: KtpData) => {
+export const generateWordDocument = async (data: KtpData): Promise<string | null> => {
   const { subjectName, className, hoursPerWeek, totalHours, plan } = data;
 
   const rows: TableRow[] = [
@@ -334,7 +334,6 @@ export const generateWordDocument = (data: KtpData) => {
     ],
   });
 
-  return Packer.toBlob(doc).then(async (blob) => {
-    await saveBinaryFile(blob, `KTP_${subjectName}_${className}.docx`);
-  });
+  const blob = await Packer.toBlob(doc);
+  return saveBinaryFile(blob, `KTP_${subjectName}_${className}.docx`);
 };

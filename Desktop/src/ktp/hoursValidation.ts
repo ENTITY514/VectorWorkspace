@@ -118,7 +118,7 @@ export function validateHours(
       planned,
       actual,
       merges,
-      ok: deficit === 0,
+      ok: planned === should && actual === should,
       message,
     };
   });
@@ -126,7 +126,7 @@ export function validateHours(
   const totalShould = report.reduce((s, q) => s + q.should, 0);
   const totalPlanned = report.reduce((s, q) => s + q.planned, 0);
   const totalActual = report.reduce((s, q) => s + q.actual, 0);
-  const overallOk = totalActual === totalShould && totalPlanned >= totalShould;
+  const overallOk = report.every((q) => q.ok);
   const overallMessage = overallOk
     ? `Сходится: ${totalShould} ч. по норме и по плану.`
     : `Не сходится: норма ${totalShould} ч., фактически ${totalActual} ч. Проверьте введённые часы и распределение уроков по неделям.`;
@@ -141,6 +141,18 @@ export function validateHours(
     overallOk,
     overallMessage,
   };
+}
+
+/** Норма четверти из текста шапки «3-я четверть · 4 ч/нед». */
+export function quarterNormFromHeader(sectionName: string, fallbackQuarter = 1): {
+  quarter: number;
+  hoursPerWeek: number;
+  should: number;
+} {
+  const quarter = Number(sectionName.match(/(\d+)/)?.[1] ?? fallbackQuarter) || fallbackQuarter;
+  const hoursPerWeek = Number(sectionName.match(/(\d+)\s*ч/)?.[1] ?? 0);
+  const should = (QUARTER_WEEKS[quarter - 1] ?? 8) * hoursPerWeek;
+  return { quarter, hoursPerWeek, should };
 }
 
 function pluralRu(n: number): string {

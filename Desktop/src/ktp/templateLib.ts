@@ -59,6 +59,7 @@ export function clonePlanForGrade(template: KtpTemplate, newGrade: number, acade
         quarterId,
         plannedDate: null,
         isCancelled: false,
+        notes: l.notes ?? "",
       })),
     };
   });

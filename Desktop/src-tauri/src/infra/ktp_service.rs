@@ -20,9 +20,410 @@ pub struct GenerateParams {
     pub days_of_week: Vec<u32>,
 }
 
-/// Строит план КТП из полного документа ТУП: темы ДСП (П3) становятся уроками,
-/// цели подставляются из матрицы (П2) по коду. СОР — после каждого раздела,
-/// СОЧ — в конце четверти, за ним буфер повторений (FR-2.3).
+/// Учебные недели по четвертям. Должно совпадать с `QUARTER_WEEKS`
+/// на фронте (`Desktop/src/ktp/hoursValidation.ts`).
+pub const QUARTER_WEEKS: [i64; 4] = [8, 8, 10, 8];
+
+/// Часы в неделю: сначала нагрузка ТУП для класса, иначе число дней
+/// расписания, иначе 2. Пустые/нулевые часы ТУП больше не подменяют норму двойкой,
+/// если учитель уже указал дни недели.
+fn hours_per_week_of(doc: &FullTupDocument, p: &GenerateParams) -> i64 {
+    if let Some(h) = doc.hours.iter().find(|h| h.grade == p.grade) {
+        let n = h.hours_per_week.round() as i64;
+        if n > 0 {
+            return n;
+        }
+    }
+    let from_days = p.days_of_week.len() as i64;
+    if from_days > 0 {
+        from_days
+    } else {
+        2
+    }
+}
+
+fn weeks_of(quarter_number: i64) -> i64 {
+    QUARTER_WEEKS
+        .get((quarter_number as usize).saturating_sub(1))
+        .copied()
+        .unwrap_or(8)
+}
+
+#[derive(Clone)]
+struct ContentSeed {
+    section: String,
+    topic: String,
+    objectives: Vec<LessonObjective>,
+}
+
+fn resolve_objective(
+    code: &str,
+    objectives_by_code: &std::collections::HashMap<String, &LearningObjective>,
+) -> LessonObjective {
+    let norm = code.replace(char::is_whitespace, "");
+    match objectives_by_code.get(&norm) {
+        Some(o) => LessonObjective {
+            code: o.code.clone(),
+            description: o.description.clone(),
+        },
+        None => LessonObjective {
+            code: code.to_string(),
+            description: String::new(),
+        },
+    }
+}
+
+fn push_lesson(
+    out: &mut Vec<KtpLesson>,
+    quarter_id: crate::domain::ids::KtpQuarterId,
+    global_index: &mut i64,
+    topic: String,
+    kind: LessonKind,
+    section: String,
+    objectives: Vec<LessonObjective>,
+) {
+    *global_index += 1;
+    let mut lesson = KtpLesson::new(
+        quarter_id,
+        *global_index,
+        out.len() as i64 + 1,
+        topic,
+        kind,
+    );
+    lesson.section_name = section;
+    lesson.objectives = objectives;
+    out.push(lesson);
+}
+
+fn fill_empty_quarter(
+    quarter_id: crate::domain::ids::KtpQuarterId,
+    quarter_number: i64,
+    target: usize,
+    hours_per_week: i64,
+    global_index: &mut i64,
+) -> Vec<KtpLesson> {
+    let mut out = Vec::new();
+    if target == 0 {
+        return out;
+    }
+    let rev_count = (hours_per_week as usize).max(1).min(target.saturating_sub(1));
+    let soch_at = target.saturating_sub(rev_count);
+    for i in 0..soch_at {
+        if i + 1 == soch_at {
+            push_lesson(
+                &mut out,
+                quarter_id,
+                global_index,
+                format!("Суммативное оценивание за {quarter_number} четверть"),
+                LessonKind::Soch,
+                "Суммативное оценивание за четверть".into(),
+                Vec::new(),
+            );
+        } else {
+            push_lesson(
+                &mut out,
+                quarter_id,
+                global_index,
+                format!("Тема {}", i + 1),
+                LessonKind::Standard,
+                "Темы долгосрочного планирования".into(),
+                Vec::new(),
+            );
+        }
+    }
+    for i in 0..rev_count {
+        push_lesson(
+            &mut out,
+            quarter_id,
+            global_index,
+            format!("Повторение #{}", i + 1),
+            LessonKind::Revision,
+            "Повторение".into(),
+            Vec::new(),
+        );
+    }
+    out
+}
+
+fn generate_quarter_lessons(
+    tq: &crate::domain::tup::TupQuarter,
+    quarter_id: crate::domain::ids::KtpQuarterId,
+    quarter_number: i64,
+    target: usize,
+    hours_per_week: i64,
+    objectives_by_code: &std::collections::HashMap<String, &LearningObjective>,
+    global_index: &mut i64,
+) -> Vec<KtpLesson> {
+    let mut by_section: Vec<(String, Vec<ContentSeed>)> = tq
+        .sections
+        .iter()
+        .map(|section| {
+            let seeds = section
+                .topics
+                .iter()
+                .map(|topic| ContentSeed {
+                    section: section.name.clone(),
+                    topic: topic.name.clone(),
+                    objectives: topic
+                        .objective_codes
+                        .iter()
+                        .map(|c| resolve_objective(c, objectives_by_code))
+                        .collect(),
+                })
+                .collect::<Vec<_>>();
+            (section.name.clone(), seeds)
+        })
+        .filter(|(_, seeds)| !seeds.is_empty())
+        .collect();
+
+    let start_global = *global_index;
+
+    if by_section.is_empty() {
+        return fill_empty_quarter(quarter_id, quarter_number, target, hours_per_week, global_index);
+    }
+
+    let n_sec = by_section.len();
+    let mut rev_count = (hours_per_week as usize).max(2);
+    let mut a10_mid = n_sec.saturating_sub(1);
+    let mut sor_count = n_sec;
+
+    let content_len = |sections: &[(String, Vec<ContentSeed>)]| {
+        sections.iter().map(|(_, s)| s.len()).sum::<usize>()
+    };
+    let overhead = |sor: usize, mid: usize, rev: usize| sor + mid + 1 + 1 + rev;
+
+    // Компактно: одна тема = один урок (все цели вместе). Свободные часы
+    // сначала дробят многоцелевые темы, затем копируют последний урок раздела.
+    while content_len(&by_section) + overhead(sor_count, a10_mid, rev_count) < target {
+        let mut split = false;
+        for (_, seeds) in by_section.iter_mut() {
+            if let Some(pos) = seeds.iter().position(|s| s.objectives.len() > 1) {
+                let section = seeds[pos].section.clone();
+                let topic = seeds[pos].topic.clone();
+                let rest = seeds[pos].objectives.split_off(1);
+                seeds.insert(
+                    pos + 1,
+                    ContentSeed {
+                        section,
+                        topic,
+                        objectives: rest,
+                    },
+                );
+                split = true;
+                break;
+            }
+        }
+        if !split {
+            break;
+        }
+    }
+
+    let mut extra_i = 0;
+    while content_len(&by_section) + overhead(sor_count, a10_mid, rev_count) < target {
+        let sec_i = extra_i % n_sec;
+        extra_i += 1;
+        if let Some(last) = by_section[sec_i].1.last().cloned() {
+            by_section[sec_i].1.push(last);
+        } else {
+            break;
+        }
+    }
+
+    while content_len(&by_section) + overhead(sor_count, a10_mid, rev_count) > target {
+        let Some((idx, _)) = by_section
+            .iter()
+            .enumerate()
+            .filter(|(_, (_, seeds))| seeds.len() >= 2)
+            .max_by_key(|(_, (_, seeds))| seeds.len())
+        else {
+            break;
+        };
+        let last = by_section[idx].1.pop().expect("len >= 2");
+        if let Some(prev) = by_section[idx].1.last_mut() {
+            prev.objectives.extend(last.objectives);
+        }
+    }
+
+    while content_len(&by_section) + overhead(sor_count, a10_mid, rev_count) > target && a10_mid > 0 {
+        a10_mid -= 1;
+    }
+    while content_len(&by_section) + overhead(sor_count, a10_mid, rev_count) > target && sor_count > 1 {
+        sor_count -= 1;
+    }
+    if content_len(&by_section) + overhead(sor_count, a10_mid, rev_count) > target {
+        rev_count = (hours_per_week as usize).max(1);
+    }
+
+    let section_names: Vec<String> = by_section.iter().map(|(n, _)| n.clone()).collect();
+    let first_sor_idx = n_sec.saturating_sub(sor_count);
+    let mut out = Vec::new();
+
+    for (i, (sec_name, seeds)) in by_section.into_iter().enumerate() {
+        let mut last_standard: Option<KtpLesson> = None;
+        for seed in seeds {
+            push_lesson(
+                &mut out,
+                quarter_id,
+                global_index,
+                seed.topic,
+                LessonKind::Standard,
+                seed.section,
+                seed.objectives,
+            );
+            last_standard = out.last().cloned();
+        }
+
+        if i >= first_sor_idx {
+            push_lesson(
+                &mut out,
+                quarter_id,
+                global_index,
+                format!("СОР по разделу «{sec_name}»"),
+                LessonKind::Sor,
+                "Суммативное оценивание за раздел".into(),
+                Vec::new(),
+            );
+            let is_last_sor = i + 1 == n_sec;
+            let mid_slot = i.saturating_sub(first_sor_idx) < a10_mid;
+            if is_last_sor || mid_slot {
+                if let Some(mut dup) = last_standard {
+                    *global_index += 1;
+                    dup.id = crate::domain::ids::KtpLessonId::new();
+                    dup.global_index = *global_index;
+                    dup.quarter_index = out.len() as i64 + 1;
+                    out.push(dup);
+                } else {
+                    push_lesson(
+                        &mut out,
+                        quarter_id,
+                        global_index,
+                        sec_name.clone(),
+                        LessonKind::Standard,
+                        sec_name,
+                        Vec::new(),
+                    );
+                }
+            }
+        }
+    }
+
+    push_lesson(
+        &mut out,
+        quarter_id,
+        global_index,
+        format!("Суммативное оценивание за {quarter_number} четверть"),
+        LessonKind::Soch,
+        "Суммативное оценивание за четверть".into(),
+        Vec::new(),
+    );
+
+    for i in 0..rev_count {
+        let topic = section_names
+            .get(i % section_names.len())
+            .cloned()
+            .unwrap_or_else(|| format!("Повторение #{}", i + 1));
+        push_lesson(
+            &mut out,
+            quarter_id,
+            global_index,
+            topic,
+            LessonKind::Revision,
+            "Повторение".into(),
+            Vec::new(),
+        );
+    }
+
+    while out.len() < target {
+        let topic = section_names
+            .first()
+            .cloned()
+            .unwrap_or_else(|| "Повторение".into());
+        push_lesson(
+            &mut out,
+            quarter_id,
+            global_index,
+            topic,
+            LessonKind::Revision,
+            "Повторение".into(),
+            Vec::new(),
+        );
+    }
+
+    trim_to_target(&mut out, target, hours_per_week);
+    reindex_quarter(&mut out, start_global);
+    *global_index = start_global + out.len() as i64;
+    out
+}
+
+fn reindex_quarter(out: &mut [KtpLesson], start_global: i64) {
+    for (i, l) in out.iter_mut().enumerate() {
+        l.quarter_index = i as i64 + 1;
+        l.global_index = start_global + i as i64 + 1;
+    }
+}
+
+/// Если контрольных срезов слишком много для нормы четверти — снимаем
+/// лишние часы (сначала дубли тем, затем обычные уроки до последнего СОР,
+/// затем лишние повторения сверх ч/нед). Буфер FR-2.2 и СОЧ не трогаем.
+fn trim_to_target(out: &mut Vec<KtpLesson>, target: usize, hours_per_week: i64) {
+    let min_rev = (hours_per_week as usize).max(1);
+    while out.len() > target {
+        let last_sor = out.iter().rposition(|l| l.lesson_type == LessonKind::Sor);
+        let a10 = last_sor.map(|i| i + 1);
+
+        let mut remove_at = out.iter().enumerate().rev().find_map(|(i, l)| {
+            if l.lesson_type != LessonKind::Standard || a10 == Some(i) {
+                return None;
+            }
+            let prev = i.checked_sub(1).and_then(|p| out.get(p));
+            if prev.is_some_and(|p| {
+                p.lesson_type == LessonKind::Standard
+                    && p.topic_title == l.topic_title
+                    && p.section_name == l.section_name
+            }) {
+                Some(i)
+            } else {
+                None
+            }
+        });
+
+        if remove_at.is_none() {
+            remove_at = out.iter().enumerate().rev().find_map(|(i, l)| {
+                if l.lesson_type != LessonKind::Standard || a10 == Some(i) {
+                    return None;
+                }
+                if last_sor.is_some_and(|s| i < s) {
+                    Some(i)
+                } else {
+                    None
+                }
+            });
+        }
+
+        if remove_at.is_none() {
+            let rev_indices: Vec<usize> = out
+                .iter()
+                .enumerate()
+                .filter(|(_, l)| l.lesson_type == LessonKind::Revision)
+                .map(|(i, _)| i)
+                .collect();
+            if rev_indices.len() > min_rev {
+                remove_at = rev_indices.last().copied();
+            }
+        }
+
+        match remove_at {
+            Some(i) => {
+                out.remove(i);
+            }
+            None => break,
+        }
+    }
+}
+
+/// Строит план КТП из полного документа ТУП ровно в годовую норму часов:
+/// недели четверти × часы ТУП в неделю. СОР — после разделов, после
+/// последнего СОР ровно один буфер (FR-2.2), после СОЧ — повторения ≥ ч/нед (FR-2.3).
 pub fn generate_from_tup(doc: &FullTupDocument, p: &GenerateParams) -> KtpPlan {
     let objectives_by_code: std::collections::HashMap<String, &LearningObjective> = doc
         .objectives
@@ -30,13 +431,7 @@ pub fn generate_from_tup(doc: &FullTupDocument, p: &GenerateParams) -> KtpPlan {
         .map(|o| (o.code.replace(char::is_whitespace, ""), o))
         .collect();
 
-    let hours_per_week = doc
-        .hours
-        .iter()
-        .find(|h| h.grade == p.grade)
-        .map(|h| h.hours_per_week.round() as i64)
-        .unwrap_or(2)
-        .max(1);
+    let hours_per_week = hours_per_week_of(doc, p);
 
     let mut plan = KtpPlan {
         id: crate::domain::ids::KtpPlanId::new(),
@@ -57,8 +452,6 @@ pub fn generate_from_tup(doc: &FullTupDocument, p: &GenerateParams) -> KtpPlan {
         quarters: Vec::new(),
     };
 
-    // Четверти ТУП для этого класса; если ДСП для класса пуст/обрезан —
-    // создаём 4 пустых четверти, чтобы план был валиден.
     let grade_quarters = doc
         .quarters
         .iter()
@@ -76,113 +469,27 @@ pub fn generate_from_tup(doc: &FullTupDocument, p: &GenerateParams) -> KtpPlan {
             hours_per_week,
             lessons: Vec::new(),
         };
-
-        if let Some(tq) = grade_quarters.iter().find(|q| q.quarter_number == qn as i64) {
-            for section in &tq.sections {
-                let mut last_standard: Option<KtpLesson> = None;
-                for topic in &section.topics {
-                    // На каждую цель обучения — отдельный урок (как в реальном КТП:
-                    // тема повторяется на продолжениях, одна цель может идти несколько уроков).
-                    let objectives: Vec<LessonObjective> = topic
-                        .objective_codes
-                        .iter()
-                        .map(|c| {
-                            let norm = c.replace(char::is_whitespace, "");
-                            let found = objectives_by_code.get(&norm);
-                            LessonObjective {
-                                code: found
-                                    .map(|o| o.code.clone())
-                                    .unwrap_or_else(|| c.clone()),
-                                description: found
-                                    .map(|o| o.description.clone())
-                                    .unwrap_or_default(),
-                            }
-                        })
-                        .collect();
-                    if objectives.is_empty() {
-                        global_index += 1;
-                        let mut lesson = KtpLesson::new(
-                            quarter.id,
-                            global_index,
-                            quarter.lessons.len() as i64 + 1,
-                            topic.name.clone(),
-                            LessonKind::Standard,
-                        );
-                        lesson.section_name = section.name.clone();
-                        last_standard = Some(lesson.clone());
-                        quarter.lessons.push(lesson);
-                    } else {
-                        for obj in objectives {
-                            global_index += 1;
-                            let mut lesson = KtpLesson::new(
-                                quarter.id,
-                                global_index,
-                                quarter.lessons.len() as i64 + 1,
-                                topic.name.clone(),
-                                LessonKind::Standard,
-                            );
-                            lesson.section_name = section.name.clone();
-                            lesson.objectives = vec![obj];
-                            last_standard = Some(lesson.clone());
-                            quarter.lessons.push(lesson);
-                        }
-                    }
-                }
-                // СОР после каждого раздела (включая последний), чтобы
-                // последний СОР оказался ровно за 1 урок до СОЧ (FR-2.2).
-                global_index += 1;
-                quarter.lessons.push(KtpLesson::new(
-                    quarter.id,
-                    global_index,
-                    quarter.lessons.len() as i64 + 1,
-                    format!("СОР по разделу «{}»", section.name),
-                    LessonKind::Sor,
-                ));
-
-                // A10: сразу после СОР — дубликат последнего обычного урока
-                // раздела (та же тема/цель, тип STANDARD).
-                if let Some(mut dup) = last_standard {
-                    global_index += 1;
-                    dup.id = crate::domain::ids::KtpLessonId::new();
-                    dup.global_index = global_index;
-                    dup.quarter_index = quarter.lessons.len() as i64 + 1;
-                    quarter.lessons.push(dup);
-                }
-            }
-
-            // СОЧ в конце четверти (A9: полное наименование).
-            global_index += 1;
-            quarter.lessons.push(KtpLesson::new(
+        let target = (weeks_of(qn as i64) * hours_per_week) as usize;
+        quarter.lessons = if let Some(tq) = grade_quarters.iter().find(|q| q.quarter_number == qn as i64)
+        {
+            generate_quarter_lessons(
+                tq,
                 quarter.id,
-                global_index,
-                quarter.lessons.len() as i64 + 1,
-                format!("Суммативное оценивание за {} четверть", qn),
-                LessonKind::Soch,
-            ));
-
-            // Хвостовые повторения после СОЧ (FR-2.3). A8: вместо «Повторение #N»
-            // подставляются названия разделов четверти: max(2, sections.length),
-            // при одном разделе — дублировать. «Повторение» между СОР и СОЧ
-            // не создаётся (A10).
-            let section_names: Vec<String> = tq.sections.iter().map(|s| s.name.clone()).collect();
-            let repetition_count = section_names.len().max(2);
-            for i in 0..repetition_count {
-                global_index += 1;
-                let topic = if section_names.is_empty() {
-                    format!("Повторение #{}", i + 1)
-                } else {
-                    section_names[i % section_names.len()].clone()
-                };
-                quarter.lessons.push(KtpLesson::new(
-                    quarter.id,
-                    global_index,
-                    quarter.lessons.len() as i64 + 1,
-                    topic,
-                    LessonKind::Revision,
-                ));
-            }
-        }
-
+                qn as i64,
+                target,
+                hours_per_week,
+                &objectives_by_code,
+                &mut global_index,
+            )
+        } else {
+            fill_empty_quarter(
+                quarter.id,
+                qn as i64,
+                target,
+                hours_per_week,
+                &mut global_index,
+            )
+        };
         plan.quarters.push(quarter);
     }
 
@@ -391,10 +698,10 @@ mod tests {
         let doc = stub_doc();
         let plan = generate_from_tup(&doc, &params());
         assert_eq!(plan.quarters.len(), 4);
-        // В каждой четверти: 3 темы + 2 СОР + 2 дубликата после СОР (A10) +
-        // СОЧ + 2 повторения по разделам = 10 уроков.
-        for q in &plan.quarters {
-            assert_eq!(q.lessons.len(), 10);
+        // Норма ТУП: 2 ч/нед × недели 8/8/10/8.
+        let expected = [16, 16, 20, 16];
+        for (q, n) in plan.quarters.iter().zip(expected) {
+            assert_eq!(q.lessons.len(), n, "четверть {}", q.quarter_number);
         }
         // Первая четверть: глобальные индексы возрастают.
         let g: Vec<i64> = plan.quarters[0].lessons.iter().map(|l| l.global_index).collect();
@@ -453,6 +760,41 @@ mod tests {
         assert_eq!(plan.status, KtpStatus::Draft);
         assert!(plan.total_hours > 0);
         assert_eq!(plan.quarters[0].hours_per_week, 2);
+        assert_eq!(plan.total_hours, 68);
+    }
+
+    #[test]
+    fn uses_tup_hours_even_if_schedule_has_fewer_days() {
+        let mut doc = stub_doc();
+        doc.hours[0] = TupSubjectHours::new(doc.document.id, 5, 4.0, 136);
+        let plan = generate_from_tup(&doc, &params());
+        assert_eq!(plan.quarters[0].hours_per_week, 4);
+        assert_eq!(plan.quarters[0].lessons.len(), 32);
+        assert_eq!(plan.quarters[2].lessons.len(), 40);
+        assert_eq!(plan.total_hours, 136);
+        let report = validate_invariants(&plan);
+        assert!(report.valid, "инварианты нарушены: {:?}", report.checks);
+    }
+
+    #[test]
+    fn crowded_dsp_still_hits_hour_norm() {
+        let mut doc = stub_doc();
+        let qid = doc.quarters[0].id;
+        doc.quarters[0].sections = (1..=20)
+            .map(|i| {
+                TupSection::new(qid, format!("Раздел {i}"), i - 1).with_topics(vec![TupTopic::new(
+                    crate::domain::ids::TupSectionId::new(),
+                    format!("Тема {i}"),
+                    0,
+                    vec![format!("5.1.1.{i}")],
+                )])
+            })
+            .collect();
+        let plan = generate_from_tup(&doc, &params());
+        assert_eq!(plan.quarters[0].lessons.len(), 16);
+        assert_eq!(plan.total_hours, 68);
+        let report = validate_invariants(&plan);
+        assert!(report.valid, "инварианты нарушены: {:?}", report.checks);
     }
 
     #[test]
@@ -467,14 +809,14 @@ mod tests {
         let plan = generate_from_tup(&doc, &params());
         let q0 = &plan.quarters[0];
 
-        // Темы первой секции: тема1 (2 цели → 2 урока), тема2 (1 цель → 1 урок);
-        // вторая секция: тема3 (1 цель → 1 урок). Плюс 2 дубликата после СОР (A10).
+        // Свободные часы позволяют разнести две цели первой темы на два урока.
         let standard: Vec<&KtpLesson> = q0
             .lessons
             .iter()
             .filter(|l| l.lesson_type == LessonKind::Standard)
             .collect();
-        assert_eq!(standard.len(), 6, "4 обычных урока + 2 дубликата после СОР");
+        assert!(standard.len() >= 4, "ожидались тема1×2 + тема2 + тема3, получили {}", standard.len());
+        assert_eq!(q0.lessons.len(), 16);
 
         let first = &standard[0];
         let second = &standard[1];

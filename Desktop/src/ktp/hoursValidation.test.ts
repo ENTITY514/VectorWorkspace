@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { validateHours, splitByQuarters, QUARTER_WEEKS, formatShortDate } from "./hoursValidation";
+import { validateHours, splitByQuarters, QUARTER_WEEKS, formatShortDate, quarterNormFromHeader } from "./hoursValidation";
 import type { IKtpLesson, KtpPlan } from "./model/types";
 import { LessonRowType } from "./model/types";
 
@@ -88,8 +88,10 @@ describe("validateHours (A7)", () => {
     const q = report.quarters[0];
     expect(q.planned).toBe(24);
     expect(q.actual).toBe(23);
+    expect(q.ok).toBe(false);
     expect(q.merges).toHaveLength(1);
     expect(q.message).toContain("объединени");
+    expect(report.overallOk).toBe(false);
   });
 
   it("не считает пустые даты", () => {
@@ -97,6 +99,16 @@ describe("validateHours (A7)", () => {
     const report = validateHours(plan.map((l) => (l.rowType === LessonRowType.QUARTER_HEADER ? l : { ...l, date: "" })), 3);
     expect(report.totalPlanned).toBe(0);
     expect(report.overallOk).toBe(false);
+  });
+});
+
+describe("quarterNormFromHeader", () => {
+  it("берёт номер четверти и ч/нед из шапки", () => {
+    expect(quarterNormFromHeader("3-я четверть · 4 ч/нед")).toEqual({
+      quarter: 3,
+      hoursPerWeek: 4,
+      should: 40,
+    });
   });
 });
 

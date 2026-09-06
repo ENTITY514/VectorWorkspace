@@ -22,6 +22,7 @@ pub struct TupDocumentDto {
     pub target_grades: String,
     pub direction: String,
     pub objective_count: i64,
+    pub has_dsp: bool,
 }
 
 impl From<TupDocumentRow> for TupDocumentDto {
@@ -36,6 +37,7 @@ impl From<TupDocumentRow> for TupDocumentDto {
             target_grades: r.target_grades,
             direction: r.direction,
             objective_count: r.objective_count,
+            has_dsp: r.has_dsp != 0,
         }
     }
 }

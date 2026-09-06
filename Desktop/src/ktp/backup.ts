@@ -58,12 +58,36 @@ export function validateBackup(json: unknown): BackupManifest {
   };
 }
 
-/** Применение пакета: перегенерация id для планов (создать копию), шаблоны как есть. */
+function remapPlanTree(p: KtpPlan, status: string): KtpPlan {
+  const id = crypto.randomUUID();
+  const quarters = (p.quarters ?? []).map((q) => {
+    const quarterId = crypto.randomUUID();
+    return {
+      ...q,
+      id: quarterId,
+      ktpId: id,
+      lessons: (q.lessons ?? []).map((l) => ({
+        ...l,
+        id: crypto.randomUUID(),
+        quarterId,
+        notes: l.notes ?? "",
+      })),
+    };
+  });
+  return { ...p, id, status, quarters };
+}
+
+/** Применение пакета: новые id плана, четвертей и уроков, чтобы replace_plan
+ * не сталкивался со старыми первичными ключами. */
 export function resolveImport(manifest: BackupManifest): {
   plans: KtpPlan[];
   templates: KtpTemplate[];
 } {
-  const plans = manifest.plans.map((p) => ({ ...p, id: crypto.randomUUID(), status: "Draft" }));
-  const templates = manifest.templates.map((t) => ({ ...t }));
+  const plans = manifest.plans.map((p) => remapPlanTree(p, "Draft"));
+  const templates = manifest.templates.map((t) => ({
+    ...t,
+    id: crypto.randomUUID(),
+    plan: remapPlanTree(t.plan, t.plan.status ?? "Draft"),
+  }));
   return { plans, templates };
 }

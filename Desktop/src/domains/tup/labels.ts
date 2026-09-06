@@ -3,29 +3,30 @@
  * (common/emn/ogn, ru/kz, objective/section/topic/task) нигде не
  * показываются пользователю напрямую. */
 
+export function isKazakh(language?: string): boolean {
+  const v = (language || "").trim().toLowerCase();
+  return v === "kz" || v === "kk" || v === "kaz";
+}
+
 export function directionLabel(d: string): string {
-  switch (d) {
+  switch (normalizeDirection(d)) {
     case "emn":
       return "ЕМН";
     case "ogn":
       return "ОГН";
-    case "common":
-      return "Общеобразовательная";
     default:
-      return d;
+      return "Общеобразовательная";
   }
 }
 
 export function directionFull(d: string): string {
-  switch (d) {
+  switch (normalizeDirection(d)) {
     case "emn":
       return "Естественно-математическое направление";
     case "ogn":
       return "Общественно-гуманитарное направление";
-    case "common":
-      return "Общеобразовательная программа";
     default:
-      return d;
+      return "Общеобразовательная программа";
   }
 }
 

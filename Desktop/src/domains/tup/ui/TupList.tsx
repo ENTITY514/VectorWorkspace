@@ -9,7 +9,7 @@ import { TupImportPanel } from "./TupImportPanel";
 export function TupList({ onSelect }: { onSelect: (id: string) => void }) {
   const hook = useTupList(onSelect);
   const {
-    loading, error, ftsQuery, setFtsQuery, ftsHits, ftsLoading, ftsError,
+    loading, error, ftsQuery, setFtsQuery, ftsHits, filteredFtsHits, ftsLoading, ftsError,
     searchQuery, setSearchQuery, selectedSubject, setSelectedSubject,
     selectedGrades, setSelectedGrades, selectedDirection, setSelectedDirection,
     selectedLanguage, setSelectedLanguage, sortField, setSortField,
@@ -57,10 +57,24 @@ export function TupList({ onSelect }: { onSelect: (id: string) => void }) {
           
           {ftsError && <div className="flash-error" style={{ marginBottom: 12 }}>{ftsError}</div>}
           
-          {ftsQuery.trim() && !ftsLoading && ftsHits.length > 0 && (
+          {ftsQuery.trim() && !ftsLoading && ftsHits.length === 0 && !ftsError && (
+            <div className="empty" style={{ marginBottom: 16 }}>В содержимом документов ничего не найдено.</div>
+          )}
+
+          {ftsQuery.trim() && !ftsLoading && ftsHits.length > 0 && filteredFtsHits.length === 0 && (
+            <div className="empty" style={{ marginBottom: 16 }}>
+              Есть совпадения, но они скрыты текущими фильтрами.
+            </div>
+          )}
+
+          {ftsQuery.trim() && !ftsLoading && filteredFtsHits.length > 0 && (
             <div className="fts-results" style={{ marginBottom: 16 }}>
-              <div className="fts-results-title">Найдено в содержимом: {ftsHits.length}</div>
-              {ftsHits.slice(0, 20).map((h, i) => (
+              <div className="fts-results-title">
+                Найдено в содержимом: {filteredFtsHits.length}
+                {filteredFtsHits.length !== ftsHits.length ? ` из ${ftsHits.length}` : ""}
+                {filteredFtsHits.length > 20 ? " · показаны первые 20" : ""}
+              </div>
+              {filteredFtsHits.slice(0, 20).map((h, i) => (
                 <button
                   key={`${h.entityType}-${h.entityId}-${i}`}
                   className="fts-hit"

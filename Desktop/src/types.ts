@@ -27,6 +27,7 @@ export interface TupDocument {
   targetGrades: string;
   direction: "common" | "emn" | "ogn";
   objectiveCount: number;
+  hasDsp?: boolean;
 }
 
 export interface TupDocumentListItem {
@@ -226,6 +227,7 @@ export interface KtpLesson {
   lessonType: LessonKind;
   plannedDate: string | null;
   isCancelled: boolean;
+  notes: string;
   objectives: LessonObjective[];
 }
 

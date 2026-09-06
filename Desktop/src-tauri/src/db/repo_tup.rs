@@ -166,13 +166,16 @@ pub struct TupDocumentRow {
     pub target_grades: String,
     pub direction: String,
     pub objective_count: i64,
+    pub has_dsp: i64,
 }
 
 /// Все документы ТУП с количеством целей.
 pub async fn list_documents(pool: &SqlitePool) -> Result<Vec<TupDocumentRow>, DbError> {
     let rows = sqlx::query_as::<_, TupDocumentRow>(
-        "SELECT d.*,
-                (SELECT COUNT(*) FROM learning_objectives o WHERE o.document_id = d.id) AS objective_count
+        "SELECT d.id, d.order_number, d.order_date, d.appendix_number, d.subject_id, d.language,
+                d.target_grades, d.direction,
+                (SELECT COUNT(*) FROM learning_objectives o WHERE o.document_id = d.id) AS objective_count,
+                EXISTS(SELECT 1 FROM tup_quarters q WHERE q.document_id = d.id) AS has_dsp
          FROM tup_documents d
          ORDER BY d.subject_id, d.target_grades, d.direction",
     )

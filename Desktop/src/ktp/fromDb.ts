@@ -133,7 +133,7 @@ export function hoursPerWeekForGrade(detail: TupDocumentDetail, grade: number): 
   return h ? h.hoursPerWeek : 0;
 }
 
-/** Сумма часов плана. */
+/** Сумма часов плана. Шапка четверти уже равна числу уроков — её не считаем. */
 export function totalHoursOf(plan: KtpPlan): number {
-  return plan.reduce((s, r) => s + (r.hours || 0), 0);
+  return plan.reduce((s, r) => (r.rowType === LessonRowType.QUARTER_HEADER ? s : s + (r.hours || 0)), 0);
 }

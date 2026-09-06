@@ -1,9 +1,11 @@
 import { Fragment, useState, useMemo } from "react";
-import type { CSSProperties, ReactNode } from "react";
+import type { CSSProperties, KeyboardEvent, ReactNode } from "react";
 import { useDraggable, useDroppable } from "@dnd-kit/core";
 import { SortableContext, useSortable, verticalListSortingStrategy } from "@dnd-kit/sortable";
 import { CSS } from "@dnd-kit/utilities";
 import { IKtpLesson, ILessonObjective, LessonRowType, KtpPlan as FlatPlan } from "./model/types";
+import { quarterNormFromHeader } from "./hoursValidation";
+import { quarterLessonsAround } from "./editorModel";
 
 type EditableField = "sectionName" | "lessonTopic" | "date" | "notes";
 
@@ -29,6 +31,9 @@ export interface KtpTableProps {
   setDraft: (v: string) => void;
   beginEdit: (l: IKtpLesson, f: EditableField) => void;
   applyEdit: () => void;
+  commitEdit: () => void;
+  cancelEdit: () => void;
+  onTabNext: (lesson: IKtpLesson, field: EditableField) => void;
   onUpdate: (id: string, field: keyof IKtpLesson, value: string | number | ILessonObjective[]) => void;
   onAddHour: (id: string) => void;
   onDelete: (id: string) => void;
@@ -133,6 +138,9 @@ export function KtpTable(props: KtpTableProps) {
     setDraft,
     beginEdit,
     applyEdit,
+    commitEdit,
+    cancelEdit,
+    onTabNext,
     onUpdate,
     onAddHour,
     onDelete,
@@ -164,7 +172,23 @@ export function KtpTable(props: KtpTableProps) {
     return map;
   }, [flat]);
 
-  const isEditable = (f: string) => f === "sectionName" || f === "lessonTopic" || f === "date";
+  const isEditable = (f: string) =>
+    f === "sectionName" || f === "lessonTopic" || f === "date" || f === "notes";
+
+  const onEditKey = (e: KeyboardEvent<HTMLInputElement>, lesson: IKtpLesson, field: EditableField) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      commitEdit();
+    } else if (e.key === "Escape") {
+      e.preventDefault();
+      cancelEdit();
+    } else if (e.key === "Tab") {
+      e.preventDefault();
+      onTabNext(lesson, field);
+    }
+  };
+
+  let headerQi = 0;
 
   return (
     <div className="ktp-table-wrap">
@@ -179,6 +203,7 @@ export function KtpTable(props: KtpTableProps) {
             <th>Цели обучения</th>
             <th>Кол-во часов</th>
             <th>Дата</th>
+            <th>Примечание</th>
             <th>Действия</th>
           </tr>
         </thead>
@@ -187,17 +212,20 @@ export function KtpTable(props: KtpTableProps) {
             {flat.map((l, i) => {
               const prev = flat[i - 1];
               if (l.rowType === LessonRowType.QUARTER_HEADER) {
-                const qn = sectionIndex(l.sectionName) + 1;
-                const q = quarterWork[qn];
-                const mismatch = q ? q.planned - q.actual : 0;
+                headerQi += 1;
+                const q = quarterWork[headerQi];
+                const norm = quarterNormFromHeader(l.sectionName, headerQi);
+                const planned = norm.should || (q?.planned ?? 0);
+                const actual = q?.actual ?? 0;
+                const mismatch = planned - actual;
                 return (
                   <tr key={l.id} className="row-quarter">
                     <td></td>
-                    <td colSpan={8}>
-                      <div style={{ display: "flex", alignItems: "center", gap: 12, justifyContent: "center" }}>
+                    <td colSpan={9}>
+                      <div className="ktp-quarter-head">
                         <span>{l.sectionName}</span>
-                        <span>Часы (план): {q?.planned ?? 0}</span>
-                        <span>Часы (факт): {q?.actual ?? 0}</span>
+                        <span>Часы (план): {planned}</span>
+                        <span>Часы (факт): {actual}</span>
                         {mismatch !== 0 && (
                           <span style={{ color: "var(--status-error-text)" }}>
                             {mismatch > 0
@@ -241,8 +269,9 @@ export function KtpTable(props: KtpTableProps) {
                   nextLesson.rowType === LessonRowType.REPETITION ||
                   nextLesson.sectionName !== l.sectionName);
 
+              const inQuarter = quarterLessonsAround(flat, l.id);
               const sectionHours = isSectionStart
-                ? flat.filter(
+                ? inQuarter.filter(
                     (x) => x.sectionName === l.sectionName && x.rowType === LessonRowType.STANDARD,
                   ).length
                 : 0;
@@ -255,7 +284,7 @@ export function KtpTable(props: KtpTableProps) {
 
               const sectionHoursCount =
                 l.rowType === LessonRowType.STANDARD
-                  ? flat.filter(
+                  ? inQuarter.filter(
                       (x) =>
                         x.sectionName === l.sectionName &&
                         x.lessonNumber <= l.lessonNumber &&
@@ -278,10 +307,7 @@ export function KtpTable(props: KtpTableProps) {
                         autoFocus
                         onChange={(e) => setDraft(e.target.value)}
                         onBlur={applyEdit}
-                        onKeyDown={(e) => {
-                          if (e.key === "Enter") applyEdit();
-                          if (e.key === "Escape") { setDraft(""); applyEdit(); }
-                        }}
+                        onKeyDown={(e) => onEditKey(e, l, field)}
                       />
                     ) : (
                       isNew ? display : ""
@@ -300,7 +326,7 @@ export function KtpTable(props: KtpTableProps) {
                   {isSectionStart && (
                     <tr className="ktp-section-header">
                       <td></td>
-                      <td colSpan={8}>
+                      <td colSpan={9}>
                         <span className="ktp-section-title">Раздел: {l.sectionName}</span>
                         <span className="ktp-section-hours">{sectionHours} ч.</span>
                       </td>
@@ -325,10 +351,7 @@ export function KtpTable(props: KtpTableProps) {
                               autoFocus
                               onChange={(e) => setDraft(e.target.value)}
                               onBlur={applyEdit}
-                              onKeyDown={(e) => {
-                                if (e.key === "Enter") applyEdit();
-                                if (e.key === "Escape") { setDraft(""); applyEdit(); }
-                              }}
+                              onKeyDown={(e) => onEditKey(e, l, "lessonTopic")}
                             />
                           ) : (
                             <span className="ktp-topic-inline">{l.lessonTopic}</span>
@@ -351,34 +374,45 @@ export function KtpTable(props: KtpTableProps) {
                     )}
                     <td>{l.hours}</td>
                     {editableCell("date", isMergedWithPrev ? "" : l.date, true, "ktp-date-cell")}
+                    {editableCell("notes", l.notes, true, "ktp-notes-cell")}
                     <td className="ktp-actions">
-                      <button className="btn btn-xs" title="Добавить час" onClick={() => onAddHour(l.id)}>+</button>
-                      <button className="btn btn-xs" title="Удалить урок" onClick={() => onDelete(l.id)}>−</button>
+                      <button type="button" className="btn btn-xs" title="Добавить час (копия урока)" onClick={() => onAddHour(l.id)}>
+                        + час
+                      </button>
+                      <button type="button" className="btn btn-xs" title="Удалить урок" onClick={() => onDelete(l.id)}>
+                        удалить
+                      </button>
                       {l.objectives.length > 1 && (
-                        <button className="btn btn-xs" title="Разделить цели" onClick={() => onSplit(l.id)}>⇉</button>
+                        <button type="button" className="btn btn-xs" title="Разделить цели по урокам" onClick={() => onSplit(l.id)}>
+                          разделить
+                        </button>
                       )}
                       {l.rowType === LessonRowType.STANDARD &&
                         nextLesson &&
                         nextLesson.rowType === LessonRowType.STANDARD && (
                           <>
                             <button
+                              type="button"
                               className="btn btn-xs"
-                              title="Объединить со следующим (общая дата + причина)"
+                              title="Объединить со следующим (общая дата и причина)"
                               onClick={() => onMerge(l.id)}
                             >
-                              ⤷
+                              объединить
                             </button>
                             <button
+                              type="button"
                               className="btn btn-xs"
-                              title="Объединить цели со следующим уроком"
+                              title="Перенести цели следующего урока в этот"
                               onClick={() => onMergeObjectivesNext(l.id)}
                             >
-                              ⇶
+                              цели вместе
                             </button>
                           </>
                         )}
                       {isSectionEnd && (
-                        <button className="btn btn-xs" title="Добавить СОР" onClick={() => onAddSor(l.id)}>СОР</button>
+                        <button type="button" className="btn btn-xs" title="Добавить СОР после раздела" onClick={() => onAddSor(l.id)}>
+                          СОР
+                        </button>
                       )}
                     </td>
                   </SortableRow>
