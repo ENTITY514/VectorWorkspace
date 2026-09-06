@@ -5,6 +5,7 @@ import type { KtpPlanCard, TupDocumentListItem } from "../../types";
 import { parseGrades } from "../../lib/grades";
 import { clonePlanForGrade, listTemplates } from "../../ktp/templateLib";
 import type { KtpTemplate } from "../../ktp/templateLib";
+import { normalizeDirection } from "../tup/labels";
 
 export const WEEKDAYS = [
   { num: 1, label: "Пн" },
@@ -113,11 +114,36 @@ export function useKtpList(onOpen: (id: string) => void) {
 
   const candidateDocs = useMemo(() => {
     if (!selectedSubject || !selectedLanguage || selectedGrade == null) return [];
-    return documents.filter((d) => {
-      if (d.subjectName !== selectedSubject || d.language !== selectedLanguage) return false;
-      return parseGrades(d.targetGrades).includes(selectedGrade);
-    });
+    return documents
+      .filter((d) => {
+        if (d.subjectName !== selectedSubject || d.language !== selectedLanguage) return false;
+        return parseGrades(d.targetGrades).includes(selectedGrade);
+      })
+      .sort((a, b) => {
+        const rank = (d: TupDocumentListItem) => {
+          switch (normalizeDirection(d.directionStr)) {
+            case "emn":
+              return 0;
+            case "common":
+              return 1;
+            default:
+              return 2;
+          }
+        };
+        return rank(a) - rank(b);
+      });
   }, [documents, selectedSubject, selectedLanguage, selectedGrade]);
+
+  useEffect(() => {
+    if (candidateDocs.length === 0) {
+      if (selectedDocId) setSelectedDocId("");
+      return;
+    }
+    const stillValid = candidateDocs.some((d) => d.id === selectedDocId);
+    if (stillValid) return;
+    const emn = candidateDocs.find((d) => normalizeDirection(d.directionStr) === "emn");
+    setSelectedDocId((emn ?? candidateDocs[0]).id);
+  }, [candidateDocs, selectedDocId]);
 
   const canGenerate = Boolean(selectedDocId) && selectedGrade != null && daysOfWeek.length > 0;
   const selectedDoc = documents.find((d) => d.id === selectedDocId) ?? null;

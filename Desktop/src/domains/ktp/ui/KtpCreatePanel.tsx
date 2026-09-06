@@ -1,6 +1,7 @@
 import { openUrl } from "@tauri-apps/plugin-opener";
 import { adiletAppendixUrl, appendixLabel } from "../../../lib/adilet";
 import { WEEKDAYS } from "../useKtpList";
+import { directionWhy, documentChoiceLabel } from "../../tup/labels";
 
 export function KtpCreatePanel({ hook }: { hook: any }) {
   const {
@@ -67,7 +68,7 @@ export function KtpCreatePanel({ hook }: { hook: any }) {
             <option value="">Документ ТУП…</option>
             {candidateDocs.map((d: any) => (
               <option key={d.id} value={d.id}>
-                Прил. {d.appendixNumber} · {d.targetGrades} · {d.language.toUpperCase()}
+                {documentChoiceLabel(d)}
               </option>
             ))}
           </select>
@@ -99,7 +100,7 @@ export function KtpCreatePanel({ hook }: { hook: any }) {
         {selectedDoc && (
           <div className="ktp-source-note">
             Источник: приказ МОН РК от {selectedDoc.orderDate} № {selectedDoc.orderNumber} ·{" "}
-            {appendixLabel(selectedDoc.appendixNumber)} ·{" "}
+            {appendixLabel(selectedDoc.appendixNumber)} · {directionWhy(selectedDoc.directionStr)} ·{" "}
             <a
               className="ktp-source-link"
               onClick={() => openUrl(adiletAppendixUrl(selectedDoc.language, selectedDoc.appendixNumber))}

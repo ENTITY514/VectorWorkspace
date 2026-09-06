@@ -6,6 +6,7 @@ import { generateWordDocument } from "../lib/word-generator";
 import { generateXlsx, generateKundelikXlsx } from "../lib/xlsx-generator";
 import { buildKtpFromTup, hoursPerWeekForGrade, totalHoursOf } from "../ktp/fromDb";
 import { LessonRowType } from "../ktp/model/types";
+import { documentChoiceLabel } from "../domains/tup/labels";
 
 function parseGrades(targetGrades: string): number[] {
   if (!targetGrades) return [];
@@ -212,7 +213,7 @@ export function Ktp() {
               <option value="">Документ ТУП…</option>
               {candidateDocs.map((d) => (
                 <option key={d.id} value={d.id}>
-                  Прил. {d.appendixNumber} · {d.targetGrades} · {d.language.toUpperCase()}
+                  {documentChoiceLabel(d)}
                 </option>
               ))}
             </select>

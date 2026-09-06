@@ -47,11 +47,17 @@ const FIXTURE: TupDocumentListItem[] = [
 ];
 
 describe("matchSourceDoc (A1: реестр предмет × класс → приложение)", () => {
-  it("для алгебры 10 класса подставляется приложение из test_ru.json, не общее", () => {
+  it("для алгебры 10 класса подставляется ЕМН-приложение, не общее", () => {
     const doc = matchSourceDoc(FIXTURE, "algebra_analysis", 10, "RU");
     expect(doc).not.toBeNull();
-    expect([104, 105]).toContain(doc!.appendixNumber);
-    expect(doc!.appendixNumber).not.toBe(53); // не подставляем «алгебру 7-9»
+    expect(doc!.appendixNumber).toBe(104);
+    expect(doc!.appendixNumber).not.toBe(53);
+  });
+
+  it("при двух приложениях на один предмет выбирает ЕМН, не ОГН", () => {
+    const doc = matchSourceDoc(FIXTURE, "algebra_analysis", 11, "RU");
+    expect(doc?.appendixNumber).toBe(104);
+    expect(doc?.directionStr).toBe("ЕМН");
   });
 
   it("для алгебры (7-9) класс 10 не покрыт → null, без подмены", () => {
@@ -75,5 +81,12 @@ describe("matchSourceDoc (A1: реестр предмет × класс → пр
 describe("sourceDocLabel (A1)", () => {
   it("формирует строку приказ/дата/номер/приложение", () => {
     expect(sourceDocLabel(FIXTURE[0])).toBe("Источник: приказ МОН РК от 2022-09-16 № 399 · приложение 53");
+  });
+
+  it("для ЕМН/ОГН добавляет подпись направления", () => {
+    expect(sourceDocLabel(FIXTURE[1])).toContain("приложение 104");
+    expect(sourceDocLabel(FIXTURE[1])).toContain("ЕМН");
+    expect(sourceDocLabel(FIXTURE[2])).toContain("приложение 105");
+    expect(sourceDocLabel(FIXTURE[2])).toContain("ОГН");
   });
 });

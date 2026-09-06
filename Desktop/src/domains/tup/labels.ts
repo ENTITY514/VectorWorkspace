@@ -50,3 +50,39 @@ export function entityTypeLabel(e: string): string {
       return e;
   }
 }
+
+/** Нормализует сырое направление или уже подписанный бейдж. */
+export function normalizeDirection(d: string): "emn" | "ogn" | "common" {
+  const v = (d || "").trim().toLowerCase();
+  if (v === "emn" || v === "емн" || v.includes("естественно")) return "emn";
+  if (v === "ogn" || v === "огн" || v.includes("общественно") || v.includes("гуманитар")) return "ogn";
+  return "common";
+}
+
+/** Почему у одного предмета два приложения: ЕМН и ОГН — разные профили. */
+export function directionWhy(d: string): string {
+  switch (normalizeDirection(d)) {
+    case "emn":
+      return "ЕМН — естественно-математическое направление";
+    case "ogn":
+      return "ОГН — общественно-гуманитарное направление";
+    default:
+      return "Общеобразовательная программа";
+  }
+}
+
+/** Подпись варианта ТУП в списках и селекте КТП. */
+export function documentChoiceLabel(doc: {
+  appendixNumber: number;
+  targetGrades: string;
+  language: string;
+  directionStr: string;
+}): string {
+  const dir = normalizeDirection(doc.directionStr);
+  const variant = dir === "emn" ? "ЕМН" : dir === "ogn" ? "ОГН" : "";
+  const parts = [`Прил. ${doc.appendixNumber}`];
+  if (variant) parts.push(variant);
+  parts.push(doc.targetGrades);
+  if (doc.language) parts.push(doc.language.toUpperCase());
+  return parts.join(" · ");
+}
