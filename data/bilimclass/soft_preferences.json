@@ -1,0 +1,59 @@
+{
+  "note": "ЖЕЛАТЕЛЬНЫЕ (мягкие) настройки расписания. Учитываются как предпочтения/штрафы, а не как жёсткие запреты. Источник: пользователь (Бабич И.Д.).",
+  "edu_year": 2026,
+  "owner": "Бабич И.Д.",
+  "preferences": [
+    {
+      "id": "babich_window_when_english_9b_10a",
+      "type": "coupled_preference",
+      "description": "Когда у 9Б и 10А одновременно английский — у Бабича И.Д. должно быть окно, а урок Алекпаровой А.Ж. ставить в кабинет Бабича (room_17).",
+      "teacher_free": "Бабич Иман Денисович",
+      "teacher_uses_room": "Алекпарова Алия Жумабаевна",
+      "classes": ["9Б", "10А"],
+      "subject": "Иностранный язык",
+      "room": "room_17"
+    },
+    {
+      "id": "babich_min_swaps_with_krasnoperova",
+      "type": "soft",
+      "description": "Минимум свапов с Красноперовой О.В. (химия). Химию ставить после Бабича в течение недели. Если свапы нужны — делать их на геометрии во вторник и четверг.",
+      "teacher": "Бабич Иман Денисович",
+      "other_teacher": "Красноперова Ольга Викторовна",
+      "prefer_subject_after": "Химия",
+      "fallback_swap_subject": "Геометрия",
+      "fallback_swap_days": ["Вт", "Чт"]
+    },
+    {
+      "id": "class_10a_soft_sanpin",
+      "type": "soft",
+      "description": "Для 10А — более мягкое и комфортное расписание, дни в соответствии с СанПиН.",
+      "class": "10А"
+    },
+    {
+      "id": "babich_one_window_per_day",
+      "type": "soft",
+      "description": "У Бабича И.Д. — по 1 окну в день, чтобы стабильно освобождаться после 5-го урока (допустимо после 6-го, если так лучше в целом).",
+      "teacher": "Бабич Иман Денисович",
+      "max_windows_per_day": 1,
+      "preferred_finish_lesson": 5,
+      "allowed_finish_lesson": 6
+    },
+    {
+      "id": "alternation_algebra_geometry",
+      "type": "soft",
+      "description": "Чередование Алгебра → Геометрия → Алгебра → Геометрия и т.д.",
+      "subjects": ["Алгебра", "Геометрия"],
+      "days_pattern": ["Алгебра", "Геометрия", "Алгебра", "Геометрия", "Алгебра"]
+    },
+    {
+      "id": "alternation_russian_literature",
+      "type": "soft",
+      "description": "Чередование по русскому языку и литературе (и аналогично для казахского).",
+      "pairs": [["Русский язык", "Русская литература"], ["Русский язык", "Русская литература"], ["Казахский язык", "Казахская литература"]]
+    }
+  ],
+  "reference_spec": [
+    "SCHEDULE_SPECIFICATION.md §3.2 (S_window, S_sanpin_parabola, S_alternation, S_room_displacement, S_load_balance)",
+    "docs/schedule/03-algorithm-and-constraints.md"
+  ]
+}

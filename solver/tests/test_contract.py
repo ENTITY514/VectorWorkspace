@@ -301,9 +301,15 @@ def test_class_type_not_guessed_from_id():
             {"id": "9a_dopolnitelnaya", "grade": 9, "letter": "а", "headcount": 25,
              "shift": "First", "subgroups": [], "class_type": "normal"},
         ],
+        subjects=[
+            {"id": "hist", "name": "История", "sanitary_weight": 8},
+            {"id": "geo", "name": "География", "sanitary_weight": 6},
+        ],
         curriculum=[
             {"class_id": "9a_dopolnitelnaya", "subject_id": "hist",
-             "teacher_id": "t1", "hours_per_week": 2},
+             "teacher_id": "t1", "hours_per_week": 1},
+            {"class_id": "9a_dopolnitelnaya", "subject_id": "geo",
+             "teacher_id": "t1", "hours_per_week": 1},
         ],
     )
     out = solve(InputModel.model_validate(payload))
@@ -343,8 +349,13 @@ def test_home_schooling_may_take_last_period():
             {"id": "d1", "grade": 8, "letter": "", "headcount": 1,
              "shift": "First", "subgroups": [], "class_type": "do"},
         ],
+        subjects=[
+            {"id": "hist", "name": "История", "sanitary_weight": 8},
+            {"id": "geo", "name": "География", "sanitary_weight": 6},
+        ],
         curriculum=[
-            {"class_id": "d1", "subject_id": "hist", "teacher_id": "t1", "hours_per_week": 2},
+            {"class_id": "d1", "subject_id": "hist", "teacher_id": "t1", "hours_per_week": 1},
+            {"class_id": "d1", "subject_id": "geo", "teacher_id": "t1", "hours_per_week": 1},
         ],
     )
     out = solve(InputModel.model_validate(payload))

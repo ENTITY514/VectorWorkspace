@@ -116,6 +116,37 @@ def test_soft_alternation():
     for d, subs in by_day.items():
         assert not ("algebra" in subs and "geometry" in subs), f"alternation violated on day {d}: {subs}"
 
+def test_soft_alternation_no_same_subject_on_consecutive_days():
+    inp = make_input(
+        teachers=[
+            {"id": "t1", "full_name": "T1", "max_daily_lessons": 0, "availability": avail_all()},
+            {"id": "t2", "full_name": "T2", "max_daily_lessons": 0, "availability": avail_all()},
+        ],
+        classes=[{"id": "c1", "grade": 8, "letter": "A", "headcount": 25, "shift": "First", "subgroups": []}],
+        rooms=[
+            {"id": "r1", "name": "Kab1", "room_type": "General", "capacity": 30},
+            {"id": "r2", "name": "Kab2", "room_type": "General", "capacity": 30},
+        ],
+        subjects=[
+            {"id": "algebra", "name": "Algebra", "sanitary_weight": 9, "related_subject_ids": ["geometry"]},
+            {"id": "geometry", "name": "Geometry", "sanitary_weight": 9, "related_subject_ids": ["algebra"]},
+        ],
+        curriculum=[
+            {"class_id": "c1", "subject_id": "algebra", "teacher_id": "t1", "hours_per_week": 3},
+            {"class_id": "c1", "subject_id": "geometry", "teacher_id": "t2", "hours_per_week": 2},
+        ],
+        weights={"window": 0, "room_displacement": 0, "sanpin_parabola": 0, "alternation": 1000, "movement": 0, "load_balance": 0},
+        time_grid={"days": 5, "periods_per_day": 5},
+    )
+    out = solve(inp)
+    assert out["status"] in ("OPTIMAL", "FEASIBLE"), out
+    assert out["penalties"]["alternation"] == 0, out["penalties"]
+    by_day = {d: set() for d in range(5)}
+    for s in out["slots"]:
+        by_day[s["day"]].add(s["subject_id"])
+    for d in range(4):
+        assert not (by_day[d] & by_day[d + 1]), f"same subject on days {d},{d+1}: {by_day}"
+
 def test_soft_room_displacement():
     inp = make_input(
         teachers=[{"id": "t1", "full_name": "T1", "max_daily_lessons": 0, "availability": avail_all()}],

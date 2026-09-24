@@ -195,39 +195,59 @@ def add_soft_constraints(model, x, y, m, instances, room_by_id=None):
             penalties["sanpin_parabola"] = model.NewIntVar(0, 0, "penalty_sanpin_zero")
             model.Add(penalties["sanpin_parabola"] == 0)
 
-    # S4: Чередование (related subjects not same day)
+    # S4: Чередование связанных предметов.
+    #   (а) оба предмета пары в один день у класса — штраф за каждый такой день;
+    #   (б) один и тот же предмет пары два дня подряд — штраф за каждую пару
+    #       соседних дней. Без (б) раскладка «Пн А, Вт А, Ср А, Чт Г, Пт Г»
+    #       не штрафовалась; с (б) выгоднее А-Г-А-Г-А.
     if m.weights.alternation > 0:
         alt_vars = []
+        periods = range(m.time_grid.periods_per_day)
         for c in m.classes:
             cid = c.id
-            # build has_subject per day
+            class_subjects = {inst["subject_id"] for inst in instances if inst["class_id"] == cid}
+            has_cache = {}
+
+            def has(sid, d):
+                key = (sid, d)
+                if key not in has_cache:
+                    vs = [x[(inst["idx"], d, p)] for inst in instances
+                          if inst["class_id"] == cid and inst["subject_id"] == sid
+                          for p in periods if (inst["idx"], d, p) in x]
+                    if vs:
+                        b = model.NewBoolVar(f"has_{cid}_{sid}_{d}")
+                        model.AddMaxEquality(b, vs)
+                        has_cache[key] = b
+                    else:
+                        has_cache[key] = None
+                return has_cache[key]
+
+            def both(a, b, name):
+                v = model.NewBoolVar(name)
+                model.Add(v <= a)
+                model.Add(v <= b)
+                model.Add(v >= a + b - 1)
+                return v
+
+            pairs = set()
             for subj in m.subjects:
-                if not subj.related_subject_ids:
+                if subj.id not in class_subjects:
                     continue
-                for rel_id in subj.related_subject_ids:
-                    # avoid double count: only when subj.id < rel_id lexicographically
-                    if subj.id >= rel_id:
-                        continue
-                    # check both subjects exist in curriculum for this class
-                    has_subj = any(inst["class_id"] == cid and inst["subject_id"] == subj.id for inst in instances)
-                    has_rel = any(inst["class_id"] == cid and inst["subject_id"] == rel_id for inst in instances)
-                    if not has_subj or not has_rel:
-                        continue
-                    for d in range(m.time_grid.days):
-                        # has_a = OR over periods/instances of subj in day
-                        vars_a = [x[(inst["idx"], d, p)] for inst in instances if inst["class_id"] == cid and inst["subject_id"] == subj.id for p in range(m.time_grid.periods_per_day) if (inst["idx"], d, p) in x]
-                        vars_b = [x[(inst["idx"], d, p)] for inst in instances if inst["class_id"] == cid and inst["subject_id"] == rel_id for p in range(m.time_grid.periods_per_day) if (inst["idx"], d, p) in x]
-                        if not vars_a or not vars_b:
-                            continue
-                        has_a = model.NewBoolVar(f"has_{cid}_{subj.id}_{d}")
-                        has_b = model.NewBoolVar(f"has_{cid}_{rel_id}_{d}")
-                        model.AddMaxEquality(has_a, vars_a)
-                        model.AddMaxEquality(has_b, vars_b)
-                        both = model.NewBoolVar(f"both_{cid}_{subj.id}_{rel_id}_{d}")
-                        model.Add(both <= has_a)
-                        model.Add(both <= has_b)
-                        model.Add(both >= has_a + has_b - 1)
-                        alt_vars.append(both)
+                for rel_id in subj.related_subject_ids or []:
+                    if rel_id in class_subjects and rel_id != subj.id:
+                        pairs.add(tuple(sorted((subj.id, rel_id))))
+
+            for sa, sb in sorted(pairs):
+                for d in range(m.time_grid.days):
+                    a, b = has(sa, d), has(sb, d)
+                    if a is not None and b is not None:
+                        alt_vars.append(both(a, b, f"both_{cid}_{sa}_{sb}_{d}"))
+
+            for sid in sorted({s for pair in pairs for s in pair}):
+                for d in range(m.time_grid.days - 1):
+                    a, b = has(sid, d), has(sid, d + 1)
+                    if a is not None and b is not None:
+                        alt_vars.append(both(a, b, f"repeat_{cid}_{sid}_{d}"))
         if alt_vars:
             pen = model.NewIntVar(0, 100000, "penalty_alternation")
             model.Add(pen == sum(alt_vars))

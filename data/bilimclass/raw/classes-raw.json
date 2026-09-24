@@ -1,0 +1,773 @@
+{
+  "parallels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11
+  ],
+  "rows": [
+    {
+      "status": "active",
+      "letter": "А",
+      "teacher": {
+        "id": 86926132,
+        "name": "Жекеева Нурсулу Абуовна",
+        "isDeleted": false
+      },
+      "contingent": {
+        "count": 3,
+        "iinCount": 3
+      },
+      "id": 1226999,
+      "isInStat": true,
+      "schoolName": "КГУ \"Песчанская СОШ №1\", район Тереңкөл",
+      "eduYear": 2026,
+      "parallel": {
+        "label": 1,
+        "color": "#F4D2B8"
+      },
+      "language": {
+        "id": 3,
+        "label": "казахский",
+        "color": "#C3F4FF"
+      },
+      "timeScheme": {
+        "id": 3113,
+        "uuid": "65001ebf-fc7b-45bd-b3e1-6a5eddc33112",
+        "name": "1 четверть",
+        "color": null,
+        "order": 3
+      },
+      "hasTimeScheme": true,
+      "ortaBilimSchoolId": null,
+      "eduShift": 1
+    },
+    {
+      "status": "active",
+      "letter": "Б",
+      "teacher": {
+        "id": 86926150,
+        "name": "Ажикенова Мадина Аскаровна",
+        "isDeleted": false
+      },
+      "contingent": {
+        "count": 19,
+        "iinCount": 19
+      },
+      "id": 1227016,
+      "isInStat": true,
+      "schoolName": "КГУ \"Песчанская СОШ №1\", район Тереңкөл",
+      "eduYear": 2026,
+      "parallel": {
+        "label": 1,
+        "color": "#F4D2B8"
+      },
+      "language": {
+        "id": 4,
+        "label": "русский",
+        "color": "#E6F8EA"
+      },
+      "timeScheme": {
+        "id": 3113,
+        "uuid": "65001ebf-fc7b-45bd-b3e1-6a5eddc33112",
+        "name": "1 четверть",
+        "color": null,
+        "order": 3
+      },
+      "hasTimeScheme": true,
+      "ortaBilimSchoolId": null,
+      "eduShift": 1
+    },
+    {
+      "status": "active",
+      "letter": "А",
+      "teacher": {
+        "id": 86926146,
+        "name": "Актаева Айгерим Ермеккызы",
+        "isDeleted": false
+      },
+      "contingent": {
+        "count": 4,
+        "iinCount": 4
+      },
+      "id": 1227027,
+      "isInStat": true,
+      "schoolName": "КГУ \"Песчанская СОШ №1\", район Тереңкөл",
+      "eduYear": 2026,
+      "parallel": {
+        "label": 2,
+        "color": "#F3EBB8"
+      },
+      "language": {
+        "id": 3,
+        "label": "казахский",
+        "color": "#C3F4FF"
+      },
+      "timeScheme": {
+        "id": 3113,
+        "uuid": "65001ebf-fc7b-45bd-b3e1-6a5eddc33112",
+        "name": "1 четверть",
+        "color": null,
+        "order": 3
+      },
+      "hasTimeScheme": true,
+      "ortaBilimSchoolId": null,
+      "eduShift": 1
+    },
+    {
+      "status": "active",
+      "letter": "Б",
+      "teacher": {
+        "id": 86926135,
+        "name": "Квашнина Елена Витальевна",
+        "isDeleted": false
+      },
+      "contingent": {
+        "count": 11,
+        "iinCount": 11
+      },
+      "id": 1227058,
+      "isInStat": true,
+      "schoolName": "КГУ \"Песчанская СОШ №1\", район Тереңкөл",
+      "eduYear": 2026,
+      "parallel": {
+        "label": 2,
+        "color": "#F3EBB8"
+      },
+      "language": {
+        "id": 4,
+        "label": "русский",
+        "color": "#E6F8EA"
+      },
+      "timeScheme": {
+        "id": 3113,
+        "uuid": "65001ebf-fc7b-45bd-b3e1-6a5eddc33112",
+        "name": "1 четверть",
+        "color": null,
+        "order": 3
+      },
+      "hasTimeScheme": true,
+      "ortaBilimSchoolId": null,
+      "eduShift": 1
+    },
+    {
+      "status": "archive",
+      "letter": "Б",
+      "teacher": {
+        "id": 86926134,
+        "name": "Темерканова Олеся Владимировна",
+        "isDeleted": false
+      },
+      "contingent": {
+        "count": 0,
+        "iinCount": 0
+      },
+      "id": 1227112,
+      "isInStat": true,
+      "schoolName": "КГУ \"Песчанская СОШ №1\", район Тереңкөл",
+      "eduYear": 2026,
+      "parallel": {
+        "label": 3,
+        "color": "#E5F4B7"
+      },
+      "language": {
+        "id": 4,
+        "label": "русский",
+        "color": "#E6F8EA"
+      },
+      "timeScheme": {
+        "id": 3113,
+        "uuid": "65001ebf-fc7b-45bd-b3e1-6a5eddc33112",
+        "name": "1 четверть",
+        "color": null,
+        "order": 3
+      },
+      "hasTimeScheme": true,
+      "ortaBilimSchoolId": null,
+      "eduShift": 1
+    },
+    {
+      "status": "active",
+      "letter": "А",
+      "teacher": {
+        "id": 86926146,
+        "name": "Актаева Айгерим Ермеккызы",
+        "isDeleted": false
+      },
+      "contingent": {
+        "count": 3,
+        "iinCount": 3
+      },
+      "id": 1227129,
+      "isInStat": true,
+      "schoolName": "КГУ \"Песчанская СОШ №1\", район Тереңкөл",
+      "eduYear": 2026,
+      "parallel": {
+        "label": 4,
+        "color": "#CCF4B8"
+      },
+      "language": {
+        "id": 3,
+        "label": "казахский",
+        "color": "#C3F4FF"
+      },
+      "timeScheme": {
+        "id": 3113,
+        "uuid": "65001ebf-fc7b-45bd-b3e1-6a5eddc33112",
+        "name": "1 четверть",
+        "color": null,
+        "order": 3
+      },
+      "hasTimeScheme": true,
+      "ortaBilimSchoolId": null,
+      "eduShift": 1
+    },
+    {
+      "status": "active",
+      "letter": "Б",
+      "teacher": {
+        "id": 86926156,
+        "name": "Радионова Наталья Александровна",
+        "isDeleted": false
+      },
+      "contingent": {
+        "count": 16,
+        "iinCount": 16
+      },
+      "id": 1227135,
+      "isInStat": true,
+      "schoolName": "КГУ \"Песчанская СОШ №1\", район Тереңкөл",
+      "eduYear": 2026,
+      "parallel": {
+        "label": 4,
+        "color": "#CCF4B8"
+      },
+      "language": {
+        "id": 4,
+        "label": "русский",
+        "color": "#E6F8EA"
+      },
+      "timeScheme": {
+        "id": 3113,
+        "uuid": "65001ebf-fc7b-45bd-b3e1-6a5eddc33112",
+        "name": "1 четверть",
+        "color": null,
+        "order": 3
+      },
+      "hasTimeScheme": true,
+      "ortaBilimSchoolId": null,
+      "eduShift": 1
+    },
+    {
+      "status": "active",
+      "letter": "А",
+      "teacher": {
+        "id": 86926131,
+        "name": "Ізбасты Махамбет Жұматайұлы",
+        "isDeleted": false
+      },
+      "contingent": {
+        "count": 2,
+        "iinCount": 2
+      },
+      "id": 1227142,
+      "isInStat": true,
+      "schoolName": "КГУ \"Песчанская СОШ №1\", район Тереңкөл",
+      "eduYear": 2026,
+      "parallel": {
+        "label": 5,
+        "color": "#B8F4BD"
+      },
+      "language": {
+        "id": 3,
+        "label": "казахский",
+        "color": "#C3F4FF"
+      },
+      "timeScheme": {
+        "id": 3113,
+        "uuid": "65001ebf-fc7b-45bd-b3e1-6a5eddc33112",
+        "name": "1 четверть",
+        "color": null,
+        "order": 3
+      },
+      "hasTimeScheme": true,
+      "ortaBilimSchoolId": null,
+      "eduShift": 1
+    },
+    {
+      "status": "active",
+      "letter": "Б",
+      "teacher": {
+        "id": 86926141,
+        "name": "Бедрина Мария Николаевна",
+        "isDeleted": false
+      },
+      "contingent": {
+        "count": 6,
+        "iinCount": 6
+      },
+      "id": 1227148,
+      "isInStat": true,
+      "schoolName": "КГУ \"Песчанская СОШ №1\", район Тереңкөл",
+      "eduYear": 2026,
+      "parallel": {
+        "label": 5,
+        "color": "#B8F4BD"
+      },
+      "language": {
+        "id": 4,
+        "label": "русский",
+        "color": "#E6F8EA"
+      },
+      "timeScheme": {
+        "id": 3113,
+        "uuid": "65001ebf-fc7b-45bd-b3e1-6a5eddc33112",
+        "name": "1 четверть",
+        "color": null,
+        "order": 3
+      },
+      "hasTimeScheme": true,
+      "ortaBilimSchoolId": null,
+      "eduShift": 1
+    },
+    {
+      "status": "active",
+      "letter": "А",
+      "teacher": {
+        "id": 86926131,
+        "name": "Ізбасты Махамбет Жұматайұлы",
+        "isDeleted": false
+      },
+      "contingent": {
+        "count": 3,
+        "iinCount": 3
+      },
+      "id": 1227153,
+      "isInStat": true,
+      "schoolName": "КГУ \"Песчанская СОШ №1\", район Тереңкөл",
+      "eduYear": 2026,
+      "parallel": {
+        "label": 6,
+        "color": "#B8F4D6"
+      },
+      "language": {
+        "id": 3,
+        "label": "казахский",
+        "color": "#C3F4FF"
+      },
+      "timeScheme": {
+        "id": 3113,
+        "uuid": "65001ebf-fc7b-45bd-b3e1-6a5eddc33112",
+        "name": "1 четверть",
+        "color": null,
+        "order": 3
+      },
+      "hasTimeScheme": true,
+      "ortaBilimSchoolId": null,
+      "eduShift": 1
+    },
+    {
+      "status": "active",
+      "letter": "Б",
+      "teacher": {
+        "id": 86926142,
+        "name": "Алекпарова Алия Жумабаевна",
+        "isDeleted": false
+      },
+      "contingent": {
+        "count": 18,
+        "iinCount": 18
+      },
+      "id": 1227159,
+      "isInStat": true,
+      "schoolName": "КГУ \"Песчанская СОШ №1\", район Тереңкөл",
+      "eduYear": 2026,
+      "parallel": {
+        "label": 6,
+        "color": "#B8F4D6"
+      },
+      "language": {
+        "id": 4,
+        "label": "русский",
+        "color": "#E6F8EA"
+      },
+      "timeScheme": {
+        "id": 3113,
+        "uuid": "65001ebf-fc7b-45bd-b3e1-6a5eddc33112",
+        "name": "1 четверть",
+        "color": null,
+        "order": 3
+      },
+      "hasTimeScheme": true,
+      "ortaBilimSchoolId": null,
+      "eduShift": 1
+    },
+    {
+      "status": "active",
+      "letter": "А",
+      "teacher": {
+        "id": 86926133,
+        "name": "Дмитриев Евгений Владимирович",
+        "isDeleted": false
+      },
+      "contingent": {
+        "count": 11,
+        "iinCount": 11
+      },
+      "id": 1227169,
+      "isInStat": true,
+      "schoolName": "КГУ \"Песчанская СОШ №1\", район Тереңкөл",
+      "eduYear": 2026,
+      "parallel": {
+        "label": 7,
+        "color": "#B8F3EE"
+      },
+      "language": {
+        "id": 4,
+        "label": "русский",
+        "color": "#E6F8EA"
+      },
+      "timeScheme": {
+        "id": 3113,
+        "uuid": "65001ebf-fc7b-45bd-b3e1-6a5eddc33112",
+        "name": "1 четверть",
+        "color": null,
+        "order": 3
+      },
+      "hasTimeScheme": true,
+      "ortaBilimSchoolId": null,
+      "eduShift": 1
+    },
+    {
+      "status": "active",
+      "letter": "А",
+      "teacher": {
+        "id": 86926152,
+        "name": "Жукова Ирина Михайловна",
+        "isDeleted": false
+      },
+      "contingent": {
+        "count": 14,
+        "iinCount": 14
+      },
+      "id": 1227197,
+      "isInStat": true,
+      "schoolName": "КГУ \"Песчанская СОШ №1\", район Тереңкөл",
+      "eduYear": 2026,
+      "parallel": {
+        "label": 8,
+        "color": "#B9E0F4"
+      },
+      "language": {
+        "id": 4,
+        "label": "русский",
+        "color": "#E6F8EA"
+      },
+      "timeScheme": {
+        "id": 3113,
+        "uuid": "65001ebf-fc7b-45bd-b3e1-6a5eddc33112",
+        "name": "1 четверть",
+        "color": null,
+        "order": 3
+      },
+      "hasTimeScheme": true,
+      "ortaBilimSchoolId": null,
+      "eduShift": 1
+    },
+    {
+      "status": "active",
+      "letter": "Б",
+      "teacher": {
+        "id": 86926157,
+        "name": "Красноперова Ольга Викторовна",
+        "isDeleted": false
+      },
+      "contingent": {
+        "count": 14,
+        "iinCount": 14
+      },
+      "id": 1227198,
+      "isInStat": true,
+      "schoolName": "КГУ \"Песчанская СОШ №1\", район Тереңкөл",
+      "eduYear": 2026,
+      "parallel": {
+        "label": 8,
+        "color": "#B9E0F4"
+      },
+      "language": {
+        "id": 4,
+        "label": "русский",
+        "color": "#E6F8EA"
+      },
+      "timeScheme": {
+        "id": 3113,
+        "uuid": "65001ebf-fc7b-45bd-b3e1-6a5eddc33112",
+        "name": "1 четверть",
+        "color": null,
+        "order": 3
+      },
+      "hasTimeScheme": true,
+      "ortaBilimSchoolId": null,
+      "eduShift": 1
+    },
+    {
+      "status": "active",
+      "letter": "Ә",
+      "teacher": {
+        "id": 86926131,
+        "name": "Ізбасты Махамбет Жұматайұлы",
+        "isDeleted": false
+      },
+      "contingent": {
+        "count": 1,
+        "iinCount": 1
+      },
+      "id": 1227215,
+      "isInStat": true,
+      "schoolName": "КГУ \"Песчанская СОШ №1\", район Тереңкөл",
+      "eduYear": 2026,
+      "parallel": {
+        "label": 8,
+        "color": "#B9E0F4"
+      },
+      "language": {
+        "id": 3,
+        "label": "казахский",
+        "color": "#C3F4FF"
+      },
+      "timeScheme": {
+        "id": 3113,
+        "uuid": "65001ebf-fc7b-45bd-b3e1-6a5eddc33112",
+        "name": "1 четверть",
+        "color": null,
+        "order": 3
+      },
+      "hasTimeScheme": true,
+      "ortaBilimSchoolId": null,
+      "eduShift": 1
+    },
+    {
+      "status": "active",
+      "letter": "Б",
+      "teacher": {
+        "id": 86926140,
+        "name": "Акауова Индира Нурмухановна",
+        "isDeleted": false
+      },
+      "contingent": {
+        "count": 21,
+        "iinCount": 21
+      },
+      "id": 1227232,
+      "isInStat": true,
+      "schoolName": "КГУ \"Песчанская СОШ №1\", район Тереңкөл",
+      "eduYear": 2026,
+      "parallel": {
+        "label": 9,
+        "color": "#B9C7F5"
+      },
+      "language": {
+        "id": 4,
+        "label": "русский",
+        "color": "#E6F8EA"
+      },
+      "timeScheme": {
+        "id": 3113,
+        "uuid": "65001ebf-fc7b-45bd-b3e1-6a5eddc33112",
+        "name": "1 четверть",
+        "color": null,
+        "order": 3
+      },
+      "hasTimeScheme": true,
+      "ortaBilimSchoolId": null,
+      "eduShift": 1
+    },
+    {
+      "status": "active",
+      "letter": "A",
+      "teacher": {
+        "id": 86926144,
+        "name": "Бучкова Ирина Олеговна",
+        "isDeleted": false
+      },
+      "contingent": {
+        "count": 12,
+        "iinCount": 12
+      },
+      "id": 1227253,
+      "isInStat": true,
+      "schoolName": "КГУ \"Песчанская СОШ №1\", район Тереңкөл",
+      "eduYear": 2026,
+      "parallel": {
+        "label": 10,
+        "color": "#C3B9F5"
+      },
+      "language": {
+        "id": 4,
+        "label": "русский",
+        "color": "#E6F8EA"
+      },
+      "timeScheme": {
+        "id": 3113,
+        "uuid": "65001ebf-fc7b-45bd-b3e1-6a5eddc33112",
+        "name": "1 четверть",
+        "color": null,
+        "order": 3
+      },
+      "hasTimeScheme": true,
+      "ortaBilimSchoolId": null,
+      "eduShift": 1
+    },
+    {
+      "status": "active",
+      "letter": "А",
+      "teacher": {
+        "id": 86926143,
+        "name": "Ильясова Алмагуль Бахтиаровна",
+        "isDeleted": false
+      },
+      "contingent": {
+        "count": 3,
+        "iinCount": 3
+      },
+      "id": 1227294,
+      "isInStat": true,
+      "schoolName": "КГУ \"Песчанская СОШ №1\", район Тереңкөл",
+      "eduYear": 2026,
+      "parallel": {
+        "label": 11,
+        "color": "#DCB9F5"
+      },
+      "language": {
+        "id": 3,
+        "label": "казахский",
+        "color": "#C3F4FF"
+      },
+      "timeScheme": {
+        "id": 3113,
+        "uuid": "65001ebf-fc7b-45bd-b3e1-6a5eddc33112",
+        "name": "1 четверть",
+        "color": null,
+        "order": 3
+      },
+      "hasTimeScheme": true,
+      "ortaBilimSchoolId": null,
+      "eduShift": 1
+    },
+    {
+      "status": "active",
+      "letter": "Б",
+      "teacher": {
+        "id": 86926139,
+        "name": "Русина Наталья Владимировна",
+        "isDeleted": false
+      },
+      "contingent": {
+        "count": 7,
+        "iinCount": 7
+      },
+      "id": 1227364,
+      "isInStat": true,
+      "schoolName": "КГУ \"Песчанская СОШ №1\", район Тереңкөл",
+      "eduYear": 2026,
+      "parallel": {
+        "label": 11,
+        "color": "#DCB9F5"
+      },
+      "language": {
+        "id": 4,
+        "label": "русский",
+        "color": "#E6F8EA"
+      },
+      "timeScheme": {
+        "id": 3113,
+        "uuid": "65001ebf-fc7b-45bd-b3e1-6a5eddc33112",
+        "name": "1 четверть",
+        "color": null,
+        "order": 3
+      },
+      "hasTimeScheme": true,
+      "ortaBilimSchoolId": null,
+      "eduShift": 1
+    },
+    {
+      "status": "active",
+      "letter": "А",
+      "teacher": {
+        "id": 86926134,
+        "name": "Темерканова Олеся Владимировна",
+        "isDeleted": false
+      },
+      "contingent": {
+        "count": 14,
+        "iinCount": 14
+      },
+      "id": 1326631,
+      "isInStat": true,
+      "schoolName": "КГУ \"Песчанская СОШ №1\", район Тереңкөл",
+      "eduYear": 2026,
+      "parallel": {
+        "label": 3,
+        "color": "#E5F4B7"
+      },
+      "language": {
+        "id": 4,
+        "label": "русский",
+        "color": "#E6F8EA"
+      },
+      "timeScheme": {
+        "id": 3113,
+        "uuid": "65001ebf-fc7b-45bd-b3e1-6a5eddc33112",
+        "name": "1 четверть",
+        "color": null,
+        "order": 3
+      },
+      "hasTimeScheme": true,
+      "ortaBilimSchoolId": null,
+      "eduShift": 1
+    },
+    {
+      "status": "active",
+      "letter": "В",
+      "teacher": {
+        "id": 86926142,
+        "name": "Алекпарова Алия Жумабаевна",
+        "isDeleted": false
+      },
+      "contingent": {
+        "count": 3,
+        "iinCount": 3
+      },
+      "id": 1366034,
+      "isInStat": true,
+      "schoolName": "КГУ \"Песчанская СОШ №1\", район Тереңкөл",
+      "eduYear": 2026,
+      "parallel": {
+        "label": 6,
+        "color": "#B8F4D6"
+      },
+      "language": {
+        "id": 4,
+        "label": "русский",
+        "color": "#E6F8EA"
+      },
+      "timeScheme": {
+        "id": 3113,
+        "uuid": "65001ebf-fc7b-45bd-b3e1-6a5eddc33112",
+        "name": "1 четверть",
+        "color": null,
+        "order": 3
+      },
+      "hasTimeScheme": true,
+      "ortaBilimSchoolId": null,
+      "eduShift": 1
+    }
+  ]
+}

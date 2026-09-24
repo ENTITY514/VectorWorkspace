@@ -1,0 +1,3724 @@
+{
+  "source": "https://www.bilimclass.kz/2026/v3/backoffice/personnel",
+  "school_id": 1017343,
+  "edu_year": 2026,
+  "parsed_at": "2026-09-18T10:07:45.815Z",
+  "counts": {
+    "teachers": 39,
+    "classes": 20,
+    "split_cases": 10
+  },
+  "classes": {
+    "1226999": {
+      "group_id": 1226999,
+      "class_name": "1А",
+      "language": "kz",
+      "subgroup_name": null
+    },
+    "1227016": {
+      "group_id": 1227016,
+      "class_name": "1Б",
+      "language": "ru",
+      "subgroup_name": null
+    },
+    "1227027": {
+      "group_id": 1227027,
+      "class_name": "2А",
+      "language": "kz",
+      "subgroup_name": null
+    },
+    "1227058": {
+      "group_id": 1227058,
+      "class_name": "2Б",
+      "language": "ru",
+      "subgroup_name": null
+    },
+    "1227129": {
+      "group_id": 1227129,
+      "class_name": "4А",
+      "language": "kz",
+      "subgroup_name": null
+    },
+    "1227135": {
+      "group_id": 1227135,
+      "class_name": "4Б",
+      "language": "ru",
+      "subgroup_name": null
+    },
+    "1227142": {
+      "group_id": 1227142,
+      "class_name": "5А",
+      "language": "kz",
+      "subgroup_name": null
+    },
+    "1227148": {
+      "group_id": 1227148,
+      "class_name": "5Б",
+      "language": "ru",
+      "subgroup_name": null
+    },
+    "1227153": {
+      "group_id": 1227153,
+      "class_name": "6А",
+      "language": "kz",
+      "subgroup_name": null
+    },
+    "1227159": {
+      "group_id": 1227159,
+      "class_name": "6Б",
+      "language": "ru",
+      "subgroup_name": null
+    },
+    "1227169": {
+      "group_id": 1227169,
+      "class_name": "7А",
+      "language": "ru",
+      "subgroup_name": null
+    },
+    "1227197": {
+      "group_id": 1227197,
+      "class_name": "8А",
+      "language": "ru",
+      "subgroup_name": null
+    },
+    "1227198": {
+      "group_id": 1227198,
+      "class_name": "8Б",
+      "language": "ru",
+      "subgroup_name": null
+    },
+    "1227215": {
+      "group_id": 1227215,
+      "class_name": "8Ә",
+      "language": "kz",
+      "subgroup_name": null
+    },
+    "1227232": {
+      "group_id": 1227232,
+      "class_name": "9Б",
+      "language": "ru",
+      "subgroup_name": null
+    },
+    "1227253": {
+      "group_id": 1227253,
+      "class_name": "10А",
+      "language": "ru",
+      "subgroup_name": null
+    },
+    "1227294": {
+      "group_id": 1227294,
+      "class_name": "11А",
+      "language": "kz",
+      "subgroup_name": null
+    },
+    "1227364": {
+      "group_id": 1227364,
+      "class_name": "11Б",
+      "language": "ru",
+      "subgroup_name": null
+    },
+    "1326631": {
+      "group_id": 1326631,
+      "class_name": "3А",
+      "language": "ru",
+      "subgroup_name": null
+    },
+    "1366034": {
+      "group_id": 1366034,
+      "class_name": "6В",
+      "language": "ru",
+      "subgroup_name": null
+    }
+  },
+  "teachers": [
+    {
+      "source_id": 1884837,
+      "fio": "Ажикенова Мадина Аскаровна",
+      "position": "учитель",
+      "languages": [
+        "ru"
+      ],
+      "max_weekly_hours": 21,
+      "subjects": [
+        {
+          "subject_id": 106,
+          "subject_name": "Русская литература",
+          "total_weekly_hours": 2,
+          "classes": [
+            {
+              "group_id": 1227148,
+              "class_name": "5Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 270,
+          "subject_name": "Букварь",
+          "total_weekly_hours": 6,
+          "classes": [
+            {
+              "group_id": 1227016,
+              "class_name": "1Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 76,
+          "subject_name": "Математика",
+          "total_weekly_hours": 4,
+          "classes": [
+            {
+              "group_id": 1227016,
+              "class_name": "1Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 24,
+          "subject_name": "Естествознание",
+          "total_weekly_hours": 2,
+          "classes": [
+            {
+              "group_id": 1227016,
+              "class_name": "1Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227058,
+              "class_name": "2Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 111,
+          "subject_name": "Познание мира",
+          "total_weekly_hours": 2,
+          "classes": [
+            {
+              "group_id": 1227016,
+              "class_name": "1Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227058,
+              "class_name": "2Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 358,
+          "subject_name": "Трудовое обучение",
+          "total_weekly_hours": 1,
+          "classes": [
+            {
+              "group_id": 1227016,
+              "class_name": "1Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 359,
+          "subject_name": "Изобразительное искусство",
+          "total_weekly_hours": 1,
+          "classes": [
+            {
+              "group_id": 1227016,
+              "class_name": "1Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 3,
+          "subject_name": "Русский язык",
+          "total_weekly_hours": 2,
+          "classes": [
+            {
+              "group_id": 1227198,
+              "class_name": "8Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 201,
+          "subject_name": "Чтение и развитие речи",
+          "total_weekly_hours": 1,
+          "classes": [
+            {
+              "group_id": 1227198,
+              "class_name": "8Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source_id": 1884827,
+      "fio": "Акауова Индира Нурмухановна",
+      "position": "учитель",
+      "languages": [
+        "kz",
+        "ru"
+      ],
+      "max_weekly_hours": 24,
+      "subjects": [
+        {
+          "subject_id": 81,
+          "subject_name": "Английский язык",
+          "total_weekly_hours": 24,
+          "classes": [
+            {
+              "group_id": 1326631,
+              "class_name": "3А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227129,
+              "class_name": "4А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227135,
+              "class_name": "4Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227142,
+              "class_name": "5А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227153,
+              "class_name": "6А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227159,
+              "class_name": "6Б",
+              "language": "ru",
+              "subgroup_uuid": "f7de9faf-7b38-479c-8451-f4ec2b6a011f",
+              "subgroup_name": "Английский ИН"
+            },
+            {
+              "group_id": 1227294,
+              "class_name": "11А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227364,
+              "class_name": "11Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227232,
+              "class_name": "9Б",
+              "language": "ru",
+              "subgroup_uuid": "97e048a5-0d66-4c7e-ac05-b47a2bb6b64b",
+              "subgroup_name": "Английский ИН"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source_id": 1884833,
+      "fio": "Актаева Айгерим Ермеккызы",
+      "position": "учитель",
+      "languages": [
+        "kz"
+      ],
+      "max_weekly_hours": 24,
+      "subjects": [
+        {
+          "subject_id": 358,
+          "subject_name": "Трудовое обучение",
+          "total_weekly_hours": 2,
+          "classes": [
+            {
+              "group_id": 1226999,
+              "class_name": "1А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227027,
+              "class_name": "2А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227129,
+              "class_name": "4А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 359,
+          "subject_name": "Изобразительное искусство",
+          "total_weekly_hours": 2,
+          "classes": [
+            {
+              "group_id": 1226999,
+              "class_name": "1А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227027,
+              "class_name": "2А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227129,
+              "class_name": "4А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 47,
+          "subject_name": "Литературное чтение",
+          "total_weekly_hours": 6,
+          "classes": [
+            {
+              "group_id": 1227027,
+              "class_name": "2А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227129,
+              "class_name": "4А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 111,
+          "subject_name": "Познание мира",
+          "total_weekly_hours": 2,
+          "classes": [
+            {
+              "group_id": 1227027,
+              "class_name": "2А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227129,
+              "class_name": "4А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 76,
+          "subject_name": "Математика",
+          "total_weekly_hours": 5,
+          "classes": [
+            {
+              "group_id": 1227129,
+              "class_name": "4А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 2,
+          "subject_name": "Казахский язык",
+          "total_weekly_hours": 4,
+          "classes": [
+            {
+              "group_id": 1227129,
+              "class_name": "4А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 24,
+          "subject_name": "Естествознание",
+          "total_weekly_hours": 1,
+          "classes": [
+            {
+              "group_id": 1227129,
+              "class_name": "4А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 2160,
+          "subject_name": "Индивидуальные и групповые развивающие занятия",
+          "total_weekly_hours": 2,
+          "classes": [
+            {
+              "group_id": 1227027,
+              "class_name": "2А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227129,
+              "class_name": "4А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source_id": 1884829,
+      "fio": "Алекпарова Алия Жумабаевна",
+      "position": "учитель",
+      "languages": [
+        "kz",
+        "ru"
+      ],
+      "max_weekly_hours": 24,
+      "subjects": [
+        {
+          "subject_id": 81,
+          "subject_name": "Английский язык",
+          "total_weekly_hours": 24,
+          "classes": [
+            {
+              "group_id": 1227253,
+              "class_name": "10А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227232,
+              "class_name": "9Б",
+              "language": "ru",
+              "subgroup_uuid": "860709b3-e46f-436d-b1c9-f713e21f7937",
+              "subgroup_name": "Английский АЖ"
+            },
+            {
+              "group_id": 1227198,
+              "class_name": "8Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227197,
+              "class_name": "8А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227215,
+              "class_name": "8Ә",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227169,
+              "class_name": "7А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227159,
+              "class_name": "6Б",
+              "language": "ru",
+              "subgroup_uuid": "92c4950a-37eb-4653-a63a-c0ca1ee3b649",
+              "subgroup_name": "Английский АЖ"
+            },
+            {
+              "group_id": 1227148,
+              "class_name": "5Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source_id": 1884823,
+      "fio": "Асаева Жанар Хайруллаевна",
+      "position": "учитель",
+      "languages": [
+        "kz",
+        "ru"
+      ],
+      "max_weekly_hours": 24,
+      "subjects": [
+        {
+          "subject_id": 2,
+          "subject_name": "Казахский язык",
+          "total_weekly_hours": 11,
+          "classes": [
+            {
+              "group_id": 1227058,
+              "class_name": "2Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227135,
+              "class_name": "4Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227153,
+              "class_name": "6А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227198,
+              "class_name": "8Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 73,
+          "subject_name": "Казахский язык и литература",
+          "total_weekly_hours": 11,
+          "classes": [
+            {
+              "group_id": 1227198,
+              "class_name": "8Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227232,
+              "class_name": "9Б",
+              "language": "ru",
+              "subgroup_uuid": "4e9a7dc0-5f17-44c1-9313-6558eebdcdf2",
+              "subgroup_name": "Казахский ЖХ"
+            },
+            {
+              "group_id": 1227364,
+              "class_name": "11Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 105,
+          "subject_name": "Казахская литература",
+          "total_weekly_hours": 2,
+          "classes": [
+            {
+              "group_id": 1227153,
+              "class_name": "6А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source_id": 1971071,
+      "fio": "Аятова Анаргуль Жусуповна",
+      "position": "учитель",
+      "languages": [
+        "kz"
+      ],
+      "max_weekly_hours": 4,
+      "subjects": [
+        {
+          "subject_id": 77,
+          "subject_name": "Физика",
+          "total_weekly_hours": 4,
+          "classes": [
+            {
+              "group_id": 1227215,
+              "class_name": "8Ә",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227294,
+              "class_name": "11А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source_id": 1884817,
+      "fio": "Бабич Иман Денисович",
+      "position": "учитель",
+      "languages": [
+        "ru"
+      ],
+      "max_weekly_hours": 21,
+      "subjects": [
+        {
+          "subject_id": 109,
+          "subject_name": "Алгебра",
+          "total_weekly_hours": 9,
+          "classes": [
+            {
+              "group_id": 1227197,
+              "class_name": "8А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227198,
+              "class_name": "8Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227232,
+              "class_name": "9Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 55,
+          "subject_name": "Алгебра и начала анализа",
+          "total_weekly_hours": 4,
+          "classes": [
+            {
+              "group_id": 1227253,
+              "class_name": "10А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 110,
+          "subject_name": "Геометрия",
+          "total_weekly_hours": 8,
+          "classes": [
+            {
+              "group_id": 1227197,
+              "class_name": "8А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227198,
+              "class_name": "8Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227232,
+              "class_name": "9Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227253,
+              "class_name": "10А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source_id": 1971089,
+      "fio": "Байгазиева Айгерим Дуйсембековна",
+      "position": "учитель",
+      "languages": [
+        "kz"
+      ],
+      "max_weekly_hours": 4,
+      "subjects": [
+        {
+          "subject_id": 79,
+          "subject_name": "Биология",
+          "total_weekly_hours": 4,
+          "classes": [
+            {
+              "group_id": 1227215,
+              "class_name": "8Ә",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227294,
+              "class_name": "11А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source_id": 1884835,
+      "fio": "Балгабаева Назигуль Кадыровна",
+      "position": "учитель",
+      "languages": [
+        "kz",
+        "ru"
+      ],
+      "max_weekly_hours": 24,
+      "subjects": [
+        {
+          "subject_id": 3,
+          "subject_name": "Русский язык",
+          "total_weekly_hours": 7,
+          "classes": [
+            {
+              "group_id": 1227027,
+              "class_name": "2А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227129,
+              "class_name": "4А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227148,
+              "class_name": "5Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 74,
+          "subject_name": "Русский язык и литература",
+          "total_weekly_hours": 11,
+          "classes": [
+            {
+              "group_id": 1227215,
+              "class_name": "8Ә",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227153,
+              "class_name": "6А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227142,
+              "class_name": "5А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227294,
+              "class_name": "11А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 106,
+          "subject_name": "Русская литература",
+          "total_weekly_hours": 2,
+          "classes": [
+            {
+              "group_id": 1227169,
+              "class_name": "7А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 73,
+          "subject_name": "Казахский язык и литература",
+          "total_weekly_hours": 4,
+          "classes": [
+            {
+              "group_id": 1227159,
+              "class_name": "6Б",
+              "language": "ru",
+              "subgroup_uuid": "2f01e175-f229-476c-8895-31a5e45277ee",
+              "subgroup_name": "Казахский НК"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source_id": 1971053,
+      "fio": "Балташева Зару Такановна",
+      "position": "учитель",
+      "languages": [
+        "kz"
+      ],
+      "max_weekly_hours": 4,
+      "subjects": [
+        {
+          "subject_id": 78,
+          "subject_name": "Химия",
+          "total_weekly_hours": 4,
+          "classes": [
+            {
+              "group_id": 1227215,
+              "class_name": "8Ә",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227294,
+              "class_name": "11А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source_id": 1884828,
+      "fio": "Бедрина Мария Николаевна",
+      "position": "учитель",
+      "languages": [
+        "ru"
+      ],
+      "max_weekly_hours": 23,
+      "subjects": [
+        {
+          "subject_id": 2843,
+          "subject_name": "Цифровая грамотность и искусственный интеллект",
+          "total_weekly_hours": 3,
+          "classes": [
+            {
+              "group_id": 1227058,
+              "class_name": "2Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1326631,
+              "class_name": "3А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227135,
+              "class_name": "4Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 109,
+          "subject_name": "Алгебра",
+          "total_weekly_hours": 3,
+          "classes": [
+            {
+              "group_id": 1227169,
+              "class_name": "7А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 110,
+          "subject_name": "Геометрия",
+          "total_weekly_hours": 2,
+          "classes": [
+            {
+              "group_id": 1227169,
+              "class_name": "7А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 76,
+          "subject_name": "Математика",
+          "total_weekly_hours": 5,
+          "classes": [
+            {
+              "group_id": 1227148,
+              "class_name": "5Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 2844,
+          "subject_name": "Информатика и искусственный интеллект",
+          "total_weekly_hours": 10,
+          "classes": [
+            {
+              "group_id": 1227148,
+              "class_name": "5Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227159,
+              "class_name": "6Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227169,
+              "class_name": "7А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227197,
+              "class_name": "8А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227198,
+              "class_name": "8Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227232,
+              "class_name": "9Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227253,
+              "class_name": "10А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227364,
+              "class_name": "11Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source_id": 1975196,
+      "fio": "Боранбаев Дархан Боранбаевич",
+      "position": "учитель",
+      "languages": [
+        "kz",
+        "ru"
+      ],
+      "max_weekly_hours": 3,
+      "subjects": [
+        {
+          "subject_id": 2850,
+          "subject_name": "Начальная военная подготовка",
+          "total_weekly_hours": 3,
+          "classes": [
+            {
+              "group_id": 1227253,
+              "class_name": "10А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227294,
+              "class_name": "11А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227364,
+              "class_name": "11Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source_id": 1884831,
+      "fio": "Бучкова Ирина Олеговна",
+      "position": "учитель",
+      "languages": [
+        "ru"
+      ],
+      "max_weekly_hours": 10,
+      "subjects": [
+        {
+          "subject_id": 75,
+          "subject_name": "Всемирная история",
+          "total_weekly_hours": 3,
+          "classes": [
+            {
+              "group_id": 1227148,
+              "class_name": "5Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227253,
+              "class_name": "10А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227197,
+              "class_name": "8А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 92,
+          "subject_name": "История Казахстана",
+          "total_weekly_hours": 6,
+          "classes": [
+            {
+              "group_id": 1227148,
+              "class_name": "5Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227253,
+              "class_name": "10А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227197,
+              "class_name": "8А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 113,
+          "subject_name": "Основы права",
+          "total_weekly_hours": 1,
+          "classes": [
+            {
+              "group_id": 1227253,
+              "class_name": "10А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source_id": 1884838,
+      "fio": "Герлиц Лаура Николаевна",
+      "position": "учитель",
+      "languages": [
+        "ru",
+        "kz"
+      ],
+      "max_weekly_hours": 4,
+      "subjects": [
+        {
+          "subject_id": 2847,
+          "subject_name": "Личная безопасность",
+          "total_weekly_hours": 4,
+          "classes": [
+            {
+              "group_id": 1227142,
+              "class_name": "5А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227148,
+              "class_name": "5Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227153,
+              "class_name": "6А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227159,
+              "class_name": "6Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227169,
+              "class_name": "7А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227197,
+              "class_name": "8А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227198,
+              "class_name": "8Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227232,
+              "class_name": "9Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227253,
+              "class_name": "10А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227294,
+              "class_name": "11А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227364,
+              "class_name": "11Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source_id": 1884820,
+      "fio": "Дмитриев Евгений Владимирович",
+      "position": "учитель",
+      "languages": [
+        "ru"
+      ],
+      "max_weekly_hours": 24,
+      "subjects": [
+        {
+          "subject_id": 106,
+          "subject_name": "Русская литература",
+          "total_weekly_hours": 13,
+          "classes": [
+            {
+              "group_id": 1227197,
+              "class_name": "8А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227198,
+              "class_name": "8Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227253,
+              "class_name": "10А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227232,
+              "class_name": "9Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227364,
+              "class_name": "11Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 3,
+          "subject_name": "Русский язык",
+          "total_weekly_hours": 11,
+          "classes": [
+            {
+              "group_id": 1227169,
+              "class_name": "7А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227197,
+              "class_name": "8А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227198,
+              "class_name": "8Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227232,
+              "class_name": "9Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227253,
+              "class_name": "10А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227364,
+              "class_name": "11Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source_id": 1884841,
+      "fio": "Досаева Мадина Хайрулловна",
+      "position": "учитель",
+      "languages": [
+        "ru",
+        "kz"
+      ],
+      "max_weekly_hours": 24,
+      "subjects": [
+        {
+          "subject_id": 75,
+          "subject_name": "Всемирная история",
+          "total_weekly_hours": 6,
+          "classes": [
+            {
+              "group_id": 1227142,
+              "class_name": "5А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227153,
+              "class_name": "6А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227215,
+              "class_name": "8Ә",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227294,
+              "class_name": "11А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227232,
+              "class_name": "9Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227364,
+              "class_name": "11Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 92,
+          "subject_name": "История Казахстана",
+          "total_weekly_hours": 15,
+          "classes": [
+            {
+              "group_id": 1227142,
+              "class_name": "5А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227153,
+              "class_name": "6А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227215,
+              "class_name": "8Ә",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227294,
+              "class_name": "11А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227364,
+              "class_name": "11Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227169,
+              "class_name": "7А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227198,
+              "class_name": "8Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227232,
+              "class_name": "9Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 115,
+          "subject_name": "Основы предпринимательства и бизнеса",
+          "total_weekly_hours": 1,
+          "classes": [
+            {
+              "group_id": 1227364,
+              "class_name": "11Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 113,
+          "subject_name": "Основы права",
+          "total_weekly_hours": 2,
+          "classes": [
+            {
+              "group_id": 1227232,
+              "class_name": "9Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227294,
+              "class_name": "11А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source_id": 1884840,
+      "fio": "Дукач Татьяна Анатольевна",
+      "position": "учитель",
+      "languages": [
+        "ru"
+      ],
+      "max_weekly_hours": 18,
+      "subjects": [
+        {
+          "subject_id": 773,
+          "subject_name": "Развитие речи и коммуникации",
+          "total_weekly_hours": 6,
+          "classes": [
+            {
+              "group_id": 1227016,
+              "class_name": "1Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227169,
+              "class_name": "7А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227232,
+              "class_name": "9Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 2328,
+          "subject_name": "Счет",
+          "total_weekly_hours": 5,
+          "classes": [
+            {
+              "group_id": 1227016,
+              "class_name": "1Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227169,
+              "class_name": "7А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227232,
+              "class_name": "9Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 795,
+          "subject_name": "Человек и мир",
+          "total_weekly_hours": 4,
+          "classes": [
+            {
+              "group_id": 1227169,
+              "class_name": "7А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227232,
+              "class_name": "9Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 200,
+          "subject_name": "Мир вокруг",
+          "total_weekly_hours": 1,
+          "classes": [
+            {
+              "group_id": 1227016,
+              "class_name": "1Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 202,
+          "subject_name": "Социально-бытовая ориентировка",
+          "total_weekly_hours": 1,
+          "classes": [
+            {
+              "group_id": 1227232,
+              "class_name": "9Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 2513,
+          "subject_name": "Познавательное развитие",
+          "total_weekly_hours": 1,
+          "classes": [
+            {
+              "group_id": 1227232,
+              "class_name": "9Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source_id": 1884842,
+      "fio": "Дюсембаева Айгуль Каирбековна",
+      "position": "учитель",
+      "languages": [
+        "kz",
+        "ru"
+      ],
+      "max_weekly_hours": 18,
+      "subjects": [
+        {
+          "subject_id": 73,
+          "subject_name": "Казахский язык и литература",
+          "total_weekly_hours": 8,
+          "classes": [
+            {
+              "group_id": 1227169,
+              "class_name": "7А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227197,
+              "class_name": "8А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 2,
+          "subject_name": "Казахский язык",
+          "total_weekly_hours": 7,
+          "classes": [
+            {
+              "group_id": 1227016,
+              "class_name": "1Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1326631,
+              "class_name": "3А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227215,
+              "class_name": "8Ә",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 105,
+          "subject_name": "Казахская литература",
+          "total_weekly_hours": 3,
+          "classes": [
+            {
+              "group_id": 1227215,
+              "class_name": "8Ә",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source_id": 1971114,
+      "fio": "Жантимиров Асхат Каскарбаевич",
+      "position": "учитель",
+      "languages": [
+        "kz",
+        "ru"
+      ],
+      "max_weekly_hours": 2,
+      "subjects": [
+        {
+          "subject_id": 86,
+          "subject_name": "Художественный труд",
+          "total_weekly_hours": 2,
+          "classes": [
+            {
+              "group_id": 1227142,
+              "class_name": "5А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227153,
+              "class_name": "6А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227215,
+              "class_name": "8Ә",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source_id": 1971044,
+      "fio": "Жантимиров Эльдар Асхатович",
+      "position": "учитель",
+      "languages": [
+        "kz"
+      ],
+      "max_weekly_hours": 7,
+      "subjects": [
+        {
+          "subject_id": 2844,
+          "subject_name": "Информатика и искусственный интеллект",
+          "total_weekly_hours": 5,
+          "classes": [
+            {
+              "group_id": 1227142,
+              "class_name": "5А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227153,
+              "class_name": "6А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227215,
+              "class_name": "8Ә",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227294,
+              "class_name": "11А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 2843,
+          "subject_name": "Цифровая грамотность и искусственный интеллект",
+          "total_weekly_hours": 2,
+          "classes": [
+            {
+              "group_id": 1227027,
+              "class_name": "2А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227129,
+              "class_name": "4А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source_id": 1884819,
+      "fio": "Жекеева Нурсулу Абуовна",
+      "position": "учитель",
+      "languages": [
+        "kz"
+      ],
+      "max_weekly_hours": 24,
+      "subjects": [
+        {
+          "subject_id": 76,
+          "subject_name": "Математика",
+          "total_weekly_hours": 8,
+          "classes": [
+            {
+              "group_id": 1226999,
+              "class_name": "1А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227027,
+              "class_name": "2А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 24,
+          "subject_name": "Естествознание",
+          "total_weekly_hours": 2,
+          "classes": [
+            {
+              "group_id": 1226999,
+              "class_name": "1А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227027,
+              "class_name": "2А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 111,
+          "subject_name": "Познание мира",
+          "total_weekly_hours": 1,
+          "classes": [
+            {
+              "group_id": 1226999,
+              "class_name": "1А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 2,
+          "subject_name": "Казахский язык",
+          "total_weekly_hours": 4,
+          "classes": [
+            {
+              "group_id": 1227027,
+              "class_name": "2А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 2567,
+          "subject_name": "Индивидуально-развивающие занятия",
+          "total_weekly_hours": 1,
+          "classes": [
+            {
+              "group_id": 1226999,
+              "class_name": "1А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 330,
+          "subject_name": "Обучение грамоте",
+          "total_weekly_hours": 6,
+          "classes": [
+            {
+              "group_id": 1226999,
+              "class_name": "1А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 358,
+          "subject_name": "Трудовое обучение",
+          "total_weekly_hours": 1,
+          "classes": [
+            {
+              "group_id": 1226999,
+              "class_name": "1А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 359,
+          "subject_name": "Изобразительное искусство",
+          "total_weekly_hours": 1,
+          "classes": [
+            {
+              "group_id": 1226999,
+              "class_name": "1А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source_id": 1884839,
+      "fio": "Жукова Ирина Михайловна",
+      "position": "учитель",
+      "languages": [
+        "ru"
+      ],
+      "max_weekly_hours": 15,
+      "subjects": [
+        {
+          "subject_id": 202,
+          "subject_name": "Социально-бытовая ориентировка",
+          "total_weekly_hours": 2,
+          "classes": [
+            {
+              "group_id": 1227198,
+              "class_name": "8Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227169,
+              "class_name": "7А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 358,
+          "subject_name": "Трудовое обучение",
+          "total_weekly_hours": 8,
+          "classes": [
+            {
+              "group_id": 1227148,
+              "class_name": "5Б",
+              "language": "ru",
+              "subgroup_uuid": "812cc5dc-d7ac-4105-a2ba-74fbda17270e",
+              "subgroup_name": "Девочки"
+            },
+            {
+              "group_id": 1227159,
+              "class_name": "6Б",
+              "language": "ru",
+              "subgroup_uuid": "afede65a-9ff3-44ac-bcd6-f8778cd4119c",
+              "subgroup_name": "Девочки"
+            },
+            {
+              "group_id": 1227169,
+              "class_name": "7А",
+              "language": "ru",
+              "subgroup_uuid": "d89f0d1a-bd5f-492e-923e-911a35d2c4f4",
+              "subgroup_name": "Девочки"
+            },
+            {
+              "group_id": 1227197,
+              "class_name": "8А",
+              "language": "ru",
+              "subgroup_uuid": "2b3d144d-2227-4781-96a5-a0f90f9c17f2",
+              "subgroup_name": "Девочки"
+            },
+            {
+              "group_id": 1227198,
+              "class_name": "8Б",
+              "language": "ru",
+              "subgroup_uuid": "e26dbad3-4e63-413d-948c-4d1c17d18e88",
+              "subgroup_name": "Девочки"
+            },
+            {
+              "group_id": 1227232,
+              "class_name": "9Б",
+              "language": "ru",
+              "subgroup_uuid": "de35201d-76d1-42d9-8f57-6bfcb6498922",
+              "subgroup_name": "Девочки"
+            }
+          ]
+        },
+        {
+          "subject_id": 359,
+          "subject_name": "Изобразительное искусство",
+          "total_weekly_hours": 2,
+          "classes": [
+            {
+              "group_id": 1227169,
+              "class_name": "7А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227232,
+              "class_name": "9Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 2329,
+          "subject_name": "Хозяйственный труд",
+          "total_weekly_hours": 1,
+          "classes": [
+            {
+              "group_id": 1227169,
+              "class_name": "7А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 2513,
+          "subject_name": "Познавательное развитие",
+          "total_weekly_hours": 2,
+          "classes": [
+            {
+              "group_id": 1227169,
+              "class_name": "7А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227232,
+              "class_name": "9Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source_id": 1884851,
+      "fio": "Иващенко Виталий Олегович",
+      "position": "учитель",
+      "languages": [
+        "ru"
+      ],
+      "max_weekly_hours": 4,
+      "subjects": [
+        {
+          "subject_id": 24,
+          "subject_name": "Естествознание",
+          "total_weekly_hours": 4,
+          "classes": [
+            {
+              "group_id": 1227148,
+              "class_name": "5Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227159,
+              "class_name": "6Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source_id": 1884830,
+      "fio": "Ильясова Алмагуль Бахтиаровна",
+      "position": "учитель",
+      "languages": [
+        "kz",
+        "ru"
+      ],
+      "max_weekly_hours": 24,
+      "subjects": [
+        {
+          "subject_id": 2,
+          "subject_name": "Казахский язык",
+          "total_weekly_hours": 4,
+          "classes": [
+            {
+              "group_id": 1227294,
+              "class_name": "11А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227142,
+              "class_name": "5А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 105,
+          "subject_name": "Казахская литература",
+          "total_weekly_hours": 4,
+          "classes": [
+            {
+              "group_id": 1227294,
+              "class_name": "11А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227142,
+              "class_name": "5А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 73,
+          "subject_name": "Казахский язык и литература",
+          "total_weekly_hours": 16,
+          "classes": [
+            {
+              "group_id": 1227253,
+              "class_name": "10А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227232,
+              "class_name": "9Б",
+              "language": "ru",
+              "subgroup_uuid": "256d8145-fc75-45d3-b65f-9e16a68343ef",
+              "subgroup_name": "Казахский АБ"
+            },
+            {
+              "group_id": 1227159,
+              "class_name": "6Б",
+              "language": "ru",
+              "subgroup_uuid": "bd4bc144-d91a-4ba3-8de5-8a3cca97dbd9",
+              "subgroup_name": "Казахский АБ"
+            },
+            {
+              "group_id": 1227148,
+              "class_name": "5Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source_id": 1884818,
+      "fio": "Ізбасты Махамбет Жұматайұлы",
+      "position": "учитель",
+      "languages": [
+        "kz"
+      ],
+      "max_weekly_hours": 21,
+      "subjects": [
+        {
+          "subject_id": 76,
+          "subject_name": "Математика",
+          "total_weekly_hours": 10,
+          "classes": [
+            {
+              "group_id": 1227142,
+              "class_name": "5А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227153,
+              "class_name": "6А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 109,
+          "subject_name": "Алгебра",
+          "total_weekly_hours": 3,
+          "classes": [
+            {
+              "group_id": 1227215,
+              "class_name": "8Ә",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 55,
+          "subject_name": "Алгебра и начала анализа",
+          "total_weekly_hours": 4,
+          "classes": [
+            {
+              "group_id": 1227294,
+              "class_name": "11А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 110,
+          "subject_name": "Геометрия",
+          "total_weekly_hours": 4,
+          "classes": [
+            {
+              "group_id": 1227215,
+              "class_name": "8Ә",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227294,
+              "class_name": "11А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source_id": 1884832,
+      "fio": "Кашиков Еркебулан Ермекович",
+      "position": "учитель",
+      "languages": [
+        "kz",
+        "ru"
+      ],
+      "max_weekly_hours": 12,
+      "subjects": [
+        {
+          "subject_id": 87,
+          "subject_name": "Физическая культура",
+          "total_weekly_hours": 12,
+          "classes": [
+            {
+              "group_id": 1226999,
+              "class_name": "1А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227027,
+              "class_name": "2А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227129,
+              "class_name": "4А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227142,
+              "class_name": "5А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227153,
+              "class_name": "6А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227215,
+              "class_name": "8Ә",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227294,
+              "class_name": "11А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source_id": 1884822,
+      "merged_from": [
+        1852744,
+        1884822
+      ],
+      "fio": "Квашнина Елена Витальевна",
+      "position": "учитель/заведующий",
+      "languages": [
+        "ru"
+      ],
+      "max_weekly_hours": 18.5,
+      "subjects": [
+        {
+          "subject_id": 3,
+          "subject_name": "Русский язык",
+          "total_weekly_hours": 4,
+          "classes": [
+            {
+              "group_id": 1227058,
+              "class_name": "2Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 24,
+          "subject_name": "Естествознание",
+          "total_weekly_hours": 1,
+          "classes": [
+            {
+              "group_id": 1227058,
+              "class_name": "2Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 47,
+          "subject_name": "Литературное чтение",
+          "total_weekly_hours": 3,
+          "classes": [
+            {
+              "group_id": 1227058,
+              "class_name": "2Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 76,
+          "subject_name": "Математика",
+          "total_weekly_hours": 4,
+          "classes": [
+            {
+              "group_id": 1227058,
+              "class_name": "2Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 111,
+          "subject_name": "Познание мира",
+          "total_weekly_hours": 1,
+          "classes": [
+            {
+              "group_id": 1227058,
+              "class_name": "2Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 359,
+          "subject_name": "Изобразительное искусство",
+          "total_weekly_hours": 1,
+          "classes": [
+            {
+              "group_id": 1227016,
+              "class_name": "1Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 771,
+          "subject_name": "Сенсорное развитие",
+          "total_weekly_hours": 2,
+          "classes": [
+            {
+              "group_id": 1227016,
+              "class_name": "1Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 2132,
+          "subject_name": "Индивидуальные и групповые развивающие занятия",
+          "total_weekly_hours": 1,
+          "classes": [
+            {
+              "group_id": 1227058,
+              "class_name": "2Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 2332,
+          "subject_name": "Предметно-практическая деятельность",
+          "total_weekly_hours": 2,
+          "classes": [
+            {
+              "group_id": 1227016,
+              "class_name": "1Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 2567,
+          "subject_name": "Индивидуально-развивающие занятия",
+          "total_weekly_hours": 1,
+          "classes": [
+            {
+              "group_id": 1227058,
+              "class_name": "2Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source_id": 1884844,
+      "fio": "Красноперова Ольга Викторовна",
+      "position": "учитель",
+      "languages": [
+        "ru"
+      ],
+      "max_weekly_hours": 22,
+      "subjects": [
+        {
+          "subject_id": 78,
+          "subject_name": "Химия",
+          "total_weekly_hours": 9,
+          "classes": [
+            {
+              "group_id": 1227169,
+              "class_name": "7А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227197,
+              "class_name": "8А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227198,
+              "class_name": "8Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227232,
+              "class_name": "9Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227253,
+              "class_name": "10А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 79,
+          "subject_name": "Биология",
+          "total_weekly_hours": 13,
+          "classes": [
+            {
+              "group_id": 1227169,
+              "class_name": "7А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227198,
+              "class_name": "8Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227197,
+              "class_name": "8А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227232,
+              "class_name": "9Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227253,
+              "class_name": "10А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227364,
+              "class_name": "11Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source_id": 1852233,
+      "fio": "Мельников Павел Викторович",
+      "position": "директор",
+      "languages": [
+        "ru"
+      ],
+      "max_weekly_hours": 9,
+      "subjects": []
+    },
+    {
+      "source_id": 1884845,
+      "fio": "Мельникова Лия Рашидовна",
+      "position": "учитель",
+      "languages": [
+        "kz",
+        "ru"
+      ],
+      "max_weekly_hours": 12,
+      "subjects": [
+        {
+          "subject_id": 92,
+          "subject_name": "История Казахстана",
+          "total_weekly_hours": 3,
+          "classes": [
+            {
+              "group_id": 1227159,
+              "class_name": "6Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227198,
+              "class_name": "8Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 75,
+          "subject_name": "Всемирная история",
+          "total_weekly_hours": 3,
+          "classes": [
+            {
+              "group_id": 1227159,
+              "class_name": "6Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227169,
+              "class_name": "7А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227198,
+              "class_name": "8Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 2846,
+          "subject_name": "Закон и Порядок",
+          "total_weekly_hours": 3,
+          "classes": [
+            {
+              "group_id": 1227197,
+              "class_name": "8А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227198,
+              "class_name": "8Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227215,
+              "class_name": "8Ә",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227232,
+              "class_name": "9Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227253,
+              "class_name": "10А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227294,
+              "class_name": "11А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227364,
+              "class_name": "11Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 2845,
+          "subject_name": "Основы Конституции",
+          "total_weekly_hours": 1,
+          "classes": [
+            {
+              "group_id": 1227142,
+              "class_name": "5А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227148,
+              "class_name": "5Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227153,
+              "class_name": "6А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227159,
+              "class_name": "6Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227169,
+              "class_name": "7А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 2567,
+          "subject_name": "Индивидуально-развивающие занятия",
+          "total_weekly_hours": 2,
+          "classes": [
+            {
+              "group_id": 1227198,
+              "class_name": "8Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source_id": 1884836,
+      "fio": "Ольков Геннадий Васильевич",
+      "position": "учитель",
+      "languages": [
+        "ru"
+      ],
+      "max_weekly_hours": 17,
+      "subjects": [
+        {
+          "subject_id": 87,
+          "subject_name": "Физическая культура",
+          "total_weekly_hours": 15,
+          "classes": [
+            {
+              "group_id": 1227058,
+              "class_name": "2Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227159,
+              "class_name": "6Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227169,
+              "class_name": "7А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227197,
+              "class_name": "8А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227198,
+              "class_name": "8Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 1345,
+          "subject_name": "Адаптивная физическая культура",
+          "total_weekly_hours": null,
+          "classes": [
+            {
+              "group_id": 1227159,
+              "class_name": "6Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227169,
+              "class_name": "7А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 2850,
+          "subject_name": "Начальная военная подготовка",
+          "total_weekly_hours": 2,
+          "classes": [
+            {
+              "group_id": 1227253,
+              "class_name": "10А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227364,
+              "class_name": "11Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source_id": 1884824,
+      "fio": "Пащенко Наталья Аркадьевна",
+      "position": "учитель",
+      "languages": [
+        "ru"
+      ],
+      "max_weekly_hours": 16,
+      "subjects": [
+        {
+          "subject_id": 76,
+          "subject_name": "Математика",
+          "total_weekly_hours": 7,
+          "classes": [
+            {
+              "group_id": 1227159,
+              "class_name": "6Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227198,
+              "class_name": "8Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 55,
+          "subject_name": "Алгебра и начала анализа",
+          "total_weekly_hours": 5,
+          "classes": [
+            {
+              "group_id": 1227364,
+              "class_name": "11Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 110,
+          "subject_name": "Геометрия",
+          "total_weekly_hours": 4,
+          "classes": [
+            {
+              "group_id": 1227364,
+              "class_name": "11Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227169,
+              "class_name": "7А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source_id": 1884843,
+      "fio": "Радионова Наталья Александровна",
+      "position": "учитель",
+      "languages": [
+        "ru"
+      ],
+      "max_weekly_hours": 16,
+      "subjects": [
+        {
+          "subject_id": 3,
+          "subject_name": "Русский язык",
+          "total_weekly_hours": 4,
+          "classes": [
+            {
+              "group_id": 1227135,
+              "class_name": "4Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 47,
+          "subject_name": "Литературное чтение",
+          "total_weekly_hours": 3,
+          "classes": [
+            {
+              "group_id": 1227135,
+              "class_name": "4Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 76,
+          "subject_name": "Математика",
+          "total_weekly_hours": 5,
+          "classes": [
+            {
+              "group_id": 1227135,
+              "class_name": "4Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 24,
+          "subject_name": "Естествознание",
+          "total_weekly_hours": 1,
+          "classes": [
+            {
+              "group_id": 1227135,
+              "class_name": "4Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 111,
+          "subject_name": "Познание мира",
+          "total_weekly_hours": 1,
+          "classes": [
+            {
+              "group_id": 1227135,
+              "class_name": "4Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 358,
+          "subject_name": "Трудовое обучение",
+          "total_weekly_hours": 1,
+          "classes": [
+            {
+              "group_id": 1227135,
+              "class_name": "4Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 359,
+          "subject_name": "Изобразительное искусство",
+          "total_weekly_hours": 1,
+          "classes": [
+            {
+              "group_id": 1227135,
+              "class_name": "4Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source_id": 1884826,
+      "fio": "Русина Наталья Владимировна",
+      "position": "учитель",
+      "languages": [
+        "ru"
+      ],
+      "max_weekly_hours": 14,
+      "subjects": [
+        {
+          "subject_id": 77,
+          "subject_name": "Физика",
+          "total_weekly_hours": 14,
+          "classes": [
+            {
+              "group_id": 1227169,
+              "class_name": "7А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227197,
+              "class_name": "8А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227198,
+              "class_name": "8Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227232,
+              "class_name": "9Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227253,
+              "class_name": "10А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227364,
+              "class_name": "11Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source_id": 1971027,
+      "fio": "Сапаргалиева Гульжихан Сансызбаевна",
+      "position": "учитель",
+      "languages": [
+        "kz"
+      ],
+      "max_weekly_hours": 8,
+      "subjects": [
+        {
+          "subject_id": 24,
+          "subject_name": "Естествознание",
+          "total_weekly_hours": 4,
+          "classes": [
+            {
+              "group_id": 1227142,
+              "class_name": "5А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227153,
+              "class_name": "6А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 80,
+          "subject_name": "География",
+          "total_weekly_hours": 4,
+          "classes": [
+            {
+              "group_id": 1227215,
+              "class_name": "8Ә",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227294,
+              "class_name": "11А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source_id": 1971032,
+      "fio": "Сидоров Виктор Борисович",
+      "position": "учитель",
+      "languages": [
+        "ru"
+      ],
+      "max_weekly_hours": 10,
+      "subjects": [
+        {
+          "subject_id": 80,
+          "subject_name": "География",
+          "total_weekly_hours": 10,
+          "classes": [
+            {
+              "group_id": 1227169,
+              "class_name": "7А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227197,
+              "class_name": "8А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227198,
+              "class_name": "8Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227232,
+              "class_name": "9Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227253,
+              "class_name": "10А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source_id": 1884821,
+      "fio": "Темерканова Олеся Владимировна",
+      "position": "учитель",
+      "languages": [
+        "ru"
+      ],
+      "max_weekly_hours": 21,
+      "subjects": [
+        {
+          "subject_id": 3,
+          "subject_name": "Русский язык",
+          "total_weekly_hours": 7,
+          "classes": [
+            {
+              "group_id": 1326631,
+              "class_name": "3А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227159,
+              "class_name": "6Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 106,
+          "subject_name": "Русская литература",
+          "total_weekly_hours": 2,
+          "classes": [
+            {
+              "group_id": 1227159,
+              "class_name": "6Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 47,
+          "subject_name": "Литературное чтение",
+          "total_weekly_hours": 3,
+          "classes": [
+            {
+              "group_id": 1326631,
+              "class_name": "3А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 76,
+          "subject_name": "Математика",
+          "total_weekly_hours": 5,
+          "classes": [
+            {
+              "group_id": 1326631,
+              "class_name": "3А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 24,
+          "subject_name": "Естествознание",
+          "total_weekly_hours": 1,
+          "classes": [
+            {
+              "group_id": 1326631,
+              "class_name": "3А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 111,
+          "subject_name": "Познание мира",
+          "total_weekly_hours": 1,
+          "classes": [
+            {
+              "group_id": 1326631,
+              "class_name": "3А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 358,
+          "subject_name": "Трудовое обучение",
+          "total_weekly_hours": 1,
+          "classes": [
+            {
+              "group_id": 1326631,
+              "class_name": "3А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 359,
+          "subject_name": "Изобразительное искусство",
+          "total_weekly_hours": 1,
+          "classes": [
+            {
+              "group_id": 1326631,
+              "class_name": "3А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source_id": 1884834,
+      "fio": "Чифин Дмитрий Николаевич",
+      "position": "учитель",
+      "languages": [
+        "ru"
+      ],
+      "max_weekly_hours": 12,
+      "subjects": [
+        {
+          "subject_id": 87,
+          "subject_name": "Физическая культура",
+          "total_weekly_hours": 12,
+          "classes": [
+            {
+              "group_id": 1227016,
+              "class_name": "1Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1326631,
+              "class_name": "3А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227135,
+              "class_name": "4Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227148,
+              "class_name": "5Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        },
+        {
+          "subject_id": 1345,
+          "subject_name": "Адаптивная физическая культура",
+          "total_weekly_hours": null,
+          "classes": [
+            {
+              "group_id": 1227135,
+              "class_name": "4Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source_id": 1884825,
+      "fio": "Шкиря Юрий Николаевич",
+      "position": "учитель",
+      "languages": [
+        "kz",
+        "ru"
+      ],
+      "max_weekly_hours": 9,
+      "subjects": [
+        {
+          "subject_id": 84,
+          "subject_name": "Музыка",
+          "total_weekly_hours": 9,
+          "classes": [
+            {
+              "group_id": 1226999,
+              "class_name": "1А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227016,
+              "class_name": "1Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227027,
+              "class_name": "2А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227058,
+              "class_name": "2Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1326631,
+              "class_name": "3А",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227129,
+              "class_name": "4А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227135,
+              "class_name": "4Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227142,
+              "class_name": "5А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227148,
+              "class_name": "5Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227153,
+              "class_name": "6А",
+              "language": "kz",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            },
+            {
+              "group_id": 1227159,
+              "class_name": "6Б",
+              "language": "ru",
+              "subgroup_uuid": null,
+              "subgroup_name": null
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "split_index": {
+    "6Б|Английский язык": [
+      {
+        "teacher_id": 1884827,
+        "fio": "Акауова Индира Нурмухановна",
+        "subgroup": "Английский ИН"
+      },
+      {
+        "teacher_id": 1884829,
+        "fio": "Алекпарова Алия Жумабаевна",
+        "subgroup": "Английский АЖ"
+      }
+    ],
+    "9Б|Английский язык": [
+      {
+        "teacher_id": 1884827,
+        "fio": "Акауова Индира Нурмухановна",
+        "subgroup": "Английский ИН"
+      },
+      {
+        "teacher_id": 1884829,
+        "fio": "Алекпарова Алия Жумабаевна",
+        "subgroup": "Английский АЖ"
+      }
+    ],
+    "9Б|Казахский язык и литература": [
+      {
+        "teacher_id": 1884823,
+        "fio": "Асаева Жанар Хайруллаевна",
+        "subgroup": "Казахский ЖХ"
+      },
+      {
+        "teacher_id": 1884830,
+        "fio": "Ильясова Алмагуль Бахтиаровна",
+        "subgroup": "Казахский АБ"
+      }
+    ],
+    "6Б|Казахский язык и литература": [
+      {
+        "teacher_id": 1884835,
+        "fio": "Балгабаева Назигуль Кадыровна",
+        "subgroup": "Казахский НК"
+      },
+      {
+        "teacher_id": 1884830,
+        "fio": "Ильясова Алмагуль Бахтиаровна",
+        "subgroup": "Казахский АБ"
+      }
+    ],
+    "5Б|Трудовое обучение": [
+      {
+        "teacher_id": 1884839,
+        "fio": "Жукова Ирина Михайловна",
+        "subgroup": "Девочки"
+      }
+    ],
+    "6Б|Трудовое обучение": [
+      {
+        "teacher_id": 1884839,
+        "fio": "Жукова Ирина Михайловна",
+        "subgroup": "Девочки"
+      }
+    ],
+    "7А|Трудовое обучение": [
+      {
+        "teacher_id": 1884839,
+        "fio": "Жукова Ирина Михайловна",
+        "subgroup": "Девочки"
+      }
+    ],
+    "8А|Трудовое обучение": [
+      {
+        "teacher_id": 1884839,
+        "fio": "Жукова Ирина Михайловна",
+        "subgroup": "Девочки"
+      }
+    ],
+    "8Б|Трудовое обучение": [
+      {
+        "teacher_id": 1884839,
+        "fio": "Жукова Ирина Михайловна",
+        "subgroup": "Девочки"
+      }
+    ],
+    "9Б|Трудовое обучение": [
+      {
+        "teacher_id": 1884839,
+        "fio": "Жукова Ирина Михайловна",
+        "subgroup": "Девочки"
+      }
+    ]
+  }
+}

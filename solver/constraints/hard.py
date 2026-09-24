@@ -102,7 +102,7 @@ def add_hard_constraints(model, x, y, m, instances, room_by_id, subject_by_id):
             model.AddAtMostOne(vars_)
 
     # H_spread_daily: размазывание уроков предмета по неделе (макс 1 урок предмета в день при нагрузке <= 5)
-    # Если часов 6 в 5 дней, уроки одного дня обязаны идти СДВОЕННО (подряд)
+    # Если часов больше, чем дней, — не более 2 в день и НЕ подряд: сдвоенных уроков в школе нет.
     class_subj_reps: dict[tuple[str, str], list[dict]] = {}
     for inst in instances:
         sk = inst.get("split_key")
@@ -135,14 +135,10 @@ def add_hard_constraints(model, x, y, m, instances, room_by_id, subject_by_id):
                             period_map.setdefault(p, []).append(x[k])
                 if len(day_vars) > 1:
                     model.Add(sum(day_vars) <= 2)
-                    # Сдвоенность (подряд): если в один день ставятся 2 урока, между ними не может быть окон
-                    for p1 in range(m.time_grid.periods_per_day):
-                        for p2 in range(p1 + 2, m.time_grid.periods_per_day):
-                            v1 = period_map.get(p1, [])
-                            v2 = period_map.get(p2, [])
-                            for x1 in v1:
-                                for x2 in v2:
-                                    model.Add(x1 + x2 <= 1)
+                    for p in range(m.time_grid.periods_per_day - 1):
+                        for x1 in period_map.get(p, []):
+                            for x2 in period_map.get(p + 1, []):
+                                model.Add(x1 + x2 <= 1)
 
     # H_subject_domains: дневные лимиты и чередование для смежных доменных предметов
     # (Математика, История, Русский язык и Литература, Казахский язык и Литература)

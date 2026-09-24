@@ -1,0 +1,275 @@
+{
+  "source": "https://www.bilimclass.kz/2026/edu-prog (вкладка Вариатив)",
+  "school_id": 1017343,
+  "edu_year": 2026,
+  "parsed_at": "2026-09-18T10:32:44.596Z",
+  "classes": [
+    {
+      "group_id": 1226999,
+      "class_name": "1 А",
+      "language": "kz",
+      "is_ipo": false,
+      "inclusive_description": "Общая",
+      "electives": [
+        {
+          "subject_name": "Индивидуальные и групповые развивающие занятия",
+          "weekly_hours": 1
+        }
+      ]
+    },
+    {
+      "group_id": 1227027,
+      "class_name": "2 А",
+      "language": "kz",
+      "is_ipo": false,
+      "inclusive_description": "Общая",
+      "electives": [
+        {
+          "subject_name": "Свой предмет",
+          "weekly_hours": 2
+        }
+      ]
+    },
+    {
+      "group_id": 1227058,
+      "class_name": "2 Б",
+      "language": "ru",
+      "is_ipo": false,
+      "inclusive_description": "Общая",
+      "electives": [
+        {
+          "subject_name": "Индивидуальные и групповые развивающие занятия",
+          "weekly_hours": 1
+        }
+      ]
+    },
+    {
+      "group_id": 1227129,
+      "class_name": "4 А",
+      "language": "kz",
+      "is_ipo": false,
+      "inclusive_description": "Общая",
+      "electives": [
+        {
+          "subject_name": "Свой предмет",
+          "weekly_hours": 1
+        }
+      ]
+    },
+    {
+      "group_id": 1227142,
+      "class_name": "5 А",
+      "language": "kz",
+      "is_ipo": false,
+      "inclusive_description": "Общая",
+      "electives": [
+        {
+          "subject_name": "Личная безопасность",
+          "weekly_hours": 0.25
+        },
+        {
+          "subject_name": "Основы Конституции",
+          "weekly_hours": 0.25
+        }
+      ]
+    },
+    {
+      "group_id": 1227148,
+      "class_name": "5 Б",
+      "language": "ru",
+      "is_ipo": false,
+      "inclusive_description": "Общая",
+      "electives": [
+        {
+          "subject_name": "Личная безопасность",
+          "weekly_hours": 0.25
+        },
+        {
+          "subject_name": "Основы Конституции",
+          "weekly_hours": 0.25
+        }
+      ]
+    },
+    {
+      "group_id": 1227153,
+      "class_name": "6 А",
+      "language": "kz",
+      "is_ipo": false,
+      "inclusive_description": "Общая",
+      "electives": [
+        {
+          "subject_name": "Основы Конституции",
+          "weekly_hours": 0.25
+        },
+        {
+          "subject_name": "Личная безопасность",
+          "weekly_hours": 0.25
+        }
+      ]
+    },
+    {
+      "group_id": 1227169,
+      "class_name": "7 А",
+      "language": "ru",
+      "is_ipo": false,
+      "inclusive_description": "Общая",
+      "electives": [
+        {
+          "subject_name": "Личная безопасность",
+          "weekly_hours": 0.25
+        },
+        {
+          "subject_name": "Основы Конституции",
+          "weekly_hours": 0.25
+        }
+      ]
+    },
+    {
+      "group_id": 1227197,
+      "class_name": "8 А",
+      "language": "ru",
+      "is_ipo": false,
+      "inclusive_description": "Общая",
+      "electives": [
+        {
+          "subject_name": "Личная безопасность",
+          "weekly_hours": 0.25
+        },
+        {
+          "subject_name": "Закон и Порядок",
+          "weekly_hours": 0.25
+        }
+      ]
+    },
+    {
+      "group_id": 1227198,
+      "class_name": "8 Б",
+      "language": "ru",
+      "is_ipo": false,
+      "inclusive_description": "Общая",
+      "electives": [
+        {
+          "subject_name": "Личная безопасность",
+          "weekly_hours": 0.25
+        },
+        {
+          "subject_name": "Закон и Порядок",
+          "weekly_hours": 0.25
+        }
+      ]
+    },
+    {
+      "group_id": 1227215,
+      "class_name": "8 Ә",
+      "language": "kz",
+      "is_ipo": false,
+      "inclusive_description": "Общая",
+      "electives": [
+        {
+          "subject_name": "Личная безопасность",
+          "weekly_hours": 0.25
+        },
+        {
+          "subject_name": "Закон и Порядок",
+          "weekly_hours": 0.25
+        }
+      ]
+    },
+    {
+      "group_id": 1227232,
+      "class_name": "9 Б",
+      "language": "ru",
+      "is_ipo": false,
+      "inclusive_description": "Общая",
+      "electives": [
+        {
+          "subject_name": "Личная безопасность",
+          "weekly_hours": 0.5
+        },
+        {
+          "subject_name": "Закон и Порядок",
+          "weekly_hours": 0.5
+        }
+      ]
+    },
+    {
+      "group_id": 1227253,
+      "class_name": "10 A",
+      "language": "ru",
+      "is_ipo": false,
+      "inclusive_description": "Общая",
+      "electives": [
+        {
+          "subject_name": "Закон и Порядок",
+          "weekly_hours": 0.5
+        },
+        {
+          "subject_name": "Личная безопасность",
+          "weekly_hours": 0.5
+        },
+        {
+          "subject_name": "История (элективный курс)",
+          "weekly_hours": 1
+        }
+      ]
+    },
+    {
+      "group_id": 1227294,
+      "class_name": "11 А",
+      "language": "kz",
+      "is_ipo": false,
+      "inclusive_description": "Общая",
+      "electives": [
+        {
+          "subject_name": "Закон и Порядок",
+          "weekly_hours": 0.5
+        },
+        {
+          "subject_name": "Личная безопасность",
+          "weekly_hours": 0.5
+        },
+        {
+          "subject_name": "Практикум решения математических задач",
+          "weekly_hours": 1
+        },
+        {
+          "subject_name": "Финансовая математика",
+          "weekly_hours": 1
+        }
+      ]
+    },
+    {
+      "group_id": 1227364,
+      "class_name": "11 Б",
+      "language": "ru",
+      "is_ipo": false,
+      "inclusive_description": "Общая",
+      "electives": [
+        {
+          "subject_name": "Личная безопасность",
+          "weekly_hours": 0.5
+        },
+        {
+          "subject_name": "Закон и Порядок",
+          "weekly_hours": 0.5
+        },
+        {
+          "subject_name": "Биология",
+          "weekly_hours": 1
+        },
+        {
+          "subject_name": "Физика (выбор)",
+          "weekly_hours": 1
+        },
+        {
+          "subject_name": "Алгебра (предмет по выбору)",
+          "weekly_hours": 1
+        },
+        {
+          "subject_name": "Физическая культура: спортивные игры",
+          "weekly_hours": 1
+        }
+      ]
+    }
+  ]
+}

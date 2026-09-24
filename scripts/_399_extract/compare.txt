@@ -1,0 +1,104 @@
+
+APP 53 ('algebra', '7-9', 'common')
+  seed hours=[] objs=135 tasks=1 quarters=12 qgrades=[7, 8, 9]
+  new  hours=[{'grade': 7, 'hours_per_week': 3.0, 'hours_per_year': 102}, {'grade': 8, 'hours_per_week': 3.0, 'hours_per_year': 102}, {'grade': 9, 'hours_per_week': 3.0, 'hours_per_year': 102}] objs=134 tasks=10 quarters=12 qgrades=[7, 8, 9]
+  goal_new=обеспечение качественного усвоения содержания предмета «Алгебра», формирование функциональной грамотности обучающихся, в том числе в интеграции с другими предме
+  task0=способствовать формированию и развитию математических знаний, умений и навыков по разделам программы
+  codes seed=135 new=134 only_seed=1 only_new=0
+    Q g7 q1: 3 sec, 11 topics
+    Q g7 q2: 2 sec, 8 topics
+    Q g7 q3: 1 sec, 3 topics
+    Q g7 q4: 1 sec, 4 topics
+    Q g8 q1: 2 sec, 5 topics
+    Q g8 q2: 1 sec, 4 topics
+    Q g8 q3: 3 sec, 5 topics
+    Q g8 q4: 1 sec, 4 topics
+    Q g9 q1: 3 sec, 7 topics
+    Q g9 q2: 1 sec, 4 topics
+    Q g9 q3: 1 sec, 4 topics
+    Q g9 q4: 2 sec, 5 topics
+  changed_desc=19 sample=['7.1.2.1', '7.1.2.3', '7.1.2.11', '7.1.2.12', '7.1.2.14', '7.2.1.10', '7.2.1.11', '7.2.1.14']
+
+APP 54 ('geometry', '7-9', 'common')
+  seed hours=[{'grade': 7, 'hours_per_week': 2.0, 'hours_per_year': 68}, {'grade': 8, 'hours_per_week': 2.0, 'hours_per_year': 68}, {'grade': 9, 'hours_per_week': 2.0, 'hours_per_year': 68}] objs=127 tasks=1 quarters=12 qgrades=[7, 8, 9]
+  new  hours=[{'grade': 7, 'hours_per_week': 2.0, 'hours_per_year': 68}, {'grade': 8, 'hours_per_week': 2.0, 'hours_per_year': 68}, {'grade': 9, 'hours_per_week': 2.0, 'hours_per_year': 68}] objs=127 tasks=10 quarters=12 qgrades=[7, 8, 9]
+  goal_new=обеспечение качественного усвоения содержания предмета «Геометрия», формирование функциональной грамотности обучающихся, в том числе в интеграции с другими пред
+  task0=способствовать формированию и развитию математических знаний, умений и навыков по подразделам програ
+  codes seed=127 new=127 only_seed=0 only_new=0
+    Q g7 q1: 1 sec, 8 topics
+    Q g7 q2: 1 sec, 8 topics
+    Q g7 q3: 1 sec, 10 topics
+    Q g7 q4: 1 sec, 12 topics
+    Q g8 q1: 3 sec, 12 topics
+    Q g8 q2: 1 sec, 6 topics
+    Q g8 q3: 1 sec, 4 topics
+    Q g8 q4: 1 sec, 5 topics
+    Q g9 q1: 2 sec, 7 topics
+    Q g9 q2: 1 sec, 5 topics
+    Q g9 q3: 1 sec, 2 topics
+    Q g9 q4: 1 sec, 6 topics
+  changed_desc=6 sample=['7.1.1.4', '7.1.1.16', '7.1.1.17', '9.1.2.1', '8.1.3.17', '8.1.3.19']
+
+APP 104 ('algebra_analysis', '10-11', 'emn')
+  seed hours=[{'grade': 10, 'hours_per_week': 4.0, 'hours_per_year': 136}, {'grade': 11, 'hours_per_week': 4.0, 'hours_per_year': 136}] objs=152 tasks=1 quarters=4 qgrades=[10]
+  new  hours=[{'grade': 10, 'hours_per_week': 4.0, 'hours_per_year': 136}, {'grade': 11, 'hours_per_week': 4.0, 'hours_per_year': 136}] objs=152 tasks=10 quarters=8 qgrades=[10, 11]
+  goal_new=овладение математическими знаниями, необходимыми для применения в практической деятельности, для изучения смежных дисциплин, для продолжения образования; интелл
+  task0=способствовать дальнейшему формированию и развитию математических знаний, умений и навыков по раздел
+  codes seed=152 new=152 only_seed=0 only_new=0
+    Q g10 q1: 4 sec, 10 topics
+    Q g10 q2: 3 sec, 9 topics
+    Q g10 q3: 3 sec, 23 topics
+    Q g10 q4: 2 sec, 11 topics
+    Q g11 q1: 3 sec, 8 topics
+    Q g11 q2: 2 sec, 7 topics
+    Q g11 q3: 3 sec, 13 topics
+    Q g11 q4: 1 sec, 4 topics
+  changed_desc=12 sample=['11.1.2.5', '10.2.1.7', '10.2.1.13', '10.3.1.1', '10.3.1.5', '10.3.2.17', '11.3.3.4', '10.4.1.4']
+
+APP 105 ('algebra_analysis', '10-11', 'ogn')
+  seed hours=[{'grade': 10, 'hours_per_week': 3.0, 'hours_per_year': 102}, {'grade': 11, 'hours_per_week': 3.0, 'hours_per_year': 102}] objs=75 tasks=0 quarters=4 qgrades=[10]
+  new  hours=[{'grade': 10, 'hours_per_week': 3.0, 'hours_per_year': 102}, {'grade': 11, 'hours_per_week': 3.0, 'hours_per_year': 102}] objs=75 tasks=9 quarters=8 qgrades=[10, 11]
+  goal_new=интеллектуальное развитие учащихся, формирование качеств мышления, необходимых человеку для свободной ориентации в современном мире; овладение математическими з
+  task0=способствовать формированию и развитию математических знаний, умений и навыков по разделам программы
+  codes seed=75 new=75 only_seed=0 only_new=0
+    Q g10 q1: 3 sec, 8 topics
+    Q g10 q2: 2 sec, 5 topics
+    Q g10 q3: 2 sec, 12 topics
+    Q g10 q4: 1 sec, 4 topics
+    Q g11 q1: 2 sec, 4 topics
+    Q g11 q2: 2 sec, 7 topics
+    Q g11 q3: 2 sec, 9 topics
+    Q g11 q4: 1 sec, 4 topics
+  changed_desc=6 sample=['10.1.3.6', '11.2.2.3', '10.3.1.4', '10.3.1.14', '10.3.1.18', '11.3.1.3']
+
+APP 106 ('geometry', '10-11', 'emn')
+  seed hours=[{'grade': 10, 'hours_per_week': 2.0, 'hours_per_year': 68}, {'grade': 11, 'hours_per_week': 2.0, 'hours_per_year': 68}] objs=81 tasks=1 quarters=4 qgrades=[10]
+  new  hours=[{'grade': 10, 'hours_per_week': 2.0, 'hours_per_year': 68}, {'grade': 11, 'hours_per_week': 2.0, 'hours_per_year': 68}] objs=76 tasks=10 quarters=8 qgrades=[10, 11]
+  goal_new=овладение математическими знаниями, необходимыми для применения в практической деятельности, для изучения смежных дисциплин, для продолжения образования; интелл
+  task0=способствовать дальнейшему формированию и развитию математических знаний, умений и навыков по раздел
+  codes seed=81 new=76 only_seed=5 only_new=0
+    Q g10 q1: 2 sec, 5 topics
+    Q g10 q2: 1 sec, 4 topics
+    Q g10 q3: 2 sec, 10 topics
+    Q g10 q4: 1 sec, 5 topics
+    Q g11 q1: 2 sec, 7 topics
+    Q g11 q2: 2 sec, 6 topics
+    Q g11 q3: 1 sec, 6 topics
+    Q g11 q4: 1 sec, 9 topics
+  changed_desc=4 sample=['11.1.11', '10.3.1', '10.4.5', '10.4.16']
+
+APP 107 ('geometry', '10-11', 'ogn')
+  seed hours=[{'grade': 10, 'hours_per_week': 1.0, 'hours_per_year': 34}, {'grade': 11, 'hours_per_week': 1.0, 'hours_per_year': 34}] objs=47 tasks=1 quarters=4 qgrades=[10]
+  new  hours=[{'grade': 10, 'hours_per_week': 1.0, 'hours_per_year': 34}, {'grade': 11, 'hours_per_week': 1.0, 'hours_per_year': 34}] objs=47 tasks=7 quarters=8 qgrades=[10, 11]
+  goal_new=интеллектуальное развитие учащихся, формирование качеств мышления, необходимых человеку для свободной ориентации в современном мире; овладение математическими з
+  task0=способствовать формированию и развитию математических знаний, умений и навыков по геометрии
+  codes seed=47 new=47 only_seed=0 only_new=0
+    Q g10 q1: 2 sec, 5 topics
+    Q g10 q2: 1 sec, 3 topics
+    Q g10 q3: 2 sec, 7 topics
+    Q g10 q4: 1 sec, 5 topics
+    Q g11 q1: 2 sec, 7 topics
+    Q g11 q2: 1 sec, 3 topics
+    Q g11 q3: 1 sec, 9 topics
+    Q g11 q4: 1 sec, 7 topics
+  changed_desc=8 sample=['11.1.11', '10.2.6', '11.2.3', '10.3.1', '10.3.5', '11.3.14', '10.4.1', '10.4.8']

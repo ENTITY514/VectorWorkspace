@@ -1,0 +1,23 @@
+{
+  "note": "ЛУО-учащиеся включаются в уроки обычного класса. Здесь соответствие предметов ЛУО-программы предметам класса. Отдельные слоты для них не создаются — они посещают уроки класса. Адаптивная физкультура/чтение и т.п. идут вместе с обычными предметами.",
+  "students": [
+    {
+      "student": "Власова Анастасия",
+      "host_class": "7А",
+      "luo_group_id": 1366633,
+      "map": [
+        { "luo_subject": "Русский язык",                  "luo_hours": 3, "class_subject": "Русский язык",              "class_hours": 3, "attends": 3 },
+        { "luo_subject": "Математика",                    "luo_hours": 5, "class_subjects": ["Алгебра", "Геометрия"],   "class_hours": 5, "attends": 5 },
+        { "luo_subject": "Естествознание",                "luo_hours": 2, "class_subject": "Биология",                  "class_hours": 2, "attends": 2, "note": "по учителю (Красноперова О.В.) → биология" },
+        { "luo_subject": "География",                     "luo_hours": 2, "class_subject": "География",                 "class_hours": 2, "attends": 2 },
+        { "luo_subject": "История Казахстана",            "luo_hours": 2, "class_subject": "История Казахстана",        "class_hours": 2, "attends": 2 },
+        { "luo_subject": "Адаптивная физическая культура","luo_hours": 3, "class_subject": "Физическая культура",       "class_hours": 3, "attends": 3 },
+        { "luo_subject": "Чтение и развитие речи",        "luo_hours": 3, "class_subject": "Русская литература",        "class_hours": 2, "attends": 2, "note": "ходит на литературу со своим классом (Балгабаева Н.К.); 1ч не посещает" },
+        { "luo_subject": "Казахский язык",                "luo_hours": 2, "class_subject": "Казахский язык и литература","class_hours": 4, "attends": 2, "note": "посещает 2 из 4 часов; её уроки ставить выше, чтобы не было окон" }
+      ]
+    }
+  ],
+  "whole_class_luo": [
+    { "class": "6В", "host_class": "6Б", "note": "ЛУО-класс, занятия совмещены с 6Б (см. joint_lessons.json); казахский — отдельно у Балгабаевой Н.К." }
+  ]
+}

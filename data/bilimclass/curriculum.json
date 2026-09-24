@@ -1,0 +1,5209 @@
+{
+  "source": "derived: programs.json (часы) + teachers.json (учителя) + overrides.json",
+  "edu_year": 2026,
+  "rule": "часы — из программы класса; учителя — из справочника; overrides переопределяют привязку",
+  "counts": {
+    "entries": 252,
+    "assigned": 252,
+    "unassigned": 0,
+    "multi_teacher": 9,
+    "manual_overrides": 35,
+    "leftover_teacher_assignments": 73,
+    "joint_groups": 14
+  },
+  "applied_overrides": [
+    "6В | Естествознание -> Иващенко Виталий Олегович",
+    "6В | Математика -> Пащенко Наталья Аркадьевна",
+    "6В | Русский язык -> Темерканова Олеся Владимировна",
+    "6В | Музыка -> Шкиря Юрий Николаевич",
+    "6В | Казахский язык -> Балгабаева Назигуль Кадыровна",
+    "6В | Чтение и развитие речи -> Темерканова Олеся Владимировна",
+    "6В | Адаптивная физическая культура -> Ольков Геннадий Васильевич",
+    "6В | Изобразительное искусство -> Жукова Ирина Михайловна",
+    "5Б | Художественный труд -> Жукова Ирина Михайловна (Девочки) + Жантимиров Асхат Каскарбаевич (Мальчики)",
+    "6Б | Художественный труд -> Жукова Ирина Михайловна (Девочки) + Жантимиров Асхат Каскарбаевич (Мальчики)",
+    "7А | Художественный труд -> Жукова Ирина Михайловна (Девочки) + Жантимиров Асхат Каскарбаевич (Мальчики)",
+    "8А | Художественный труд -> Жукова Ирина Михайловна (Девочки) + Жантимиров Асхат Каскарбаевич (Мальчики)",
+    "8Б | Художественный труд -> Жукова Ирина Михайловна (Девочки) + Жантимиров Асхат Каскарбаевич (Мальчики)",
+    "9Б | Физическая культура -> Мельников Павел Викторович",
+    "10А | Физическая культура -> Мельников Павел Викторович",
+    "11Б | Физическая культура -> Мельников Павел Викторович",
+    "7А | Геометрия -> Пащенко Наталья Аркадьевна",
+    "8Б | История Казахстана -> Досаева Мадина Хайрулловна",
+    "8Б | Русский язык -> Дмитриев Евгений Владимирович",
+    "1А | Трудовое обучение -> Жантимиров Асхат Каскарбаевич",
+    "1А | Изобразительное искусство -> Жантимиров Асхат Каскарбаевич",
+    "10А | Начальная военная подготовка -> Боранбаев Дархан Боранбаевич",
+    "11Б | Начальная военная подготовка -> Боранбаев Дархан Боранбаевич",
+    "2Б | Математика -> Квашнина Елена Витальевна",
+    "2Б | Русский язык -> Квашнина Елена Витальевна",
+    "2Б | Литературное чтение -> Квашнина Елена Витальевна",
+    "2Б | Познание мира -> Квашнина Елена Витальевна",
+    "2Б | Естествознание -> Квашнина Елена Витальевна",
+    "2Б | Изобразительное искусство -> Жукова Ирина Михайловна",
+    "2Б | Трудовое обучение -> Жукова Ирина Михайловна",
+    "1Б | Изобразительное искусство -> Ажикенова Мадина Аскаровна",
+    "6Б | Иностранный язык -> Алекпарова Алия Жумабаевна (1Г) + Акауова Индира Нурмухановна (2Г)",
+    "9Б | Иностранный язык -> Алекпарова Алия Жумабаевна (1Г) + Акауова Индира Нурмухановна (2Г)",
+    "6Б | Казахский язык и литература -> Ильясова Алмагуль Бахтиаровна (Казахский АБ) + Балгабаева Назигуль Кадыровна (Казахский НК)",
+    "9Б | Казахский язык и литература -> Ильясова Алмагуль Бахтиаровна (Казахский АБ) + Асаева Жанар Хайруллаевна (Казахский ЖХ)"
+  ],
+  "overrides_not_applied": [],
+  "joint_lessons": [
+    {
+      "id": "2А_4А_музыка",
+      "subject": "Музыка",
+      "classes": [
+        "2А",
+        "4А"
+      ],
+      "hours_per_week": 1
+    },
+    {
+      "id": "2А_4А_изо",
+      "subject": "Изобразительное искусство",
+      "classes": [
+        "2А",
+        "4А"
+      ],
+      "hours_per_week": 1
+    },
+    {
+      "id": "2А_4А_труд",
+      "subject": "Трудовое обучение",
+      "classes": [
+        "2А",
+        "4А"
+      ],
+      "hours_per_week": 1
+    },
+    {
+      "id": "2А_4А_физкультура",
+      "subject": "Физическая культура",
+      "classes": [
+        "2А",
+        "4А"
+      ],
+      "hours_per_week": 3
+    },
+    {
+      "id": "5А_6А_музыка",
+      "subject": "Музыка",
+      "classes": [
+        "5А",
+        "6А"
+      ],
+      "hours_per_week": 1
+    },
+    {
+      "id": "5А_6А_8Ә_художественный_труд",
+      "subject": "Художественный труд",
+      "classes": [
+        "5А",
+        "6А",
+        "8Ә"
+      ],
+      "hours_per_week": 1,
+      "comment": "1 урок вместе (все три класса)"
+    },
+    {
+      "id": "5А_6А_художественный_труд",
+      "subject": "Художественный труд",
+      "classes": [
+        "5А",
+        "6А"
+      ],
+      "hours_per_week": 1,
+      "comment": "2-й урок только 5А+6А (без 8Ә)"
+    },
+    {
+      "id": "6Б_6В_русский_язык",
+      "classes": [
+        "6Б",
+        "6В"
+      ],
+      "subjects": {
+        "6Б": "Русский язык",
+        "6В": "Русский язык"
+      },
+      "hours_per_week": 3,
+      "comment": "6В (ЛУО) совмещён с 6Б"
+    },
+    {
+      "id": "6Б_6В_математика",
+      "classes": [
+        "6Б",
+        "6В"
+      ],
+      "subjects": {
+        "6Б": "Математика",
+        "6В": "Математика"
+      },
+      "hours_per_week": 5
+    },
+    {
+      "id": "6Б_6В_естествознание",
+      "classes": [
+        "6Б",
+        "6В"
+      ],
+      "subjects": {
+        "6Б": "Естествознание",
+        "6В": "Естествознание"
+      },
+      "hours_per_week": 2
+    },
+    {
+      "id": "6Б_6В_музыка",
+      "classes": [
+        "6Б",
+        "6В"
+      ],
+      "subjects": {
+        "6Б": "Музыка",
+        "6В": "Музыка"
+      },
+      "hours_per_week": 1
+    },
+    {
+      "id": "6Б_6В_литература",
+      "classes": [
+        "6Б",
+        "6В"
+      ],
+      "subjects": {
+        "6Б": "Русская литература",
+        "6В": "Чтение и развитие речи"
+      },
+      "hours_per_week": 2,
+      "comment": "ЛУО: чтение и развитие речи ↔ русская литература"
+    },
+    {
+      "id": "6Б_6В_искусство",
+      "classes": [
+        "6Б",
+        "6В"
+      ],
+      "subjects": {
+        "6Б": "Художественный труд",
+        "6В": "Изобразительное искусство"
+      },
+      "hours_per_week": 1,
+      "comment": "1 из 2ч худ.труда 6Б идёт вместе с 6В; 2-й час 6Б один"
+    },
+    {
+      "id": "6Б_6В_физкультура",
+      "classes": [
+        "6Б",
+        "6В"
+      ],
+      "subjects": {
+        "6Б": "Физическая культура",
+        "6В": "Адаптивная физическая культура"
+      },
+      "hours_per_week": 3
+    }
+  ],
+  "joint_problems": [],
+  "subgroup_rules": [
+    {
+      "classes": [
+        "6Б",
+        "9Б"
+      ],
+      "subject": "Иностранный язык",
+      "groups": [
+        "1Г",
+        "2Г"
+      ],
+      "teachers_by_group": {
+        "1Г": "Алекпарова Алия Жумабаевна",
+        "2Г": "Акауова Индира Нурмухановна"
+      }
+    },
+    {
+      "classes": [
+        "6Б",
+        "9Б"
+      ],
+      "subject": "Информатика и искусственный интеллект",
+      "groups": [
+        "1Г",
+        "2Г"
+      ],
+      "teachers_by_group": {
+        "1Г": "Бедрина Мария Николаевна",
+        "2Г": "Бедрина Мария Николаевна"
+      }
+    }
+  ],
+  "subgroup_cross_pairs": [
+    {
+      "classes": [
+        "6Б",
+        "9Б"
+      ],
+      "combos": [
+        {
+          "group_1": "Информатика и искусственный интеллект",
+          "group_2": "Иностранный язык",
+          "count_per_week": 1
+        },
+        {
+          "group_1": "Иностранный язык",
+          "group_2": "Информатика и искусственный интеллект",
+          "count_per_week": 1
+        },
+        {
+          "group_1": "Иностранный язык",
+          "group_2": "Иностранный язык",
+          "count_per_week": 2
+        }
+      ],
+      "comment": "Информатика одной подгруппы ставится одновременно с английским другой; допускается и совместный английский обеих подгрупп."
+    }
+  ],
+  "subgroup_problems": [],
+  "entries": [
+    {
+      "class_name": "1А",
+      "group_id": 1226999,
+      "subject_id": 330,
+      "subject_name": "Обучение грамоте",
+      "weekly_hours": 6,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1884819,
+          "fio": "Жекеева Нурсулу Абуовна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "1А",
+      "group_id": 1226999,
+      "subject_id": 24,
+      "subject_name": "Естествознание",
+      "weekly_hours": 1,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1884819,
+          "fio": "Жекеева Нурсулу Абуовна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "1А",
+      "group_id": 1226999,
+      "subject_id": 358,
+      "subject_name": "Трудовое обучение",
+      "weekly_hours": 1,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1971114,
+          "fio": "Жантимиров Асхат Каскарбаевич"
+        }
+      ],
+      "split": false,
+      "manual": true
+    },
+    {
+      "class_name": "1А",
+      "group_id": 1226999,
+      "subject_id": 111,
+      "subject_name": "Познание мира",
+      "weekly_hours": 1,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1884819,
+          "fio": "Жекеева Нурсулу Абуовна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "1А",
+      "group_id": 1226999,
+      "subject_id": 76,
+      "subject_name": "Математика",
+      "weekly_hours": 5,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884819,
+          "fio": "Жекеева Нурсулу Абуовна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "1А",
+      "group_id": 1226999,
+      "subject_id": 84,
+      "subject_name": "Музыка",
+      "weekly_hours": 1,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1884825,
+          "fio": "Шкиря Юрий Николаевич"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "1А",
+      "group_id": 1226999,
+      "subject_id": 359,
+      "subject_name": "Изобразительное искусство",
+      "weekly_hours": 1,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1971114,
+          "fio": "Жантимиров Асхат Каскарбаевич"
+        }
+      ],
+      "split": false,
+      "manual": true
+    },
+    {
+      "class_name": "1А",
+      "group_id": 1226999,
+      "subject_id": 87,
+      "subject_name": "Физическая культура",
+      "weekly_hours": 3,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884832,
+          "fio": "Кашиков Еркебулан Ермекович"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "1Б",
+      "group_id": 1227016,
+      "subject_id": 111,
+      "subject_name": "Познание мира",
+      "weekly_hours": 1,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1884837,
+          "fio": "Ажикенова Мадина Аскаровна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "1Б",
+      "group_id": 1227016,
+      "subject_id": 2,
+      "subject_name": "Казахский язык",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884842,
+          "fio": "Дюсембаева Айгуль Каирбековна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "1Б",
+      "group_id": 1227016,
+      "subject_id": 358,
+      "subject_name": "Трудовое обучение",
+      "weekly_hours": 1,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1884837,
+          "fio": "Ажикенова Мадина Аскаровна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "1Б",
+      "group_id": 1227016,
+      "subject_id": 87,
+      "subject_name": "Физическая культура",
+      "weekly_hours": 3,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884834,
+          "fio": "Чифин Дмитрий Николаевич"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "1Б",
+      "group_id": 1227016,
+      "subject_id": 330,
+      "subject_name": "Обучение грамоте",
+      "weekly_hours": 6,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1884837,
+          "fio": "Ажикенова Мадина Аскаровна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "1Б",
+      "group_id": 1227016,
+      "subject_id": 84,
+      "subject_name": "Музыка",
+      "weekly_hours": 1,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1884825,
+          "fio": "Шкиря Юрий Николаевич"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "1Б",
+      "group_id": 1227016,
+      "subject_id": 76,
+      "subject_name": "Математика",
+      "weekly_hours": 4,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884837,
+          "fio": "Ажикенова Мадина Аскаровна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "1Б",
+      "group_id": 1227016,
+      "subject_id": 359,
+      "subject_name": "Изобразительное искусство",
+      "weekly_hours": 1,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1884837,
+          "fio": "Ажикенова Мадина Аскаровна"
+        }
+      ],
+      "split": false,
+      "manual": true
+    },
+    {
+      "class_name": "1Б",
+      "group_id": 1227016,
+      "subject_id": 24,
+      "subject_name": "Естествознание",
+      "weekly_hours": 1,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1884837,
+          "fio": "Ажикенова Мадина Аскаровна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "2А",
+      "group_id": 1227027,
+      "subject_id": 111,
+      "subject_name": "Познание мира",
+      "weekly_hours": 1,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1884833,
+          "fio": "Актаева Айгерим Ермеккызы"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "2А",
+      "group_id": 1227027,
+      "subject_id": 2,
+      "subject_name": "Казахский язык",
+      "weekly_hours": 4,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884819,
+          "fio": "Жекеева Нурсулу Абуовна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "2А",
+      "group_id": 1227027,
+      "subject_id": 47,
+      "subject_name": "Литературное чтение",
+      "weekly_hours": 3,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884833,
+          "fio": "Актаева Айгерим Ермеккызы"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "2А",
+      "group_id": 1227027,
+      "subject_id": 359,
+      "subject_name": "Изобразительное искусство",
+      "weekly_hours": 1,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884833,
+          "fio": "Актаева Айгерим Ермеккызы"
+        }
+      ],
+      "split": false,
+      "manual": false,
+      "joint_lessons": [
+        "2А_4А_изо"
+      ]
+    },
+    {
+      "class_name": "2А",
+      "group_id": 1227027,
+      "subject_id": 24,
+      "subject_name": "Естествознание",
+      "weekly_hours": 1,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1884819,
+          "fio": "Жекеева Нурсулу Абуовна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "2А",
+      "group_id": 1227027,
+      "subject_id": 3,
+      "subject_name": "Русский язык",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884835,
+          "fio": "Балгабаева Назигуль Кадыровна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "2А",
+      "group_id": 1227027,
+      "subject_id": 358,
+      "subject_name": "Трудовое обучение",
+      "weekly_hours": 1,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884833,
+          "fio": "Актаева Айгерим Ермеккызы"
+        }
+      ],
+      "split": false,
+      "manual": false,
+      "joint_lessons": [
+        "2А_4А_труд"
+      ]
+    },
+    {
+      "class_name": "2А",
+      "group_id": 1227027,
+      "subject_id": 87,
+      "subject_name": "Физическая культура",
+      "weekly_hours": 3,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884832,
+          "fio": "Кашиков Еркебулан Ермекович"
+        }
+      ],
+      "split": false,
+      "manual": false,
+      "joint_lessons": [
+        "2А_4А_физкультура"
+      ]
+    },
+    {
+      "class_name": "2А",
+      "group_id": 1227027,
+      "subject_id": 2843,
+      "subject_name": "Цифровая грамотность и искусственный интеллект",
+      "weekly_hours": 1,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1971044,
+          "fio": "Жантимиров Эльдар Асхатович"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "2А",
+      "group_id": 1227027,
+      "subject_id": 76,
+      "subject_name": "Математика",
+      "weekly_hours": 4,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884819,
+          "fio": "Жекеева Нурсулу Абуовна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "2А",
+      "group_id": 1227027,
+      "subject_id": 84,
+      "subject_name": "Музыка",
+      "weekly_hours": 1,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884825,
+          "fio": "Шкиря Юрий Николаевич"
+        }
+      ],
+      "split": false,
+      "manual": false,
+      "joint_lessons": [
+        "2А_4А_музыка"
+      ]
+    },
+    {
+      "class_name": "2Б",
+      "group_id": 1227058,
+      "subject_id": 3,
+      "subject_name": "Русский язык",
+      "weekly_hours": 4,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884822,
+          "fio": "Квашнина Елена Витальевна"
+        }
+      ],
+      "split": false,
+      "manual": true
+    },
+    {
+      "class_name": "2Б",
+      "group_id": 1227058,
+      "subject_id": 87,
+      "subject_name": "Физическая культура",
+      "weekly_hours": 3,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884836,
+          "fio": "Ольков Геннадий Васильевич"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "2Б",
+      "group_id": 1227058,
+      "subject_id": 359,
+      "subject_name": "Изобразительное искусство",
+      "weekly_hours": 1,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": null,
+          "fio": "Жукова Ирина Михайловна"
+        }
+      ],
+      "split": false,
+      "manual": true
+    },
+    {
+      "class_name": "2Б",
+      "group_id": 1227058,
+      "subject_id": 2,
+      "subject_name": "Казахский язык",
+      "weekly_hours": 3,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884823,
+          "fio": "Асаева Жанар Хайруллаевна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "2Б",
+      "group_id": 1227058,
+      "subject_id": 358,
+      "subject_name": "Трудовое обучение",
+      "weekly_hours": 1,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": null,
+          "fio": "Жукова Ирина Михайловна"
+        }
+      ],
+      "split": false,
+      "manual": true
+    },
+    {
+      "class_name": "2Б",
+      "group_id": 1227058,
+      "subject_id": 24,
+      "subject_name": "Естествознание",
+      "weekly_hours": 1,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1884822,
+          "fio": "Квашнина Елена Витальевна"
+        }
+      ],
+      "split": false,
+      "manual": true
+    },
+    {
+      "class_name": "2Б",
+      "group_id": 1227058,
+      "subject_id": 84,
+      "subject_name": "Музыка",
+      "weekly_hours": 1,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884825,
+          "fio": "Шкиря Юрий Николаевич"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "2Б",
+      "group_id": 1227058,
+      "subject_id": 76,
+      "subject_name": "Математика",
+      "weekly_hours": 4,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884822,
+          "fio": "Квашнина Елена Витальевна"
+        }
+      ],
+      "split": false,
+      "manual": true
+    },
+    {
+      "class_name": "2Б",
+      "group_id": 1227058,
+      "subject_id": 111,
+      "subject_name": "Познание мира",
+      "weekly_hours": 1,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1884822,
+          "fio": "Квашнина Елена Витальевна"
+        }
+      ],
+      "split": false,
+      "manual": true
+    },
+    {
+      "class_name": "2Б",
+      "group_id": 1227058,
+      "subject_id": 2843,
+      "subject_name": "Цифровая грамотность и искусственный интеллект",
+      "weekly_hours": 1,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1884828,
+          "fio": "Бедрина Мария Николаевна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "2Б",
+      "group_id": 1227058,
+      "subject_id": 47,
+      "subject_name": "Литературное чтение",
+      "weekly_hours": 3,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884822,
+          "fio": "Квашнина Елена Витальевна"
+        }
+      ],
+      "split": false,
+      "manual": true
+    },
+    {
+      "class_name": "4А",
+      "group_id": 1227129,
+      "subject_id": 2,
+      "subject_name": "Казахский язык",
+      "weekly_hours": 4,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884833,
+          "fio": "Актаева Айгерим Ермеккызы"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "4А",
+      "group_id": 1227129,
+      "subject_id": 87,
+      "subject_name": "Физическая культура",
+      "weekly_hours": 3,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884832,
+          "fio": "Кашиков Еркебулан Ермекович"
+        }
+      ],
+      "split": false,
+      "manual": false,
+      "joint_lessons": [
+        "2А_4А_физкультура"
+      ]
+    },
+    {
+      "class_name": "4А",
+      "group_id": 1227129,
+      "subject_id": 84,
+      "subject_name": "Музыка",
+      "weekly_hours": 1,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884825,
+          "fio": "Шкиря Юрий Николаевич"
+        }
+      ],
+      "split": false,
+      "manual": false,
+      "joint_lessons": [
+        "2А_4А_музыка"
+      ]
+    },
+    {
+      "class_name": "4А",
+      "group_id": 1227129,
+      "subject_id": 47,
+      "subject_name": "Литературное чтение",
+      "weekly_hours": 3,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884833,
+          "fio": "Актаева Айгерим Ермеккызы"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "4А",
+      "group_id": 1227129,
+      "subject_id": 76,
+      "subject_name": "Математика",
+      "weekly_hours": 5,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884833,
+          "fio": "Актаева Айгерим Ермеккызы"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "4А",
+      "group_id": 1227129,
+      "subject_id": 359,
+      "subject_name": "Изобразительное искусство",
+      "weekly_hours": 1,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884833,
+          "fio": "Актаева Айгерим Ермеккызы"
+        }
+      ],
+      "split": false,
+      "manual": false,
+      "joint_lessons": [
+        "2А_4А_изо"
+      ]
+    },
+    {
+      "class_name": "4А",
+      "group_id": 1227129,
+      "subject_id": 24,
+      "subject_name": "Естествознание",
+      "weekly_hours": 1,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1884833,
+          "fio": "Актаева Айгерим Ермеккызы"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "4А",
+      "group_id": 1227129,
+      "subject_id": 358,
+      "subject_name": "Трудовое обучение",
+      "weekly_hours": 1,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884833,
+          "fio": "Актаева Айгерим Ермеккызы"
+        }
+      ],
+      "split": false,
+      "manual": false,
+      "joint_lessons": [
+        "2А_4А_труд"
+      ]
+    },
+    {
+      "class_name": "4А",
+      "group_id": 1227129,
+      "subject_id": 111,
+      "subject_name": "Познание мира",
+      "weekly_hours": 1,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1884833,
+          "fio": "Актаева Айгерим Ермеккызы"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "4А",
+      "group_id": 1227129,
+      "subject_id": 3,
+      "subject_name": "Русский язык",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884835,
+          "fio": "Балгабаева Назигуль Кадыровна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "4А",
+      "group_id": 1227129,
+      "subject_id": 2851,
+      "subject_name": "Иностранный язык",
+      "weekly_hours": 2,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1884827,
+          "fio": "Акауова Индира Нурмухановна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "4А",
+      "group_id": 1227129,
+      "subject_id": 2843,
+      "subject_name": "Цифровая грамотность и искусственный интеллект",
+      "weekly_hours": 1,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1971044,
+          "fio": "Жантимиров Эльдар Асхатович"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "4Б",
+      "group_id": 1227135,
+      "subject_id": 87,
+      "subject_name": "Физическая культура",
+      "weekly_hours": 3,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884834,
+          "fio": "Чифин Дмитрий Николаевич"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "4Б",
+      "group_id": 1227135,
+      "subject_id": 2851,
+      "subject_name": "Иностранный язык",
+      "weekly_hours": 2,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1884827,
+          "fio": "Акауова Индира Нурмухановна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "4Б",
+      "group_id": 1227135,
+      "subject_id": 2,
+      "subject_name": "Казахский язык",
+      "weekly_hours": 4,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884823,
+          "fio": "Асаева Жанар Хайруллаевна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "4Б",
+      "group_id": 1227135,
+      "subject_id": 76,
+      "subject_name": "Математика",
+      "weekly_hours": 5,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884843,
+          "fio": "Радионова Наталья Александровна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "4Б",
+      "group_id": 1227135,
+      "subject_id": 358,
+      "subject_name": "Трудовое обучение",
+      "weekly_hours": 1,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884843,
+          "fio": "Радионова Наталья Александровна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "4Б",
+      "group_id": 1227135,
+      "subject_id": 111,
+      "subject_name": "Познание мира",
+      "weekly_hours": 1,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1884843,
+          "fio": "Радионова Наталья Александровна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "4Б",
+      "group_id": 1227135,
+      "subject_id": 2843,
+      "subject_name": "Цифровая грамотность и искусственный интеллект",
+      "weekly_hours": 1,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1884828,
+          "fio": "Бедрина Мария Николаевна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "4Б",
+      "group_id": 1227135,
+      "subject_id": 84,
+      "subject_name": "Музыка",
+      "weekly_hours": 1,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884825,
+          "fio": "Шкиря Юрий Николаевич"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "4Б",
+      "group_id": 1227135,
+      "subject_id": 3,
+      "subject_name": "Русский язык",
+      "weekly_hours": 4,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884843,
+          "fio": "Радионова Наталья Александровна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "4Б",
+      "group_id": 1227135,
+      "subject_id": 359,
+      "subject_name": "Изобразительное искусство",
+      "weekly_hours": 1,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884843,
+          "fio": "Радионова Наталья Александровна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "4Б",
+      "group_id": 1227135,
+      "subject_id": 47,
+      "subject_name": "Литературное чтение",
+      "weekly_hours": 3,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884843,
+          "fio": "Радионова Наталья Александровна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "4Б",
+      "group_id": 1227135,
+      "subject_id": 24,
+      "subject_name": "Естествознание",
+      "weekly_hours": 1,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1884843,
+          "fio": "Радионова Наталья Александровна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "5А",
+      "group_id": 1227142,
+      "subject_id": 76,
+      "subject_name": "Математика",
+      "weekly_hours": 5,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884818,
+          "fio": "Ізбасты Махамбет Жұматайұлы"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "5А",
+      "group_id": 1227142,
+      "subject_id": 2851,
+      "subject_name": "Иностранный язык",
+      "weekly_hours": 3,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1884827,
+          "fio": "Акауова Индира Нурмухановна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "5А",
+      "group_id": 1227142,
+      "subject_id": 84,
+      "subject_name": "Музыка",
+      "weekly_hours": 1,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884825,
+          "fio": "Шкиря Юрий Николаевич"
+        }
+      ],
+      "split": false,
+      "manual": false,
+      "joint_lessons": [
+        "5А_6А_музыка"
+      ]
+    },
+    {
+      "class_name": "5А",
+      "group_id": 1227142,
+      "subject_id": 75,
+      "subject_name": "Всемирная история",
+      "weekly_hours": 1,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1884841,
+          "fio": "Досаева Мадина Хайрулловна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "5А",
+      "group_id": 1227142,
+      "subject_id": 2844,
+      "subject_name": "Информатика и искусственный интеллект",
+      "weekly_hours": 1,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1971044,
+          "fio": "Жантимиров Эльдар Асхатович"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "5А",
+      "group_id": 1227142,
+      "subject_id": 2,
+      "subject_name": "Казахский язык",
+      "weekly_hours": 3,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884830,
+          "fio": "Ильясова Алмагуль Бахтиаровна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "5А",
+      "group_id": 1227142,
+      "subject_id": 105,
+      "subject_name": "Казахская литература",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884830,
+          "fio": "Ильясова Алмагуль Бахтиаровна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "5А",
+      "group_id": 1227142,
+      "subject_id": 92,
+      "subject_name": "История Казахстана",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884841,
+          "fio": "Досаева Мадина Хайрулловна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "5А",
+      "group_id": 1227142,
+      "subject_id": 24,
+      "subject_name": "Естествознание",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1971027,
+          "fio": "Сапаргалиева Гульжихан Сансызбаевна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "5А",
+      "group_id": 1227142,
+      "subject_id": 86,
+      "subject_name": "Художественный труд",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1971114,
+          "fio": "Жантимиров Асхат Каскарбаевич"
+        }
+      ],
+      "split": false,
+      "manual": false,
+      "joint_lessons": [
+        "5А_6А_8Ә_художественный_труд",
+        "5А_6А_художественный_труд"
+      ]
+    },
+    {
+      "class_name": "5А",
+      "group_id": 1227142,
+      "subject_id": 74,
+      "subject_name": "Русский язык и литература",
+      "weekly_hours": 3,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884835,
+          "fio": "Балгабаева Назигуль Кадыровна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "5А",
+      "group_id": 1227142,
+      "subject_id": 87,
+      "subject_name": "Физическая культура",
+      "weekly_hours": 3,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884832,
+          "fio": "Кашиков Еркебулан Ермекович"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "5Б",
+      "group_id": 1227148,
+      "subject_id": 84,
+      "subject_name": "Музыка",
+      "weekly_hours": 1,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884825,
+          "fio": "Шкиря Юрий Николаевич"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "5Б",
+      "group_id": 1227148,
+      "subject_id": 73,
+      "subject_name": "Казахский язык и литература",
+      "weekly_hours": 4,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884830,
+          "fio": "Ильясова Алмагуль Бахтиаровна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "5Б",
+      "group_id": 1227148,
+      "subject_id": 3,
+      "subject_name": "Русский язык",
+      "weekly_hours": 3,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884835,
+          "fio": "Балгабаева Назигуль Кадыровна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "5Б",
+      "group_id": 1227148,
+      "subject_id": 86,
+      "subject_name": "Художественный труд",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": null,
+          "fio": "Жукова Ирина Михайловна",
+          "subgroup": "Девочки"
+        },
+        {
+          "teacher_source_id": 1971114,
+          "fio": "Жантимиров Асхат Каскарбаевич",
+          "subgroup": "Мальчики"
+        }
+      ],
+      "split": true,
+      "manual": true
+    },
+    {
+      "class_name": "5Б",
+      "group_id": 1227148,
+      "subject_id": 76,
+      "subject_name": "Математика",
+      "weekly_hours": 5,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884828,
+          "fio": "Бедрина Мария Николаевна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "5Б",
+      "group_id": 1227148,
+      "subject_id": 2844,
+      "subject_name": "Информатика и искусственный интеллект",
+      "weekly_hours": 1,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1884828,
+          "fio": "Бедрина Мария Николаевна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "5Б",
+      "group_id": 1227148,
+      "subject_id": 24,
+      "subject_name": "Естествознание",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884851,
+          "fio": "Иващенко Виталий Олегович"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "5Б",
+      "group_id": 1227148,
+      "subject_id": 92,
+      "subject_name": "История Казахстана",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884831,
+          "fio": "Бучкова Ирина Олеговна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "5Б",
+      "group_id": 1227148,
+      "subject_id": 75,
+      "subject_name": "Всемирная история",
+      "weekly_hours": 1,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1884831,
+          "fio": "Бучкова Ирина Олеговна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "5Б",
+      "group_id": 1227148,
+      "subject_id": 106,
+      "subject_name": "Русская литература",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884837,
+          "fio": "Ажикенова Мадина Аскаровна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "5Б",
+      "group_id": 1227148,
+      "subject_id": 87,
+      "subject_name": "Физическая культура",
+      "weekly_hours": 3,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884834,
+          "fio": "Чифин Дмитрий Николаевич"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "5Б",
+      "group_id": 1227148,
+      "subject_id": 2851,
+      "subject_name": "Иностранный язык",
+      "weekly_hours": 3,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1884829,
+          "fio": "Алекпарова Алия Жумабаевна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "6А",
+      "group_id": 1227153,
+      "subject_id": 2844,
+      "subject_name": "Информатика и искусственный интеллект",
+      "weekly_hours": 1,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1971044,
+          "fio": "Жантимиров Эльдар Асхатович"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "6А",
+      "group_id": 1227153,
+      "subject_id": 86,
+      "subject_name": "Художественный труд",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1971114,
+          "fio": "Жантимиров Асхат Каскарбаевич"
+        }
+      ],
+      "split": false,
+      "manual": false,
+      "joint_lessons": [
+        "5А_6А_8Ә_художественный_труд",
+        "5А_6А_художественный_труд"
+      ]
+    },
+    {
+      "class_name": "6А",
+      "group_id": 1227153,
+      "subject_id": 24,
+      "subject_name": "Естествознание",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1971027,
+          "fio": "Сапаргалиева Гульжихан Сансызбаевна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "6А",
+      "group_id": 1227153,
+      "subject_id": 74,
+      "subject_name": "Русский язык и литература",
+      "weekly_hours": 3,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884835,
+          "fio": "Балгабаева Назигуль Кадыровна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "6А",
+      "group_id": 1227153,
+      "subject_id": 84,
+      "subject_name": "Музыка",
+      "weekly_hours": 1,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884825,
+          "fio": "Шкиря Юрий Николаевич"
+        }
+      ],
+      "split": false,
+      "manual": false,
+      "joint_lessons": [
+        "5А_6А_музыка"
+      ]
+    },
+    {
+      "class_name": "6А",
+      "group_id": 1227153,
+      "subject_id": 2,
+      "subject_name": "Казахский язык",
+      "weekly_hours": 3,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884823,
+          "fio": "Асаева Жанар Хайруллаевна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "6А",
+      "group_id": 1227153,
+      "subject_id": 2851,
+      "subject_name": "Иностранный язык",
+      "weekly_hours": 3,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1884827,
+          "fio": "Акауова Индира Нурмухановна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "6А",
+      "group_id": 1227153,
+      "subject_id": 87,
+      "subject_name": "Физическая культура",
+      "weekly_hours": 3,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884832,
+          "fio": "Кашиков Еркебулан Ермекович"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "6А",
+      "group_id": 1227153,
+      "subject_id": 92,
+      "subject_name": "История Казахстана",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884841,
+          "fio": "Досаева Мадина Хайрулловна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "6А",
+      "group_id": 1227153,
+      "subject_id": 76,
+      "subject_name": "Математика",
+      "weekly_hours": 5,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884818,
+          "fio": "Ізбасты Махамбет Жұматайұлы"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "6А",
+      "group_id": 1227153,
+      "subject_id": 75,
+      "subject_name": "Всемирная история",
+      "weekly_hours": 1,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1884841,
+          "fio": "Досаева Мадина Хайрулловна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "6А",
+      "group_id": 1227153,
+      "subject_id": 105,
+      "subject_name": "Казахская литература",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884823,
+          "fio": "Асаева Жанар Хайруллаевна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "6Б",
+      "group_id": 1227159,
+      "subject_id": 3,
+      "subject_name": "Русский язык",
+      "weekly_hours": 3,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884821,
+          "fio": "Темерканова Олеся Владимировна"
+        }
+      ],
+      "split": false,
+      "manual": false,
+      "joint_lessons": [
+        "6Б_6В_русский_язык"
+      ]
+    },
+    {
+      "class_name": "6Б",
+      "group_id": 1227159,
+      "subject_id": 73,
+      "subject_name": "Казахский язык и литература",
+      "weekly_hours": 4,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884830,
+          "fio": "Ильясова Алмагуль Бахтиаровна",
+          "subgroup": "Казахский АБ"
+        },
+        {
+          "teacher_source_id": 1884835,
+          "fio": "Балгабаева Назигуль Кадыровна",
+          "subgroup": "Казахский НК"
+        }
+      ],
+      "split": true,
+      "manual": true
+    },
+    {
+      "class_name": "6Б",
+      "group_id": 1227159,
+      "subject_id": 86,
+      "subject_name": "Художественный труд",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": null,
+          "fio": "Жукова Ирина Михайловна",
+          "subgroup": "Девочки"
+        },
+        {
+          "teacher_source_id": 1971114,
+          "fio": "Жантимиров Асхат Каскарбаевич",
+          "subgroup": "Мальчики"
+        }
+      ],
+      "split": true,
+      "manual": true,
+      "joint_lessons": [
+        "6Б_6В_искусство"
+      ]
+    },
+    {
+      "class_name": "6Б",
+      "group_id": 1227159,
+      "subject_id": 24,
+      "subject_name": "Естествознание",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884851,
+          "fio": "Иващенко Виталий Олегович"
+        }
+      ],
+      "split": false,
+      "manual": false,
+      "joint_lessons": [
+        "6Б_6В_естествознание"
+      ]
+    },
+    {
+      "class_name": "6Б",
+      "group_id": 1227159,
+      "subject_id": 75,
+      "subject_name": "Всемирная история",
+      "weekly_hours": 1,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1884845,
+          "fio": "Мельникова Лия Рашидовна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "6Б",
+      "group_id": 1227159,
+      "subject_id": 87,
+      "subject_name": "Физическая культура",
+      "weekly_hours": 3,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884836,
+          "fio": "Ольков Геннадий Васильевич"
+        }
+      ],
+      "split": false,
+      "manual": false,
+      "joint_lessons": [
+        "6Б_6В_физкультура"
+      ]
+    },
+    {
+      "class_name": "6Б",
+      "group_id": 1227159,
+      "subject_id": 84,
+      "subject_name": "Музыка",
+      "weekly_hours": 1,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884825,
+          "fio": "Шкиря Юрий Николаевич"
+        }
+      ],
+      "split": false,
+      "manual": false,
+      "joint_lessons": [
+        "6Б_6В_музыка"
+      ]
+    },
+    {
+      "class_name": "6Б",
+      "group_id": 1227159,
+      "subject_id": 92,
+      "subject_name": "История Казахстана",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884845,
+          "fio": "Мельникова Лия Рашидовна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "6Б",
+      "group_id": 1227159,
+      "subject_id": 106,
+      "subject_name": "Русская литература",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884821,
+          "fio": "Темерканова Олеся Владимировна"
+        }
+      ],
+      "split": false,
+      "manual": false,
+      "joint_lessons": [
+        "6Б_6В_литература"
+      ]
+    },
+    {
+      "class_name": "6Б",
+      "group_id": 1227159,
+      "subject_id": 76,
+      "subject_name": "Математика",
+      "weekly_hours": 5,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884824,
+          "fio": "Пащенко Наталья Аркадьевна"
+        }
+      ],
+      "split": false,
+      "manual": false,
+      "joint_lessons": [
+        "6Б_6В_математика"
+      ]
+    },
+    {
+      "class_name": "6Б",
+      "group_id": 1227159,
+      "subject_id": 2844,
+      "subject_name": "Информатика и искусственный интеллект",
+      "weekly_hours": 1,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1884828,
+          "fio": "Бедрина Мария Николаевна"
+        }
+      ],
+      "split": false,
+      "manual": false,
+      "requires_split": true,
+      "subgroups": [
+        "1Г",
+        "2Г"
+      ],
+      "subgroup_teachers": {
+        "1Г": "Бедрина Мария Николаевна",
+        "2Г": "Бедрина Мария Николаевна"
+      }
+    },
+    {
+      "class_name": "6Б",
+      "group_id": 1227159,
+      "subject_id": 2851,
+      "subject_name": "Иностранный язык",
+      "weekly_hours": 3,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1884829,
+          "fio": "Алекпарова Алия Жумабаевна",
+          "subgroup": "1Г"
+        },
+        {
+          "teacher_source_id": 1884827,
+          "fio": "Акауова Индира Нурмухановна",
+          "subgroup": "2Г"
+        }
+      ],
+      "split": true,
+      "manual": true,
+      "requires_split": true,
+      "subgroups": [
+        "1Г",
+        "2Г"
+      ],
+      "subgroup_teachers": {
+        "1Г": "Алекпарова Алия Жумабаевна",
+        "2Г": "Акауова Индира Нурмухановна"
+      }
+    },
+    {
+      "class_name": "7А",
+      "group_id": 1227169,
+      "subject_id": 110,
+      "subject_name": "Геометрия",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884824,
+          "fio": "Пащенко Наталья Аркадьевна"
+        }
+      ],
+      "split": false,
+      "manual": true
+    },
+    {
+      "class_name": "7А",
+      "group_id": 1227169,
+      "subject_id": 106,
+      "subject_name": "Русская литература",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884835,
+          "fio": "Балгабаева Назигуль Кадыровна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "7А",
+      "group_id": 1227169,
+      "subject_id": 92,
+      "subject_name": "История Казахстана",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884841,
+          "fio": "Досаева Мадина Хайрулловна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "7А",
+      "group_id": 1227169,
+      "subject_id": 2844,
+      "subject_name": "Информатика и искусственный интеллект",
+      "weekly_hours": 1,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1884828,
+          "fio": "Бедрина Мария Николаевна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "7А",
+      "group_id": 1227169,
+      "subject_id": 80,
+      "subject_name": "География",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1971032,
+          "fio": "Сидоров Виктор Борисович"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "7А",
+      "group_id": 1227169,
+      "subject_id": 86,
+      "subject_name": "Художественный труд",
+      "weekly_hours": 1,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": null,
+          "fio": "Жукова Ирина Михайловна",
+          "subgroup": "Девочки"
+        },
+        {
+          "teacher_source_id": 1971114,
+          "fio": "Жантимиров Асхат Каскарбаевич",
+          "subgroup": "Мальчики"
+        }
+      ],
+      "split": true,
+      "manual": true
+    },
+    {
+      "class_name": "7А",
+      "group_id": 1227169,
+      "subject_id": 87,
+      "subject_name": "Физическая культура",
+      "weekly_hours": 3,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884836,
+          "fio": "Ольков Геннадий Васильевич"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "7А",
+      "group_id": 1227169,
+      "subject_id": 73,
+      "subject_name": "Казахский язык и литература",
+      "weekly_hours": 4,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884842,
+          "fio": "Дюсембаева Айгуль Каирбековна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "7А",
+      "group_id": 1227169,
+      "subject_id": 3,
+      "subject_name": "Русский язык",
+      "weekly_hours": 3,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884820,
+          "fio": "Дмитриев Евгений Владимирович"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "7А",
+      "group_id": 1227169,
+      "subject_id": 109,
+      "subject_name": "Алгебра",
+      "weekly_hours": 3,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884828,
+          "fio": "Бедрина Мария Николаевна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "7А",
+      "group_id": 1227169,
+      "subject_id": 78,
+      "subject_name": "Химия",
+      "weekly_hours": 1,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884844,
+          "fio": "Красноперова Ольга Викторовна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "7А",
+      "group_id": 1227169,
+      "subject_id": 75,
+      "subject_name": "Всемирная история",
+      "weekly_hours": 1,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1884845,
+          "fio": "Мельникова Лия Рашидовна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "7А",
+      "group_id": 1227169,
+      "subject_id": 79,
+      "subject_name": "Биология",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884844,
+          "fio": "Красноперова Ольга Викторовна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "7А",
+      "group_id": 1227169,
+      "subject_id": 77,
+      "subject_name": "Физика",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884826,
+          "fio": "Русина Наталья Владимировна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "7А",
+      "group_id": 1227169,
+      "subject_id": 2851,
+      "subject_name": "Иностранный язык",
+      "weekly_hours": 3,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1884829,
+          "fio": "Алекпарова Алия Жумабаевна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "8А",
+      "group_id": 1227197,
+      "subject_id": 79,
+      "subject_name": "Биология",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884844,
+          "fio": "Красноперова Ольга Викторовна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "8А",
+      "group_id": 1227197,
+      "subject_id": 92,
+      "subject_name": "История Казахстана",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884831,
+          "fio": "Бучкова Ирина Олеговна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "8А",
+      "group_id": 1227197,
+      "subject_id": 109,
+      "subject_name": "Алгебра",
+      "weekly_hours": 3,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884817,
+          "fio": "Бабич Иман Денисович"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "8А",
+      "group_id": 1227197,
+      "subject_id": 3,
+      "subject_name": "Русский язык",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884820,
+          "fio": "Дмитриев Евгений Владимирович"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "8А",
+      "group_id": 1227197,
+      "subject_id": 78,
+      "subject_name": "Химия",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884844,
+          "fio": "Красноперова Ольга Викторовна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "8А",
+      "group_id": 1227197,
+      "subject_id": 73,
+      "subject_name": "Казахский язык и литература",
+      "weekly_hours": 4,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884842,
+          "fio": "Дюсембаева Айгуль Каирбековна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "8А",
+      "group_id": 1227197,
+      "subject_id": 2844,
+      "subject_name": "Информатика и искусственный интеллект",
+      "weekly_hours": 1,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1884828,
+          "fio": "Бедрина Мария Николаевна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "8А",
+      "group_id": 1227197,
+      "subject_id": 80,
+      "subject_name": "География",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1971032,
+          "fio": "Сидоров Виктор Борисович"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "8А",
+      "group_id": 1227197,
+      "subject_id": 2851,
+      "subject_name": "Иностранный язык",
+      "weekly_hours": 3,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1884829,
+          "fio": "Алекпарова Алия Жумабаевна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "8А",
+      "group_id": 1227197,
+      "subject_id": 106,
+      "subject_name": "Русская литература",
+      "weekly_hours": 3,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884820,
+          "fio": "Дмитриев Евгений Владимирович"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "8А",
+      "group_id": 1227197,
+      "subject_id": 77,
+      "subject_name": "Физика",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884826,
+          "fio": "Русина Наталья Владимировна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "8А",
+      "group_id": 1227197,
+      "subject_id": 75,
+      "subject_name": "Всемирная история",
+      "weekly_hours": 1,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1884831,
+          "fio": "Бучкова Ирина Олеговна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "8А",
+      "group_id": 1227197,
+      "subject_id": 87,
+      "subject_name": "Физическая культура",
+      "weekly_hours": 3,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884836,
+          "fio": "Ольков Геннадий Васильевич"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "8А",
+      "group_id": 1227197,
+      "subject_id": 110,
+      "subject_name": "Геометрия",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884817,
+          "fio": "Бабич Иман Денисович"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "8А",
+      "group_id": 1227197,
+      "subject_id": 86,
+      "subject_name": "Художественный труд",
+      "weekly_hours": 1,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": null,
+          "fio": "Жукова Ирина Михайловна",
+          "subgroup": "Девочки"
+        },
+        {
+          "teacher_source_id": 1971114,
+          "fio": "Жантимиров Асхат Каскарбаевич",
+          "subgroup": "Мальчики"
+        }
+      ],
+      "split": true,
+      "manual": true
+    },
+    {
+      "class_name": "8Б",
+      "group_id": 1227198,
+      "subject_id": 79,
+      "subject_name": "Биология",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884844,
+          "fio": "Красноперова Ольга Викторовна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "8Б",
+      "group_id": 1227198,
+      "subject_id": 92,
+      "subject_name": "История Казахстана",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884841,
+          "fio": "Досаева Мадина Хайрулловна"
+        }
+      ],
+      "split": false,
+      "manual": true
+    },
+    {
+      "class_name": "8Б",
+      "group_id": 1227198,
+      "subject_id": 109,
+      "subject_name": "Алгебра",
+      "weekly_hours": 3,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884817,
+          "fio": "Бабич Иман Денисович"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "8Б",
+      "group_id": 1227198,
+      "subject_id": 3,
+      "subject_name": "Русский язык",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884820,
+          "fio": "Дмитриев Евгений Владимирович"
+        }
+      ],
+      "split": false,
+      "manual": true
+    },
+    {
+      "class_name": "8Б",
+      "group_id": 1227198,
+      "subject_id": 78,
+      "subject_name": "Химия",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884844,
+          "fio": "Красноперова Ольга Викторовна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "8Б",
+      "group_id": 1227198,
+      "subject_id": 73,
+      "subject_name": "Казахский язык и литература",
+      "weekly_hours": 4,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884823,
+          "fio": "Асаева Жанар Хайруллаевна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "8Б",
+      "group_id": 1227198,
+      "subject_id": 2844,
+      "subject_name": "Информатика и искусственный интеллект",
+      "weekly_hours": 1,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1884828,
+          "fio": "Бедрина Мария Николаевна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "8Б",
+      "group_id": 1227198,
+      "subject_id": 80,
+      "subject_name": "География",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1971032,
+          "fio": "Сидоров Виктор Борисович"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "8Б",
+      "group_id": 1227198,
+      "subject_id": 2851,
+      "subject_name": "Иностранный язык",
+      "weekly_hours": 3,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1884829,
+          "fio": "Алекпарова Алия Жумабаевна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "8Б",
+      "group_id": 1227198,
+      "subject_id": 106,
+      "subject_name": "Русская литература",
+      "weekly_hours": 3,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884820,
+          "fio": "Дмитриев Евгений Владимирович"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "8Б",
+      "group_id": 1227198,
+      "subject_id": 77,
+      "subject_name": "Физика",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884826,
+          "fio": "Русина Наталья Владимировна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "8Б",
+      "group_id": 1227198,
+      "subject_id": 75,
+      "subject_name": "Всемирная история",
+      "weekly_hours": 1,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1884845,
+          "fio": "Мельникова Лия Рашидовна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "8Б",
+      "group_id": 1227198,
+      "subject_id": 87,
+      "subject_name": "Физическая культура",
+      "weekly_hours": 3,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884836,
+          "fio": "Ольков Геннадий Васильевич"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "8Б",
+      "group_id": 1227198,
+      "subject_id": 110,
+      "subject_name": "Геометрия",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884817,
+          "fio": "Бабич Иман Денисович"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "8Б",
+      "group_id": 1227198,
+      "subject_id": 86,
+      "subject_name": "Художественный труд",
+      "weekly_hours": 1,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": null,
+          "fio": "Жукова Ирина Михайловна",
+          "subgroup": "Девочки"
+        },
+        {
+          "teacher_source_id": 1971114,
+          "fio": "Жантимиров Асхат Каскарбаевич",
+          "subgroup": "Мальчики"
+        }
+      ],
+      "split": true,
+      "manual": true
+    },
+    {
+      "class_name": "8Ә",
+      "group_id": 1227215,
+      "subject_id": 2844,
+      "subject_name": "Информатика и искусственный интеллект",
+      "weekly_hours": 1,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1971044,
+          "fio": "Жантимиров Эльдар Асхатович"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "8Ә",
+      "group_id": 1227215,
+      "subject_id": 86,
+      "subject_name": "Художественный труд",
+      "weekly_hours": 1,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1971114,
+          "fio": "Жантимиров Асхат Каскарбаевич"
+        }
+      ],
+      "split": false,
+      "manual": false,
+      "joint_lessons": [
+        "5А_6А_8Ә_художественный_труд"
+      ]
+    },
+    {
+      "class_name": "8Ә",
+      "group_id": 1227215,
+      "subject_id": 80,
+      "subject_name": "География",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1971027,
+          "fio": "Сапаргалиева Гульжихан Сансызбаевна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "8Ә",
+      "group_id": 1227215,
+      "subject_id": 92,
+      "subject_name": "История Казахстана",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884841,
+          "fio": "Досаева Мадина Хайрулловна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "8Ә",
+      "group_id": 1227215,
+      "subject_id": 77,
+      "subject_name": "Физика",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1971071,
+          "fio": "Аятова Анаргуль Жусуповна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "8Ә",
+      "group_id": 1227215,
+      "subject_id": 2,
+      "subject_name": "Казахский язык",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884842,
+          "fio": "Дюсембаева Айгуль Каирбековна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "8Ә",
+      "group_id": 1227215,
+      "subject_id": 74,
+      "subject_name": "Русский язык и литература",
+      "weekly_hours": 3,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884835,
+          "fio": "Балгабаева Назигуль Кадыровна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "8Ә",
+      "group_id": 1227215,
+      "subject_id": 109,
+      "subject_name": "Алгебра",
+      "weekly_hours": 3,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884818,
+          "fio": "Ізбасты Махамбет Жұматайұлы"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "8Ә",
+      "group_id": 1227215,
+      "subject_id": 75,
+      "subject_name": "Всемирная история",
+      "weekly_hours": 1,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1884841,
+          "fio": "Досаева Мадина Хайрулловна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "8Ә",
+      "group_id": 1227215,
+      "subject_id": 105,
+      "subject_name": "Казахская литература",
+      "weekly_hours": 3,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884842,
+          "fio": "Дюсембаева Айгуль Каирбековна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "8Ә",
+      "group_id": 1227215,
+      "subject_id": 87,
+      "subject_name": "Физическая культура",
+      "weekly_hours": 3,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884832,
+          "fio": "Кашиков Еркебулан Ермекович"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "8Ә",
+      "group_id": 1227215,
+      "subject_id": 78,
+      "subject_name": "Химия",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1971053,
+          "fio": "Балташева Зару Такановна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "8Ә",
+      "group_id": 1227215,
+      "subject_id": 110,
+      "subject_name": "Геометрия",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884818,
+          "fio": "Ізбасты Махамбет Жұматайұлы"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "8Ә",
+      "group_id": 1227215,
+      "subject_id": 2851,
+      "subject_name": "Иностранный язык",
+      "weekly_hours": 3,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1884829,
+          "fio": "Алекпарова Алия Жумабаевна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "8Ә",
+      "group_id": 1227215,
+      "subject_id": 79,
+      "subject_name": "Биология",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1971089,
+          "fio": "Байгазиева Айгерим Дуйсембековна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "9Б",
+      "group_id": 1227232,
+      "subject_id": 80,
+      "subject_name": "География",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1971032,
+          "fio": "Сидоров Виктор Борисович"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "9Б",
+      "group_id": 1227232,
+      "subject_id": 2851,
+      "subject_name": "Иностранный язык",
+      "weekly_hours": 3,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1884829,
+          "fio": "Алекпарова Алия Жумабаевна",
+          "subgroup": "1Г"
+        },
+        {
+          "teacher_source_id": 1884827,
+          "fio": "Акауова Индира Нурмухановна",
+          "subgroup": "2Г"
+        }
+      ],
+      "split": true,
+      "manual": true,
+      "requires_split": true,
+      "subgroups": [
+        "1Г",
+        "2Г"
+      ],
+      "subgroup_teachers": {
+        "1Г": "Алекпарова Алия Жумабаевна",
+        "2Г": "Акауова Индира Нурмухановна"
+      }
+    },
+    {
+      "class_name": "9Б",
+      "group_id": 1227232,
+      "subject_id": 73,
+      "subject_name": "Казахский язык и литература",
+      "weekly_hours": 4,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884830,
+          "fio": "Ильясова Алмагуль Бахтиаровна",
+          "subgroup": "Казахский АБ"
+        },
+        {
+          "teacher_source_id": 1884823,
+          "fio": "Асаева Жанар Хайруллаевна",
+          "subgroup": "Казахский ЖХ"
+        }
+      ],
+      "split": true,
+      "manual": true
+    },
+    {
+      "class_name": "9Б",
+      "group_id": 1227232,
+      "subject_id": 92,
+      "subject_name": "История Казахстана",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884841,
+          "fio": "Досаева Мадина Хайрулловна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "9Б",
+      "group_id": 1227232,
+      "subject_id": 2844,
+      "subject_name": "Информатика и искусственный интеллект",
+      "weekly_hours": 1,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1884828,
+          "fio": "Бедрина Мария Николаевна"
+        }
+      ],
+      "split": false,
+      "manual": false,
+      "requires_split": true,
+      "subgroups": [
+        "1Г",
+        "2Г"
+      ],
+      "subgroup_teachers": {
+        "1Г": "Бедрина Мария Николаевна",
+        "2Г": "Бедрина Мария Николаевна"
+      }
+    },
+    {
+      "class_name": "9Б",
+      "group_id": 1227232,
+      "subject_id": 109,
+      "subject_name": "Алгебра",
+      "weekly_hours": 3,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884817,
+          "fio": "Бабич Иман Денисович"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "9Б",
+      "group_id": 1227232,
+      "subject_id": 106,
+      "subject_name": "Русская литература",
+      "weekly_hours": 3,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884820,
+          "fio": "Дмитриев Евгений Владимирович"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "9Б",
+      "group_id": 1227232,
+      "subject_id": 79,
+      "subject_name": "Биология",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884844,
+          "fio": "Красноперова Ольга Викторовна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "9Б",
+      "group_id": 1227232,
+      "subject_id": 110,
+      "subject_name": "Геометрия",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884817,
+          "fio": "Бабич Иман Денисович"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "9Б",
+      "group_id": 1227232,
+      "subject_id": 3,
+      "subject_name": "Русский язык",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884820,
+          "fio": "Дмитриев Евгений Владимирович"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "9Б",
+      "group_id": 1227232,
+      "subject_id": 87,
+      "subject_name": "Физическая культура",
+      "weekly_hours": 3,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1852233,
+          "fio": "Мельников Павел Викторович"
+        }
+      ],
+      "split": false,
+      "manual": true
+    },
+    {
+      "class_name": "9Б",
+      "group_id": 1227232,
+      "subject_id": 77,
+      "subject_name": "Физика",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884826,
+          "fio": "Русина Наталья Владимировна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "9Б",
+      "group_id": 1227232,
+      "subject_id": 75,
+      "subject_name": "Всемирная история",
+      "weekly_hours": 1,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1884841,
+          "fio": "Досаева Мадина Хайрулловна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "9Б",
+      "group_id": 1227232,
+      "subject_id": 113,
+      "subject_name": "Основы права",
+      "weekly_hours": 1,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1884841,
+          "fio": "Досаева Мадина Хайрулловна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "9Б",
+      "group_id": 1227232,
+      "subject_id": 78,
+      "subject_name": "Химия",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884844,
+          "fio": "Красноперова Ольга Викторовна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "10А",
+      "group_id": 1227253,
+      "subject_id": 55,
+      "subject_name": "Алгебра и начала анализа",
+      "weekly_hours": 4,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884817,
+          "fio": "Бабич Иман Денисович"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "10А",
+      "group_id": 1227253,
+      "subject_id": 73,
+      "subject_name": "Казахский язык и литература",
+      "weekly_hours": 4,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884830,
+          "fio": "Ильясова Алмагуль Бахтиаровна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "10А",
+      "group_id": 1227253,
+      "subject_id": 80,
+      "subject_name": "География",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1971032,
+          "fio": "Сидоров Виктор Борисович"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "10А",
+      "group_id": 1227253,
+      "subject_id": 92,
+      "subject_name": "История Казахстана",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884831,
+          "fio": "Бучкова Ирина Олеговна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "10А",
+      "group_id": 1227253,
+      "subject_id": 87,
+      "subject_name": "Физическая культура",
+      "weekly_hours": 3,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1852233,
+          "fio": "Мельников Павел Викторович"
+        }
+      ],
+      "split": false,
+      "manual": true
+    },
+    {
+      "class_name": "10А",
+      "group_id": 1227253,
+      "subject_id": 78,
+      "subject_name": "Химия",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884844,
+          "fio": "Красноперова Ольга Викторовна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "10А",
+      "group_id": 1227253,
+      "subject_id": 79,
+      "subject_name": "Биология",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884844,
+          "fio": "Красноперова Ольга Викторовна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "10А",
+      "group_id": 1227253,
+      "subject_id": 77,
+      "subject_name": "Физика",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884826,
+          "fio": "Русина Наталья Владимировна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "10А",
+      "group_id": 1227253,
+      "subject_id": 106,
+      "subject_name": "Русская литература",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884820,
+          "fio": "Дмитриев Евгений Владимирович"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "10А",
+      "group_id": 1227253,
+      "subject_id": 3,
+      "subject_name": "Русский язык",
+      "weekly_hours": 1,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884820,
+          "fio": "Дмитриев Евгений Владимирович"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "10А",
+      "group_id": 1227253,
+      "subject_id": 110,
+      "subject_name": "Геометрия",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884817,
+          "fio": "Бабич Иман Денисович"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "10А",
+      "group_id": 1227253,
+      "subject_id": 113,
+      "subject_name": "Основы права",
+      "weekly_hours": 1,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1884831,
+          "fio": "Бучкова Ирина Олеговна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "10А",
+      "group_id": 1227253,
+      "subject_id": 2844,
+      "subject_name": "Информатика и искусственный интеллект",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884828,
+          "fio": "Бедрина Мария Николаевна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "10А",
+      "group_id": 1227253,
+      "subject_id": 2851,
+      "subject_name": "Иностранный язык",
+      "weekly_hours": 3,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1884829,
+          "fio": "Алекпарова Алия Жумабаевна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "10А",
+      "group_id": 1227253,
+      "subject_id": 75,
+      "subject_name": "Всемирная история",
+      "weekly_hours": 1,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1884831,
+          "fio": "Бучкова Ирина Олеговна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "10А",
+      "group_id": 1227253,
+      "subject_id": 2850,
+      "subject_name": "Начальная военная подготовка",
+      "weekly_hours": 1,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1975196,
+          "fio": "Боранбаев Дархан Боранбаевич"
+        }
+      ],
+      "split": false,
+      "manual": true
+    },
+    {
+      "class_name": "11А",
+      "group_id": 1227294,
+      "subject_id": 2844,
+      "subject_name": "Информатика и искусственный интеллект",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1971044,
+          "fio": "Жантимиров Эльдар Асхатович"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "11А",
+      "group_id": 1227294,
+      "subject_id": 2851,
+      "subject_name": "Иностранный язык",
+      "weekly_hours": 3,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1884827,
+          "fio": "Акауова Индира Нурмухановна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "11А",
+      "group_id": 1227294,
+      "subject_id": 55,
+      "subject_name": "Алгебра и начала анализа",
+      "weekly_hours": 4,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884818,
+          "fio": "Ізбасты Махамбет Жұматайұлы"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "11А",
+      "group_id": 1227294,
+      "subject_id": 113,
+      "subject_name": "Основы права",
+      "weekly_hours": 1,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1884841,
+          "fio": "Досаева Мадина Хайрулловна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "11А",
+      "group_id": 1227294,
+      "subject_id": 75,
+      "subject_name": "Всемирная история",
+      "weekly_hours": 1,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1884841,
+          "fio": "Досаева Мадина Хайрулловна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "11А",
+      "group_id": 1227294,
+      "subject_id": 87,
+      "subject_name": "Физическая культура",
+      "weekly_hours": 3,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884832,
+          "fio": "Кашиков Еркебулан Ермекович"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "11А",
+      "group_id": 1227294,
+      "subject_id": 2850,
+      "subject_name": "Начальная военная подготовка",
+      "weekly_hours": 1,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1975196,
+          "fio": "Боранбаев Дархан Боранбаевич"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "11А",
+      "group_id": 1227294,
+      "subject_id": 74,
+      "subject_name": "Русский язык и литература",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884835,
+          "fio": "Балгабаева Назигуль Кадыровна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "11А",
+      "group_id": 1227294,
+      "subject_id": 77,
+      "subject_name": "Физика",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1971071,
+          "fio": "Аятова Анаргуль Жусуповна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "11А",
+      "group_id": 1227294,
+      "subject_id": 110,
+      "subject_name": "Геометрия",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884818,
+          "fio": "Ізбасты Махамбет Жұматайұлы"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "11А",
+      "group_id": 1227294,
+      "subject_id": 92,
+      "subject_name": "История Казахстана",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884841,
+          "fio": "Досаева Мадина Хайрулловна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "11А",
+      "group_id": 1227294,
+      "subject_id": 79,
+      "subject_name": "Биология",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1971089,
+          "fio": "Байгазиева Айгерим Дуйсембековна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "11А",
+      "group_id": 1227294,
+      "subject_id": 80,
+      "subject_name": "География",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1971027,
+          "fio": "Сапаргалиева Гульжихан Сансызбаевна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "11А",
+      "group_id": 1227294,
+      "subject_id": 2,
+      "subject_name": "Казахский язык",
+      "weekly_hours": 1,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884830,
+          "fio": "Ильясова Алмагуль Бахтиаровна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "11А",
+      "group_id": 1227294,
+      "subject_id": 78,
+      "subject_name": "Химия",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1971053,
+          "fio": "Балташева Зару Такановна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "11А",
+      "group_id": 1227294,
+      "subject_id": 105,
+      "subject_name": "Казахская литература",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884830,
+          "fio": "Ильясова Алмагуль Бахтиаровна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "11Б",
+      "group_id": 1227364,
+      "subject_id": 106,
+      "subject_name": "Русская литература",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884820,
+          "fio": "Дмитриев Евгений Владимирович"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "11Б",
+      "group_id": 1227364,
+      "subject_id": 92,
+      "subject_name": "История Казахстана",
+      "weekly_hours": 1,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884841,
+          "fio": "Досаева Мадина Хайрулловна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "11Б",
+      "group_id": 1227364,
+      "subject_id": 3,
+      "subject_name": "Русский язык",
+      "weekly_hours": 1,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884820,
+          "fio": "Дмитриев Евгений Владимирович"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "11Б",
+      "group_id": 1227364,
+      "subject_id": 73,
+      "subject_name": "Казахский язык и литература",
+      "weekly_hours": 3,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884823,
+          "fio": "Асаева Жанар Хайруллаевна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "11Б",
+      "group_id": 1227364,
+      "subject_id": 2850,
+      "subject_name": "Начальная военная подготовка",
+      "weekly_hours": 1,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1975196,
+          "fio": "Боранбаев Дархан Боранбаевич"
+        }
+      ],
+      "split": false,
+      "manual": true
+    },
+    {
+      "class_name": "11Б",
+      "group_id": 1227364,
+      "subject_id": 77,
+      "subject_name": "Физика",
+      "weekly_hours": 3,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884826,
+          "fio": "Русина Наталья Владимировна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "11Б",
+      "group_id": 1227364,
+      "subject_id": 2851,
+      "subject_name": "Иностранный язык",
+      "weekly_hours": 3,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1884827,
+          "fio": "Акауова Индира Нурмухановна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "11Б",
+      "group_id": 1227364,
+      "subject_id": 79,
+      "subject_name": "Биология",
+      "weekly_hours": 3,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884844,
+          "fio": "Красноперова Ольга Викторовна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "11Б",
+      "group_id": 1227364,
+      "subject_id": 75,
+      "subject_name": "Всемирная история",
+      "weekly_hours": 1,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1884841,
+          "fio": "Досаева Мадина Хайрулловна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "11Б",
+      "group_id": 1227364,
+      "subject_id": 110,
+      "subject_name": "Геометрия",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884824,
+          "fio": "Пащенко Наталья Аркадьевна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "11Б",
+      "group_id": 1227364,
+      "subject_id": 55,
+      "subject_name": "Алгебра и начала анализа",
+      "weekly_hours": 4,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884824,
+          "fio": "Пащенко Наталья Аркадьевна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "11Б",
+      "group_id": 1227364,
+      "subject_id": 2844,
+      "subject_name": "Информатика и искусственный интеллект",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884828,
+          "fio": "Бедрина Мария Николаевна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "11Б",
+      "group_id": 1227364,
+      "subject_id": 87,
+      "subject_name": "Физическая культура",
+      "weekly_hours": 3,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1852233,
+          "fio": "Мельников Павел Викторович"
+        }
+      ],
+      "split": false,
+      "manual": true
+    },
+    {
+      "class_name": "11Б",
+      "group_id": 1227364,
+      "subject_id": 115,
+      "subject_name": "Основы предпринимательства и бизнеса",
+      "weekly_hours": 1,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1884841,
+          "fio": "Досаева Мадина Хайрулловна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "3А",
+      "group_id": 1326631,
+      "subject_id": 24,
+      "subject_name": "Естествознание",
+      "weekly_hours": 1,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884821,
+          "fio": "Темерканова Олеся Владимировна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "3А",
+      "group_id": 1326631,
+      "subject_id": 76,
+      "subject_name": "Математика",
+      "weekly_hours": 5,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884821,
+          "fio": "Темерканова Олеся Владимировна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "3А",
+      "group_id": 1326631,
+      "subject_id": 47,
+      "subject_name": "Литературное чтение",
+      "weekly_hours": 3,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884821,
+          "fio": "Темерканова Олеся Владимировна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "3А",
+      "group_id": 1326631,
+      "subject_id": 84,
+      "subject_name": "Музыка",
+      "weekly_hours": 1,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884825,
+          "fio": "Шкиря Юрий Николаевич"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "3А",
+      "group_id": 1326631,
+      "subject_id": 3,
+      "subject_name": "Русский язык",
+      "weekly_hours": 4,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884821,
+          "fio": "Темерканова Олеся Владимировна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "3А",
+      "group_id": 1326631,
+      "subject_id": 2843,
+      "subject_name": "Цифровая грамотность и искусственный интеллект",
+      "weekly_hours": 1,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1884828,
+          "fio": "Бедрина Мария Николаевна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "3А",
+      "group_id": 1326631,
+      "subject_id": 2,
+      "subject_name": "Казахский язык",
+      "weekly_hours": 3,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884842,
+          "fio": "Дюсембаева Айгуль Каирбековна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "3А",
+      "group_id": 1326631,
+      "subject_id": 87,
+      "subject_name": "Физическая культура",
+      "weekly_hours": 3,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884834,
+          "fio": "Чифин Дмитрий Николаевич"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "3А",
+      "group_id": 1326631,
+      "subject_id": 111,
+      "subject_name": "Познание мира",
+      "weekly_hours": 1,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1884821,
+          "fio": "Темерканова Олеся Владимировна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "3А",
+      "group_id": 1326631,
+      "subject_id": 81,
+      "subject_name": "Английский язык",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884827,
+          "fio": "Акауова Индира Нурмухановна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "3А",
+      "group_id": 1326631,
+      "subject_id": 358,
+      "subject_name": "Трудовое обучение",
+      "weekly_hours": 1,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884821,
+          "fio": "Темерканова Олеся Владимировна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "3А",
+      "group_id": 1326631,
+      "subject_id": 359,
+      "subject_name": "Изобразительное искусство",
+      "weekly_hours": 1,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884821,
+          "fio": "Темерканова Олеся Владимировна"
+        }
+      ],
+      "split": false,
+      "manual": false
+    },
+    {
+      "class_name": "6В",
+      "group_id": 1366034,
+      "subject_id": 24,
+      "subject_name": "Естествознание",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884851,
+          "fio": "Иващенко Виталий Олегович"
+        }
+      ],
+      "split": false,
+      "manual": true,
+      "joint_lessons": [
+        "6Б_6В_естествознание"
+      ]
+    },
+    {
+      "class_name": "6В",
+      "group_id": 1366034,
+      "subject_id": 76,
+      "subject_name": "Математика",
+      "weekly_hours": 5,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884824,
+          "fio": "Пащенко Наталья Аркадьевна"
+        }
+      ],
+      "split": false,
+      "manual": true,
+      "joint_lessons": [
+        "6Б_6В_математика"
+      ]
+    },
+    {
+      "class_name": "6В",
+      "group_id": 1366034,
+      "subject_id": 2,
+      "subject_name": "Казахский язык",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884835,
+          "fio": "Балгабаева Назигуль Кадыровна"
+        }
+      ],
+      "split": false,
+      "manual": true
+    },
+    {
+      "class_name": "6В",
+      "group_id": 1366034,
+      "subject_id": 3,
+      "subject_name": "Русский язык",
+      "weekly_hours": 3,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884821,
+          "fio": "Темерканова Олеся Владимировна"
+        }
+      ],
+      "split": false,
+      "manual": true,
+      "joint_lessons": [
+        "6Б_6В_русский_язык"
+      ]
+    },
+    {
+      "class_name": "6В",
+      "group_id": 1366034,
+      "subject_id": 201,
+      "subject_name": "Чтение и развитие речи",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884821,
+          "fio": "Темерканова Олеся Владимировна"
+        }
+      ],
+      "split": false,
+      "manual": true,
+      "joint_lessons": [
+        "6Б_6В_литература"
+      ]
+    },
+    {
+      "class_name": "6В",
+      "group_id": 1366034,
+      "subject_id": 359,
+      "subject_name": "Изобразительное искусство",
+      "weekly_hours": 1,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": null,
+          "fio": "Жукова Ирина Михайловна"
+        }
+      ],
+      "split": false,
+      "manual": true,
+      "joint_lessons": [
+        "6Б_6В_искусство"
+      ]
+    },
+    {
+      "class_name": "6В",
+      "group_id": 1366034,
+      "subject_id": 84,
+      "subject_name": "Музыка",
+      "weekly_hours": 1,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1884825,
+          "fio": "Шкиря Юрий Николаевич"
+        }
+      ],
+      "split": false,
+      "manual": true,
+      "joint_lessons": [
+        "6Б_6В_музыка"
+      ]
+    },
+    {
+      "class_name": "6В",
+      "group_id": 1366034,
+      "subject_id": 1345,
+      "subject_name": "Адаптивная физическая культура",
+      "weekly_hours": 3,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884836,
+          "fio": "Ольков Геннадий Васильевич"
+        }
+      ],
+      "split": false,
+      "manual": true,
+      "joint_lessons": [
+        "6Б_6В_физкультура"
+      ]
+    }
+  ],
+  "unassigned": [],
+  "multi_teacher": [
+    {
+      "class_name": "5Б",
+      "group_id": 1227148,
+      "subject_id": 86,
+      "subject_name": "Художественный труд",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": null,
+          "fio": "Жукова Ирина Михайловна",
+          "subgroup": "Девочки"
+        },
+        {
+          "teacher_source_id": 1971114,
+          "fio": "Жантимиров Асхат Каскарбаевич",
+          "subgroup": "Мальчики"
+        }
+      ],
+      "split": true,
+      "manual": true
+    },
+    {
+      "class_name": "6Б",
+      "group_id": 1227159,
+      "subject_id": 73,
+      "subject_name": "Казахский язык и литература",
+      "weekly_hours": 4,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884830,
+          "fio": "Ильясова Алмагуль Бахтиаровна",
+          "subgroup": "Казахский АБ"
+        },
+        {
+          "teacher_source_id": 1884835,
+          "fio": "Балгабаева Назигуль Кадыровна",
+          "subgroup": "Казахский НК"
+        }
+      ],
+      "split": true,
+      "manual": true
+    },
+    {
+      "class_name": "6Б",
+      "group_id": 1227159,
+      "subject_id": 86,
+      "subject_name": "Художественный труд",
+      "weekly_hours": 2,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": null,
+          "fio": "Жукова Ирина Михайловна",
+          "subgroup": "Девочки"
+        },
+        {
+          "teacher_source_id": 1971114,
+          "fio": "Жантимиров Асхат Каскарбаевич",
+          "subgroup": "Мальчики"
+        }
+      ],
+      "split": true,
+      "manual": true,
+      "joint_lessons": [
+        "6Б_6В_искусство"
+      ]
+    },
+    {
+      "class_name": "6Б",
+      "group_id": 1227159,
+      "subject_id": 2851,
+      "subject_name": "Иностранный язык",
+      "weekly_hours": 3,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1884829,
+          "fio": "Алекпарова Алия Жумабаевна",
+          "subgroup": "1Г"
+        },
+        {
+          "teacher_source_id": 1884827,
+          "fio": "Акауова Индира Нурмухановна",
+          "subgroup": "2Г"
+        }
+      ],
+      "split": true,
+      "manual": true,
+      "requires_split": true,
+      "subgroups": [
+        "1Г",
+        "2Г"
+      ],
+      "subgroup_teachers": {
+        "1Г": "Алекпарова Алия Жумабаевна",
+        "2Г": "Акауова Индира Нурмухановна"
+      }
+    },
+    {
+      "class_name": "7А",
+      "group_id": 1227169,
+      "subject_id": 86,
+      "subject_name": "Художественный труд",
+      "weekly_hours": 1,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": null,
+          "fio": "Жукова Ирина Михайловна",
+          "subgroup": "Девочки"
+        },
+        {
+          "teacher_source_id": 1971114,
+          "fio": "Жантимиров Асхат Каскарбаевич",
+          "subgroup": "Мальчики"
+        }
+      ],
+      "split": true,
+      "manual": true
+    },
+    {
+      "class_name": "8А",
+      "group_id": 1227197,
+      "subject_id": 86,
+      "subject_name": "Художественный труд",
+      "weekly_hours": 1,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": null,
+          "fio": "Жукова Ирина Михайловна",
+          "subgroup": "Девочки"
+        },
+        {
+          "teacher_source_id": 1971114,
+          "fio": "Жантимиров Асхат Каскарбаевич",
+          "subgroup": "Мальчики"
+        }
+      ],
+      "split": true,
+      "manual": true
+    },
+    {
+      "class_name": "8Б",
+      "group_id": 1227198,
+      "subject_id": 86,
+      "subject_name": "Художественный труд",
+      "weekly_hours": 1,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": null,
+          "fio": "Жукова Ирина Михайловна",
+          "subgroup": "Девочки"
+        },
+        {
+          "teacher_source_id": 1971114,
+          "fio": "Жантимиров Асхат Каскарбаевич",
+          "subgroup": "Мальчики"
+        }
+      ],
+      "split": true,
+      "manual": true
+    },
+    {
+      "class_name": "9Б",
+      "group_id": 1227232,
+      "subject_id": 2851,
+      "subject_name": "Иностранный язык",
+      "weekly_hours": 3,
+      "period": "halfyear",
+      "teachers": [
+        {
+          "teacher_source_id": 1884829,
+          "fio": "Алекпарова Алия Жумабаевна",
+          "subgroup": "1Г"
+        },
+        {
+          "teacher_source_id": 1884827,
+          "fio": "Акауова Индира Нурмухановна",
+          "subgroup": "2Г"
+        }
+      ],
+      "split": true,
+      "manual": true,
+      "requires_split": true,
+      "subgroups": [
+        "1Г",
+        "2Г"
+      ],
+      "subgroup_teachers": {
+        "1Г": "Алекпарова Алия Жумабаевна",
+        "2Г": "Акауова Индира Нурмухановна"
+      }
+    },
+    {
+      "class_name": "9Б",
+      "group_id": 1227232,
+      "subject_id": 73,
+      "subject_name": "Казахский язык и литература",
+      "weekly_hours": 4,
+      "period": "quarter",
+      "teachers": [
+        {
+          "teacher_source_id": 1884830,
+          "fio": "Ильясова Алмагуль Бахтиаровна",
+          "subgroup": "Казахский АБ"
+        },
+        {
+          "teacher_source_id": 1884823,
+          "fio": "Асаева Жанар Хайруллаевна",
+          "subgroup": "Казахский ЖХ"
+        }
+      ],
+      "split": true,
+      "manual": true
+    }
+  ],
+  "leftover_teacher_assignments": [
+    {
+      "teacher": "Ажикенова Мадина Аскаровна",
+      "subject": "Естествознание",
+      "subject_id": 24,
+      "class": "2Б",
+      "group_id": 1227058
+    },
+    {
+      "teacher": "Ажикенова Мадина Аскаровна",
+      "subject": "Познание мира",
+      "subject_id": 111,
+      "class": "2Б",
+      "group_id": 1227058
+    },
+    {
+      "teacher": "Ажикенова Мадина Аскаровна",
+      "subject": "Русский язык",
+      "subject_id": 3,
+      "class": "8Б",
+      "group_id": 1227198
+    },
+    {
+      "teacher": "Ажикенова Мадина Аскаровна",
+      "subject": "Чтение и развитие речи",
+      "subject_id": 201,
+      "class": "8Б",
+      "group_id": 1227198
+    },
+    {
+      "teacher": "Актаева Айгерим Ермеккызы",
+      "subject": "Трудовое обучение",
+      "subject_id": 358,
+      "class": "1А",
+      "group_id": 1226999
+    },
+    {
+      "teacher": "Актаева Айгерим Ермеккызы",
+      "subject": "Изобразительное искусство",
+      "subject_id": 359,
+      "class": "1А",
+      "group_id": 1226999
+    },
+    {
+      "teacher": "Актаева Айгерим Ермеккызы",
+      "subject": "Индивидуальные и групповые развивающие занятия",
+      "subject_id": 2160,
+      "class": "2А",
+      "group_id": 1227027
+    },
+    {
+      "teacher": "Актаева Айгерим Ермеккызы",
+      "subject": "Индивидуальные и групповые развивающие занятия",
+      "subject_id": 2160,
+      "class": "4А",
+      "group_id": 1227129
+    },
+    {
+      "teacher": "Асаева Жанар Хайруллаевна",
+      "subject": "Казахский язык",
+      "subject_id": 2,
+      "class": "8Б",
+      "group_id": 1227198
+    },
+    {
+      "teacher": "Бедрина Мария Николаевна",
+      "subject": "Геометрия",
+      "subject_id": 110,
+      "class": "7А",
+      "group_id": 1227169
+    },
+    {
+      "teacher": "Герлиц Лаура Николаевна",
+      "subject": "Личная безопасность",
+      "subject_id": 2847,
+      "class": "5А",
+      "group_id": 1227142
+    },
+    {
+      "teacher": "Герлиц Лаура Николаевна",
+      "subject": "Личная безопасность",
+      "subject_id": 2847,
+      "class": "5Б",
+      "group_id": 1227148
+    },
+    {
+      "teacher": "Герлиц Лаура Николаевна",
+      "subject": "Личная безопасность",
+      "subject_id": 2847,
+      "class": "6А",
+      "group_id": 1227153
+    },
+    {
+      "teacher": "Герлиц Лаура Николаевна",
+      "subject": "Личная безопасность",
+      "subject_id": 2847,
+      "class": "6Б",
+      "group_id": 1227159
+    },
+    {
+      "teacher": "Герлиц Лаура Николаевна",
+      "subject": "Личная безопасность",
+      "subject_id": 2847,
+      "class": "7А",
+      "group_id": 1227169
+    },
+    {
+      "teacher": "Герлиц Лаура Николаевна",
+      "subject": "Личная безопасность",
+      "subject_id": 2847,
+      "class": "8А",
+      "group_id": 1227197
+    },
+    {
+      "teacher": "Герлиц Лаура Николаевна",
+      "subject": "Личная безопасность",
+      "subject_id": 2847,
+      "class": "8Б",
+      "group_id": 1227198
+    },
+    {
+      "teacher": "Герлиц Лаура Николаевна",
+      "subject": "Личная безопасность",
+      "subject_id": 2847,
+      "class": "9Б",
+      "group_id": 1227232
+    },
+    {
+      "teacher": "Герлиц Лаура Николаевна",
+      "subject": "Личная безопасность",
+      "subject_id": 2847,
+      "class": "10А",
+      "group_id": 1227253
+    },
+    {
+      "teacher": "Герлиц Лаура Николаевна",
+      "subject": "Личная безопасность",
+      "subject_id": 2847,
+      "class": "11А",
+      "group_id": 1227294
+    },
+    {
+      "teacher": "Герлиц Лаура Николаевна",
+      "subject": "Личная безопасность",
+      "subject_id": 2847,
+      "class": "11Б",
+      "group_id": 1227364
+    },
+    {
+      "teacher": "Дукач Татьяна Анатольевна",
+      "subject": "Развитие речи и коммуникации",
+      "subject_id": 773,
+      "class": "1Б",
+      "group_id": 1227016
+    },
+    {
+      "teacher": "Дукач Татьяна Анатольевна",
+      "subject": "Развитие речи и коммуникации",
+      "subject_id": 773,
+      "class": "7А",
+      "group_id": 1227169
+    },
+    {
+      "teacher": "Дукач Татьяна Анатольевна",
+      "subject": "Развитие речи и коммуникации",
+      "subject_id": 773,
+      "class": "9Б",
+      "group_id": 1227232
+    },
+    {
+      "teacher": "Дукач Татьяна Анатольевна",
+      "subject": "Счет",
+      "subject_id": 2328,
+      "class": "1Б",
+      "group_id": 1227016
+    },
+    {
+      "teacher": "Дукач Татьяна Анатольевна",
+      "subject": "Счет",
+      "subject_id": 2328,
+      "class": "7А",
+      "group_id": 1227169
+    },
+    {
+      "teacher": "Дукач Татьяна Анатольевна",
+      "subject": "Счет",
+      "subject_id": 2328,
+      "class": "9Б",
+      "group_id": 1227232
+    },
+    {
+      "teacher": "Дукач Татьяна Анатольевна",
+      "subject": "Человек и мир",
+      "subject_id": 795,
+      "class": "7А",
+      "group_id": 1227169
+    },
+    {
+      "teacher": "Дукач Татьяна Анатольевна",
+      "subject": "Человек и мир",
+      "subject_id": 795,
+      "class": "9Б",
+      "group_id": 1227232
+    },
+    {
+      "teacher": "Дукач Татьяна Анатольевна",
+      "subject": "Мир вокруг",
+      "subject_id": 200,
+      "class": "1Б",
+      "group_id": 1227016
+    },
+    {
+      "teacher": "Дукач Татьяна Анатольевна",
+      "subject": "Социально-бытовая ориентировка",
+      "subject_id": 202,
+      "class": "9Б",
+      "group_id": 1227232
+    },
+    {
+      "teacher": "Дукач Татьяна Анатольевна",
+      "subject": "Познавательное развитие",
+      "subject_id": 2513,
+      "class": "9Б",
+      "group_id": 1227232
+    },
+    {
+      "teacher": "Жекеева Нурсулу Абуовна",
+      "subject": "Индивидуально-развивающие занятия",
+      "subject_id": 2567,
+      "class": "1А",
+      "group_id": 1226999
+    },
+    {
+      "teacher": "Жекеева Нурсулу Абуовна",
+      "subject": "Трудовое обучение",
+      "subject_id": 358,
+      "class": "1А",
+      "group_id": 1226999
+    },
+    {
+      "teacher": "Жекеева Нурсулу Абуовна",
+      "subject": "Изобразительное искусство",
+      "subject_id": 359,
+      "class": "1А",
+      "group_id": 1226999
+    },
+    {
+      "teacher": "Жукова Ирина Михайловна",
+      "subject": "Социально-бытовая ориентировка",
+      "subject_id": 202,
+      "class": "8Б",
+      "group_id": 1227198
+    },
+    {
+      "teacher": "Жукова Ирина Михайловна",
+      "subject": "Социально-бытовая ориентировка",
+      "subject_id": 202,
+      "class": "7А",
+      "group_id": 1227169
+    },
+    {
+      "teacher": "Жукова Ирина Михайловна",
+      "subject": "Трудовое обучение",
+      "subject_id": 358,
+      "class": "5Б",
+      "group_id": 1227148
+    },
+    {
+      "teacher": "Жукова Ирина Михайловна",
+      "subject": "Трудовое обучение",
+      "subject_id": 358,
+      "class": "6Б",
+      "group_id": 1227159
+    },
+    {
+      "teacher": "Жукова Ирина Михайловна",
+      "subject": "Трудовое обучение",
+      "subject_id": 358,
+      "class": "7А",
+      "group_id": 1227169
+    },
+    {
+      "teacher": "Жукова Ирина Михайловна",
+      "subject": "Трудовое обучение",
+      "subject_id": 358,
+      "class": "8А",
+      "group_id": 1227197
+    },
+    {
+      "teacher": "Жукова Ирина Михайловна",
+      "subject": "Трудовое обучение",
+      "subject_id": 358,
+      "class": "8Б",
+      "group_id": 1227198
+    },
+    {
+      "teacher": "Жукова Ирина Михайловна",
+      "subject": "Трудовое обучение",
+      "subject_id": 358,
+      "class": "9Б",
+      "group_id": 1227232
+    },
+    {
+      "teacher": "Жукова Ирина Михайловна",
+      "subject": "Изобразительное искусство",
+      "subject_id": 359,
+      "class": "7А",
+      "group_id": 1227169
+    },
+    {
+      "teacher": "Жукова Ирина Михайловна",
+      "subject": "Изобразительное искусство",
+      "subject_id": 359,
+      "class": "9Б",
+      "group_id": 1227232
+    },
+    {
+      "teacher": "Жукова Ирина Михайловна",
+      "subject": "Хозяйственный труд",
+      "subject_id": 2329,
+      "class": "7А",
+      "group_id": 1227169
+    },
+    {
+      "teacher": "Жукова Ирина Михайловна",
+      "subject": "Познавательное развитие",
+      "subject_id": 2513,
+      "class": "7А",
+      "group_id": 1227169
+    },
+    {
+      "teacher": "Жукова Ирина Михайловна",
+      "subject": "Познавательное развитие",
+      "subject_id": 2513,
+      "class": "9Б",
+      "group_id": 1227232
+    },
+    {
+      "teacher": "Квашнина Елена Витальевна",
+      "subject": "Изобразительное искусство",
+      "subject_id": 359,
+      "class": "1Б",
+      "group_id": 1227016
+    },
+    {
+      "teacher": "Квашнина Елена Витальевна",
+      "subject": "Сенсорное развитие",
+      "subject_id": 771,
+      "class": "1Б",
+      "group_id": 1227016
+    },
+    {
+      "teacher": "Квашнина Елена Витальевна",
+      "subject": "Индивидуальные и групповые развивающие занятия",
+      "subject_id": 2132,
+      "class": "2Б",
+      "group_id": 1227058
+    },
+    {
+      "teacher": "Квашнина Елена Витальевна",
+      "subject": "Предметно-практическая деятельность",
+      "subject_id": 2332,
+      "class": "1Б",
+      "group_id": 1227016
+    },
+    {
+      "teacher": "Квашнина Елена Витальевна",
+      "subject": "Индивидуально-развивающие занятия",
+      "subject_id": 2567,
+      "class": "2Б",
+      "group_id": 1227058
+    },
+    {
+      "teacher": "Мельникова Лия Рашидовна",
+      "subject": "История Казахстана",
+      "subject_id": 92,
+      "class": "8Б",
+      "group_id": 1227198
+    },
+    {
+      "teacher": "Мельникова Лия Рашидовна",
+      "subject": "Закон и Порядок",
+      "subject_id": 2846,
+      "class": "8А",
+      "group_id": 1227197
+    },
+    {
+      "teacher": "Мельникова Лия Рашидовна",
+      "subject": "Закон и Порядок",
+      "subject_id": 2846,
+      "class": "8Б",
+      "group_id": 1227198
+    },
+    {
+      "teacher": "Мельникова Лия Рашидовна",
+      "subject": "Закон и Порядок",
+      "subject_id": 2846,
+      "class": "8Ә",
+      "group_id": 1227215
+    },
+    {
+      "teacher": "Мельникова Лия Рашидовна",
+      "subject": "Закон и Порядок",
+      "subject_id": 2846,
+      "class": "9Б",
+      "group_id": 1227232
+    },
+    {
+      "teacher": "Мельникова Лия Рашидовна",
+      "subject": "Закон и Порядок",
+      "subject_id": 2846,
+      "class": "10А",
+      "group_id": 1227253
+    },
+    {
+      "teacher": "Мельникова Лия Рашидовна",
+      "subject": "Закон и Порядок",
+      "subject_id": 2846,
+      "class": "11А",
+      "group_id": 1227294
+    },
+    {
+      "teacher": "Мельникова Лия Рашидовна",
+      "subject": "Закон и Порядок",
+      "subject_id": 2846,
+      "class": "11Б",
+      "group_id": 1227364
+    },
+    {
+      "teacher": "Мельникова Лия Рашидовна",
+      "subject": "Основы Конституции",
+      "subject_id": 2845,
+      "class": "5А",
+      "group_id": 1227142
+    },
+    {
+      "teacher": "Мельникова Лия Рашидовна",
+      "subject": "Основы Конституции",
+      "subject_id": 2845,
+      "class": "5Б",
+      "group_id": 1227148
+    },
+    {
+      "teacher": "Мельникова Лия Рашидовна",
+      "subject": "Основы Конституции",
+      "subject_id": 2845,
+      "class": "6А",
+      "group_id": 1227153
+    },
+    {
+      "teacher": "Мельникова Лия Рашидовна",
+      "subject": "Основы Конституции",
+      "subject_id": 2845,
+      "class": "6Б",
+      "group_id": 1227159
+    },
+    {
+      "teacher": "Мельникова Лия Рашидовна",
+      "subject": "Основы Конституции",
+      "subject_id": 2845,
+      "class": "7А",
+      "group_id": 1227169
+    },
+    {
+      "teacher": "Мельникова Лия Рашидовна",
+      "subject": "Индивидуально-развивающие занятия",
+      "subject_id": 2567,
+      "class": "8Б",
+      "group_id": 1227198
+    },
+    {
+      "teacher": "Ольков Геннадий Васильевич",
+      "subject": "Адаптивная физическая культура",
+      "subject_id": 1345,
+      "class": "6Б",
+      "group_id": 1227159
+    },
+    {
+      "teacher": "Ольков Геннадий Васильевич",
+      "subject": "Адаптивная физическая культура",
+      "subject_id": 1345,
+      "class": "7А",
+      "group_id": 1227169
+    },
+    {
+      "teacher": "Ольков Геннадий Васильевич",
+      "subject": "Начальная военная подготовка",
+      "subject_id": 2850,
+      "class": "10А",
+      "group_id": 1227253
+    },
+    {
+      "teacher": "Ольков Геннадий Васильевич",
+      "subject": "Начальная военная подготовка",
+      "subject_id": 2850,
+      "class": "11Б",
+      "group_id": 1227364
+    },
+    {
+      "teacher": "Пащенко Наталья Аркадьевна",
+      "subject": "Математика",
+      "subject_id": 76,
+      "class": "8Б",
+      "group_id": 1227198
+    },
+    {
+      "teacher": "Чифин Дмитрий Николаевич",
+      "subject": "Адаптивная физическая культура",
+      "subject_id": 1345,
+      "class": "4Б",
+      "group_id": 1227135
+    }
+  ]
+}

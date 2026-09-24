@@ -1,0 +1,57 @@
+[V16] Версия 16 (итоговая): решаю до 1800 с …
+
+Starting CP-SAT solver v9.15.6755
+Parameters: random_seed: 1 max_time_in_seconds: 1800 log_search_progress: true hint_conflict_limit: 1000 repair_hint: true num_workers: 12
+
+Initial optimization model '': (model_fingerprint: 0x3230dae04c5613d6)
+#Variables: 20'040 (#bools: 4'840 #ints: 382 in objective) (16'414 primary variables)
+  - 18'508 Booleans in [0,1]
+  - 47 in [0,3]
+  - 322 in [0,7]
+  - 543 in [0,8]
+  - 519 in [0,39]
+  - 100 in [0,200]
+  - 1 constants in {1} 
+#kAtMostOne: 1'624 (#literals: 29'408)
+#kBoolOr: 335 (#literals: 335)
+#kExactlyOne: 690 (#literals: 15'017)
+#kInterval: 1'419 (#enforced: 1'047)
+#kLinMax: 1'052 (#expressions: 10'230)
+#kLinear1: 2'241 (#enforced: 2'018)
+#kLinear2: 2'307
+#kLinear3: 3'520
+#kLinearN: 5'907 (#terms: 122'509)
+#kNoOverlap: 24 (#intervals: 1'419, #optional: 1'047)
+
+Starting presolve at 0.09s
+INFEASIBLE: 'proven during initial copy of constraint #18853:
+linear {
+  vars: [10915, 10949, 10984, 11019]
+  coeffs: [1, 1, 1, 1]
+  domain: [-9223372036854775808, 1]
+}
+With current variable domains:
+var:10915 domain:[1]
+var:10949 domain:[0,1]
+var:10984 domain:[1]
+var:11019 domain:[0,1]
+'
+Problem proven infeasible during initial copy.
+CpSolverResponse summary:
+status: INFEASIBLE
+objective: NA
+best_bound: NA
+integers: 0
+booleans: 0
+conflicts: 0
+branches: 0
+propagations: 0
+integer_propagations: 0
+restarts: 0
+lp_iterations: 0
+walltime: 0.111816
+usertime: 0.111816
+deterministic_time: 0
+gap_integral: 0
+
+[V16] INFEASIBLE за 0.1 с, штраф None

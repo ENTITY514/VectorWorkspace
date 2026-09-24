@@ -1,0 +1,331 @@
+{
+  "source": "БилимКласс (school-settings?tab=cabinets) + закрепление учителей (вручную)",
+  "school_id": 1017343,
+  "edu_year": 2026,
+  "parsed_at": "2026-09-18T12:06:03.164Z",
+  "counts": {
+    "rooms": 25,
+    "home_rooms": 6
+  },
+  "rooms": [
+    {
+      "id": "room_01",
+      "number": "01",
+      "name": "Спортивный зал (№01)",
+      "room_type": "Gym",
+      "capacity": 30,
+      "base_teacher_id": null,
+      "base_teacher_name": null,
+      "home_for": null,
+      "note": "физкультура (в целом)",
+      "usable": true
+    },
+    {
+      "id": "room_малый_зал",
+      "number": null,
+      "name": "Малый зал",
+      "room_type": "Gym",
+      "capacity": 30,
+      "base_teacher_id": null,
+      "base_teacher_name": null,
+      "home_for": null,
+      "note": "физкультура (в целом)",
+      "usable": true
+    },
+    {
+      "id": "room_14",
+      "number": "14",
+      "name": "Кабинет истории (№14)",
+      "room_type": "General",
+      "capacity": 30,
+      "base_teacher_id": 1884841,
+      "base_teacher_name": "Досаева Мадина Хайрулловна",
+      "home_for": null,
+      "note": null,
+      "usable": true
+    },
+    {
+      "id": "room_15",
+      "number": "15",
+      "name": "Кабинет робототехники (№15)",
+      "room_type": "General",
+      "capacity": 30,
+      "base_teacher_id": 1884837,
+      "base_teacher_name": "Ажикенова Мадина Аскаровна",
+      "home_for": null,
+      "note": "универсальный, без специализации",
+      "usable": true
+    },
+    {
+      "id": "room_16",
+      "number": "16",
+      "name": "Кабинет физики (№16)",
+      "room_type": "PhysicsLab",
+      "capacity": 30,
+      "base_teacher_id": 1884826,
+      "base_teacher_name": "Русина Наталья Владимировна",
+      "home_for": null,
+      "note": null,
+      "usable": true
+    },
+    {
+      "id": "room_17",
+      "number": "17",
+      "name": "Кабинет химии (№17)",
+      "room_type": "ChemistryLab",
+      "capacity": 30,
+      "base_teacher_id": 1884817,
+      "base_teacher_name": "Бабич Иман Денисович",
+      "home_for": null,
+      "note": null,
+      "usable": true
+    },
+    {
+      "id": "room_18",
+      "number": "18",
+      "name": "Кабинет мультимедийный (№18)",
+      "room_type": "General",
+      "capacity": 30,
+      "base_teacher_id": 1884830,
+      "base_teacher_name": "Ильясова Алмагуль Бахтиаровна",
+      "home_for": null,
+      "note": null,
+      "usable": true
+    },
+    {
+      "id": "room_19",
+      "number": "19",
+      "name": "Кабинет биологии (№19)",
+      "room_type": "BiologyLab",
+      "capacity": 30,
+      "base_teacher_id": 1884844,
+      "base_teacher_name": "Красноперова Ольга Викторовна",
+      "home_for": null,
+      "note": null,
+      "usable": true
+    },
+    {
+      "id": "room_20",
+      "number": "20",
+      "name": "Кабинет русского языка (№20)",
+      "room_type": "LanguageLab",
+      "capacity": 30,
+      "base_teacher_id": 1884820,
+      "base_teacher_name": "Дмитриев Евгений Владимирович",
+      "home_for": null,
+      "note": null,
+      "usable": true
+    },
+    {
+      "id": "room_23",
+      "number": "23",
+      "name": "Кабинет казахского языка и литературы (№23)",
+      "room_type": "LanguageLab",
+      "capacity": 30,
+      "base_teacher_id": 1884835,
+      "base_teacher_name": "Балгабаева Назигуль Кадыровна",
+      "home_for": null,
+      "note": null,
+      "usable": true
+    },
+    {
+      "id": "room_24",
+      "number": "24",
+      "name": "Кабинет казахского языка (№24)",
+      "room_type": "LanguageLab",
+      "capacity": 30,
+      "base_teacher_id": 1884823,
+      "base_teacher_name": "Асаева Жанар Хайруллаевна",
+      "home_for": null,
+      "note": null,
+      "usable": true
+    },
+    {
+      "id": "room_25",
+      "number": "25",
+      "name": "Кабинет математики (№25)",
+      "room_type": "General",
+      "capacity": 30,
+      "base_teacher_id": 1884824,
+      "base_teacher_name": "Пащенко Наталья Аркадьевна",
+      "home_for": null,
+      "note": null,
+      "usable": true
+    },
+    {
+      "id": "room_26",
+      "number": "26",
+      "name": "Кабинет информатики (№26)",
+      "room_type": "Informatics",
+      "capacity": 30,
+      "base_teacher_id": 1884828,
+      "base_teacher_name": "Бедрина Мария Николаевна",
+      "home_for": null,
+      "note": null,
+      "usable": true
+    },
+    {
+      "id": "room_27",
+      "number": "27",
+      "name": "Кабинет английского языка (№27)",
+      "room_type": "LanguageLab",
+      "capacity": 30,
+      "base_teacher_id": 1884827,
+      "base_teacher_name": "Акауова Индира Нурмухановна",
+      "home_for": null,
+      "note": null,
+      "usable": true
+    },
+    {
+      "id": "room_28",
+      "number": "28",
+      "name": "Кабинет НВП (№28)",
+      "room_type": "General",
+      "capacity": 30,
+      "base_teacher_id": 1975196,
+      "base_teacher_name": "Боранбаев Дархан Боранбаевич",
+      "home_for": null,
+      "note": "совместитель, в основном свободен",
+      "usable": true
+    },
+    {
+      "id": "room_29",
+      "number": "29",
+      "name": "Кабинет технологии (девочки) (№29)",
+      "room_type": "Workshop",
+      "capacity": 30,
+      "base_teacher_id": "manual:романишина_ирина_михайловна",
+      "base_teacher_name": "Жукова Ирина Михайловна",
+      "home_for": null,
+      "note": null,
+      "usable": true
+    },
+    {
+      "id": "room_39",
+      "number": "39",
+      "name": "Кабинет технологии (мальчики) (№39)",
+      "room_type": "Workshop",
+      "capacity": 30,
+      "base_teacher_id": 1971114,
+      "base_teacher_name": "Жантимиров Асхат Каскарбаевич",
+      "home_for": null,
+      "note": "совместитель, в основном свободен",
+      "usable": true
+    },
+    {
+      "id": "room_кабинет_шахмат",
+      "number": null,
+      "name": "Кабинет Шахмат",
+      "room_type": "General",
+      "capacity": 30,
+      "base_teacher_id": 1884836,
+      "base_teacher_name": "Ольков Геннадий Васильевич",
+      "home_for": null,
+      "note": null,
+      "usable": false
+    },
+    {
+      "id": "room_home_22",
+      "number": "22",
+      "name": "Начальный класс 1А (№22)",
+      "room_type": "General",
+      "capacity": 30,
+      "base_teacher_id": 1884819,
+      "base_teacher_name": "Жекеева Нурсулу Абуовна",
+      "home_for": "1А",
+      "home_for_list": [
+        "1А"
+      ],
+      "note": "кабинет классного руководителя; класс идёт сюда только на его уроки, на остальные — к другим учителям",
+      "usable": true
+    },
+    {
+      "id": "room_home_8",
+      "number": "8",
+      "name": "Начальный класс 1Б (№8)",
+      "room_type": "General",
+      "capacity": 30,
+      "base_teacher_id": 1884837,
+      "base_teacher_name": "Ажикенова Мадина Аскаровна",
+      "home_for": "1Б",
+      "home_for_list": [
+        "1Б"
+      ],
+      "note": "кабинет классного руководителя; класс идёт сюда только на его уроки, на остальные — к другим учителям",
+      "usable": true
+    },
+    {
+      "id": "room_home_42",
+      "number": "42",
+      "name": "Начальный класс 2А/4А (№42)",
+      "room_type": "General",
+      "capacity": 30,
+      "base_teacher_id": 1884833,
+      "base_teacher_name": "Актаева Айгерим Ермеккызы",
+      "home_for": "2А",
+      "home_for_list": [
+        "2А",
+        "4А"
+      ],
+      "note": "кабинет классного руководителя; класс идёт сюда только на его уроки, на остальные — к другим учителям",
+      "usable": true
+    },
+    {
+      "id": "room_home_6",
+      "number": "6",
+      "name": "Начальный класс 2Б (№6)",
+      "room_type": "General",
+      "capacity": 30,
+      "base_teacher_id": 1884822,
+      "base_teacher_name": "Квашнина Елена Витальевна",
+      "home_for": "2Б",
+      "home_for_list": [
+        "2Б"
+      ],
+      "note": "кабинет классного руководителя; класс идёт сюда только на его уроки, на остальные — к другим учителям",
+      "usable": true
+    },
+    {
+      "id": "room_home_7",
+      "number": "7",
+      "name": "Начальный класс 3А (№7)",
+      "room_type": "General",
+      "capacity": 30,
+      "base_teacher_id": 1884821,
+      "base_teacher_name": "Темерканова Олеся Владимировна",
+      "home_for": "3А",
+      "home_for_list": [
+        "3А"
+      ],
+      "note": "кабинет классного руководителя; класс идёт сюда только на его уроки, на остальные — к другим учителям",
+      "usable": true
+    },
+    {
+      "id": "room_home_9",
+      "number": "9",
+      "name": "Начальный класс 4Б (№9)",
+      "room_type": "General",
+      "capacity": 30,
+      "base_teacher_id": 1884843,
+      "base_teacher_name": "Радионова Наталья Александровна",
+      "home_for": "4Б",
+      "home_for_list": [
+        "4Б"
+      ],
+      "note": "кабинет классного руководителя; класс идёт сюда только на его уроки, на остальные — к другим учителям",
+      "usable": true
+    },
+    {
+      "id": "room_актовый_зал",
+      "number": "",
+      "name": "Актовый зал",
+      "room_type": "AssemblyHall",
+      "capacity": 100,
+      "base_teacher_id": null,
+      "base_teacher_name": "Шкиря Юрий Николаевич",
+      "home_for": null,
+      "note": "только музыка — другие уроки здесь не проводятся",
+      "usable": true
+    }
+  ]
+}

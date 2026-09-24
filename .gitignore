@@ -57,3 +57,5 @@ __pycache__/
 *.db.bak.*
 *.db-wal
 *.db-shm
+.~lock.*#
+~$*
