@@ -351,6 +351,77 @@ pub async fn delete_plan(pool: &SqlitePool, plan_id: KtpPlanId) -> Result<(), Db
     Ok(())
 }
 
+/// Точечная правка урока на месте. Не удаляет план и не ломает FK на КСП.
+pub async fn update_lesson(
+    pool: &SqlitePool,
+    lesson: &KtpLesson,
+    subject_id: &str,
+    language: &str,
+    grade: i64,
+) -> Result<(), DbError> {
+    let objectives_json = serde_json::to_string(&lesson.objectives).unwrap_or_else(|_| "[]".into());
+    let res = sqlx::query(
+        "UPDATE ktp_lessons SET
+            topic_title = ?1, section_name = ?2, lesson_type = ?3, planned_date = ?4,
+            is_cancelled = ?5, objectives_json = ?6, notes = ?7
+         WHERE id = ?8",
+    )
+    .bind(&lesson.topic_title)
+    .bind(&lesson.section_name)
+    .bind(kind_to_sql(lesson.lesson_type))
+    .bind(lesson.planned_date.map(|d| d.to_string()))
+    .bind(lesson.is_cancelled as i64)
+    .bind(&objectives_json)
+    .bind(&lesson.notes)
+    .bind(lesson.id.to_string())
+    .execute(pool)
+    .await?;
+    if res.rows_affected() == 0 {
+        return Err(DbError::Validation(format!("Урок КТП не найден: {}", lesson.id)));
+    }
+
+    sqlx::query("UPDATE ktp_plans SET updated_at = datetime('now') WHERE id = (
+        SELECT q.ktp_id FROM ktp_quarters q WHERE q.id = ?1
+    )")
+    .bind(lesson.quarter_id.to_string())
+    .execute(pool)
+    .await?;
+
+    sqlx::query("DELETE FROM ktp_lesson_objectives WHERE lesson_id = ?1")
+        .bind(lesson.id.to_string())
+        .execute(pool)
+        .await?;
+
+    let doc_id: Option<String> = sqlx::query_scalar(
+        "SELECT id FROM tup_documents
+         WHERE subject_id = ?1 AND language = ?2
+           AND instr(target_grades, '-') > 0
+           AND ?3 >= CAST(substr(target_grades, 1, instr(target_grades, '-') - 1) AS INTEGER)
+           AND ?3 <= CAST(substr(target_grades, instr(target_grades, '-') + 1) AS INTEGER)
+         LIMIT 1",
+    )
+    .bind(subject_id)
+    .bind(language)
+    .bind(grade)
+    .fetch_optional(pool)
+    .await?;
+
+    if let Some(doc) = doc_id {
+        for code in lesson.objective_codes() {
+            sqlx::query(
+                "INSERT OR IGNORE INTO ktp_lesson_objectives (lesson_id, objective_id)
+                 SELECT ?1, id FROM learning_objectives WHERE document_id = ?2 AND code = ?3 LIMIT 1",
+            )
+            .bind(lesson.id.to_string())
+            .bind(&doc)
+            .bind(code)
+            .execute(pool)
+            .await?;
+        }
+    }
+    Ok(())
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;

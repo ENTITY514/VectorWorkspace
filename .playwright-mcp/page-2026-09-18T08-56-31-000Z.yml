@@ -1,0 +1,251 @@
+- generic [active] [ref=f37e1]:
+  - generic [ref=f37e8]:
+    - banner [ref=f37e9]:
+      - generic [ref=f37e12]:
+        - generic [ref=f37e13] [cursor=pointer]
+        - generic [ref=f37e19] [cursor=pointer]
+        - generic [ref=f37e22] [cursor=pointer]: Русский
+        - generic [ref=f37e29] [cursor=pointer]: МП
+      - list [ref=f37e38]:
+        - listitem [ref=f37e39]:
+          - link "Учителя" [ref=f37e40] [cursor=pointer]:
+            - /url: /2026/v3/backoffice/personnel
+        - listitem [ref=f37e43]: Мельников Павел Викторович
+    - complementary [ref=f37e44]:
+      - generic [ref=f37e45]:
+        - button [ref=f37e46] [cursor=pointer]
+        - img "BilimClass logotype" [ref=f37e50]
+      - generic [ref=f37e53]:
+        - generic [ref=f37e54]: BilimClass
+        - generic [ref=f37e62]: Для учителя
+        - generic [ref=f37e70]:
+          - generic [ref=f37e71] [cursor=pointer]: Управление школой
+          - generic [ref=f37e78]:
+            - link "Ученики и классы" [ref=f37e83] [cursor=pointer]:
+              - /url: /2026/backoffice/groups
+            - link "Алфавитная книга" [ref=f37e89] [cursor=pointer]:
+              - /url: /2026/backoffice/alphabet-book
+            - generic [ref=f37e91]: Учителя и персонал
+            - link "Программы обучения" [ref=f37e100] [cursor=pointer]:
+              - /url: /2026/edu-prog
+            - link "Расписание классов" [ref=f37e106] [cursor=pointer]:
+              - /url: /2026/v3/backoffice/schedules
+            - link "Конструктор расписания" [ref=f37e112] [cursor=pointer]:
+              - /url: /schedule-generator
+            - link "Дополнительное образование" [ref=f37e118] [cursor=pointer]:
+              - /url: /2026/additional-edu
+            - link "Настройка школы" [ref=f37e124] [cursor=pointer]:
+              - /url: /2026/backoffice/school-settings
+            - link "ВШК" [ref=f37e130] [cursor=pointer]:
+              - /url: /2026/backoffice/intraschool-control
+        - generic [ref=f37e132]: Мониторинг
+        - generic [ref=f37e140]: Отчетность
+        - generic [ref=f37e149] [cursor=pointer]:
+          - generic [ref=f37e153]: Аналитика
+          - generic [ref=f37e154]: NEW
+        - link "BilimUstaz" [ref=f37e170] [cursor=pointer]:
+          - /url: /2026/ustaz/45/1017343
+        - link "Kitap" [ref=f37e179] [cursor=pointer]:
+          - /url: /2026/kitap/45/1017343
+        - link "Новости" [ref=f37e186] [cursor=pointer]:
+          - /url: /news
+        - link "Инструкции" [ref=f37e193] [cursor=pointer]:
+          - /url: https://guide.bilimclass.kz/ru
+        - generic [ref=f37e196]: Наши продукты
+    - generic [ref=f37e212]:
+      - generic [ref=f37e213]: Анкета сотрудника - Мельников Павел Викторович
+      - generic [ref=f37e216]:
+        - generic [ref=f37e217]:
+          - generic [ref=f37e218]:
+            - generic [ref=f37e220]:
+              - generic [ref=f37e221]: Аккаунт создан 03.07.2026
+              - generic [ref=f37e222]: системой Online Mektep
+            - button "Переназначить уроки" [ref=f37e224] [cursor=pointer]
+          - generic [ref=f37e226]:
+            - generic [ref=f37e227]: Общая информация
+            - generic [ref=f37e230]: МП
+            - generic [ref=f37e233]:
+              - generic [ref=f37e234]:
+                - generic [ref=f37e236]:
+                  - generic [ref=f37e237]: "Имя:"
+                  - generic [ref=f37e238]: Павел
+                - generic [ref=f37e240]:
+                  - generic [ref=f37e241]: "Фамилия:"
+                  - generic [ref=f37e242]: Мельников
+              - generic [ref=f37e245]:
+                - generic [ref=f37e246]: "Отчество:"
+                - generic [ref=f37e247]: Викторович
+              - generic [ref=f37e248]:
+                - generic [ref=f37e250]:
+                  - generic [ref=f37e251]: "Дата рождения:"
+                  - generic [ref=f37e252]: 20.11.1991
+                - generic [ref=f37e254]:
+                  - generic [ref=f37e255]: "Пол:"
+                  - generic [ref=f37e256]: Мужской
+                - button "Редактировать" [ref=f37e258] [cursor=pointer]
+        - generic [ref=f37e260]:
+          - generic [ref=f37e261]: Информация профиля
+          - generic [ref=f37e265]:
+            - generic [ref=f37e266]:
+              - generic [ref=f37e268]:
+                - generic [ref=f37e269]: "ИИН:"
+                - generic [ref=f37e270]: "911120350616"
+              - generic [ref=f37e275]:
+                - generic [ref=f37e276]: "Телефон:"
+                - generic [ref=f37e277]: +7 (771) 830-20-79
+            - generic [ref=f37e281]:
+              - generic [ref=f37e283]:
+                - generic [ref=f37e284]: "Email:"
+                - generic [ref=f37e285]: lika.m1994@mail.ru
+              - button "Редактировать" [ref=f37e287] [cursor=pointer]
+        - generic [ref=f37e289]:
+          - generic [ref=f37e290]: Доступы
+          - generic [ref=f37e295]:
+            - generic [ref=f37e297]:
+              - generic [ref=f37e298]: "Логин:"
+              - generic [ref=f37e299]: 13_971240001935_dir
+            - generic [ref=f37e301]:
+              - generic [ref=f37e302]: "Пароль:"
+              - generic [ref=f37e303]: Пользователь сменил пароль
+            - button "Сбросить пароль" [ref=f37e305] [cursor=pointer]
+          - generic [ref=f37e310]:
+            - generic [ref=f37e311]: "Роль:"
+            - generic [ref=f37e312]: директор
+        - generic [ref=f37e313]:
+          - generic [ref=f37e314]:
+            - generic [ref=f37e315]: Преподавание
+            - generic [ref=f37e319]:
+              - generic [ref=f37e321]:
+                - generic [ref=f37e322]: "Назначенные предметы:"
+                - generic [ref=f37e323]:
+                  - generic [ref=f37e324]: Физическая культура
+                  - generic [ref=f37e325]: "Физическая культура: спортивные игры"
+              - button "Редактировать" [ref=f37e327] [cursor=pointer]
+          - generic [ref=f37e329]:
+            - generic [ref=f37e330]: Нагрузка по предметам
+            - generic [ref=f37e334]:
+              - table [ref=f37e339]:
+                - rowgroup [ref=f37e340]:
+                  - row [ref=f37e341]:
+                    - columnheader "Предмет" [ref=f37e342]
+                    - columnheader "Классы" [ref=f37e343]
+                    - columnheader "Часов в неделю" [ref=f37e344]
+                - rowgroup [ref=f37e345]:
+                  - row [ref=f37e346]:
+                    - cell "Физическая культура" [ref=f37e347]
+                    - cell [ref=f37e348]
+                    - cell "Не указано" [ref=f37e349]
+                  - row [ref=f37e351]:
+                    - 'cell "Физическая культура: спортивные игры" [ref=f37e352]'
+                    - cell [ref=f37e353]
+                    - cell "Не указано" [ref=f37e354]
+                  - row [ref=f37e356]:
+                    - cell "Итого (макс. нед. нагрузка)" [ref=f37e357]
+                    - cell "— ч/нед" [ref=f37e358]
+              - button "Редактировать" [ref=f37e360] [cursor=pointer]
+          - generic [ref=f37e362]:
+            - generic [ref=f37e363]: Смена обучения
+            - generic [ref=f37e367]:
+              - generic [ref=f37e369]:
+                - generic [ref=f37e370]: 1 четверть
+                - generic [ref=f37e371]: Учитель может вести занятия только в выбранных сменах — это учитывается при генерации расписания
+              - button "Редактировать" [ref=f37e376] [cursor=pointer]
+          - generic [ref=f37e378]:
+            - generic [ref=f37e379]: Языки преподавания
+            - generic [ref=f37e383]:
+              - generic [ref=f37e385]:
+                - generic [ref=f37e386]: русский
+                - generic [ref=f37e388]: Учитель может быть назначен только на классы с указанными языками обучения. При создании расписания система автоматически учитывает языковые ограничения.
+              - button "Редактировать" [ref=f37e393] [cursor=pointer]
+          - generic [ref=f37e395]:
+            - generic [ref=f37e396]: Доступные кабинеты
+            - generic [ref=f37e400]:
+              - generic [ref=f37e401]: Любой
+              - button "Редактировать" [ref=f37e404] [cursor=pointer]
+        - generic [ref=f37e407]:
+          - generic [ref=f37e408]: Карьера
+          - generic [ref=f37e410]:
+            - generic [ref=f37e412]:
+              - generic [ref=f37e413]: "Вид деятельности:"
+              - generic [ref=f37e414]: Администрация ОСО
+            - generic [ref=f37e416]:
+              - generic [ref=f37e417]: "Стаж:"
+              - generic [ref=f37e418]: 10 лет
+            - generic [ref=f37e420]:
+              - generic [ref=f37e421]: "Область:"
+              - generic [ref=f37e422]: Павлодарская область
+            - generic [ref=f37e424]:
+              - generic [ref=f37e425]: "Район:"
+              - generic [ref=f37e426]: район Тереңкөл
+            - generic [ref=f37e428]:
+              - generic [ref=f37e429]: "Школа:"
+              - generic [ref=f37e430]: КГУ «Песчанская ОСШ №1»
+          - generic [ref=f37e431]: Должность
+          - generic [ref=f37e433]:
+            - generic [ref=f37e435]:
+              - generic [ref=f37e436]: "Основной предмет:"
+              - generic [ref=f37e437]: Физическая культура
+            - generic [ref=f37e439]:
+              - generic [ref=f37e440]: "Язык преподавания:"
+              - generic [ref=f37e441]: русский
+            - generic [ref=f37e443]:
+              - generic [ref=f37e444]: "Категория:"
+              - generic [ref=f37e445]: Эксперт
+    - generic [ref=f37e448]:
+      - generic [ref=f37e449]:
+        - img "BilimClass Logotype" [ref=f37e450]
+        - generic [ref=f37e451]: ТОО "Bilim Land"Республика Казахстан, 010000,г. Астана, Есильский р-н
+      - generic [ref=f37e452]:
+        - generic [ref=f37e453]:
+          - generic [ref=f37e454]: О нас
+          - list [ref=f37e455]:
+            - listitem [ref=f37e456]:
+              - link "Новости" [ref=f37e457] [cursor=pointer]:
+                - /url: /news
+            - listitem [ref=f37e458]:
+              - link "Контакты" [ref=f37e459] [cursor=pointer]:
+                - /url: /support
+        - generic [ref=f37e460]:
+          - generic [ref=f37e461]: Поддержка
+          - list [ref=f37e462]:
+            - listitem [ref=f37e463]:
+              - link "База знаний" [ref=f37e464] [cursor=pointer]:
+                - /url: https://help.bilimland.kz/l_rus/knowledge_base/27748
+            - listitem [ref=f37e465]:
+              - link "Пользовательское соглашение" [ref=f37e466] [cursor=pointer]:
+                - /url: https://bilimland.kz/ru/agreement
+            - listitem [ref=f37e467]:
+              - link "Страница благодарности" [ref=f37e468] [cursor=pointer]:
+                - /url: https://guide.bilimclass.kz/thank-you-page
+            - listitem [ref=f37e469]:
+              - link "bilimclass@bilimland.com" [ref=f37e470] [cursor=pointer]:
+                - /url: mailto:bilimclass@bilimland.com
+      - generic [ref=f37e471]:
+        - generic [ref=f37e472]: Социальные сети
+        - list [ref=f37e473]:
+          - listitem [ref=f37e474]:
+            - link [ref=f37e475] [cursor=pointer]:
+              - /url: https://www.youtube.com/@BilimClass/videos
+          - listitem [ref=f37e479]:
+            - link [ref=f37e480] [cursor=pointer]:
+              - /url: https://www.instagram.com/bilimclass.kz
+          - listitem [ref=f37e489]:
+            - link [ref=f37e490] [cursor=pointer]:
+              - /url: https://t.me/BilimClassHelpBot
+          - listitem [ref=f37e494]:
+            - link [ref=f37e495] [cursor=pointer]:
+              - /url: https://api.whatsapp.com/send/?phone=77079449594
+    - link [ref=f37e500] [cursor=pointer]:
+      - /url: https://zero.kz/?s=72943
+      - img "ZERO.kz" [ref=f37e501]
+    - button
+  - generic:
+    - main:
+      - paragraph
+      - strong
+      - emphasis
+      - heading [level=1]
+      - heading [level=2]
+      - heading [level=3]
+      - heading [level=4]
+  - button "Поддержка BilimClass" [ref=f37e507] [cursor=pointer]

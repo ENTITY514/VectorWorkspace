@@ -1,0 +1,191 @@
+== PROGRAMS classes ==
+  1226999 | 1А | 1 А ҚАЗ | ipo=false [Общая] | active | subj=8 sum=19
+  1227016 | 1Б | 1 Б РУС | ipo=false [Общая] | active | subj=9 sum=20
+  1365873 | 1Б | 1 Б РУС | ipo=true [Галле Оливия ДО] | active | subj=6 sum=7
+  1227027 | 2А | 2 А ҚАЗ | ipo=false [Общая] | active | subj=11 sum=22
+  1227058 | 2Б | 2 Б РУС | ipo=false [Общая] | active | subj=11 sum=23
+  1227112 | 3Б | 3 Б РУС | ipo=false [Общая] | archive | subj=0 sum=0
+  1326631 | 3А | 3 А РУС | ipo=false [Общая] | active | subj=12 sum=26
+  1227129 | 4А | 4 А ҚАЗ | ipo=false [Общая] | active | subj=12 sum=25
+  1227135 | 4Б | 4 Б РУС | ipo=false [Общая] | active | subj=12 sum=27
+  1365902 | 4Б | 4 Б РУС | ipo=true [Тимлер Юлианна ООП] | active | subj=0 sum=0
+  1227142 | 5А | 5 А ҚАЗ | ipo=false [Общая] | active | subj=12 sum=28
+  1227148 | 5Б | 5 Б РУС | ipo=false [Общая] | active | subj=12 sum=29
+  1227153 | 6А | 6 А ҚАЗ | ipo=false [Общая] | active | subj=12 sum=28
+  1227159 | 6Б | 6 Б РУС | ipo=false [Общая] | active | subj=12 sum=29
+  1366034 | 6В | 6 В РУС | ipo=false [Общая] | active | subj=8 sum=19
+  1227169 | 7А | 7 А РУС | ipo=false [Общая] | active | subj=15 sum=32
+  1359051 | 7А | 7 А РУС | ipo=true [Желнин Матвей ДО] | active | subj=7 sum=10
+  1366633 | 7А | 7 А РУС | ipo=true [Власова Анастасия ЛУО] | active | subj=8 sum=22
+  1366642 | 7А | 7 А РУС | ipo=true [Фомин Артем ЗПР] | archive | subj=0 sum=0
+  1227197 | 8А | 8 А РУС | ipo=false [Общая] | active | subj=15 sum=33
+  1227198 | 8Б | 8 Б РУС | ipo=false [Общая] | active | subj=15 sum=33
+  1227215 | 8Ә | 8 Ә ҚАЗ | ipo=false [Общая] | active | subj=15 sum=32
+  1365884 | 8Б | 8 Б РУС | ipo=true [Тургумбаева Айсана ДО] | active | subj=9 sum=12
+  1227232 | 9Б | 9 Б РУС | ipo=false [Общая] | active | subj=15 sum=33
+  1366727 | 9Б | 9 Б РУС | ipo=true [Романов Никита ДО] | active | subj=7 sum=10
+  1227253 | 10А | 10 А РУС | ipo=false [Общая] | active | subj=16 sum=34
+  1227294 | 11А | 11 А ҚАЗ | ipo=false [Общая] | active | subj=16 sum=32
+  1227364 | 11Б | 11 Б РУС | ipo=false [Общая] | active | subj=14 sum=30
+
+== teacher-referenced group ids missing in programs ==
+
+== merged Квашнина ==
+  {
+  "source_id": 1884822,
+  "merged_from": [
+    1852744,
+    1884822
+  ],
+  "fio": "Квашнина Елена Витальевна",
+  "position": "учитель/заведующий",
+  "languages": [
+    "ru"
+  ],
+  "max_weekly_hours": 18.5,
+  "subjects": [
+    {
+      "subject_id": 3,
+      "subject_name": "Русский язык",
+      "total_weekly_hours": 4,
+      "classes": [
+        {
+          "group_id": 1227058,
+          "class_name": "2Б",
+          "language": "ru",
+          "subgroup_uuid": null,
+          "subgroup_name": null
+        }
+      ]
+    },
+    {
+      "subject_id": 24,
+      "subject_name": "Естествознание",
+      "total_weekly_hours": 1,
+      "classes": [
+        {
+          "group_id": 1227058,
+          "class_name": "2Б",
+          "language": "ru",
+          "subgroup_uuid": null,
+          "subgroup_name": null
+        }
+      ]
+    },
+    {
+      "subject_id": 47,
+      "subject_name": "Литературное чтение",
+      "total_weekly_hours": 3,
+      "classes": [
+        {
+          "group_id": 1227058,
+          "class_name": "2Б",
+          "language": "ru",
+          "subgroup_uuid": null,
+          "subgroup_name": null
+        }
+      ]
+    },
+    {
+      "subject_id": 76,
+      "subject_name": "Математика",
+      "total_weekly_hours": 4,
+      "classes": [
+        {
+          "group_id": 1227058,
+          "class_name": "2Б",
+          "language": "ru",
+          "subgroup_uuid": null,
+          "subgroup_name": null
+        }
+      ]
+    },
+    {
+      "subject_id": 111,
+      "subject_name": "Познание мира",
+      "total_weekly_hours": 1,
+      "classes": [
+        {
+          "group_id": 1227058,
+          "class_name": "2Б",
+          "language": "ru",
+          "subgroup_uuid": null,
+          "subgroup_name": null
+        }
+      ]
+    },
+    {
+      "subject_id": 359,
+      "subject_name": "Изобразительное искусство",
+      "total_weekly_hours": 1,
+      "classes": [
+        {
+          "group_id": 1227016,
+          "class_name": "1Б",
+          "language": "ru",
+          "subgroup_uuid": null,
+          "subgroup_name": null
+        }
+      ]
+    },
+    {
+      "subject_id": 771,
+      "subject_name": "Сенсорное развитие",
+      "total_weekly_hours": 2,
+      "classes": [
+        {
+          "group_id": 1227016,
+          "class_name": "1Б",
+          "language": "ru",
+          "subgroup_uuid": null,
+          "subgroup_name": null
+        }
+      ]
+    },
+    {
+      "subject_id": 2132,
+      "subject_name": "Индивидуальные и групповые развивающие занятия",
+      "total_weekly_hours": 1,
+      "classes": [
+        {
+          "group_id": 1227058,
+          "class_name": "2Б",
+          "language": "ru",
+          "subgroup_uuid": null,
+          "subgroup_name": null
+        }
+      ]
+    },
+    {
+      "subject_id": 2332,
+      "subject_name": "Предметно-практическая деятельность",
+      "total_weekly_hours": 2,
+      "classes": [
+        {
+          "group_id": 1227016,
+          "class_name": "1Б",
+          "language": "ru",
+          "subgroup_uuid": null,
+          "subgroup_name": null
+        }
+      ]
+    },
+    {
+      "subject_id": 2567,
+      "subject_name": "Индивидуально-развивающие занятия",
+      "total_weekly_hours": 1,
+      "classes": [
+        {
+          "group_id": 1227058,
+          "class_name": "2Б",
+          "language": "ru",
+          "subgroup_uuid": null,
+          "subgroup_name": null
+        }
+      ]
+    }
+  ]
+}
+
+== cyrillic sanity (names containing latin letters) ==
+  (empty above = ok)

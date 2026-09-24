@@ -1,0 +1,348 @@
+groups=28 errors=[]
+meta sample: {"group":{"name":"1 А","fullName":"1 А ҚАЗ","id":1226999,"eduYear":2026,"parallel":{"label":1,"color":"#F4D2B8"},"letter":"А","language":{"id":3,"label":"казахский","color":"#C3F4FF"},"description":"Общая","dateStart":"25.08.2026"}}
+
+# 1226999 | 1 А ҚАЗ | lang=kz | isIpo=false | incl=Общая | status=active | subj=8 | plan=396
+    Обучение грамоте (id=330) wh=6 yr=0 score=Оценивание отсутствует period=Полугодие diff=null split=false subjType=regular
+    Естествознание (id=24) wh=1 yr=33 score=Оценивание отсутствует period=Полугодие diff=null split=false subjType=regular
+    Трудовое обучение (id=358) wh=1 yr=33 score=Оценивание отсутствует period=Полугодие diff=null split=false subjType=regular
+    Познание мира (id=111) wh=1 yr=33 score=Оценивание отсутствует period=Полугодие diff=null split=false subjType=regular
+    Математика (id=76) wh=5 yr=132 score=Оценивание отсутствует period=Четверть diff=null split=false subjType=regular
+    Музыка  (id=84) wh=1 yr=33 score=Оценивание отсутствует period=Полугодие diff=null split=false subjType=regular
+    Изобразительное искусство (id=359) wh=1 yr=33 score=Оценивание отсутствует period=Полугодие diff=null split=false subjType=regular
+    Физическая культура (id=87) wh=3 yr=99 score=Оценивание отсутствует period=Четверть diff=null split=false subjType=regular
+    >>> sum_weekly=19
+# 1227016 | 1 Б РУС | lang=ru | isIpo=false | incl=Общая | status=active | subj=9 | plan=462
+    Познание мира (id=111) wh=1 yr=33 score=Оценивание отсутствует period=Полугодие diff=null split=false subjType=regular
+    Казахский язык (id=2) wh=2 yr=66 score=Оценивание отсутствует period=Четверть diff=null split=false subjType=regular
+    Трудовое обучение (id=358) wh=1 yr=33 score=Оценивание отсутствует period=Полугодие diff=null split=false subjType=regular
+    Физическая культура (id=87) wh=3 yr=99 score=Оценивание отсутствует period=Четверть diff=null split=false subjType=regular
+    Обучение грамоте (id=330) wh=6 yr=0 score=Оценивание отсутствует period=Полугодие diff=null split=false subjType=regular
+    Музыка  (id=84) wh=1 yr=33 score=Оценивание отсутствует period=Полугодие diff=null split=false subjType=regular
+    Математика (id=76) wh=4 yr=132 score=Оценивание отсутствует period=Четверть diff=null split=false subjType=regular
+    Изобразительное искусство (id=359) wh=1 yr=33 score=Оценивание отсутствует period=Полугодие diff=null split=false subjType=regular
+    Естествознание (id=24) wh=1 yr=33 score=Оценивание отсутствует period=Полугодие diff=null split=false subjType=regular
+    >>> sum_weekly=20
+# 1365873 | 1 Б РУС | lang=ru | isIpo=true | incl=Галле Оливия ДО | status=active | subj=6 | plan=0
+    Развитие речи и коммуникации (id=773) wh=1 yr=0 score=Оценивание отсутствует period=Четверть diff=null split=false subjType=regular
+    Счет (id=2328) wh=1 yr=0 score=Оценивание отсутствует period=Четверть diff=null split=false subjType=regular
+    Мир вокруг (id=200) wh=1 yr=0 score=Оценивание отсутствует period=Четверть diff=null split=false subjType=regular
+    Изобразительное искусство (id=359) wh=1 yr=0 score=Оценивание отсутствует period=Четверть diff=null split=false subjType=regular
+    Предметно-практическая деятельность (id=2332) wh=1 yr=0 score=Оценивание отсутствует period=Четверть diff=null split=false subjType=regular
+    Сенсорное развитие (id=771) wh=2 yr=0 score=Оценивание отсутствует period=Четверть diff=null split=false subjType=regular
+    >>> sum_weekly=7
+# 1227027 | 2 А ҚАЗ | lang=kz | isIpo=false | incl=Общая | status=active | subj=11 | plan=748
+    Познание мира (id=111) wh=1 yr=34 score=Итоговая оценка period=Полугодие diff=null split=false subjType=regular
+    Казахский язык (id=2) wh=4 yr=136 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Литературное чтение (id=47) wh=3 yr=102 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Изобразительное искусство (id=359) wh=1 yr=34 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Естествознание (id=24) wh=1 yr=34 score=Итоговая оценка period=Полугодие diff=null split=false subjType=regular
+    Русский язык (id=3) wh=2 yr=68 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Трудовое обучение (id=358) wh=1 yr=34 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Физическая культура (id=87) wh=3 yr=102 score=Зачет/Незачет period=Четверть diff=null split=false subjType=regular
+    Цифровая грамотность и искусственный интеллект (id=2843) wh=1 yr=34 score=Зачет/Незачет period=Полугодие diff=null split=false subjType=regular
+    Математика (id=76) wh=4 yr=136 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Музыка  (id=84) wh=1 yr=34 score=Зачет/Незачет period=Четверть diff=null split=false subjType=regular
+    >>> sum_weekly=22
+# 1227058 | 2 Б РУС | lang=ru | isIpo=false | incl=Общая | status=active | subj=11 | plan=782
+    Русский язык (id=3) wh=4 yr=136 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Физическая культура (id=87) wh=3 yr=102 score=Зачет/Незачет period=Четверть diff=null split=false subjType=regular
+    Изобразительное искусство (id=359) wh=1 yr=34 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Казахский язык (id=2) wh=3 yr=102 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Трудовое обучение (id=358) wh=1 yr=34 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Естествознание (id=24) wh=1 yr=34 score=Итоговая оценка period=Полугодие diff=null split=false subjType=regular
+    Музыка  (id=84) wh=1 yr=34 score=Зачет/Незачет period=Четверть diff=null split=false subjType=regular
+    Математика (id=76) wh=4 yr=136 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Познание мира (id=111) wh=1 yr=34 score=Итоговая оценка period=Полугодие diff=null split=false subjType=regular
+    Цифровая грамотность и искусственный интеллект (id=2843) wh=1 yr=34 score=Зачет/Незачет period=Полугодие diff=null split=false subjType=regular
+    Литературное чтение (id=47) wh=3 yr=102 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    >>> sum_weekly=23
+# 1227112 | 3 Б РУС | lang=ru | isIpo=false | incl=Общая | status=archive | subj=0 | plan=null
+    >>> sum_weekly=0
+# 1326631 | 3 А РУС | lang=ru | isIpo=false | incl=Общая | status=active | subj=12 | plan=884
+    Естествознание (id=24) wh=1 yr=34 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Математика (id=76) wh=5 yr=170 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Литературное чтение (id=47) wh=3 yr=102 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Музыка  (id=84) wh=1 yr=34 score=Зачет/Незачет period=Четверть diff=null split=false subjType=regular
+    Русский язык (id=3) wh=4 yr=136 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Цифровая грамотность и искусственный интеллект (id=2843) wh=1 yr=34 score=Зачет/Незачет period=Полугодие diff=null split=false subjType=regular
+    Казахский язык (id=2) wh=3 yr=102 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Физическая культура (id=87) wh=3 yr=102 score=Зачет/Незачет period=Четверть diff=null split=false subjType=regular
+    Познание мира (id=111) wh=1 yr=34 score=Итоговая оценка period=Полугодие diff=null split=false subjType=regular
+    Английский язык (id=81) wh=2 yr=68 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Трудовое обучение (id=358) wh=1 yr=34 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Изобразительное искусство (id=359) wh=1 yr=34 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    >>> sum_weekly=26
+# 1227129 | 4 А ҚАЗ | lang=kz | isIpo=false | incl=Общая | status=active | subj=12 | plan=850
+    Казахский язык (id=2) wh=4 yr=136 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Физическая культура (id=87) wh=3 yr=102 score=Зачет/Незачет period=Четверть diff=null split=false subjType=regular
+    Музыка  (id=84) wh=1 yr=34 score=Зачет/Незачет period=Четверть diff=null split=false subjType=regular
+    Литературное чтение (id=47) wh=3 yr=102 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Математика (id=76) wh=5 yr=170 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Изобразительное искусство (id=359) wh=1 yr=34 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Естествознание (id=24) wh=1 yr=34 score=Итоговая оценка period=Полугодие diff=null split=false subjType=regular
+    Трудовое обучение (id=358) wh=1 yr=34 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Познание мира (id=111) wh=1 yr=34 score=Итоговая оценка period=Полугодие diff=null split=false subjType=regular
+    Русский язык (id=3) wh=2 yr=68 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Иностранный язык (id=2851) wh=2 yr=68 score=Зачет/Незачет period=Полугодие diff=null split=false subjType=regular
+    Цифровая грамотность и искусственный интеллект (id=2843) wh=1 yr=34 score=Зачет/Незачет period=Полугодие diff=null split=false subjType=regular
+    >>> sum_weekly=25
+# 1227135 | 4 Б РУС | lang=ru | isIpo=false | incl=Общая | status=active | subj=12 | plan=918
+    Физическая культура (id=87) wh=3 yr=102 score=Зачет/Незачет period=Четверть diff=null split=false subjType=regular
+    Иностранный язык (id=2851) wh=2 yr=68 score=Зачет/Незачет period=Полугодие diff=null split=false subjType=regular
+    Казахский язык (id=2) wh=4 yr=136 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Математика (id=76) wh=5 yr=170 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Трудовое обучение (id=358) wh=1 yr=34 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Познание мира (id=111) wh=1 yr=34 score=Итоговая оценка period=Полугодие diff=null split=false subjType=regular
+    Цифровая грамотность и искусственный интеллект (id=2843) wh=1 yr=34 score=Зачет/Незачет period=Полугодие diff=null split=false subjType=regular
+    Музыка  (id=84) wh=1 yr=34 score=Зачет/Незачет period=Четверть diff=null split=false subjType=regular
+    Русский язык (id=3) wh=4 yr=136 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Изобразительное искусство (id=359) wh=1 yr=34 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Литературное чтение (id=47) wh=3 yr=102 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Естествознание (id=24) wh=1 yr=34 score=Итоговая оценка period=Полугодие diff=null split=false subjType=regular
+    >>> sum_weekly=27
+# 1365902 | 4 Б РУС | lang=ru | isIpo=true | incl=Тимлер Юлианна ООП | status=active | subj=0 | plan=null
+    >>> sum_weekly=0
+# 1227142 | 5 А ҚАЗ | lang=kz | isIpo=false | incl=Общая | status=active | subj=12 | plan=952
+    Математика (id=76) wh=5 yr=170 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Иностранный язык (id=2851) wh=3 yr=102 score=Зачет/Незачет period=Полугодие diff=null split=false subjType=regular
+    Музыка  (id=84) wh=1 yr=34 score=Зачет/Незачет period=Четверть diff=null split=false subjType=regular
+    Всемирная история (id=75) wh=1 yr=34 score=Итоговая оценка period=Полугодие diff=null split=false subjType=regular
+    Информатика и искусственный интеллект (id=2844) wh=1 yr=34 score=Итоговая оценка period=Полугодие diff=null split=false subjType=regular
+    Казахский язык (id=2) wh=3 yr=102 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Казахская литература (id=105) wh=2 yr=68 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    История Казахстана (id=92) wh=2 yr=68 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Естествознание (id=24) wh=2 yr=68 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Художественный труд  (id=86) wh=2 yr=68 score=Зачет/Незачет period=Четверть diff=null split=false subjType=regular
+    Русский язык и литература (id=74) wh=3 yr=102 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Физическая культура (id=87) wh=3 yr=102 score=Зачет/Незачет period=Четверть diff=null split=false subjType=regular
+    >>> sum_weekly=28
+# 1227148 | 5 Б РУС | lang=ru | isIpo=false | incl=Общая | status=active | subj=12 | plan=986
+    Музыка  (id=84) wh=1 yr=34 score=Зачет/Незачет period=Четверть diff=null split=false subjType=regular
+    Казахский язык и литература (id=73) wh=4 yr=136 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Русский язык (id=3) wh=3 yr=102 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Художественный труд  (id=86) wh=2 yr=68 score=Зачет/Незачет period=Четверть diff=null split=false subjType=regular
+    Математика (id=76) wh=5 yr=170 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Информатика и искусственный интеллект (id=2844) wh=1 yr=34 score=Итоговая оценка period=Полугодие diff=null split=false subjType=regular
+    Естествознание (id=24) wh=2 yr=68 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    История Казахстана (id=92) wh=2 yr=68 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Всемирная история (id=75) wh=1 yr=34 score=Итоговая оценка period=Полугодие diff=null split=false subjType=regular
+    Русская литература (id=106) wh=2 yr=68 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Физическая культура (id=87) wh=3 yr=102 score=Зачет/Незачет period=Четверть diff=null split=false subjType=regular
+    Иностранный язык (id=2851) wh=3 yr=102 score=Зачет/Незачет period=Полугодие diff=null split=false subjType=regular
+    >>> sum_weekly=29
+# 1227153 | 6 А ҚАЗ | lang=kz | isIpo=false | incl=Общая | status=active | subj=12 | plan=952
+    Информатика и искусственный интеллект (id=2844) wh=1 yr=34 score=Итоговая оценка period=Полугодие diff=null split=false subjType=regular
+    Художественный труд  (id=86) wh=2 yr=68 score=Зачет/Незачет period=Четверть diff=null split=false subjType=regular
+    Естествознание (id=24) wh=2 yr=68 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Русский язык и литература (id=74) wh=3 yr=102 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Музыка  (id=84) wh=1 yr=34 score=Зачет/Незачет period=Четверть diff=null split=false subjType=regular
+    Казахский язык (id=2) wh=3 yr=102 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Иностранный язык (id=2851) wh=3 yr=102 score=Зачет/Незачет period=Полугодие diff=null split=false subjType=regular
+    Физическая культура (id=87) wh=3 yr=102 score=Зачет/Незачет period=Четверть diff=null split=false subjType=regular
+    История Казахстана (id=92) wh=2 yr=68 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Математика (id=76) wh=5 yr=170 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Всемирная история (id=75) wh=1 yr=34 score=Итоговая оценка period=Полугодие diff=null split=false subjType=regular
+    Казахская литература (id=105) wh=2 yr=68 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    >>> sum_weekly=28
+# 1227159 | 6 Б РУС | lang=ru | isIpo=false | incl=Общая | status=active | subj=12 | plan=986
+    Русский язык (id=3) wh=3 yr=102 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Казахский язык и литература (id=73) wh=4 yr=136 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Художественный труд  (id=86) wh=2 yr=68 score=Зачет/Незачет period=Четверть diff=null split=false subjType=regular
+    Естествознание (id=24) wh=2 yr=68 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Всемирная история (id=75) wh=1 yr=34 score=Итоговая оценка period=Полугодие diff=null split=false subjType=regular
+    Физическая культура (id=87) wh=3 yr=102 score=Зачет/Незачет period=Четверть diff=null split=false subjType=regular
+    Музыка  (id=84) wh=1 yr=34 score=Зачет/Незачет period=Четверть diff=null split=false subjType=regular
+    История Казахстана (id=92) wh=2 yr=68 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Русская литература (id=106) wh=2 yr=68 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Математика (id=76) wh=5 yr=170 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Информатика и искусственный интеллект (id=2844) wh=1 yr=34 score=Итоговая оценка period=Полугодие diff=null split=false subjType=regular
+    Иностранный язык (id=2851) wh=3 yr=102 score=Зачет/Незачет period=Полугодие diff=null split=false subjType=regular
+    >>> sum_weekly=29
+# 1366034 | 6 В РУС | lang=ru | isIpo=false | incl=Общая | status=active | subj=8 | plan=0
+    Естествознание (id=24) wh=2 yr=0 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Математика (id=76) wh=5 yr=0 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Казахский язык (id=2) wh=2 yr=0 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Русский язык (id=3) wh=3 yr=0 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Чтение и развитие речи (id=201) wh=2 yr=0 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Изобразительное искусство (id=359) wh=1 yr=0 score=Зачет/Незачет period=Полугодие diff=null split=false subjType=regular
+    Музыка  (id=84) wh=1 yr=0 score=Зачет/Незачет period=Полугодие diff=null split=false subjType=regular
+    Адаптивная физическая культура (id=1345) wh=3 yr=0 score=Зачет/Незачет period=Четверть diff=null split=false subjType=regular
+    >>> sum_weekly=19
+# 1227169 | 7 А РУС | lang=ru | isIpo=false | incl=Общая | status=active | subj=15 | plan=1122
+    Геометрия (id=110) wh=2 yr=68 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Русская литература (id=106) wh=2 yr=68 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    История Казахстана (id=92) wh=2 yr=68 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Информатика и искусственный интеллект (id=2844) wh=1 yr=34 score=Итоговая оценка period=Полугодие diff=null split=false subjType=regular
+    География (id=80) wh=2 yr=68 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Художественный труд  (id=86) wh=1 yr=34 score=Зачет/Незачет period=Четверть diff=null split=false subjType=regular
+    Физическая культура (id=87) wh=3 yr=102 score=Зачет/Незачет period=Четверть diff=null split=false subjType=regular
+    Казахский язык и литература (id=73) wh=4 yr=136 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Русский язык (id=3) wh=3 yr=102 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Алгебра (id=109) wh=3 yr=102 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Химия (id=78) wh=1 yr=34 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Всемирная история (id=75) wh=1 yr=34 score=Итоговая оценка period=Полугодие diff=null split=false subjType=regular
+    Биология (id=79) wh=2 yr=68 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Физика (id=77) wh=2 yr=102 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Иностранный язык (id=2851) wh=3 yr=102 score=Зачет/Незачет period=Полугодие diff=null split=false subjType=regular
+    >>> sum_weekly=32
+# 1359051 | 7 А РУС | lang=ru | isIpo=true | incl=Желнин Матвей ДО | status=active | subj=7 | plan=0
+    Развитие речи и коммуникации (id=773) wh=2 yr=0 score=Оценивание отсутствует period=Четверть diff=null split=false subjType=regular
+    Счет (id=2328) wh=2 yr=0 score=Оценивание отсутствует period=Четверть diff=null split=false subjType=regular
+    Человек и мир (id=795) wh=2 yr=0 score=Оценивание отсутствует period=Четверть diff=null split=false subjType=regular
+    Изобразительное искусство (id=359) wh=1 yr=0 score=Оценивание отсутствует period=Четверть diff=null split=false subjType=regular
+    Хозяйственный труд (id=2329) wh=1 yr=0 score=Оценивание отсутствует period=Четверть diff=null split=false subjType=regular
+    Социально-бытовая ориентировка (id=202) wh=1 yr=0 score=Оценивание отсутствует period=Четверть diff=null split=false subjType=regular
+    Познавательное развитие (id=2513) wh=1 yr=0 score=Оценивание отсутствует period=Четверть diff=null split=false subjType=regular
+    >>> sum_weekly=10
+# 1366633 | 7 А РУС | lang=ru | isIpo=true | incl=Власова Анастасия ЛУО | status=active | subj=8 | plan=0
+    Русский язык (id=3) wh=3 yr=0 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Чтение и развитие речи (id=201) wh=3 yr=0 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Казахский язык (id=2) wh=2 yr=0 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Математика (id=76) wh=5 yr=0 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Естествознание (id=24) wh=2 yr=0 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    География (id=80) wh=2 yr=0 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    История Казахстана (id=92) wh=2 yr=0 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Адаптивная физическая культура (id=720) wh=3 yr=0 score=Зачет/Незачет period=Четверть diff=null split=false subjType=regular
+    >>> sum_weekly=22
+# 1366642 | 7 А РУС | lang=ru | isIpo=true | incl=Фомин Артем ЗПР | status=archive | subj=0 | plan=null
+    >>> sum_weekly=0
+# 1227197 | 8 А РУС | lang=ru | isIpo=false | incl=Общая | status=active | subj=15 | plan=1088
+    Биология (id=79) wh=2 yr=68 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    История Казахстана (id=92) wh=2 yr=68 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Алгебра (id=109) wh=3 yr=102 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Русский язык (id=3) wh=2 yr=68 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Химия (id=78) wh=2 yr=68 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Казахский язык и литература (id=73) wh=4 yr=136 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Информатика и искусственный интеллект (id=2844) wh=1 yr=34 score=Итоговая оценка period=Полугодие diff=null split=false subjType=regular
+    География (id=80) wh=2 yr=68 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Иностранный язык (id=2851) wh=3 yr=102 score=Зачет/Незачет period=Полугодие diff=null split=false subjType=regular
+    Русская литература (id=106) wh=3 yr=102 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Физика (id=77) wh=2 yr=68 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Всемирная история (id=75) wh=1 yr=34 score=Итоговая оценка period=Полугодие diff=null split=false subjType=regular
+    Физическая культура (id=87) wh=3 yr=102 score=Зачет/Незачет period=Четверть diff=null split=false subjType=regular
+    Геометрия (id=110) wh=2 yr=68 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Художественный труд  (id=86) wh=1 yr=0 score=Зачет/Незачет period=Четверть diff=null split=false subjType=regular
+    >>> sum_weekly=33
+# 1227198 | 8 Б РУС | lang=ru | isIpo=false | incl=Общая | status=active | subj=15 | plan=1088
+    Биология (id=79) wh=2 yr=68 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    История Казахстана (id=92) wh=2 yr=68 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Алгебра (id=109) wh=3 yr=102 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Русский язык (id=3) wh=2 yr=68 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Химия (id=78) wh=2 yr=68 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Казахский язык и литература (id=73) wh=4 yr=136 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Информатика и искусственный интеллект (id=2844) wh=1 yr=34 score=Итоговая оценка period=Полугодие diff=null split=false subjType=regular
+    География (id=80) wh=2 yr=68 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Иностранный язык (id=2851) wh=3 yr=102 score=Зачет/Незачет period=Полугодие diff=null split=false subjType=regular
+    Русская литература (id=106) wh=3 yr=102 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Физика (id=77) wh=2 yr=68 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Всемирная история (id=75) wh=1 yr=34 score=Итоговая оценка period=Полугодие diff=null split=false subjType=regular
+    Физическая культура (id=87) wh=3 yr=102 score=Зачет/Незачет period=Четверть diff=null split=false subjType=regular
+    Геометрия (id=110) wh=2 yr=68 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Художественный труд  (id=86) wh=1 yr=0 score=Зачет/Незачет period=Четверть diff=null split=false subjType=regular
+    >>> sum_weekly=33
+# 1227215 | 8 Ә ҚАЗ | lang=kz | isIpo=false | incl=Общая | status=active | subj=15 | plan=1088
+    Информатика и искусственный интеллект (id=2844) wh=1 yr=34 score=Итоговая оценка period=Полугодие diff=null split=false subjType=regular
+    Художественный труд  (id=86) wh=1 yr=34 score=Зачет/Незачет period=Четверть diff=null split=false subjType=regular
+    География (id=80) wh=2 yr=68 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    История Казахстана (id=92) wh=2 yr=68 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Физика (id=77) wh=2 yr=68 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Казахский язык (id=2) wh=2 yr=68 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Русский язык и литература (id=74) wh=3 yr=102 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Алгебра (id=109) wh=3 yr=102 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Всемирная история (id=75) wh=1 yr=34 score=Итоговая оценка period=Полугодие diff=null split=false subjType=regular
+    Казахская литература (id=105) wh=3 yr=102 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Физическая культура (id=87) wh=3 yr=102 score=Зачет/Незачет period=Четверть diff=null split=false subjType=regular
+    Химия (id=78) wh=2 yr=68 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Геометрия (id=110) wh=2 yr=68 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Иностранный язык (id=2851) wh=3 yr=102 score=Зачет/Незачет period=Полугодие diff=null split=false subjType=regular
+    Биология (id=79) wh=2 yr=68 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    >>> sum_weekly=32
+# 1365884 | 8 Б РУС | lang=ru | isIpo=true | incl=Тургумбаева Айсана ДО | status=active | subj=9 | plan=0
+    Русский язык (id=3) wh=2 yr=0 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Чтение и развитие речи (id=201) wh=1 yr=0 score=Итоговая оценка period=Полугодие diff=null split=false subjType=regular
+    Казахский язык (id=2) wh=1 yr=0 score=Итоговая оценка period=Полугодие diff=null split=false subjType=regular
+    Математика (id=76) wh=2 yr=0 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Естествознание (id=24) wh=1 yr=0 score=Итоговая оценка period=Полугодие diff=null split=false subjType=regular
+    География (id=80) wh=1 yr=0 score=Итоговая оценка period=Полугодие diff=null split=false subjType=regular
+    История Казахстана (id=92) wh=1 yr=0 score=Итоговая оценка period=Полугодие diff=null split=false subjType=regular
+    Социально-бытовая ориентировка (id=202) wh=1 yr=0 score=Зачет/Незачет period=Полугодие diff=null split=false subjType=regular
+    Индивидуально-развивающие занятия (id=2567) wh=2 yr=0 score=Оценивание отсутствует period=Четверть diff=null split=false subjType=regular
+    >>> sum_weekly=12
+# 1227232 | 9 Б РУС | lang=ru | isIpo=false | incl=Общая | status=active | subj=15 | plan=1122
+    География (id=80) wh=2 yr=68 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Иностранный язык (id=2851) wh=3 yr=102 score=Зачет/Незачет period=Полугодие diff=null split=false subjType=regular
+    Казахский язык и литература (id=73) wh=4 yr=136 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    История Казахстана (id=92) wh=2 yr=68 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Информатика и искусственный интеллект (id=2844) wh=1 yr=34 score=Итоговая оценка period=Полугодие diff=null split=false subjType=regular
+    Алгебра (id=109) wh=3 yr=102 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Русская литература (id=106) wh=3 yr=102 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Биология (id=79) wh=2 yr=68 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Геометрия (id=110) wh=2 yr=68 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Русский язык (id=3) wh=2 yr=68 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Физическая культура (id=87) wh=3 yr=102 score=Зачет/Незачет period=Четверть diff=null split=false subjType=regular
+    Физика (id=77) wh=2 yr=68 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Всемирная история (id=75) wh=1 yr=34 score=Итоговая оценка period=Полугодие diff=null split=false subjType=regular
+    Основы права (id=113) wh=1 yr=34 score=Итоговая оценка period=Полугодие diff=null split=false subjType=regular
+    Химия (id=78) wh=2 yr=68 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    >>> sum_weekly=33
+# 1366727 | 9 Б РУС | lang=ru | isIpo=true | incl=Романов Никита ДО | status=active | subj=7 | plan=0
+    Развитие речи и коммуникации (id=773) wh=2 yr=0 score=Оценивание отсутствует period=Четверть diff=null split=false subjType=regular
+    Счет (id=2328) wh=2 yr=0 score=Оценивание отсутствует period=Четверть diff=null split=false subjType=regular
+    Человек и мир (id=795) wh=2 yr=0 score=Оценивание отсутствует period=Четверть diff=null split=false subjType=regular
+    Изобразительное искусство (id=359) wh=1 yr=0 score=Оценивание отсутствует period=Четверть diff=null split=false subjType=regular
+    Хозяйственный труд (id=2329) wh=1 yr=0 score=Оценивание отсутствует period=Четверть diff=null split=false subjType=regular
+    Социально-бытовая ориентировка (id=202) wh=1 yr=0 score=Оценивание отсутствует period=Четверть diff=null split=false subjType=regular
+    Познавательное развитие (id=2513) wh=1 yr=0 score=Оценивание отсутствует period=Четверть diff=null split=false subjType=regular
+    >>> sum_weekly=10
+# 1227253 | 10 A РУС | lang=ru | isIpo=false | incl=Общая | status=active | subj=16 | plan=1156
+    Алгебра и начала анализа (id=55) wh=4 yr=136 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Казахский язык и литература (id=73) wh=4 yr=136 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    География (id=80) wh=2 yr=68 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    История Казахстана (id=92) wh=2 yr=68 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Физическая культура (id=87) wh=3 yr=102 score=Зачет/Незачет period=Четверть diff=null split=false subjType=regular
+    Химия (id=78) wh=2 yr=68 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Биология (id=79) wh=2 yr=68 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Физика (id=77) wh=2 yr=68 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Русская литература (id=106) wh=2 yr=68 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Русский язык (id=3) wh=1 yr=34 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Геометрия (id=110) wh=2 yr=68 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Основы права (id=113) wh=1 yr=34 score=Итоговая оценка period=Полугодие diff=null split=false subjType=regular
+    Информатика и искусственный интеллект (id=2844) wh=2 yr=68 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Иностранный язык (id=2851) wh=3 yr=102 score=Зачет/Незачет period=Полугодие diff=null split=false subjType=regular
+    Всемирная история (id=75) wh=1 yr=34 score=Итоговая оценка period=Полугодие diff=null split=false subjType=regular
+    Начальная военная подготовка (id=2850) wh=1 yr=34 score=Зачет/Незачет period=Полугодие diff=null split=false subjType=regular
+    >>> sum_weekly=34
+# 1227294 | 11 А ҚАЗ | lang=kz | isIpo=false | incl=Общая | status=active | subj=16 | plan=1088
+    Информатика и искусственный интеллект (id=2844) wh=2 yr=68 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Иностранный язык (id=2851) wh=3 yr=102 score=Зачет/Незачет period=Полугодие diff=null split=false subjType=regular
+    Алгебра и начала анализа (id=55) wh=4 yr=136 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Основы права (id=113) wh=1 yr=34 score=Итоговая оценка period=Полугодие diff=null split=false subjType=regular
+    Всемирная история (id=75) wh=1 yr=34 score=Итоговая оценка period=Полугодие diff=null split=false subjType=regular
+    Физическая культура (id=87) wh=3 yr=102 score=Зачет/Незачет period=Четверть diff=null split=false subjType=regular
+    Начальная военная подготовка (id=2850) wh=1 yr=34 score=Зачет/Незачет period=Полугодие diff=null split=false subjType=regular
+    Русский язык и литература (id=74) wh=2 yr=68 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Физика (id=77) wh=2 yr=68 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Геометрия (id=110) wh=2 yr=68 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    История Казахстана (id=92) wh=2 yr=68 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Биология (id=79) wh=2 yr=68 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    География (id=80) wh=2 yr=68 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Казахский язык (id=2) wh=1 yr=34 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Химия (id=78) wh=2 yr=68 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Казахская литература (id=105) wh=2 yr=68 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    >>> sum_weekly=32
+# 1227364 | 11 Б РУС | lang=ru | isIpo=false | incl=Общая | status=active | subj=14 | plan=952
+    Русская литература (id=106) wh=2 yr=68 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    История Казахстана (id=92) wh=1 yr=34 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Русский язык (id=3) wh=1 yr=34 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Казахский язык и литература (id=73) wh=3 yr=102 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Начальная военная подготовка (id=2850) wh=1 yr=34 score=Зачет/Незачет period=Полугодие diff=null split=false subjType=regular
+    Физика (id=77) wh=3 yr=102 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Иностранный язык (id=2851) wh=3 yr=102 score=Зачет/Незачет period=Полугодие diff=null split=false subjType=regular
+    Биология (id=79) wh=3 yr=102 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Всемирная история (id=75) wh=1 yr=34 score=Итоговая оценка period=Полугодие diff=null split=false subjType=regular
+    Геометрия (id=110) wh=2 yr=68 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Алгебра и начала анализа (id=55) wh=4 yr=136 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Информатика и искусственный интеллект (id=2844) wh=2 yr=68 score=Итоговая оценка period=Четверть diff=null split=false subjType=regular
+    Физическая культура (id=87) wh=3 yr=68 score=Зачет/Незачет period=Четверть diff=null split=false subjType=regular
+    Основы предпринимательства и бизнеса (id=115) wh=1 yr=0 score=Итоговая оценка period=Полугодие diff=null split=false subjType=regular
+    >>> sum_weekly=30

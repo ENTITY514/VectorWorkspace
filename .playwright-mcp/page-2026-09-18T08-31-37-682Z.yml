@@ -1,0 +1,164 @@
+- generic [active] [ref=f13e1]:
+  - generic [ref=f13e8]:
+    - banner [ref=f13e9]:
+      - generic [ref=f13e12]:
+        - generic [ref=f13e13] [cursor=pointer]
+        - generic [ref=f13e19] [cursor=pointer]
+        - generic [ref=f13e22] [cursor=pointer]: Русский
+        - generic [ref=f13e29] [cursor=pointer]: МП
+      - list [ref=f13e378]:
+        - listitem [ref=f13e379]:
+          - link "Программы обучения" [ref=f13e380] [cursor=pointer]:
+            - /url: /2026/edu-prog
+        - listitem [ref=f13e383]: 1 А ҚАЗ
+    - complementary [ref=f13e45]:
+      - generic [ref=f13e46]:
+        - button [ref=f13e47] [cursor=pointer]
+        - img "BilimClass logotype" [ref=f13e51]
+      - generic [ref=f13e54]:
+        - generic [ref=f13e55]: BilimClass
+        - generic [ref=f13e63]: Для учителя
+        - generic [ref=f13e71]:
+          - generic [ref=f13e72] [cursor=pointer]: Управление школой
+          - generic [ref=f13e79]:
+            - link "Ученики и классы" [ref=f13e84] [cursor=pointer]:
+              - /url: /2026/backoffice/groups
+            - link "Алфавитная книга" [ref=f13e90] [cursor=pointer]:
+              - /url: /2026/backoffice/alphabet-book
+            - link "Учителя и персонал" [ref=f13e96] [cursor=pointer]:
+              - /url: /2026/v3/backoffice/personnel
+            - generic [ref=f13e98]: Программы обучения
+            - link "Расписание классов" [ref=f13e107] [cursor=pointer]:
+              - /url: /2026/v3/backoffice/schedules
+            - link "Конструктор расписания" [ref=f13e113] [cursor=pointer]:
+              - /url: /schedule-generator
+            - link "Дополнительное образование" [ref=f13e119] [cursor=pointer]:
+              - /url: /2026/additional-edu
+            - link "Настройка школы" [ref=f13e125] [cursor=pointer]:
+              - /url: /2026/backoffice/school-settings
+            - link "ВШК" [ref=f13e131] [cursor=pointer]:
+              - /url: /2026/backoffice/intraschool-control
+        - generic [ref=f13e133]: Мониторинг
+        - generic [ref=f13e141]: Отчетность
+        - generic [ref=f13e150] [cursor=pointer]:
+          - generic [ref=f13e154]: Аналитика
+          - generic [ref=f13e155]: NEW
+        - link "BilimUstaz" [ref=f13e171] [cursor=pointer]:
+          - /url: /2026/ustaz/45/1017343
+        - link "Kitap" [ref=f13e180] [cursor=pointer]:
+          - /url: /2026/kitap/45/1017343
+        - link "Новости" [ref=f13e187] [cursor=pointer]:
+          - /url: /news
+        - link "Инструкции" [ref=f13e194] [cursor=pointer]:
+          - /url: https://guide.bilimclass.kz/ru
+        - generic [ref=f13e197]: Наши продукты
+    - generic [ref=f13e385]:
+      - generic [ref=f13e386]:
+        - generic [ref=f13e387]:
+          - generic [ref=f13e388]: Уважаемый администратор!
+          - generic [ref=f13e389] [cursor=pointer]: Скрыть
+        - generic [ref=f13e393]:
+          - paragraph [ref=f13e394]: Если в вашей школе используется пятибалльная (классическая) система оценивания, спешим сообщить, что мы делаем и готовим для вас такой вид оценивания.
+          - paragraph [ref=f13e395]:
+            - strong [ref=f13e396]: Просим дождаться выхода обновления и только после этого создавать программы обучения (предметы)
+            - text: по дисциплинам с пятибалльной системой. Это позволит избежать ошибок и упростит работу.
+          - paragraph [ref=f13e397]:
+            - text: Если в этом учебном году вы планируете использовать пятибалльную систему оценивания,
+            - strong [ref=f13e398]: просим обратиться в службу поддержки
+            - text: ", чтобы"
+            - strong [ref=f13e399]: после готовности новой функции её включили для вашей школы
+            - text: .
+      - generic [ref=f13e401]:
+        - generic [ref=f13e402]: Список предметов - 1 А ҚАЗ
+        - generic [ref=f13e405]:
+          - generic [ref=f13e407]:
+            - generic [ref=f13e408]:
+              - generic [ref=f13e409] [cursor=pointer]: Инвариант
+              - generic [ref=f13e410]: Вариатив
+              - generic [ref=f13e411] [cursor=pointer]: Дополнительное
+            - paragraph [ref=f13e416]: "Часы даёт приказ, содержание определяет школа: курсы по выбору, элективные курсы, развивающие занятия."
+            - generic [ref=f13e436]:
+              - button "Добавить предмет" [ref=f13e748] [cursor=pointer]
+              - button "Архив" [ref=f13e441] [cursor=pointer]
+          - table [ref=f13e753]:
+            - rowgroup [ref=f13e754]:
+              - row [ref=f13e755]:
+                - columnheader "№" [ref=f13e756]
+                - columnheader "Название предмета" [ref=f13e757]
+                - columnheader "Тип оценивания" [ref=f13e758]
+                - columnheader "Период оценивания" [ref=f13e759]
+                - columnheader "Количество запланированных часов в неделю" [ref=f13e760]
+                - columnheader "Сложность предмета (1-11)" [ref=f13e761]
+                - columnheader "Действия" [ref=f13e762]
+            - rowgroup [ref=f13e763]:
+              - row [ref=f13e764]:
+                - cell "1" [ref=f13e765]
+                - cell "Индивидуальные и групповые развивающие занятия" [ref=f13e767]
+                - cell "Оценивание отсутствует" [ref=f13e770]
+                - cell "Четверть" [ref=f13e773]
+                - cell "1" [ref=f13e776]
+                - cell "Не указана" [ref=f13e779]
+                - cell [ref=f13e781]:
+                  - generic [ref=f13e783]:
+                    - button [ref=f13e785] [cursor=pointer]
+                    - button [ref=f13e789] [cursor=pointer]
+                    - button [ref=f13e793] [cursor=pointer]
+                    - button [ref=f13e796] [cursor=pointer]
+    - generic [ref=f13e316]:
+      - generic [ref=f13e317]:
+        - img "BilimClass Logotype" [ref=f13e318]
+        - generic [ref=f13e319]: ТОО "Bilim Land"Республика Казахстан, 010000,г. Астана, Есильский р-н
+      - generic [ref=f13e320]:
+        - generic [ref=f13e321]:
+          - generic [ref=f13e322]: О нас
+          - list [ref=f13e323]:
+            - listitem [ref=f13e324]:
+              - link "Новости" [ref=f13e325] [cursor=pointer]:
+                - /url: /news
+            - listitem [ref=f13e326]:
+              - link "Контакты" [ref=f13e327] [cursor=pointer]:
+                - /url: /support
+        - generic [ref=f13e328]:
+          - generic [ref=f13e329]: Поддержка
+          - list [ref=f13e330]:
+            - listitem [ref=f13e331]:
+              - link "База знаний" [ref=f13e332] [cursor=pointer]:
+                - /url: https://help.bilimland.kz/l_rus/knowledge_base/27748
+            - listitem [ref=f13e333]:
+              - link "Пользовательское соглашение" [ref=f13e334] [cursor=pointer]:
+                - /url: https://bilimland.kz/ru/agreement
+            - listitem [ref=f13e335]:
+              - link "Страница благодарности" [ref=f13e336] [cursor=pointer]:
+                - /url: https://guide.bilimclass.kz/thank-you-page
+            - listitem [ref=f13e337]:
+              - link "bilimclass@bilimland.com" [ref=f13e338] [cursor=pointer]:
+                - /url: mailto:bilimclass@bilimland.com
+      - generic [ref=f13e339]:
+        - generic [ref=f13e340]: Социальные сети
+        - list [ref=f13e341]:
+          - listitem [ref=f13e342]:
+            - link [ref=f13e343] [cursor=pointer]:
+              - /url: https://www.youtube.com/@BilimClass/videos
+          - listitem [ref=f13e347]:
+            - link [ref=f13e348] [cursor=pointer]:
+              - /url: https://www.instagram.com/bilimclass.kz
+          - listitem [ref=f13e357]:
+            - link [ref=f13e358] [cursor=pointer]:
+              - /url: https://t.me/BilimClassHelpBot
+          - listitem [ref=f13e362]:
+            - link [ref=f13e363] [cursor=pointer]:
+              - /url: https://api.whatsapp.com/send/?phone=77079449594
+    - link [ref=f13e744] [cursor=pointer]:
+      - /url: https://zero.kz/?s=72943
+      - img "ZERO.kz" [ref=f13e745]
+    - button
+  - generic:
+    - main:
+      - paragraph
+      - strong
+      - emphasis
+      - heading [level=1]
+      - heading [level=2]
+      - heading [level=3]
+      - heading [level=4]
+  - button "Поддержка BilimClass" [ref=f13e375] [cursor=pointer]

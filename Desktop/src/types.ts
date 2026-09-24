@@ -140,29 +140,167 @@ export interface Task {
   skills: string;
 }
 
-export interface KspStages {
-  stage: string;
-  time: string;
-  teacher: string;
-  student: string;
-  assessment: string;
-  resources: string;
+export type KspStatus = "draft" | "ready" | "approved" | "conducted" | "archived";
+export type KspStageType =
+  | "greeting"
+  | "warmup"
+  | "actualization"
+  | "theory"
+  | "practice"
+  | "formative_assessment"
+  | "sor"
+  | "soch"
+  | "homework"
+  | "reflection"
+  | "physical_minute";
+export type KspAssessmentMode = "none" | "formative" | "summative";
+export type KspIssueLevel = "blocking" | "warning" | "hint";
+
+export interface KspLearningObjective {
+  code: string;
+  text: string;
 }
 
-export interface Ksp {
-  id: string;
-  lessonId: string;
-  teacherName: string;
-  className: string;
-  date: string;
+export interface KspLessonGoals {
+  all: string;
+  most: string;
+  some: string;
+}
+
+export interface KspValuesComponent {
+  valueIds: string[];
+  text: string;
+}
+
+export interface KspHeader {
+  section: string;
   topic: string;
-  learningGoal: string;
-  lessonGoals: string[];
-  valueAspects: string;
-  linkPrev: string;
-  linkNext: string;
-  linkedSor: string;
-  stages: KspStages[];
+  learningObjectives: KspLearningObjective[];
+  plannedDate: string | null;
+  className: string;
+  teacherName: string;
+  lessonGoals: KspLessonGoals;
+  valuesComponent: KspValuesComponent;
+  successCriteria: string[];
+}
+
+export interface KspResource {
+  kind: string;
+  display: string;
+}
+
+export interface KspDescriptor {
+  text: string;
+  points: number | null;
+}
+
+export interface KspStageAssessment {
+  mode: KspAssessmentMode;
+  descriptors: KspDescriptor[];
+  maxPoints: number | null;
+  feedbackMethod: string;
+}
+
+export interface KspStage {
+  id: string;
+  type: KspStageType;
+  order: number;
+  durationMinutes: number;
+  teacherActions: string;
+  studentActions: string;
+  resources: KspResource[];
+  assessment: KspStageAssessment;
+}
+
+export interface KspHomework {
+  text: string;
+  checkMethod: string;
+  isDifferentiated: boolean;
+}
+
+export interface KspContent {
+  schemaVersion: number;
+  lessonDuration: number;
+  header: KspHeader;
+  stages: KspStage[];
+  homework: KspHomework;
+}
+
+export interface KspDocument {
+  id: string;
+  ktpLessonId: string;
+  ktpPlanId: string;
+  teacherId: string;
+  className: string;
+  status: KspStatus;
+  language: string;
+  schemaVersion: number;
+  isApproved: boolean;
+  content: KspContent;
+  createdAt: string;
+  updatedAt: string;
+}
+
+export interface KspValidationIssue {
+  code: string;
+  level: KspIssueLevel;
+  message: string;
+  stageId: string | null;
+}
+
+export interface KspValidationReport {
+  issues: KspValidationIssue[];
+  totalMinutes: number;
+  lessonDuration: number;
+  canMarkReady: boolean;
+}
+
+export interface KspBundle {
+  document: KspDocument;
+  report: KspValidationReport;
+}
+
+export interface KspCard {
+  id: string;
+  ktpLessonId: string;
+  ktpPlanId: string;
+  subjectId: string;
+  grade: number;
+  language: string;
+  academicYear: string;
+  topic: string;
+  section: string;
+  className: string;
+  status: KspStatus;
+  plannedDate: string | null;
+  lessonType: string;
+  globalIndex: number;
+  updatedAt: string;
+}
+
+export interface KspLessonOffer {
+  lessonId: string;
+  planId: string;
+  subjectId: string;
+  grade: number;
+  language: string;
+  academicYear: string;
+  topicTitle: string;
+  sectionName: string;
+  lessonType: string;
+  plannedDate: string | null;
+  globalIndex: number;
+  isCancelled: number;
+  objectivesJson: string;
+  hasKsp: number;
+  kspId: string | null;
+}
+
+export interface ValueComponent {
+  id: string;
+  code: string;
+  titleRu: string;
+  titleKk: string;
 }
 
 export interface SorResultItem {

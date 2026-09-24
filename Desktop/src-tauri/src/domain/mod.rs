@@ -4,6 +4,7 @@
 pub mod ids;
 pub mod identity;
 pub mod invariants;
+pub mod ksp;
 pub mod ktp;
 pub mod rk_calendar;
 pub mod schedule;

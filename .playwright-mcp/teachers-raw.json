@@ -1,0 +1,4356 @@
+{
+  "schoolId": 1017343,
+  "eduYear": 2026,
+  "groupsStudents": 20,
+  "groups": {
+    "1226999": {
+      "groupId": 1226999,
+      "groupName": "1А",
+      "parallel": 1,
+      "language": "kz",
+      "subgroupUuid": null,
+      "subgroupName": null
+    },
+    "1227016": {
+      "groupId": 1227016,
+      "groupName": "1Б",
+      "parallel": 1,
+      "language": "ru",
+      "subgroupUuid": null,
+      "subgroupName": null
+    },
+    "1227027": {
+      "groupId": 1227027,
+      "groupName": "2А",
+      "parallel": 2,
+      "language": "kz",
+      "subgroupUuid": null,
+      "subgroupName": null
+    },
+    "1227058": {
+      "groupId": 1227058,
+      "groupName": "2Б",
+      "parallel": 2,
+      "language": "ru",
+      "subgroupUuid": null,
+      "subgroupName": null
+    },
+    "1227129": {
+      "groupId": 1227129,
+      "groupName": "4А",
+      "parallel": 4,
+      "language": "kz",
+      "subgroupUuid": null,
+      "subgroupName": null
+    },
+    "1227135": {
+      "groupId": 1227135,
+      "groupName": "4Б",
+      "parallel": 4,
+      "language": "ru",
+      "subgroupUuid": null,
+      "subgroupName": null
+    },
+    "1227142": {
+      "groupId": 1227142,
+      "groupName": "5А",
+      "parallel": 5,
+      "language": "kz",
+      "subgroupUuid": null,
+      "subgroupName": null
+    },
+    "1227148": {
+      "groupId": 1227148,
+      "groupName": "5Б",
+      "parallel": 5,
+      "language": "ru",
+      "subgroupUuid": "2d565baa-15bf-41fb-89be-586a28c8e6b2",
+      "subgroupName": "Мальчики",
+      "isFrozen": false
+    },
+    "1227153": {
+      "groupId": 1227153,
+      "groupName": "6А",
+      "parallel": 6,
+      "language": "kz",
+      "subgroupUuid": null,
+      "subgroupName": null
+    },
+    "1227159": {
+      "groupId": 1227159,
+      "groupName": "6Б",
+      "parallel": 6,
+      "language": "ru",
+      "subgroupUuid": "86e4088c-e5cd-4a3b-8492-ab57a512078b",
+      "subgroupName": "Мальчики",
+      "isFrozen": false
+    },
+    "1227169": {
+      "groupId": 1227169,
+      "groupName": "7А",
+      "parallel": 7,
+      "language": "ru",
+      "subgroupUuid": "b6b26f3f-b66f-43a9-93f1-dea7f474165b",
+      "subgroupName": "Мальчики",
+      "isFrozen": false
+    },
+    "1227197": {
+      "groupId": 1227197,
+      "groupName": "8А",
+      "parallel": 8,
+      "language": "ru",
+      "subgroupUuid": "76aaa73d-f2e2-4235-abc4-9db564555ec6",
+      "subgroupName": "Мальчики",
+      "isFrozen": false
+    },
+    "1227198": {
+      "groupId": 1227198,
+      "groupName": "8Б",
+      "parallel": 8,
+      "language": "ru",
+      "subgroupUuid": "1aac7fac-2ecf-4e00-b48c-ad87d3789417",
+      "subgroupName": "Мальчики",
+      "isFrozen": false
+    },
+    "1227215": {
+      "groupId": 1227215,
+      "groupName": "8Ә",
+      "parallel": 8,
+      "language": "kz",
+      "subgroupUuid": null,
+      "subgroupName": null
+    },
+    "1227232": {
+      "groupId": 1227232,
+      "groupName": "9Б",
+      "parallel": 9,
+      "language": "ru",
+      "subgroupUuid": "17d11551-ca22-422a-9178-53b90f39b5b8",
+      "subgroupName": "Мальчики",
+      "isFrozen": false
+    },
+    "1227253": {
+      "groupId": 1227253,
+      "groupName": "10A",
+      "parallel": 10,
+      "language": "ru",
+      "subgroupUuid": null,
+      "subgroupName": null
+    },
+    "1227294": {
+      "groupId": 1227294,
+      "groupName": "11А",
+      "parallel": 11,
+      "language": "kz",
+      "subgroupUuid": null,
+      "subgroupName": null
+    },
+    "1227364": {
+      "groupId": 1227364,
+      "groupName": "11Б",
+      "parallel": 11,
+      "language": "ru",
+      "subgroupUuid": null,
+      "subgroupName": null
+    },
+    "1326631": {
+      "groupId": 1326631,
+      "groupName": "3А",
+      "parallel": 3,
+      "language": "ru",
+      "subgroupUuid": null,
+      "subgroupName": null
+    },
+    "1366034": {
+      "groupId": 1366034,
+      "groupName": "6В",
+      "parallel": 6,
+      "language": "ru",
+      "subgroupUuid": null,
+      "subgroupName": null
+    }
+  },
+  "teachers": [
+    {
+      "id": 1852233,
+      "fio": "Мельников Павел Викторович",
+      "position": "директор",
+      "languages": [
+        "ru"
+      ],
+      "maxWeeklyHours": 9,
+      "subjects": [
+        {
+          "subjectId": 87,
+          "name": "Физическая культура",
+          "weeklyHours": null,
+          "groups": []
+        },
+        {
+          "subjectId": 1986,
+          "name": "Физическая культура: спортивные игры",
+          "weeklyHours": null,
+          "groups": []
+        }
+      ],
+      "timeSchemes": [
+        {
+          "uuid": "65001ebf-fc7b-45bd-b3e1-6a5eddc33112",
+          "name": "1 четверть"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": 1852744,
+      "fio": "Квашнина Елена Витальевна",
+      "position": "заведующий/администратор",
+      "languages": [
+        "ru"
+      ],
+      "maxWeeklyHours": 18.5,
+      "subjects": [
+        {
+          "subjectId": 76,
+          "name": "Математика",
+          "weeklyHours": 4,
+          "groups": [
+            {
+              "groupId": 1227058,
+              "subgroupUuid": null,
+              "className": "2Б",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 2
+            }
+          ]
+        },
+        {
+          "subjectId": 47,
+          "name": "Литературное чтение",
+          "weeklyHours": 3,
+          "groups": [
+            {
+              "groupId": 1227058,
+              "subgroupUuid": null,
+              "className": "2Б",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 2
+            }
+          ]
+        },
+        {
+          "subjectId": 359,
+          "name": "Изобразительное искусство",
+          "weeklyHours": 0.5,
+          "groups": [
+            {
+              "groupId": 1227016,
+              "subgroupUuid": null,
+              "className": "1Б",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 1
+            }
+          ]
+        },
+        {
+          "subjectId": 2132,
+          "name": "Индивидуальные и групповые развивающие занятия",
+          "weeklyHours": 1,
+          "groups": [
+            {
+              "groupId": 1227058,
+              "subgroupUuid": null,
+              "className": "2Б",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 2
+            }
+          ]
+        },
+        {
+          "subjectId": 771,
+          "name": "Сенсорное развитие",
+          "weeklyHours": 2,
+          "groups": [
+            {
+              "groupId": 1227016,
+              "subgroupUuid": null,
+              "className": "1Б",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 1
+            }
+          ]
+        },
+        {
+          "subjectId": 2332,
+          "name": "Предметно-практическая деятельность",
+          "weeklyHours": 2,
+          "groups": [
+            {
+              "groupId": 1227016,
+              "subgroupUuid": null,
+              "className": "1Б",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 1
+            }
+          ]
+        },
+        {
+          "subjectId": 3,
+          "name": "Русский язык",
+          "weeklyHours": 4,
+          "groups": [
+            {
+              "groupId": 1227058,
+              "subgroupUuid": null,
+              "className": "2Б",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 2
+            }
+          ]
+        },
+        {
+          "subjectId": 24,
+          "name": "Естествознание",
+          "weeklyHours": 1,
+          "groups": [
+            {
+              "groupId": 1227058,
+              "subgroupUuid": null,
+              "className": "2Б",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 2
+            }
+          ]
+        },
+        {
+          "subjectId": 111,
+          "name": "Познание мира",
+          "weeklyHours": 1,
+          "groups": [
+            {
+              "groupId": 1227058,
+              "subgroupUuid": null,
+              "className": "2Б",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 2
+            }
+          ]
+        }
+      ],
+      "timeSchemes": [
+        {
+          "uuid": "65001ebf-fc7b-45bd-b3e1-6a5eddc33112",
+          "name": "1 четверть"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": 1884817,
+      "fio": "Бабич Иман Денисович",
+      "position": "учитель",
+      "languages": [
+        "ru"
+      ],
+      "maxWeeklyHours": 21,
+      "subjects": [
+        {
+          "subjectId": 109,
+          "name": "Алгебра",
+          "weeklyHours": 9,
+          "groups": [
+            {
+              "groupId": 1227197,
+              "subgroupUuid": null,
+              "className": "8А",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 8
+            },
+            {
+              "groupId": 1227198,
+              "subgroupUuid": null,
+              "className": "8Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 8
+            },
+            {
+              "groupId": 1227232,
+              "subgroupUuid": null,
+              "className": "9Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 9
+            }
+          ]
+        },
+        {
+          "subjectId": 55,
+          "name": "Алгебра и начала анализа",
+          "weeklyHours": 4,
+          "groups": [
+            {
+              "groupId": 1227253,
+              "subgroupUuid": null,
+              "className": "10A",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 10
+            }
+          ]
+        },
+        {
+          "subjectId": 110,
+          "name": "Геометрия",
+          "weeklyHours": 8,
+          "groups": [
+            {
+              "groupId": 1227197,
+              "subgroupUuid": null,
+              "className": "8А",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 8
+            },
+            {
+              "groupId": 1227198,
+              "subgroupUuid": null,
+              "className": "8Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 8
+            },
+            {
+              "groupId": 1227232,
+              "subgroupUuid": null,
+              "className": "9Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 9
+            },
+            {
+              "groupId": 1227253,
+              "subgroupUuid": null,
+              "className": "10A",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 10
+            }
+          ]
+        }
+      ],
+      "timeSchemes": [
+        {
+          "uuid": "65001ebf-fc7b-45bd-b3e1-6a5eddc33112",
+          "name": "1 четверть"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": 1884818,
+      "fio": "Ізбасты Махамбет Жұматайұлы",
+      "position": "учитель",
+      "languages": [
+        "kz"
+      ],
+      "maxWeeklyHours": 21,
+      "subjects": [
+        {
+          "subjectId": 76,
+          "name": "Математика",
+          "weeklyHours": 10,
+          "groups": [
+            {
+              "groupId": 1227142,
+              "subgroupUuid": null,
+              "className": "5А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 5
+            },
+            {
+              "groupId": 1227153,
+              "subgroupUuid": null,
+              "className": "6А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 6
+            }
+          ]
+        },
+        {
+          "subjectId": 109,
+          "name": "Алгебра",
+          "weeklyHours": 3,
+          "groups": [
+            {
+              "groupId": 1227215,
+              "subgroupUuid": null,
+              "className": "8Ә",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 8
+            }
+          ]
+        },
+        {
+          "subjectId": 55,
+          "name": "Алгебра и начала анализа",
+          "weeklyHours": 4,
+          "groups": [
+            {
+              "groupId": 1227294,
+              "subgroupUuid": null,
+              "className": "11А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 11
+            }
+          ]
+        },
+        {
+          "subjectId": 110,
+          "name": "Геометрия",
+          "weeklyHours": 4,
+          "groups": [
+            {
+              "groupId": 1227215,
+              "subgroupUuid": null,
+              "className": "8Ә",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 8
+            },
+            {
+              "groupId": 1227294,
+              "subgroupUuid": null,
+              "className": "11А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 11
+            }
+          ]
+        }
+      ],
+      "timeSchemes": [
+        {
+          "uuid": "65001ebf-fc7b-45bd-b3e1-6a5eddc33112",
+          "name": "1 четверть"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": 1884819,
+      "fio": "Жекеева Нурсулу Абуовна",
+      "position": "учитель",
+      "languages": [
+        "kz"
+      ],
+      "maxWeeklyHours": 24,
+      "subjects": [
+        {
+          "subjectId": 76,
+          "name": "Математика",
+          "weeklyHours": 8,
+          "groups": [
+            {
+              "groupId": 1226999,
+              "subgroupUuid": null,
+              "className": "1А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 1
+            },
+            {
+              "groupId": 1227027,
+              "subgroupUuid": null,
+              "className": "2А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 2
+            }
+          ]
+        },
+        {
+          "subjectId": 24,
+          "name": "Естествознание",
+          "weeklyHours": 2,
+          "groups": [
+            {
+              "groupId": 1226999,
+              "subgroupUuid": null,
+              "className": "1А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 1
+            },
+            {
+              "groupId": 1227027,
+              "subgroupUuid": null,
+              "className": "2А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 2
+            }
+          ]
+        },
+        {
+          "subjectId": 111,
+          "name": "Познание мира",
+          "weeklyHours": 1,
+          "groups": [
+            {
+              "groupId": 1226999,
+              "subgroupUuid": null,
+              "className": "1А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 1
+            }
+          ]
+        },
+        {
+          "subjectId": 2,
+          "name": "Казахский язык",
+          "weeklyHours": 4,
+          "groups": [
+            {
+              "groupId": 1227027,
+              "subgroupUuid": null,
+              "className": "2А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 2
+            }
+          ]
+        },
+        {
+          "subjectId": 2567,
+          "name": "Индивидуально-развивающие занятия",
+          "weeklyHours": 1,
+          "groups": [
+            {
+              "groupId": 1226999,
+              "subgroupUuid": null,
+              "className": "1А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 1
+            }
+          ]
+        },
+        {
+          "subjectId": 330,
+          "name": "Обучение грамоте",
+          "weeklyHours": 6,
+          "groups": [
+            {
+              "groupId": 1226999,
+              "subgroupUuid": null,
+              "className": "1А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 1
+            }
+          ]
+        },
+        {
+          "subjectId": 358,
+          "name": "Трудовое обучение",
+          "weeklyHours": 1,
+          "groups": [
+            {
+              "groupId": 1226999,
+              "subgroupUuid": null,
+              "className": "1А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 1
+            }
+          ]
+        },
+        {
+          "subjectId": 359,
+          "name": "Изобразительное искусство",
+          "weeklyHours": 1,
+          "groups": [
+            {
+              "groupId": 1226999,
+              "subgroupUuid": null,
+              "className": "1А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 1
+            }
+          ]
+        }
+      ],
+      "timeSchemes": [
+        {
+          "uuid": "65001ebf-fc7b-45bd-b3e1-6a5eddc33112",
+          "name": "1 четверть"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": 1884820,
+      "fio": "Дмитриев Евгений Владимирович",
+      "position": "учитель",
+      "languages": [
+        "ru"
+      ],
+      "maxWeeklyHours": 24,
+      "subjects": [
+        {
+          "subjectId": 106,
+          "name": "Русская литература",
+          "weeklyHours": 13,
+          "groups": [
+            {
+              "groupId": 1227197,
+              "subgroupUuid": null,
+              "className": "8А",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 8
+            },
+            {
+              "groupId": 1227198,
+              "subgroupUuid": null,
+              "className": "8Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 8
+            },
+            {
+              "groupId": 1227253,
+              "subgroupUuid": null,
+              "className": "10A",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 10
+            },
+            {
+              "groupId": 1227232,
+              "subgroupUuid": null,
+              "className": "9Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 9
+            },
+            {
+              "groupId": 1227364,
+              "subgroupUuid": null,
+              "className": "11Б",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 11
+            }
+          ]
+        },
+        {
+          "subjectId": 3,
+          "name": "Русский язык",
+          "weeklyHours": 11,
+          "groups": [
+            {
+              "groupId": 1227169,
+              "subgroupUuid": null,
+              "className": "7А",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 7
+            },
+            {
+              "groupId": 1227197,
+              "subgroupUuid": null,
+              "className": "8А",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 8
+            },
+            {
+              "groupId": 1227198,
+              "subgroupUuid": null,
+              "className": "8Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 8
+            },
+            {
+              "groupId": 1227232,
+              "subgroupUuid": null,
+              "className": "9Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 9
+            },
+            {
+              "groupId": 1227253,
+              "subgroupUuid": null,
+              "className": "10A",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 10
+            },
+            {
+              "groupId": 1227364,
+              "subgroupUuid": null,
+              "className": "11Б",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 11
+            }
+          ]
+        }
+      ],
+      "timeSchemes": [
+        {
+          "uuid": "65001ebf-fc7b-45bd-b3e1-6a5eddc33112",
+          "name": "1 четверть"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": 1884821,
+      "fio": "Темерканова Олеся Владимировна",
+      "position": "учитель",
+      "languages": [
+        "ru"
+      ],
+      "maxWeeklyHours": 21,
+      "subjects": [
+        {
+          "subjectId": 3,
+          "name": "Русский язык",
+          "weeklyHours": 7,
+          "groups": [
+            {
+              "groupId": 1326631,
+              "subgroupUuid": null,
+              "className": "3А",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 3
+            },
+            {
+              "groupId": 1227159,
+              "subgroupUuid": null,
+              "className": "6Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 6
+            }
+          ]
+        },
+        {
+          "subjectId": 106,
+          "name": "Русская литература",
+          "weeklyHours": 2,
+          "groups": [
+            {
+              "groupId": 1227159,
+              "subgroupUuid": null,
+              "className": "6Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 6
+            }
+          ]
+        },
+        {
+          "subjectId": 47,
+          "name": "Литературное чтение",
+          "weeklyHours": 3,
+          "groups": [
+            {
+              "groupId": 1326631,
+              "subgroupUuid": null,
+              "className": "3А",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 3
+            }
+          ]
+        },
+        {
+          "subjectId": 76,
+          "name": "Математика",
+          "weeklyHours": 5,
+          "groups": [
+            {
+              "groupId": 1326631,
+              "subgroupUuid": null,
+              "className": "3А",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 3
+            }
+          ]
+        },
+        {
+          "subjectId": 24,
+          "name": "Естествознание",
+          "weeklyHours": 1,
+          "groups": [
+            {
+              "groupId": 1326631,
+              "subgroupUuid": null,
+              "className": "3А",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 3
+            }
+          ]
+        },
+        {
+          "subjectId": 111,
+          "name": "Познание мира",
+          "weeklyHours": 1,
+          "groups": [
+            {
+              "groupId": 1326631,
+              "subgroupUuid": null,
+              "className": "3А",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 3
+            }
+          ]
+        },
+        {
+          "subjectId": 358,
+          "name": "Трудовое обучение",
+          "weeklyHours": 1,
+          "groups": [
+            {
+              "groupId": 1326631,
+              "subgroupUuid": null,
+              "className": "3А",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 3
+            }
+          ]
+        },
+        {
+          "subjectId": 359,
+          "name": "Изобразительное искусство",
+          "weeklyHours": 1,
+          "groups": [
+            {
+              "groupId": 1326631,
+              "subgroupUuid": null,
+              "className": "3А",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 3
+            }
+          ]
+        }
+      ],
+      "timeSchemes": [
+        {
+          "uuid": "65001ebf-fc7b-45bd-b3e1-6a5eddc33112",
+          "name": "1 четверть"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": 1884822,
+      "fio": "Квашнина Елена Витальевна",
+      "position": "учитель",
+      "languages": [
+        "ru"
+      ],
+      "maxWeeklyHours": 12,
+      "subjects": [
+        {
+          "subjectId": 47,
+          "name": "Литературное чтение",
+          "weeklyHours": 3,
+          "groups": [
+            {
+              "groupId": 1227058,
+              "subgroupUuid": null,
+              "className": "2Б",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 2
+            }
+          ]
+        },
+        {
+          "subjectId": 76,
+          "name": "Математика",
+          "weeklyHours": 4,
+          "groups": [
+            {
+              "groupId": 1227058,
+              "subgroupUuid": null,
+              "className": "2Б",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 2
+            }
+          ]
+        },
+        {
+          "subjectId": 359,
+          "name": "Изобразительное искусство",
+          "weeklyHours": 1,
+          "groups": [
+            {
+              "groupId": 1227016,
+              "subgroupUuid": null,
+              "className": "1Б",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 1
+            }
+          ]
+        },
+        {
+          "subjectId": 2332,
+          "name": "Предметно-практическая деятельность",
+          "weeklyHours": 1,
+          "groups": [
+            {
+              "groupId": 1227016,
+              "subgroupUuid": null,
+              "className": "1Б",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 1
+            }
+          ]
+        },
+        {
+          "subjectId": 771,
+          "name": "Сенсорное развитие",
+          "weeklyHours": 2,
+          "groups": [
+            {
+              "groupId": 1227016,
+              "subgroupUuid": null,
+              "className": "1Б",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 1
+            }
+          ]
+        },
+        {
+          "subjectId": 2567,
+          "name": "Индивидуально-развивающие занятия",
+          "weeklyHours": 1,
+          "groups": [
+            {
+              "groupId": 1227058,
+              "subgroupUuid": null,
+              "className": "2Б",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 2
+            }
+          ]
+        }
+      ],
+      "timeSchemes": [
+        {
+          "uuid": "65001ebf-fc7b-45bd-b3e1-6a5eddc33112",
+          "name": "1 четверть"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": 1884823,
+      "fio": "Асаева Жанар Хайруллаевна",
+      "position": "учитель",
+      "languages": [
+        "kz",
+        "ru"
+      ],
+      "maxWeeklyHours": 24,
+      "subjects": [
+        {
+          "subjectId": 2,
+          "name": "Казахский язык",
+          "weeklyHours": 11,
+          "groups": [
+            {
+              "groupId": 1227058,
+              "subgroupUuid": null,
+              "className": "2Б",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 2
+            },
+            {
+              "groupId": 1227135,
+              "subgroupUuid": null,
+              "className": "4Б",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 4
+            },
+            {
+              "groupId": 1227153,
+              "subgroupUuid": null,
+              "className": "6А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 6
+            },
+            {
+              "groupId": 1227198,
+              "subgroupUuid": null,
+              "className": "8Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 8
+            }
+          ]
+        },
+        {
+          "subjectId": 73,
+          "name": "Казахский язык и литература",
+          "weeklyHours": 11,
+          "groups": [
+            {
+              "groupId": 1227198,
+              "subgroupUuid": null,
+              "className": "8Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 8
+            },
+            {
+              "groupId": 1227232,
+              "subgroupUuid": "4e9a7dc0-5f17-44c1-9313-6558eebdcdf2",
+              "className": "9Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 9
+            },
+            {
+              "groupId": 1227364,
+              "subgroupUuid": null,
+              "className": "11Б",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 11
+            }
+          ]
+        },
+        {
+          "subjectId": 105,
+          "name": "Казахская литература",
+          "weeklyHours": 2,
+          "groups": [
+            {
+              "groupId": 1227153,
+              "subgroupUuid": null,
+              "className": "6А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 6
+            }
+          ]
+        }
+      ],
+      "timeSchemes": [
+        {
+          "uuid": "65001ebf-fc7b-45bd-b3e1-6a5eddc33112",
+          "name": "1 четверть"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": 1884824,
+      "fio": "Пащенко Наталья Аркадьевна",
+      "position": "учитель",
+      "languages": [
+        "ru"
+      ],
+      "maxWeeklyHours": 16,
+      "subjects": [
+        {
+          "subjectId": 76,
+          "name": "Математика",
+          "weeklyHours": 7,
+          "groups": [
+            {
+              "groupId": 1227159,
+              "subgroupUuid": null,
+              "className": "6Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 6
+            },
+            {
+              "groupId": 1227198,
+              "subgroupUuid": null,
+              "className": "8Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 8
+            }
+          ]
+        },
+        {
+          "subjectId": 55,
+          "name": "Алгебра и начала анализа",
+          "weeklyHours": 5,
+          "groups": [
+            {
+              "groupId": 1227364,
+              "subgroupUuid": null,
+              "className": "11Б",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 11
+            }
+          ]
+        },
+        {
+          "subjectId": 110,
+          "name": "Геометрия",
+          "weeklyHours": 4,
+          "groups": [
+            {
+              "groupId": 1227364,
+              "subgroupUuid": null,
+              "className": "11Б",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 11
+            },
+            {
+              "groupId": 1227169,
+              "subgroupUuid": null,
+              "className": "7А",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 7
+            }
+          ]
+        }
+      ],
+      "timeSchemes": [
+        {
+          "uuid": "65001ebf-fc7b-45bd-b3e1-6a5eddc33112",
+          "name": "1 четверть"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": 1884825,
+      "fio": "Шкиря Юрий Николаевич",
+      "position": "учитель",
+      "languages": [
+        "kz",
+        "ru"
+      ],
+      "maxWeeklyHours": 9,
+      "subjects": [
+        {
+          "subjectId": 84,
+          "name": "Музыка ",
+          "weeklyHours": 9,
+          "groups": [
+            {
+              "groupId": 1226999,
+              "subgroupUuid": null,
+              "className": "1А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 1
+            },
+            {
+              "groupId": 1227016,
+              "subgroupUuid": null,
+              "className": "1Б",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 1
+            },
+            {
+              "groupId": 1227027,
+              "subgroupUuid": null,
+              "className": "2А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 2
+            },
+            {
+              "groupId": 1227058,
+              "subgroupUuid": null,
+              "className": "2Б",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 2
+            },
+            {
+              "groupId": 1326631,
+              "subgroupUuid": null,
+              "className": "3А",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 3
+            },
+            {
+              "groupId": 1227129,
+              "subgroupUuid": null,
+              "className": "4А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 4
+            },
+            {
+              "groupId": 1227135,
+              "subgroupUuid": null,
+              "className": "4Б",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 4
+            },
+            {
+              "groupId": 1227142,
+              "subgroupUuid": null,
+              "className": "5А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 5
+            },
+            {
+              "groupId": 1227148,
+              "subgroupUuid": null,
+              "className": "5Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 5
+            },
+            {
+              "groupId": 1227153,
+              "subgroupUuid": null,
+              "className": "6А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 6
+            },
+            {
+              "groupId": 1227159,
+              "subgroupUuid": null,
+              "className": "6Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 6
+            }
+          ]
+        }
+      ],
+      "timeSchemes": [
+        {
+          "uuid": "65001ebf-fc7b-45bd-b3e1-6a5eddc33112",
+          "name": "1 четверть"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": 1884826,
+      "fio": "Русина Наталья Владимировна",
+      "position": "учитель",
+      "languages": [
+        "ru"
+      ],
+      "maxWeeklyHours": 14,
+      "subjects": [
+        {
+          "subjectId": 77,
+          "name": "Физика",
+          "weeklyHours": 14,
+          "groups": [
+            {
+              "groupId": 1227169,
+              "subgroupUuid": null,
+              "className": "7А",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 7
+            },
+            {
+              "groupId": 1227197,
+              "subgroupUuid": null,
+              "className": "8А",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 8
+            },
+            {
+              "groupId": 1227198,
+              "subgroupUuid": null,
+              "className": "8Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 8
+            },
+            {
+              "groupId": 1227232,
+              "subgroupUuid": null,
+              "className": "9Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 9
+            },
+            {
+              "groupId": 1227253,
+              "subgroupUuid": null,
+              "className": "10A",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 10
+            },
+            {
+              "groupId": 1227364,
+              "subgroupUuid": null,
+              "className": "11Б",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 11
+            }
+          ]
+        }
+      ],
+      "timeSchemes": [
+        {
+          "uuid": "65001ebf-fc7b-45bd-b3e1-6a5eddc33112",
+          "name": "1 четверть"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": 1884827,
+      "fio": "Акауова Индира Нурмухановна",
+      "position": "учитель",
+      "languages": [
+        "kz",
+        "ru"
+      ],
+      "maxWeeklyHours": 24,
+      "subjects": [
+        {
+          "subjectId": 81,
+          "name": "Английский язык",
+          "weeklyHours": 24,
+          "groups": [
+            {
+              "groupId": 1326631,
+              "subgroupUuid": null,
+              "className": "3А",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 3
+            },
+            {
+              "groupId": 1227129,
+              "subgroupUuid": null,
+              "className": "4А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 4
+            },
+            {
+              "groupId": 1227135,
+              "subgroupUuid": null,
+              "className": "4Б",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 4
+            },
+            {
+              "groupId": 1227142,
+              "subgroupUuid": null,
+              "className": "5А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 5
+            },
+            {
+              "groupId": 1227153,
+              "subgroupUuid": null,
+              "className": "6А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 6
+            },
+            {
+              "groupId": 1227159,
+              "subgroupUuid": "f7de9faf-7b38-479c-8451-f4ec2b6a011f",
+              "className": "6Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 6
+            },
+            {
+              "groupId": 1227294,
+              "subgroupUuid": null,
+              "className": "11А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 11
+            },
+            {
+              "groupId": 1227364,
+              "subgroupUuid": null,
+              "className": "11Б",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 11
+            },
+            {
+              "groupId": 1227232,
+              "subgroupUuid": "97e048a5-0d66-4c7e-ac05-b47a2bb6b64b",
+              "className": "9Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 9
+            }
+          ]
+        }
+      ],
+      "timeSchemes": [
+        {
+          "uuid": "65001ebf-fc7b-45bd-b3e1-6a5eddc33112",
+          "name": "1 четверть"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": 1884828,
+      "fio": "Бедрина Мария Николаевна",
+      "position": "учитель",
+      "languages": [
+        "ru"
+      ],
+      "maxWeeklyHours": 23,
+      "subjects": [
+        {
+          "subjectId": 2843,
+          "name": "Цифровая грамотность и искусственный интеллект",
+          "weeklyHours": 3,
+          "groups": [
+            {
+              "groupId": 1227058,
+              "subgroupUuid": null,
+              "className": "2Б",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 2
+            },
+            {
+              "groupId": 1326631,
+              "subgroupUuid": null,
+              "className": "3А",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 3
+            },
+            {
+              "groupId": 1227135,
+              "subgroupUuid": null,
+              "className": "4Б",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 4
+            }
+          ]
+        },
+        {
+          "subjectId": 109,
+          "name": "Алгебра",
+          "weeklyHours": 3,
+          "groups": [
+            {
+              "groupId": 1227169,
+              "subgroupUuid": null,
+              "className": "7А",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 7
+            }
+          ]
+        },
+        {
+          "subjectId": 110,
+          "name": "Геометрия",
+          "weeklyHours": 2,
+          "groups": [
+            {
+              "groupId": 1227169,
+              "subgroupUuid": null,
+              "className": "7А",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 7
+            }
+          ]
+        },
+        {
+          "subjectId": 76,
+          "name": "Математика",
+          "weeklyHours": 5,
+          "groups": [
+            {
+              "groupId": 1227148,
+              "subgroupUuid": null,
+              "className": "5Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 5
+            }
+          ]
+        },
+        {
+          "subjectId": 2844,
+          "name": "Информатика и искусственный интеллект",
+          "weeklyHours": 10,
+          "groups": [
+            {
+              "groupId": 1227148,
+              "subgroupUuid": null,
+              "className": "5Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 5
+            },
+            {
+              "groupId": 1227159,
+              "subgroupUuid": null,
+              "className": "6Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 6
+            },
+            {
+              "groupId": 1227169,
+              "subgroupUuid": null,
+              "className": "7А",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 7
+            },
+            {
+              "groupId": 1227197,
+              "subgroupUuid": null,
+              "className": "8А",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 8
+            },
+            {
+              "groupId": 1227198,
+              "subgroupUuid": null,
+              "className": "8Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 8
+            },
+            {
+              "groupId": 1227232,
+              "subgroupUuid": null,
+              "className": "9Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 9
+            },
+            {
+              "groupId": 1227253,
+              "subgroupUuid": null,
+              "className": "10A",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 10
+            },
+            {
+              "groupId": 1227364,
+              "subgroupUuid": null,
+              "className": "11Б",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 11
+            }
+          ]
+        }
+      ],
+      "timeSchemes": [
+        {
+          "uuid": "65001ebf-fc7b-45bd-b3e1-6a5eddc33112",
+          "name": "1 четверть"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": 1884829,
+      "fio": "Алекпарова Алия Жумабаевна",
+      "position": "учитель",
+      "languages": [
+        "kz",
+        "ru"
+      ],
+      "maxWeeklyHours": 24,
+      "subjects": [
+        {
+          "subjectId": 81,
+          "name": "Английский язык",
+          "weeklyHours": 24,
+          "groups": [
+            {
+              "groupId": 1227253,
+              "subgroupUuid": null,
+              "className": "10A",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 10
+            },
+            {
+              "groupId": 1227232,
+              "subgroupUuid": "860709b3-e46f-436d-b1c9-f713e21f7937",
+              "className": "9Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 9
+            },
+            {
+              "groupId": 1227198,
+              "subgroupUuid": null,
+              "className": "8Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 8
+            },
+            {
+              "groupId": 1227197,
+              "subgroupUuid": null,
+              "className": "8А",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 8
+            },
+            {
+              "groupId": 1227215,
+              "subgroupUuid": null,
+              "className": "8Ә",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 8
+            },
+            {
+              "groupId": 1227169,
+              "subgroupUuid": null,
+              "className": "7А",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 7
+            },
+            {
+              "groupId": 1227159,
+              "subgroupUuid": "92c4950a-37eb-4653-a63a-c0ca1ee3b649",
+              "className": "6Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 6
+            },
+            {
+              "groupId": 1227148,
+              "subgroupUuid": null,
+              "className": "5Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 5
+            }
+          ]
+        }
+      ],
+      "timeSchemes": [
+        {
+          "uuid": "65001ebf-fc7b-45bd-b3e1-6a5eddc33112",
+          "name": "1 четверть"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": 1884830,
+      "fio": "Ильясова Алмагуль Бахтиаровна",
+      "position": "учитель",
+      "languages": [
+        "kz",
+        "ru"
+      ],
+      "maxWeeklyHours": 24,
+      "subjects": [
+        {
+          "subjectId": 2,
+          "name": "Казахский язык",
+          "weeklyHours": 4,
+          "groups": [
+            {
+              "groupId": 1227294,
+              "subgroupUuid": null,
+              "className": "11А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 11
+            },
+            {
+              "groupId": 1227142,
+              "subgroupUuid": null,
+              "className": "5А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 5
+            }
+          ]
+        },
+        {
+          "subjectId": 105,
+          "name": "Казахская литература",
+          "weeklyHours": 4,
+          "groups": [
+            {
+              "groupId": 1227294,
+              "subgroupUuid": null,
+              "className": "11А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 11
+            },
+            {
+              "groupId": 1227142,
+              "subgroupUuid": null,
+              "className": "5А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 5
+            }
+          ]
+        },
+        {
+          "subjectId": 73,
+          "name": "Казахский язык и литература",
+          "weeklyHours": 16,
+          "groups": [
+            {
+              "groupId": 1227253,
+              "subgroupUuid": null,
+              "className": "10A",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 10
+            },
+            {
+              "groupId": 1227232,
+              "subgroupUuid": "256d8145-fc75-45d3-b65f-9e16a68343ef",
+              "className": "9Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 9
+            },
+            {
+              "groupId": 1227159,
+              "subgroupUuid": "bd4bc144-d91a-4ba3-8de5-8a3cca97dbd9",
+              "className": "6Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 6
+            },
+            {
+              "groupId": 1227148,
+              "subgroupUuid": null,
+              "className": "5Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 5
+            }
+          ]
+        }
+      ],
+      "timeSchemes": [
+        {
+          "uuid": "65001ebf-fc7b-45bd-b3e1-6a5eddc33112",
+          "name": "1 четверть"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": 1884831,
+      "fio": "Бучкова Ирина Олеговна",
+      "position": "учитель",
+      "languages": [
+        "ru"
+      ],
+      "maxWeeklyHours": 10,
+      "subjects": [
+        {
+          "subjectId": 75,
+          "name": "Всемирная история",
+          "weeklyHours": 3,
+          "groups": [
+            {
+              "groupId": 1227148,
+              "subgroupUuid": null,
+              "className": "5Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 5
+            },
+            {
+              "groupId": 1227253,
+              "subgroupUuid": null,
+              "className": "10A",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 10
+            },
+            {
+              "groupId": 1227197,
+              "subgroupUuid": null,
+              "className": "8А",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 8
+            }
+          ]
+        },
+        {
+          "subjectId": 92,
+          "name": "История Казахстана",
+          "weeklyHours": 6,
+          "groups": [
+            {
+              "groupId": 1227148,
+              "subgroupUuid": null,
+              "className": "5Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 5
+            },
+            {
+              "groupId": 1227253,
+              "subgroupUuid": null,
+              "className": "10A",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 10
+            },
+            {
+              "groupId": 1227197,
+              "subgroupUuid": null,
+              "className": "8А",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 8
+            }
+          ]
+        },
+        {
+          "subjectId": 113,
+          "name": "Основы права",
+          "weeklyHours": 1,
+          "groups": [
+            {
+              "groupId": 1227253,
+              "subgroupUuid": null,
+              "className": "10A",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 10
+            }
+          ]
+        }
+      ],
+      "timeSchemes": [
+        {
+          "uuid": "65001ebf-fc7b-45bd-b3e1-6a5eddc33112",
+          "name": "1 четверть"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": 1884832,
+      "fio": "Кашиков Еркебулан Ермекович",
+      "position": "учитель",
+      "languages": [
+        "kz",
+        "ru"
+      ],
+      "maxWeeklyHours": 12,
+      "subjects": [
+        {
+          "subjectId": 87,
+          "name": "Физическая культура",
+          "weeklyHours": 12,
+          "groups": [
+            {
+              "groupId": 1226999,
+              "subgroupUuid": null,
+              "className": "1А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 1
+            },
+            {
+              "groupId": 1227027,
+              "subgroupUuid": null,
+              "className": "2А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 2
+            },
+            {
+              "groupId": 1227129,
+              "subgroupUuid": null,
+              "className": "4А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 4
+            },
+            {
+              "groupId": 1227142,
+              "subgroupUuid": null,
+              "className": "5А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 5
+            },
+            {
+              "groupId": 1227153,
+              "subgroupUuid": null,
+              "className": "6А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 6
+            },
+            {
+              "groupId": 1227215,
+              "subgroupUuid": null,
+              "className": "8Ә",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 8
+            },
+            {
+              "groupId": 1227294,
+              "subgroupUuid": null,
+              "className": "11А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 11
+            }
+          ]
+        }
+      ],
+      "timeSchemes": [
+        {
+          "uuid": "65001ebf-fc7b-45bd-b3e1-6a5eddc33112",
+          "name": "1 четверть"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": 1884833,
+      "fio": "Актаева Айгерим Ермеккызы",
+      "position": "учитель",
+      "languages": [
+        "kz"
+      ],
+      "maxWeeklyHours": 24,
+      "subjects": [
+        {
+          "subjectId": 358,
+          "name": "Трудовое обучение",
+          "weeklyHours": 2,
+          "groups": [
+            {
+              "groupId": 1226999,
+              "subgroupUuid": null,
+              "className": "1А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 1
+            },
+            {
+              "groupId": 1227027,
+              "subgroupUuid": null,
+              "className": "2А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 2
+            },
+            {
+              "groupId": 1227129,
+              "subgroupUuid": null,
+              "className": "4А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 4
+            }
+          ]
+        },
+        {
+          "subjectId": 359,
+          "name": "Изобразительное искусство",
+          "weeklyHours": 2,
+          "groups": [
+            {
+              "groupId": 1226999,
+              "subgroupUuid": null,
+              "className": "1А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 1
+            },
+            {
+              "groupId": 1227027,
+              "subgroupUuid": null,
+              "className": "2А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 2
+            },
+            {
+              "groupId": 1227129,
+              "subgroupUuid": null,
+              "className": "4А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 4
+            }
+          ]
+        },
+        {
+          "subjectId": 47,
+          "name": "Литературное чтение",
+          "weeklyHours": 6,
+          "groups": [
+            {
+              "groupId": 1227027,
+              "subgroupUuid": null,
+              "className": "2А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 2
+            },
+            {
+              "groupId": 1227129,
+              "subgroupUuid": null,
+              "className": "4А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 4
+            }
+          ]
+        },
+        {
+          "subjectId": 111,
+          "name": "Познание мира",
+          "weeklyHours": 2,
+          "groups": [
+            {
+              "groupId": 1227027,
+              "subgroupUuid": null,
+              "className": "2А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 2
+            },
+            {
+              "groupId": 1227129,
+              "subgroupUuid": null,
+              "className": "4А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 4
+            }
+          ]
+        },
+        {
+          "subjectId": 76,
+          "name": "Математика",
+          "weeklyHours": 5,
+          "groups": [
+            {
+              "groupId": 1227129,
+              "subgroupUuid": null,
+              "className": "4А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 4
+            }
+          ]
+        },
+        {
+          "subjectId": 2,
+          "name": "Казахский язык",
+          "weeklyHours": 4,
+          "groups": [
+            {
+              "groupId": 1227129,
+              "subgroupUuid": null,
+              "className": "4А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 4
+            }
+          ]
+        },
+        {
+          "subjectId": 24,
+          "name": "Естествознание",
+          "weeklyHours": 1,
+          "groups": [
+            {
+              "groupId": 1227129,
+              "subgroupUuid": null,
+              "className": "4А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 4
+            }
+          ]
+        },
+        {
+          "subjectId": 2160,
+          "name": "Индивидуальные и групповые развивающие занятия",
+          "weeklyHours": 2,
+          "groups": [
+            {
+              "groupId": 1227027,
+              "subgroupUuid": null,
+              "className": "2А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 2
+            },
+            {
+              "groupId": 1227129,
+              "subgroupUuid": null,
+              "className": "4А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 4
+            }
+          ]
+        }
+      ],
+      "timeSchemes": [
+        {
+          "uuid": "65001ebf-fc7b-45bd-b3e1-6a5eddc33112",
+          "name": "1 четверть"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": 1884834,
+      "fio": "Чифин Дмитрий Николаевич",
+      "position": "учитель",
+      "languages": [
+        "ru"
+      ],
+      "maxWeeklyHours": 12,
+      "subjects": [
+        {
+          "subjectId": 87,
+          "name": "Физическая культура",
+          "weeklyHours": 12,
+          "groups": [
+            {
+              "groupId": 1227016,
+              "subgroupUuid": null,
+              "className": "1Б",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 1
+            },
+            {
+              "groupId": 1326631,
+              "subgroupUuid": null,
+              "className": "3А",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 3
+            },
+            {
+              "groupId": 1227135,
+              "subgroupUuid": null,
+              "className": "4Б",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 4
+            },
+            {
+              "groupId": 1227148,
+              "subgroupUuid": null,
+              "className": "5Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 5
+            }
+          ]
+        },
+        {
+          "subjectId": 1345,
+          "name": "Адаптивная физическая культура",
+          "weeklyHours": null,
+          "groups": [
+            {
+              "groupId": 1227135,
+              "subgroupUuid": null,
+              "className": "4Б",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 4
+            }
+          ]
+        }
+      ],
+      "timeSchemes": [
+        {
+          "uuid": "65001ebf-fc7b-45bd-b3e1-6a5eddc33112",
+          "name": "1 четверть"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": 1884835,
+      "fio": "Балгабаева Назигуль Кадыровна",
+      "position": "учитель",
+      "languages": [
+        "kz",
+        "ru"
+      ],
+      "maxWeeklyHours": 24,
+      "subjects": [
+        {
+          "subjectId": 3,
+          "name": "Русский язык",
+          "weeklyHours": 7,
+          "groups": [
+            {
+              "groupId": 1227027,
+              "subgroupUuid": null,
+              "className": "2А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 2
+            },
+            {
+              "groupId": 1227129,
+              "subgroupUuid": null,
+              "className": "4А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 4
+            },
+            {
+              "groupId": 1227148,
+              "subgroupUuid": null,
+              "className": "5Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 5
+            }
+          ]
+        },
+        {
+          "subjectId": 74,
+          "name": "Русский язык и литература",
+          "weeklyHours": 11,
+          "groups": [
+            {
+              "groupId": 1227215,
+              "subgroupUuid": null,
+              "className": "8Ә",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 8
+            },
+            {
+              "groupId": 1227153,
+              "subgroupUuid": null,
+              "className": "6А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 6
+            },
+            {
+              "groupId": 1227142,
+              "subgroupUuid": null,
+              "className": "5А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 5
+            },
+            {
+              "groupId": 1227294,
+              "subgroupUuid": null,
+              "className": "11А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 11
+            }
+          ]
+        },
+        {
+          "subjectId": 106,
+          "name": "Русская литература",
+          "weeklyHours": 2,
+          "groups": [
+            {
+              "groupId": 1227169,
+              "subgroupUuid": null,
+              "className": "7А",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 7
+            }
+          ]
+        },
+        {
+          "subjectId": 73,
+          "name": "Казахский язык и литература",
+          "weeklyHours": 4,
+          "groups": [
+            {
+              "groupId": 1227159,
+              "subgroupUuid": "2f01e175-f229-476c-8895-31a5e45277ee",
+              "className": "6Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 6
+            }
+          ]
+        }
+      ],
+      "timeSchemes": [
+        {
+          "uuid": "65001ebf-fc7b-45bd-b3e1-6a5eddc33112",
+          "name": "1 четверть"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": 1884836,
+      "fio": "Ольков Геннадий Васильевич",
+      "position": "учитель",
+      "languages": [
+        "ru"
+      ],
+      "maxWeeklyHours": 17,
+      "subjects": [
+        {
+          "subjectId": 87,
+          "name": "Физическая культура",
+          "weeklyHours": 15,
+          "groups": [
+            {
+              "groupId": 1227058,
+              "subgroupUuid": null,
+              "className": "2Б",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 2
+            },
+            {
+              "groupId": 1227159,
+              "subgroupUuid": null,
+              "className": "6Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 6
+            },
+            {
+              "groupId": 1227169,
+              "subgroupUuid": null,
+              "className": "7А",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 7
+            },
+            {
+              "groupId": 1227197,
+              "subgroupUuid": null,
+              "className": "8А",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 8
+            },
+            {
+              "groupId": 1227198,
+              "subgroupUuid": null,
+              "className": "8Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 8
+            }
+          ]
+        },
+        {
+          "subjectId": 1345,
+          "name": "Адаптивная физическая культура",
+          "weeklyHours": null,
+          "groups": [
+            {
+              "groupId": 1227159,
+              "subgroupUuid": null,
+              "className": "6Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 6
+            },
+            {
+              "groupId": 1227169,
+              "subgroupUuid": null,
+              "className": "7А",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 7
+            }
+          ]
+        },
+        {
+          "subjectId": 2850,
+          "name": "Начальная военная подготовка",
+          "weeklyHours": 2,
+          "groups": [
+            {
+              "groupId": 1227253,
+              "subgroupUuid": null,
+              "className": "10A",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 10
+            },
+            {
+              "groupId": 1227364,
+              "subgroupUuid": null,
+              "className": "11Б",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 11
+            }
+          ]
+        }
+      ],
+      "timeSchemes": [
+        {
+          "uuid": "65001ebf-fc7b-45bd-b3e1-6a5eddc33112",
+          "name": "1 четверть"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": 1884837,
+      "fio": "Ажикенова Мадина Аскаровна",
+      "position": "учитель",
+      "languages": [
+        "ru"
+      ],
+      "maxWeeklyHours": 21,
+      "subjects": [
+        {
+          "subjectId": 106,
+          "name": "Русская литература",
+          "weeklyHours": 2,
+          "groups": [
+            {
+              "groupId": 1227148,
+              "subgroupUuid": null,
+              "className": "5Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 5
+            }
+          ]
+        },
+        {
+          "subjectId": 270,
+          "name": "Букварь",
+          "weeklyHours": 6,
+          "groups": [
+            {
+              "groupId": 1227016,
+              "subgroupUuid": null,
+              "className": "1Б",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 1
+            }
+          ]
+        },
+        {
+          "subjectId": 76,
+          "name": "Математика",
+          "weeklyHours": 4,
+          "groups": [
+            {
+              "groupId": 1227016,
+              "subgroupUuid": null,
+              "className": "1Б",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 1
+            }
+          ]
+        },
+        {
+          "subjectId": 24,
+          "name": "Естествознание",
+          "weeklyHours": 2,
+          "groups": [
+            {
+              "groupId": 1227016,
+              "subgroupUuid": null,
+              "className": "1Б",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 1
+            },
+            {
+              "groupId": 1227058,
+              "subgroupUuid": null,
+              "className": "2Б",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 2
+            }
+          ]
+        },
+        {
+          "subjectId": 111,
+          "name": "Познание мира",
+          "weeklyHours": 2,
+          "groups": [
+            {
+              "groupId": 1227016,
+              "subgroupUuid": null,
+              "className": "1Б",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 1
+            },
+            {
+              "groupId": 1227058,
+              "subgroupUuid": null,
+              "className": "2Б",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 2
+            }
+          ]
+        },
+        {
+          "subjectId": 358,
+          "name": "Трудовое обучение",
+          "weeklyHours": 1,
+          "groups": [
+            {
+              "groupId": 1227016,
+              "subgroupUuid": null,
+              "className": "1Б",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 1
+            }
+          ]
+        },
+        {
+          "subjectId": 359,
+          "name": "Изобразительное искусство",
+          "weeklyHours": 1,
+          "groups": [
+            {
+              "groupId": 1227016,
+              "subgroupUuid": null,
+              "className": "1Б",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 1
+            }
+          ]
+        },
+        {
+          "subjectId": 3,
+          "name": "Русский язык",
+          "weeklyHours": 2,
+          "groups": [
+            {
+              "groupId": 1227198,
+              "subgroupUuid": null,
+              "className": "8Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 8
+            }
+          ]
+        },
+        {
+          "subjectId": 201,
+          "name": "Чтение и развитие речи",
+          "weeklyHours": 1,
+          "groups": [
+            {
+              "groupId": 1227198,
+              "subgroupUuid": null,
+              "className": "8Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 8
+            }
+          ]
+        }
+      ],
+      "timeSchemes": [
+        {
+          "uuid": "65001ebf-fc7b-45bd-b3e1-6a5eddc33112",
+          "name": "1 четверть"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": 1884838,
+      "fio": "Герлиц Лаура Николаевна",
+      "position": "учитель",
+      "languages": [
+        "ru",
+        "kz"
+      ],
+      "maxWeeklyHours": 4,
+      "subjects": [
+        {
+          "subjectId": 2847,
+          "name": "Личная безопасность",
+          "weeklyHours": 4,
+          "groups": [
+            {
+              "groupId": 1227142,
+              "subgroupUuid": null,
+              "className": "5А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 5
+            },
+            {
+              "groupId": 1227148,
+              "subgroupUuid": null,
+              "className": "5Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 5
+            },
+            {
+              "groupId": 1227153,
+              "subgroupUuid": null,
+              "className": "6А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 6
+            },
+            {
+              "groupId": 1227159,
+              "subgroupUuid": null,
+              "className": "6Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 6
+            },
+            {
+              "groupId": 1227169,
+              "subgroupUuid": null,
+              "className": "7А",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 7
+            },
+            {
+              "groupId": 1227197,
+              "subgroupUuid": null,
+              "className": "8А",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 8
+            },
+            {
+              "groupId": 1227198,
+              "subgroupUuid": null,
+              "className": "8Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 8
+            },
+            {
+              "groupId": 1227232,
+              "subgroupUuid": null,
+              "className": "9Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 9
+            },
+            {
+              "groupId": 1227253,
+              "subgroupUuid": null,
+              "className": "10A",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 10
+            },
+            {
+              "groupId": 1227294,
+              "subgroupUuid": null,
+              "className": "11А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 11
+            },
+            {
+              "groupId": 1227364,
+              "subgroupUuid": null,
+              "className": "11Б",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 11
+            }
+          ]
+        }
+      ],
+      "timeSchemes": [
+        {
+          "uuid": "65001ebf-fc7b-45bd-b3e1-6a5eddc33112",
+          "name": "1 четверть"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": 1884839,
+      "fio": "Жукова Ирина Михайловна",
+      "position": "учитель",
+      "languages": [
+        "ru"
+      ],
+      "maxWeeklyHours": 15,
+      "subjects": [
+        {
+          "subjectId": 202,
+          "name": "Социально-бытовая ориентировка",
+          "weeklyHours": 2,
+          "groups": [
+            {
+              "groupId": 1227198,
+              "subgroupUuid": null,
+              "className": "8Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 8
+            },
+            {
+              "groupId": 1227169,
+              "subgroupUuid": null,
+              "className": "7А",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 7
+            }
+          ]
+        },
+        {
+          "subjectId": 358,
+          "name": "Трудовое обучение",
+          "weeklyHours": 8,
+          "groups": [
+            {
+              "groupId": 1227148,
+              "subgroupUuid": "812cc5dc-d7ac-4105-a2ba-74fbda17270e",
+              "className": "5Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 5
+            },
+            {
+              "groupId": 1227159,
+              "subgroupUuid": "afede65a-9ff3-44ac-bcd6-f8778cd4119c",
+              "className": "6Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 6
+            },
+            {
+              "groupId": 1227169,
+              "subgroupUuid": "d89f0d1a-bd5f-492e-923e-911a35d2c4f4",
+              "className": "7А",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 7
+            },
+            {
+              "groupId": 1227197,
+              "subgroupUuid": "2b3d144d-2227-4781-96a5-a0f90f9c17f2",
+              "className": "8А",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 8
+            },
+            {
+              "groupId": 1227198,
+              "subgroupUuid": "e26dbad3-4e63-413d-948c-4d1c17d18e88",
+              "className": "8Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 8
+            },
+            {
+              "groupId": 1227232,
+              "subgroupUuid": "de35201d-76d1-42d9-8f57-6bfcb6498922",
+              "className": "9Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 9
+            }
+          ]
+        },
+        {
+          "subjectId": 359,
+          "name": "Изобразительное искусство",
+          "weeklyHours": 2,
+          "groups": [
+            {
+              "groupId": 1227169,
+              "subgroupUuid": null,
+              "className": "7А",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 7
+            },
+            {
+              "groupId": 1227232,
+              "subgroupUuid": null,
+              "className": "9Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 9
+            }
+          ]
+        },
+        {
+          "subjectId": 2329,
+          "name": "Хозяйственный труд",
+          "weeklyHours": 1,
+          "groups": [
+            {
+              "groupId": 1227169,
+              "subgroupUuid": null,
+              "className": "7А",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 7
+            }
+          ]
+        },
+        {
+          "subjectId": 2513,
+          "name": "Познавательное развитие",
+          "weeklyHours": 2,
+          "groups": [
+            {
+              "groupId": 1227169,
+              "subgroupUuid": null,
+              "className": "7А",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 7
+            },
+            {
+              "groupId": 1227232,
+              "subgroupUuid": null,
+              "className": "9Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 9
+            }
+          ]
+        }
+      ],
+      "timeSchemes": [
+        {
+          "uuid": "65001ebf-fc7b-45bd-b3e1-6a5eddc33112",
+          "name": "1 четверть"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": 1884840,
+      "fio": "Дукач Татьяна Анатольевна",
+      "position": "учитель",
+      "languages": [
+        "ru"
+      ],
+      "maxWeeklyHours": 18,
+      "subjects": [
+        {
+          "subjectId": 773,
+          "name": "Развитие речи и коммуникации",
+          "weeklyHours": 6,
+          "groups": [
+            {
+              "groupId": 1227016,
+              "subgroupUuid": null,
+              "className": "1Б",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 1
+            },
+            {
+              "groupId": 1227169,
+              "subgroupUuid": null,
+              "className": "7А",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 7
+            },
+            {
+              "groupId": 1227232,
+              "subgroupUuid": null,
+              "className": "9Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 9
+            }
+          ]
+        },
+        {
+          "subjectId": 2328,
+          "name": "Счет",
+          "weeklyHours": 5,
+          "groups": [
+            {
+              "groupId": 1227016,
+              "subgroupUuid": null,
+              "className": "1Б",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 1
+            },
+            {
+              "groupId": 1227169,
+              "subgroupUuid": null,
+              "className": "7А",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 7
+            },
+            {
+              "groupId": 1227232,
+              "subgroupUuid": null,
+              "className": "9Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 9
+            }
+          ]
+        },
+        {
+          "subjectId": 795,
+          "name": "Человек и мир",
+          "weeklyHours": 4,
+          "groups": [
+            {
+              "groupId": 1227169,
+              "subgroupUuid": null,
+              "className": "7А",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 7
+            },
+            {
+              "groupId": 1227232,
+              "subgroupUuid": null,
+              "className": "9Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 9
+            }
+          ]
+        },
+        {
+          "subjectId": 200,
+          "name": "Мир вокруг",
+          "weeklyHours": 1,
+          "groups": [
+            {
+              "groupId": 1227016,
+              "subgroupUuid": null,
+              "className": "1Б",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 1
+            }
+          ]
+        },
+        {
+          "subjectId": 202,
+          "name": "Социально-бытовая ориентировка",
+          "weeklyHours": 1,
+          "groups": [
+            {
+              "groupId": 1227232,
+              "subgroupUuid": null,
+              "className": "9Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 9
+            }
+          ]
+        },
+        {
+          "subjectId": 2513,
+          "name": "Познавательное развитие",
+          "weeklyHours": 1,
+          "groups": [
+            {
+              "groupId": 1227232,
+              "subgroupUuid": null,
+              "className": "9Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 9
+            }
+          ]
+        }
+      ],
+      "timeSchemes": [
+        {
+          "uuid": "65001ebf-fc7b-45bd-b3e1-6a5eddc33112",
+          "name": "1 четверть"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": 1884841,
+      "fio": "Досаева Мадина Хайрулловна",
+      "position": "учитель",
+      "languages": [
+        "ru",
+        "kz"
+      ],
+      "maxWeeklyHours": 24,
+      "subjects": [
+        {
+          "subjectId": 75,
+          "name": "Всемирная история",
+          "weeklyHours": 6,
+          "groups": [
+            {
+              "groupId": 1227142,
+              "subgroupUuid": null,
+              "className": "5А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 5
+            },
+            {
+              "groupId": 1227153,
+              "subgroupUuid": null,
+              "className": "6А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 6
+            },
+            {
+              "groupId": 1227215,
+              "subgroupUuid": null,
+              "className": "8Ә",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 8
+            },
+            {
+              "groupId": 1227294,
+              "subgroupUuid": null,
+              "className": "11А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 11
+            },
+            {
+              "groupId": 1227232,
+              "subgroupUuid": null,
+              "className": "9Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 9
+            },
+            {
+              "groupId": 1227364,
+              "subgroupUuid": null,
+              "className": "11Б",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 11
+            }
+          ]
+        },
+        {
+          "subjectId": 92,
+          "name": "История Казахстана",
+          "weeklyHours": 15,
+          "groups": [
+            {
+              "groupId": 1227142,
+              "subgroupUuid": null,
+              "className": "5А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 5
+            },
+            {
+              "groupId": 1227153,
+              "subgroupUuid": null,
+              "className": "6А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 6
+            },
+            {
+              "groupId": 1227215,
+              "subgroupUuid": null,
+              "className": "8Ә",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 8
+            },
+            {
+              "groupId": 1227294,
+              "subgroupUuid": null,
+              "className": "11А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 11
+            },
+            {
+              "groupId": 1227364,
+              "subgroupUuid": null,
+              "className": "11Б",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 11
+            },
+            {
+              "groupId": 1227169,
+              "subgroupUuid": null,
+              "className": "7А",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 7
+            },
+            {
+              "groupId": 1227198,
+              "subgroupUuid": null,
+              "className": "8Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 8
+            },
+            {
+              "groupId": 1227232,
+              "subgroupUuid": null,
+              "className": "9Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 9
+            }
+          ]
+        },
+        {
+          "subjectId": 115,
+          "name": "Основы предпринимательства и бизнеса",
+          "weeklyHours": 1,
+          "groups": [
+            {
+              "groupId": 1227364,
+              "subgroupUuid": null,
+              "className": "11Б",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 11
+            }
+          ]
+        },
+        {
+          "subjectId": 113,
+          "name": "Основы права",
+          "weeklyHours": 2,
+          "groups": [
+            {
+              "groupId": 1227232,
+              "subgroupUuid": null,
+              "className": "9Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 9
+            },
+            {
+              "groupId": 1227294,
+              "subgroupUuid": null,
+              "className": "11А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 11
+            }
+          ]
+        }
+      ],
+      "timeSchemes": [
+        {
+          "uuid": "65001ebf-fc7b-45bd-b3e1-6a5eddc33112",
+          "name": "1 четверть"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": 1884842,
+      "fio": "Дюсембаева Айгуль Каирбековна",
+      "position": "учитель",
+      "languages": [
+        "kz",
+        "ru"
+      ],
+      "maxWeeklyHours": 18,
+      "subjects": [
+        {
+          "subjectId": 73,
+          "name": "Казахский язык и литература",
+          "weeklyHours": 8,
+          "groups": [
+            {
+              "groupId": 1227169,
+              "subgroupUuid": null,
+              "className": "7А",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 7
+            },
+            {
+              "groupId": 1227197,
+              "subgroupUuid": null,
+              "className": "8А",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 8
+            }
+          ]
+        },
+        {
+          "subjectId": 2,
+          "name": "Казахский язык",
+          "weeklyHours": 7,
+          "groups": [
+            {
+              "groupId": 1227016,
+              "subgroupUuid": null,
+              "className": "1Б",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 1
+            },
+            {
+              "groupId": 1326631,
+              "subgroupUuid": null,
+              "className": "3А",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 3
+            },
+            {
+              "groupId": 1227215,
+              "subgroupUuid": null,
+              "className": "8Ә",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 8
+            }
+          ]
+        },
+        {
+          "subjectId": 105,
+          "name": "Казахская литература",
+          "weeklyHours": 3,
+          "groups": [
+            {
+              "groupId": 1227215,
+              "subgroupUuid": null,
+              "className": "8Ә",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 8
+            }
+          ]
+        }
+      ],
+      "timeSchemes": [
+        {
+          "uuid": "65001ebf-fc7b-45bd-b3e1-6a5eddc33112",
+          "name": "1 четверть"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": 1884843,
+      "fio": "Радионова Наталья Александровна",
+      "position": "учитель",
+      "languages": [
+        "ru"
+      ],
+      "maxWeeklyHours": 16,
+      "subjects": [
+        {
+          "subjectId": 3,
+          "name": "Русский язык",
+          "weeklyHours": 4,
+          "groups": [
+            {
+              "groupId": 1227135,
+              "subgroupUuid": null,
+              "className": "4Б",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 4
+            }
+          ]
+        },
+        {
+          "subjectId": 47,
+          "name": "Литературное чтение",
+          "weeklyHours": 3,
+          "groups": [
+            {
+              "groupId": 1227135,
+              "subgroupUuid": null,
+              "className": "4Б",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 4
+            }
+          ]
+        },
+        {
+          "subjectId": 76,
+          "name": "Математика",
+          "weeklyHours": 5,
+          "groups": [
+            {
+              "groupId": 1227135,
+              "subgroupUuid": null,
+              "className": "4Б",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 4
+            }
+          ]
+        },
+        {
+          "subjectId": 24,
+          "name": "Естествознание",
+          "weeklyHours": 1,
+          "groups": [
+            {
+              "groupId": 1227135,
+              "subgroupUuid": null,
+              "className": "4Б",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 4
+            }
+          ]
+        },
+        {
+          "subjectId": 111,
+          "name": "Познание мира",
+          "weeklyHours": 1,
+          "groups": [
+            {
+              "groupId": 1227135,
+              "subgroupUuid": null,
+              "className": "4Б",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 4
+            }
+          ]
+        },
+        {
+          "subjectId": 358,
+          "name": "Трудовое обучение",
+          "weeklyHours": 1,
+          "groups": [
+            {
+              "groupId": 1227135,
+              "subgroupUuid": null,
+              "className": "4Б",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 4
+            }
+          ]
+        },
+        {
+          "subjectId": 359,
+          "name": "Изобразительное искусство",
+          "weeklyHours": 1,
+          "groups": [
+            {
+              "groupId": 1227135,
+              "subgroupUuid": null,
+              "className": "4Б",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 4
+            }
+          ]
+        }
+      ],
+      "timeSchemes": [
+        {
+          "uuid": "65001ebf-fc7b-45bd-b3e1-6a5eddc33112",
+          "name": "1 четверть"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": 1884844,
+      "fio": "Красноперова Ольга Викторовна",
+      "position": "учитель",
+      "languages": [
+        "ru"
+      ],
+      "maxWeeklyHours": 22,
+      "subjects": [
+        {
+          "subjectId": 78,
+          "name": "Химия",
+          "weeklyHours": 9,
+          "groups": [
+            {
+              "groupId": 1227169,
+              "subgroupUuid": null,
+              "className": "7А",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 7
+            },
+            {
+              "groupId": 1227197,
+              "subgroupUuid": null,
+              "className": "8А",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 8
+            },
+            {
+              "groupId": 1227198,
+              "subgroupUuid": null,
+              "className": "8Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 8
+            },
+            {
+              "groupId": 1227232,
+              "subgroupUuid": null,
+              "className": "9Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 9
+            },
+            {
+              "groupId": 1227253,
+              "subgroupUuid": null,
+              "className": "10A",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 10
+            }
+          ]
+        },
+        {
+          "subjectId": 79,
+          "name": "Биология",
+          "weeklyHours": 13,
+          "groups": [
+            {
+              "groupId": 1227169,
+              "subgroupUuid": null,
+              "className": "7А",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 7
+            },
+            {
+              "groupId": 1227198,
+              "subgroupUuid": null,
+              "className": "8Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 8
+            },
+            {
+              "groupId": 1227197,
+              "subgroupUuid": null,
+              "className": "8А",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 8
+            },
+            {
+              "groupId": 1227232,
+              "subgroupUuid": null,
+              "className": "9Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 9
+            },
+            {
+              "groupId": 1227253,
+              "subgroupUuid": null,
+              "className": "10A",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 10
+            },
+            {
+              "groupId": 1227364,
+              "subgroupUuid": null,
+              "className": "11Б",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 11
+            }
+          ]
+        }
+      ],
+      "timeSchemes": [
+        {
+          "uuid": "65001ebf-fc7b-45bd-b3e1-6a5eddc33112",
+          "name": "1 четверть"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": 1884845,
+      "fio": "Мельникова Лия Рашидовна",
+      "position": "учитель",
+      "languages": [
+        "kz",
+        "ru"
+      ],
+      "maxWeeklyHours": 12,
+      "subjects": [
+        {
+          "subjectId": 92,
+          "name": "История Казахстана",
+          "weeklyHours": 3,
+          "groups": [
+            {
+              "groupId": 1227159,
+              "subgroupUuid": null,
+              "className": "6Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 6
+            },
+            {
+              "groupId": 1227198,
+              "subgroupUuid": null,
+              "className": "8Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 8
+            }
+          ]
+        },
+        {
+          "subjectId": 75,
+          "name": "Всемирная история",
+          "weeklyHours": 3,
+          "groups": [
+            {
+              "groupId": 1227159,
+              "subgroupUuid": null,
+              "className": "6Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 6
+            },
+            {
+              "groupId": 1227169,
+              "subgroupUuid": null,
+              "className": "7А",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 7
+            },
+            {
+              "groupId": 1227198,
+              "subgroupUuid": null,
+              "className": "8Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 8
+            }
+          ]
+        },
+        {
+          "subjectId": 2846,
+          "name": "Закон и Порядок",
+          "weeklyHours": 3,
+          "groups": [
+            {
+              "groupId": 1227197,
+              "subgroupUuid": null,
+              "className": "8А",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 8
+            },
+            {
+              "groupId": 1227198,
+              "subgroupUuid": null,
+              "className": "8Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 8
+            },
+            {
+              "groupId": 1227215,
+              "subgroupUuid": null,
+              "className": "8Ә",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 8
+            },
+            {
+              "groupId": 1227232,
+              "subgroupUuid": null,
+              "className": "9Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 9
+            },
+            {
+              "groupId": 1227253,
+              "subgroupUuid": null,
+              "className": "10A",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 10
+            },
+            {
+              "groupId": 1227294,
+              "subgroupUuid": null,
+              "className": "11А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 11
+            },
+            {
+              "groupId": 1227364,
+              "subgroupUuid": null,
+              "className": "11Б",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 11
+            }
+          ]
+        },
+        {
+          "subjectId": 2845,
+          "name": "Основы Конституции",
+          "weeklyHours": 1,
+          "groups": [
+            {
+              "groupId": 1227142,
+              "subgroupUuid": null,
+              "className": "5А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 5
+            },
+            {
+              "groupId": 1227148,
+              "subgroupUuid": null,
+              "className": "5Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 5
+            },
+            {
+              "groupId": 1227153,
+              "subgroupUuid": null,
+              "className": "6А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 6
+            },
+            {
+              "groupId": 1227159,
+              "subgroupUuid": null,
+              "className": "6Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 6
+            },
+            {
+              "groupId": 1227169,
+              "subgroupUuid": null,
+              "className": "7А",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 7
+            }
+          ]
+        },
+        {
+          "subjectId": 2567,
+          "name": "Индивидуально-развивающие занятия",
+          "weeklyHours": 2,
+          "groups": [
+            {
+              "groupId": 1227198,
+              "subgroupUuid": null,
+              "className": "8Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 8
+            }
+          ]
+        }
+      ],
+      "timeSchemes": [
+        {
+          "uuid": "65001ebf-fc7b-45bd-b3e1-6a5eddc33112",
+          "name": "1 четверть"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": 1884851,
+      "fio": "Иващенко Виталий Олегович",
+      "position": "учитель",
+      "languages": [
+        "ru"
+      ],
+      "maxWeeklyHours": 4,
+      "subjects": [
+        {
+          "subjectId": 24,
+          "name": "Естествознание",
+          "weeklyHours": 4,
+          "groups": [
+            {
+              "groupId": 1227148,
+              "subgroupUuid": null,
+              "className": "5Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 5
+            },
+            {
+              "groupId": 1227159,
+              "subgroupUuid": null,
+              "className": "6Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 6
+            }
+          ]
+        }
+      ],
+      "timeSchemes": [
+        {
+          "uuid": "65001ebf-fc7b-45bd-b3e1-6a5eddc33112",
+          "name": "1 четверть"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": 1971027,
+      "fio": "Сапаргалиева Гульжихан Сансызбаевна",
+      "position": "учитель",
+      "languages": [
+        "kz"
+      ],
+      "maxWeeklyHours": 8,
+      "subjects": [
+        {
+          "subjectId": 24,
+          "name": "Естествознание",
+          "weeklyHours": 4,
+          "groups": [
+            {
+              "groupId": 1227142,
+              "subgroupUuid": null,
+              "className": "5А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 5
+            },
+            {
+              "groupId": 1227153,
+              "subgroupUuid": null,
+              "className": "6А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 6
+            }
+          ]
+        },
+        {
+          "subjectId": 80,
+          "name": "География",
+          "weeklyHours": 4,
+          "groups": [
+            {
+              "groupId": 1227215,
+              "subgroupUuid": null,
+              "className": "8Ә",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 8
+            },
+            {
+              "groupId": 1227294,
+              "subgroupUuid": null,
+              "className": "11А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 11
+            }
+          ]
+        }
+      ],
+      "timeSchemes": [
+        {
+          "uuid": "65001ebf-fc7b-45bd-b3e1-6a5eddc33112",
+          "name": "1 четверть"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": 1971032,
+      "fio": "Сидоров Виктор Борисович",
+      "position": "учитель",
+      "languages": [
+        "ru"
+      ],
+      "maxWeeklyHours": 10,
+      "subjects": [
+        {
+          "subjectId": 80,
+          "name": "География",
+          "weeklyHours": 10,
+          "groups": [
+            {
+              "groupId": 1227169,
+              "subgroupUuid": null,
+              "className": "7А",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 7
+            },
+            {
+              "groupId": 1227197,
+              "subgroupUuid": null,
+              "className": "8А",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 8
+            },
+            {
+              "groupId": 1227198,
+              "subgroupUuid": null,
+              "className": "8Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 8
+            },
+            {
+              "groupId": 1227232,
+              "subgroupUuid": null,
+              "className": "9Б",
+              "subgroupName": "Мальчики",
+              "language": "ru",
+              "parallel": 9
+            },
+            {
+              "groupId": 1227253,
+              "subgroupUuid": null,
+              "className": "10A",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 10
+            }
+          ]
+        }
+      ],
+      "timeSchemes": [
+        {
+          "uuid": "65001ebf-fc7b-45bd-b3e1-6a5eddc33112",
+          "name": "1 четверть"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": 1971044,
+      "fio": "Жантимиров Эльдар Асхатович",
+      "position": "учитель",
+      "languages": [
+        "kz"
+      ],
+      "maxWeeklyHours": 7,
+      "subjects": [
+        {
+          "subjectId": 2844,
+          "name": "Информатика и искусственный интеллект",
+          "weeklyHours": 5,
+          "groups": [
+            {
+              "groupId": 1227142,
+              "subgroupUuid": null,
+              "className": "5А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 5
+            },
+            {
+              "groupId": 1227153,
+              "subgroupUuid": null,
+              "className": "6А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 6
+            },
+            {
+              "groupId": 1227215,
+              "subgroupUuid": null,
+              "className": "8Ә",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 8
+            },
+            {
+              "groupId": 1227294,
+              "subgroupUuid": null,
+              "className": "11А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 11
+            }
+          ]
+        },
+        {
+          "subjectId": 2843,
+          "name": "Цифровая грамотность и искусственный интеллект",
+          "weeklyHours": 2,
+          "groups": [
+            {
+              "groupId": 1227027,
+              "subgroupUuid": null,
+              "className": "2А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 2
+            },
+            {
+              "groupId": 1227129,
+              "subgroupUuid": null,
+              "className": "4А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 4
+            }
+          ]
+        }
+      ],
+      "timeSchemes": [
+        {
+          "uuid": "65001ebf-fc7b-45bd-b3e1-6a5eddc33112",
+          "name": "1 четверть"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": 1971053,
+      "fio": "Балташева Зару Такановна",
+      "position": "учитель",
+      "languages": [
+        "kz"
+      ],
+      "maxWeeklyHours": 4,
+      "subjects": [
+        {
+          "subjectId": 78,
+          "name": "Химия",
+          "weeklyHours": 4,
+          "groups": [
+            {
+              "groupId": 1227215,
+              "subgroupUuid": null,
+              "className": "8Ә",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 8
+            },
+            {
+              "groupId": 1227294,
+              "subgroupUuid": null,
+              "className": "11А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 11
+            }
+          ]
+        }
+      ],
+      "timeSchemes": [
+        {
+          "uuid": "65001ebf-fc7b-45bd-b3e1-6a5eddc33112",
+          "name": "1 четверть"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": 1971071,
+      "fio": "Аятова Анаргуль Жусуповна",
+      "position": "учитель",
+      "languages": [
+        "kz"
+      ],
+      "maxWeeklyHours": 4,
+      "subjects": [
+        {
+          "subjectId": 77,
+          "name": "Физика",
+          "weeklyHours": 4,
+          "groups": [
+            {
+              "groupId": 1227215,
+              "subgroupUuid": null,
+              "className": "8Ә",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 8
+            },
+            {
+              "groupId": 1227294,
+              "subgroupUuid": null,
+              "className": "11А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 11
+            }
+          ]
+        }
+      ],
+      "timeSchemes": [
+        {
+          "uuid": "65001ebf-fc7b-45bd-b3e1-6a5eddc33112",
+          "name": "1 четверть"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": 1971089,
+      "fio": "Байгазиева Айгерим Дуйсембековна",
+      "position": "учитель",
+      "languages": [
+        "kz"
+      ],
+      "maxWeeklyHours": 4,
+      "subjects": [
+        {
+          "subjectId": 79,
+          "name": "Биология",
+          "weeklyHours": 4,
+          "groups": [
+            {
+              "groupId": 1227215,
+              "subgroupUuid": null,
+              "className": "8Ә",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 8
+            },
+            {
+              "groupId": 1227294,
+              "subgroupUuid": null,
+              "className": "11А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 11
+            }
+          ]
+        }
+      ],
+      "timeSchemes": [
+        {
+          "uuid": "65001ebf-fc7b-45bd-b3e1-6a5eddc33112",
+          "name": "1 четверть"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": 1971114,
+      "fio": "Жантимиров Асхат Каскарбаевич",
+      "position": "учитель",
+      "languages": [
+        "kz",
+        "ru"
+      ],
+      "maxWeeklyHours": 2,
+      "subjects": [
+        {
+          "subjectId": 86,
+          "name": "Художественный труд ",
+          "weeklyHours": 2,
+          "groups": [
+            {
+              "groupId": 1227142,
+              "subgroupUuid": null,
+              "className": "5А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 5
+            },
+            {
+              "groupId": 1227153,
+              "subgroupUuid": null,
+              "className": "6А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 6
+            },
+            {
+              "groupId": 1227215,
+              "subgroupUuid": null,
+              "className": "8Ә",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 8
+            }
+          ]
+        }
+      ],
+      "timeSchemes": [
+        {
+          "uuid": "65001ebf-fc7b-45bd-b3e1-6a5eddc33112",
+          "name": "1 четверть"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": 1975196,
+      "fio": "Боранбаев Дархан Боранбаевич",
+      "position": "учитель",
+      "languages": [
+        "kz",
+        "ru"
+      ],
+      "maxWeeklyHours": 3,
+      "subjects": [
+        {
+          "subjectId": 2850,
+          "name": "Начальная военная подготовка",
+          "weeklyHours": 3,
+          "groups": [
+            {
+              "groupId": 1227253,
+              "subgroupUuid": null,
+              "className": "10A",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 10
+            },
+            {
+              "groupId": 1227294,
+              "subgroupUuid": null,
+              "className": "11А",
+              "subgroupName": null,
+              "language": "kz",
+              "parallel": 11
+            },
+            {
+              "groupId": 1227364,
+              "subgroupUuid": null,
+              "className": "11Б",
+              "subgroupName": null,
+              "language": "ru",
+              "parallel": 11
+            }
+          ]
+        }
+      ],
+      "timeSchemes": [
+        {
+          "uuid": "65001ebf-fc7b-45bd-b3e1-6a5eddc33112",
+          "name": "1 четверть"
+        }
+      ],
+      "error": null
+    }
+  ]
+}

@@ -6,7 +6,9 @@ import { TupList } from "./domains/tup/ui/TupList";
 import { TupDetail } from "./domains/tup/ui/TupDetail";
 import { KtpEditor } from "./panels/KtpEditor";
 import { KtpList } from "./domains/ktp/ui/KtpList";
-import { Lessons } from "./panels/Lessons";
+import { KspList } from "./domains/ksp/ui/KspList";
+import { KspEditor } from "./domains/ksp/ui/KspEditor";
+import { KspViewer } from "./domains/ksp/ui/KspViewer";
 import { Library } from "./panels/Library";
 import { Sor } from "./panels/Sor";
 import { Analytics } from "./panels/Analytics";
@@ -30,6 +32,8 @@ const DesignSandbox = lazy(() =>
 function App() {
   const [view, setView] = useState<View>("today");
   const [selectedId, setSelectedId] = useState<string | null>(null);
+  const [kspPage, setKspPage] = useState<"list" | "view" | "edit">("list");
+  const [kspId, setKspId] = useState<string | null>(null);
   const [onboarded, setOnboarded] = useState<boolean | null>(null);
 
   useEffect(() => {
@@ -55,6 +59,13 @@ function App() {
   const handleViewChange = (v: View) => {
     setView(v);
     setSelectedId(null);
+    setKspPage("list");
+    setKspId(null);
+  };
+
+  const openKsp = (id: string, page: "view" | "edit") => {
+    setKspId(id);
+    setKspPage(page);
   };
 
   return (
@@ -77,7 +88,31 @@ function App() {
             <KtpList onOpen={(id) => setSelectedId(id)} />
           )
         )}
-        {view === "lessons" && <Lessons />}
+        {view === "lessons" && kspPage === "list" && (
+          <KspList onView={(id) => openKsp(id, "view")} onEdit={(id) => openKsp(id, "edit")} />
+        )}
+        {view === "lessons" && kspPage === "view" && kspId && (
+          <KspViewer
+            kspId={kspId}
+            onEdit={() => setKspPage("edit")}
+            onClose={() => { setKspPage("list"); setKspId(null); }}
+            onOpenKtp={(planId) => {
+              setView("ktp");
+              setSelectedId(planId);
+            }}
+          />
+        )}
+        {view === "lessons" && kspPage === "edit" && kspId && (
+          <KspEditor
+            kspId={kspId}
+            onClose={() => { setKspPage("list"); setKspId(null); }}
+            onView={() => setKspPage("view")}
+            onOpenKtp={(planId) => {
+              setView("ktp");
+              setSelectedId(planId);
+            }}
+          />
+        )}
         {view === "library" && <Library />}
         {view === "sor" && <Sor />}
         {view === "analytics" && <Analytics />}

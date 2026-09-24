@@ -1,0 +1,161 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - banner [ref=e4]:
+      - generic [ref=e6]:
+        - link [ref=e8] [cursor=pointer]:
+          - /url: /
+          - img "BilimClass logotype" [ref=e9]
+        - generic [ref=e10]: Қазақша
+    - generic [ref=e20]:
+      - generic [ref=e28]:
+        - generic [ref=e29]: Кіру
+        - generic [ref=e30]:
+          - generic [ref=e31]: "Логин:"
+          - generic [ref=e32] [cursor=pointer]: Телефон арқылы кіру
+          - textbox "Логин енгізіңіз" [ref=e33]
+        - generic [ref=e34]:
+          - generic [ref=e35]: "Құпиясөз:"
+          - textbox "Құпиясөзді енгізіңіз" [ref=e37]
+        - button "Кіру" [ref=e41] [cursor=pointer]
+        - generic [ref=e43]:
+          - link "Құпиясөзді ұмыттыңыз ба?" [ref=e44] [cursor=pointer]:
+            - /url: https://login.bilimland.kz/oauth/authorize?client_id=9a134910-421d-4907-8925-a4b790f4f300&locale=kz&redirect_uri=https://www.bilimclass.kz/parent-register&response_type=code&state=%7B%22resetPassword%22%3A1%7D&lead_id=&target=reset
+          - link "Ата-ана ретінде тіркелу" [ref=e45] [cursor=pointer]:
+            - /url: https://login.bilimland.kz/oauth/authorize?client_id=9a134910-421d-4907-8925-a4b790f4f300&locale=kz&redirect_uri=https://www.bilimclass.kz/parent-register&response_type=code&state=%7B%22redirectTo%22%3A%22VChildManagementPage%22%7D&lead_id=&
+        - generic [ref=e46]:
+          - generic [ref=e47]: немесе BI education көмегімен кіру
+          - link "немесе BI education көмегімен кіру" [ref=e49] [cursor=pointer]:
+            - /url: https://login.bilimland.kz/auth/bieducation/redirect
+            - img "BI Education" [ref=e50]
+      - generic [ref=e51]:
+        - generic [ref=e52]: МЕМЛЕКЕТТІК МЕКТЕПТЕР
+        - generic [ref=e54]:
+          - img "spa.tooltip.landing_school_block_alt" [ref=e56]
+          - generic [ref=e58]:
+            - text: BilimClass.kz платформасын қолдану үшін, мектебіңіздің директорының, директордың орынбасарларының, мұғалімдері мен оқушыларының логиндері мен құпиясөздері шарттың техникалық ерекшелігінде көрсетілген электрондық поштаға жіберілді. «BilimClass.kz» платформасы бойынша хабарласатын байланыс деректері
+            - 'link "WhatsApp: +7 (700) 344 9505" [ref=e60] [cursor=pointer]':
+              - /url: https://api.whatsapp.com/send/?phone=77003449505&text&type=phone_number&app_absent=0
+            - 'link "Телефон: +7 (707) 944 95 94" [ref=e62] [cursor=pointer]':
+              - /url: tel:+7 (707) 944 95 94
+            - link "bilimclass@bilimland.com" [ref=e63] [cursor=pointer]:
+              - /url: mailto:support@bilimland.com
+      - generic [ref=e64]:
+        - generic [ref=e65]: ЖАҢАЛЫҚТАР
+        - generic [ref=e67]:
+          - generic [ref=e68]:
+            - img "Жаңа форматтағы мектептер – бұл жай ғана ғимараттар емес, оқуға арналған қолайлы әрі қауіпсіз орта" [ref=e70]
+            - generic [ref=e71]: Жаңа форматтағы мектептер – бұл жай ғана ғимараттар емес, оқуға арналған қолайлы әрі қауіпсіз орта
+            - generic [ref=e72]:
+              - generic [ref=e73]: "Дереккөз: ҚР БжҒМ"
+              - generic [ref=e74]: 24.10.2025
+          - generic [ref=e80]:
+            - 'img "Күзгі демалысты ұйымдастыру: Оқу-ағарту министрлігінің ұсыныстары" [ref=e82]'
+            - generic [ref=e83]: "Күзгі демалысты ұйымдастыру: Оқу-ағарту министрлігінің ұсыныстары"
+            - generic [ref=e84]:
+              - generic [ref=e85]: "Дереккөз: ҚР БжҒМ"
+              - generic [ref=e86]: 24.10.2025
+          - generic [ref=e92]:
+            - img "Бүгінде еліміздің барлық өңірінде психологиялық қолдау орталықтары жұмыс атқаруда" [ref=e94]
+            - generic [ref=e95]: Бүгінде еліміздің барлық өңірінде психологиялық қолдау орталықтары жұмыс атқаруда
+            - generic [ref=e96]:
+              - generic [ref=e97]: "Дереккөз: ҚР БжҒМ"
+              - generic [ref=e98]: 23.10.2025
+      - generic [ref=e104]:
+        - generic [ref=e105]: ЦИФРЛЫҚ ФОРМАТТАҒЫ БҮКІЛ МЕКТЕП БАҒДАРЛАМАСЫ
+        - generic [ref=e109]:
+          - generic [ref=e110]: "Еліміздің үздік педагогтері Үлгілік оқу бағдарламасына сәйкес әзірлеген 24 000-нан астам интерактивті сабақ:"
+          - list [ref=e112]:
+            - listitem [ref=e113]: • 42 пән
+            - listitem [ref=e114]: • 11 сынып
+            - listitem [ref=e115]: • 2 тіл (қазақ/орыс)
+            - listitem [ref=e116]: • 500 мыңнан астам тапсырма
+      - generic [ref=e120]:
+        - generic [ref=e121]: МЕКТЕП ӘКІМШІЛІГІ
+        - list [ref=e128]:
+          - listitem [ref=e129]: • Мектепті басқару
+          - listitem [ref=e130]: • Мұғалімдер мен персоналды басқару
+          - listitem [ref=e131]: • Оқушыларды, сыныптар мен кіші топтарды басқару
+          - listitem [ref=e132]: • Сабақ кестесін басқару
+          - listitem [ref=e133]: • Күнтізбелік-тақырыптық жоспарлауды басқару
+          - listitem [ref=e134]: • Өткізілетін сабақ сапасына мониторинг жасау
+          - listitem [ref=e135]: • Білім беру процестерінің статистикасы
+          - listitem [ref=e136]: • Аудандағы, облыстағы және елдегі мектептердің рейтингі
+      - generic [ref=e137]:
+        - generic [ref=e138]: МҰҒАЛІМДЕР МЕН СЫНЫП ЖЕТЕКШІЛЕРІ ҮШІН
+        - list [ref=e143]:
+          - listitem [ref=e144]: • Сабақ кестесі
+          - listitem [ref=e145]: • Күнтізбелік-тақырыптық жоспарлау
+          - listitem [ref=e146]: • Асинхронды интерактивті сабақ өткізуге арналған құралдар
+          - listitem [ref=e147]: • Аралас оқытуға арналған құралдар
+          - listitem [ref=e148]: • Жиынтық бағалау өткізуге арналған құралдар
+          - listitem [ref=e149]: • Синхронды сабақтарға арналған видеоконференция
+          - listitem [ref=e150]: • Факультативті оқыту
+          - listitem [ref=e151]: • Үй тапсырмасы
+          - listitem [ref=e152]: • Электрондық баға журналы
+          - listitem [ref=e153]: • Топтық чаттар мен жеке хабарламалар
+          - listitem [ref=e154]: • Интерактивті сабақтар конструкторы
+          - listitem [ref=e155]: • Интерактивті БЖБ және ТЖБ конструкторы
+          - listitem [ref=e156]: • Білім мониторингі және статистика
+          - listitem [ref=e157]: • Оқу процесінің геймификациясы және мұғалімдер рейтингі
+      - generic [ref=e160]:
+        - generic [ref=e161]: ОҚУШЫЛАР МЕН АТА-АНАЛАР ҮШІН
+        - list [ref=e168]:
+          - listitem [ref=e169]: • Күнделікті жеке сабақ кестесі
+          - listitem [ref=e170]: • Дербестендірілген және адаптивті оқыту
+          - listitem [ref=e171]: • Сыныпта қашықтан оқыту
+          - listitem [ref=e172]: • Сыныпта аралас оқыту
+          - listitem [ref=e173]: • Бөлімді және тоқсанды жиынтық бағалау
+          - listitem [ref=e174]: • Оқу процесінің геймификациясы және оқушылар рейтингі
+          - listitem [ref=e175]: • Интерактивті үй тапсырмасы
+          - listitem [ref=e176]: • Баға күнделігі
+          - listitem [ref=e177]: • Педагогпен жеке хат алмасу және сыныптың топтық чаттары
+    - generic [ref=e180]:
+      - generic [ref=e181]:
+        - img "BilimClass Logotype" [ref=e182]
+        - generic [ref=e183]: Мәңгілік ел даңғылы, 55/13, блок 2.1Дс. - Жұма. 9:00-ден 18:00-ге дейін
+        - generic [ref=e184]: "\"Bilim Land\" ЖШС Қазақстан Республикасы, 010000,Астана қ., Есіл ауданы"
+      - generic [ref=e185]:
+        - generic [ref=e186]:
+          - generic [ref=e187]: Біз туралы
+          - list [ref=e188]:
+            - listitem [ref=e189]:
+              - link "Жаңалықтар" [ref=e190] [cursor=pointer]:
+                - /url: "#section-news"
+            - listitem [ref=e191]:
+              - link "Байланыс" [ref=e192] [cursor=pointer]:
+                - /url: "#section-contacts"
+        - generic [ref=e193]:
+          - generic [ref=e194]: Мүмкіндіктер
+          - list [ref=e195]:
+            - listitem [ref=e196]:
+              - link "Мектеп әкімшілігі" [ref=e197] [cursor=pointer]:
+                - /url: "#section-administrators"
+            - listitem [ref=e198]:
+              - link "Мұғалімдерге" [ref=e199] [cursor=pointer]:
+                - /url: "#section-teachers"
+            - listitem [ref=e200]:
+              - link "Оқушылар мен ата-аналарға" [ref=e201] [cursor=pointer]:
+                - /url: "#section-students"
+            - listitem [ref=e202]:
+              - link "Серіктес болу" [ref=e203] [cursor=pointer]:
+                - /url: https://promo.bilimclass.kz/ads/
+      - generic [ref=e204]:
+        - generic [ref=e205]: Әлеуметтік желілер
+        - list [ref=e206]:
+          - listitem [ref=e207]:
+            - link [ref=e208] [cursor=pointer]:
+              - /url: https://www.youtube.com/@BilimClass/videos
+          - listitem [ref=e212]:
+            - link [ref=e213] [cursor=pointer]:
+              - /url: https://www.instagram.com/bilimclass.kz
+    - button
+  - generic:
+    - main:
+      - paragraph
+      - strong
+      - emphasis
+      - heading [level=1]
+      - heading [level=2]
+      - heading [level=3]
+      - heading [level=4]
+  - button "BilimClass қолдау қызметі" [ref=e228] [cursor=pointer]

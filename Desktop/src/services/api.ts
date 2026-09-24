@@ -3,8 +3,14 @@ import type {
   ClassGroup,
   HealthReport,
   InvariantReport,
+  KspBundle,
+  KspCard,
+  KspDocument,
+  KspLessonOffer,
+  KspValidationReport,
   KtpPlan,
   KtpPlanCard,
+  ValueComponent,
   LearningObjective,
   OnboardSchoolInput,
   RkCalendar,
@@ -137,6 +143,49 @@ export const api = {
   async saveKtpPlan(plan: KtpPlan): Promise<KtpPlan> {
     const { invariant: _inv, ...rest } = plan;
     return call<KtpPlan>("save_ktp_plan", { plan: rest });
+  },
+
+  async listKspDocuments(): Promise<KspCard[]> {
+    return call<KspCard[]>("list_ksp_documents");
+  },
+  async listKspLessonOffers(): Promise<KspLessonOffer[]> {
+    return call<KspLessonOffer[]>("list_ksp_lesson_offers");
+  },
+  async listValueComponents(): Promise<ValueComponent[]> {
+    return call<ValueComponent[]>("list_value_components");
+  },
+  async getKspDocument(kspId: string): Promise<KspBundle> {
+    return call<KspBundle>("get_ksp_document", { kspId });
+  },
+  async createKspFromLesson(lessonId: string, className?: string, lessonDuration?: number): Promise<KspBundle> {
+    return call<KspBundle>("create_ksp_from_lesson", { lessonId, className, lessonDuration });
+  },
+  async saveKspDocument(document: KspDocument): Promise<KspBundle> {
+    return call<KspBundle>("save_ksp_document", { document });
+  },
+  async deleteKspDocument(kspId: string): Promise<void> {
+    return call<void>("delete_ksp_document", { kspId });
+  },
+  async validateKspDocument(kspId: string): Promise<KspValidationReport> {
+    return call<KspValidationReport>("validate_ksp_document", { kspId });
+  },
+  async rebalanceKspTime(kspId: string): Promise<KspBundle> {
+    return call<KspBundle>("rebalance_ksp_time", { kspId });
+  },
+  async exportKspPdf(kspId: string, path: string): Promise<string> {
+    return call<string>("export_ksp_pdf", { kspId, path });
+  },
+  async kspMcpListTools(): Promise<{ name: string; description: string; mutating: boolean; inputSchema?: unknown }[]> {
+    return call("mcp_list_tools");
+  },
+  async kspMcpInvoke(tool: string, params: Record<string, unknown>): Promise<unknown> {
+    return call("mcp_invoke", { tool, params });
+  },
+  async mcpListTools(): Promise<{ name: string; description: string; mutating: boolean; inputSchema?: unknown }[]> {
+    return call("mcp_list_tools");
+  },
+  async mcpInvoke(tool: string, params: Record<string, unknown>): Promise<unknown> {
+    return call("mcp_invoke", { tool, params });
   },
 
   // ---- Идентичность (Фаза 2) ----

@@ -1,4 +1,7 @@
 pub mod excel_import;
+pub mod ksp_mcp;
+pub mod ksp_pdf;
+pub mod mcp;
 pub mod ktp_service;
 pub mod report_pdf;
 pub mod report_xlsx;

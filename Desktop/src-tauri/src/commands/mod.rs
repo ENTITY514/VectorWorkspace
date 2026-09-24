@@ -3,6 +3,7 @@
 
 pub mod health;
 pub mod identity;
+pub mod ksp;
 pub mod ktp;
 pub mod schedule;
 pub mod tup;
@@ -59,6 +60,20 @@ pub fn register<R: tauri::Runtime>(
             ktp::validate_ktp_invariants,
             ktp::get_ktp_plan,
             ktp::save_ktp_plan,
+            ksp::list_ksp_documents,
+            ksp::list_ksp_lesson_offers,
+            ksp::list_value_components,
+            ksp::get_ksp_document,
+            ksp::create_ksp_from_lesson,
+            ksp::save_ksp_document,
+            ksp::delete_ksp_document,
+            ksp::validate_ksp_document,
+            ksp::rebalance_ksp_time,
+            ksp::export_ksp_pdf,
+            ksp::ksp_mcp_list_tools,
+            ksp::ksp_mcp_invoke,
+            ksp::mcp_list_tools,
+            ksp::mcp_invoke,
             schedule::schedule_get_state,
             schedule::schedule_upsert_teacher,
             schedule::schedule_delete_teacher,

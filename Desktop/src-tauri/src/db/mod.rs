@@ -4,6 +4,7 @@
 pub mod error;
 pub mod repo;
 pub mod repo_identity;
+pub mod repo_ksp;
 pub mod repo_ktp;
 pub mod repo_tup;
 pub mod schedule;
@@ -115,6 +116,8 @@ mod tests {
         "ktp_lessons",
         "ktp_lesson_objectives",
         "ksp_documents",
+        "ksp_revisions",
+        "value_components",
         "sor_specifications",
         "sor_task_templates",
         "sor_descriptors",

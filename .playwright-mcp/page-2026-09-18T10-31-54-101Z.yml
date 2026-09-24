@@ -1,0 +1,177 @@
+- generic [active] [ref=f73e1]:
+  - generic [ref=f73e8]:
+    - banner [ref=f73e9]:
+      - generic [ref=f73e12]:
+        - generic [ref=f73e13] [cursor=pointer]
+        - generic [ref=f73e19] [cursor=pointer]
+        - generic [ref=f73e22] [cursor=pointer]: Русский
+        - generic [ref=f73e29] [cursor=pointer]: МП
+      - list [ref=f73e38]:
+        - listitem [ref=f73e39]:
+          - link "Программы обучения" [ref=f73e40] [cursor=pointer]:
+            - /url: /2026/edu-prog
+        - listitem [ref=f73e43]: 8 А РУС
+    - complementary [ref=f73e44]:
+      - generic [ref=f73e45]:
+        - button [ref=f73e46] [cursor=pointer]
+        - img "BilimClass logotype" [ref=f73e50]
+      - generic [ref=f73e53]:
+        - generic [ref=f73e54]: BilimClass
+        - generic [ref=f73e62]: Для учителя
+        - generic [ref=f73e70]:
+          - generic [ref=f73e71] [cursor=pointer]: Управление школой
+          - generic [ref=f73e78]:
+            - link "Ученики и классы" [ref=f73e83] [cursor=pointer]:
+              - /url: /2026/backoffice/groups
+            - link "Алфавитная книга" [ref=f73e89] [cursor=pointer]:
+              - /url: /2026/backoffice/alphabet-book
+            - link "Учителя и персонал" [ref=f73e95] [cursor=pointer]:
+              - /url: /2026/v3/backoffice/personnel
+            - generic [ref=f73e97]: Программы обучения
+            - link "Расписание классов" [ref=f73e106] [cursor=pointer]:
+              - /url: /2026/v3/backoffice/schedules
+            - link "Конструктор расписания" [ref=f73e112] [cursor=pointer]:
+              - /url: /schedule-generator
+            - link "Дополнительное образование" [ref=f73e118] [cursor=pointer]:
+              - /url: /2026/additional-edu
+            - link "Настройка школы" [ref=f73e124] [cursor=pointer]:
+              - /url: /2026/backoffice/school-settings
+            - link "ВШК" [ref=f73e130] [cursor=pointer]:
+              - /url: /2026/backoffice/intraschool-control
+        - generic [ref=f73e132]: Мониторинг
+        - generic [ref=f73e140]: Отчетность
+        - generic [ref=f73e149] [cursor=pointer]:
+          - generic [ref=f73e153]: Аналитика
+          - generic [ref=f73e154]: NEW
+        - link "BilimUstaz" [ref=f73e170] [cursor=pointer]:
+          - /url: /2026/ustaz/45/1017343
+        - link "Kitap" [ref=f73e179] [cursor=pointer]:
+          - /url: /2026/kitap/45/1017343
+        - link "Новости" [ref=f73e186] [cursor=pointer]:
+          - /url: /news
+        - link "Инструкции" [ref=f73e193] [cursor=pointer]:
+          - /url: https://guide.bilimclass.kz/ru
+        - generic [ref=f73e196]: Наши продукты
+    - generic [ref=f73e210]:
+      - generic [ref=f73e211]:
+        - generic [ref=f73e212]:
+          - generic [ref=f73e213]: Уважаемый администратор!
+          - generic [ref=f73e214] [cursor=pointer]: Скрыть
+        - generic [ref=f73e218]:
+          - paragraph [ref=f73e219]: Если в вашей школе используется пятибалльная (классическая) система оценивания, спешим сообщить, что мы делаем и готовим для вас такой вид оценивания.
+          - paragraph [ref=f73e220]:
+            - strong [ref=f73e221]: Просим дождаться выхода обновления и только после этого создавать программы обучения (предметы)
+            - text: по дисциплинам с пятибалльной системой. Это позволит избежать ошибок и упростит работу.
+          - paragraph [ref=f73e222]:
+            - text: Если в этом учебном году вы планируете использовать пятибалльную систему оценивания,
+            - strong [ref=f73e223]: просим обратиться в службу поддержки
+            - text: ", чтобы"
+            - strong [ref=f73e224]: после готовности новой функции её включили для вашей школы
+            - text: .
+      - generic [ref=f73e226]:
+        - generic [ref=f73e227]: Список предметов - 8 А РУС
+        - generic [ref=f73e230]:
+          - generic [ref=f73e232]:
+            - generic [ref=f73e233]:
+              - generic [ref=f73e234] [cursor=pointer]: Инвариант
+              - generic [ref=f73e235]: Вариатив
+              - generic [ref=f73e236] [cursor=pointer]: Дополнительное
+            - paragraph [ref=f73e241]: "Часы даёт приказ, содержание определяет школа: курсы по выбору, элективные курсы, развивающие занятия."
+            - generic [ref=f73e242]:
+              - button "Добавить предмет" [ref=f73e244] [cursor=pointer]
+              - button "Архив" [ref=f73e249] [cursor=pointer]
+          - table [ref=f73e253]:
+            - rowgroup [ref=f73e254]:
+              - row [ref=f73e255]:
+                - columnheader "№" [ref=f73e256]
+                - columnheader "Название предмета" [ref=f73e257]
+                - columnheader "Тип оценивания" [ref=f73e258]
+                - columnheader "Период оценивания" [ref=f73e259]
+                - columnheader "Количество запланированных часов в неделю" [ref=f73e260]
+                - columnheader "Сложность предмета (1-11)" [ref=f73e261]
+                - columnheader "Действия" [ref=f73e262]
+            - rowgroup [ref=f73e263]:
+              - row [ref=f73e264]:
+                - cell "1" [ref=f73e265]
+                - cell "Личная безопасность" [ref=f73e267]
+                - cell "Оценивание отсутствует" [ref=f73e270]
+                - cell "Полугодие" [ref=f73e273]
+                - cell "0.25" [ref=f73e276]
+                - cell "Не указана" [ref=f73e279]
+                - cell [ref=f73e281]:
+                  - generic [ref=f73e283]:
+                    - button [ref=f73e285] [cursor=pointer]
+                    - button [ref=f73e289] [cursor=pointer]
+                    - button [ref=f73e293] [cursor=pointer]
+                    - button [ref=f73e296] [cursor=pointer]
+              - row [ref=f73e300]:
+                - cell "2" [ref=f73e301]
+                - cell "Закон и Порядок" [ref=f73e303]
+                - cell "Оценивание отсутствует" [ref=f73e306]
+                - cell "Полугодие" [ref=f73e309]
+                - cell "0.25" [ref=f73e312]
+                - cell "Не указана" [ref=f73e315]
+                - cell [ref=f73e317]:
+                  - generic [ref=f73e319]:
+                    - button [ref=f73e321] [cursor=pointer]
+                    - button [ref=f73e325] [cursor=pointer]
+                    - button [ref=f73e329] [cursor=pointer]
+                    - button [ref=f73e332] [cursor=pointer]
+    - generic [ref=f73e338]:
+      - generic [ref=f73e339]:
+        - img "BilimClass Logotype" [ref=f73e340]
+        - generic [ref=f73e341]: ТОО "Bilim Land"Республика Казахстан, 010000,г. Астана, Есильский р-н
+      - generic [ref=f73e342]:
+        - generic [ref=f73e343]:
+          - generic [ref=f73e344]: О нас
+          - list [ref=f73e345]:
+            - listitem [ref=f73e346]:
+              - link "Новости" [ref=f73e347] [cursor=pointer]:
+                - /url: /news
+            - listitem [ref=f73e348]:
+              - link "Контакты" [ref=f73e349] [cursor=pointer]:
+                - /url: /support
+        - generic [ref=f73e350]:
+          - generic [ref=f73e351]: Поддержка
+          - list [ref=f73e352]:
+            - listitem [ref=f73e353]:
+              - link "База знаний" [ref=f73e354] [cursor=pointer]:
+                - /url: https://help.bilimland.kz/l_rus/knowledge_base/27748
+            - listitem [ref=f73e355]:
+              - link "Пользовательское соглашение" [ref=f73e356] [cursor=pointer]:
+                - /url: https://bilimland.kz/ru/agreement
+            - listitem [ref=f73e357]:
+              - link "Страница благодарности" [ref=f73e358] [cursor=pointer]:
+                - /url: https://guide.bilimclass.kz/thank-you-page
+            - listitem [ref=f73e359]:
+              - link "bilimclass@bilimland.com" [ref=f73e360] [cursor=pointer]:
+                - /url: mailto:bilimclass@bilimland.com
+      - generic [ref=f73e361]:
+        - generic [ref=f73e362]: Социальные сети
+        - list [ref=f73e363]:
+          - listitem [ref=f73e364]:
+            - link [ref=f73e365] [cursor=pointer]:
+              - /url: https://www.youtube.com/@BilimClass/videos
+          - listitem [ref=f73e369]:
+            - link [ref=f73e370] [cursor=pointer]:
+              - /url: https://www.instagram.com/bilimclass.kz
+          - listitem [ref=f73e379]:
+            - link [ref=f73e380] [cursor=pointer]:
+              - /url: https://t.me/BilimClassHelpBot
+          - listitem [ref=f73e384]:
+            - link [ref=f73e385] [cursor=pointer]:
+              - /url: https://api.whatsapp.com/send/?phone=77079449594
+    - link [ref=f73e390] [cursor=pointer]:
+      - /url: https://zero.kz/?s=72943
+      - img "ZERO.kz" [ref=f73e391]
+    - button
+  - generic:
+    - main:
+      - paragraph
+      - strong
+      - emphasis
+      - heading [level=1]
+      - heading [level=2]
+      - heading [level=3]
+      - heading [level=4]
+  - button "Поддержка BilimClass" [ref=f73e397] [cursor=pointer]

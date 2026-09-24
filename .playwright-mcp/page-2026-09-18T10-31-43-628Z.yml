@@ -1,0 +1,10 @@
+- generic [active] [ref=f73e1]:
+  - generic:
+    - main:
+      - paragraph
+      - strong
+      - emphasis
+      - heading [level=1]
+      - heading [level=2]
+      - heading [level=3]
+      - heading [level=4]
