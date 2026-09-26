@@ -9,7 +9,7 @@ from __future__ import annotations
 import json
 import sys
 
-from dataset import BABICH, ROOT, build
+from dataset import ALEKPAROVA, BABICH, BABICH_ROOM, ROOT, build
 from model import Built, Profile
 from verify import metrics, verify
 
@@ -320,6 +320,112 @@ PROFILES["V32"] = replace(PROFILES["V30"], name="V32", title="Версия 32", 
 PROFILES["V34"] = replace(PROFILES["V32"], name="V34", title="Версия 34", min_seven_days=("7А", "8Ә"))
 PROFILES["V35"] = replace(PROFILES["V32"], name="V35", title="Версия 35", min_seven_days=("8Ә",))
 KEEP_FROM_HINT = {"V34": "V33", "V35": "V33"}
+# V42–V44 (25.09) — все правила V32/V33 и согласованные правки V34–V36, плюс:
+#  · Мельников П.В. — 1–5 уроки (данные), ровно 3 рабочих дня по 3 урока; 2 окна подряд — большой штраф;
+#  · Шкиря Ю.Н. — только Вт и Пт (данные);
+#  · Красноперова О.В. (кл. руководитель 8Б) приходит к 1-му уроку: ожидание до первого урока — окно;
+#    цель — 4–5 уроков в день и без 7-го урока (мягко); V42/V44 — 1-й урок жёстко, V43 — мягко;
+#  · Досаева М.Х. — 2 окна подряд нельзя; у остальных 2 окна подряд — отдельный штраф;
+#  · окна сверх 4 в неделю — прогрессивный штраф; день ради 1 урока и «размазанность» по неделе — штраф;
+#  · Пащенко Н.А. — не больше 2 окон в неделю;
+#  · ученица ЛУО 7А (Власова Анастасия) — не больше 1 окна в день и 3 в неделю, каждое окно — штраф;
+#  · всемирная история — между двумя уроками истории Казахстана (правка V34); парные предметы
+#    (каз. яз./лит., рус. яз./лит., алгебра/геометрия, история/право, биология/химия) чередуются по неделе — мягко;
+#  · 10А Пн: история Казахстана 4-м, информатика 7-м (правка завуча в V33(1));
+#  · большие классы — только большой зал; маленькие казахские классы — по возможности в большой;
+#  · Бабич: уроки остаются в своих днях, окна на своих местах, четверг и английский 10А в каб.17 — как в V36;
+#    V44 — в Пн/Пт можно окно под английский Алекпаровой (математика Бабича до 5-го урока);
+#  · СанПиН (баллы с множителем 10А) — не хуже V36; каждый урок, сдвинутый относительно V36, — штраф;
+#  · ровность нагрузки учителя по дням — дешевле, чем в V33 (СанПиН важнее).
+KRASN, DOSAEVA, MELNIKOV, PASHCHENKO = ("Красноперова Ольга Викторовна", "Досаева Мадина Хайрулловна",
+                                        "Мельников Павел Викторович", "Пащенко Наталья Аркадьевна")
+SANPIN_POINTS_V36 = 1259  # баллы СанПиН V36 (8Ә пересчитан без запрещённой геометрии) — потолок
+_V42 = dict(
+    pins=PROFILES["V32"].pins + [
+        {"class": "10А", "subject": "История Казахстана", "day": 0, "period": 4},
+        {"class": "10А", "subject": "Информатика и искусственный интеллект", "day": 0, "period": 7}],
+    no_window_teachers=(), window_caps={PASHCHENKO: 2},
+    start_first_teachers=(KRASN,), start_first_hard=(KRASN,),
+    teacher_day_band={KRASN: (4, 5)}, teacher_day_band_weight=60,
+    teacher_late_periods={KRASN: (7,)}, teacher_late_weight=100,
+    double_window=150, no_double_window_teachers=(DOSAEVA,),
+    # Мельников: в 3-й рабочий день (кроме Вт/Чт) зал на 1–5 уроках занят началкой — 2 окна подряд там
+    # неизбежны; поэтому не запрет, а большой штраф
+    double_window_weights={MELNIKOV: 1500},
+    window_excess=60, window_excess_over=4, single_lesson_day=100, teacher_extra_day=60,
+    teacher_days_exact={MELNIKOV: (3, 3)},
+    luo_student_window=300, luo_student_max_windows_day=1, luo_student_max_windows_week=3,
+    gym_prefer_big=("1А", "2А", "4А", "5А", "6А", "8Ә", "11А"), gym_prefer_big_weight=40,
+    teacher_spread=100,
+    history_alternation=True,
+    alternate_groups=(("Казахский язык", "Казахская литература"), ("Русский язык", "Русская литература"),
+                      ("Алгебра", "Геометрия"), ("Алгебра и начала анализа", "Геометрия"),
+                      ("История Казахстана", "Всемирная история", "Основы права"), ("Биология", "Химия")),
+    alternate_weight=150,  # между двумя уроками одного предмета — урок парного (мягко)
+    keep_weight=40, sanpin_cap=SANPIN_POINTS_V36,
+    sanpin_cap_weight=2000)  # балл СанПиН сверх V36 — дороже любого окна (мягко: иначе солвер не стартует)
+PROFILES["V42"] = replace(PROFILES["V32"], name="V42", title="Версия 42", **_V42,
+                          description="V36 + Мельников 3 дня по 3 урока (1–5), Красноперова с 1-го урока (жёстко), "
+                                      "без сдвоенных окон у Досаевой и Мельникова, ЛУО 7А ≤1 окна в день, "
+                                      "СанПиН не хуже V36, минимум сдвигов относительно V36.")
+PROFILES["V43"] = replace(PROFILES["V42"], name="V43", title="Версия 43", start_first_hard=(),
+                          description=PROFILES["V42"].description.replace("(жёстко)", "(мягко)"))
+PROFILES["V44"] = replace(PROFILES["V42"], name="V44", title="Версия 44",
+                          math_one_later_days=(0, THU, FRI), babich_window_english_hard=True,
+                          description=PROFILES["V42"].description + " Бабичу можно окно в Пн/Пт под английский Алии.")
+# V45/V46: как V44/V42, но сдвиг урока относительно V36 дороже (≈ цена окна) — ближе к V36;
+# учителя с нагрузкой до 12 ч — не больше ceil(часы/4) рабочих дней (каждый лишний день ≈ 3 окна)
+PROFILES["V45"] = replace(PROFILES["V44"], name="V45", title="Версия 45", keep_weight=100, low_load_extra_day=300,
+                          description=PROFILES["V44"].description + " Сдвиг урока ≈ окно.")
+PROFILES["V46"] = replace(PROFILES["V42"], name="V46", title="Версия 46", keep_weight=100, low_load_extra_day=300,
+                          description=PROFILES["V42"].description + " Сдвиг урока ≈ окно.")
+# V47: правила V45, сдвиг урока втрое дороже — сколько улучшений остаётся при малом числе сдвигов
+PROFILES["V47"] = replace(PROFILES["V45"], name="V47", title="Версия 47", keep_weight=300,
+                          description=PROFILES["V45"].description + " Сдвиг урока втрое дороже.")
+# V48/V49 — доработка V45 (сдвиг ≈ окно, правила V45 + малая нагрузка + чередование):
+#  V48 — «глазами ребёнка»: штраф за 3 трудных урока подряд и трудный предмет на 6–7 уроке;
+#  V49 — СанПиН ×1.5, окна сверх 4 дороже.
+PROFILES["V48"] = replace(PROFILES["V45"], name="V48", title="Версия 48", heavy_triple=150, heavy_late=100,
+                          description=PROFILES["V45"].description + " Не 3 трудных подряд, трудные не в конце дня.")
+PROFILES["V49"] = replace(PROFILES["V45"], name="V49", title="Версия 49", sanpin=1200, window_excess=100,
+                          description=PROFILES["V45"].description + " СанПиН ×1.5, окна сверх 4 дороже.")
+# V50: правила V48 («глазами ребёнка»), сдвиг урока дорогой (как V47) — вариант «ближе к V36»
+PROFILES["V50"] = replace(PROFILES["V48"], name="V50", title="Версия 50", keep_weight=300,
+                          description=PROFILES["V48"].description + " Сдвиг урока втрое дороже.")
+# V51: V50 (с ручными перестановками 26.09) + маленькие классы 5А+6А+8Ә и 11А — по возможности в большом зале
+#       (вес ≈ 3 окна); минимум сдвигов считается от V50
+PROFILES["V51"] = replace(PROFILES["V50"], name="V51", title="Версия 51", gym_prefer_big_weight=300,
+                          description=PROFILES["V50"].description + " Маленькие классы — по возможности в большом зале.")
+# V52 (эксперимент): 5А+6А+8Ә и 11А — в большом зале почти обязательно (штраф огромный) — цена в сдвигах/окнах
+PROFILES["V52"] = replace(PROFILES["V51"], name="V52", title="Версия 52", gym_prefer_big_weight=5000,
+                          gym_prefer_big=("5А", "6А", "8Ә", "11А"),
+                          description=PROFILES["V50"].description + " 5А+6А+8Ә и 11А — в большом зале (почти жёстко).")
+# V53: V50 + Анастасия (ЛУО 7А) приходит к 1-му уроку (жёстко, СанПиН: все дети вместе), уходит не позже 6-го
+#       (6-й — штраф); минимум сдвигов от V50, окна вдвое дороже, обмены кабинетами с химией дороже (мягко)
+PROFILES["V53"] = replace(PROFILES["V50"], name="V53", title="Версия 53",
+                          luo_student_start_first=True, luo_student_last_max=6, luo_student_late={6: 300},
+                          window=200, babich_chem_swap=300,
+                          description=PROFILES["V50"].description + " Ученица ЛУО 7А — с 1-го урока, не позже 6-го.")
+# V55: V53 + у Русиной Н.В. нет дня ради одного урока (жёстко ≥2 урока в рабочий день); минимум сдвигов от V53
+PROFILES["V55"] = replace(PROFILES["V53"], name="V55", title="Версия 55",
+                          teacher_min_per_day={"Русина Наталья Владимировна": 2},
+                          description=PROFILES["V53"].description + " У Русиной нет дня ради одного урока.")
+HINT_FROM = {"V48": "V45", "V49": "V45", "V50": "V47", "V51": "V50", "V52": "V50", "V55": "V53"}
+for _n in ("V42", "V43", "V44", "V45", "V46", "V47", "V48", "V49", "V50"):
+    KEEP_FROM[_n] = "V36"
+KEEP_FROM["V51"] = "V50"
+KEEP_FROM["V52"] = "V50"
+KEEP_FROM["V53"] = "V50"
+KEEP_FROM["V55"] = "V53"
+# Бабич: из какой версии брать его сетку; в каких днях сетку (окна) не держать
+BABICH_FROM = {"V42": ("V36", set()), "V43": ("V36", set()), "V44": ("V36", {0, FRI}),
+               "V45": ("V36", {0, FRI}), "V46": ("V36", set()), "V47": ("V36", {0, FRI}),
+               "V48": ("V36", {0, FRI}), "V49": ("V36", {0, FRI}),
+               "V50": ("V36", {0, FRI}), "V51": ("V36", {0, FRI}), "V52": ("V36", {0, FRI}),
+               "V53": ("V36", {0, FRI}), "V55": ("V36", {0, FRI})}
+TWO_PHASE = {"V42", "V43", "V44", "V45", "V46", "V47"}  # сначала допустимое решение с минимумом сдвигов, потом оптимизация
+TWO_PHASE.update({"V53", "V55"})
+PHASE1_LIMIT = 300
 LATEST_RULES = "V32"  # правила, по которым считаются следующие версии
 
 
@@ -444,6 +550,25 @@ def solve(names, limit=None):
         if name in KEEP_FROM:
             prev = json.loads((OUT / f"{KEEP_FROM[name]}.json").read_text(encoding="utf-8"))
             prof.keep_slots = {int(mi): tuple(dp) for mi, dp in prev["slots"].items()}
+        if name in BABICH_FROM:
+            src_name, free_pattern = BABICH_FROM[name]
+            src = json.loads((OUT / f"{src_name}.json").read_text(encoding="utf-8"))
+            bab = {int(mi): tuple(dp) for mi, dp in src["slots"].items() if BABICH in school.meetings[int(mi)].teachers}
+            # четверг Бабича и английский 10А в каб.17 — как есть
+            prof.fixed_slots = {mi: dp for mi, dp in bab.items() if dp[0] == THU}
+            prof.fixed_slots.update({
+                int(mi): tuple(dp) for mi, dp in src["slots"].items()
+                if "10А" in school.meetings[int(mi)].classes and any(
+                    sec.teacher == ALEKPAROVA and src["rooms"].get(f"{mi}|{si}") == BABICH_ROOM
+                    for si, sec in enumerate(school.meetings[int(mi)].sections))})
+            # остальные дни: уроки в своём дне, окна (сетка занятости) на месте, порядок классов свободен
+            prof.teacher_busy_fixed = {BABICH: {
+                d: [int(any(dp == (d, p) for dp in bab.values())) for p in range(8)]
+                for d in range(5) if d != THU and d not in free_pattern}}
+            prof.pins = list(prof.pins) + [
+                {"class": c, "subject": sj, "day": dp[0], "period": None}
+                for mi, dp in bab.items() if dp[0] != THU
+                for c in school.meetings[mi].classes for sj in school.meetings[mi].class_subjects(c)]
         if limit:
             prof.time_limit = limit
         hint = None
@@ -451,6 +576,8 @@ def solve(names, limit=None):
         prev_ver = OUT / f"V{version_no(name) - 1}.json"
         if own.exists():
             hint = json.loads(own.read_text(encoding="utf-8"))
+        elif name in HINT_FROM:
+            hint = json.loads((OUT / f"{HINT_FROM[name]}.json").read_text(encoding="utf-8"))
         elif name in KEEP_FROM:
             hint = json.loads((OUT / f"{KEEP_FROM[name]}.json").read_text(encoding="utf-8"))
         elif name in KEEP_FROM_HINT:
@@ -462,6 +589,19 @@ def solve(names, limit=None):
             hint = json.loads(strict.read_text(encoding="utf-8")) if strict.exists() else base
         else:
             hint = best_hint(len(school.meetings))
+        if name in TWO_PHASE and not own.exists():
+            # этап 1: любое допустимое расписание с минимумом сдвигов (без потолка СанПиН)
+            from dataclasses import replace as _replace
+            p1 = Built(school, _replace(prof, sanpin_cap=None, time_limit=PHASE1_LIMIT)).build()
+            p1.terms = {"moved_vs_prev": [(1, 1 - p1.x[(mi, d, p)] if (mi, d, p) in p1.x else 1)
+                                          for mi, (d, p) in p1.p.keep_slots.items()]}
+            print(f"[{name}] этап 1: допустимое решение, до {PHASE1_LIMIT} с …", flush=True)
+            r1 = p1.solve(hint=hint, log_path=str(OUT / f"{name}.phase1.log"))
+            print(f"[{name}] этап 1: {r1['status']}, сдвигов {r1.get('objective')}", flush=True)
+            if "slots" not in r1:
+                continue
+            (OUT / f"{name}.phase1.json").write_text(json.dumps(r1, ensure_ascii=False), encoding="utf-8")
+            hint = r1
         b = Built(school, prof).build()
         print(f"[{name}] {prof.title}: решаю до {prof.time_limit} с …", flush=True)
         partial = OUT / f"{name}.partial.json"

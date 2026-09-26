@@ -347,6 +347,13 @@ def build() -> School:
             meetings.append(Meeting(f"{cls}|{subj}#{h}", make_sections([(cls, subj)])))
         remaining[(cls, subj)] = 0
 
+    # Ручные правки названий предметов в конкретных встречах (переименование/рокировка)
+    for m in meetings:
+        if m.id in overrides.get("meeting_subject_overrides", {}):
+            new_subj = overrides["meeting_subject_overrides"][m.id]
+            for sec in m.sections:
+                sec.attendees = [(a[0], a[1], new_subj) for a in sec.attendees]
+
     # часов (событий) по (класс, предмет)
     hours: dict[tuple[str, str], int] = {}
     for m in meetings:

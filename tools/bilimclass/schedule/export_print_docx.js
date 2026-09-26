@@ -39,14 +39,16 @@ function cellText(text, size) {
 }
 
 function headerCell(text, width) {
+  const lines = (text || "").split("\n").filter((x) => x.length);
   return new TableCell({
     width: { size: width, type: WidthType.DXA },
     verticalAlign: VerticalAlign.CENTER,
     borders: CELL_BORDERS,
-    children: [new Paragraph({
+    children: lines.length ? lines.map((l) => new Paragraph({
       alignment: AlignmentType.CENTER,
-      children: text ? [new TextRun({ text, bold: true, size: 17 })] : [],
-    })],
+      spacing: { before: 0, after: 0 },
+      children: [new TextRun({ text: l, bold: true, size: 16 })],
+    })) : [new Paragraph({})],
   });
 }
 
@@ -65,8 +67,8 @@ function buildHeaderTable(sheet, header) {
     role: "Директор школы:",
     name: "Мельников П.В.",
   };
-  const title = (header && header.title) || "Расписание уроков на I полугодие";
-  const subtitle = (header && header.subtitle) || "КГУ «Песчанская СОШ №1» 2026-2027 учебный год";
+  const title = (sheet && sheet.title) || (header && header.title) || "Расписание уроков на I полугодие";
+  const subtitle = (sheet && sheet.subtitle) || (header && header.subtitle) || "КГУ «Песчанская СОШ №1» 2026-2027 учебный год";
 
   const leftCell = new TableCell({
     width: { size: leftW, type: WidthType.DXA },
@@ -92,7 +94,7 @@ function buildHeaderTable(sheet, header) {
     new Paragraph({
       alignment: AlignmentType.CENTER,
       spacing: { before: 10, after: 30 },
-      children: [new TextRun({ text: title, bold: true, size: 23 })],
+      children: [new TextRun({ text: title, bold: true, size: 22 })],
     }),
     new Paragraph({
       alignment: AlignmentType.CENTER,
@@ -101,7 +103,7 @@ function buildHeaderTable(sheet, header) {
     }),
   ];
 
-  if (sheet.name === "ЛУО" || sheet.name === "ДО") {
+  if ((sheet.name === "ЛУО" || sheet.name === "ДО") && !sheet.title) {
     centerChildren.push(
       new Paragraph({
         alignment: AlignmentType.CENTER,

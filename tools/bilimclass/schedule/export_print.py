@@ -232,12 +232,9 @@ def default_sheets(school, res, include_special: bool = True):
                     fixed_periods=max(school.class_max_lessons[c] for c in upper)),
     ]
     if include_special:
-        luo_cols, luo_c = luo_cells(school, res)
-        if luo_cols:
-            sheets.append(build_sheet("ЛУО", luo_cols, luo_c))
-        do_cols, do_c, _skipped = do_cells()
-        if do_cols:
-            sheets.append(build_sheet("ДО", do_cols, do_c))
+        from export_special_schedules import get_do_schedule, get_luo_schedule
+        sheets.append(get_luo_schedule(school, res))
+        sheets.append(get_do_schedule())
     return sheets
 
 
@@ -374,7 +371,14 @@ def write_print_grid(ws, sheet, header: dict | None = None):
                 cell = ws.cell(row, 3 + i, text)
                 cell.alignment = CENTER
                 cell.border = top
-            ws.row_dimensions[row].height = 26 if any(x.count("\n") for x in r["cells"]) else 20
+            has_three_lines = any(x.count("\n") >= 2 for x in r["cells"])
+            has_two_lines = any(x.count("\n") == 1 for x in r["cells"])
+            if has_three_lines:
+                ws.row_dimensions[row].height = 42
+            elif has_two_lines:
+                ws.row_dimensions[row].height = 30
+            else:
+                ws.row_dimensions[row].height = 20
             row += 1
         ws.merge_cells(start_row=start_row, start_column=1, end_row=row - 1, end_column=1)
         dcell = ws.cell(start_row, 1, day["label"])
@@ -397,7 +401,8 @@ def write_print_grid(ws, sheet, header: dict | None = None):
     ws.column_dimensions["A"].width = 4
     ws.column_dimensions["B"].width = 5
     for i in range(len(columns)):
-        ws.column_dimensions[get_column_letter(3 + i)].width = 15 if len(columns) <= 12 else 12
+        col_w = 26 if ncol < 8 else (15 if len(columns) <= 12 else 12)
+        ws.column_dimensions[get_column_letter(3 + i)].width = col_w
 
     ws.freeze_panes = freeze_cell
     ws.sheet_view.showGridLines = False

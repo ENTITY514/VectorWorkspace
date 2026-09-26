@@ -13,7 +13,8 @@
         { "luo_subject": "История Казахстана",            "luo_hours": 2, "class_subject": "История Казахстана",        "class_hours": 2, "attends": 2 },
         { "luo_subject": "Адаптивная физическая культура","luo_hours": 3, "class_subject": "Физическая культура",       "class_hours": 3, "attends": 3 },
         { "luo_subject": "Чтение и развитие речи",        "luo_hours": 3, "class_subject": "Русская литература",        "class_hours": 2, "attends": 2, "note": "ходит на литературу со своим классом (Балгабаева Н.К.); 1ч не посещает" },
-        { "luo_subject": "Казахский язык",                "luo_hours": 2, "class_subject": "Казахский язык и литература","class_hours": 4, "attends": 2, "note": "посещает 2 из 4 часов; её уроки ставить выше, чтобы не было окон" }
+        { "luo_subject": "Казахский язык",                "luo_hours": 2, "class_subject": "Казахский язык и литература","class_hours": 4, "attends": 2, "note": "посещает 2 из 4 часов; её уроки ставить выше, чтобы не было окон" },
+        { "luo_subject": "Трудовое обучение",             "luo_hours": 1, "class_subject": "Художественный труд",        "class_hours": 1, "attends": 1, "note": "ходит на труд со своим классом (девочки у Жуковой И.М.)" }
       ]
     }
   ],

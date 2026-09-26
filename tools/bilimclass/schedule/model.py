@@ -75,6 +75,7 @@ class Profile:
     lang_limit_all: int = 0                # штраф за 3-й разный язык в день у 5–11 классов
     forbid_rooms: dict = field(default_factory=dict)  # учитель → кабинеты, которые ему не даются
     gym_hard_classes: tuple = ()           # физкультура этих классов — строго в зале по размеру класса
+    gym_small_days: dict = field(default_factory=dict)  # класс → дни, когда ему можно в малый зал (со штрафом gym)
     babich_no_swap_classes: tuple = ()     # в этих классах Бабич всегда в своём кабинете (без обмена с химией)
     window_low_teachers: tuple = ()        # учителя с пониженным весом окон (совместители)
     window_low: int = 0
@@ -88,6 +89,43 @@ class Profile:
     natural_exempt_classes: tuple = ()     # классы с закреплённым расписанием — правило не применяется
     teacher_cap_exempt: tuple = ()         # учителя, у которых закреплённые уроки уже превышают предел
     teacher_cap_extra: int = 1             # предел в день = ceil(уроков / рабочих дней) + это число
+    # 25.09: окна и удобство учителей
+    window_weights: dict = field(default_factory=dict)  # учитель → свой вес окна (вместо window / window_low)
+    start_first_teachers: tuple = ()       # приходят к 1-му уроку (кл. руководители): ожидание до урока — тоже окно
+    double_window: int = 0                 # штраф за каждые 2 окна подряд (сверх штрафа за сами окна)
+    no_double_window_teachers: tuple = ()  # у них 2 окна подряд — запрещено
+    double_window_weights: dict = field(default_factory=dict)  # учитель → свой штраф за 2 окна подряд
+    window_excess_over: int = 3            # окон в неделю у учителя без доп. штрафа
+    window_excess: int = 0                 # штраф за каждое окно сверх window_excess_over
+    single_lesson_day: int = 0             # учитель приходит ради одного урока
+    window_caps: dict = field(default_factory=dict)  # учитель → жёсткий предел окон в неделю
+    luo_student_window: int = 0            # окно у ученика ЛУО на инклюзии (luo_inclusion.json)
+    luo_student_max_windows_day: int | None = None  # жёсткий предел окон ученика ЛУО в день
+    luo_student_max_windows_week: int | None = None  # жёсткий предел окон ученика ЛУО в неделю
+    luo_student_start_first: bool = False  # ученик ЛУО приходит к 1-му уроку вместе с классом (жёстко)
+    luo_student_last_max: int | None = None  # последний урок ученика ЛУО — не позже этого (1..8, жёстко)
+    luo_student_late: dict = field(default_factory=dict)  # номер урока → штраф, если ученик ЛУО на нём ещё в школе
+    history_alternation: bool = False      # всемирная история — между двумя уроками истории Казахстана
+    heavy_triple: int = 0                  # 5–11: три трудных урока (≥9 баллов) подряд
+    heavy_late: int = 0                    # 5–11: трудный урок (≥9 баллов) на 6-м уроке и позже — доп. штраф
+    alternate_groups: tuple = ()           # группы парных предметов: между двумя уроками одного — урок другого
+    alternate_weight: int = 0
+    sanpin_cap: int | None = None          # жёсткий предел баллов СанПиН (с множителем 10А), не хуже базовой версии
+    sanpin_cap_weight: int = 0             # > 0 — потолок мягкий: штраф за каждый балл сверх sanpin_cap
+    teacher_days_exact: dict = field(default_factory=dict)  # учитель → (рабочих дней, уроков в каждый из них)
+    teacher_min_per_day: dict = field(default_factory=dict)  # учитель → минимум уроков в рабочий день (жёстко)
+    teacher_busy_fixed: dict = field(default_factory=dict)  # учитель → {день: [0/1 по урокам]} — окна на месте
+    start_first_hard: tuple = ()           # в каждый рабочий день начинают с 1-го урока (жёстко)
+    teacher_day_band: dict = field(default_factory=dict)    # учитель → (мин, макс) уроков в рабочий день (мягко)
+    teacher_day_band_weight: int = 0
+    teacher_late_periods: dict = field(default_factory=dict)  # учитель → номера уроков (1..8), нежелательные
+    teacher_late_weight: int = 0
+    teacher_extra_day: int = 0             # рабочий день сверх ceil(уроков / 5) — учитель «размазан» по неделе
+    low_load_max: int = 12                 # учителя с нагрузкой до стольких часов …
+    low_load_per_day: int = 4              # … должны укладываться в ceil(часы / это) рабочих дней
+    low_load_extra_day: int = 0            # штраф за каждый рабочий день сверх этого
+    gym_prefer_big: tuple = ()             # маленькие классы, которым по возможности — большой зал
+    gym_prefer_big_weight: int = 0
     class10_factor: int = 2
     time_limit: int = 600
     seed: int = 1
@@ -150,6 +188,7 @@ class Built:
         s, m = self.s, self.m
         meetings = s.meetings
         cap = s.class_max_lessons
+        self._normalize_symmetric()
 
         # 1. переменные слотов с предфильтрами
         for mi, mt in enumerate(meetings):
@@ -292,7 +331,184 @@ class Built:
             for mi, (d, p) in self.p.base_slots.items():
                 v = self.x.get((mi, d, p))
                 self.pen("moved_vs_base", self.p.change_weight, 1 - v if v is not None else 1)
+        if (self.p.luo_student_window or self.p.luo_student_max_windows_day is not None
+                or self.p.luo_student_max_windows_week is not None or self.p.luo_student_start_first):
+            self._luo_students()
+        if self.p.history_alternation:
+            self._history_alternation()
+        if self.p.alternate_groups and self.p.alternate_weight:
+            self._weekly_alternation()
+        if self.p.heavy_triple or self.p.heavy_late:
+            self._child_view()
+        if self.p.sanpin_cap is not None:
+            pts = sum((it[0] // self.p.sanpin) * it[1] for it in self.terms.get("sanpin", []))
+            if self.p.sanpin_cap_weight:
+                over = m.NewIntVar(0, 100000, "sanpin_over")
+                m.Add(over >= pts - self.p.sanpin_cap)
+                self.pen("sanpin_over_cap", self.p.sanpin_cap_weight, over)
+            else:
+                m.Add(pts <= self.p.sanpin_cap)
         return self
+
+    @staticmethod
+    def symmetric_groups(school):
+        """Одинаковые уроки (учитель, состав, кабинеты) — взаимозаменяемы; модель ставит их по возрастанию номера."""
+        groups: dict[tuple, list[int]] = {}
+        for mi, mt in enumerate(school.meetings):
+            sig = tuple(sorted((sec.teacher, tuple(sorted(sec.attendees, key=str)), tuple(sec.rooms))
+                               for sec in mt.sections))
+            groups.setdefault(sig, []).append(mi)
+        return [mis for mis in groups.values() if len(mis) > 1]
+
+    def _normalize_symmetric(self):
+        """Слоты прежних версий могли стоять в другом порядке внутри группы одинаковых уроков —
+        переставляем их по времени, иначе закрепление невыполнимо, а «сдвиги» мнимые."""
+        for attr in ("fixed_slots", "keep_slots", "base_slots"):
+            slots = dict(getattr(self.p, attr))
+            if not slots:
+                continue
+            for mis in self.symmetric_groups(self.s):
+                have = [mi for mi in mis if mi in slots]
+                if len(have) < 2:
+                    continue
+                ordered = sorted((slots[mi] for mi in have), key=lambda dp: dp[0] * PERIODS + dp[1])
+                for mi, dp in zip(have, ordered):
+                    slots[mi] = tuple(dp)
+            setattr(self.p, attr, slots)
+
+    def luo_attendance(self):
+        """Ученики ЛУО на инклюзии: (ученик, класс, уроки всегда, [(уроки на выбор, сколько посещает)])."""
+        from dataset import load
+        out = []
+        for st in load("luo_inclusion.json").get("students", []):
+            c = st["host_class"]
+            always, choice = [], []
+            for e in st["map"]:
+                subs = set(e.get("class_subjects") or [e["class_subject"]])
+                mis = [mi for mi in self.by_class.get(c, []) if self.s.meetings[mi].class_subjects(c) & subs]
+                if e["attends"] >= len(mis):
+                    always += mis
+                elif e["attends"] > 0:
+                    choice.append((mis, e["attends"]))
+            out.append((st["student"], c, always, choice))
+        return out
+
+    def _luo_students(self):
+        """Окна ученика ЛУО: уроки класса, которые он не посещает, между посещаемыми."""
+        m = self.m
+        self.luo_choice = {}
+        for name, c, always, choice in self.luo_attendance():
+            tag = name.split()[-1][:4]
+            pick = {}
+            for mis, n in choice:
+                vs = [m.NewBoolVar(f"luo_{tag}_{mi}") for mi in mis]
+                m.Add(sum(vs) == n)
+                pick.update(zip(mis, vs))
+            self.luo_choice[name] = pick
+            week = []
+            for d in range(DAYS):
+                pres = []
+                for p in range(PERIODS):
+                    terms = [self.x[(mi, d, p)] for mi in always if (mi, d, p) in self.x]
+                    for mi, a in pick.items():
+                        if (mi, d, p) in self.x:
+                            terms.append(self.bool_and(self.x[(mi, d, p)], a, "luoc"))
+                    pres.append(self.eq_bool(sum(terms), f"lp_{tag}_{d}{p}") if terms else 0)
+                real = [(p, v) for p, v in enumerate(pres) if not isinstance(v, int)]
+                if not real:
+                    continue
+                has = m.NewBoolVar(f"lh_{tag}_{d}")
+                m.AddMaxEquality(has, [v for _, v in real])
+                first = m.NewIntVar(0, PERIODS - 1, f"lf_{tag}_{d}")
+                last = m.NewIntVar(0, PERIODS - 1, f"ll_{tag}_{d}")
+                for p, v in real:
+                    m.Add(first <= p).OnlyEnforceIf(v)
+                    m.Add(last >= p).OnlyEnforceIf(v)
+                win = m.NewIntVar(0, PERIODS, f"lw_{tag}_{d}")
+                m.Add(win >= last - first + 1 - sum(v for _, v in real) - PERIODS * (1 - has))
+                if self.p.luo_student_max_windows_day is not None:
+                    m.Add(win <= self.p.luo_student_max_windows_day)
+                if self.p.luo_student_start_first:
+                    # first ограничен только сверху — требуем сам урок: в любой учебный день ученик на 1-м уроке
+                    m.Add(pres[0] >= has) if not isinstance(pres[0], int) else m.Add(has == 0)
+                if self.p.luo_student_last_max is not None:
+                    m.Add(last <= self.p.luo_student_last_max - 1).OnlyEnforceIf(has)
+                for per, w in self.p.luo_student_late.items():
+                    if not isinstance(pres[per - 1], int):
+                        self.pen("luo_student_late", w, pres[per - 1])
+                self.pen("luo_student_window", self.p.luo_student_window, win)
+                week.append(win)
+            if self.p.luo_student_max_windows_week is not None and week:
+                m.Add(sum(week) <= self.p.luo_student_max_windows_week)
+
+    def _child_view(self):
+        """Глазами ребёнка (5–11): не три трудных подряд, трудные — не в конце дня."""
+        s, m = self.s, self.m
+        for c, mis in self.by_class.items():
+            if grade_of(c) <= 4:
+                continue
+            heavy = [mi for mi in mis if max(s.subject_weight[(c, sj)] for sj in s.meetings[mi].class_subjects(c)) >= 9]
+            for d in range(DAYS):
+                h = [self._occ_sub(heavy, d, p) for p in range(PERIODS)]
+                if self.p.heavy_late:
+                    for p in range(5, PERIODS):
+                        if not isinstance(h[p], int):
+                            self.pen("heavy_late", self.p.heavy_late, h[p])
+                if self.p.heavy_triple:
+                    for p in range(PERIODS - 2):
+                        if any(isinstance(h[q], int) for q in (p, p + 1, p + 2)):
+                            continue
+                        tr = m.NewBoolVar(f"h3_{c}_{d}{p}")
+                        m.Add(tr >= h[p] + h[p + 1] + h[p + 2] - 2)
+                        self.pen("heavy_triple", self.p.heavy_triple, tr)
+
+    def _weekly_alternation(self):
+        """5–11 классы: по неделе парные предметы чередуются (А Б А …), а не идут А А Б."""
+        m = self.m
+        sym_of = {}
+        for mis in self.sym_groups:
+            for mi in mis:
+                sym_of[mi] = tuple(mis)
+        for c in self.s.classes:
+            if grade_of(c) <= 4:
+                continue
+            for group in self.p.alternate_groups:
+                present = {sj: self.cs_meetings.get((c, sj), []) for sj in group}
+                present = {sj: mis for sj, mis in present.items() if mis}
+                if len(present) < 2:
+                    continue
+                for sj, mis in present.items():
+                    if len(mis) < 2 or len({sym_of.get(mi) for mi in mis}) != 1 or mis[0] not in sym_of:
+                        continue  # порядок уроков предмета известен только для одинаковых уроков
+                    others = [mi for o, oms in present.items() if o != sj for mi in oms]
+                    for a, b in zip(mis, mis[1:]):
+                        betw = []
+                        for o in others:
+                            z = m.NewBoolVar(f"alt_{c}_{a}_{o}")
+                            m.Add(self.t[o] > self.t[a]).OnlyEnforceIf(z)
+                            m.Add(self.t[o] < self.t[b]).OnlyEnforceIf(z)
+                            betw.append(z)
+                        miss = m.NewBoolVar(f"altm_{c}_{a}")
+                        m.Add(sum(betw) + miss >= 1)
+                        self.pen("weekly_alternation", self.p.alternate_weight, miss)
+
+    def _history_alternation(self):
+        """История Казахстана и всемирная история по неделе чередуются: ИК … ВИ … ИК."""
+        m = self.m
+        for c in self.s.classes:
+            ik = self.cs_meetings.get((c, "История Казахстана"), [])
+            wh = self.cs_meetings.get((c, "Всемирная история"), [])
+            if len(ik) == 2 and len(wh) == 1:
+                a, b, v = ik[0], ik[1], wh[0]
+            elif len(wh) == 2 and len(ik) == 1:
+                a, b, v = wh[0], wh[1], ik[0]
+            else:
+                continue
+            lo = m.NewBoolVar(f"hal_{c}")  # a раньше b
+            m.Add(self.t[a] < self.t[v]).OnlyEnforceIf(lo)
+            m.Add(self.t[v] < self.t[b]).OnlyEnforceIf(lo)
+            m.Add(self.t[b] < self.t[v]).OnlyEnforceIf(lo.Not())
+            m.Add(self.t[v] < self.t[a]).OnlyEnforceIf(lo.Not())
 
     def _teacher_balance(self):
         m = self.m
@@ -561,10 +777,18 @@ class Built:
                     if rid in sec.swap_penalty_rooms:
                         self.pen("room", self.p.room, v)
                     elif BIG_GYM in sec.rooms:
+                        if rid != BIG_GYM and set(mt.classes) & set(self.p.gym_prefer_big):
+                            self.pen("gym_prefer_big", self.p.gym_prefer_big_weight, v)
                         if rid not in sec.preferred_rooms:
-                            if set(mt.classes) & set(self.p.gym_hard_classes):
+                            hard = set(mt.classes) & set(self.p.gym_hard_classes)
+                            ok_days = (set.intersection(*[set(self.p.gym_small_days.get(c, ())) for c in hard])
+                                       if hard else set())
+                            if hard and not ok_days:
                                 m.Add(v == 0)  # этим классам — только свой зал
                             else:
+                                for (i, d, p), xv in self._x_of(mi):
+                                    if hard and d not in ok_days:
+                                        m.Add(xv + v <= 1)  # в малый зал — только в разрешённые дни
                                 self.pen("gym", self.p.gym, v)
                     elif rid not in sec.preferred_rooms and any(grade_of(c) <= 4 for c in mt.classes):
                         self.pen("primary_home_room", self.p.primary_home_room, v)
@@ -612,6 +836,8 @@ class Built:
     def _teacher_windows(self):
         m = self.m
         self.first, self.last, self.tcount = {}, {}, {}
+        self.twin: dict[str, list] = {}
+        self.thas: dict[tuple, cp_model.IntVar] = {}
         for t in self.by_teacher:
             for d in range(DAYS):
                 b = [self.busy[(t, d, p)] for p in range(PERIODS)]
@@ -629,7 +855,17 @@ class Built:
                 cnt = sum(v for _, v in real)
                 win = m.NewIntVar(0, PERIODS, f"w_{t[:6]}_{d}")
                 m.Add(win >= last - first + 1 - cnt - PERIODS * (1 - has))
+                if t in self.p.start_first_teachers:
+                    m.Add(win >= last + 1 - cnt - PERIODS * (1 - has))  # пришла к 1-му уроку и ждёт
                 self.first[(t, d)], self.last[(t, d)], self.tcount[(t, d)] = first, last, cnt
+                self.twin.setdefault(t, []).append(win)
+                self.thas[(t, d)] = has
+                if self.p.single_lesson_day:
+                    one = m.NewBoolVar(f"one_{t[:6]}_{d}")
+                    m.Add(one >= has - (cnt - 1))
+                    self.pen("single_lesson_day", self.p.single_lesson_day, one)
+                if self.p.double_window or t in self.p.no_double_window_teachers or t in self.p.double_window_weights:
+                    self._double_windows(t, d, b)
                 if t in self.p.no_window_teachers:
                     # окно запрещено; недоступные слоты (занятия ДО) окном не считаются
                     av = self.s.availability[t][d]
@@ -644,7 +880,119 @@ class Built:
                     self.babich_win[d] = win
                 else:
                     w = self.p.window_low if t in self.p.window_low_teachers else self.p.window
-                    self.pen("window", w, win)
+                    self.pen("window", self.p.window_weights.get(t, w), win)
+        for t, cap in self.p.window_caps.items():
+            if t in self.twin:
+                m.Add(sum(self.twin[t]) <= cap)
+        if self.p.window_excess:
+            for t, wins in self.twin.items():
+                if t == BABICH or t in self.p.window_low_teachers:
+                    continue
+                # прогрессивно: 1-е окно сверх предела ×1, 2-е ×2, 3-е ×3 …
+                for k in range(1, 9):
+                    ex = m.NewIntVar(0, DAYS * PERIODS, f"wex_{t[:6]}_{k}")
+                    m.Add(ex >= sum(wins) - self.p.window_excess_over - (k - 1))
+                    self.pen("window_excess", self.p.window_excess, ex)
+        self._teacher_extras()
+
+    def _teacher_extras(self):
+        m, P = self.m, self.p
+        for t, (nd, per) in P.teacher_days_exact.items():
+            hs = [self.thas[(t, d)] for d in range(DAYS) if (t, d) in self.thas]
+            m.Add(sum(hs) == nd)
+            for d in range(DAYS):
+                if (t, d) in self.thas and per:
+                    m.Add(self.tcount[(t, d)] == per * self.thas[(t, d)])
+        for t, k in P.teacher_min_per_day.items():
+            for d in range(DAYS):
+                if (t, d) in self.thas:
+                    m.Add(self.tcount[(t, d)] >= k * self.thas[(t, d)])
+        for t, days in P.teacher_busy_fixed.items():
+            for d, pattern in days.items():
+                for p in range(PERIODS):
+                    b = self.busy.get((t, d, p), 0)
+                    want = pattern[p] if p < len(pattern) else 0
+                    if isinstance(b, int):
+                        if b != want:
+                            raise ValueError(f"Нельзя сохранить сетку {t}: {d},{p}")
+                    else:
+                        m.Add(b == want)
+        for t in P.start_first_hard:
+            for d in range(DAYS):
+                if (t, d) in self.thas:
+                    b0 = self.busy.get((t, d, 0), 0)
+                    m.Add(b0 >= self.thas[(t, d)])
+        for t, (lo, hi) in P.teacher_day_band.items():
+            for d in range(DAYS):
+                if (t, d) not in self.thas:
+                    continue
+                h, cnt = self.thas[(t, d)], self.tcount[(t, d)]
+                under = m.NewIntVar(0, PERIODS, f"bu_{t[:5]}_{d}")
+                over = m.NewIntVar(0, PERIODS, f"bo_{t[:5]}_{d}")
+                m.Add(under >= lo * h - cnt)
+                m.Add(over >= cnt - hi)
+                self.pen("teacher_day_band", P.teacher_day_band_weight, under + over)
+        for t, periods in P.teacher_late_periods.items():
+            for d in range(DAYS):
+                for per in periods:
+                    b = self.busy.get((t, d, per - 1), 0)
+                    if not isinstance(b, int):
+                        self.pen("teacher_late", P.teacher_late_weight, b)
+        if P.low_load_extra_day:
+            for t, mis in self.by_teacher.items():
+                if len(mis) > P.low_load_max:
+                    continue
+                hs = [self.thas[(t, d)] for d in range(DAYS) if (t, d) in self.thas]
+                need = max(1, math.ceil(len(mis) / P.low_load_per_day))
+                if len(hs) > need:
+                    ex = m.NewIntVar(0, DAYS, f"lx_{t[:6]}")
+                    m.Add(ex >= sum(hs) - need)
+                    self.pen("low_load_extra_day", P.low_load_extra_day, ex)
+        if P.teacher_extra_day:
+            for t, mis in self.by_teacher.items():
+                hs = [self.thas[(t, d)] for d in range(DAYS) if (t, d) in self.thas]
+                need = max(1, math.ceil(len(mis) / 5))
+                if len(hs) > need:
+                    ex = m.NewIntVar(0, DAYS, f"xd_{t[:6]}")
+                    m.Add(ex >= sum(hs) - need)
+                    self.pen("teacher_extra_day", P.teacher_extra_day, ex)
+
+    def _or_chain(self, vals, name):
+        """pre[i] = есть ли 1 среди vals[:i] (pre[0] = 0)."""
+        pre = [0]
+        for i, v in enumerate(vals):
+            prev = pre[-1]
+            if any(isinstance(x, int) and x == 1 for x in (prev, v)):
+                pre.append(1)
+                continue
+            items = [x for x in (prev, v) if not isinstance(x, int)]
+            if len(items) <= 1:
+                pre.append(items[0] if items else 0)
+                continue
+            o = self.m.NewBoolVar(f"{name}{i}")
+            self.m.AddMaxEquality(o, items)
+            pre.append(o)
+        return pre
+
+    def _double_windows(self, t, d, b):
+        """Два окна подряд: уроки p и p+1 свободны, а до и после них есть уроки."""
+        m = self.m
+        av = self.s.availability[t][d]
+        pre = self._or_chain(b, f"dp_{t[:5]}_{d}_")
+        suf = self._or_chain(b[::-1], f"ds_{t[:5]}_{d}_")[::-1]  # suf[i] — есть ли урок в b[i:]
+        for p in range(1, PERIODS - 2):
+            if not (av[p] and av[p + 1]):
+                continue  # занятия ДО / недоступность окном не считаются
+            before, after = pre[p], suf[p + 2]
+            if isinstance(before, int) and before == 0 or isinstance(after, int) and after == 0:
+                continue
+            expr = before + after - b[p] - b[p + 1] - 1
+            if t in self.p.no_double_window_teachers:
+                m.Add(expr <= 0)
+            elif t != BABICH and self.p.double_window_weights.get(t, self.p.double_window):
+                dw = m.NewBoolVar(f"dw_{t[:5]}_{d}{p}")
+                m.Add(dw >= expr)
+                self.pen("double_window", self.p.double_window_weights.get(t, self.p.double_window), dw)
 
     def _sanpin(self):
         s, m = self.s, self.m
