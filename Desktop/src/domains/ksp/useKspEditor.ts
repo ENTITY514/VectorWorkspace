@@ -28,15 +28,6 @@ function emptyStage(type: KspStageType): KspStage {
   };
 }
 
-function stripFormativePoints(a: KspStageAssessment): KspStageAssessment {
-  if (a.mode !== "formative") return a;
-  return {
-    ...a,
-    maxPoints: null,
-    descriptors: a.descriptors.map((d) => ({ ...d, points: null })),
-  };
-}
-
 export function useKspEditor(kspId: string) {
   const [doc, setDoc] = useState<KspDocument | null>(null);
   const [report, setReport] = useState<KspValidationReport | null>(null);
@@ -161,7 +152,7 @@ export function useKspEditor(kspId: string) {
             ...patch,
             assessment: typeChanged && !patch.assessment
               ? defaultAssessment(patch.type as KspStageType)
-              : stripFormativePoints(patch.assessment ?? s.assessment),
+              : patch.assessment ?? s.assessment,
           };
           return next;
         }),

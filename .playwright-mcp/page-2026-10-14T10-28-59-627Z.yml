@@ -1,0 +1,81 @@
+- generic [ref=e594]:
+  - banner [ref=e595]:
+    - button "Выйти из обучения" [ref=e596] [cursor=pointer]
+    - heading "Предметный курс по математике и ФГ" [level=1] [ref=e600]
+  - generic [ref=e601]:
+    - complementary [ref=e602]:
+      - generic [ref=e603]:
+        - generic [ref=e604]: Список уроков
+        - button [ref=e605] [cursor=pointer]
+      - generic [ref=e609]:
+        - generic [ref=e611]:
+          - generic [ref=e612]: Завершено на 22%
+          - generic [ref=e613]: 09:33:15
+        - generic [ref=e616]:
+          - button "Введение в курс" [ref=e618] [cursor=pointer]
+          - button "1 Модуль. Решение текстовых задач" [ref=e626] [cursor=pointer]
+          - button "2 Модуль. Теория чисел." [ref=e634] [cursor=pointer]
+          - generic [ref=e641]:
+            - button "3 Модуль. Планиметрия." [ref=e642] [cursor=pointer]
+            - list [ref=e1064]:
+              - listitem [ref=e1065] [cursor=pointer]:
+                - generic [ref=e1066]:
+                  - generic [ref=e1067]: Удивительные отрезки и точки треугольника.
+                  - generic [ref=e1068]: 14 мин
+              - listitem [ref=e1073] [cursor=pointer]:
+                - generic [ref=e1074]:
+                  - generic [ref=e1075]: Площадь треугольника.
+                  - generic [ref=e1076]: 19 мин 29 сек
+              - listitem [ref=e1081] [cursor=pointer]:
+                - generic [ref=e1082]:
+                  - generic [ref=e1083]: Типы треугольников.
+                  - generic [ref=e1084]: 6 мин 47 сек
+              - listitem [ref=e1089] [cursor=pointer]:
+                - generic [ref=e1090]:
+                  - generic [ref=e1091]: Соответствие треугольников.
+                  - generic [ref=e1092]: 13 мин
+              - listitem [ref=e1097] [cursor=pointer]:
+                - generic [ref=e1098]:
+                  - generic [ref=e1099]: Теоремы, связанные с треугольниками.
+                  - generic [ref=e1100]: 7 мин 13 сек
+              - listitem [ref=e1105] [cursor=pointer]:
+                - generic [ref=e1106]: Вопросы теста по разделу №3.
+          - button "4 Модуль. Неделя математики." [ref=e694] [cursor=pointer]
+          - button "5 Модуль. Тригонометрия." [ref=e701] [cursor=pointer]
+          - button "6 Модуль. Квадратные уравнения и неравенства." [ref=e708] [cursor=pointer]
+          - button "7 Модуль. Математическая регата." [ref=e715] [cursor=pointer]
+          - button "8 Модуль. Структура урока." [ref=e722] [cursor=pointer]
+          - button "9 Модуль. Использование ИКТ в образовательном процессе." [ref=e729] [cursor=pointer]
+          - button "10 Модуль. Микрообучение." [ref=e736] [cursor=pointer]
+          - button "Введение в функциональную грамотность." [ref=e743] [cursor=pointer]
+          - button "11 Модуль. Читательская грамотность как системообразующий компонент функциональной грамотности." [ref=e750] [cursor=pointer]
+          - button "12 Модуль. Учебные задания как основа формирования читательской грамотности." [ref=e757] [cursor=pointer]
+          - button "13 Модуль. Конструирование PISA-подобных учебных заданий." [ref=e764] [cursor=pointer]
+          - button "14 Модуль. Математическая грамотность." [ref=e771] [cursor=pointer]
+          - button "Завершение курса." [ref=e778] [cursor=pointer]
+    - main [ref=e784]:
+      - generic [ref=e1147]:
+        - generic [ref=e1149]:
+          - generic [ref=e1150]: Вопрос 3 из 10
+          - generic [ref=e1151]:
+            - generic [ref=e1152]: 43:33
+            - button "Выключить звук" [ref=e1153] [cursor=pointer]
+        - heading "Вопросы теста по разделу №3." [level=2] [ref=e1160]
+        - generic [ref=e1226]:
+          - generic [ref=e1227]: Единый ответ
+          - heading "3. В треугольнике две стороны равны 6 см и 10 см, а угол между ними — 120∘. Найдите длину третьей стороны." [level=3] [ref=e1229]
+          - generic [ref=e1230]:
+            - generic [ref=e1231] [cursor=pointer]: 15 см
+            - generic [ref=e1237] [cursor=pointer]: 16 см
+            - generic [ref=e1243] [cursor=pointer]: 14 см
+            - generic [ref=e1249] [cursor=pointer]: 9 см
+        - generic [ref=e1190]:
+          - button "Назад" [ref=e1223] [cursor=pointer]
+          - button "Ответить и перейти" [ref=e1191] [cursor=pointer]
+      - generic [ref=e850]:
+        - button "Назад" [ref=e851] [cursor=pointer]
+        - button "Далее" [ref=e852] [cursor=pointer]
+    - generic [ref=e854] [cursor=pointer]:
+      - generic:
+        - generic:
+          - paragraph: Написать автору курса

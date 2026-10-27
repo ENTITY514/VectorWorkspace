@@ -1,0 +1,98 @@
+- generic [ref=e594]:
+  - banner [ref=e595]:
+    - button "Выйти из обучения" [ref=e596] [cursor=pointer]
+    - heading "Предметный курс по математике и ФГ" [level=1] [ref=e600]
+  - generic [ref=e601]:
+    - complementary [ref=e602]:
+      - generic [ref=e603]:
+        - generic [ref=e604]: Список уроков
+        - button [ref=e605] [cursor=pointer]
+      - generic [ref=e609]:
+        - generic [ref=e611]:
+          - generic [ref=e612]: Завершено на 29%
+          - generic [ref=e613]: 09:33:15
+        - generic [ref=e616]:
+          - button "Введение в курс" [ref=e618] [cursor=pointer]
+          - button "1 Модуль. Решение текстовых задач" [ref=e626] [cursor=pointer]
+          - button "2 Модуль. Теория чисел." [ref=e634] [cursor=pointer]
+          - button "3 Модуль. Планиметрия." [ref=e642] [cursor=pointer]
+          - generic [ref=e693]:
+            - button "4 Модуль. Неделя математики." [ref=e694] [cursor=pointer]
+            - list [ref=e1494]:
+              - listitem [ref=e1495] [cursor=pointer]:
+                - generic [ref=e1496]:
+                  - generic [ref=e1497]: Введение.
+                  - generic [ref=e1498]: 1 мин 53 сек
+              - listitem [ref=e1503] [cursor=pointer]:
+                - generic [ref=e1504]:
+                  - generic [ref=e1505]: Обзор недели математики.
+                  - generic [ref=e1506]: 8 мин 4 сек
+              - listitem [ref=e1510] [cursor=pointer]:
+                - generic [ref=e1511]: Вопросы теста по разделу №4
+          - generic [ref=e700]:
+            - button "5 Модуль. Тригонометрия." [ref=e701] [cursor=pointer]
+            - list [ref=e2110]:
+              - listitem [ref=e2111] [cursor=pointer]:
+                - generic [ref=e2112]:
+                  - generic [ref=e2113]: Единичная окружность.
+                  - generic [ref=e2114]: 5 мин 6 сек
+              - listitem [ref=e2119] [cursor=pointer]:
+                - generic [ref=e2120]:
+                  - generic [ref=e2121]: Простые тригонометрические уравнения.
+                  - generic [ref=e2122]: 6 мин 31 сек
+              - listitem [ref=e2126] [cursor=pointer]:
+                - generic [ref=e2127]:
+                  - generic [ref=e2128]: Простые тригонометрические неравенства.
+                  - generic [ref=e2129]: 10 мин 57 сек
+              - listitem [ref=e2133] [cursor=pointer]:
+                - generic [ref=e2134]:
+                  - generic [ref=e2135]: Сложные тригонометрические уравнения.
+                  - generic [ref=e2136]: 10 мин 25 сек
+              - listitem [ref=e2140] [cursor=pointer]:
+                - generic [ref=e2141]:
+                  - generic [ref=e2142]: Сложные тригонометрические неравенства.
+                  - generic [ref=e2143]: 10 мин 55 сек
+          - button "6 Модуль. Квадратные уравнения и неравенства." [ref=e708] [cursor=pointer]
+          - button "7 Модуль. Математическая регата." [ref=e715] [cursor=pointer]
+          - button "8 Модуль. Структура урока." [ref=e722] [cursor=pointer]
+          - button "9 Модуль. Использование ИКТ в образовательном процессе." [ref=e729] [cursor=pointer]
+          - button "10 Модуль. Микрообучение." [ref=e736] [cursor=pointer]
+          - button "Введение в функциональную грамотность." [ref=e743] [cursor=pointer]
+          - button "11 Модуль. Читательская грамотность как системообразующий компонент функциональной грамотности." [ref=e750] [cursor=pointer]
+          - button "12 Модуль. Учебные задания как основа формирования читательской грамотности." [ref=e757] [cursor=pointer]
+          - button "13 Модуль. Конструирование PISA-подобных учебных заданий." [ref=e764] [cursor=pointer]
+          - button "14 Модуль. Математическая грамотность." [ref=e771] [cursor=pointer]
+          - button "Завершение курса." [ref=e778] [cursor=pointer]
+    - main [ref=e784]:
+      - generic [ref=e2221]:
+        - generic [ref=e2222]:
+          - heading "Простые тригонометрические уравнения." [level=2] [ref=e2223]
+          - button "Завершить урок" [ref=e2224] [cursor=pointer]
+        - region "Media Player" [ref=e2227]:
+          - generic [ref=e2230]:
+            - group:
+              - slider "Seek" [ref=e2234] [cursor=pointer]:
+                - generic: 0:00
+              - generic [ref=e2238]:
+                - button "Смотреть" [ref=e2241] [cursor=pointer]
+                - generic [ref=e2245]:
+                  - button "Выключить звук" [ref=e2248] [cursor=pointer]
+                  - generic:
+                    - slider "Громкость":
+                      - generic: 0%
+                - generic [ref=e2254]:
+                  - generic [ref=e2255]: 0:00
+                  - generic [ref=e2256]: /
+                  - generic [ref=e2257]: 6:31
+                - button "Настройки" [ref=e2261] [cursor=pointer]
+                - button "Google Cast Disconnected" [ref=e2267] [cursor=pointer]
+                - button "Fullscreen" [ref=e2275] [cursor=pointer]
+        - paragraph [ref=e2283]:
+          - strong [ref=e2284]: "2 - урок: Простые тригонометрические уравнения"
+      - generic [ref=e850]:
+        - button "Назад" [ref=e851] [cursor=pointer]
+        - button "Далее" [ref=e852] [cursor=pointer]
+    - generic [ref=e854] [cursor=pointer]:
+      - generic:
+        - generic:
+          - paragraph: Написать автору курса

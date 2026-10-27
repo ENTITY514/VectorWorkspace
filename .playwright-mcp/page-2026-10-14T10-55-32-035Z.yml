@@ -1,0 +1,172 @@
+- generic [ref=e594]:
+  - banner [ref=e595]:
+    - button "Выйти из обучения" [ref=e596] [cursor=pointer]
+    - heading "Предметный курс по математике и ФГ" [level=1] [ref=e600]
+  - generic [ref=e601]:
+    - complementary [ref=e602]:
+      - generic [ref=e603]:
+        - generic [ref=e3070]: Список уроков
+        - button [ref=e605] [cursor=pointer]
+      - generic [ref=e3071]:
+        - generic [ref=e3073]:
+          - generic [ref=e3074]: Завершено на 44%
+          - generic [ref=e3075]: 09:33:15
+        - generic [ref=e3078]:
+          - button "Введение в курс" [ref=e3080] [cursor=pointer]
+          - button "1 Модуль. Решение текстовых задач" [ref=e3088] [cursor=pointer]
+          - button "2 Модуль. Теория чисел." [ref=e3096] [cursor=pointer]
+          - button "3 Модуль. Планиметрия." [ref=e3104] [cursor=pointer]
+          - generic [ref=e3111]:
+            - button "4 Модуль. Неделя математики." [ref=e3112] [cursor=pointer]
+            - list [ref=e3119]:
+              - listitem [ref=e3120] [cursor=pointer]:
+                - generic [ref=e3121]:
+                  - generic [ref=e3122]: Введение.
+                  - generic [ref=e3123]: 1 мин 53 сек
+              - listitem [ref=e3128] [cursor=pointer]:
+                - generic [ref=e3129]:
+                  - generic [ref=e3130]: Обзор недели математики.
+                  - generic [ref=e3131]: 8 мин 4 сек
+              - listitem [ref=e3136] [cursor=pointer]:
+                - generic [ref=e3137]: Вопросы теста по разделу №4
+          - generic [ref=e3143]:
+            - button "5 Модуль. Тригонометрия." [ref=e3144] [cursor=pointer]
+            - list [ref=e3151]:
+              - listitem [ref=e3152] [cursor=pointer]:
+                - generic [ref=e3153]:
+                  - generic [ref=e3154]: Единичная окружность.
+                  - generic [ref=e3155]: 5 мин 6 сек
+              - listitem [ref=e3160] [cursor=pointer]:
+                - generic [ref=e3161]:
+                  - generic [ref=e3162]: Простые тригонометрические уравнения.
+                  - generic [ref=e3163]: 6 мин 31 сек
+              - listitem [ref=e3168] [cursor=pointer]:
+                - generic [ref=e3169]:
+                  - generic [ref=e3170]: Простые тригонометрические неравенства.
+                  - generic [ref=e3171]: 10 мин 57 сек
+              - listitem [ref=e3176] [cursor=pointer]:
+                - generic [ref=e3177]:
+                  - generic [ref=e3178]: Сложные тригонометрические уравнения.
+                  - generic [ref=e3179]: 10 мин 25 сек
+              - listitem [ref=e3184] [cursor=pointer]:
+                - generic [ref=e3185]:
+                  - generic [ref=e3186]: Сложные тригонометрические неравенства.
+                  - generic [ref=e3187]: 10 мин 55 сек
+          - generic [ref=e3192]:
+            - button "6 Модуль. Квадратные уравнения и неравенства." [ref=e3193] [cursor=pointer]
+            - list [ref=e3200]:
+              - listitem [ref=e3201] [cursor=pointer]:
+                - generic [ref=e3202]:
+                  - generic [ref=e3203]: Типы квадратных уравнений и способы их решения.
+                  - generic [ref=e3204]: 7 мин 11 сек
+              - listitem [ref=e3209] [cursor=pointer]:
+                - generic [ref=e3210]:
+                  - generic [ref=e3211]: Теорема Виета.
+                  - generic [ref=e3212]: 3 мин 42 сек
+              - listitem [ref=e3217] [cursor=pointer]:
+                - generic [ref=e3218]:
+                  - generic [ref=e3219]: Уравнения, сводящиеся к квадратным уравнениям.
+                  - generic [ref=e3220]: 9 мин 5 сек
+              - listitem [ref=e3225] [cursor=pointer]:
+                - generic [ref=e3226]:
+                  - generic [ref=e3227]: Квадратные неравенства и метод интервалов.
+                  - generic [ref=e3228]: 8 мин 45 сек
+          - generic [ref=e3233]:
+            - button "7 Модуль. Математическая регата." [ref=e3234] [cursor=pointer]
+            - list [ref=e3241]:
+              - listitem [ref=e3242] [cursor=pointer]:
+                - generic [ref=e3243]:
+                  - generic [ref=e3244]: Задачи I этапа.
+                  - generic [ref=e3245]: 6 мин 15 сек
+              - listitem [ref=e3250] [cursor=pointer]:
+                - generic [ref=e3251]:
+                  - generic [ref=e3252]: Задачи II этапа.
+                  - generic [ref=e3253]: 5 мин 35 сек
+              - listitem [ref=e3258] [cursor=pointer]:
+                - generic [ref=e3259]:
+                  - generic [ref=e3260]: Задачи III этапа.
+                  - generic [ref=e3261]: 5 мин 57 сек
+              - listitem [ref=e3266] [cursor=pointer]:
+                - generic [ref=e3267]:
+                  - generic [ref=e3268]: Задачи IV этапа.
+                  - generic [ref=e3269]: 3 мин 26 сек
+              - listitem [ref=e3274] [cursor=pointer]:
+                - generic [ref=e3275]: Вопросы теста по разделу №7.
+          - generic [ref=e3280]:
+            - button "8 Модуль. Структура урока." [ref=e3281] [cursor=pointer]
+            - list [ref=e3801]:
+              - listitem [ref=e3802] [cursor=pointer]:
+                - generic [ref=e3803]:
+                  - generic [ref=e3804]: "1 урок - Теория Ганье: Эффективные методы обучения."
+                  - generic [ref=e3805]: 3 мин 22 сек
+              - listitem [ref=e3809] [cursor=pointer]:
+                - generic [ref=e3810]:
+                  - generic [ref=e3811]: 2 урок - Важность и методы привлечения внимания учащихся.
+                  - generic [ref=e3812]: 2 мин 34 сек
+              - listitem [ref=e3816] [cursor=pointer]:
+                - generic [ref=e3817]:
+                  - generic [ref=e3818]: 3 урок - Важность и методы постановки целей на уроке математики
+                  - generic [ref=e3819]: 2 мин 34 сек
+              - listitem [ref=e3823] [cursor=pointer]:
+                - generic [ref=e3824]:
+                  - generic [ref=e3825]: 4 урок - Эффективное использование методов повторения на уроке математики.
+                  - generic [ref=e3826]: 3 мин 25 сек
+              - listitem [ref=e3830] [cursor=pointer]:
+                - generic [ref=e3831]:
+                  - generic [ref=e3832]: 5 урок - Эффективные методы объяснения нового материала на уроке математики.
+                  - generic [ref=e3833]: 2 мин 16 сек
+              - listitem [ref=e3837] [cursor=pointer]:
+                - generic [ref=e3838]:
+                  - generic [ref=e3839]: 6 урок - Методы применения различных заданий на уроке математики.
+                  - generic [ref=e3840]: 2 мин 23 сек
+              - listitem [ref=e3844] [cursor=pointer]:
+                - generic [ref=e3845]:
+                  - generic [ref=e3846]: 7 урок - Важность и методы применения практических заданий на уроке математики
+                  - generic [ref=e3847]: 1 мин 53 сек
+              - listitem [ref=e3851] [cursor=pointer]:
+                - generic [ref=e3852]:
+                  - generic [ref=e3853]: 8 урок - Важность и методы применения обратной связи на уроке математики.
+                  - generic [ref=e3854]: 3 мин 40 сек
+              - listitem [ref=e3858] [cursor=pointer]:
+                - generic [ref=e3859]: Вопросы теста по разделу №8.
+          - button "9 Модуль. Использование ИКТ в образовательном процессе." [ref=e3288] [cursor=pointer]
+          - button "10 Модуль. Микрообучение." [ref=e3295] [cursor=pointer]
+          - button "Введение в функциональную грамотность." [ref=e3302] [cursor=pointer]
+          - button "11 Модуль. Читательская грамотность как системообразующий компонент функциональной грамотности." [ref=e3309] [cursor=pointer]
+          - button "12 Модуль. Учебные задания как основа формирования читательской грамотности." [ref=e3316] [cursor=pointer]
+          - button "13 Модуль. Конструирование PISA-подобных учебных заданий." [ref=e3323] [cursor=pointer]
+          - button "14 Модуль. Математическая грамотность." [ref=e3330] [cursor=pointer]
+          - button "Завершение курса." [ref=e3337] [cursor=pointer]
+    - main [ref=e784]:
+      - generic [ref=e3934]:
+        - generic [ref=e3935]:
+          - 'heading "1 урок - Теория Ганье: Эффективные методы обучения." [level=2] [ref=e3936]'
+          - button "Завершить урок" [ref=e3937] [cursor=pointer]
+        - region "Media Player" [ref=e3940]:
+          - generic [ref=e3943]:
+            - group:
+              - slider "Seek" [ref=e3947] [cursor=pointer]:
+                - generic: 0:00
+              - generic [ref=e3952]:
+                - button "Смотреть" [ref=e3955] [cursor=pointer]
+                - generic [ref=e3959]:
+                  - button "Выключить звук" [ref=e3962] [cursor=pointer]
+                  - generic:
+                    - slider "Громкость":
+                      - generic: 0%
+                - generic [ref=e3968]:
+                  - generic [ref=e3969]: 0:00
+                  - generic [ref=e3970]: /
+                  - generic [ref=e3971]: 3:22
+                - button "Настройки" [ref=e3975] [cursor=pointer]
+                - button "Google Cast Disconnected" [ref=e3981] [cursor=pointer]
+                - button "Fullscreen" [ref=e3989] [cursor=pointer]
+        - paragraph [ref=e3997]:
+          - strong [ref=e3998]: "1 - урок: Теория Ганье: Эффективные методы обучения."
+      - generic [ref=e850]:
+        - button "Назад" [ref=e851] [cursor=pointer]
+        - button "Далее" [active] [ref=e852] [cursor=pointer]
+    - generic [ref=e854] [cursor=pointer]:
+      - generic:
+        - generic:
+          - paragraph: Написать автору курса

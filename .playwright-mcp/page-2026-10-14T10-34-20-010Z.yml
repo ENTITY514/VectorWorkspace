@@ -1,0 +1,105 @@
+- generic [ref=e594]:
+  - banner [ref=e595]:
+    - button "Выйти из обучения" [ref=e596] [cursor=pointer]
+    - heading "Предметный курс по математике и ФГ" [level=1] [ref=e600]
+  - generic [ref=e601]:
+    - complementary [ref=e602]:
+      - generic [ref=e603]:
+        - generic [ref=e604]: Список уроков
+        - button [ref=e605] [cursor=pointer]
+      - generic [ref=e609]:
+        - generic [ref=e611]:
+          - generic [ref=e612]: Завершено на 26%
+          - generic [ref=e613]: 09:33:15
+        - generic [ref=e616]:
+          - button "Введение в курс" [ref=e618] [cursor=pointer]
+          - button "1 Модуль. Решение текстовых задач" [ref=e626] [cursor=pointer]
+          - button "2 Модуль. Теория чисел." [ref=e634] [cursor=pointer]
+          - button "3 Модуль. Планиметрия." [ref=e642] [cursor=pointer]
+          - generic [ref=e693]:
+            - button "4 Модуль. Неделя математики." [ref=e694] [cursor=pointer]
+            - list [ref=e1494]:
+              - listitem [ref=e1495] [cursor=pointer]:
+                - generic [ref=e1496]:
+                  - generic [ref=e1497]: Введение.
+                  - generic [ref=e1498]: 1 мин 53 сек
+              - listitem [ref=e1503] [cursor=pointer]:
+                - generic [ref=e1504]:
+                  - generic [ref=e1505]: Обзор недели математики.
+                  - generic [ref=e1506]: 8 мин 4 сек
+              - listitem [ref=e1510] [cursor=pointer]:
+                - generic [ref=e1511]: Вопросы теста по разделу №4
+          - button "5 Модуль. Тригонометрия." [ref=e701] [cursor=pointer]
+          - button "6 Модуль. Квадратные уравнения и неравенства." [ref=e708] [cursor=pointer]
+          - button "7 Модуль. Математическая регата." [ref=e715] [cursor=pointer]
+          - button "8 Модуль. Структура урока." [ref=e722] [cursor=pointer]
+          - button "9 Модуль. Использование ИКТ в образовательном процессе." [ref=e729] [cursor=pointer]
+          - button "10 Модуль. Микрообучение." [ref=e736] [cursor=pointer]
+          - button "Введение в функциональную грамотность." [ref=e743] [cursor=pointer]
+          - button "11 Модуль. Читательская грамотность как системообразующий компонент функциональной грамотности." [ref=e750] [cursor=pointer]
+          - button "12 Модуль. Учебные задания как основа формирования читательской грамотности." [ref=e757] [cursor=pointer]
+          - generic [ref=e763]:
+            - button "13 Модуль. Конструирование PISA-подобных учебных заданий." [active] [ref=e764] [cursor=pointer]
+            - list [ref=e1696]:
+              - listitem [ref=e1697] [cursor=pointer]:
+                - generic [ref=e1698]:
+                  - generic [ref=e1699]: Суть учебного задания.
+                  - generic [ref=e1700]: 8 мин 18 сек
+              - listitem [ref=e1704] [cursor=pointer]:
+                - generic [ref=e1705]:
+                  - generic [ref=e1706]: Пять характеристик PISA-подобных заданий.
+                  - generic [ref=e1707]: 7 мин 23 сек
+              - listitem [ref=e1711] [cursor=pointer]:
+                - generic [ref=e1712]:
+                  - generic [ref=e1713]: Подробное изучение характеристики "Контектность".
+                  - generic [ref=e1714]: 10 мин 10 сек
+              - listitem [ref=e1718] [cursor=pointer]:
+                - generic [ref=e1719]:
+                  - generic [ref=e1720]: Метод бинарных оппозиций в разработке PISA-подобных заданий.
+                  - generic [ref=e1721]: 10 мин 37 сек
+              - listitem [ref=e1725] [cursor=pointer]:
+                - generic [ref=e1726]:
+                  - generic [ref=e1727]: "Самооценка качества заданий: как определить, работает ли ваше задание на формирование функциональной грамотности."
+                  - generic [ref=e1728]: 4 мин 52 сек
+              - listitem [ref=e1732] [cursor=pointer]:
+                - generic [ref=e1733]:
+                  - generic [ref=e1734]: Пошаговое создание PISA-подобных заданий с использованием "Карты оценки качества".
+                  - generic [ref=e1735]: 11 мин 7 сек
+              - listitem [ref=e1739] [cursor=pointer]:
+                - generic [ref=e1740]:
+                  - generic [ref=e1741]: Разбор практического задания.
+                  - generic [ref=e1742]: 14 мин 52 сек
+              - listitem [ref=e1746] [cursor=pointer]:
+                - generic [ref=e1747]:
+                  - generic [ref=e1748]: Использование нейросетей при составлении заданий на функциональную грамотность.
+                  - generic [ref=e1749]: 8 мин 18 сек
+              - listitem [ref=e1753] [cursor=pointer]:
+                - generic [ref=e1754]:
+                  - generic [ref=e1755]: Завершение блока по функциональной грамотности.
+                  - generic [ref=e1756]: 3 мин 20 сек
+          - button "14 Модуль. Математическая грамотность." [ref=e771] [cursor=pointer]
+          - button "Завершение курса." [ref=e778] [cursor=pointer]
+    - main [ref=e784]:
+      - generic [ref=e1760]:
+        - generic [ref=e1762]:
+          - generic [ref=e1763]: Вопрос 1 из 10
+          - generic [ref=e1764]:
+            - generic [ref=e1765]: 44:55
+            - button "Выключить звук" [ref=e1766] [cursor=pointer]
+        - heading "Вопросы теста по разделу №4" [level=2] [ref=e1773]
+        - generic [ref=e1774]:
+          - generic [ref=e1775]: Единый ответ
+          - heading "1. Какой формат наиболее эффективен для мотивации учеников на неделе математики?" [level=3] [ref=e1777]
+          - generic [ref=e1778]:
+            - generic [ref=e1779] [cursor=pointer]: Решение задач только с учителем
+            - generic [ref=e1785] [cursor=pointer]: Обычные уроки математики
+            - generic [ref=e1791] [cursor=pointer]: Индивидуальные проекты
+            - generic [ref=e1797] [cursor=pointer]: Конкурсы с призами на определённые темы
+        - button "Ответить и перейти" [disabled] [ref=e1804]
+      - generic [ref=e850]:
+        - button "Назад" [ref=e851] [cursor=pointer]
+        - button "Далее" [ref=e852] [cursor=pointer]
+    - generic [ref=e854] [cursor=pointer]:
+      - generic:
+        - generic:
+          - paragraph: Написать автору курса

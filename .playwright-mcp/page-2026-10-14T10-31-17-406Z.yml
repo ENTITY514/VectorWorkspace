@@ -1,0 +1,57 @@
+- generic [ref=e594]:
+  - banner [ref=e595]:
+    - button "Выйти из обучения" [ref=e596] [cursor=pointer]
+    - heading "Предметный курс по математике и ФГ" [level=1] [ref=e600]
+  - generic [ref=e601]:
+    - complementary [ref=e602]:
+      - generic [ref=e603]:
+        - generic [ref=e604]: Список уроков
+        - button [ref=e605] [cursor=pointer]
+      - generic [ref=e609]:
+        - generic [ref=e611]:
+          - generic [ref=e612]: Завершено на 22%
+          - generic [ref=e613]: 09:33:15
+        - generic [ref=e616]:
+          - button "Введение в курс" [ref=e618] [cursor=pointer]
+          - button "1 Модуль. Решение текстовых задач" [ref=e626] [cursor=pointer]
+          - button "2 Модуль. Теория чисел." [ref=e634] [cursor=pointer]
+          - button "3 Модуль. Планиметрия." [ref=e642] [cursor=pointer]
+          - button "4 Модуль. Неделя математики." [ref=e694] [cursor=pointer]
+          - button "5 Модуль. Тригонометрия." [ref=e701] [cursor=pointer]
+          - button "6 Модуль. Квадратные уравнения и неравенства." [ref=e708] [cursor=pointer]
+          - button "7 Модуль. Математическая регата." [ref=e715] [cursor=pointer]
+          - button "8 Модуль. Структура урока." [ref=e722] [cursor=pointer]
+          - button "9 Модуль. Использование ИКТ в образовательном процессе." [ref=e729] [cursor=pointer]
+          - button "10 Модуль. Микрообучение." [ref=e736] [cursor=pointer]
+          - button "Введение в функциональную грамотность." [ref=e743] [cursor=pointer]
+          - button "11 Модуль. Читательская грамотность как системообразующий компонент функциональной грамотности." [ref=e750] [cursor=pointer]
+          - button "12 Модуль. Учебные задания как основа формирования читательской грамотности." [ref=e757] [cursor=pointer]
+          - button "13 Модуль. Конструирование PISA-подобных учебных заданий." [ref=e764] [cursor=pointer]
+          - button "14 Модуль. Математическая грамотность." [ref=e771] [cursor=pointer]
+          - button "Завершение курса." [ref=e778] [cursor=pointer]
+    - main [ref=e784]:
+      - generic [ref=e1147]:
+        - generic [ref=e1149]:
+          - generic [ref=e1150]: Вопрос 9 из 10
+          - generic [ref=e1151]:
+            - generic [ref=e1152]: 41:16
+            - button "Выключить звук" [ref=e1153] [cursor=pointer]
+        - heading "Вопросы теста по разделу №3." [level=2] [ref=e1160]
+        - generic [ref=e1406]:
+          - generic [ref=e1407]: Единый ответ
+          - heading "9. В равнобедренном треугольнике боковая сторона равна 17 см, а основание — 16 см. Найдите высоту, опущенную на основание." [level=3] [ref=e1409]
+          - generic [ref=e1410]:
+            - generic [ref=e1411] [cursor=pointer]: "15"
+            - generic [ref=e1417] [cursor=pointer]: "18"
+            - generic [ref=e1423] [cursor=pointer]: "16"
+            - generic [ref=e1429] [cursor=pointer]: "8"
+        - generic [ref=e1190]:
+          - button "Назад" [ref=e1223] [cursor=pointer]
+          - button "Ответить и перейти" [ref=e1191] [cursor=pointer]
+      - generic [ref=e850]:
+        - button "Назад" [ref=e851] [cursor=pointer]
+        - button "Далее" [ref=e852] [cursor=pointer]
+    - generic [ref=e854] [cursor=pointer]:
+      - generic:
+        - generic:
+          - paragraph: Написать автору курса

@@ -1,6 +1,7 @@
 //! Домен: чистая бизнес-логика. Не знает о БД и UI.
 //! Инварианты и типы выкованы здесь, в памяти Rust.
 
+pub mod adal_azamat;
 pub mod ids;
 pub mod identity;
 pub mod invariants;

@@ -1,0 +1,336 @@
+- generic [ref=e4]:
+  - generic [ref=e5]:
+    - banner [ref=e6]:
+      - generic [ref=e8]:
+        - link [ref=e10] [cursor=pointer]:
+          - /url: /
+        - combobox "language" [ref=e13]:
+          - option
+          - option [selected]
+          - option
+        - button [ref=e15] [cursor=pointer]:
+          - paragraph [ref=e16]: Войти
+      - generic [ref=e19]:
+        - img [ref=e21] [cursor=pointer]
+        - generic [ref=e23]:
+          - heading "Войти или зарегистрироваться через WhatsApp" [level=3] [ref=e24]
+          - paragraph [ref=e25]: Для доступа войдите в систему или зарегистрируйтесь. Введите номер телефона WhatsApp.
+          - generic [ref=e26]:
+            - generic [ref=e27]: Номер телефона WhatsApp
+            - textbox "+" [active] [ref=e28]:
+              - /placeholder: "+ "
+              - text: +7 (776) 814
+            - img [ref=e30] [cursor=pointer]
+          - button [disabled] [ref=e32]:
+            - paragraph [ref=e33]: Продолжить
+    - main [ref=e34]:
+      - generic [ref=e35]:
+        - generic [ref=e36]:
+          - heading "Предметный курс по математике и ФГ" [level=1] [ref=e37]
+          - generic [ref=e38]:
+            - generic [ref=e41]:
+              - paragraph [ref=e42]: Автор
+              - link [ref=e43] [cursor=pointer]:
+                - /url: "#"
+                - paragraph [ref=e44]: Ustaz.pro Academy
+            - generic [ref=e45]:
+              - paragraph [ref=e46]: Рейтинг
+              - paragraph [ref=e82]: 5.00 (7)
+          - generic [ref=e83]:
+            - heading "Описание" [level=4] [ref=e84]
+            - generic [ref=e85]:
+              - paragraph [ref=e86]: Курс повышения квалификации для учителей математики 5–9 классов состоит из двух взаимосвязанных частей, каждая из которых решает отдельную, но стратегически важную профессиональную задачу педагога. Первая часть курса направлена на развитие предметной компетенции учителей математики и углублённую проработку сложных тем школьной программы. В рамках этой части участники системно работают с текстовыми задачами, теорией чисел, планиметрией, квадратными уравнениями и неравенствами, элементами тригонометрии, а также осваивают практико-ориентированные подходы к решению задач. Отдельное внимание уделяется использованию ИКТ, микрообучению и организации внеурочных форм работы — математических недель и регат — как инструментов повышения мотивации учащихся и интереса к предмету.
+              - paragraph [ref=e87]: Вторая часть курса фокусируется на формировании функциональной грамотности учащихся с акцентом на читательскую и математическую грамотность. Педагоги учатся анализировать математические задания с позиции PISA, работать с текстами, таблицами, графиками и жизненными контекстами, конструировать задания разного уровня сложности и оценивать их качество. Курс помогает учителю осознанно связывать математическое содержание с реальными ситуациями, развивать у учащихся навыки анализа, интерпретации данных и применения математических знаний на практике, превращая урок математики в инструмент развития мышления и функциональной грамотности.
+          - paragraph [ref=e90] [cursor=pointer]: Развернуть
+        - generic [ref=e95]:
+          - generic [ref=e96]:
+            - heading "Темы для этого курса" [level=2] [ref=e97]
+            - generic [ref=e98]:
+              - paragraph [ref=e99]: 72 урока
+              - paragraph [ref=e100]: 9 час 33 мин
+          - list [ref=e101]:
+            - listitem [ref=e102]:
+              - generic [ref=e103]:
+                - button [ref=e104] [cursor=pointer]
+                - heading "Введение в курс" [level=3] [ref=e107] [cursor=pointer]
+                - paragraph [ref=e109]: 2 урока
+              - list [ref=e110]:
+                - listitem [ref=e111]:
+                  - paragraph [ref=e113]: Введение в курс
+                  - generic [ref=e114]:
+                    - paragraph [ref=e115]: 1 мин 18 сек
+                    - img [ref=e116] [cursor=pointer]
+                - listitem [ref=e118]:
+                  - paragraph [ref=e120]: "Учимся онлайн: практические советы для эффективного прохождения асинхронного курса."
+                  - generic [ref=e121]:
+                    - paragraph [ref=e122]: 3 мин 38 сек
+                    - img [ref=e123] [cursor=pointer]
+            - listitem [ref=e125]:
+              - generic [ref=e126]:
+                - button [ref=e127] [cursor=pointer]
+                - heading "1 Модуль. Решение текстовых задач" [level=3] [ref=e130] [cursor=pointer]
+                - paragraph [ref=e132]: 6 уроков
+            - listitem [ref=e133]:
+              - generic [ref=e134]:
+                - button [ref=e135] [cursor=pointer]
+                - heading "2 Модуль. Теория чисел." [level=3] [ref=e138] [cursor=pointer]
+                - paragraph [ref=e140]: 5 уроков
+            - listitem [ref=e141]:
+              - generic [ref=e142]:
+                - button [ref=e143] [cursor=pointer]
+                - heading "3 Модуль. Планиметрия." [level=3] [ref=e146] [cursor=pointer]
+                - paragraph [ref=e148]: 6 уроков
+            - listitem [ref=e149]:
+              - generic [ref=e150]:
+                - button [ref=e151] [cursor=pointer]
+                - heading "4 Модуль. Неделя математики." [level=3] [ref=e154] [cursor=pointer]
+                - paragraph [ref=e156]: 3 урока
+            - listitem [ref=e157]:
+              - generic [ref=e158]:
+                - button [ref=e159] [cursor=pointer]
+                - heading "5 Модуль. Тригонометрия." [level=3] [ref=e162] [cursor=pointer]
+                - paragraph [ref=e164]: 5 уроков
+            - listitem [ref=e165]:
+              - generic [ref=e166]:
+                - button [ref=e167] [cursor=pointer]
+                - heading "6 Модуль. Квадратные уравнения и неравенства." [level=3] [ref=e170] [cursor=pointer]
+                - paragraph [ref=e172]: 4 урока
+            - listitem [ref=e173]:
+              - generic [ref=e174]:
+                - button [ref=e175] [cursor=pointer]
+                - heading "7 Модуль. Математическая регата." [level=3] [ref=e178] [cursor=pointer]
+                - paragraph [ref=e180]: 5 уроков
+            - listitem [ref=e181]:
+              - generic [ref=e182]:
+                - button [ref=e183] [cursor=pointer]
+                - heading "8 Модуль. Структура урока." [level=3] [ref=e186] [cursor=pointer]
+                - paragraph [ref=e188]: 9 уроков
+            - listitem [ref=e189]:
+              - generic [ref=e190]:
+                - button [ref=e191] [cursor=pointer]
+                - heading "9 Модуль. Использование ИКТ в образовательном процессе." [level=3] [ref=e194] [cursor=pointer]
+                - paragraph [ref=e196]: 8 уроков
+            - listitem [ref=e197]:
+              - generic [ref=e198]:
+                - button [ref=e199] [cursor=pointer]
+                - heading "10 Модуль. Микрообучение." [level=3] [ref=e202] [cursor=pointer]
+                - paragraph [ref=e204]: 1 урок
+            - listitem [ref=e205]:
+              - generic [ref=e206]:
+                - button [ref=e207] [cursor=pointer]
+                - heading "Введение в функциональную грамотность." [level=3] [ref=e210] [cursor=pointer]
+                - paragraph [ref=e212]: 1 урок
+            - listitem [ref=e213]:
+              - generic [ref=e214]:
+                - button [ref=e215] [cursor=pointer]
+                - heading "11 Модуль. Читательская грамотность как системообразующий компонент функциональной грамотности." [level=3] [ref=e218] [cursor=pointer]
+                - paragraph [ref=e220]: 4 урока
+            - listitem [ref=e221]:
+              - generic [ref=e222]:
+                - button [ref=e223] [cursor=pointer]
+                - heading "12 Модуль. Учебные задания как основа формирования читательской грамотности." [level=3] [ref=e226] [cursor=pointer]
+                - paragraph [ref=e228]: 3 урока
+            - listitem [ref=e229]:
+              - generic [ref=e230]:
+                - button [ref=e231] [cursor=pointer]
+                - heading "13 Модуль. Конструирование PISA-подобных учебных заданий." [level=3] [ref=e234] [cursor=pointer]
+                - paragraph [ref=e236]: 9 уроков
+            - listitem [ref=e237]:
+              - generic [ref=e238]:
+                - button [ref=e239] [cursor=pointer]
+                - heading "14 Модуль. Математическая грамотность." [level=3] [ref=e242] [cursor=pointer]
+                - paragraph [ref=e244]: 6 уроков
+            - listitem [ref=e245]:
+              - generic [ref=e246]:
+                - button [ref=e247] [cursor=pointer]
+                - heading "Завершение курса." [level=3] [ref=e250] [cursor=pointer]
+                - paragraph [ref=e252]: 2 урока
+        - generic [ref=e254]:
+          - heading "О преподавателе" [level=4] [ref=e255]
+          - list [ref=e256]:
+            - listitem [ref=e257]:
+              - generic [ref=e258]:
+                - link [ref=e259] [cursor=pointer]:
+                  - /url: "#"
+                  - paragraph [ref=e260]: Ustaz.pro Academy
+                - paragraph
+                - generic [ref=e261]:
+                  - generic [ref=e262]:
+                    - img [ref=e263] [cursor=pointer]
+                    - paragraph [ref=e265]: 4.86 рейтинг
+                  - generic [ref=e266]:
+                    - img [ref=e267] [cursor=pointer]
+                    - paragraph [ref=e269]: 98 курсов
+                - paragraph [ref=e270]: Социальные сети автора
+                - link [ref=e274] [cursor=pointer]:
+                  - /url: https://www.instagram.com/ustaz.pro/
+        - generic [ref=e278]:
+          - heading "Отзывы студентов" [level=4] [ref=e279]
+          - generic [ref=e280]:
+            - generic [ref=e281]:
+              - heading "5.00" [level=2] [ref=e282]
+              - paragraph [ref=e316]: 7 оценок
+            - generic [ref=e318]:
+              - generic [ref=e319]:
+                - paragraph [ref=e320]: 5 звёзд
+                - paragraph [ref=e323]: "7"
+              - generic [ref=e324]:
+                - paragraph [ref=e325]: 4 звезды
+                - paragraph [ref=e327]: "0"
+              - generic [ref=e328]:
+                - paragraph [ref=e329]: 3 звезды
+                - paragraph [ref=e331]: "0"
+              - generic [ref=e332]:
+                - paragraph [ref=e333]: 2 звезды
+                - paragraph [ref=e335]: "0"
+              - generic [ref=e336]:
+                - paragraph [ref=e337]: 1 звезда
+                - paragraph [ref=e339]: "0"
+          - list [ref=e340]:
+            - listitem [ref=e341]:
+              - generic [ref=e342]:
+                - generic [ref=e343]:
+                  - heading "РИ" [level=4] [ref=e345]
+                  - generic [ref=e346]:
+                    - paragraph [ref=e347]: Ризабек Қамбар
+                    - paragraph [ref=e348]: 5 дней назад
+                - generic [ref=e349]:
+                  - generic [ref=e350]:
+                    - img [ref=e352] [cursor=pointer]
+                    - img [ref=e355] [cursor=pointer]
+                    - img [ref=e358] [cursor=pointer]
+                    - img [ref=e361] [cursor=pointer]
+                    - img [ref=e364] [cursor=pointer]
+                  - paragraph [ref=e366]: "5.00"
+              - paragraph [ref=e367]: Крутой курс, мне все понравилось, было очень полезно.
+            - listitem [ref=e368]:
+              - generic [ref=e369]:
+                - generic [ref=e370]:
+                  - heading "ИБ" [level=4] [ref=e372]
+                  - generic [ref=e373]:
+                    - paragraph [ref=e374]: Ибрахимова Тоқжан
+                    - paragraph [ref=e375]: 4 недели назад
+                - generic [ref=e376]:
+                  - generic [ref=e377]:
+                    - img [ref=e379] [cursor=pointer]
+                    - img [ref=e382] [cursor=pointer]
+                    - img [ref=e385] [cursor=pointer]
+                    - img [ref=e388] [cursor=pointer]
+                    - img [ref=e391] [cursor=pointer]
+                  - paragraph [ref=e393]: "5.00"
+              - paragraph [ref=e394]: cool
+            - listitem [ref=e395]:
+              - generic [ref=e396]:
+                - generic [ref=e397]:
+                  - heading "ТК" [level=4] [ref=e399]
+                  - generic [ref=e400]:
+                    - paragraph [ref=e401]: Ткаченко Евгения
+                    - paragraph [ref=e402]: 1 месяц назад
+                - generic [ref=e403]:
+                  - generic [ref=e404]:
+                    - img [ref=e406] [cursor=pointer]
+                    - img [ref=e409] [cursor=pointer]
+                    - img [ref=e412] [cursor=pointer]
+                    - img [ref=e415] [cursor=pointer]
+                    - img [ref=e418] [cursor=pointer]
+                  - paragraph [ref=e420]: "5.00"
+              - paragraph [ref=e421]: Очень насыщенный курс для профессионального роста, особенно для разработки заданий по ФГ. Большое спасибо за возможность прохождения курса в удобное для себя время.
+            - listitem [ref=e422]:
+              - generic [ref=e423]:
+                - generic [ref=e424]:
+                  - heading "БЕ" [level=4] [ref=e426]
+                  - generic [ref=e427]:
+                    - paragraph [ref=e428]: Бекбол Қайыржанұлы
+                    - paragraph [ref=e429]: 1 месяц назад
+                - generic [ref=e430]:
+                  - generic [ref=e431]:
+                    - img [ref=e433] [cursor=pointer]
+                    - img [ref=e436] [cursor=pointer]
+                    - img [ref=e439] [cursor=pointer]
+                    - img [ref=e442] [cursor=pointer]
+                    - img [ref=e445] [cursor=pointer]
+                  - paragraph [ref=e447]: "5.00"
+              - paragraph [ref=e448]: Курс сабактары өте мықты дәрежеде дайындалған, мұғалімнің тек қана математика есептерін шығару ғана қабылеттерін дамытып онымен қосы сабақ беру құзыреттілін дамытады
+            - listitem [ref=e449]:
+              - generic [ref=e450]:
+                - generic [ref=e451]:
+                  - heading "ЖА" [level=4] [ref=e453]
+                  - generic [ref=e454]:
+                    - paragraph [ref=e455]: Жансулу Исманкулова
+                    - paragraph [ref=e456]: 3 месяца назад
+                - generic [ref=e457]:
+                  - generic [ref=e458]:
+                    - img [ref=e460] [cursor=pointer]
+                    - img [ref=e463] [cursor=pointer]
+                    - img [ref=e466] [cursor=pointer]
+                    - img [ref=e469] [cursor=pointer]
+                    - img [ref=e472] [cursor=pointer]
+                  - paragraph [ref=e474]: "5.00"
+              - paragraph [ref=e475]: Спасибо за курс, все очень понравилось.
+            - listitem [ref=e476]:
+              - generic [ref=e477]:
+                - generic [ref=e478]:
+                  - generic [ref=e479]:
+                    - heading [level=4]
+                  - generic [ref=e480]:
+                    - paragraph
+                    - paragraph [ref=e481]: 4 месяцев назад
+                - generic [ref=e482]:
+                  - generic [ref=e483]:
+                    - img [ref=e485] [cursor=pointer]
+                    - img [ref=e488] [cursor=pointer]
+                    - img [ref=e491] [cursor=pointer]
+                    - img [ref=e494] [cursor=pointer]
+                    - img [ref=e497] [cursor=pointer]
+                  - paragraph [ref=e499]: "5.00"
+              - paragraph [ref=e500]: Отличный курс
+            - listitem [ref=e501]:
+              - generic [ref=e502]:
+                - generic [ref=e503]:
+                  - heading "ЛЮ" [level=4] [ref=e505]
+                  - generic [ref=e506]:
+                    - paragraph [ref=e507]: Людмила Ахметова
+                    - paragraph [ref=e508]: 4 месяцев назад
+                - generic [ref=e509]:
+                  - generic [ref=e510]:
+                    - img [ref=e512] [cursor=pointer]
+                    - img [ref=e515] [cursor=pointer]
+                    - img [ref=e518] [cursor=pointer]
+                    - img [ref=e521] [cursor=pointer]
+                    - img [ref=e524] [cursor=pointer]
+                  - paragraph [ref=e526]: "5.00"
+              - paragraph [ref=e527]: Занятия по Pisa функциональную и математическую грамотность- замечательные
+      - generic [ref=e530]:
+        - img "Course" [ref=e532]
+        - generic [ref=e533]:
+          - heading "15 000 ₸" [level=2] [ref=e536]
+          - button [ref=e540] [cursor=pointer]:
+            - paragraph [ref=e541]: Купить сейчас
+        - generic [ref=e542]:
+          - paragraph [ref=e543]: "Этот курс включает в себя:"
+          - generic [ref=e544]:
+            - img [ref=e545] [cursor=pointer]
+            - paragraph [ref=e547]: 9 час 33 мин
+          - generic [ref=e548]:
+            - img [ref=e549] [cursor=pointer]
+            - paragraph [ref=e551]: Доступ на 9 месяцев
+        - generic [ref=e552]:
+          - paragraph [ref=e553]: Поделиться курсом
+          - generic [ref=e554]:
+            - button [ref=e555] [cursor=pointer]
+            - button [ref=e558] [cursor=pointer]
+            - button [ref=e561] [cursor=pointer]
+            - button [ref=e564] [cursor=pointer]
+            - button [ref=e567] [cursor=pointer]
+            - button [ref=e570] [cursor=pointer]
+    - generic [ref=e574] [cursor=pointer]:
+      - generic:
+        - generic:
+          - paragraph: Написать автору курса
+  - generic [ref=e577]:
+    - link "Политика конфиденциальности" [ref=e578] [cursor=pointer]:
+      - /url: https://courstore.com/ru/privacy/
+    - link "Договор присоединения" [ref=e579] [cursor=pointer]:
+      - /url: https://web.courstore.com/ru/agreement/
+    - link "Пользовательское соглашение" [ref=e580] [cursor=pointer]:
+      - /url: https://web.courstore.com/ru/terms-and-conditions/

@@ -1,0 +1,77 @@
+- generic [ref=e594]:
+  - banner [ref=e595]:
+    - button "Выйти из обучения" [ref=e596] [cursor=pointer]
+    - heading "Предметный курс по математике и ФГ" [level=1] [ref=e600]
+  - generic [ref=e601]:
+    - complementary [ref=e602]:
+      - generic [ref=e603]:
+        - generic [ref=e604]: Список уроков
+        - button [ref=e605] [cursor=pointer]
+      - generic [ref=e609]:
+        - generic [ref=e611]:
+          - generic [ref=e612]: Завершено на 26%
+          - generic [ref=e613]: 09:33:15
+        - generic [ref=e616]:
+          - button "Введение в курс" [ref=e618] [cursor=pointer]
+          - button "1 Модуль. Решение текстовых задач" [ref=e626] [cursor=pointer]
+          - button "2 Модуль. Теория чисел." [ref=e634] [cursor=pointer]
+          - button "3 Модуль. Планиметрия." [ref=e642] [cursor=pointer]
+          - generic [ref=e693]:
+            - button "4 Модуль. Неделя математики." [ref=e694] [cursor=pointer]
+            - list [ref=e1494]:
+              - listitem [ref=e1495] [cursor=pointer]:
+                - generic [ref=e1496]:
+                  - generic [ref=e1497]: Введение.
+                  - generic [ref=e1498]: 1 мин 53 сек
+              - listitem [ref=e1503] [cursor=pointer]:
+                - generic [ref=e1504]:
+                  - generic [ref=e1505]: Обзор недели математики.
+                  - generic [ref=e1506]: 8 мин 4 сек
+              - listitem [ref=e1510] [cursor=pointer]:
+                - generic [ref=e1511]: Вопросы теста по разделу №4
+          - button "5 Модуль. Тригонометрия." [ref=e701] [cursor=pointer]
+          - button "6 Модуль. Квадратные уравнения и неравенства." [ref=e708] [cursor=pointer]
+          - button "7 Модуль. Математическая регата." [ref=e715] [cursor=pointer]
+          - button "8 Модуль. Структура урока." [active] [ref=e722] [cursor=pointer]
+          - button "9 Модуль. Использование ИКТ в образовательном процессе." [ref=e729] [cursor=pointer]
+          - button "10 Модуль. Микрообучение." [ref=e736] [cursor=pointer]
+          - button "Введение в функциональную грамотность." [ref=e743] [cursor=pointer]
+          - button "11 Модуль. Читательская грамотность как системообразующий компонент функциональной грамотности." [ref=e750] [cursor=pointer]
+          - button "12 Модуль. Учебные задания как основа формирования читательской грамотности." [ref=e757] [cursor=pointer]
+          - button "13 Модуль. Конструирование PISA-подобных учебных заданий." [ref=e764] [cursor=pointer]
+          - button "14 Модуль. Математическая грамотность." [ref=e771] [cursor=pointer]
+          - button "Завершение курса." [ref=e778] [cursor=pointer]
+    - main [ref=e784]:
+      - generic [ref=e1662]:
+        - heading "Вопросы теста по разделу №4" [level=2] [ref=e1669]
+        - paragraph [ref=e1670]: Готовы начать? Пройдите тест и узнайте, насколько хорошо вы освоили программу курса. Это займёт около 45 мин, а результаты помогут вам оценить ваш прогресс!
+        - generic [ref=e1671]:
+          - generic [ref=e1672]:
+            - generic [ref=e1673]: Ограничение по времени
+            - generic [ref=e1674]: 45 мин
+          - generic [ref=e1675]:
+            - generic [ref=e1676]: Вопросы
+            - generic [ref=e1677]: "10"
+          - generic [ref=e1678]:
+            - generic [ref=e1679]: Проходной балл
+            - generic [ref=e1680]: 10%
+        - generic [ref=e1681]:
+          - heading "Попытки" [level=3] [ref=e1682]
+          - generic [ref=e1683]:
+            - generic [ref=e1684]:
+              - generic [ref=e1685]: "3"
+              - generic [ref=e1686]: Всего
+            - generic [ref=e1687]:
+              - generic [ref=e1688]: "0"
+              - generic [ref=e1689]: Использовано
+            - generic [ref=e1690]:
+              - generic [ref=e1691]: "3"
+              - generic [ref=e1692]: Осталось
+        - button "Начать тест" [ref=e1694] [cursor=pointer]
+      - generic [ref=e850]:
+        - button "Назад" [ref=e851] [cursor=pointer]
+        - button "Далее" [ref=e852] [cursor=pointer]
+    - generic [ref=e854] [cursor=pointer]:
+      - generic:
+        - generic:
+          - paragraph: Написать автору курса

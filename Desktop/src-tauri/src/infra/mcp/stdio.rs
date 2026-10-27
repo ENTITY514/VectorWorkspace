@@ -1,4 +1,7 @@
-//! JSON-RPC 2.0 MCP по stdio (Content-Length), тот же реестр что и в Tauri.
+//! JSON-RPC 2.0 MCP по stdio, тот же реестр что и в Tauri.
+//!
+//! Два кадрирования: по строке (стандарт MCP stdio, так работают opencode и Claude)
+//! и `Content-Length` (LSP-стиль). Ответ идёт в том же виде, что и запрос.
 
 use std::io::{self, BufRead, Write};
 
@@ -31,12 +34,21 @@ struct RpcResponse {
     error: Option<Value>,
 }
 
-fn write_message(out: &mut impl Write, body: &str) -> io::Result<()> {
-    write!(out, "Content-Length: {}\r\n\r\n{}", body.len(), body)?;
+#[derive(Clone, Copy, PartialEq)]
+enum Framing {
+    Line,
+    ContentLength,
+}
+
+fn write_message(out: &mut impl Write, body: &str, framing: Framing) -> io::Result<()> {
+    match framing {
+        Framing::Line => writeln!(out, "{body}")?,
+        Framing::ContentLength => write!(out, "Content-Length: {}\r\n\r\n{}", body.len(), body)?,
+    }
     out.flush()
 }
 
-fn read_message(input: &mut impl BufRead) -> io::Result<Option<String>> {
+fn read_message(input: &mut impl BufRead) -> io::Result<Option<(String, Framing)>> {
     let mut content_length: Option<usize> = None;
     loop {
         let mut line = String::new();
@@ -45,7 +57,13 @@ fn read_message(input: &mut impl BufRead) -> io::Result<Option<String>> {
             return Ok(None);
         }
         let trimmed = line.trim_end_matches(['\r', '\n']);
+        if trimmed.starts_with('{') {
+            return Ok(Some((trimmed.to_string(), Framing::Line)));
+        }
         if trimmed.is_empty() {
+            if content_length.is_none() {
+                continue;
+            }
             break;
         }
         if let Some(rest) = trimmed.strip_prefix("Content-Length:") {
@@ -57,7 +75,7 @@ fn read_message(input: &mut impl BufRead) -> io::Result<Option<String>> {
     };
     let mut buf = vec![0u8; len];
     input.read_exact(&mut buf)?;
-    Ok(Some(String::from_utf8_lossy(&buf).into_owned()))
+    Ok(Some((String::from_utf8_lossy(&buf).into_owned(), Framing::ContentLength)))
 }
 
 async fn handle(state: &AppState, req: RpcRequest) -> Option<RpcResponse> {
@@ -121,7 +139,7 @@ pub async fn serve(state: AppState) -> io::Result<()> {
     let mut input = stdin.lock();
     let mut stdout = io::stdout();
     loop {
-        let Some(raw) = read_message(&mut input)? else {
+        let Some((raw, framing)) = read_message(&mut input)? else {
             break;
         };
         let Ok(req) = serde_json::from_str::<RpcRequest>(&raw) else {
@@ -129,8 +147,29 @@ pub async fn serve(state: AppState) -> io::Result<()> {
         };
         if let Some(resp) = handle(&state, req).await {
             let body = serde_json::to_string(&resp).unwrap_or_else(|_| "{}".into());
-            write_message(&mut stdout, &body)?;
+            write_message(&mut stdout, &body, framing)?;
         }
     }
     Ok(())
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn reads_line_framed_message() {
+        let mut input = io::Cursor::new(b"{\"id\":1}\n".to_vec());
+        let (body, framing) = read_message(&mut input).unwrap().unwrap();
+        assert_eq!(body, "{\"id\":1}");
+        assert!(framing == Framing::Line);
+    }
+
+    #[test]
+    fn reads_content_length_message() {
+        let mut input = io::Cursor::new(b"Content-Length: 8\r\n\r\n{\"id\":1}".to_vec());
+        let (body, framing) = read_message(&mut input).unwrap().unwrap();
+        assert_eq!(body, "{\"id\":1}");
+        assert!(framing == Framing::ContentLength);
+    }
 }

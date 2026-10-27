@@ -35,6 +35,7 @@ export function flattenPlan(db: DbPlan): KtpPlan {
         hours: 1,
         date: l.plannedDate ?? "",
         notes: l.notes ?? "",
+        adaptedObjective: l.adaptedObjective ?? "",
         rowType: toFlatType(l.lessonType),
       });
     }
@@ -101,6 +102,7 @@ export function unflattenPlan(db: DbPlan, flat: KtpPlan): DbPlan {
       plannedDate: row.date || null,
       isCancelled: false,
       notes: row.notes ?? "",
+      adaptedObjective: row.adaptedObjective ?? "",
       objectives: row.objectives.map((o) => ({ code: o.id, description: o.description })),
     });
   }

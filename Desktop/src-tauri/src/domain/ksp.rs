@@ -155,6 +155,9 @@ pub struct KspHeader {
     pub lesson_goals: LessonGoals,
     pub values_component: ValuesComponent,
     pub success_criteria: Vec<String>,
+    /// Адаптированная цель урока для обучающегося с ООП — замкнута на КТП.
+    #[serde(default)]
+    pub adapted_goal: String,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -203,6 +206,9 @@ pub struct KspStage {
     pub student_actions: String,
     pub resources: Vec<ResourceRef>,
     pub assessment: StageAssessment,
+    /// Задание/поддержка для обучающегося с ООП на этом этапе.
+    #[serde(default)]
+    pub differentiation: String,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -360,16 +366,24 @@ pub fn validate_content(content: &KspContent, lesson_cancelled: bool) -> Validat
                 ));
             }
         }
-        if s.assessment.mode == AssessmentMode::Formative
-            && s.assessment.descriptors.iter().any(|d| d.points.is_some())
-        {
-            issues.push(issue(
-                "V-11",
-                IssueLevel::Warning,
-                format!("{}: у формативных дескрипторов не должно быть баллов.", s.stage_type.title_ru()),
-                Some(s.id.clone()),
-            ));
-        }
+    }
+    // V-11 упразднён: баллы в формативных дескрипторах — обычная практика учителя.
+    // V-19: адаптированная цель требует дифференциации хотя бы на одном этапе.
+    if !content.header.adapted_goal.trim().is_empty()
+        && !content.stages.iter().any(|s| !s.differentiation.trim().is_empty())
+    {
+        issues.push(issue(
+            "V-19",
+            IssueLevel::Blocking,
+            "Для обучающегося с ООП нужна дифференцированная работа хотя бы на одном этапе.",
+            None,
+        ));
+    }
+    // V-20: ценность месяца выбрана, но не раскрыта.
+    if !content.header.values_component.value_ids.is_empty()
+        && content.header.values_component.text.trim().is_empty()
+    {
+        issues.push(issue("V-20", IssueLevel::Warning, "Не раскрыт воспитательный акцент ценности месяца.", None));
     }
     if content.header.values_component.text.trim().is_empty()
         && content.header.values_component.value_ids.is_empty()
@@ -433,7 +447,7 @@ pub fn date_key(raw: Option<&str>) -> String {
         .to_string()
 }
 
-/// Тема, раздел, цели и дата — только из КТП (FR-3.1). Цели урока и ценности не трогаем.
+/// Тема, раздел, цели, дата и адаптированная цель — только из КТП (FR-3.1). Цели урока и ценности не трогаем.
 pub fn apply_locked_header(header: &mut KspHeader, locked: &KspHeader) -> bool {
     let mut changed = false;
     if header.section.trim() != locked.section.trim() {
@@ -454,6 +468,10 @@ pub fn apply_locked_header(header: &mut KspHeader, locked: &KspHeader) -> bool {
     b.sort();
     if a != b {
         header.learning_objectives = locked.learning_objectives.clone();
+        changed = true;
+    }
+    if header.adapted_goal.trim() != locked.adapted_goal.trim() {
+        header.adapted_goal = locked.adapted_goal.clone();
         changed = true;
     }
     changed
@@ -481,6 +499,7 @@ fn new_stage(stage_type: StageType, minutes: i64, teacher: &str, student: &str, 
             vec![ResourceRef { kind: "note".into(), display: resources.into() }]
         },
         assessment,
+        differentiation: String::new(),
     }
 }
 
@@ -597,6 +616,7 @@ mod tests {
                 text: "формирование самодисциплины".into(),
             },
             success_criteria: vec![],
+            adapted_goal: String::new(),
         }
     }
 
@@ -673,9 +693,72 @@ mod tests {
             lesson_goals: LessonGoals::default(),
             values_component: ValuesComponent::default(),
             success_criteria: vec![],
+            adapted_goal: h.adapted_goal.clone(),
         };
         assert!(apply_locked_header(&mut h, &locked));
         assert_eq!(h.topic, "Новая тема из КТП");
         assert_eq!(h.lesson_goals.all, "своя цель");
+    }
+
+    #[test]
+    fn apply_locked_header_syncs_adapted_goal() {
+        let mut h = header();
+        let mut locked = header();
+        locked.adapted_goal = "Читать задачу с опорой".into();
+        assert!(apply_locked_header(&mut h, &locked));
+        assert_eq!(h.adapted_goal, "Читать задачу с опорой");
+        // Повторный вызов без изменений — без правок.
+        assert!(!apply_locked_header(&mut h, &locked));
+    }
+
+    #[test]
+    fn v11_formative_points_are_not_flagged() {
+        let mut c = draft_from_template(LessonKind::Standard, header(), 45);
+        c.stages[1].assessment.descriptors.push(Descriptor { text: "1 балл за пример".into(), points: Some(1) });
+        let r = validate_content(&c, false);
+        assert!(!r.issues.iter().any(|i| i.code == "V-11"));
+    }
+
+    #[test]
+    fn v19_adapted_goal_needs_differentiation() {
+        let mut h = header();
+        h.adapted_goal = "Решать с карточкой-подсказкой".into();
+        let mut c = draft_from_template(LessonKind::Standard, h, 45);
+        let r = validate_content(&c, false);
+        assert!(r.issues.iter().any(|i| i.code == "V-19" && i.level == IssueLevel::Blocking));
+        assert!(!r.can_mark_ready);
+        c.stages[2].differentiation = "Задание с опорой и подсказками".into();
+        let r = validate_content(&c, false);
+        assert!(!r.issues.iter().any(|i| i.code == "V-19"));
+    }
+
+    #[test]
+    fn v20_value_without_text_is_warning() {
+        let mut h = header();
+        h.values_component.text.clear();
+        let c = draft_from_template(LessonKind::Standard, h, 45);
+        let r = validate_content(&c, false);
+        assert!(r.issues.iter().any(|i| i.code == "V-20" && i.level == IssueLevel::Warning));
+    }
+
+    #[test]
+    fn value_with_text_has_no_v20() {
+        let c = draft_from_template(LessonKind::Standard, header(), 45);
+        let r = validate_content(&c, false);
+        assert!(!r.issues.iter().any(|i| i.code == "V-20"));
+    }
+
+    #[test]
+    fn old_documents_without_new_fields_deserialize() {
+        let mut h = header();
+        h.adapted_goal = "цель".into();
+        let mut c = draft_from_template(LessonKind::Standard, h, 45);
+        c.stages[0].differentiation = "опора".into();
+        let mut v = serde_json::to_value(&c).expect("json");
+        v["header"].as_object_mut().expect("header").remove("adaptedGoal");
+        v["stages"][0].as_object_mut().expect("stage").remove("differentiation");
+        let back: KspContent = serde_json::from_value(v).expect("deserialize");
+        assert!(back.header.adapted_goal.is_empty());
+        assert!(back.stages[0].differentiation.is_empty());
     }
 }

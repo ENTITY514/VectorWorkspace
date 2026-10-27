@@ -1,7 +1,11 @@
+pub mod docx_read;
 pub mod excel_import;
+pub mod ksp_docx;
 pub mod ksp_mcp;
 pub mod ksp_pdf;
 pub mod mcp;
+pub mod omml;
+pub mod ktp_docx_import;
 pub mod ktp_service;
 pub mod report_pdf;
 pub mod report_xlsx;
@@ -12,3 +16,4 @@ pub mod solver_host;
 pub mod tup_parser;
 pub mod tup_html_parser;
 pub mod tup_import;
+pub mod xml_tree;

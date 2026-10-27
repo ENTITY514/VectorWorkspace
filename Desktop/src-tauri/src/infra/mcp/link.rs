@@ -84,6 +84,7 @@ fn lock_ksp_from_db_lesson(doc: &mut KspDocument, offer: &db::repo_ksp::LessonOf
         lesson_goals: doc.content.header.lesson_goals.clone(),
         values_component: doc.content.header.values_component.clone(),
         success_criteria: doc.content.header.success_criteria.clone(),
+        adapted_goal: offer.adapted_objective.clone(),
     };
     apply_locked_header(&mut doc.content.header, &locked);
 }
@@ -272,6 +273,7 @@ mod tests {
             lesson_goals: LessonGoals::default(),
             values_component: ValuesComponent::default(),
             success_criteria: vec![],
+            adapted_goal: String::new(),
         };
         KspDocument {
             id: crate::domain::ids::KspId::new(),

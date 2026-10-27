@@ -182,6 +182,8 @@ export interface KspHeader {
   lessonGoals: KspLessonGoals;
   valuesComponent: KspValuesComponent;
   successCriteria: string[];
+  /** Адаптированная цель для обучающегося с ООП (замкнута на КТП). */
+  adaptedGoal?: string;
 }
 
 export interface KspResource {
@@ -210,6 +212,8 @@ export interface KspStage {
   studentActions: string;
   resources: KspResource[];
   assessment: KspStageAssessment;
+  /** Задание/поддержка для обучающегося с ООП на этом этапе. */
+  differentiation?: string;
 }
 
 export interface KspHomework {
@@ -366,6 +370,8 @@ export interface KtpLesson {
   plannedDate: string | null;
   isCancelled: boolean;
   notes: string;
+  /** Адаптированная цель для обучающегося с ООП (колонка КТП ЗПР). */
+  adaptedObjective?: string;
   objectives: LessonObjective[];
 }
 

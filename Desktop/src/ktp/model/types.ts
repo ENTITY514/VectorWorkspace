@@ -16,6 +16,8 @@ export interface IKtpLesson {
   hours: number;
   date: string;
   notes: string;
+  /** Адаптированная цель для обучающегося с ООП; редактор её не показывает, но сохраняет. */
+  adaptedObjective?: string;
   rowType: LessonRowType;
 }
 

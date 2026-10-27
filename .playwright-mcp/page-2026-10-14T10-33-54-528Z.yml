@@ -1,0 +1,76 @@
+- generic [ref=e594]:
+  - banner [ref=e595]:
+    - button "Выйти из обучения" [ref=e596] [cursor=pointer]
+    - heading "Предметный курс по математике и ФГ" [level=1] [ref=e600]
+  - generic [ref=e601]:
+    - complementary [ref=e602]:
+      - generic [ref=e603]:
+        - generic [ref=e604]: Список уроков
+        - button [ref=e605] [cursor=pointer]
+      - generic [ref=e609]:
+        - generic [ref=e611]:
+          - generic [ref=e612]: Завершено на 25%
+          - generic [ref=e613]: 09:33:15
+        - generic [ref=e616]:
+          - button "Введение в курс" [ref=e618] [cursor=pointer]
+          - button "1 Модуль. Решение текстовых задач" [ref=e626] [cursor=pointer]
+          - button "2 Модуль. Теория чисел." [ref=e634] [cursor=pointer]
+          - button "3 Модуль. Планиметрия." [ref=e642] [cursor=pointer]
+          - generic [ref=e693]:
+            - button "4 Модуль. Неделя математики." [ref=e694] [cursor=pointer]
+            - list [ref=e1494]:
+              - listitem [ref=e1495] [cursor=pointer]:
+                - generic [ref=e1496]:
+                  - generic [ref=e1497]: Введение.
+                  - generic [ref=e1498]: 1 мин 53 сек
+              - listitem [ref=e1503] [cursor=pointer]:
+                - generic [ref=e1504]:
+                  - generic [ref=e1505]: Обзор недели математики.
+                  - generic [ref=e1506]: 8 мин 4 сек
+              - listitem [ref=e1510] [cursor=pointer]:
+                - generic [ref=e1511]: Вопросы теста по разделу №4
+          - button "5 Модуль. Тригонометрия." [ref=e701] [cursor=pointer]
+          - button "6 Модуль. Квадратные уравнения и неравенства." [ref=e708] [cursor=pointer]
+          - button "7 Модуль. Математическая регата." [ref=e715] [cursor=pointer]
+          - button "8 Модуль. Структура урока." [ref=e722] [cursor=pointer]
+          - button "9 Модуль. Использование ИКТ в образовательном процессе." [ref=e729] [cursor=pointer]
+          - button "10 Модуль. Микрообучение." [ref=e736] [cursor=pointer]
+          - button "Введение в функциональную грамотность." [ref=e743] [cursor=pointer]
+          - button "11 Модуль. Читательская грамотность как системообразующий компонент функциональной грамотности." [ref=e750] [cursor=pointer]
+          - button "12 Модуль. Учебные задания как основа формирования читательской грамотности." [ref=e757] [cursor=pointer]
+          - button "13 Модуль. Конструирование PISA-подобных учебных заданий." [ref=e764] [cursor=pointer]
+          - button "14 Модуль. Математическая грамотность." [ref=e771] [cursor=pointer]
+          - button "Завершение курса." [ref=e778] [cursor=pointer]
+    - main [ref=e784]:
+      - generic [ref=e1590]:
+        - generic [ref=e1591]:
+          - heading "Обзор недели математики." [level=2] [ref=e1592]
+          - button "Завершить урок" [ref=e1593] [cursor=pointer]
+        - region "Media Player" [ref=e1596]:
+          - generic [ref=e1599]:
+            - group:
+              - slider "Seek" [ref=e1603] [cursor=pointer]:
+                - generic: 0:00
+              - generic [ref=e1608]:
+                - button "Смотреть" [ref=e1611] [cursor=pointer]
+                - generic [ref=e1615]:
+                  - button "Выключить звук" [ref=e1618] [cursor=pointer]
+                  - generic:
+                    - slider "Громкость":
+                      - generic: 0%
+                - generic [ref=e1624]:
+                  - generic [ref=e1625]: 0:00
+                  - generic [ref=e1626]: /
+                  - generic [ref=e1627]: 8:04
+                - button "Настройки" [ref=e1631] [cursor=pointer]
+                - button "Google Cast Disconnected" [ref=e1637] [cursor=pointer]
+                - button "Fullscreen" [ref=e1645] [cursor=pointer]
+        - paragraph [ref=e1653]:
+          - strong [ref=e1654]: Обзор недели математики.
+      - generic [ref=e850]:
+        - button "Назад" [ref=e851] [cursor=pointer]
+        - button "Далее" [ref=e852] [cursor=pointer]
+    - generic [ref=e854] [cursor=pointer]:
+      - generic:
+        - generic:
+          - paragraph: Написать автору курса

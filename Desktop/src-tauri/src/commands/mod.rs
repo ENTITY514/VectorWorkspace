@@ -70,6 +70,7 @@ pub fn register<R: tauri::Runtime>(
             ksp::validate_ksp_document,
             ksp::rebalance_ksp_time,
             ksp::export_ksp_pdf,
+            ksp::export_ksp_docx,
             ksp::ksp_mcp_list_tools,
             ksp::ksp_mcp_invoke,
             ksp::mcp_list_tools,

@@ -50,6 +50,7 @@ struct LessonRow {
     is_cancelled: i64,
     objectives_json: String,
     notes: String,
+    adapted_objective: String,
 }
 
 fn kind_from_sql(s: &str) -> LessonKind {
@@ -119,8 +120,8 @@ pub async fn save_plan(pool: &SqlitePool, plan: &KtpPlan) -> Result<(), DbError>
                 serde_json::to_string(&l.objectives).unwrap_or_else(|_| "[]".into());
             sqlx::query(
                 "INSERT INTO ktp_lessons
-                    (id, quarter_id, global_index, quarter_index, topic_title, section_name, lesson_type, planned_date, is_cancelled, objectives_json, notes)
-                 VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11)",
+                    (id, quarter_id, global_index, quarter_index, topic_title, section_name, lesson_type, planned_date, is_cancelled, objectives_json, notes, adapted_objective)
+                 VALUES (?1, ?2, ?3, ?4, ?5, ?6, ?7, ?8, ?9, ?10, ?11, ?12)",
             )
             .bind(l.id.to_string())
             .bind(l.quarter_id.to_string())
@@ -133,6 +134,7 @@ pub async fn save_plan(pool: &SqlitePool, plan: &KtpPlan) -> Result<(), DbError>
             .bind(l.is_cancelled as i64)
             .bind(&objectives_json)
             .bind(&l.notes)
+            .bind(&l.adapted_objective)
             .execute(&mut *tx)
             .await?;
 
@@ -203,7 +205,7 @@ pub async fn load_plan(pool: &SqlitePool, plan_id: KtpPlanId) -> Result<Option<K
     let mut plan_quarters = Vec::new();
     for q in quarters {
         let lessons = sqlx::query_as::<_, LessonRow>(
-            "SELECT id, quarter_id, global_index, quarter_index, topic_title, section_name, lesson_type, planned_date, is_cancelled, objectives_json, notes
+            "SELECT id, quarter_id, global_index, quarter_index, topic_title, section_name, lesson_type, planned_date, is_cancelled, objectives_json, notes, adapted_objective
              FROM ktp_lessons WHERE quarter_id = ?1 ORDER BY quarter_index",
         )
         .bind(&q.id)
@@ -241,6 +243,7 @@ pub async fn load_plan(pool: &SqlitePool, plan_id: KtpPlanId) -> Result<Option<K
                 planned_date: l.planned_date.as_deref().and_then(|s| NaiveDate::from_str(s).ok()),
                 is_cancelled: l.is_cancelled != 0,
                 notes: l.notes,
+                adapted_objective: l.adapted_objective,
                 objectives,
             });
         }
@@ -363,8 +366,8 @@ pub async fn update_lesson(
     let res = sqlx::query(
         "UPDATE ktp_lessons SET
             topic_title = ?1, section_name = ?2, lesson_type = ?3, planned_date = ?4,
-            is_cancelled = ?5, objectives_json = ?6, notes = ?7
-         WHERE id = ?8",
+            is_cancelled = ?5, objectives_json = ?6, notes = ?7, adapted_objective = ?8
+         WHERE id = ?9",
     )
     .bind(&lesson.topic_title)
     .bind(&lesson.section_name)
@@ -373,6 +376,7 @@ pub async fn update_lesson(
     .bind(lesson.is_cancelled as i64)
     .bind(&objectives_json)
     .bind(&lesson.notes)
+    .bind(&lesson.adapted_objective)
     .bind(lesson.id.to_string())
     .execute(pool)
     .await?;
@@ -500,7 +504,7 @@ mod tests {
         let pool = connect(&dir.path().join("t.db")).await.unwrap();
         let full = stub_full_doc(&pool).await;
 
-        let plan = crate::infra::ktp_service::generate_from_tup(
+        let mut plan = crate::infra::ktp_service::generate_from_tup(
             &full,
             &crate::infra::ktp_service::GenerateParams {
                 subject_id: "mathematics".into(),
@@ -510,6 +514,7 @@ mod tests {
                 days_of_week: vec![2, 4],
             },
         );
+        plan.quarters[0].lessons[0].adapted_objective = "Читать с опорой".into();
 
         save_plan(&pool, &plan).await.unwrap();
         let loaded = load_plan(&pool, plan.id).await.unwrap().expect("план");
@@ -537,6 +542,8 @@ mod tests {
             "описание должно быть в плане, получили {descs:?}"
         );
         assert_eq!(loaded.language, "RU");
+        // Адаптированная цель переживает save/load.
+        assert_eq!(loaded.quarters[0].lessons[0].adapted_objective, "Читать с опорой");
     }
 
     #[tokio::test]

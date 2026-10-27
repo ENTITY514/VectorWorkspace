@@ -175,6 +175,9 @@ export const api = {
   async exportKspPdf(kspId: string, path: string): Promise<string> {
     return call<string>("export_ksp_pdf", { kspId, path });
   },
+  async exportKspDocx(kspId: string, path: string): Promise<string> {
+    return call<string>("export_ksp_docx", { kspId, path });
+  },
   async kspMcpListTools(): Promise<{ name: string; description: string; mutating: boolean; inputSchema?: unknown }[]> {
     return call("mcp_list_tools");
   },

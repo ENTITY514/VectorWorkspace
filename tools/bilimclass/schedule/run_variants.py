@@ -410,13 +410,21 @@ PROFILES["V53"] = replace(PROFILES["V50"], name="V53", title="Версия 53",
 PROFILES["V55"] = replace(PROFILES["V53"], name="V55", title="Версия 55",
                           teacher_min_per_day={"Русина Наталья Владимировна": 2},
                           description=PROFILES["V53"].description + " У Русиной нет дня ради одного урока.")
-HINT_FROM = {"V48": "V45", "V49": "V45", "V50": "V47", "V51": "V50", "V52": "V50", "V55": "V53"}
+# V57 (26.09): смена учителей по сообщению завуча — познание мира в 2А и 4А ведёт Жекеева Н.А.,
+#   естествознание в 2А и 4А — Актаева А.Е. (данные: overrides.json). Вся школа, кроме 2А и 4А, закреплена как в V53;
+#   сетка завучей 2А/4А освобождается, минимум сдвигов от V53.
+PROFILES["V57"] = replace(PROFILES["V53"], name="V57", title="Версия 57",
+                          description=PROFILES["V53"].description + " 26.09: познание мира 2А/4А — Жекеева, "
+                          "естествознание 2А/4А — Актаева; меняется только сетка 2А и 4А.")
+FIX_ALL_EXCEPT = {"V57": ("V53", {"2А", "4А"})}  # версия-источник, классы, которые можно двигать
+HINT_FROM = {"V48": "V45", "V49": "V45", "V50": "V47", "V51": "V50", "V52": "V50", "V55": "V53", "V57": "V53"}
 for _n in ("V42", "V43", "V44", "V45", "V46", "V47", "V48", "V49", "V50"):
     KEEP_FROM[_n] = "V36"
 KEEP_FROM["V51"] = "V50"
 KEEP_FROM["V52"] = "V50"
 KEEP_FROM["V53"] = "V50"
 KEEP_FROM["V55"] = "V53"
+KEEP_FROM["V57"] = "V53"
 # Бабич: из какой версии брать его сетку; в каких днях сетку (окна) не держать
 BABICH_FROM = {"V42": ("V36", set()), "V43": ("V36", set()), "V44": ("V36", {0, FRI}),
                "V45": ("V36", {0, FRI}), "V46": ("V36", set()), "V47": ("V36", {0, FRI}),
@@ -424,7 +432,7 @@ BABICH_FROM = {"V42": ("V36", set()), "V43": ("V36", set()), "V44": ("V36", {0, 
                "V50": ("V36", {0, FRI}), "V51": ("V36", {0, FRI}), "V52": ("V36", {0, FRI}),
                "V53": ("V36", {0, FRI}), "V55": ("V36", {0, FRI})}
 TWO_PHASE = {"V42", "V43", "V44", "V45", "V46", "V47"}  # сначала допустимое решение с минимумом сдвигов, потом оптимизация
-TWO_PHASE.update({"V53", "V55"})
+TWO_PHASE.update({"V53", "V55", "V57"})
 PHASE1_LIMIT = 300
 LATEST_RULES = "V32"  # правила, по которым считаются следующие версии
 
@@ -569,6 +577,12 @@ def solve(names, limit=None):
                 {"class": c, "subject": sj, "day": dp[0], "period": None}
                 for mi, dp in bab.items() if dp[0] != THU
                 for c in school.meetings[mi].classes for sj in school.meetings[mi].class_subjects(c)]
+        if name in FIX_ALL_EXCEPT:
+            src_name, free_classes = FIX_ALL_EXCEPT[name]
+            src = json.loads((OUT / f"{src_name}.json").read_text(encoding="utf-8"))
+            prof.fixed_slots = {int(mi): tuple(dp) for mi, dp in src["slots"].items()
+                                if not set(school.meetings[int(mi)].classes) & free_classes}
+            prof.pins = [p for p in prof.pins if p["class"] not in free_classes]
         if limit:
             prof.time_limit = limit
         hint = None

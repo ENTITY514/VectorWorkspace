@@ -1,0 +1,129 @@
+- generic [ref=e594]:
+  - banner [ref=e595]:
+    - button "Выйти из обучения" [ref=e596] [cursor=pointer]
+    - heading "Предметный курс по математике и ФГ" [level=1] [ref=e600]
+  - generic [ref=e601]:
+    - complementary [ref=e602]:
+      - generic [ref=e603]:
+        - generic [ref=e3070]: Список уроков
+        - button [ref=e605] [cursor=pointer]
+      - generic [ref=e3071]:
+        - generic [ref=e3073]:
+          - generic [ref=e3074]: Завершено на 44%
+          - generic [ref=e3075]: 09:33:15
+        - generic [ref=e3078]:
+          - button "Введение в курс" [ref=e3080] [cursor=pointer]
+          - button "1 Модуль. Решение текстовых задач" [ref=e3088] [cursor=pointer]
+          - button "2 Модуль. Теория чисел." [ref=e3096] [cursor=pointer]
+          - button "3 Модуль. Планиметрия." [ref=e3104] [cursor=pointer]
+          - generic [ref=e3111]:
+            - button "4 Модуль. Неделя математики." [ref=e3112] [cursor=pointer]
+            - list [ref=e3119]:
+              - listitem [ref=e3120] [cursor=pointer]:
+                - generic [ref=e3121]:
+                  - generic [ref=e3122]: Введение.
+                  - generic [ref=e3123]: 1 мин 53 сек
+              - listitem [ref=e3128] [cursor=pointer]:
+                - generic [ref=e3129]:
+                  - generic [ref=e3130]: Обзор недели математики.
+                  - generic [ref=e3131]: 8 мин 4 сек
+              - listitem [ref=e3136] [cursor=pointer]:
+                - generic [ref=e3137]: Вопросы теста по разделу №4
+          - generic [ref=e3143]:
+            - button "5 Модуль. Тригонометрия." [ref=e3144] [cursor=pointer]
+            - list [ref=e3151]:
+              - listitem [ref=e3152] [cursor=pointer]:
+                - generic [ref=e3153]:
+                  - generic [ref=e3154]: Единичная окружность.
+                  - generic [ref=e3155]: 5 мин 6 сек
+              - listitem [ref=e3160] [cursor=pointer]:
+                - generic [ref=e3161]:
+                  - generic [ref=e3162]: Простые тригонометрические уравнения.
+                  - generic [ref=e3163]: 6 мин 31 сек
+              - listitem [ref=e3168] [cursor=pointer]:
+                - generic [ref=e3169]:
+                  - generic [ref=e3170]: Простые тригонометрические неравенства.
+                  - generic [ref=e3171]: 10 мин 57 сек
+              - listitem [ref=e3176] [cursor=pointer]:
+                - generic [ref=e3177]:
+                  - generic [ref=e3178]: Сложные тригонометрические уравнения.
+                  - generic [ref=e3179]: 10 мин 25 сек
+              - listitem [ref=e3184] [cursor=pointer]:
+                - generic [ref=e3185]:
+                  - generic [ref=e3186]: Сложные тригонометрические неравенства.
+                  - generic [ref=e3187]: 10 мин 55 сек
+          - generic [ref=e3192]:
+            - button "6 Модуль. Квадратные уравнения и неравенства." [ref=e3193] [cursor=pointer]
+            - list [ref=e3200]:
+              - listitem [ref=e3201] [cursor=pointer]:
+                - generic [ref=e3202]:
+                  - generic [ref=e3203]: Типы квадратных уравнений и способы их решения.
+                  - generic [ref=e3204]: 7 мин 11 сек
+              - listitem [ref=e3209] [cursor=pointer]:
+                - generic [ref=e3210]:
+                  - generic [ref=e3211]: Теорема Виета.
+                  - generic [ref=e3212]: 3 мин 42 сек
+              - listitem [ref=e3217] [cursor=pointer]:
+                - generic [ref=e3218]:
+                  - generic [ref=e3219]: Уравнения, сводящиеся к квадратным уравнениям.
+                  - generic [ref=e3220]: 9 мин 5 сек
+              - listitem [ref=e3225] [cursor=pointer]:
+                - generic [ref=e3226]:
+                  - generic [ref=e3227]: Квадратные неравенства и метод интервалов.
+                  - generic [ref=e3228]: 8 мин 45 сек
+          - generic [ref=e3233]:
+            - button "7 Модуль. Математическая регата." [ref=e3234] [cursor=pointer]
+            - list [ref=e3241]:
+              - listitem [ref=e3242] [cursor=pointer]:
+                - generic [ref=e3243]:
+                  - generic [ref=e3244]: Задачи I этапа.
+                  - generic [ref=e3245]: 6 мин 15 сек
+              - listitem [ref=e3250] [cursor=pointer]:
+                - generic [ref=e3251]:
+                  - generic [ref=e3252]: Задачи II этапа.
+                  - generic [ref=e3253]: 5 мин 35 сек
+              - listitem [ref=e3258] [cursor=pointer]:
+                - generic [ref=e3259]:
+                  - generic [ref=e3260]: Задачи III этапа.
+                  - generic [ref=e3261]: 5 мин 57 сек
+              - listitem [ref=e3266] [cursor=pointer]:
+                - generic [ref=e3267]:
+                  - generic [ref=e3268]: Задачи IV этапа.
+                  - generic [ref=e3269]: 3 мин 26 сек
+              - listitem [ref=e3274] [cursor=pointer]:
+                - generic [ref=e3275]: Вопросы теста по разделу №7.
+          - button "8 Модуль. Структура урока." [ref=e3281] [cursor=pointer]
+          - button "9 Модуль. Использование ИКТ в образовательном процессе." [ref=e3288] [cursor=pointer]
+          - button "10 Модуль. Микрообучение." [ref=e3295] [cursor=pointer]
+          - button "Введение в функциональную грамотность." [ref=e3302] [cursor=pointer]
+          - button "11 Модуль. Читательская грамотность как системообразующий компонент функциональной грамотности." [ref=e3309] [cursor=pointer]
+          - button "12 Модуль. Учебные задания как основа формирования читательской грамотности." [ref=e3316] [cursor=pointer]
+          - button "13 Модуль. Конструирование PISA-подобных учебных заданий." [ref=e3323] [cursor=pointer]
+          - button "14 Модуль. Математическая грамотность." [ref=e3330] [cursor=pointer]
+          - button "Завершение курса." [ref=e3337] [cursor=pointer]
+    - main [ref=e784]:
+      - generic [ref=e3449]:
+        - generic [ref=e3451]:
+          - generic [ref=e3452]: Вопрос 3 из 10
+          - generic [ref=e3453]:
+            - generic [ref=e3454]: 43:37
+            - button "Выключить звук" [ref=e3455] [cursor=pointer]
+        - heading "Вопросы теста по разделу №7." [level=2] [ref=e3462]
+        - generic [ref=e3532]:
+          - generic [ref=e3533]: Единый ответ
+          - heading "3. Для кого предназначена математическая регата?" [level=3] [ref=e3535]
+          - generic [ref=e3536]:
+            - generic [ref=e3537] [cursor=pointer]: Только для победителей олимпиад
+            - generic [ref=e3543] [cursor=pointer]: Для учеников с низкой успеваемостью по математике
+            - generic [ref=e3549] [cursor=pointer]: Для учеников с разным уровнем подготовки
+            - generic [ref=e3555] [cursor=pointer]: Только для математических классов
+        - generic [ref=e3492]:
+          - button "Назад" [ref=e3527] [cursor=pointer]
+          - button "Ответить и перейти" [ref=e3493] [cursor=pointer]
+      - generic [ref=e850]:
+        - button "Назад" [ref=e851] [cursor=pointer]
+        - button "Далее" [ref=e852] [cursor=pointer]
+    - generic [ref=e854] [cursor=pointer]:
+      - generic:
+        - generic:
+          - paragraph: Написать автору курса

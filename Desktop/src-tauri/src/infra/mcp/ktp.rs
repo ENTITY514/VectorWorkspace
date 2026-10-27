@@ -57,6 +57,7 @@ fn overlay_offer(row: &mut db::repo_ksp::LessonOfferRow, lesson: &KtpLesson) {
     row.planned_date = lesson.planned_date.map(|d| d.to_string());
     row.is_cancelled = i64::from(lesson.is_cancelled);
     row.objectives_json = serde_json::to_string(&lesson.objectives).unwrap_or_else(|_| "[]".into());
+    row.adapted_objective = lesson.adapted_objective.clone();
 }
 
 pub fn overlay_offer_if_staged(row: &mut db::repo_ksp::LessonOfferRow) -> Result<bool, String> {
@@ -200,6 +201,7 @@ pub async fn sync_ksp_header_from_lesson(state: &AppState, lesson_id: &str) -> R
         lesson_goals: doc.content.header.lesson_goals.clone(),
         values_component: doc.content.header.values_component.clone(),
         success_criteria: doc.content.header.success_criteria.clone(),
+        adapted_goal: offer.adapted_objective.clone(),
     };
     if apply_locked_header(&mut doc.content.header, &locked) {
         db::repo_ksp::save_document(&state.pool, &doc, "agent", Some("sync_after_ktp"))
@@ -355,6 +357,9 @@ pub async fn invoke(state: &AppState, tool: &str, params: Value) -> Result<Value
                 }
                 if let Some(t) = params.get("notes").and_then(|v| v.as_str()) {
                     lesson.notes = t.into();
+                }
+                if let Some(t) = params.get("adaptedObjective").and_then(|v| v.as_str()) {
+                    lesson.adapted_objective = t.into();
                 }
                 if let Some(d) = params.get("plannedDate").and_then(|v| v.as_str()) {
                     lesson.planned_date = parse_date(d)?;

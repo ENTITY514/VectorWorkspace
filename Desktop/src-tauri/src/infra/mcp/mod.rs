@@ -72,20 +72,35 @@ pub fn list_tools() -> Vec<ToolInfo> {
         tool("ksp_list", "Список сохранённых КСП.", false, obj(json!({}), &[])),
         tool("ksp_get", "Полный КСП по kspId или ktpLessonId.", false, obj(json!({ "kspId": s("id"), "ktpLessonId": s("урок КТП") }), &[])),
         tool("ksp_get_summary", "Сжатое саммари КСП (план, не факт проведения).", false, obj(json!({ "kspId": s("id"), "ktpLessonId": s("урок") }), &[])),
-        tool("ksp_validate", "Правила V-01…V-18. Если есть карантин — проверяет его, не БД.", false, obj(json!({ "kspId": s("id"), "ktpLessonId": s("урок, если нет kspId") }), &[])),
+        tool("ksp_validate", "Правила V-01…V-20. Если есть карантин — проверяет его, не БД.", false, obj(json!({ "kspId": s("id"), "ktpLessonId": s("урок, если нет kspId") }), &[])),
         tool("ksp_check_readiness", "Чек-лист готовности к уроку (карантин важнее БД).", false, obj(json!({ "kspId": s("id"), "ktpLessonId": s("урок") }), &[])),
-        tool("ksp_create_draft", "Создать черновик КСП из урока КТП (UNIQUE на урок).", true, obj(json!({
-            "ktpLessonId": s("урок"), "className": s("8А"), "lessonDuration": n("минуты"),
+        tool("ksp_create_draft", "Создать черновик КСП из урока КТП (UNIQUE на урок). Имя учителя: teacherName → VECTOR_TEACHER_NAME → учитель по умолчанию.", true, obj(json!({
+            "ktpLessonId": s("урок"), "className": s("8А"), "lessonDuration": n("минуты"), "teacherName": s("ФИО учителя"),
         }), &["ktpLessonId"])),
-        tool("ksp_update_stage", "Правка этапа КСП → карантин.", true, obj(json!({ "kspId": s("id"), "stageId": s("этап") }), &["kspId", "stageId"])),
-        tool("ksp_add_stage", "Добавить этап КСП → карантин.", true, obj(json!({ "kspId": s("id"), "type": s("practice") }), &["kspId"])),
+        tool("ksp_update_stage", "Правка этапа КСП → карантин: действия, минуты, differentiation (для ООП), resources (массив строк).", true, obj(json!({
+            "kspId": s("id"), "stageId": s("этап"), "teacherActions": s("действия педагога"), "studentActions": s("действия ученика"),
+            "durationMinutes": n("минуты"), "differentiation": s("задание/поддержка для ООП"),
+            "resources": { "type": "array", "items": { "type": "string" } },
+        }), &["kspId", "stageId"])),
+        tool("ksp_add_stage", "Добавить этап КСП → карантин.", true, obj(json!({ "kspId": s("id"), "type": s("practice"), "durationMinutes": n("минуты") }), &["kspId"])),
         tool("ksp_remove_stage", "Удалить этап → карантин.", true, obj(json!({ "kspId": s("id"), "stageId": s("этап") }), &["kspId", "stageId"])),
         tool("ksp_reorder_stages", "Порядок этапов → карантин.", true, obj(json!({ "kspId": s("id"), "order": { "type": "array", "items": { "type": "string" } } }), &["kspId", "order"])),
-        tool("ksp_set_homework", "Домашнее задание КСП → карантин.", true, obj(json!({ "kspId": s("id") }), &["kspId"])),
-        tool("ksp_update_header", "Цели урока и ценности КСП. Тему/цели ТУП меняйте через ktp_update_lesson.", true, obj(json!({ "kspId": s("id") }), &["kspId"])),
+        tool("ksp_set_assessment", "Оценивание этапа → карантин: descriptors [{text, points?}] заменяет список; maxPoints (если нет и у всех дескрипторов есть баллы — сумма), feedbackMethod, mode (none|formative|summative).", true, obj(json!({
+            "kspId": s("id"), "stageId": s("этап"),
+            "descriptors": { "type": "array", "items": { "type": "object", "properties": { "text": s("текст"), "points": n("баллы") } } },
+            "maxPoints": n("максимум баллов"), "feedbackMethod": s("способ проверки"), "mode": s("none|formative|summative"),
+        }), &["kspId", "stageId", "descriptors"])),
+        tool("ksp_set_homework", "Домашнее задание КСП → карантин.", true, obj(json!({ "kspId": s("id"), "text": s("текст ДЗ"), "checkMethod": s("как проверяется") }), &["kspId"])),
+        tool("ksp_update_header", "Цели урока и ценности КСП. Тему/цели ТУП и adaptedGoal меняйте через ktp_update_lesson.", true, obj(json!({
+            "kspId": s("id"), "lessonGoalAll": s("все смогут"), "lessonGoalMost": s("большинство смогут"), "lessonGoalSome": s("некоторые смогут"),
+            "valuesText": s("ценность месяца в конкретном задании"), "valueIds": { "type": "array", "items": { "type": "string" } },
+        }), &["kspId"])),
         tool("ksp_rebalance_time", "Пересчитать минуты до эталона → карантин.", true, obj(json!({ "kspId": s("id") }), &["kspId"])),
         tool("ksp_commit_staged", "Запись карантина КСП в БД.", true, obj(json!({ "stagedId": s("id") }), &["stagedId"])),
         tool("ksp_discard_staged", "Отменить карантин КСП.", true, obj(json!({ "stagedId": s("id") }), &["stagedId"])),
+        tool("ksp_export_docx", "Экспорт КСП в docx по форме № 130 (не мутирует БД): kspId или ktpLessonId, обяз. outputDir, опц. fileName. При карантине — ошибка.", false, obj(json!({
+            "kspId": s("id"), "ktpLessonId": s("урок КТП"), "outputDir": s("каталог"), "fileName": s("имя файла"),
+        }), &["outputDir"])),
     ]
 }
 
@@ -116,6 +131,13 @@ pub fn normalize_params(params: Value) -> Value {
         ("lesson_goal_most", "lessonGoalMost"),
         ("lesson_goal_some", "lessonGoalSome"),
         ("learning_objectives", "learningObjectives"),
+        ("adapted_goal", "adaptedGoal"),
+        ("adapted_objective", "adaptedObjective"),
+        ("teacher_name", "teacherName"),
+        ("max_points", "maxPoints"),
+        ("feedback_method", "feedbackMethod"),
+        ("output_dir", "outputDir"),
+        ("file_name", "fileName"),
     ];
     let mut params = params;
     if let Some(obj) = params.as_object_mut() {
@@ -127,7 +149,43 @@ pub fn normalize_params(params: Value) -> Value {
             }
         }
     }
+    unescape_newlines(&mut params);
     params
+}
+
+/// Модели часто присылают переводы строк как два символа «обратная косая + n». Вне формул
+/// `$…$` превращаем их в настоящий перевод строки (внутри формул `\neq`, `\nu` остаются).
+fn unescape_newlines(v: &mut Value) {
+    match v {
+        Value::String(s) if s.contains("\\n") => {
+            let mut out = String::with_capacity(s.len());
+            let mut in_math = false;
+            let mut chars = s.chars().peekable();
+            while let Some(c) = chars.next() {
+                match c {
+                    '$' => {
+                        in_math = !in_math;
+                        out.push(c);
+                    }
+                    '\\' if in_math => {
+                        out.push(c);
+                        if let Some(n) = chars.next() {
+                            out.push(n);
+                        }
+                    }
+                    '\\' if chars.peek() == Some(&'n') => {
+                        chars.next();
+                        out.push('\n');
+                    }
+                    _ => out.push(c),
+                }
+            }
+            *s = out;
+        }
+        Value::Array(a) => a.iter_mut().for_each(unescape_newlines),
+        Value::Object(o) => o.values_mut().for_each(unescape_newlines),
+        _ => {}
+    }
 }
 
 pub fn arg_str(params: &Value, names: &[&str]) -> Result<String, String> {
@@ -208,6 +266,22 @@ mod tests {
         assert_eq!(v["ktpLessonId"], "abc");
         assert_eq!(v["topicQuery"], "квадрат");
         assert!(v.get("learningObjectives").is_some());
+        // Новые ключи группы КСП (design §5).
+        let v = normalize_params(json!({ "adapted_goal": "цель", "teacher_name": "Иван", "max_points": 5, "feedback_method": "устно", "output_dir": "/tmp" }));
+        assert_eq!(v["adaptedGoal"], "цель");
+        assert_eq!(v["teacherName"], "Иван");
+        assert_eq!(v["maxPoints"], 5);
+        assert_eq!(v["feedbackMethod"], "устно");
+        assert_eq!(v["outputDir"], "/tmp");
+        let v = normalize_params(json!({ "adapted_objective": "цель ЗПР" }));
+        assert_eq!(v["adaptedObjective"], "цель ЗПР");
+    }
+
+    #[test]
+    fn literal_backslash_n_becomes_newline_outside_math() {
+        let v = normalize_params(json!({ "teacherActions": "Строка 1\\n– пункт $a \\neq b$\\nКонец", "list": ["x\\ny"] }));
+        assert_eq!(v["teacherActions"], "Строка 1\n– пункт $a \\neq b$\nКонец");
+        assert_eq!(v["list"][0], "x\ny");
     }
 
     #[test]
@@ -234,6 +308,8 @@ mod tests {
         let names: Vec<_> = list_tools().into_iter().map(|t| t.name).collect();
         assert!(names.contains(&"ktp_update_lesson".into()));
         assert!(names.contains(&"ksp_create_draft".into()));
+        assert!(names.contains(&"ksp_set_assessment".into()));
+        assert!(names.contains(&"ksp_export_docx".into()));
         assert!(names.contains(&"lesson_get_bundle".into()));
         assert!(names.contains(&"ksp_diff_with_ktp".into()));
     }

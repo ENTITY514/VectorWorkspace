@@ -1,0 +1,69 @@
+- generic [ref=e594]:
+  - banner [ref=e595]:
+    - button "Выйти из обучения" [ref=e596] [cursor=pointer]
+    - heading "Предметный курс по математике и ФГ" [level=1] [ref=e600]
+  - generic [ref=e601]:
+    - complementary [ref=e602]:
+      - generic [ref=e603]:
+        - generic [ref=e604]: Список уроков
+        - button [ref=e605] [cursor=pointer]
+      - generic [ref=e609]:
+        - generic [ref=e611]:
+          - generic [ref=e612]: Завершено на 26%
+          - generic [ref=e613]: 09:33:15
+        - generic [ref=e616]:
+          - button "Введение в курс" [ref=e618] [cursor=pointer]
+          - button "1 Модуль. Решение текстовых задач" [ref=e626] [cursor=pointer]
+          - button "2 Модуль. Теория чисел." [ref=e634] [cursor=pointer]
+          - button "3 Модуль. Планиметрия." [ref=e642] [cursor=pointer]
+          - generic [ref=e693]:
+            - button "4 Модуль. Неделя математики." [ref=e694] [cursor=pointer]
+            - list [ref=e1494]:
+              - listitem [ref=e1495] [cursor=pointer]:
+                - generic [ref=e1496]:
+                  - generic [ref=e1497]: Введение.
+                  - generic [ref=e1498]: 1 мин 53 сек
+              - listitem [ref=e1503] [cursor=pointer]:
+                - generic [ref=e1504]:
+                  - generic [ref=e1505]: Обзор недели математики.
+                  - generic [ref=e1506]: 8 мин 4 сек
+              - listitem [ref=e1510] [cursor=pointer]:
+                - generic [ref=e1511]: Вопросы теста по разделу №4
+          - button "5 Модуль. Тригонометрия." [ref=e701] [cursor=pointer]
+          - button "6 Модуль. Квадратные уравнения и неравенства." [ref=e708] [cursor=pointer]
+          - button "7 Модуль. Математическая регата." [ref=e715] [cursor=pointer]
+          - button "8 Модуль. Структура урока." [ref=e722] [cursor=pointer]
+          - button "9 Модуль. Использование ИКТ в образовательном процессе." [ref=e729] [cursor=pointer]
+          - button "10 Модуль. Микрообучение." [ref=e736] [cursor=pointer]
+          - button "Введение в функциональную грамотность." [ref=e743] [cursor=pointer]
+          - button "11 Модуль. Читательская грамотность как системообразующий компонент функциональной грамотности." [ref=e750] [cursor=pointer]
+          - button "12 Модуль. Учебные задания как основа формирования читательской грамотности." [ref=e757] [cursor=pointer]
+          - button "13 Модуль. Конструирование PISA-подобных учебных заданий." [ref=e764] [cursor=pointer]
+          - button "14 Модуль. Математическая грамотность." [ref=e771] [cursor=pointer]
+          - button "Завершение курса." [ref=e778] [cursor=pointer]
+    - main [ref=e784]:
+      - generic [ref=e1760]:
+        - generic [ref=e1762]:
+          - generic [ref=e1763]: Вопрос 6 из 10
+          - generic [ref=e1764]:
+            - generic [ref=e1765]: 42:57
+            - button "Выключить звук" [ref=e1766] [cursor=pointer]
+        - heading "Вопросы теста по разделу №4" [level=2] [ref=e1773]
+        - generic [ref=e1929]:
+          - generic [ref=e1930]: Единый ответ
+          - heading "6. Какие мероприятия следует организовать на открытии недели математики?" [level=3] [ref=e1932]
+          - generic [ref=e1933]:
+            - generic [ref=e1934] [cursor=pointer]: Краткое математическое представление или презентация
+            - generic [ref=e1940] [cursor=pointer]: Просмотр фильма
+            - generic [ref=e1946] [cursor=pointer]: Только речь учителя
+            - generic [ref=e1952] [cursor=pointer]: Спортивные состязания
+        - generic [ref=e1803]:
+          - button "Назад" [ref=e1836] [cursor=pointer]
+          - button "Ответить и перейти" [ref=e1804] [cursor=pointer]
+      - generic [ref=e850]:
+        - button "Назад" [ref=e851] [cursor=pointer]
+        - button "Далее" [ref=e852] [cursor=pointer]
+    - generic [ref=e854] [cursor=pointer]:
+      - generic:
+        - generic:
+          - paragraph: Написать автору курса

@@ -1,0 +1,93 @@
+- generic [ref=f3e3]:
+  - banner [ref=f3e4]:
+    - button "Выйти из обучения" [ref=f3e433] [cursor=pointer]
+    - heading "Предметный курс по математике и ФГ" [level=1] [ref=f3e9]
+  - generic [ref=f3e10]:
+    - complementary [ref=f3e11]:
+      - generic [ref=f3e12]:
+        - generic [ref=f3e437]: Список уроков
+        - button [ref=f3e14] [cursor=pointer]
+      - generic [ref=f3e438]:
+        - generic [ref=f3e440]:
+          - generic [ref=f3e441]: Завершено на 55%
+          - generic [ref=f3e442]: 09:33:15
+        - generic [ref=f3e445]:
+          - button "Введение в курс" [ref=f3e447] [cursor=pointer]
+          - button "1 Модуль. Решение текстовых задач" [ref=f3e455] [cursor=pointer]
+          - button "2 Модуль. Теория чисел." [ref=f3e463] [cursor=pointer]
+          - button "3 Модуль. Планиметрия." [ref=f3e471] [cursor=pointer]
+          - button "4 Модуль. Неделя математики." [ref=f3e479] [cursor=pointer]
+          - button "5 Модуль. Тригонометрия." [ref=f3e487] [cursor=pointer]
+          - button "6 Модуль. Квадратные уравнения и неравенства." [ref=f3e495] [cursor=pointer]
+          - button "7 Модуль. Математическая регата." [ref=f3e503] [cursor=pointer]
+          - generic [ref=f3e510]:
+            - button "8 Модуль. Структура урока." [ref=f3e511] [cursor=pointer]
+            - list [ref=f3e518]:
+              - listitem [ref=f3e519] [cursor=pointer]:
+                - generic [ref=f3e520]:
+                  - generic [ref=f3e521]: "1 урок - Теория Ганье: Эффективные методы обучения."
+                  - generic [ref=f3e522]: 3 мин 22 сек
+              - listitem [ref=f3e527] [cursor=pointer]:
+                - generic [ref=f3e528]:
+                  - generic [ref=f3e529]: 2 урок - Важность и методы привлечения внимания учащихся.
+                  - generic [ref=f3e530]: 2 мин 34 сек
+              - listitem [ref=f3e535] [cursor=pointer]:
+                - generic [ref=f3e536]:
+                  - generic [ref=f3e537]: 3 урок - Важность и методы постановки целей на уроке математики
+                  - generic [ref=f3e538]: 2 мин 34 сек
+              - listitem [ref=f3e543] [cursor=pointer]:
+                - generic [ref=f3e544]:
+                  - generic [ref=f3e545]: 4 урок - Эффективное использование методов повторения на уроке математики.
+                  - generic [ref=f3e546]: 3 мин 25 сек
+              - listitem [ref=f3e551] [cursor=pointer]:
+                - generic [ref=f3e552]:
+                  - generic [ref=f3e553]: 5 урок - Эффективные методы объяснения нового материала на уроке математики.
+                  - generic [ref=f3e554]: 2 мин 16 сек
+              - listitem [ref=f3e559] [cursor=pointer]:
+                - generic [ref=f3e560]:
+                  - generic [ref=f3e561]: 6 урок - Методы применения различных заданий на уроке математики.
+                  - generic [ref=f3e562]: 2 мин 23 сек
+              - listitem [ref=f3e567] [cursor=pointer]:
+                - generic [ref=f3e568]:
+                  - generic [ref=f3e569]: 7 урок - Важность и методы применения практических заданий на уроке математики
+                  - generic [ref=f3e570]: 1 мин 53 сек
+              - listitem [ref=f3e575] [cursor=pointer]:
+                - generic [ref=f3e576]:
+                  - generic [ref=f3e577]: 8 урок - Важность и методы применения обратной связи на уроке математики.
+                  - generic [ref=f3e578]: 3 мин 40 сек
+              - listitem [ref=f3e583] [cursor=pointer]:
+                - generic [ref=f3e584]: Вопросы теста по разделу №8.
+          - button "9 Модуль. Использование ИКТ в образовательном процессе." [ref=f3e591] [cursor=pointer]
+          - button "10 Модуль. Микрообучение." [ref=f3e598] [cursor=pointer]
+          - button "Введение в функциональную грамотность." [ref=f3e605] [cursor=pointer]
+          - button "11 Модуль. Читательская грамотность как системообразующий компонент функциональной грамотности." [ref=f3e612] [cursor=pointer]
+          - button "12 Модуль. Учебные задания как основа формирования читательской грамотности." [ref=f3e619] [cursor=pointer]
+          - button "13 Модуль. Конструирование PISA-подобных учебных заданий." [ref=f3e626] [cursor=pointer]
+          - button "14 Модуль. Математическая грамотность." [ref=f3e633] [cursor=pointer]
+          - button "Завершение курса." [ref=f3e640] [cursor=pointer]
+    - main [ref=f3e226]:
+      - generic [ref=f3e228]:
+        - generic [ref=f3e230]:
+          - generic [ref=f3e231]: Вопрос 9 из 10
+          - generic [ref=f3e232]:
+            - generic [ref=f3e233]: 42:08
+            - button "Выключить звук" [ref=f3e234] [cursor=pointer]
+        - heading "Вопросы теста по разделу №8." [level=2] [ref=f3e241]
+        - generic [ref=f3e707]:
+          - generic [ref=f3e708]: Единый ответ
+          - heading "9. Какова цель использования различных заданий?" [level=3] [ref=f3e710]
+          - generic [ref=f3e711]:
+            - generic [ref=f3e712] [cursor=pointer]: Для контроля учащихся
+            - generic [ref=f3e718] [cursor=pointer]: Для наказания учеников
+            - generic [ref=f3e724] [cursor=pointer]: Для занятости учащихся
+            - generic [ref=f3e730] [cursor=pointer]: Для развития способностей учеников
+        - generic [ref=f3e271]:
+          - button "Назад" [ref=f3e311] [cursor=pointer]
+          - button "Ответить и перейти" [ref=f3e272] [cursor=pointer]
+      - generic [ref=f3e274]:
+        - button "Назад" [ref=f3e275] [cursor=pointer]
+        - button "Далее" [ref=f3e276] [cursor=pointer]
+    - generic [ref=f3e278] [cursor=pointer]:
+      - generic:
+        - generic:
+          - paragraph: Написать автору курса

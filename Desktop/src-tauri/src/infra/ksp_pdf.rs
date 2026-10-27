@@ -322,6 +322,7 @@ mod tests {
             lesson_goals: LessonGoals { all: "цель".into(), most: String::new(), some: String::new() },
             values_component: ValuesComponent { value_ids: vec![], text: "труд".into() },
             success_criteria: vec![],
+            adapted_goal: String::new(),
         };
         let doc = KspDocument {
             id: crate::domain::ids::KspId::new(),

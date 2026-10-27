@@ -142,9 +142,7 @@ export function previewReport(input: {
         issues.push({ code: "V-05", level: "blocking", message: `${s.title}: сумма баллов дескрипторов ${sum} ≠ ${a.maxPoints}.`, stageId: s.id });
       }
     }
-    if (a?.mode === "formative" && a.descriptors.some((d) => d.points != null)) {
-      issues.push({ code: "V-11", level: "warning", message: `${s.title}: у формативных дескрипторов не должно быть баллов.`, stageId: s.id });
-    }
+    // V-11 упразднён: баллы в формативных дескрипторах — обычная практика учителя.
   }
   if (!input.valuesText.trim() && input.valueIds.length === 0) {
     issues.push({ code: "V-09", level: "warning", message: "Не заполнен воспитательный компонент (FR-3.2).", stageId: null });

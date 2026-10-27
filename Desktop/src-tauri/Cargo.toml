@@ -10,6 +10,10 @@ default-run = "vector-workspace"
 name = "vector-mcp"
 path = "src/bin/vector_mcp.rs"
 
+[[bin]]
+name = "import_ktp_docx"
+path = "src/bin/import_ktp_docx.rs"
+
 [lib]
 # The `_lib` suffix may seem redundant but it is necessary
 # to make the lib name unique and wouldn't conflict with the bin name.
@@ -37,6 +41,7 @@ regex = "1"
 scraper = "0.22"
 chrono = { version = "0.4", features = ["serde"] }
 zip = "2"
+quick-xml = "0.37"
 base64 = "0.22"
 calamine = "0.26"
 rust_xlsxwriter = "0.99"

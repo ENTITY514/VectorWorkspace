@@ -57,6 +57,7 @@ pub struct LessonOfferRow {
     pub global_index: i64,
     pub is_cancelled: i64,
     pub objectives_json: String,
+    pub adapted_objective: String,
     pub has_ksp: i64,
     pub ksp_id: Option<String>,
 }
@@ -119,7 +120,7 @@ pub async fn list_lesson_offers(pool: &SqlitePool) -> Result<Vec<LessonOfferRow>
     sqlx::query_as::<_, LessonOfferRow>(
         "SELECT l.id AS lesson_id, p.id AS plan_id, p.subject_id, p.grade, p.language, p.academic_year,
                 l.topic_title, l.section_name, l.lesson_type, l.planned_date, l.global_index,
-                l.is_cancelled, l.objectives_json,
+                l.is_cancelled, l.objectives_json, l.adapted_objective,
                 CASE WHEN k.id IS NULL THEN 0 ELSE 1 END AS has_ksp,
                 k.id AS ksp_id
          FROM ktp_lessons l
@@ -253,7 +254,7 @@ pub async fn load_lesson_header(
     sqlx::query_as::<_, LessonOfferRow>(
         "SELECT l.id AS lesson_id, p.id AS plan_id, p.subject_id, p.grade, p.language, p.academic_year,
                 l.topic_title, l.section_name, l.lesson_type, l.planned_date, l.global_index,
-                l.is_cancelled, l.objectives_json,
+                l.is_cancelled, l.objectives_json, l.adapted_objective,
                 CASE WHEN k.id IS NULL THEN 0 ELSE 1 END AS has_ksp,
                 k.id AS ksp_id
          FROM ktp_lessons l
@@ -270,7 +271,7 @@ pub async fn load_lesson_header(
 
 const LESSON_SELECT: &str = "SELECT l.id AS lesson_id, p.id AS plan_id, p.subject_id, p.grade, p.language, p.academic_year,
                 l.topic_title, l.section_name, l.lesson_type, l.planned_date, l.global_index,
-                l.is_cancelled, l.objectives_json,
+                l.is_cancelled, l.objectives_json, l.adapted_objective,
                 CASE WHEN k.id IS NULL THEN 0 ELSE 1 END AS has_ksp,
                 k.id AS ksp_id
          FROM ktp_lessons l
@@ -322,7 +323,7 @@ pub async fn neighbor_lessons(
     sqlx::query_as::<_, LessonOfferRow>(
         "SELECT l.id AS lesson_id, p.id AS plan_id, p.subject_id, p.grade, p.language, p.academic_year,
                 l.topic_title, l.section_name, l.lesson_type, l.planned_date, l.global_index,
-                l.is_cancelled, l.objectives_json,
+                l.is_cancelled, l.objectives_json, l.adapted_objective,
                 CASE WHEN k.id IS NULL THEN 0 ELSE 1 END AS has_ksp,
                 k.id AS ksp_id
          FROM ktp_lessons l

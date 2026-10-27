@@ -83,6 +83,7 @@ pub struct KtpLessonDto {
     pub planned_date: Option<String>,
     pub is_cancelled: bool,
     pub notes: String,
+    pub adapted_objective: String,
     pub objectives: Vec<KtpLessonObjectiveDto>,
 }
 
@@ -99,6 +100,7 @@ impl From<&crate::domain::ktp::KtpLesson> for KtpLessonDto {
             planned_date: l.planned_date.map(|d| d.to_string()),
             is_cancelled: l.is_cancelled,
             notes: l.notes.clone(),
+            adapted_objective: l.adapted_objective.clone(),
             objectives: l
                 .objectives
                 .iter()
@@ -376,6 +378,8 @@ pub struct KtpLessonSaveIn {
     is_cancelled: bool,
     #[serde(default)]
     notes: String,
+    #[serde(default)]
+    adapted_objective: String,
     objectives: Vec<KtpLessonObjectiveSaveIn>,
 }
 
@@ -439,6 +443,7 @@ pub async fn save_ktp_plan(
                                 .and_then(|d| NaiveDate::parse_from_str(&d, "%Y-%m-%d").ok()),
                             is_cancelled: l.is_cancelled,
                             notes: l.notes,
+                            adapted_objective: l.adapted_objective,
                             objectives: l
                                 .objectives
                                 .into_iter()

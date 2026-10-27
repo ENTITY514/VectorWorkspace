@@ -61,6 +61,8 @@ fn header_from_offer(offer: &db::repo_ksp::LessonOfferRow, teacher_name: &str, c
         lesson_goals: LessonGoals { all: lesson_goal, most: String::new(), some: String::new() },
         values_component: ValuesComponent::default(),
         success_criteria: Vec::new(),
+        // Адаптированная цель замкнута на КТП — как тема и цели обучения.
+        adapted_goal: offer.adapted_objective.clone(),
     }
 }
 
@@ -283,6 +285,36 @@ pub async fn export_ksp_pdf(
     let bundle = get_ksp_document(state, ksp_id).await?;
     let bytes = crate::infra::ksp_pdf::build(&bundle.document)?;
     std::fs::write(&path, bytes).map_err(|e| format!("не удалось записать PDF: {e}"))?;
+    Ok(path)
+}
+
+#[tauri::command]
+pub async fn export_ksp_docx(
+    state: tauri::State<'_, AppState>,
+    ksp_id: String,
+    path: String,
+) -> Result<String, String> {
+    // Карантин важнее БД: сначала фиксируй, потом экспортируй.
+    if crate::infra::ksp_mcp::peek_staged_document(&ksp_id)?.is_some() {
+        return Err("Сначала зафиксируйте изменения КСП.".into());
+    }
+    let bundle = get_ksp_document(state.clone(), ksp_id).await?;
+    let doc = &bundle.document;
+    if crate::infra::ksp_mcp::peek_staged_by_lesson(&doc.ktp_lesson_id)?.is_some() {
+        return Err("Сначала зафиксируйте изменения КСП.".into());
+    }
+    let value_title = crate::infra::ksp_docx::value_title_for(
+        &state.pool,
+        &doc.content.header.values_component.value_ids,
+    )
+    .await;
+    let exp = crate::infra::ksp_docx::render_ksp_docx(doc, value_title.as_deref())?;
+    if let Some(parent) = std::path::Path::new(&path).parent() {
+        if !parent.as_os_str().is_empty() {
+            std::fs::create_dir_all(parent).map_err(|e| format!("не удалось создать каталог: {e}"))?;
+        }
+    }
+    std::fs::write(&path, &exp.bytes).map_err(|e| format!("не удалось записать docx: {e}"))?;
     Ok(path)
 }
 

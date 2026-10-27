@@ -1,0 +1,283 @@
+- generic [ref=f3e3]:
+  - banner [ref=f3e4]:
+    - button "Выйти из обучения" [ref=f3e433] [cursor=pointer]
+    - heading "Предметный курс по математике и ФГ" [level=1] [ref=f3e9]
+  - generic [ref=f3e10]:
+    - complementary [ref=f3e11]:
+      - generic [ref=f3e12]:
+        - generic [ref=f3e437]: Список уроков
+        - button [ref=f3e14] [cursor=pointer]
+      - generic [ref=f3e438]:
+        - generic [ref=f3e440]:
+          - generic [ref=f3e441]: Завершено на 98%
+          - generic [ref=f3e442]: 09:33:15
+        - generic [ref=f3e445]:
+          - button "Введение в курс" [ref=f3e447] [cursor=pointer]
+          - button "1 Модуль. Решение текстовых задач" [ref=f3e455] [cursor=pointer]
+          - button "2 Модуль. Теория чисел." [ref=f3e463] [cursor=pointer]
+          - button "3 Модуль. Планиметрия." [ref=f3e471] [cursor=pointer]
+          - button "4 Модуль. Неделя математики." [ref=f3e479] [cursor=pointer]
+          - button "5 Модуль. Тригонометрия." [ref=f3e487] [cursor=pointer]
+          - button "6 Модуль. Квадратные уравнения и неравенства." [ref=f3e495] [cursor=pointer]
+          - button "7 Модуль. Математическая регата." [ref=f3e503] [cursor=pointer]
+          - generic [ref=f3e510]:
+            - button "8 Модуль. Структура урока." [ref=f3e511] [cursor=pointer]
+            - list [ref=f3e518]:
+              - listitem [ref=f3e519] [cursor=pointer]:
+                - generic [ref=f3e520]:
+                  - generic [ref=f3e521]: "1 урок - Теория Ганье: Эффективные методы обучения."
+                  - generic [ref=f3e522]: 3 мин 22 сек
+              - listitem [ref=f3e527] [cursor=pointer]:
+                - generic [ref=f3e528]:
+                  - generic [ref=f3e529]: 2 урок - Важность и методы привлечения внимания учащихся.
+                  - generic [ref=f3e530]: 2 мин 34 сек
+              - listitem [ref=f3e535] [cursor=pointer]:
+                - generic [ref=f3e536]:
+                  - generic [ref=f3e537]: 3 урок - Важность и методы постановки целей на уроке математики
+                  - generic [ref=f3e538]: 2 мин 34 сек
+              - listitem [ref=f3e543] [cursor=pointer]:
+                - generic [ref=f3e544]:
+                  - generic [ref=f3e545]: 4 урок - Эффективное использование методов повторения на уроке математики.
+                  - generic [ref=f3e546]: 3 мин 25 сек
+              - listitem [ref=f3e551] [cursor=pointer]:
+                - generic [ref=f3e552]:
+                  - generic [ref=f3e553]: 5 урок - Эффективные методы объяснения нового материала на уроке математики.
+                  - generic [ref=f3e554]: 2 мин 16 сек
+              - listitem [ref=f3e559] [cursor=pointer]:
+                - generic [ref=f3e560]:
+                  - generic [ref=f3e561]: 6 урок - Методы применения различных заданий на уроке математики.
+                  - generic [ref=f3e562]: 2 мин 23 сек
+              - listitem [ref=f3e567] [cursor=pointer]:
+                - generic [ref=f3e568]:
+                  - generic [ref=f3e569]: 7 урок - Важность и методы применения практических заданий на уроке математики
+                  - generic [ref=f3e570]: 1 мин 53 сек
+              - listitem [ref=f3e575] [cursor=pointer]:
+                - generic [ref=f3e576]:
+                  - generic [ref=f3e577]: 8 урок - Важность и методы применения обратной связи на уроке математики.
+                  - generic [ref=f3e578]: 3 мин 40 сек
+              - listitem [ref=f3e583] [cursor=pointer]:
+                - generic [ref=f3e584]: Вопросы теста по разделу №8.
+          - generic [ref=f3e590]:
+            - button "9 Модуль. Использование ИКТ в образовательном процессе." [ref=f3e591] [cursor=pointer]
+            - list [ref=f3e798]:
+              - listitem [ref=f3e799] [cursor=pointer]:
+                - generic [ref=f3e800]:
+                  - generic [ref=f3e801]: Приложение Zipgrade. 1 урок - Знакомство с программой Zipgrade.
+                  - generic [ref=f3e802]: 2 мин 47 сек
+              - listitem [ref=f3e807] [cursor=pointer]:
+                - generic [ref=f3e808]:
+                  - generic [ref=f3e809]: Приложение Zipgrade. 2 урок - Регистрация в Zipgrade и использование функций программы.
+                  - generic [ref=f3e810]: 3 мин 4 сек
+              - listitem [ref=f3e814] [cursor=pointer]:
+                - generic [ref=f3e815]:
+                  - generic [ref=f3e816]: Платформа Quizizz. 3 урок - Знакомство с программой Quizizz.
+                  - generic [ref=f3e817]: 3 мин 32 сек
+              - listitem [ref=f3e821] [cursor=pointer]:
+                - generic [ref=f3e822]:
+                  - generic [ref=f3e823]: Платформа Quizizz. 4 урок - Регистрация в Quizizz и использование функций программы.
+                  - generic [ref=f3e824]: 4 мин 42 сек
+              - listitem [ref=f3e828] [cursor=pointer]:
+                - generic [ref=f3e829]:
+                  - generic [ref=f3e830]: Виртуальная лаборатория PhET. 5 урок - Знакомство с программой PhET.
+                  - generic [ref=f3e831]: 4 мин 35 сек
+              - listitem [ref=f3e835] [cursor=pointer]:
+                - generic [ref=f3e836]:
+                  - generic [ref=f3e837]: Виртуальная лаборатория PhET. 6 урок - Использование функций PhET.
+                  - generic [ref=f3e838]: 3 мин 53 сек
+              - listitem [ref=f3e842] [cursor=pointer]:
+                - generic [ref=f3e843]:
+                  - generic [ref=f3e844]: Заключительный урок.
+                  - generic [ref=f3e845]: 3 мин 26 сек
+              - listitem [ref=f3e849] [cursor=pointer]:
+                - generic [ref=f3e850]: Заключительный урок.
+          - generic [ref=f3e597]:
+            - button "10 Модуль. Микрообучение." [ref=f3e598] [cursor=pointer]
+            - list [ref=f3e1597]:
+              - listitem [ref=f3e1598] [cursor=pointer]:
+                - generic [ref=f3e1599]:
+                  - generic [ref=f3e1600]: Информация о микрообучении.
+                  - generic [ref=f3e1601]: 3 мин 38 сек
+          - generic [ref=f3e604]:
+            - button "Введение в функциональную грамотность." [ref=f3e605] [cursor=pointer]
+            - list [ref=f3e1677]:
+              - listitem [ref=f3e1678] [cursor=pointer]:
+                - generic [ref=f3e1679]:
+                  - generic [ref=f3e1680]: Функциональная грамотность в международном исследовании PISA.
+                  - generic [ref=f3e1681]: 15 мин 13 сек
+          - generic [ref=f3e611]:
+            - button "11 Модуль. Читательская грамотность как системообразующий компонент функциональной грамотности." [ref=f3e612] [cursor=pointer]
+            - list [ref=f3e1768]:
+              - listitem [ref=f3e1769] [cursor=pointer]:
+                - generic [ref=f3e1770]:
+                  - generic [ref=f3e1771]: "Как формируются читательские умения: один текст или несколько?"
+                  - generic [ref=f3e1772]: 11 мин 52 сек
+              - listitem [ref=f3e1777] [cursor=pointer]:
+                - generic [ref=f3e1778]:
+                  - generic [ref=f3e1779]: Уровни читательской грамотности.
+                  - generic [ref=f3e1780]: 21 мин 24 сек
+              - listitem [ref=f3e1784] [cursor=pointer]:
+                - generic [ref=f3e1785]:
+                  - generic [ref=f3e1786]: Разбор задания из PISA на читательскую грамотность.
+                  - generic [ref=f3e1787]: 41 мин 29 сек
+              - listitem [ref=f3e1791] [cursor=pointer]:
+                - generic [ref=f3e1792]:
+                  - generic [ref=f3e1793]: "Как каждый предмет развивает читательскую грамотность: взгляд через призму PISA."
+                  - generic [ref=f3e1794]: 8 мин 18 сек
+          - generic [ref=f3e618]:
+            - button "12 Модуль. Учебные задания как основа формирования читательской грамотности." [ref=f3e619] [cursor=pointer]
+            - list [ref=f3e2129]:
+              - listitem [ref=f3e2130] [cursor=pointer]:
+                - generic [ref=f3e2131]:
+                  - generic [ref=f3e2132]: Учебные заданиях как основа формирования читательской грамотности школьников.
+                  - generic [ref=f3e2133]: 15 мин 59 сек
+              - listitem [ref=f3e2138] [cursor=pointer]:
+                - generic [ref=f3e2139]:
+                  - generic [ref=f3e2140]: Модели и типы заданий для формирования читательской грамотности.
+                  - generic [ref=f3e2141]: 10 мин 36 сек
+              - listitem [ref=f3e2145] [cursor=pointer]:
+                - generic [ref=f3e2146]:
+                  - generic [ref=f3e2147]: Кодификатор универсальных учебных действий и модели заданий для их формирования.
+                  - generic [ref=f3e2148]: 7 мин 32 сек
+          - generic [ref=f3e625]:
+            - button "13 Модуль. Конструирование PISA-подобных учебных заданий." [ref=f3e626] [cursor=pointer]
+            - list [ref=f3e2401]:
+              - listitem [ref=f3e2402] [cursor=pointer]:
+                - generic [ref=f3e2403]:
+                  - generic [ref=f3e2404]: Суть учебного задания.
+                  - generic [ref=f3e2405]: 8 мин 18 сек
+              - listitem [ref=f3e2410] [cursor=pointer]:
+                - generic [ref=f3e2411]:
+                  - generic [ref=f3e2412]: Пять характеристик PISA-подобных заданий.
+                  - generic [ref=f3e2413]: 7 мин 23 сек
+              - listitem [ref=f3e2417] [cursor=pointer]:
+                - generic [ref=f3e2418]:
+                  - generic [ref=f3e2419]: Подробное изучение характеристики "Контектность".
+                  - generic [ref=f3e2420]: 10 мин 10 сек
+              - listitem [ref=f3e2424] [cursor=pointer]:
+                - generic [ref=f3e2425]:
+                  - generic [ref=f3e2426]: Метод бинарных оппозиций в разработке PISA-подобных заданий.
+                  - generic [ref=f3e2427]: 10 мин 37 сек
+              - listitem [ref=f3e2431] [cursor=pointer]:
+                - generic [ref=f3e2432]:
+                  - generic [ref=f3e2433]: "Самооценка качества заданий: как определить, работает ли ваше задание на формирование функциональной грамотности."
+                  - generic [ref=f3e2434]: 4 мин 52 сек
+              - listitem [ref=f3e2438] [cursor=pointer]:
+                - generic [ref=f3e2439]:
+                  - generic [ref=f3e2440]: Пошаговое создание PISA-подобных заданий с использованием "Карты оценки качества".
+                  - generic [ref=f3e2441]: 11 мин 7 сек
+              - listitem [ref=f3e2445] [cursor=pointer]:
+                - generic [ref=f3e2446]:
+                  - generic [ref=f3e2447]: Разбор практического задания.
+                  - generic [ref=f3e2448]: 14 мин 52 сек
+              - listitem [ref=f3e2452] [cursor=pointer]:
+                - generic [ref=f3e2453]:
+                  - generic [ref=f3e2454]: Использование нейросетей при составлении заданий на функциональную грамотность.
+                  - generic [ref=f3e2455]: 8 мин 18 сек
+              - listitem [ref=f3e2459] [cursor=pointer]:
+                - generic [ref=f3e2460]:
+                  - generic [ref=f3e2461]: Завершение блока по функциональной грамотности.
+                  - generic [ref=f3e2462]: 3 мин 20 сек
+          - generic [ref=f3e632]:
+            - button "14 Модуль. Математическая грамотность." [ref=f3e633] [cursor=pointer]
+            - list [ref=f3e3207]:
+              - listitem [ref=f3e3208] [cursor=pointer]:
+                - generic [ref=f3e3209]:
+                  - generic [ref=f3e3210]: Математическая грамотность как компонент функциональной грамотности.
+                  - generic [ref=f3e3211]: 6 мин 39 сек
+              - listitem [ref=f3e3216] [cursor=pointer]:
+                - generic [ref=f3e3217]:
+                  - generic [ref=f3e3218]: "Три кита оценки PISA: Контекст, Содержание и Мыслительная деятельность."
+                  - generic [ref=f3e3219]: 7 мин 35 сек
+              - listitem [ref=f3e3223] [cursor=pointer]:
+                - generic [ref=f3e3224]:
+                  - generic [ref=f3e3225]: Уровни математической грамотности
+                  - generic [ref=f3e3226]: 6 мин 21 сек
+              - listitem [ref=f3e3230] [cursor=pointer]:
+                - generic [ref=f3e3231]:
+                  - generic [ref=f3e3232]: Разбор задания "Продажа музыкальных дисков".
+                  - generic [ref=f3e3233]: 6 мин 5 сек
+              - listitem [ref=f3e3237] [cursor=pointer]:
+                - generic [ref=f3e3238]:
+                  - generic [ref=f3e3239]: Разбор задания "Вращающаяся дверь".
+                  - generic [ref=f3e3240]: 7 мин 5 сек
+              - listitem [ref=f3e3244] [cursor=pointer]:
+                - generic [ref=f3e3245]:
+                  - generic [ref=f3e3246]: Заключение.
+                  - generic [ref=f3e3247]: 2 мин 42 сек
+          - generic [ref=f3e639]:
+            - button "Завершение курса." [ref=f3e640] [cursor=pointer]
+            - list [ref=f3e3734]:
+              - listitem [ref=f3e3735] [cursor=pointer]:
+                - generic [ref=f3e3736]:
+                  - generic [ref=f3e3737]: Выпускной. Завершение курса.
+                  - generic [ref=f3e3738]: 2 мин 29 сек
+              - listitem [ref=f3e3743] [cursor=pointer]:
+                - generic [ref=f3e3744]:
+                  - generic [ref=f3e3745]: Видео-инструкция по получению сертификата.
+                  - generic [ref=f3e3746]: 3 мин 42 сек
+    - main [ref=f3e226]:
+      - generic [ref=f3e3832]:
+        - generic [ref=f3e3833]:
+          - heading "Видео-инструкция по получению сертификата." [level=2] [ref=f3e3834]
+          - button "Завершить урок" [ref=f3e3835] [cursor=pointer]
+        - region "Media Player" [ref=f3e3838]:
+          - generic [ref=f3e3841]:
+            - group:
+              - slider "Seek" [ref=f3e3845] [cursor=pointer]:
+                - generic: 0:00
+              - generic [ref=f3e3850]:
+                - button "Смотреть" [ref=f3e3853] [cursor=pointer]
+                - generic [ref=f3e3857]:
+                  - button "Выключить звук" [ref=f3e3860] [cursor=pointer]
+                  - generic:
+                    - slider "Громкость":
+                      - generic: 0%
+                - generic [ref=f3e3866]:
+                  - generic [ref=f3e3867]: 0:00
+                  - generic [ref=f3e3868]: /
+                  - generic [ref=f3e3869]: 3:42
+                - button "Настройки" [ref=f3e3873] [cursor=pointer]
+                - button "Google Cast Disconnected" [ref=f3e3879] [cursor=pointer]
+                - button "Fullscreen" [ref=f3e3887] [cursor=pointer]
+        - generic [ref=f3e3894]:
+          - paragraph [ref=f3e3895]:
+            - strong [ref=f3e3896]: Видео-инструкция по получению сертификата
+          - paragraph [ref=f3e3897]: Поздравляем вас с успешным завершением нашего образовательного курса. Теперь перед вами стоит важный этап — получение сертификата, подтверждающего ваше обучение.
+          - list [ref=f3e3898]:
+            - listitem [ref=f3e3899]:
+              - paragraph [ref=f3e3900]: "Фиксация вашего прогресса: После того как вы завершили все видеоуроки и выполнили необходимые задания, ваш прогресс автоматически зафиксируется в системе данной платформы но НЕ ВЫДАСТ вам ОФИЦИАЛЬНЫЙ сертификат. Это только первый шаг к получению сертификата."
+            - listitem [ref=f3e3901]:
+              - paragraph [ref=f3e3902]: "Связь с нашим центром: Для оформления официального сертификата, вам необходимо связаться с нашим центром повышения квалификации по номеру телефона - +7 777 897 05 05. Обязательно проверьте номер на официальном сайте USTAZ.PRO для избежания ошибок."
+            - listitem [ref=f3e3903]:
+              - paragraph [ref=f3e3904]: "Необходимые данные:"
+              - list [ref=f3e3905]:
+                - listitem [ref=f3e3906]:
+                  - paragraph [ref=f3e3907]: Фамилия, имя, отчество в точном написании, как в удостоверении личности.
+                - listitem [ref=f3e3908]:
+                  - paragraph [ref=f3e3909]: ИИН — ваш индивидуальный идентификационный номер. Точность введения этого номера критична для корректного отображения вашего обучения на платформе “Ұстаз”.
+            - listitem [ref=f3e3910]:
+              - paragraph [ref=f3e3911]: "Процесс проверки и оформления:"
+              - list [ref=f3e3912]:
+                - listitem [ref=f3e3913]:
+                  - paragraph [ref=f3e3914]: Мы проверим статус завершения вашего курса и убедимся, что все задания выполнены.
+                - listitem [ref=f3e3915]:
+                  - paragraph [ref=f3e3916]: После итоговой сверки ваши данные будут внесены в Единую базу данных педагогов.
+                - listitem [ref=f3e3917]:
+                  - paragraph [ref=f3e3918]: Ваш сертификат будет оформлен согласно требованиям и отправлен вам на WhatsApp.
+            - listitem [ref=f3e3919]:
+              - paragraph [ref=f3e3920]: "Важные напоминания:"
+              - list [ref=f3e3921]:
+                - listitem [ref=f3e3922]:
+                  - paragraph [ref=f3e3923]:
+                    - strong [ref=f3e3924]: Мы не получаем автоматические уведомления о завершении курса,
+                    - text: поэтому важно, чтобы
+                    - strong [ref=f3e3925]: вы связались с нами
+                    - text: через WhatsApp сразу после его окончания - +7 777 897 05 05. Это сигнал для нас начать процесс оформления вашего сертификата.
+          - paragraph [ref=f3e3926]: Мы гарантируем, что ваши усилия будут оценены по достоинству и вы получите сертификат, который можно будет использовать при аттестации.
+          - paragraph [ref=f3e3927]: Спасибо за ваше участие и доверие. Мы ценим каждого из вас и надеемся увидеть на следующих наших курсах. Не забудьте написать нам для оформления документов!
+          - paragraph [ref=f3e3928]: Желаем вам успехов и новых достижений в вашей профессиональной деятельности!
+      - button "Назад" [ref=f3e275] [cursor=pointer]
+    - generic [ref=f3e278] [cursor=pointer]:
+      - generic:
+        - generic:
+          - paragraph: Написать автору курса

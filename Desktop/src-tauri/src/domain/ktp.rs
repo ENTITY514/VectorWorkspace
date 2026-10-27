@@ -90,6 +90,9 @@ pub struct KtpLesson {
     /// Примечание / домашнее задание (колонка редактора и выгрузка в Кунделик).
     #[serde(default)]
     pub notes: String,
+    /// Адаптированная цель урока для обучающегося с ООП (колонка «Адаптированная цель» КТП).
+    #[serde(default)]
+    pub adapted_objective: String,
     /// Цели обучения урока: код + описание (то, что видит учитель).
     pub objectives: Vec<LessonObjective>,
 }
@@ -113,6 +116,7 @@ impl KtpLesson {
             planned_date: None,
             is_cancelled: false,
             notes: String::new(),
+            adapted_objective: String::new(),
             objectives: Vec::new(),
         }
     }

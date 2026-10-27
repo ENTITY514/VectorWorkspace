@@ -10,12 +10,13 @@ use serde_json::{json, Value};
 
 use crate::commands::AppState;
 use crate::db;
+use crate::domain::adal_azamat::value_code_for_date;
 use crate::domain::ids::KspId;
 use crate::domain::invariants::LessonKind;
 use crate::domain::ksp::{
-    apply_locked_header, draft_from_template, rebalance_time, validate_content, KspDocument,
-    KspHeader, KspStatus, LearningObjectiveRef, LessonGoals, ValuesComponent, DEFAULT_LESSON_MINUTES,
-    StageType,
+    apply_locked_header, draft_from_template, rebalance_time, validate_content, AssessmentMode,
+    Descriptor, KspDocument, KspHeader, KspStatus, LearningObjectiveRef, LessonGoals, ResourceRef,
+    ValuesComponent, DEFAULT_LESSON_MINUTES, StageType,
 };
 use uuid::Uuid;
 
@@ -32,18 +33,20 @@ pub fn list_tools() -> Vec<ToolInfo> {
         ("ksp_get", "Полный документ КСП", false),
         ("ksp_get_summary", "Сжатое саммари плана (is_plan_only, пока нет факта проведения)", false),
         ("ksp_list", "Список сохранённых КСП", false),
-        ("ksp_validate", "Правила V-01…V-18", false),
+        ("ksp_validate", "Правила V-01…V-20", false),
         ("ksp_check_readiness", "Чек-лист готовности к уроку", false),
-        ("ksp_create_draft", "Создать черновик из урока КТП", true),
-        ("ksp_update_stage", "Правка этапа → карантин", true),
+        ("ksp_create_draft", "Создать черновик из урока КТП; teacherName, иначе VECTOR_TEACHER_NAME, иначе учитель по умолчанию", true),
+        ("ksp_update_stage", "Правка этапа (действия, минуты, differentiation, resources) → карантин", true),
         ("ksp_add_stage", "Добавить этап → карантин", true),
         ("ksp_remove_stage", "Удалить этап → карантин", true),
         ("ksp_reorder_stages", "Порядок этапов → карантин", true),
+        ("ksp_set_assessment", "Оценивание этапа: дескрипторы, баллы, режим → карантин", true),
         ("ksp_set_homework", "Домашнее задание → карантин", true),
-        ("ksp_update_header", "Цели урока и ценности; тему/цели ТУП отклоняет", true),
+        ("ksp_update_header", "Цели урока и ценности; тему/цели ТУП и adaptedGoal отклоняет", true),
         ("ksp_rebalance_time", "Пересчитать минуты до эталона → карантин", true),
         ("ksp_commit_staged", "Единственная запись карантина в БД", true),
         ("ksp_discard_staged", "Отменить карантин", true),
+        ("ksp_export_docx", "Экспорт КСП в docx по форме № 130 (не мутирует БД)", false),
     ]
     .into_iter()
     .map(|(name, description, mutating)| ToolInfo {
@@ -167,6 +170,7 @@ fn locked_header_from_offer(offer: &db::repo_ksp::LessonOfferRow, current: &KspH
         lesson_goals: current.lesson_goals.clone(),
         values_component: current.values_component.clone(),
         success_criteria: current.success_criteria.clone(),
+        adapted_goal: offer.adapted_objective.clone(),
     }
 }
 
@@ -311,9 +315,14 @@ pub async fn invoke(state: &AppState, tool: &str, params: Value) -> Result<Value
             if offer.is_cancelled != 0 {
                 return Err("Нельзя создать КСП для отменённого урока КТП.".into());
             }
-            let (teacher_id, teacher_name) = db::repo_ksp::default_teacher(&state.pool)
+            let (teacher_id, default_teacher) = db::repo_ksp::default_teacher(&state.pool)
                 .await
                 .map_err(|e| e.to_string())?;
+            // Имя учителя: параметр → переменная окружения → учитель по умолчанию.
+            let teacher_name = crate::infra::mcp::arg_str(&params, &["teacherName"])
+                .ok()
+                .or_else(|| std::env::var("VECTOR_TEACHER_NAME").ok().filter(|s| !s.trim().is_empty()))
+                .unwrap_or(default_teacher);
             let class = params
                 .get("className")
                 .and_then(|v| v.as_str())
@@ -324,6 +333,13 @@ pub async fn invoke(state: &AppState, tool: &str, params: Value) -> Result<Value
                 .unwrap_or(DEFAULT_LESSON_MINUTES)
                 .max(1);
             let objectives = objectives_from_json(&offer.objectives_json);
+            // Ценность месяца плановой даты — в воспитательный компонент.
+            let value_ids: Vec<String> = offer
+                .planned_date
+                .as_deref()
+                .and_then(value_code_for_date)
+                .map(|code| vec![code.to_string()])
+                .unwrap_or_default();
             let header = KspHeader {
                 section: offer.section_name.clone(),
                 topic: offer.topic_title.clone(),
@@ -332,8 +348,9 @@ pub async fn invoke(state: &AppState, tool: &str, params: Value) -> Result<Value
                 class_name: class.clone(),
                 teacher_name,
                 lesson_goals: LessonGoals::default(),
-                values_component: ValuesComponent::default(),
+                values_component: ValuesComponent { value_ids, text: String::new() },
                 success_criteria: Vec::new(),
+                adapted_goal: offer.adapted_objective.clone(),
             };
             let kind = kind_of(&offer.lesson_type);
             let now = chrono::Local::now().format("%Y-%m-%d %H:%M:%S").to_string();
@@ -357,7 +374,7 @@ pub async fn invoke(state: &AppState, tool: &str, params: Value) -> Result<Value
                     let existing = db::repo_ksp::get_by_lesson(&state.pool, &lesson_id)
                         .await
                         .map_err(|e| e.to_string())?
-                        .ok_or_else(|| msg)?;
+                        .ok_or(msg)?;
                     return Ok(json!({ "alreadyExists": true, "isStaged": false, "document": existing }));
                 }
                 return Err(msg);
@@ -381,6 +398,17 @@ pub async fn invoke(state: &AppState, tool: &str, params: Value) -> Result<Value
             if let Some(m) = crate::infra::mcp::arg_i64(p, &["durationMinutes"]) {
                 stage.duration_minutes = m.max(1);
             }
+            if let Some(t) = p.get("differentiation").and_then(|v| v.as_str()) {
+                stage.differentiation = t.into();
+            }
+            if let Some(list) = p.get("resources").and_then(|v| v.as_array()) {
+                stage.resources = list
+                    .iter()
+                    .filter_map(|v| {
+                        Some(ResourceRef { kind: "text".into(), display: v.as_str()?.into() })
+                    })
+                    .collect();
+            }
             Ok(())
         })
         .await,
@@ -397,6 +425,7 @@ pub async fn invoke(state: &AppState, tool: &str, params: Value) -> Result<Value
                 student_actions: p.get("studentActions").and_then(|v| v.as_str()).unwrap_or("").into(),
                 resources: Vec::new(),
                 assessment: crate::domain::ksp::StageAssessment::for_type(stage_type),
+                differentiation: String::new(),
             });
             Ok(())
         })
@@ -434,6 +463,45 @@ pub async fn invoke(state: &AppState, tool: &str, params: Value) -> Result<Value
             Ok(())
         })
         .await,
+        "ksp_set_assessment" => mutate_doc(state, &params, |doc, p| {
+            let sid = require_str(p, "stageId")?;
+            let stage = doc
+                .content
+                .stages
+                .iter_mut()
+                .find(|s| s.id == sid)
+                .ok_or_else(|| "Этап не найден".to_string())?;
+            let descriptors = p
+                .get("descriptors")
+                .and_then(|v| v.as_array())
+                .ok_or_else(|| "Нужен массив descriptors: [{text, points?}]".to_string())?;
+            stage.assessment.descriptors = descriptors
+                .iter()
+                .filter_map(|v| {
+                    Some(Descriptor {
+                        text: v.get("text")?.as_str()?.into(),
+                        points: crate::infra::mcp::arg_i64(v, &["points"]),
+                    })
+                })
+                .collect();
+            if let Some(max) = crate::infra::mcp::arg_i64(p, &["maxPoints"]) {
+                stage.assessment.max_points = Some(max);
+            } else if !stage.assessment.descriptors.is_empty()
+                && stage.assessment.descriptors.iter().all(|d| d.points.is_some())
+            {
+                // maxPoints не передан, но у всех дескрипторов есть баллы — сумма.
+                stage.assessment.max_points =
+                    Some(stage.assessment.descriptors.iter().filter_map(|d| d.points).sum());
+            }
+            if let Some(f) = p.get("feedbackMethod").and_then(|v| v.as_str()) {
+                stage.assessment.feedback_method = f.into();
+            }
+            if let Some(m) = p.get("mode").and_then(|v| v.as_str()) {
+                stage.assessment.mode = parse_mode(m)?;
+            }
+            Ok(())
+        })
+        .await,
         "ksp_set_homework" => mutate_doc(state, &params, |doc, p| {
             if let Some(t) = p.get("text").and_then(|v| v.as_str()) {
                 doc.content.homework.text = t.into();
@@ -449,8 +517,9 @@ pub async fn invoke(state: &AppState, tool: &str, params: Value) -> Result<Value
                 || p.get("section").is_some()
                 || p.get("learningObjectives").is_some()
                 || p.get("plannedDate").is_some()
+                || p.get("adaptedGoal").is_some()
             {
-                return Err("Тему, раздел, дату и цели обучения меняйте в КТП (ktp_update_lesson / ktp_set_lesson_objectives).".into());
+                return Err("Тему, раздел, дату, цели обучения и адаптированную цель меняйте в КТП (ktp_update_lesson / ktp_set_lesson_objectives).".into());
             }
             if let Some(t) = p.get("valuesText").and_then(|v| v.as_str()) {
                 doc.content.header.values_component.text = t.into();
@@ -512,8 +581,41 @@ pub async fn invoke(state: &AppState, tool: &str, params: Value) -> Result<Value
             staging().lock().map_err(|e| e.to_string())?.remove(&staged_id);
             Ok(json!({ "discarded": true }))
         }
+        "ksp_export_docx" => export_docx(state, &params).await,
         other => Err(format!("Неизвестный инструмент: {other}")),
     }
+}
+
+/// Экспорт КСП в docx (БД не меняется): `kspId` или `ktpLessonId`, обяз. `outputDir`, опц. `fileName`.
+/// `quarter_index` для имени файла — из урока КТП; при карантине — отказ.
+async fn export_docx(state: &AppState, params: &Value) -> Result<Value, String> {
+    let id = resolve_ksp_id(state, params).await?;
+    // Карантин важнее БД: сначала фиксируй, потом экспортируй.
+    if peek_staged_doc(&id)?.is_some() {
+        return Err("Сначала ksp_commit_staged: есть незафиксированный карантин.".into());
+    }
+    let mut doc = load_doc(state, &id).await?;
+    apply_ktp_lock(state, &mut doc).await?;
+    if peek_staged_by_lesson(&doc.ktp_lesson_id)?.is_some() {
+        return Err("Сначала ksp_commit_staged: есть незафиксированный карантин.".into());
+    }
+    let out_dir = crate::infra::mcp::arg_str(params, &["outputDir"])?;
+    let value_title =
+        crate::infra::ksp_docx::value_title_for(&state.pool, &doc.content.header.values_component.value_ids)
+            .await;
+    let exp = crate::infra::ksp_docx::render_ksp_docx(&doc, value_title.as_deref())?;
+    let quarter =
+        crate::infra::ksp_docx::quarter_index_of(&state.pool, &doc.ktp_lesson_id).await;
+    let name = params
+        .get("fileName")
+        .and_then(|v| v.as_str())
+        .filter(|s| !s.trim().is_empty())
+        .map(|s| s.trim().to_string())
+        .unwrap_or_else(|| crate::infra::ksp_docx::ksp_file_name(&doc, quarter));
+    std::fs::create_dir_all(&out_dir).map_err(|e| format!("не удалось создать каталог: {e}"))?;
+    let path = std::path::Path::new(&out_dir).join(&name);
+    std::fs::write(&path, &exp.bytes).map_err(|e| format!("не удалось записать docx: {e}"))?;
+    Ok(json!({ "path": path.to_string_lossy(), "warnings": exp.warnings }))
 }
 
 async fn mutate_doc(
@@ -552,6 +654,15 @@ fn parse_stage(s: &str) -> Result<StageType, String> {
     }
 }
 
+fn parse_mode(s: &str) -> Result<AssessmentMode, String> {
+    match s.trim().to_ascii_lowercase().as_str() {
+        "none" => Ok(AssessmentMode::None),
+        "formative" => Ok(AssessmentMode::Formative),
+        "summative" => Ok(AssessmentMode::Summative),
+        other => Err(format!("Неизвестный режим оценивания «{other}». Нужен none|formative|summative.")),
+    }
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -568,5 +679,21 @@ mod tests {
         assert_eq!(kind_of("SOR"), LessonKind::Sor);
         assert_eq!(kind_of("soch"), LessonKind::Soch);
         assert_eq!(kind_of("Standard"), LessonKind::Standard);
+    }
+
+    #[test]
+    fn parse_mode_rejects_unknown() {
+        assert!(parse_mode("banana").is_err());
+        assert_eq!(parse_mode("Summative").unwrap(), AssessmentMode::Summative);
+        assert_eq!(parse_mode("formative").unwrap(), AssessmentMode::Formative);
+        assert_eq!(parse_mode("none").unwrap(), AssessmentMode::None);
+    }
+
+    #[test]
+    fn list_tools_covers_set_assessment() {
+        let names: Vec<_> = list_tools().into_iter().map(|t| t.name).collect();
+        assert!(names.contains(&"ksp_set_assessment".into()));
+        assert!(names.contains(&"ksp_export_docx".into()));
+        assert!(list_tools().iter().all(|t| !t.description.contains("V-01…V-18")));
     }
 }
